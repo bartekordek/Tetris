@@ -21857,7 +21857,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFFxnMtnhONn6Y="
 							},
-							"name": "CMainGameBlock",
+							"name": "CMainGrid",
 							"ownedElements": [
 								{
 									"_type": "UMLGeneralization",
@@ -22070,6 +22070,26 @@
 									"visibility": "public",
 									"isStatic": false,
 									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFM0gFwk3mMIrA=",
+											"_parent": {
+												"$ref": "AAAAAAFM0ahzNeWyfTk="
+											},
+											"name": "brick",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": {
+												"$ref": "AAAAAAFMwqF1eu924r4="
+											},
+											"isReadOnly": true,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										}
+									],
 									"concurrency": "sequential",
 									"isQuery": false,
 									"isAbstract": false
@@ -26051,7 +26071,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "CMainGameBlock",
+											"text": "CMainGrid",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -26332,7 +26352,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+AddBrick()",
+											"text": "+AddBrick(brick: CBrick)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										}
