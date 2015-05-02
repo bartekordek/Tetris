@@ -6,8 +6,10 @@
 class CPicture
 {
 public:
+	CPicture();
 	CPicture( boost::filesystem::path location );
 	void Draw( const unsigned int xPost, const unsigned int yPos );
+	CPicture& operator=( const CPicture& picture );
 
 private:
 	boost::filesystem::path m_location;
