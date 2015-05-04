@@ -9,7 +9,7 @@ CPicture::CPicture():
 
 }
 
-CPicture::CPicture( boost::filesystem::path location )
+CPicture::CPicture( const boost::filesystem::path& location )
 {
 
 }
