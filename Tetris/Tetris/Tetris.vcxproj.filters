@@ -7,6 +7,9 @@
     <Filter Include="src">
       <UniqueIdentifier>{86b9062e-085e-4dbb-a383-ca7430a5e474}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ConfigurationFiles">
+      <UniqueIdentifier>{cf432c3e-b62d-4d8e-a15d-f56e0937d0a9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -30,6 +33,9 @@
     <ClInclude Include="..\inc\Brick.h">
       <Filter>inc</Filter>
     </ClInclude>
+    <ClInclude Include="..\inc\FLTKWrapper.h">
+      <Filter>inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Position.cpp">
@@ -51,5 +57,11 @@
     <ClCompile Include="..\src\Brick.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\FLTKWrapper.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\inc\Brick.h" />
+    <ClInclude Include="..\inc\FLTKWrapper.h" />
     <ClInclude Include="..\inc\Game.h" />
     <ClInclude Include="..\inc\Orientation.h" />
     <ClInclude Include="..\inc\Picture.h" />
@@ -92,11 +93,15 @@
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
     <ClCompile Include="..\src\Brick.cpp" />
+    <ClCompile Include="..\src\FLTKWrapper.cpp" />
     <ClCompile Include="..\src\Game.cpp" />
     <ClCompile Include="..\src\Orientation.cpp" />
     <ClCompile Include="..\src\Picture.cpp" />
     <ClCompile Include="..\src\Position.cpp" />
     <ClCompile Include="..\src\Slab.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
