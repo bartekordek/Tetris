@@ -49,10 +49,10 @@
     <ClCompile>
       <PrecompiledHeader>
       </PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)\inc;D:\Libraries\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Libraries\temp\boost_1_58_0;$(SolutionDir)\inc;D:\Libraries\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -82,15 +82,21 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\inc\Brick.h" />
+    <ClInclude Include="..\inc\Game.h" />
     <ClInclude Include="..\inc\Orientation.h" />
     <ClInclude Include="..\inc\Picture.h" />
     <ClInclude Include="..\inc\Position.h" />
+    <ClInclude Include="..\inc\Slab.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
+    <ClCompile Include="..\src\Brick.cpp" />
+    <ClCompile Include="..\src\Game.cpp" />
     <ClCompile Include="..\src\Orientation.cpp" />
     <ClCompile Include="..\src\Picture.cpp" />
     <ClCompile Include="..\src\Position.cpp" />
+    <ClCompile Include="..\src\Slab.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
