@@ -21,6 +21,15 @@
     <ClInclude Include="..\inc\Picture.h">
       <Filter>inc</Filter>
     </ClInclude>
+    <ClInclude Include="..\inc\Slab.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\Game.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\Brick.h">
+      <Filter>inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Position.cpp">
@@ -31,6 +40,15 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Picture.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Slab.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Brick.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
