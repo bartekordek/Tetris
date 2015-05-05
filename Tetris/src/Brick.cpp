@@ -22,7 +22,7 @@ void CBrick::Draw()
 {
 	BOOST_FOREACH( CSlab slab, m_blocks )
 	{
-		slab.Draw();
+//		slab.Draw();
 	}
 }
 
@@ -61,12 +61,18 @@ CSBrick::CSBrick(
 	const COrientation::Direction direction ):
 	CBrick( direction )
 {
-
+	m_blocks.push_back( CSlab( 0, 0 ) );
+	m_blocks.push_back( CSlab( 0, 1 ) );
+	m_blocks.push_back( CSlab( 0, 2 ) );
+	m_blocks.push_back( CSlab( 0, 3 ) );
 }
 
 CTBrick::CTBrick(
 	const COrientation::Direction direction ):
 	CBrick( direction )
 {
-
+	m_blocks.push_back( CSlab( 0, 0 ) );
+	m_blocks.push_back( CSlab( 1, 0 ) );
+	m_blocks.push_back( CSlab( 2, 0 ) );
+	m_blocks.push_back( CSlab( 1, 1 ) );
 }
