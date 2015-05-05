@@ -10,7 +10,8 @@ public:
 	CSlab( const CPicture& picture );
 	CSlab( const CSlab& slab );
 	CSlab( const unsigned int xPos, const unsigned int yPos );
-	void Draw();
+	void SetPicture( const boost::filesystem::path& picLocation, const unsigned int width, const unsigned int height );
+	const std::string& GetImgLoc()const;
 
 private:
 	bool m_hasBorder;

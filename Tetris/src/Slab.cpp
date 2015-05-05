@@ -23,9 +23,13 @@ CSlab::CSlab( const unsigned int xPos, const unsigned int yPos ):
 {
 }
 
-
-
-void CSlab::Draw()
+void CSlab::SetPicture( const boost::filesystem::path& picLocation, const unsigned int width, const unsigned int height )
 {
-	//TODO
+	m_picture.SetPictureLocation( picLocation );
+	m_picture.SetPictureSize( width, height );
+}
+
+const std::string& CSlab::GetImgLoc()const
+{
+	return m_picture.GetImgLoc();
 }
