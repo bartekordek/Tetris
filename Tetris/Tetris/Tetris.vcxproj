@@ -58,7 +58,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>D:\Libraries\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>fltk.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>fltk.lib;fltkimages.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -85,6 +85,7 @@
     <ClInclude Include="..\inc\Brick.h" />
     <ClInclude Include="..\inc\FLTKWrapper.h" />
     <ClInclude Include="..\inc\Game.h" />
+    <ClInclude Include="..\inc\MainGrid.h" />
     <ClInclude Include="..\inc\Orientation.h" />
     <ClInclude Include="..\inc\Picture.h" />
     <ClInclude Include="..\inc\Position.h" />
@@ -95,6 +96,7 @@
     <ClCompile Include="..\src\Brick.cpp" />
     <ClCompile Include="..\src\FLTKWrapper.cpp" />
     <ClCompile Include="..\src\Game.cpp" />
+    <ClCompile Include="..\src\MainGrid.cpp" />
     <ClCompile Include="..\src\Orientation.cpp" />
     <ClCompile Include="..\src\Picture.cpp" />
     <ClCompile Include="..\src\Position.cpp" />
@@ -102,6 +104,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\pic\BackGroundBlock.bmp" />
+    <Image Include="..\pic\Block.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
