@@ -1,4 +1,5 @@
 #include "Picture.h"
+#include <iostream>
 
 CPicture::CPicture(): 
 	m_location(""), 
@@ -27,4 +28,28 @@ CPicture& CPicture::operator=( const CPicture& picture )
 	m_ySize = picture.m_ySize;
 
 	return *this;
+}
+
+void CPicture::SetPictureLocation( const boost::filesystem::path& picLocation )
+{
+	boost::system::error_code errorText;
+	if( true == boost::filesystem::is_regular_file( picLocation, errorText ) )
+	{
+		m_location = picLocation;
+	}
+	else
+	{
+		std::cerr << "IMAGE LOCATION ERROR: " << errorText << std::endl;
+	}
+}
+
+void CPicture::SetPictureSize( const unsigned int width, const unsigned int height )
+{
+	m_xSize = width;
+	m_ySize = height;
+}
+
+const std::string& CPicture::GetImgLoc()const
+{
+	return m_location.string();
 }
