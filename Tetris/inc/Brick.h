@@ -29,16 +29,14 @@ protected:
 class CLBrick: public CBrick
 {
 public:
-	CLBrick( 
-		const COrientation::Direction direction = COrientation::Direction::R );
+	CLBrick( const COrientation::Direction direction = COrientation::Direction::R );
 private:
 };
 
 class CIBrick: public CBrick
 {
 public:
-	CIBrick(
-		const COrientation::Direction direction = COrientation::Direction::R );
+	CIBrick( const COrientation::Direction direction = COrientation::Direction::R );
 private:
 };
 
@@ -53,8 +51,7 @@ private:
 class CSBrick: public CBrick
 {
 public:
-	CSBrick(
-		const COrientation::Direction direction = COrientation::Direction::R );
+	CSBrick( const COrientation::Direction direction = COrientation::Direction::R );
 private:
 };
 
