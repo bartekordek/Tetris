@@ -10,6 +10,9 @@
     <Filter Include="ConfigurationFiles">
       <UniqueIdentifier>{cf432c3e-b62d-4d8e-a15d-f56e0937d0a9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pictures">
+      <UniqueIdentifier>{f3f68a2d-b593-4858-ac2e-97a8d3dfdb50}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -36,6 +39,9 @@
     <ClInclude Include="..\inc\FLTKWrapper.h">
       <Filter>inc</Filter>
     </ClInclude>
+    <ClInclude Include="..\inc\MainGrid.h">
+      <Filter>inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Position.cpp">
@@ -60,8 +66,19 @@
     <ClCompile Include="..\src\FLTKWrapper.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\MainGrid.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\pic\Block.bmp">
+      <Filter>Pictures</Filter>
+    </Image>
+    <Image Include="..\pic\BackGroundBlock.bmp">
+      <Filter>Pictures</Filter>
+    </Image>
   </ItemGroup>
 </Project>
