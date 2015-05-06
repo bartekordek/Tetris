@@ -2,6 +2,7 @@
 #define __FLTK_WRPR__
 
 #include <FL/Fl.H>
+#include <FL/Fl_Box.H>
 #include "MainGrid.h"
 #include <string>
 
@@ -23,6 +24,8 @@ private:
 	static FLTKWrapper* s_instance;
 
 	Fl_Window* m_window;
+
+
 };
 
 

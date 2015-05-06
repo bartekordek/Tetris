@@ -3,7 +3,19 @@
 #include <FL/Fl.H>
 #include <FL/fl_draw.H>
 #include <FL/Fl_BMP_Image.H>
-#include <FL/Fl_Box.H>
+
+
+
+FLTKWrapper::FLTKWrapper(): m_window( NULL ), m_box( NULL )
+{
+
+}
+
+FLTKWrapper::~FLTKWrapper()
+{
+	delete m_window;
+	delete m_box;
+}
 
 FLTKWrapper* FLTKWrapper::Instance()
 {
@@ -14,15 +26,16 @@ FLTKWrapper* FLTKWrapper::Instance()
 	return s_instance;
 }
 
+
 void FLTKWrapper::InitWindow( const unsigned int xSize, const unsigned ySize )
 {
 	m_window = new Fl_Window( xSize, ySize, "Tetris" );
+	
 	m_window->show();
 }
 
 void FLTKWrapper::ShowWindow()
 {
-	Fl_Box box( 0, 0, 300, 300, "haj wrld" );
 	Fl::run();
 }
 
@@ -33,37 +46,24 @@ void FLTKWrapper::Display( const CMainGrid& grid )
 
 	const unsigned int slabCount = rowsCount*colsCount;
 
-	std::string gridImageLocation = grid.GetSlabPictureLoc( 0, 0 );
+	std::string gridImageLocation = grid.GetSlabPictureLoc( 0 );
 
+	const unsigned imgWidth = grid.GetImgWidth( 0, 0 );
+	const unsigned imgHeight = grid.GetImgHeight( 0, 0 );
+
+	m_window->begin();
 	for( unsigned int i = 0; i < slabCount; ++i )
 	{
-
+		DisplayImage( gridImageLocation, grid.GetSlabPositionX( i ), grid.GetSlabPositionY( i ) );
 	}
-
-	//for( unsigned int i = 0; i < rowsCount; ++i )
-	//{
-	//	for( unsigned int j = 0; j < colsCount; ++j )
-	//	{
-	//	//
-	//	}
-	//}
+	m_window->end();
 }
 
 void FLTKWrapper::DisplayImage( const std::string& imagePath, const unsigned int xPos, const unsigned yPos )
 {
 	Fl_BMP_Image image( imagePath.c_str() );
 	image.draw( xPos, yPos );
-}
-
-
-FLTKWrapper::FLTKWrapper(): m_window(NULL)
-{
-
-}
-
-FLTKWrapper::~FLTKWrapper()
-{
-	delete m_window;
+	m_box->image( image );
 }
 
 FLTKWrapper& FLTKWrapper::operator = ( const FLTKWrapper& wrapper )
