@@ -1,2 +1,81 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CBrick" Collapsed="true">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAIAAAgAAAAAAIAAAEAIAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Dev\Tetris\Tetris\inc\Brick.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CLBrick" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Dev\Tetris\Tetris\inc\Brick.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIBrick" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Dev\Tetris\Tetris\inc\Brick.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COBrick" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Dev\Tetris\Tetris\inc\Brick.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSBrick" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>D:\Dev\Tetris\Tetris\inc\Brick.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTBrick" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Dev\Tetris\Tetris\inc\Brick.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CGame" Collapsed="true">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABQAAAQAAAgAAgAAAAABAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>D:\Dev\Tetris\Tetris\inc\Game.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COrientation" Collapsed="true">
+    <Position X="13.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABABAAAIAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Dev\Tetris\Tetris\inc\Orientation.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPicture" Collapsed="true">
+    <Position X="15.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAgAgAAAoAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>D:\Dev\Tetris\Tetris\inc\Picture.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPosition" Collapsed="true">
+    <Position X="12" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAgAAAAAYAAgAAAAAAA=</HashCode>
+      <FileName>D:\Dev\Tetris\Tetris\inc\Position.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSlab" Collapsed="true">
+    <Position X="13.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAgAAAAAAAAAAIQAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>D:\Dev\Tetris\Tetris\inc\Slab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
