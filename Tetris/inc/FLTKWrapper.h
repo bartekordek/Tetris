@@ -13,7 +13,12 @@ public:
 	void InitWindow( const unsigned int xSize = 800, const unsigned ySize = 600 );
 	void ShowWindow();
 	void Display( const CMainGrid& grid );
-	void DisplayImage( const std::string& imagePath, const unsigned int xPos, const unsigned yPos );
+	void DisplayImage( 
+		const std::string& imagePath, 
+		const unsigned int xPos, 
+		const unsigned int yPos,
+		const unsigned int width,
+		const unsigned int height);
 
 	virtual ~FLTKWrapper();
 
@@ -24,7 +29,7 @@ private:
 	static FLTKWrapper* s_instance;
 
 	Fl_Window* m_window;
-
+	std::vector<Fl_Box*> m_boxArray;
 
 };
 
