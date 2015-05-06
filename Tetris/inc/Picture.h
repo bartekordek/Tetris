@@ -12,8 +12,9 @@ public:
 	CPicture& operator=( const CPicture& picture );
 	void SetPictureLocation( const boost::filesystem::path& picLocation );
 	void SetPictureSize( const unsigned int width, const unsigned int height );
-	const std::string& GetImgLoc()const;
-
+	const std::string GetImgLoc()const;
+	const unsigned int GetImgWidth()const;
+	const unsigned int GetImgHeight()const;
 
 private:
 	boost::filesystem::path m_location;

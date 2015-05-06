@@ -49,7 +49,17 @@ void CPicture::SetPictureSize( const unsigned int width, const unsigned int heig
 	m_ySize = height;
 }
 
-const std::string& CPicture::GetImgLoc()const
+const std::string CPicture::GetImgLoc()const
 {
 	return m_location.string();
+}
+
+const unsigned int CPicture::GetImgWidth()const
+{
+	return m_xSize;
+}
+
+const unsigned int CPicture::GetImgHeight()const
+{
+	return m_ySize;
 }
