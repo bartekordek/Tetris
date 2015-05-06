@@ -35,8 +35,7 @@ void CMainGrid::SetSize(
 	{
 		for( unsigned int j = 0; j < m_columnsCount; ++j )
 		{
-			CSlab slab( j + initialX, i + initialY );
-			m_slab.push_back( slab );
+			m_slab.push_back( CSlab( j + initialX, i + initialY ) );
 		}
 	}
 }
