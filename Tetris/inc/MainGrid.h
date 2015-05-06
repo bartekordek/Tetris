@@ -27,7 +27,14 @@ public:
 	const unsigned int GetRowsCount()const;
 	const unsigned int GetColumnsCount()const;
 
-	const std::string& GetSlabPictureLoc( const unsigned int column, const unsigned int row )const;
+	const std::string GetSlabPictureLoc( const unsigned int column, const unsigned int row )const;
+	const std::string GetSlabPictureLoc( const unsigned int slabIndex )const;
+	const unsigned int GetImgWidth( const unsigned int column, const unsigned int row )const;
+	const unsigned int GetImgHeight( const unsigned int column, const unsigned int row )const;
+	const unsigned int GetSlabPositionX( const unsigned int column, const unsigned int row )const;
+	const unsigned int GetSlabPositionY( const unsigned int column, const unsigned int row )const;
+	const unsigned int GetSlabPositionX( const unsigned int slabIndex )const;
+	const unsigned int GetSlabPositionY( const unsigned int slabIndex )const;
 
 private:
 	std::vector<CSlab> m_slab;
