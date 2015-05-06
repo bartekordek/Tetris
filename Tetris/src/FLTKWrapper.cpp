@@ -6,15 +6,13 @@
 
 
 
-FLTKWrapper::FLTKWrapper(): m_window( NULL ), m_box( NULL )
+FLTKWrapper::FLTKWrapper(): m_window( NULL )
 {
-
 }
 
 FLTKWrapper::~FLTKWrapper()
 {
 	delete m_window;
-	delete m_box;
 }
 
 FLTKWrapper* FLTKWrapper::Instance()
@@ -31,7 +29,6 @@ void FLTKWrapper::InitWindow( const unsigned int xSize, const unsigned ySize )
 {
 	m_window = new Fl_Window( xSize, ySize, "Tetris" );
 	
-	m_window->show();
 }
 
 void FLTKWrapper::ShowWindow()
@@ -51,19 +48,23 @@ void FLTKWrapper::Display( const CMainGrid& grid )
 	const unsigned imgWidth = grid.GetImgWidth( 0, 0 );
 	const unsigned imgHeight = grid.GetImgHeight( 0, 0 );
 
-	m_window->begin();
+	m_window->show();
 	for( unsigned int i = 0; i < slabCount; ++i )
 	{
-		DisplayImage( gridImageLocation, grid.GetSlabPositionX( i ), grid.GetSlabPositionY( i ) );
+		DisplayImage( gridImageLocation, grid.GetSlabPositionX( i ) * 10, grid.GetSlabPositionY( i ) * 10, 10, 10 );
+		// TODO Remove magic numbers (10, 10) - image size of bmps i made.
 	}
-	m_window->end();
 }
 
-void FLTKWrapper::DisplayImage( const std::string& imagePath, const unsigned int xPos, const unsigned yPos )
+void FLTKWrapper::DisplayImage( const std::string& imagePath,
+								const unsigned int xPos,
+								const unsigned int yPos,
+								const unsigned int width,
+								const unsigned int height )
 {
+	m_boxArray.push_back( new Fl_Box( xPos, yPos, 10, 10 ) );
 	Fl_BMP_Image image( imagePath.c_str() );
-	image.draw( xPos, yPos );
-	m_box->image( image );
+	m_boxArray.back()->image( image );	
 }
 
 FLTKWrapper& FLTKWrapper::operator = ( const FLTKWrapper& wrapper )
