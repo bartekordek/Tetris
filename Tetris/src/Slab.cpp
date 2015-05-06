@@ -11,7 +11,7 @@ CSlab::CSlab(const CPicture& picture):
 CSlab::CSlab( const CSlab& slab ): 
 	m_hasBorder( slab.m_hasBorder ),
 	m_picture( slab.m_picture ),
-	m_position( CPosition() )
+	m_position( CPosition( slab.GetX(), slab.GetY() ) )
 {
 
 }
