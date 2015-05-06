@@ -29,7 +29,27 @@ void CSlab::SetPicture( const boost::filesystem::path& picLocation, const unsign
 	m_picture.SetPictureSize( width, height );
 }
 
-const std::string& CSlab::GetImgLoc()const
+const std::string CSlab::GetImgLoc()const
 {
 	return m_picture.GetImgLoc();
+}
+
+const unsigned int CSlab::GetImgWidth()const
+{
+	return m_picture.GetImgWidth();
+}
+
+const unsigned int CSlab::GetImgHeight()const
+{
+	return m_picture.GetImgHeight();
+}
+
+const unsigned int CSlab::GetX()const
+{
+	return m_position.GetX();
+}
+
+const unsigned int CSlab::GetY()const
+{
+	return m_position.GetY();
 }
