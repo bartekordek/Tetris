@@ -3,6 +3,7 @@
 
 #include <FL/Fl.H>
 #include <FL/Fl_Box.H>
+#include <FL/Fl_BMP_Image.H>
 #include "MainGrid.h"
 #include <string>
 
@@ -14,7 +15,7 @@ public:
 	void ShowWindow();
 	void Display( const CMainGrid& grid );
 	void DisplayImage( 
-		const std::string& imagePath, 
+		Fl_BMP_Image* image,
 		const unsigned int xPos, 
 		const unsigned int yPos,
 		const unsigned int width,
