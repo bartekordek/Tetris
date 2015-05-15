@@ -23,12 +23,23 @@ FLTKWrapper* FLTKWrapper::Instance()
 
 void FLTKWrapper::InitWindow( const unsigned int xSize, const unsigned ySize )
 {
-	m_window = new Fl_Window( xSize, ySize, "Tetris" );
+	m_window = new Fl_Window( 0, 0, xSize, ySize, "Tetris" );
+	m_startButton = m_CreateNewButton( 200, 200, "Start" );
+}
+
+Fl_Button* FLTKWrapper::m_CreateNewButton( 
+	const unsigned int xPos, 
+	const unsigned int yPos, 
+	const std::string& buttonText,
+	const unsigned int width,
+	const unsigned int height)
+{
+	return new Fl_Button( xPos, yPos, width, height, buttonText.c_str() );
 }
 
 void FLTKWrapper::ShowWindow()
 {
-	Fl::run();
+	Fl::run(); // Here program freezes. FLTK is waiting for user input.
 }
 
 void FLTKWrapper::Display( const CMainGrid& grid )
@@ -36,29 +47,28 @@ void FLTKWrapper::Display( const CMainGrid& grid )
 	const unsigned int rowsCount = grid.GetRowsCount();
 	const unsigned int colsCount = grid.GetColumnsCount();
 	const unsigned int slabCount = rowsCount*colsCount;
-	std::string gridImageLocation = grid.GetSlabPictureLoc( 0 );
-	const unsigned imgWidth = grid.GetImgWidth( 0, 0 );
-	const unsigned imgHeight = grid.GetImgHeight( 0, 0 );
-
+	std::string gridImageLocation = grid.GetSlabPictureLoc( 0 );	
 	Fl_BMP_Image* image = new Fl_BMP_Image( gridImageLocation.c_str() );
 
-	m_window->show();
 	for( unsigned int i = 0; i < slabCount; ++i )
 	{
-		DisplayImage( image, grid.GetSlabPositionX( i ) * 10, grid.GetSlabPositionY( i ) * 10, 10, 10 );
-		// TODO Remove magic numbers (10, 10) - image size of bmps i made.
+		DisplayImage( image, CPoint( grid.GetSlabPositionX( i ) * 10, grid.GetSlabPositionY( i ) * 10 ) );
+		// TODO Remove magic numbers (10, 10) - image size of bmps i made
 	}
 	m_window->show();
 }
 
-void FLTKWrapper::DisplayImage( 
-	Fl_BMP_Image* image,
-	const unsigned int xPos,
-	const unsigned int yPos,
-	const unsigned int width,
-	const unsigned int height )
+void FLTKWrapper::Display( const CBrick& brick )
 {
-	Fl_Box* box = new Fl_Box( xPos, yPos, 10, 10 );
+
+}
+
+void FLTKWrapper::DisplayImage( Fl_RGB_Image* image,
+								const CPoint& where,
+								const unsigned width,
+								const unsigned height)
+{
+	Fl_Box* box = new Fl_Box( where.GetX(), where.GetY(), width, height );
 	box->image( image );
 	m_boxArray.push_back( box );
 }
