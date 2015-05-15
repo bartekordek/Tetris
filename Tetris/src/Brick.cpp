@@ -13,6 +13,16 @@ CBrick::CBrick(
 	
 }
 
+std::vector<std::pair<unsigned int, unsigned int>> CBrick::GetBlockPositions()const
+{
+	std::vector<std::pair<unsigned int, unsigned int>> positions;
+	for( std::vector<CSlab>::const_iterator it = m_blocks.begin(); it != m_blocks.end(); ++it )
+	{
+		positions.push_back( std::pair<unsigned int, unsigned int> (it->GetX(), it->GetY()) );
+	}
+	return positions;
+}
+
 CBrick::~CBrick()
 {
 
