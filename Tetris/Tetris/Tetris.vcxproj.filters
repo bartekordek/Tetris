@@ -42,6 +42,12 @@
     <ClInclude Include="..\inc\MainGrid.h">
       <Filter>inc</Filter>
     </ClInclude>
+    <ClInclude Include="..\inc\BrickFactory.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\Point.h">
+      <Filter>inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Position.cpp">
@@ -69,9 +75,16 @@
     <ClCompile Include="..\src\MainGrid.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\BrickFactory.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Point.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\pic\Block.bmp">
