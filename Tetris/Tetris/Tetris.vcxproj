@@ -83,27 +83,32 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\inc\Brick.h" />
+    <ClInclude Include="..\inc\BrickFactory.h" />
     <ClInclude Include="..\inc\FLTKWrapper.h" />
     <ClInclude Include="..\inc\Game.h" />
     <ClInclude Include="..\inc\MainGrid.h" />
     <ClInclude Include="..\inc\Orientation.h" />
     <ClInclude Include="..\inc\Picture.h" />
+    <ClInclude Include="..\inc\Point.h" />
     <ClInclude Include="..\inc\Position.h" />
     <ClInclude Include="..\inc\Slab.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
     <ClCompile Include="..\src\Brick.cpp" />
+    <ClCompile Include="..\src\BrickFactory.cpp" />
     <ClCompile Include="..\src\FLTKWrapper.cpp" />
     <ClCompile Include="..\src\Game.cpp" />
     <ClCompile Include="..\src\MainGrid.cpp" />
     <ClCompile Include="..\src\Orientation.cpp" />
     <ClCompile Include="..\src\Picture.cpp" />
+    <ClCompile Include="..\src\Point.cpp" />
     <ClCompile Include="..\src\Position.cpp" />
     <ClCompile Include="..\src\Slab.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\pic\BackGroundBlock.bmp" />
