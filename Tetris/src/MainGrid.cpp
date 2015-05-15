@@ -15,14 +15,6 @@ CMainGrid::~CMainGrid()
 
 }
 
-//void CMainGrid::Draw()
-//{
-//	BOOST_FOREACH( CSlab slab, m_slab )
-//	{
-//		slab.Draw();
-//	}
-//}
-
 void CMainGrid::SetSize( 
 	const unsigned int rowsCount,
 	const unsigned int columnsCount, 
@@ -52,7 +44,6 @@ const unsigned int CMainGrid::GetRowsCount()const
 {
 	return m_rowsCount;
 }
-
 
 const unsigned int CMainGrid::GetColumnsCount()const
 {
