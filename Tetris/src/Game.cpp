@@ -1,6 +1,8 @@
 #include "Game.h"
 #include "FLTKWrapper.h"
+#include "BrickFactory.h"
 #include <cstddef>
+#include <boost/timer/timer.hpp>
 
 CGame::CGame()
 {
@@ -38,14 +40,35 @@ void CGame::ShowGrid()
 	FLTKWrapper::Instance()->Display( mainGrid );
 }
 
+void CGame::ShowStartButton()
+{
+
+}
+
 void CGame::MainLoop()
+{
+	m_ShowWindow();
+	m_ReleaseBrick( "L" );
+}
+
+void CGame::m_ShowWindow()
 {
 	FLTKWrapper::Instance()->ShowWindow();
 }
 
-void CGame::m_SetGameSize( const unsigned int xSize, const unsigned ySize )
+void CGame::StartGame()
 {
-	mainGrid.SetSize( xSize, ySize );
+
+}
+
+void CGame::m_ReleaseBrick( const std::string& brickType )
+{
+	m_activeBrick = CBrickFactory::GetBrick( brickType );
+}
+
+void CGame::m_SetGameSize( const unsigned int rows, const unsigned columns )
+{
+	mainGrid.SetSize( rows, columns );
 }
 
 void CGame::m_SetMainGridBlockBackgroundImage()
@@ -53,6 +76,11 @@ void CGame::m_SetMainGridBlockBackgroundImage()
 	boost::filesystem::path picDir = boost::filesystem::current_path();
 	picDir = picDir.parent_path() / "pic" / "BackGroundBlock.bmp";
 	mainGrid.SetBackgroundPicture( picDir, 10, 10 );
+}
+
+CGame::~CGame()
+{
+	delete m_activeBrick;
 }
 
 CGame* CGame::s_instance = NULL;
