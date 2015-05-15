@@ -2,9 +2,9 @@
 
 int main( void )
 {
-	const unsigned int initialXboardSize = 10;
-	const unsigned int initialYBoardSize = 50;
-	CGame::Instance()->Initialize( initialXboardSize, initialYBoardSize );
+	const unsigned int columnsCount = 10;
+	const unsigned int rowsCount = 22;
+	CGame::Instance()->Initialize( rowsCount, columnsCount );
 	CGame::Instance()->CreateWindow();
 	CGame::Instance()->ShowGrid();
 	CGame::Instance()->MainLoop();	
