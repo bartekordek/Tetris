@@ -1,24 +1,23 @@
 #include "Brick.h"
 #include <boost/foreach.hpp>
 
-CBrick::CBrick( const COrientation::Direction direction ): m_direction( direction )
+CBrick::CBrick( const Direction direction ): m_direction( direction )
 {
 
 }
 
-CBrick::CBrick( 
-	const std::vector<CSlab>& blocks, 
-	const COrientation::Direction direction ):m_direction( COrientation::R )
+CBrick::CBrick( const std::vector<CSlab>& blocks, 
+				const Direction direction ):m_direction( COrientation::R )
 {
 	
 }
 
-std::vector<std::pair<unsigned int, unsigned int>> CBrick::GetBlockPositions()const
+CoordinatestList CBrick::GetBlockPositions()const
 {
-	std::vector<std::pair<unsigned int, unsigned int>> positions;
+	CoordinatestList positions;
 	for( std::vector<CSlab>::const_iterator it = m_blocks.begin(); it != m_blocks.end(); ++it )
 	{
-		positions.push_back( std::pair<unsigned int, unsigned int> (it->GetX(), it->GetY()) );
+		positions.push_back( CTableCoor( it->Row(), it->Col() ) );
 	}
 	return positions;
 }
@@ -26,6 +25,27 @@ std::vector<std::pair<unsigned int, unsigned int>> CBrick::GetBlockPositions()co
 CBrick::~CBrick()
 {
 
+}
+
+void CBrick::Move( const Direction direction )
+{
+	if( direction == Direction::D )
+	{
+		for( std::vector<CSlab>::iterator it = m_blocks.begin(); it != m_blocks.end(); ++it )
+		{
+		//	it->
+		}
+	}
+}
+
+void CBrick::SetBackgroundImage( const Path& path )
+{
+	m_backgroundImage = path;
+}
+
+const std::string CBrick::GetImage()
+{
+	return m_backgroundImage.string();
 }
 
 void CBrick::Draw()
@@ -86,3 +106,6 @@ CTBrick::CTBrick(
 	m_blocks.push_back( CSlab( 2, 0 ) );
 	m_blocks.push_back( CSlab( 1, 1 ) );
 }
+
+
+Path CBrick::m_backgroundImage = "";
