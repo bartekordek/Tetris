@@ -92,6 +92,7 @@
     <ClInclude Include="..\inc\Point.h" />
     <ClInclude Include="..\inc\Position.h" />
     <ClInclude Include="..\inc\Slab.h" />
+    <ClInclude Include="..\inc\Utils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
@@ -105,6 +106,7 @@
     <ClCompile Include="..\src\Point.cpp" />
     <ClCompile Include="..\src\Position.cpp" />
     <ClCompile Include="..\src\Slab.cpp" />
+    <ClCompile Include="..\src\Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
