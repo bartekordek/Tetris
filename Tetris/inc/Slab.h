@@ -1,26 +1,22 @@
 #ifndef __CSLAB__
 #define __CSLAB__
 
-#include "Picture.h"
 #include "Position.h"
+
+#include "Utils.h"
 
 class CSlab
 {
 public:
-	CSlab( const CPicture& picture );
 	CSlab( const CSlab& slab );
-	CSlab( const unsigned int xPos, const unsigned int yPos );
-	void SetPicture( const boost::filesystem::path& picLocation, const unsigned int width, const unsigned int height );
-	const std::string GetImgLoc()const;
-	const unsigned int GetImgWidth()const;
-	const unsigned int GetImgHeight()const;
-	const unsigned int GetX()const;
-	const unsigned int GetY()const;
+	CSlab( const unsigned int row = 0, const unsigned int col = 0 );
+	const unsigned int Row()const;
+	const unsigned int Col()const;
+	void SetRow( const unsigned int row );
+	void SetCol( const unsigned int col );
 
 private:
-	bool m_hasBorder;
-	CPicture m_picture;
-	CPosition m_position;
+	CTableCoor m_position;
 };
 
 #endif
