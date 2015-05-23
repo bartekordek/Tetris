@@ -4,13 +4,19 @@
 CPicture::CPicture(): 
 	m_location(""), 
 	m_name(""), 
-	m_xSize(0),
-	m_ySize(0)
+	m_width(0),
+	m_height(0)
 {
 
 }
 
-CPicture::CPicture( const boost::filesystem::path& location )
+CPicture::CPicture( const boost::filesystem::path& location,
+					const unsigned int width,
+					const unsigned int height ):
+					m_location(location),
+					m_width(width),
+					m_height(height)
+
 {
 
 }
@@ -24,8 +30,8 @@ CPicture& CPicture::operator=( const CPicture& picture )
 {
 	m_location = picture.m_location;
 	m_name = picture.m_name;
-	m_xSize = picture.m_xSize;
-	m_ySize = picture.m_ySize;
+	m_width = picture.m_width;
+	m_height = picture.m_height;
 
 	return *this;
 }
@@ -45,8 +51,8 @@ void CPicture::SetPictureLocation( const boost::filesystem::path& picLocation )
 
 void CPicture::SetPictureSize( const unsigned int width, const unsigned int height )
 {
-	m_xSize = width;
-	m_ySize = height;
+	m_width = width;
+	m_height = height;
 }
 
 const std::string CPicture::GetImgLoc()const
@@ -56,10 +62,10 @@ const std::string CPicture::GetImgLoc()const
 
 const unsigned int CPicture::GetImgWidth()const
 {
-	return m_xSize;
+	return m_width;
 }
 
 const unsigned int CPicture::GetImgHeight()const
 {
-	return m_ySize;
+	return m_height;
 }
