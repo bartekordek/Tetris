@@ -1,11 +1,10 @@
 #include "MainGrid.h"
 #include <boost/foreach.hpp>
 
-CMainGrid::CMainGrid( 
-	const unsigned int rowsCount, 
-	const unsigned int columnsCount, 
-	const unsigned int initialX, 
-	const unsigned int initialY )
+CMainGrid::CMainGrid( const unsigned int rowsCount, 
+					  const unsigned int columnsCount, 
+					  const unsigned int initialX, 
+					  const unsigned int initialY )
 {
 	SetSize( rowsCount, columnsCount, initialX, initialY );
 }
@@ -15,11 +14,10 @@ CMainGrid::~CMainGrid()
 
 }
 
-void CMainGrid::SetSize( 
-	const unsigned int rowsCount,
-	const unsigned int columnsCount, 
-	const unsigned int initialX, 
-	const unsigned int initialY )
+void CMainGrid::SetSize( const unsigned int rowsCount,
+						 const unsigned int columnsCount, 
+						 const unsigned int initialX, 
+						 const unsigned int initialY )
 {
 	m_columnsCount = columnsCount;
 	m_rowsCount = rowsCount;
@@ -32,12 +30,12 @@ void CMainGrid::SetSize(
 	}
 }
 
-void CMainGrid::SetBackgroundPicture( const boost::filesystem::path& picLocation, const unsigned int width, const unsigned int height )
+
+void CMainGrid::SetBackgroundPicture( const Path& picLocation, 
+									  const unsigned int width, 
+									  const unsigned int height )
 {
-	BOOST_FOREACH( CSlab& slab, m_slab )
-	{
-		slab.SetPicture( picLocation, width, height );
-	}
+	m_slabBackground = CPicture( picLocation, width, height );
 }
 
 const unsigned int CMainGrid::GetRowsCount()const
@@ -50,42 +48,37 @@ const unsigned int CMainGrid::GetColumnsCount()const
 	return m_columnsCount;
 }
 
-const std::string CMainGrid::GetSlabPictureLoc( const unsigned int column, const unsigned int row )const
+const std::string CMainGrid::GetSlabPictureLoc( )const
 {
-	return GetSlabPictureLoc( row*column + column );
+	return m_slabBackground.GetImgLoc();
 }
 
-const std::string CMainGrid::GetSlabPictureLoc( const unsigned int slabIndex )const
+const unsigned int CMainGrid::GetImgWidth()const
 {
-	return m_slab[slabIndex].GetImgLoc();
+	return 10;
 }
 
-const unsigned int CMainGrid::GetImgWidth( const unsigned int column, const unsigned int row )const
+const unsigned int CMainGrid::GetImgHeight()const
 {
-	return m_slab[row*column + column].GetImgWidth();
+	return 10;
 }
 
-const unsigned int CMainGrid::GetImgHeight( const unsigned int column, const unsigned int row )const
+const unsigned int CMainGrid::GetSlabRow( const unsigned int column, const unsigned int row )const
 {
-	return m_slab[ row*column + column ].GetImgHeight();
+	return GetSlabRow( row*column + column );
 }
 
-const unsigned int CMainGrid::GetSlabPositionX( const unsigned int column, const unsigned int row )const
+const unsigned int CMainGrid::GetSlabCol( const unsigned int column, const unsigned int row )const
 {
-	return GetSlabPositionX( row*column + column );
+	return GetSlabCol( row*column + column );
 }
 
-const unsigned int CMainGrid::GetSlabPositionY( const unsigned int column, const unsigned int row )const
+const unsigned int CMainGrid::GetSlabRow( const unsigned int slabIndex )const
 {
-	return GetSlabPositionY( row*column + column );
+	return m_slab.at( slabIndex ).Row();
 }
 
-const unsigned int CMainGrid::GetSlabPositionX( const unsigned int slabIndex )const
+const unsigned int CMainGrid::GetSlabCol( const unsigned int slabIndex )const
 {
-	return m_slab.at( slabIndex ).GetX();
-}
-
-const unsigned int CMainGrid::GetSlabPositionY( const unsigned int slabIndex )const
-{
-	return m_slab.at( slabIndex ).GetY();
+	return m_slab.at( slabIndex ).Col();
 }
