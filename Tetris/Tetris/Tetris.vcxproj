@@ -91,6 +91,7 @@
     <ClInclude Include="..\inc\Picture.h" />
     <ClInclude Include="..\inc\Point.h" />
     <ClInclude Include="..\inc\Position.h" />
+    <ClInclude Include="..\inc\Rectangle.h" />
     <ClInclude Include="..\inc\Slab.h" />
     <ClInclude Include="..\inc\Utils.h" />
   </ItemGroup>
@@ -105,6 +106,7 @@
     <ClCompile Include="..\src\Picture.cpp" />
     <ClCompile Include="..\src\Point.cpp" />
     <ClCompile Include="..\src\Position.cpp" />
+    <ClCompile Include="..\src\Rectangle.cpp" />
     <ClCompile Include="..\src\Slab.cpp" />
     <ClCompile Include="..\src\Utils.cpp" />
   </ItemGroup>
