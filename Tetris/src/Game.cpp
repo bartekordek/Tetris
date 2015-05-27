@@ -23,14 +23,15 @@ void CGame::Destroy()
 {
 }
 
-void CGame::Initialize( const unsigned int xSize, const unsigned ySize )
+void CGame::Initialize( CUInt xSize, CUInt ySize )
 {
 	m_SetGameSize( xSize, ySize );
 	SetMainGridBlockBackgroundImage();
+	SetMainGridSlabBackgroundImage();
 	SetBrickImage();
 }
 
-void CGame::InitWindow( const unsigned int xSize, const unsigned int ySize)
+void CGame::InitWindow( CUInt xSize, CUInt ySize )
 {
 	FLTKWrapper::Instance()->InitWindow();
 }
@@ -41,34 +42,35 @@ void CGame::ShowGrid()
 	m_ShowWindow();
 }
 
-void CGame::ShowStartButton()
-{
-}
-
 void CGame::StartGame()
 {
-	MainLoop();
+	m_ReleaseBrick();
+	m_ActualizeGrid( mainGrid );
+	m_ShowWindow();
+}
+
+void CGame::m_ReleaseBrick()
+{
+	mainGrid.ReLeaseBrick();
 }
 
 void CGame::MainLoop()
 {
-	m_ReleaseBrick( "L" );
-	m_ShowBrick();
 }
 
-void CGame::m_ShowBrick()
+void CGame::m_ActualizeGrid( const CMainGrid& grid )
 {
-	FLTKWrapper::Instance()->Display( *m_activeBrick );
+	FLTKWrapper::Instance()->Actualize( grid );
 }
 
 void CGame::m_MoveActiveBrick( const Direction direction )
 {
-	m_activeBrick->Move(direction);
+	//m_activeBrick->Move(direction);
 }
 
 void CGame::m_ShowWindow()
 {
-	FLTKWrapper::Instance()->ShowWindow();
+	FLTKWrapper::Instance()->StartEventHandler();
 }
 
 
@@ -79,6 +81,13 @@ void CGame::SetMainGridBlockBackgroundImage()
 	mainGrid.SetBackgroundPicture( picDir, 10, 10 );
 }
 
+void CGame::SetMainGridSlabBackgroundImage()
+{
+	Path picDir = Fs::current_path();
+	picDir = picDir.parent_path() / "pic" / "Block.bmp";
+	mainGrid.SetSlabPic( picDir, 10, 10 );
+}
+
 void CGame::SetBrickImage()
 {
 	Path picDir = Fs::current_path();
@@ -86,17 +95,12 @@ void CGame::SetBrickImage()
 	CBrick::SetBackgroundImage( picDir );
 }
 
-void CGame::m_ReleaseBrick( const std::string& brickType )
-{
-	m_activeBrick = CBrickFactory::GetBrick( brickType );
-}
 
-void CGame::m_SetGameSize( const unsigned int rows, const unsigned columns )
+void CGame::m_SetGameSize( CUInt rows, CUInt columns )
 {
 	mainGrid.SetSize( rows, columns );
 }
 
 CGame::~CGame()
 {
-	delete m_activeBrick;
 }
