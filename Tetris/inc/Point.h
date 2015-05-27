@@ -3,14 +3,14 @@
 class CPoint
 {
 public:
-	CPoint( const unsigned x = 0, const unsigned y = 0 );
+	CPoint( const int x = 0, const int y = 0 );
 	virtual ~CPoint();
 
-	const unsigned int GetX()const;
-	const unsigned int GetY()const;
+	const int GetX()const;
+	const int GetY()const;
 
 private:
-	unsigned int m_x;
-	unsigned int m_y;
+	int m_x;
+	int m_y;
 };
 #endif

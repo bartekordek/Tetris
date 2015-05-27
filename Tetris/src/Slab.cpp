@@ -1,22 +1,57 @@
 #include "Slab.h"
 
 CSlab::CSlab( const CSlab& slab ): 
-	m_position( CTableCoor( slab.Row(), slab.Col() ) )
-{
-
-}
-
-CSlab::CSlab( const unsigned int xPos, const unsigned int yPos ):
-	m_position( CTableCoor( xPos, yPos ) )
+	m_position( CTableCoor( slab.Row(), slab.Col() ) ),
+	m_partOfSlab( slab.m_partOfSlab ),
+	m_empty( slab.m_empty )
 {
 }
 
-const unsigned int CSlab::Row()const
+CSlab::CSlab( CUInt row,
+			  CUInt col,
+			  const bool partOfSlab,
+			  const bool empty):
+	m_position( CTableCoor( row, col ) ),
+	m_partOfSlab(partOfSlab),
+	m_empty(empty)
+{
+}
+
+CSlab& CSlab::operator=( const CSlab& slab )
+{
+	CSlab newSlab;
+	newSlab.m_position = slab.m_position;
+	newSlab.m_partOfSlab = slab.m_partOfSlab;
+	newSlab.m_empty = slab.m_empty;
+	return newSlab;
+}
+
+CUInt CSlab::Row()const
 {
 	return m_position.GetRow();
 }
 
-const unsigned int CSlab::Col()const
+CUInt CSlab::Col()const
 {
 	return m_position.GetCol();
+}
+
+const bool CSlab::PartOfSlab()const
+{
+	return m_partOfSlab;
+}
+
+const bool CSlab::Empty()const
+{
+	return m_empty;
+}
+
+void CSlab::IsEmpty( const bool empty )
+{
+	m_empty = empty;
+}
+
+void CSlab::IsPartOfSlab( const bool partOfSlab )
+{
+	m_partOfSlab = partOfSlab;
 }

@@ -6,13 +6,7 @@
 class COrientation
 {
 public:
-	enum Direction
-	{
-		L,
-		R,
-		U,
-		D
-	};
+	enum Direction{ L, R, U, D };
 
 	COrientation( const Direction direction = R );
 
@@ -23,5 +17,4 @@ private:
 	Direction m_direction;
 
 };
-
 #endif

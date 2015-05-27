@@ -1,6 +1,6 @@
 #include "Position.h"
 
-CPosition::CPosition( const unsigned int x, const unsigned int y )
+CPosition::CPosition( CUInt x, CUInt y )
 {
 	m_x = x;
 	m_y = y;
@@ -12,12 +12,12 @@ CPosition::CPosition( const CPosition& position )
 	m_y = position.m_y;
 }
 
-const unsigned int CPosition::GetX()const
+CUInt CPosition::GetX()const
 {
 	return m_x;
 }
 
-const unsigned int CPosition::GetY()const
+CUInt CPosition::GetY()const
 {
 	return m_y;
 }
