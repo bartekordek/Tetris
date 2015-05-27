@@ -43,7 +43,7 @@ void CBrick::SetBackgroundImage( const Path& path )
 	m_backgroundImage = path;
 }
 
-const std::string CBrick::GetImage()
+const String CBrick::GetImage()
 {
 	return m_backgroundImage.string();
 }
@@ -57,7 +57,7 @@ void CBrick::Draw()
 }
 
 CLBrick::CLBrick(
-	const COrientation::Direction direction ):
+	const Direction direction ):
 	CBrick( direction )
 {
 	m_blocks.push_back( CSlab( 0, 0 ) );
@@ -67,7 +67,7 @@ CLBrick::CLBrick(
 }
 
 CIBrick::CIBrick(
-	const COrientation::Direction direction ):
+	const Direction direction ):
 	CBrick( direction )
 {
 	m_blocks.push_back( CSlab( 0, 0 ) );
@@ -77,7 +77,7 @@ CIBrick::CIBrick(
 }
 
 COBrick::COBrick(
-	const COrientation::Direction direction ):
+	const Direction direction ):
 	CBrick( direction )
 {
 	m_blocks.push_back( CSlab( 0, 0 ) );
@@ -88,7 +88,7 @@ COBrick::COBrick(
 
 
 CSBrick::CSBrick(
-	const COrientation::Direction direction ):
+	const Direction direction ):
 	CBrick( direction )
 {
 	m_blocks.push_back( CSlab( 0, 0 ) );
@@ -98,7 +98,7 @@ CSBrick::CSBrick(
 }
 
 CTBrick::CTBrick(
-	const COrientation::Direction direction ):
+	const Direction direction ):
 	CBrick( direction )
 {
 	m_blocks.push_back( CSlab( 0, 0 ) );

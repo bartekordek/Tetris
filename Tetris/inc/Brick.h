@@ -9,22 +9,24 @@
 #include <vector>
 #include <utility>
 
+enum BrickTypes { L, I, O, S, T };
+
 class CBrick
 {
 public:
-	CBrick( const COrientation::Direction direction = COrientation::Direction::R );
+	CBrick( const Direction direction = Direction::R );
 	CBrick( const std::vector<CSlab>& blocks, 
-			const COrientation::Direction direction = COrientation::Direction::R );
+			const Direction direction = Direction::R );
 	virtual ~CBrick();
 	CoordinatestList GetBlockPositions()const;
 
-	void Move( const COrientation::Direction direction = COrientation::Direction::D );
+	void Move( const Direction direction = Direction::D );
 
 	virtual void Draw();
 	virtual void Rotate( const bool clockWise = true ) = 0;
 
 	static void SetBackgroundImage( const Path& path );
-	static const std::string GetImage();
+	static const String GetImage();
 
 private:
 	static Path m_backgroundImage;
@@ -38,7 +40,7 @@ protected:
 class CLBrick: public CBrick
 {
 public:
-	CLBrick( const COrientation::Direction direction = COrientation::Direction::R );
+	CLBrick( const Direction direction = Direction::R );
 	void Rotate( const bool clockWise = true ) {};
 private:
 };
@@ -46,7 +48,7 @@ private:
 class CIBrick: public CBrick
 {
 public:
-	CIBrick( const COrientation::Direction direction = COrientation::Direction::R );
+	CIBrick( const Direction direction = Direction::R );
 	void Rotate( const bool clockWise = true ) {};
 private:
 };
@@ -55,7 +57,7 @@ class COBrick: public CBrick
 {
 public:
 	COBrick(
-		const COrientation::Direction direction = COrientation::Direction::R );
+		const Direction direction = Direction::R );
 	void Rotate( const bool clockWise = true ) {};
 private:
 };
@@ -63,7 +65,7 @@ private:
 class CSBrick: public CBrick
 {
 public:
-	CSBrick( const COrientation::Direction direction = COrientation::Direction::R );
+	CSBrick( const Direction direction = Direction::R );
 	void Rotate( const bool clockWise = true ) {};
 private:
 };
@@ -72,7 +74,7 @@ class CTBrick: public CBrick
 {
 public:
 	CTBrick(
-		const COrientation::Direction direction = COrientation::Direction::R );
+		const Direction direction = Direction::R );
 	void Rotate( const bool clockWise = true ) {};
 private:
 };
