@@ -6,7 +6,8 @@
 class CBrickFactory
 {
 public:
-	static CBrick* GetBrick( const std::string& brickType );
+	static CBrick* GetBrick( const BrickTypes brickType );
+	static CBrick* GetRandomBrick();
 private:
 };
 

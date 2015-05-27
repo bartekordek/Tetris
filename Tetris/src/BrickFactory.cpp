@@ -1,27 +1,34 @@
 #include "BrickFactory.h"
+#include <cstdlib> //rand
 
-CBrick* CBrickFactory::GetBrick( const std::string& brickType )
+CBrick* CBrickFactory::GetBrick( const BrickTypes brickType )
 {
-	if( "L" == brickType )
+	if( L == brickType )
 	{
 		return new CLBrick();
 	}
-	else if( "I" == brickType )
+	else if( I == brickType )
 	{
 		return new CIBrick();
 	}
-	else if( "O" == brickType )
+	else if( O == brickType )
 	{
 		return new COBrick();
 	}
-	else if( "S" == brickType )
+	else if( S == brickType )
 	{
 		return new CSBrick();
 	}
-	else if( "T" == brickType )
+	else if( T == brickType )
 	{
 		return new CTBrick();
 	}
 	return NULL;
+}
 
+CBrick* CBrickFactory::GetRandomBrick()
+{
+	srand( time( NULL ) );
+	int randomNumber = rand() % 5;
+	return GetBrick( static_cast<BrickTypes>(randomNumber) );
 }
