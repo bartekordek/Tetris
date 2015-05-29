@@ -7,6 +7,8 @@ int main( void )
 	CGame::Instance()->Initialize( rowsCount, columnsCount );
 	CGame::Instance()->InitWindow();
 	CGame::Instance()->ShowGrid();
+	CGame::Instance()->StartGame();
+	CGame::Instance()->MainLoop();
 	CGame::Instance()->Destroy();
 	return 0;
 }
