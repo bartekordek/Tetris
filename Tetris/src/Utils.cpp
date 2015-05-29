@@ -1,17 +1,27 @@
 #include "Utils.h"
 
-CTableCoor::CTableCoor( const unsigned row, 
-						const unsigned column ): m_row( row ), m_column( column )
+CTableCoor::CTableCoor( CUInt row,
+						CUInt column ): m_row( row ), m_column( column )
 {
 
 }
 
-const unsigned CTableCoor::GetCol()const
+CTableCoor& CTableCoor::operator=( const CTableCoor& coor )
+{
+	if( this != &coor )
+	{
+		m_column = coor.m_column;
+		m_row = coor.m_row;
+	}
+	return *this;
+}
+
+CUInt CTableCoor::GetCol()const
 {
 	return m_column;
 }
 
-const unsigned CTableCoor::GetRow()const
+CUInt CTableCoor::GetRow()const
 {
 	return m_row;
 }

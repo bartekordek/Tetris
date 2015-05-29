@@ -9,12 +9,18 @@
 
 namespace Fs = boost::filesystem;
 
+typedef const unsigned int CUInt;
+typedef const signed int CIntg;
+typedef unsigned int UInt;
+
 class CTableCoor
 {
 public:
-	CTableCoor( const unsigned int row, const unsigned int column );
-	const unsigned int GetRow()const;
-	const unsigned int GetCol()const;
+	CTableCoor( CUInt row, CUInt column );
+	CUInt GetRow()const;
+	CUInt GetCol()const;
+	CTableCoor& operator=( const CTableCoor& coor );
+
 private:
 	unsigned m_row;
 	unsigned m_column;
@@ -28,8 +34,6 @@ typedef std::string String;
 typedef COrientation::Direction Direction;
 
 typedef std::vector<Fl_Box*> BoxVec;
-typedef const unsigned int CUInt;
-typedef const signed int CIntg;
-typedef unsigned int UInt;
+
 
 #endif
