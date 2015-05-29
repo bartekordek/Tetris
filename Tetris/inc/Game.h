@@ -27,6 +27,7 @@ private:
 	void m_ReleaseBrick();
 	void m_ShowWindow();
 	void m_ActualizeGrid( const CMainGrid& grid );
+	void m_AddCurrentBrickToGrid();
 	CGame();
 	virtual ~CGame();
 	

@@ -1,6 +1,8 @@
 #include "Game.h"
-#include "FLTKWrapper.h"
+//#include "FLTKWrapper.h"
+#include "SDLWrapper.h"
 #include "BrickFactory.h"
+#include "MTime.h"
 #include <cstddef>
 #include <boost/timer/timer.hpp>
 
@@ -21,6 +23,7 @@ CGame* CGame::Instance()
 
 void CGame::Destroy()
 {
+	CSDLWrapper::Destroy();
 }
 
 void CGame::Initialize( CUInt xSize, CUInt ySize )
@@ -33,20 +36,22 @@ void CGame::Initialize( CUInt xSize, CUInt ySize )
 
 void CGame::InitWindow( CUInt xSize, CUInt ySize )
 {
-	FLTKWrapper::Instance()->InitWindow();
+	CSDLWrapper::Instance()->CreateWindow( 800, 600 );
+	CSDLWrapper::Instance()->AddImage( mainGrid.SlabPictureLoc() );
+	CSDLWrapper::Instance()->AddImage( mainGrid.EmptySlabPictureLoc() );
 }
 
 void CGame::ShowGrid()
 {
-	FLTKWrapper::Instance()->Display( mainGrid );
-	m_ShowWindow();
+	CSDLWrapper::Instance()->Display( mainGrid );
+//	m_ShowWindow();
+	CSDLWrapper::Instance()->Actualize();
 }
 
 void CGame::StartGame()
 {
 	m_ReleaseBrick();
-	m_ActualizeGrid( mainGrid );
-	m_ShowWindow();
+	ShowGrid();
 }
 
 void CGame::m_ReleaseBrick()
@@ -56,11 +61,27 @@ void CGame::m_ReleaseBrick()
 
 void CGame::MainLoop()
 {
+	bool quit = false;
+	while( true )
+	{
+		if( false == mainGrid.CheckIfBlockCanBeMoved( Direction::D  ) )
+		{
+			m_AddCurrentBrickToGrid();
+			m_ReleaseBrick();
+		}
+		CTimeMod::SleepMiliSeconds( 500 );
+		m_MoveActiveBrick( Direction::D );
+	}
+}
+
+void CGame::m_AddCurrentBrickToGrid()
+{
+	mainGrid.AddCurrentBrickToGrid();
 }
 
 void CGame::m_ActualizeGrid( const CMainGrid& grid )
 {
-	FLTKWrapper::Instance()->Actualize( grid );
+	//FLTKWrapper::Instance()->Actualize( grid );
 }
 
 void CGame::m_MoveActiveBrick( const Direction direction )
@@ -70,7 +91,7 @@ void CGame::m_MoveActiveBrick( const Direction direction )
 
 void CGame::m_ShowWindow()
 {
-	FLTKWrapper::Instance()->StartEventHandler();
+	//FLTKWrapper::Instance()->StartEventHandler();
 }
 
 
