@@ -29,12 +29,29 @@ CBrick::~CBrick()
 
 void CBrick::Move( const Direction direction )
 {
-	if( direction == Direction::D )
+	int rowDiff = 0;
+	int colDiff = 0;
+	if( Direction::D == direction )
 	{
-		for( std::vector<CSlab>::iterator it = m_blocks.begin(); it != m_blocks.end(); ++it )
-		{
-		//	it->
-		}
+		rowDiff = 1;
+	}
+	else if( Direction::L == direction )
+	{
+		colDiff = -1;
+	}
+	else if( Direction::R == direction )
+	{
+		colDiff = 1;
+	}
+	else if( Direction::U == direction )
+	{
+		rowDiff = -1;
+	}
+
+	for( std::vector<CSlab>::iterator it = m_blocks.begin(); it != m_blocks.end(); ++it )
+	{
+		it->Col( it->Col() + colDiff );
+		it->Row( it->Row() + rowDiff );
 	}
 }
 
