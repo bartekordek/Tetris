@@ -26,9 +26,9 @@ void CGame::Destroy()
 	CSDLWrapper::Destroy();
 }
 
-void CGame::Initialize( CUInt xSize, CUInt ySize )
+void CGame::Initialize( CUInt rowsCount, CUInt columnsCount )
 {
-	m_SetGameSize( xSize, ySize );
+	m_SetGameSize( rowsCount, columnsCount );
 	SetMainGridBlockBackgroundImage();
 	SetMainGridSlabBackgroundImage();
 	SetBrickImage();
@@ -41,23 +41,12 @@ void CGame::InitWindow( CUInt xSize, CUInt ySize )
 	CSDLWrapper::Instance()->AddImage( mainGrid.EmptySlabPictureLoc() );
 }
 
-void CGame::ShowGrid()
-{
-	CSDLWrapper::Instance()->Display( mainGrid );
-//	m_ShowWindow();
-	CSDLWrapper::Instance()->Actualize();
-}
-
 void CGame::StartGame()
 {
 	m_ReleaseBrick();
 	ShowGrid();
 }
 
-void CGame::m_ReleaseBrick()
-{
-	mainGrid.ReLeaseBrick();
-}
 
 void CGame::MainLoop()
 {
@@ -74,26 +63,39 @@ void CGame::MainLoop()
 	}
 }
 
+void CGame::m_ReleaseBrick()
+{
+	mainGrid.ReLeaseBrick();
+	ShowGrid();
+}
+
+void CGame::ShowGrid()
+{
+	CSDLWrapper::Instance()->Display( mainGrid );
+	CSDLWrapper::Instance()->Actualize();
+}
+
 void CGame::m_AddCurrentBrickToGrid()
 {
 	mainGrid.AddCurrentBrickToGrid();
 }
 
-void CGame::m_ActualizeGrid( const CMainGrid& grid )
-{
-	//FLTKWrapper::Instance()->Actualize( grid );
-}
-
 void CGame::m_MoveActiveBrick( const Direction direction )
 {
-	//m_activeBrick->Move(direction);
+	mainGrid.MoveActualBrick( direction );
+	m_ActualizeGrid( mainGrid );
+	ShowGrid();
+}
+
+void CGame::m_ActualizeGrid( const CMainGrid& grid )
+{
+	CSDLWrapper::Instance()->Actualize();
 }
 
 void CGame::m_ShowWindow()
 {
 	//FLTKWrapper::Instance()->StartEventHandler();
 }
-
 
 void CGame::SetMainGridBlockBackgroundImage()
 {

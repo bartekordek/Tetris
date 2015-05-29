@@ -11,7 +11,7 @@ public:
 	static CGame* Instance();
 	static void Destroy();
 
-	void Initialize( CUInt xSize = 10, CUInt ySize = 50 );
+	void Initialize( CUInt rowsCount = 50, CUInt columnsCount = 10 );
 	void InitWindow( CUInt xSize = 800, CUInt ySize = 600 );
 	void ShowGrid();
 	void MainLoop();
