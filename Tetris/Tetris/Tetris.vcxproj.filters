@@ -54,6 +54,12 @@
     <ClInclude Include="..\inc\Rectangle.h">
       <Filter>inc</Filter>
     </ClInclude>
+    <ClInclude Include="..\inc\SDLWrapper.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\MTime.h">
+      <Filter>inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Position.cpp">
@@ -91,6 +97,12 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Rectangle.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SDLWrapper.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MTime.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

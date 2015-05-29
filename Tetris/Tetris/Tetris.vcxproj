@@ -53,12 +53,13 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>D:\Libraries\temp\boost_1_58_0;$(SolutionDir)\inc;D:\Libraries\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>D:\Libraries\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>fltk.lib;fltkimages.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>fltk.lib;fltkimages.lib;SDL.lib;SDLmain.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -92,7 +93,9 @@
     <ClInclude Include="..\inc\Point.h" />
     <ClInclude Include="..\inc\Position.h" />
     <ClInclude Include="..\inc\Rectangle.h" />
+    <ClInclude Include="..\inc\SDLWrapper.h" />
     <ClInclude Include="..\inc\Slab.h" />
+    <ClInclude Include="..\inc\MTime.h" />
     <ClInclude Include="..\inc\Utils.h" />
   </ItemGroup>
   <ItemGroup>
@@ -107,7 +110,9 @@
     <ClCompile Include="..\src\Point.cpp" />
     <ClCompile Include="..\src\Position.cpp" />
     <ClCompile Include="..\src\Rectangle.cpp" />
+    <ClCompile Include="..\src\SDLWrapper.cpp" />
     <ClCompile Include="..\src\Slab.cpp" />
+    <ClCompile Include="..\src\MTime.cpp" />
     <ClCompile Include="..\src\Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
