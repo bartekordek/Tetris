@@ -17,11 +17,10 @@ public:
 	void SetRow( CUInt row );
 	void SetCol( CUInt col );
 	const bool PartOfSlab()const;
+	void PartOfSlab( const bool partOfSlab );
 	const bool Empty()const;
-
-	void IsEmpty( const bool empty );
-	void IsPartOfSlab( const bool partOfSlab );
-
+	void Empty( const bool empty );
+	
 private:
 	CTableCoor m_position;
 	bool m_partOfSlab = false; // 11

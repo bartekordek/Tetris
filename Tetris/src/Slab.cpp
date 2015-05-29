@@ -46,12 +46,12 @@ const bool CSlab::Empty()const
 	return m_empty;
 }
 
-void CSlab::IsEmpty( const bool empty )
+void CSlab::Empty( const bool empty )
 {
 	m_empty = empty;
 }
 
-void CSlab::IsPartOfSlab( const bool partOfSlab )
+void CSlab::PartOfSlab( const bool partOfSlab )
 {
 	m_partOfSlab = partOfSlab;
 }
