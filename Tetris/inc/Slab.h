@@ -14,8 +14,9 @@ public:
 	CSlab& operator=( const CSlab& slab );
 	CUInt Row()const;
 	CUInt Col()const;
-	void SetRow( CUInt row );
-	void SetCol( CUInt col );
+	void Row( CUInt row );
+	void Col( CUInt col );
+	void SetPosition( CUInt row, CUInt col );
 	const bool PartOfSlab()const;
 	void PartOfSlab( const bool partOfSlab );
 	const bool Empty()const;

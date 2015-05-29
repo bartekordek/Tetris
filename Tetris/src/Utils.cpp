@@ -16,12 +16,28 @@ CTableCoor& CTableCoor::operator=( const CTableCoor& coor )
 	return *this;
 }
 
-CUInt CTableCoor::GetCol()const
+CUInt CTableCoor::Col()const
 {
 	return m_column;
 }
 
-CUInt CTableCoor::GetRow()const
+CUInt CTableCoor::Row()const
 {
 	return m_row;
+}
+
+void CTableCoor::Row( CUInt row )
+{
+	m_row = row;
+}
+
+void CTableCoor::Col( CUInt col )
+{
+	m_column = col;
+}
+
+void CTableCoor::ChangePosition( CUInt row, CUInt col )
+{
+	m_row = row;
+	m_column = col;
 }

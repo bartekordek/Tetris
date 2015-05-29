@@ -28,12 +28,27 @@ CSlab& CSlab::operator=( const CSlab& slab )
 
 CUInt CSlab::Row()const
 {
-	return m_position.GetRow();
+	return m_position.Row();
+}
+
+void CSlab::Row( CUInt row )
+{
+	m_position.Row( row );
+}
+
+void CSlab::Col( CUInt col )
+{
+	m_position.Col( col );
 }
 
 CUInt CSlab::Col()const
 {
-	return m_position.GetCol();
+	return m_position.Col();
+}
+
+void CSlab::SetPosition( CUInt row, CUInt col )
+{
+	m_position.ChangePosition( row, col ); 
 }
 
 const bool CSlab::PartOfSlab()const
