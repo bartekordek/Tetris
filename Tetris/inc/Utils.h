@@ -4,7 +4,6 @@
 #include <vector>
 #include <boost/filesystem.hpp>
 #include <string>
-#include <FL/Fl_Box.H>
 #include "Orientation.h"
 
 namespace Fs = boost::filesystem;
@@ -35,8 +34,4 @@ typedef Fs::path Path;
 typedef std::string String;
 
 typedef COrientation::Direction Direction;
-
-typedef std::vector<Fl_Box*> BoxVec;
-
-
 #endif
