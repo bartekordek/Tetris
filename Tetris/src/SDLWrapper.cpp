@@ -36,11 +36,11 @@ void CSDLWrapper::Display( const CMainGrid& grid )
 	{
 		if( true == grid.PartOfSlab( i ) )
 		{
-			ApplyImage( 1, grid.GetSlabRow( i ) * 10, grid.GetSlabCol( i ) * 10 );
+			ApplyImage( 1, grid.GetSlabCol( i ) * 10, grid.GetSlabRow( i ) * 10 );
 		}
 		else
 		{
-			ApplyImage( 0, grid.GetSlabRow( i ) * 10, grid.GetSlabCol( i ) * 10 );
+			ApplyImage( 0, grid.GetSlabCol( i ) * 10, grid.GetSlabRow( i ) * 10 );
 		}
 	}
 	Actualize();
