@@ -10,26 +10,24 @@
 
 enum BrickTypes { L, I, O, S, T };
 
-/*!
-* \brief This class contains information about part of main grid - brick, such as:
-- brick orientation,
-- brick type.
-* $end$
-*/
+/*
+ * @brief This class contains information about part of main grid - brick, such as: brick orientation, brick type.
+ * @details
+ */
 class CBrick
 {
 public:
 	CBrick( const Direction direction = Direction::R );
-	CBrick( const std::vector<CSlab>& blocks, 
-			const Direction direction = Direction::R );
+	CBrick( const std::vector<CSlab>& blocks, const Direction direction = Direction::R );
 	virtual ~CBrick();
 	CoordinatestList GetBlockPositions()const;
-
 	void Move( const Direction direction = Direction::D );
-
 	virtual void Rotate( const bool clockWise = true ) = 0;
-
 	static void SetBackgroundImage( const Path& path );
+/*
+ * @brief Return image location as string.
+ * @param[out] std::string - location of image file.
+ */
 	static const String GetImage();
 
 private:
