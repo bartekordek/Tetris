@@ -2,10 +2,7 @@
 #include "BrickFactory.h"
 #include <boost/foreach.hpp>
 
-CMainGrid::CMainGrid( CUInt rowsCount, 
-					  CUInt columnsCount, 
-					  CUInt initialX, 
-					  CUInt initialY )
+CMainGrid::CMainGrid( CUInt rowsCount, CUInt columnsCount, CUInt initialX, CUInt initialY )
 {
 	//SetSize( rowsCount, columnsCount, initialX, initialY );
 }
@@ -14,19 +11,16 @@ CMainGrid::~CMainGrid()
 {
 }
 
-void CMainGrid::SetSize( CUInt rowsCount,
-						 CUInt columnsCount, 
-						 CUInt initialX, 
-						 CUInt initialY )
+void CMainGrid::SetSize( CUInt rowsCount, CUInt columnsCount,  CUInt initialX, CUInt initialY )
 {
 	m_slab.erase( m_slab.begin(), m_slab.end() );
 	m_columnsCount = columnsCount;
 	m_rowsCount = rowsCount;
-	for( UInt i = 0; i < m_rowsCount; ++i )
+	for( UInt row = 0; row < m_rowsCount; ++row )
 	{
-		for( UInt j = 0; j < m_columnsCount; ++j )
+		for( UInt col = 0; col < m_columnsCount; ++col )
 		{
-			CSlab slab( j + initialX, i + initialY, false, true );
+			CSlab slab( row + initialY, col + initialX, false, true );
 			m_slab.push_back( slab );
 		}
 	}
@@ -53,20 +47,9 @@ void CMainGrid::AddBrick( const CBrick& brick )
 	CoordinatestList& coords = brick.GetBlockPositions();
 	for( auto it = coords.begin(); it != coords.end(); ++it )
 	{
-		m_SetToSlab( m_RowColToSlabIndex( it->GetRow(), it->GetCol() ) );
-	}
-}
-
-void CMainGrid::AddCurrentBrickToGrid()
-{
-	if( NULL != m_activeBrick )
-	{
-		CoordinatestList coords = m_activeBrick->GetBlockPositions();
-		for( auto it = coords.begin(); it != coords.end(); ++it )
-		{
-			m_slab.at( m_RowColToSlabIndex( it->GetRow(), it->GetCol() ) ).Empty(false);
-		}
-		delete m_activeBrick;
+		CUInt row = it->Row();
+		CUInt col = it->Col();
+		m_SetToSlab( m_RowColToSlabIndex( row, col ) );
 	}
 }
 
@@ -150,17 +133,12 @@ const bool CMainGrid::SlabExist( CUInt rowIndex, CUInt colIndex )const
 	return false;
 }
 
-CUInt CMainGrid::m_RowColToSlabIndex( CUInt rowIndex, CUInt colIndex )const
-{
-	return rowIndex*m_columnsCount + colIndex;
-}
-
 const bool CMainGrid::PartOfCurrentBrick( CUInt rowIndex, CUInt colIndex )const
 {
 	CoordinatestList coords = m_activeBrick->GetBlockPositions();
 	for( auto it = coords.begin(); it != coords.end(); ++it )
 	{
-		if( it->GetRow() == rowIndex && it->GetCol() == colIndex )
+		if( it->Row() == rowIndex && it->Col() == colIndex )
 		{
 			return true;
 		}
@@ -170,22 +148,9 @@ const bool CMainGrid::PartOfCurrentBrick( CUInt rowIndex, CUInt colIndex )const
 
 void CMainGrid::MoveActualBrick( const Direction direction )
 {
-	if( Direction::U == direction )
-	{
-
-	}
-	else if( Direction::D == direction )
-	{
-
-	}
-	else if( Direction::R == direction )
-	{
-
-	}
-	else if( Direction::L == direction )
-	{
-
-	}
+	CheckIfBlockCanBeMoved( direction );// TODO, check has been made but it has no effect.
+	m_RemoveActualBlockSlabsFromGrid();
+	m_MoveActualBlock( direction );
 }
 
 const bool CMainGrid::CheckIfBlockCanBeMoved( const Direction direction )const
@@ -216,8 +181,8 @@ const bool CMainGrid::CheckIfBlockCanBeMoved( const Direction direction )const
 
 	for( auto it = blockCoords.begin(); it != blockCoords.end(); ++it )
 	{
-		CUInt actRow = it->GetRow();
-		CUInt actCol = it->GetCol();
+		CUInt actRow = it->Row();
+		CUInt actCol = it->Col();
 		if( false == SlabExist( actRow + RowDiff, actCol + ColDiff ) ) // Check if you are not in the bottom
 		{
 			return false;
@@ -234,4 +199,41 @@ const bool CMainGrid::CheckIfBlockCanBeMoved( const Direction direction )const
 		}
 	}
 	return true;
+}
+
+void CMainGrid::m_RemoveActualBlockSlabsFromGrid()
+{
+	CoordinatestList coords = m_activeBrick->GetBlockPositions();
+	for( auto it = coords.begin(); it != coords.end(); ++it )
+	{
+		CUInt row = it->Row();
+		CUInt col = it->Col();
+		m_slab.at( m_RowColToSlabIndex( row, col ) ).Empty( true );
+		m_slab.at( m_RowColToSlabIndex( row, col ) ).PartOfSlab( false );
+	}
+}
+
+void CMainGrid::m_MoveActualBlock( const Direction direction )
+{
+	m_activeBrick->Move( direction );
+	AddBrick( *m_activeBrick );
+}
+
+
+void CMainGrid::AddCurrentBrickToGrid()
+{
+	if( NULL != m_activeBrick )
+	{
+		CoordinatestList coords = m_activeBrick->GetBlockPositions();
+		for( auto it = coords.begin(); it != coords.end(); ++it )
+		{
+			m_slab.at( m_RowColToSlabIndex( it->Row(), it->Col() ) ).Empty( false );
+		}
+		delete m_activeBrick;
+	}
+}
+
+CUInt CMainGrid::m_RowColToSlabIndex( CUInt rowIndex, CUInt colIndex )const
+{
+	return rowIndex*m_columnsCount + colIndex;
 }

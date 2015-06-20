@@ -38,7 +38,8 @@ public:
 
 private:
 	CUInt m_RowColToSlabIndex( CUInt rowIndex, CUInt colIndex )const;
-	
+	void m_MoveActualBlock( const Direction direction );
+	void m_RemoveActualBlockSlabsFromGrid();
 	void m_SetToSlab( CUInt slabIndex );
 	CBrick* m_activeBrick;
 	std::vector<CSlab> m_slab;
