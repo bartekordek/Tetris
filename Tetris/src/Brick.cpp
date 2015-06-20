@@ -65,14 +65,6 @@ const String CBrick::GetImage()
 	return m_backgroundImage.string();
 }
 
-void CBrick::Draw()
-{
-	BOOST_FOREACH( CSlab slab, m_blocks )
-	{
-//		slab.Draw();
-	}
-}
-
 CLBrick::CLBrick(
 	const Direction direction ):
 	CBrick( direction )

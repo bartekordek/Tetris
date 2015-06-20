@@ -2,7 +2,6 @@
 #define __CBRICK__
 
 #include "Utils.h"
-
 #include "Slab.h"
 #include "Orientation.h"
 #include "Picture.h"
@@ -11,6 +10,12 @@
 
 enum BrickTypes { L, I, O, S, T };
 
+/*!
+* \brief This class contains information about part of main grid - brick, such as:
+- brick orientation,
+- brick type.
+* $end$
+*/
 class CBrick
 {
 public:
@@ -22,7 +27,6 @@ public:
 
 	void Move( const Direction direction = Direction::D );
 
-	virtual void Draw();
 	virtual void Rotate( const bool clockWise = true ) = 0;
 
 	static void SetBackgroundImage( const Path& path );
@@ -75,7 +79,9 @@ class CTBrick: public CBrick
 public:
 	CTBrick(
 		const Direction direction = Direction::R );
-	void Rotate( const bool clockWise = true ) {};
+	void Rotate( const bool clockWise = true ) 
+	{
+	}
 private:
 };
 
