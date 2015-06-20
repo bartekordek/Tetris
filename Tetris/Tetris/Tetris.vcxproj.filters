@@ -57,6 +57,9 @@
     <ClInclude Include="..\inc\MTime.h">
       <Filter>inc</Filter>
     </ClInclude>
+    <ClInclude Include="..\inc\EventHandler.h">
+      <Filter>inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Position.cpp">
@@ -97,6 +100,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\MTime.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\EventHandler.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
