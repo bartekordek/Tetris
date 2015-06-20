@@ -58,8 +58,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\Libraries\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>fltk.lib;fltkimages.lib;SDL.lib;SDLmain.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Libraries\temp\boost_1_58_0\stage\lib;D:\Libraries\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL.lib;SDLmain.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -85,6 +85,7 @@
   <ItemGroup>
     <ClInclude Include="..\inc\Brick.h" />
     <ClInclude Include="..\inc\BrickFactory.h" />
+    <ClInclude Include="..\inc\EventHandler.h" />
     <ClInclude Include="..\inc\Game.h" />
     <ClInclude Include="..\inc\MainGrid.h" />
     <ClInclude Include="..\inc\Orientation.h" />
@@ -101,6 +102,7 @@
     <ClCompile Include="..\main.cpp" />
     <ClCompile Include="..\src\Brick.cpp" />
     <ClCompile Include="..\src\BrickFactory.cpp" />
+    <ClCompile Include="..\src\EventHandler.cpp" />
     <ClCompile Include="..\src\Game.cpp" />
     <ClCompile Include="..\src\MainGrid.cpp" />
     <ClCompile Include="..\src\Orientation.cpp" />
