@@ -17,8 +17,9 @@ enum BrickTypes { L, I, O, S, T };
 class CBrick
 {
 public:
-	CBrick( const Direction direction = Direction::R );
+	CBrick( BrickTypes typeofBrick, const Direction direction = Direction::R );
 	CBrick( const std::vector<CSlab>& blocks, const Direction direction = Direction::R );
+	CBrick( const CBrick& brick );
 	virtual ~CBrick();
 	CoordinatestList GetBlockPositions()const;
 	void Move( const Direction direction = Direction::D );
@@ -29,12 +30,15 @@ public:
  * @param[out] std::string - location of image file.
  */
 	static const String GetImage();
+	BrickTypes GetBlockType()const;
 
 private:
 	static Path m_backgroundImage;
+	BrickTypes m_brickType;
 
 protected:
 	std::vector<CSlab> m_blocks;
+	
 	COrientation m_direction;
 
 };
@@ -43,7 +47,7 @@ class CLBrick: public CBrick
 {
 public:
 	CLBrick( const Direction direction = Direction::R );
-	void Rotate( const bool clockWise = true ) {};
+	void Rotate( const bool clockWise = true );
 private:
 };
 
@@ -51,7 +55,7 @@ class CIBrick: public CBrick
 {
 public:
 	CIBrick( const Direction direction = Direction::R );
-	void Rotate( const bool clockWise = true ) {};
+	void Rotate( const bool clockWise = true );
 private:
 };
 
@@ -60,7 +64,7 @@ class COBrick: public CBrick
 public:
 	COBrick(
 		const Direction direction = Direction::R );
-	void Rotate( const bool clockWise = true ) {};
+	void Rotate( const bool clockWise = true );
 private:
 };
 
@@ -68,7 +72,7 @@ class CSBrick: public CBrick
 {
 public:
 	CSBrick( const Direction direction = Direction::R );
-	void Rotate( const bool clockWise = true ) {};
+	void Rotate( const bool clockWise = true );
 private:
 };
 
@@ -77,9 +81,7 @@ class CTBrick: public CBrick
 public:
 	CTBrick(
 		const Direction direction = Direction::R );
-	void Rotate( const bool clockWise = true ) 
-	{
-	}
+	void Rotate( const bool clockWise = true );
 private:
 };
 

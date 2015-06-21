@@ -1,15 +1,25 @@
 #include "Brick.h"
 #include <boost/foreach.hpp>
 
-CBrick::CBrick( const Direction direction ): m_direction( direction )
+CBrick::CBrick( BrickTypes typeofBrick, const Direction direction ): m_direction( direction ), m_brickType( typeofBrick )
 {
-
 }
 
 CBrick::CBrick( const std::vector<CSlab>& blocks, 
 				const Direction direction ):m_direction( COrientation::R )
+{	
+}
+
+BrickTypes CBrick::GetBlockType()const
 {
-	
+	return m_brickType;
+}
+
+CBrick::CBrick( const CBrick& brick )
+{
+	m_backgroundImage = brick.m_backgroundImage;
+	m_blocks = brick.m_blocks;
+	m_direction = brick.m_direction;
 }
 
 CoordinatestList CBrick::GetBlockPositions()const
@@ -65,19 +75,51 @@ const String CBrick::GetImage()
 	return m_backgroundImage.string();
 }
 
-CLBrick::CLBrick(
-	const Direction direction ):
-	CBrick( direction )
+CLBrick::CLBrick( const Direction direction ):CBrick( BrickTypes::L, direction )
 {
 	m_blocks.push_back( CSlab( 0, 0 ) );
+	m_blocks.push_back( CSlab( 0, 1 ) );
+	m_blocks.push_back( CSlab( 0, 2 ) );
 	m_blocks.push_back( CSlab( 1, 0 ) );
-	m_blocks.push_back( CSlab( 0, 1 ) );
-	m_blocks.push_back( CSlab( 0, 2 ) );
 }
 
-CIBrick::CIBrick(
-	const Direction direction ):
-	CBrick( direction )
+void CLBrick::Rotate( const bool clockWise )
+{
+	if( m_direction.Get() == Direction::U )
+	{
+		m_blocks[0] .SetPosition( m_blocks[0].Row() - 2, m_blocks[0].Col() );
+		m_blocks[1] .SetPosition( m_blocks[1].Row() - 1, m_blocks[1].Col() + 1 );
+		m_blocks[2] .SetPosition( m_blocks[2].Row()    , m_blocks[2].Col() + 2 );
+		m_blocks[3] .SetPosition( m_blocks[3].Row() + 2, m_blocks[3].Col() - 1 );
+		m_direction.Set( Direction::R );
+	}
+	else if( m_direction.Get() == Direction::R )
+	{
+		m_blocks[0] .SetPosition( m_blocks[0].Row()		, m_blocks[0].Col() + 1 );
+		m_blocks[1] .SetPosition( m_blocks[1].Row() + 1	, m_blocks[1].Col() );
+		m_blocks[2] .SetPosition( m_blocks[2].Row() + 2	, m_blocks[2].Col() - 1 );
+		m_blocks[3] .SetPosition( m_blocks[3].Row() - 1	, m_blocks[3].Col() );
+		m_direction.Set( Direction::D );
+	}
+	else if( m_direction.Get() == Direction::D )
+	{
+		m_blocks[0] .SetPosition( m_blocks[0].Row() + 1, m_blocks[0].Col() + 1 );
+		
+		m_blocks[2] .SetPosition( m_blocks[2].Row() - 1, m_blocks[2].Col() - 1 );
+		m_blocks[3] .SetPosition( m_blocks[3].Row()	  , m_blocks[3].Col() + 2 );
+		m_direction.Set( Direction::L );
+	}
+	else
+	{
+		m_blocks[0] .SetPosition( m_blocks[0].Row() + 1, m_blocks[0].Col() - 2 );
+		m_blocks[1] .SetPosition( m_blocks[1].Row()    , m_blocks[1].Col() - 1 );
+		m_blocks[2] .SetPosition( m_blocks[2].Row() - 1, m_blocks[2].Col()     );
+		m_blocks[3] .SetPosition( m_blocks[3].Row() + 2, m_blocks[3].Col() - 1 );
+		m_direction.Set( Direction::U );
+	}
+}
+
+CIBrick::CIBrick( const Direction direction ):CBrick( BrickTypes::I, direction )
 {
 	m_blocks.push_back( CSlab( 0, 0 ) );
 	m_blocks.push_back( CSlab( 0, 1 ) );
@@ -85,35 +127,135 @@ CIBrick::CIBrick(
 	m_blocks.push_back( CSlab( 0, 3 ) );
 }
 
-COBrick::COBrick(
-	const Direction direction ):
-	CBrick( direction )
+void CIBrick::Rotate( const bool clockWise )
+{
+	if( m_direction.Get() == Direction::U )
+	{
+		m_blocks[1] .SetPosition( m_blocks[1].Row() - 1, m_blocks[1].Col() + 1 );
+		m_blocks[2] .SetPosition( m_blocks[2].Row() - 2, m_blocks[2].Col() + 2 );
+		m_blocks[3] .SetPosition( m_blocks[3].Row() - 3, m_blocks[3].Col() + 3 );
+		m_direction.Set( Direction::R );
+	}
+	else if( m_direction.Get() == Direction::R )
+	{
+		m_blocks[1].SetPosition( m_blocks[1].Row() + 1, m_blocks[1].Col() - 1 );
+		m_blocks[2] .SetPosition( m_blocks[2].Row() + 2, m_blocks[2].Col() - 2 );
+		m_blocks[3] .SetPosition( m_blocks[3].Row() + 3, m_blocks[3].Col() - 3 );
+		m_direction.Set( Direction::D );
+	}
+	else if( m_direction.Get() == Direction::D )
+	{
+		m_blocks[1] .SetPosition( m_blocks[1].Row() - 1, m_blocks[1].Col() + 1 );
+		m_blocks[2] .SetPosition( m_blocks[2].Row() - 2, m_blocks[2].Col() + 2 );
+		m_blocks[3] .SetPosition( m_blocks[3].Row() - 3, m_blocks[3].Col() + 3 );
+		m_direction.Set( Direction::L );
+	}
+	else
+	{
+		m_blocks[1] .SetPosition( m_blocks[1].Row() + 1, m_blocks[1].Col() - 1 );
+		m_blocks[2] .SetPosition( m_blocks[2].Row() + 2, m_blocks[2].Col() - 2 );
+		m_blocks[3] .SetPosition( m_blocks[3].Row() + 3, m_blocks[3].Col() - 3 );
+		m_direction.Set( Direction::U );
+	}
+}
+
+COBrick::COBrick( const Direction direction ):CBrick( BrickTypes::O, direction )
 {
 	m_blocks.push_back( CSlab( 0, 0 ) );
 	m_blocks.push_back( CSlab( 0, 1 ) );
-	m_blocks.push_back( CSlab( 0, 2 ) );
-	m_blocks.push_back( CSlab( 0, 3 ) );
+	m_blocks.push_back( CSlab( 1, 0 ) );
+	m_blocks.push_back( CSlab( 1, 1 ) );
+}
+
+void COBrick::Rotate( const bool clockWise )
+{
 }
 
 
-CSBrick::CSBrick(
-	const Direction direction ):
-	CBrick( direction )
+CSBrick::CSBrick( const Direction direction ):CBrick( BrickTypes::S, direction )
 {
 	m_blocks.push_back( CSlab( 0, 0 ) );
 	m_blocks.push_back( CSlab( 0, 1 ) );
-	m_blocks.push_back( CSlab( 0, 2 ) );
-	m_blocks.push_back( CSlab( 0, 3 ) );
+	m_blocks.push_back( CSlab( 1, 1 ) );
+	m_blocks.push_back( CSlab( 1, 2 ) );
 }
 
-CTBrick::CTBrick(
-	const Direction direction ):
-	CBrick( direction )
+void CSBrick::Rotate( const bool clockWise )
+{
+	if( m_direction.Get() == Direction::U )
+	{
+		m_blocks[0].SetPosition( m_blocks[0].Row(), m_blocks[0].Col() - 1 );
+		m_blocks[1].SetPosition( m_blocks[1].Row() - 1, m_blocks[1].Col() );
+		m_blocks[2].SetPosition( m_blocks[2].Row(), m_blocks[2].Col() + 1 );
+		m_blocks[3].SetPosition( m_blocks[3].Row() - 1, m_blocks[3].Col() + 2 );
+		m_direction.Set( Direction::R );
+	}
+	else if( m_direction.Get() == Direction::R )
+	{
+		m_blocks[0] .SetPosition( m_blocks[0].Row(), m_blocks[0].Col() + 1 );
+		m_blocks[1] .SetPosition( m_blocks[1].Row() + 1, m_blocks[1].Col() );
+		m_blocks[2] .SetPosition( m_blocks[2].Row(), m_blocks[2].Col() - 1 );
+		m_blocks[3] .SetPosition( m_blocks[3].Row() + 1, m_blocks[3].Col() - 2 );
+		m_direction.Set( Direction::D );
+	}
+	else if( m_direction.Get() == Direction::D )
+	{
+		m_blocks[0].SetPosition( m_blocks[0].Row(), m_blocks[0].Col() - 1 );
+		m_blocks[1].SetPosition( m_blocks[1].Row() - 1, m_blocks[1].Col() );
+		m_blocks[2].SetPosition( m_blocks[2].Row(), m_blocks[2].Col() + 1 );
+		m_blocks[3].SetPosition( m_blocks[3].Row() - 1, m_blocks[3].Col() + 2 );
+		m_direction.Set( Direction::L );
+	}
+	else
+	{
+		m_blocks[0].SetPosition( m_blocks[0].Row(), m_blocks[0].Col() + 1 );
+		m_blocks[1].SetPosition( m_blocks[1].Row() + 1, m_blocks[1].Col() );
+		m_blocks[2].SetPosition( m_blocks[2].Row(), m_blocks[2].Col() - 1 );
+		m_blocks[3].SetPosition( m_blocks[3].Row() + 1, m_blocks[3].Col() - 2 );
+		m_direction.Set( Direction::U );
+	}
+}
+
+CTBrick::CTBrick( const Direction direction ):CBrick( BrickTypes::T,direction )
 {
 	m_blocks.push_back( CSlab( 0, 0 ) );
 	m_blocks.push_back( CSlab( 1, 0 ) );
 	m_blocks.push_back( CSlab( 2, 0 ) );
 	m_blocks.push_back( CSlab( 1, 1 ) );
+}
+
+void CTBrick::Rotate( const bool clockWise  )
+{
+	if( m_direction.Get() == Direction::U )
+	{
+		m_blocks[0].SetPosition( m_blocks[0].Row() - 1, m_blocks[0].Col() );
+		m_blocks[1].SetPosition( m_blocks[1].Row() + 1, m_blocks[1].Col() );
+		m_blocks[2].SetPosition( m_blocks[2].Row() + 2, m_blocks[2].Col() - 1 );
+		m_blocks[3].SetPosition( m_blocks[3].Row(), m_blocks[3].Col() - 1 );
+		m_direction.Set( Direction::R );
+	}
+	else if( m_direction.Get() == Direction::R )
+	{
+		m_blocks[1].SetPosition( m_blocks[1].Row() - 1, m_blocks[1].Col() + 1 );
+		m_blocks[2].SetPosition( m_blocks[2].Row() - 2, m_blocks[2].Col() + 2 );
+		m_blocks[3].SetPosition( m_blocks[3].Row(), m_blocks[3].Col() );
+		m_direction.Set( Direction::D );
+	}
+	else if( m_direction.Get() == Direction::D )
+	{
+		m_blocks[0].SetPosition( m_blocks[0].Row()    , m_blocks[0].Col() + 1 );
+		m_blocks[1].SetPosition( m_blocks[1].Row() + 1, m_blocks[1].Col()     );
+		m_blocks[2].SetPosition( m_blocks[2].Row() + 2, m_blocks[2].Col() - 1 );
+		m_blocks[3].SetPosition( m_blocks[3].Row()    , m_blocks[3].Col() - 1 );
+		m_direction.Set( Direction::L );
+	}
+	else
+	{
+		m_blocks[0].SetPosition( m_blocks[0].Row() + 1, m_blocks[0].Col() - 1 );
+		m_blocks[2].SetPosition( m_blocks[2].Row() - 1, m_blocks[2].Col() + 1 );
+		m_blocks[3].SetPosition( m_blocks[3].Row() - 1, m_blocks[3].Col() + 1 );
+		m_direction.Set( Direction::U );
+	}
 }
 
 
