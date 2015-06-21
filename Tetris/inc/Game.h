@@ -49,6 +49,7 @@ public:
 private:
 	void m_SetGameSize( CUInt rows, CUInt columns );
 	void m_MoveActiveBrick( const Direction direction = Direction::D );
+	void m_RotateActualBrick( const bool clockWise = true );
 	void m_ReleaseBrick();
 	void m_ShowWindow();
 	void m_ActualizeGrid( const CMainGrid& grid );

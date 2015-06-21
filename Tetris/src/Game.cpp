@@ -5,9 +5,6 @@
 #include <cstddef>
 #include <boost/timer/timer.hpp>
 
-//#include <functional>
-
-
 CGame* CGame::s_instance = NULL;
 
 CGame::CGame()
@@ -33,7 +30,6 @@ void CGame::Initialize( CUInt rowsCount, CUInt columnsCount )
 	m_SetGameSize( rowsCount, columnsCount );
 	SetMainGridBlockBackgroundImage();
 	SetMainGridSlabBackgroundImage();
-	m_StartEventPoolThread();
 }
 
 void CGame::m_StartEventPoolThread()
@@ -84,8 +80,39 @@ String CGame::m_GetQuitButtonLocation()
 
 void CGame::MainLoop()
 {
+	SDL_Event event;
+	bool quit = false;
 	mainLoopThread = new std::thread( &CGame::m_MainLoopThread, this );
-	mainLoopThread->join();
+	while( quit == false )
+	{
+		while( SDL_PollEvent( &event ) )
+		{
+			if( event.type == SDL_QUIT )
+			{
+				quit = true;
+			}
+			else if( event.type == SDL_KEYDOWN )
+			{
+				switch( event.key.keysym.sym )
+				{
+					case SDLK_q:
+						quit = true;
+						break;
+					case SDLK_RIGHT:
+						m_MoveActiveBrick( Direction::R );
+						break;
+					case SDLK_LEFT:
+						m_MoveActiveBrick( Direction::L );
+						break;
+					case SDLK_DOWN:
+						m_MoveActiveBrick( Direction::D );
+						break;
+					case SDLK_SPACE:
+						m_RotateActualBrick();
+				}
+			}
+		}
+	}
 }
 
 void CGame::m_MainLoopThread()
@@ -100,22 +127,6 @@ void CGame::m_MainLoopThread()
 			m_ReleaseBrick();
 		}
 		std::thread waitForSleep( &CGame::m_WaitForMove, this );
-		std::cout << "Waiting for user input..." << std::endl;
-		while( SDL_PollEvent( &event ) )
-		{
-			if( event.type == SDL_KEYDOWN )
-			{
-				switch( event.key.keysym.sym )
-				{
-					case SDLK_q:
-						QuitGame();
-						break;
-					case SDLK_h:
-						std::cout << "h pressed " << std::endl;
-						break;
-				}
-			}
-		}
 		waitForSleep.join();
 		m_MoveActiveBrick( Direction::D );
 	}
@@ -150,6 +161,13 @@ void CGame::m_MoveActiveBrick( const Direction direction )
 	ShowGrid();
 }
 
+void CGame::m_RotateActualBrick( const bool clockWise )
+{
+	mainGrid.RotateActualBrick( clockWise );
+	m_ActualizeGrid( mainGrid );
+	ShowGrid();
+}
+
 void CGame::m_ActualizeGrid( const CMainGrid& grid )
 {
 	CSDLWrapper::Instance()->Actualize();
@@ -157,7 +175,6 @@ void CGame::m_ActualizeGrid( const CMainGrid& grid )
 
 void CGame::m_ShowWindow()
 {
-	//FLTKWrapper::Instance()->StartEventHandler();
 }
 
 void CGame::SetMainGridBlockBackgroundImage()
