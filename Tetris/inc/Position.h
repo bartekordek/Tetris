@@ -3,6 +3,10 @@
 
 #include "Utils.h"
 
+/*
+ * @brief This class contains position represented by positive carthezian coordinates.
+ * @details 
+ */
 class CPosition
 {
 public:
