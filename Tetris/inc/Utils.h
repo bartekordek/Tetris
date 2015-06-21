@@ -14,4 +14,7 @@ typedef Fs::path Path;
 typedef std::string String;
 typedef COrientation::Direction Direction;
 
+template<typename T>
+using Vector = std::vector < T > ;
+
 #endif

@@ -1,9 +1,13 @@
 #ifndef __GAME_Z__
 #define __GAME_Z__
 
+#include <thread>
+
 #include "MainGrid.h"
 #include "Brick.h"
 #include "Utils.h"
+#include "Button.h"
+#include "EventHandler.h"
 
 /*
  * @brief Main game class. 
@@ -25,19 +29,22 @@ public:
 	* @param[in] const unsigned int - window width.
 	* @param[in] const unsigned int - window height.
 	*/
-	void InitWindow( CUInt width = 800, CUInt height = 600 );
+	void InitWindow( CUInt width = 600, CUInt height = 400 );
 	/*
-	 * @brief Initializes main game window.
-	 * @param[in] const unsigned int - size in rows.
-	 * @param[in] const unsigned int - size in col.
+	 * @brief Displays main grid.
 	 */
 	void ShowGrid();
+	/*
+	 * @brief Main loop method.
+	 */
 	void MainLoop();
 	void StartGame();
 	void SetMainGridBlockBackgroundImage();
 	void SetMainGridSlabBackgroundImage();
-	void SetBrickImage();
 	void SetWindowColor();
+	void AddButton( CUInt x, CUInt y, String name, Path path );
+	void QuitGame();
+	CEventHandler eventHandler;
 
 private:
 	void m_SetGameSize( CUInt rows, CUInt columns );
@@ -46,6 +53,10 @@ private:
 	void m_ShowWindow();
 	void m_ActualizeGrid( const CMainGrid& grid );
 	void m_AddCurrentBrickToGrid();
+	void m_StartEventPoolThread();
+	void m_MainLoopThread();
+	void m_WaitForMove();
+	String m_GetQuitButtonLocation();
 	CGame();
 	virtual ~CGame();
 	
@@ -53,7 +64,12 @@ private:
 
 	CMainGrid mainGrid;
 	static CGame* s_instance;
-
+	Vector<CButton> m_buttons;
+	std::thread* eventPoolThread;
+	std::thread* mainLoopThread;
 };
+
+void QuitGame();
+void EventPoolFunction();
 
 #endif

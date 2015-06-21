@@ -27,7 +27,16 @@ void CSDLWrapper::CreateWindow( CUInt width, CUInt height )
 
 void CSDLWrapper::AddImage( const String& path )
 {
-	images.push_back( SDL_LoadBMP( path.c_str() ) );
+	for( auto it = images.begin(); it != images.end(); ++it )
+	{
+		if( path == it->second )
+		{
+			return;
+		}
+	}
+	SDL_Surface* surface = SDL_LoadBMP( path.c_str() );
+	std::pair<SDL_Surface*, String> image( surface, path );
+	images.push_back( image );
 }
 
 void CSDLWrapper::Display( const CMainGrid& grid )
@@ -46,6 +55,22 @@ void CSDLWrapper::Display( const CMainGrid& grid )
 	Actualize();
 }
 
+void CSDLWrapper::Display( const CButton& button )
+{
+	SDL_Rect offset;
+	offset.x = button.GetX();
+	offset.y = button.GetY();
+	offset.h = 40;
+	offset.w = 70;
+	for( auto it = images.begin(); it != images.end(); ++it )
+	{
+		if( button.GetPath() == it->second )
+		{
+			SDL_BlitSurface( it->first, NULL, screen, &offset );
+		}
+	}
+}
+
 void CSDLWrapper::ApplyImage( CUInt imgIndex, CUInt x, CUInt y )
 {
 	SDL_Rect offset;
@@ -53,7 +78,7 @@ void CSDLWrapper::ApplyImage( CUInt imgIndex, CUInt x, CUInt y )
 	offset.y = y;
 	offset.h = 10;
 	offset.w = 10;
-	SDL_BlitSurface( images[imgIndex], NULL, screen, &offset );
+	SDL_BlitSurface( images[imgIndex].first, NULL, screen, &offset );
 }
 
 void CSDLWrapper::Actualize()
@@ -69,7 +94,7 @@ CSDLWrapper::~CSDLWrapper()
 {	
 	for( auto it = images.begin(); it != images.end(); ++it )
 	{
-		SDL_FreeSurface( *it );
+		SDL_FreeSurface( it->first );
 	}
 	SDL_Quit();
 }

@@ -60,6 +60,9 @@
     <ClInclude Include="..\inc\TableCoordinates.h">
       <Filter>inc</Filter>
     </ClInclude>
+    <ClInclude Include="..\inc\Button.h">
+      <Filter>inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
@@ -102,6 +105,9 @@
     <ClCompile Include="..\src\TableCoordinates.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Button.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
@@ -117,8 +123,8 @@
     <Image Include="..\pic\BackGroundBlock.bmp">
       <Filter>Pictures</Filter>
     </Image>
-    <Image Include="C:\Users\BARTE_~1\AppData\Local\Temp\87fov477.bmp">
-      <Filter>inc</Filter>
+    <Image Include="..\pic\ButtonQuit.bmp">
+      <Filter>Pictures</Filter>
     </Image>
   </ItemGroup>
 </Project>

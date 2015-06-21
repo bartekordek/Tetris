@@ -3,6 +3,7 @@
 
 #include "Utils.h"
 #include "MainGrid.h"
+#include "Button.h"
 #include "SDL/SDL.h"
 
 /*
@@ -37,6 +38,7 @@ public:
 	 * @param[in] CMainGrid object.
 	 */
 	void Display( const CMainGrid& grid );
+	void Display( const CButton& button );
 	/*
 	 * @brief Actualizes window.
 	 */
@@ -55,7 +57,7 @@ private:
 	UInt m_width;
 	UInt m_height;
 	SDL_Surface* screen;
-	std::vector<SDL_Surface*> images;
+	std::vector<std::pair<SDL_Surface*, String>> images;
 };
 
 #endif 
