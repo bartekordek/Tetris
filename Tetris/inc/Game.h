@@ -5,14 +5,32 @@
 #include "Brick.h"
 #include "Utils.h"
 
+/*
+ * @brief Main game class. 
+ * @details manages operation on different objects. This class is singleton.
+ */
 class CGame
 {
 public:
 	static CGame* Instance();
 	static void Destroy();
-
+	/*
+	 * @brief Basic initialization: sets main grid size and sets pictures.
+	 * @param[in] const unsigned int - size in rows.
+	 * @param[in] const unsigned int - size in col.
+	 */
 	void Initialize( CUInt rowsCount = 50, CUInt columnsCount = 10 );
-	void InitWindow( CUInt xSize = 800, CUInt ySize = 600 );
+	/*
+	* @brief Initializes main game window.
+	* @param[in] const unsigned int - window width.
+	* @param[in] const unsigned int - window height.
+	*/
+	void InitWindow( CUInt width = 800, CUInt height = 600 );
+	/*
+	 * @brief Initializes main game window.
+	 * @param[in] const unsigned int - size in rows.
+	 * @param[in] const unsigned int - size in col.
+	 */
 	void ShowGrid();
 	void MainLoop();
 	void StartGame();
