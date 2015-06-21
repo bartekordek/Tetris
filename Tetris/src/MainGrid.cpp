@@ -148,9 +148,11 @@ const bool CMainGrid::PartOfCurrentBrick( CUInt rowIndex, CUInt colIndex )const
 
 void CMainGrid::MoveActualBrick( const Direction direction )
 {
-	CheckIfBlockCanBeMoved( direction );// TODO, check has been made but it has no effect.
-	m_RemoveActualBlockSlabsFromGrid();
-	m_MoveActualBlock( direction );
+	if( true == CheckIfBlockCanBeMoved( direction ) )
+	{
+		m_RemoveActualBlockSlabsFromGrid();
+		m_MoveActualBlock( direction );
+	}
 }
 
 const bool CMainGrid::CheckIfBlockCanBeMoved( const Direction direction )const
@@ -194,6 +196,62 @@ const bool CMainGrid::CheckIfBlockCanBeMoved( const Direction direction )const
 		}
 
 		if( false == Empty( actRow + RowDiff, actCol + ColDiff ) )
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
+void CMainGrid::RotateActualBrick( const bool clockWise )
+{
+	CBrick* tempBrick;
+	if( m_activeBrick->GetBlockType() == BrickTypes::L )
+	{
+		tempBrick = new CLBrick( *dynamic_cast< CLBrick* >(m_activeBrick ) );
+	}
+	else if( m_activeBrick->GetBlockType() == BrickTypes::I )
+	{
+		tempBrick = new CIBrick( *dynamic_cast< CIBrick* >( m_activeBrick ) );
+	}
+	else if( m_activeBrick->GetBlockType() == BrickTypes::O )
+	{
+		tempBrick = new COBrick( *dynamic_cast< COBrick* >( m_activeBrick ) );
+	}
+	else if( m_activeBrick->GetBlockType() == BrickTypes::S )
+	{
+		tempBrick = new CSBrick( *dynamic_cast< CSBrick* >( m_activeBrick ) );
+	}
+	else
+	{
+		tempBrick = new CTBrick( *dynamic_cast< CTBrick* >( m_activeBrick ) );
+	}
+
+ 	tempBrick->Rotate( clockWise );
+	if( true == m_CheckIfBlockCanBePlaced( *tempBrick ) )
+	{
+		m_RemoveActualBlockSlabsFromGrid();
+		m_activeBrick->Rotate( clockWise );
+	}
+	delete tempBrick;
+}
+
+const bool CMainGrid::m_CheckIfBlockCanBePlaced( const CBrick& brick )
+{
+	CoordinatestList coords = brick.GetBlockPositions();
+	for( auto it = coords.begin(); it != coords.end(); ++it )
+	{
+		if( false == SlabExist( it->Row(), it->Col() ) )
+		{
+			return false;
+		}
+
+		if( true == PartOfCurrentBrick( it->Row(), it->Col() ) )
+		{
+			continue;
+		}
+
+		if( false == Empty( it->Row(), it->Col() ) )
 		{
 			return false;
 		}

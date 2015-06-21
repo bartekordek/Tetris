@@ -35,12 +35,14 @@ public:
 	const bool PartOfCurrentBrick( CUInt rowIndex, CUInt colIndex )const;
 	void MoveActualBrick( const Direction direction );
 	const bool CheckIfBlockCanBeMoved( const Direction direction )const;
+	void RotateActualBrick( const bool clockWise = true );
 
 private:
 	CUInt m_RowColToSlabIndex( CUInt rowIndex, CUInt colIndex )const;
 	void m_MoveActualBlock( const Direction direction );
 	void m_RemoveActualBlockSlabsFromGrid();
 	void m_SetToSlab( CUInt slabIndex );
+	const bool m_CheckIfBlockCanBePlaced( const CBrick& brick );
 	CBrick* m_activeBrick;
 	std::vector<CSlab> m_slab;
 	UInt m_columnsCount;
