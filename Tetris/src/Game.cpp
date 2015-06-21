@@ -124,6 +124,7 @@ void CGame::m_MainLoopThread()
 		if( false == mainGrid.CheckIfBlockCanBeMoved( Direction::D ) )
 		{
 			m_AddCurrentBrickToGrid();
+			m_CheckForFullLines();
 			m_ReleaseBrick();
 		}
 		std::thread waitForSleep( &CGame::m_WaitForMove, this );
@@ -152,6 +153,12 @@ void CGame::ShowGrid()
 void CGame::m_AddCurrentBrickToGrid()
 {
 	mainGrid.AddCurrentBrickToGrid();
+}
+
+void CGame::m_CheckForFullLines()
+{
+	mainGrid.ManageFullLine();
+	m_ActualizeGrid( mainGrid );
 }
 
 void CGame::m_MoveActiveBrick( const Direction direction )

@@ -1,14 +1,13 @@
 #include "MTime.h"
-#include <chrono>
-#include <thread>
+#include <SDL\SDL.h>
 
 
 void CTimeMod::SleepMiliSeconds( CUInt mSeconds )
 {
-	std::this_thread::sleep_for( std::chrono::milliseconds( mSeconds ) );
+	SDL_Delay( mSeconds );
 }
 
 void CTimeMod::SleepSeconds( CUInt seconds )
 {
-	std::this_thread::sleep_for( std::chrono::seconds( seconds) );
+	SleepMiliSeconds( 1000 * seconds );
 }

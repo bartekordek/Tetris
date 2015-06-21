@@ -229,9 +229,9 @@ void CTBrick::Rotate( const bool clockWise  )
 	if( m_direction.Get() == Direction::U )
 	{
 		m_blocks[0].SetPosition( m_blocks[0].Row() - 1, m_blocks[0].Col() );
-		m_blocks[1].SetPosition( m_blocks[1].Row() + 1, m_blocks[1].Col() );
-		m_blocks[2].SetPosition( m_blocks[2].Row() + 2, m_blocks[2].Col() - 1 );
-		m_blocks[3].SetPosition( m_blocks[3].Row(), m_blocks[3].Col() - 1 );
+		m_blocks[1].SetPosition( m_blocks[1].Row()   , m_blocks[1].Col() -1 );
+		m_blocks[2].SetPosition( m_blocks[2].Row() + 1, m_blocks[2].Col() - 2 );
+		m_blocks[3].SetPosition( m_blocks[3].Row() + 1, m_blocks[3].Col()  );
 		m_direction.Set( Direction::R );
 	}
 	else if( m_direction.Get() == Direction::R )

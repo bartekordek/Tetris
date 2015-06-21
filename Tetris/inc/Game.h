@@ -57,6 +57,7 @@ private:
 	void m_StartEventPoolThread();
 	void m_MainLoopThread();
 	void m_WaitForMove();
+	void m_CheckForFullLines();
 	String m_GetQuitButtonLocation();
 	CGame();
 	virtual ~CGame();

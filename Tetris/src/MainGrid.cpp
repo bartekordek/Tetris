@@ -291,6 +291,47 @@ void CMainGrid::AddCurrentBrickToGrid()
 	}
 }
 
+void CMainGrid::ManageFullLine()
+{
+	for( UInt i = 0; i < m_rowsCount; ++i )
+	{
+		if( m_LineIsFull( i ) )
+		{
+			m_MoveDownAllLines(i);
+		}
+	}
+}
+
+const bool CMainGrid::m_LineIsFull( CUInt rowIndex )const
+{
+	for( UInt i = 0; i < m_columnsCount; ++i )
+	{
+		if( true == m_slab.at( m_RowColToSlabIndex( rowIndex, i ) ).Empty() )
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
+void CMainGrid::m_MoveDownAllLines( CUInt toLineIndex )
+{
+	for( UInt i = toLineIndex; i > 1; --i )
+	{
+		for( UInt j = 0; j < m_columnsCount; ++j )
+		{
+			bool emptiness = m_slab.at( m_RowColToSlabIndex( i - 1, j ) ).Empty();
+			bool partOfBlock = m_slab.at( m_RowColToSlabIndex( i - 1, j ) ).PartOfSlab();
+			m_slab.at( m_RowColToSlabIndex( i, j ) ).Empty( emptiness );
+			m_slab.at( m_RowColToSlabIndex( i, j ) ).PartOfSlab( partOfBlock );
+		}
+	}
+	for( UInt j = 0; j < m_columnsCount; ++j )
+	{
+		m_slab.at( m_RowColToSlabIndex( 0, j ) ).Empty( true );
+	}
+}
+
 CUInt CMainGrid::m_RowColToSlabIndex( CUInt rowIndex, CUInt colIndex )const
 {
 	return rowIndex*m_columnsCount + colIndex;
