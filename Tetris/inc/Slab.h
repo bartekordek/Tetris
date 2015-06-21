@@ -3,6 +3,7 @@
 
 #include "Position.h"
 #include "Utils.h"
+#include "TableCoordinates.h"
 
 /*
  * @brief This class contains information about smallest part of game grid, which is slab. Slabs are parts of bricks.

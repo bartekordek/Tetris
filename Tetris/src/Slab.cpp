@@ -7,10 +7,7 @@ CSlab::CSlab( const CSlab& slab ):
 {
 }
 
-CSlab::CSlab( CUInt row,
-			  CUInt col,
-			  const bool partOfSlab,
-			  const bool empty):
+CSlab::CSlab( CUInt row, CUInt col, const bool partOfSlab, const bool empty):
 	m_position( CTableCoor( row, col ) ),
 	m_partOfSlab(partOfSlab),
 	m_empty(empty)
