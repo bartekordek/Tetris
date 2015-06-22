@@ -35,14 +35,36 @@ public:
 	 */
 	void ShowGrid();
 	/*
-	 * @brief Main loop method.
+	 * @brief Main loop method, handles events graphics and logic.
 	 */
 	void MainLoop();
+	/*
+	 * @brief Start game method. 
+	 */
 	void StartGame();
+	/*
+	 * @brief loads block background image. 
+	 */
 	void SetMainGridBlockBackgroundImage();
+	/*
+	 * @brief loads slab background image. 
+	 */
 	void SetMainGridSlabBackgroundImage();
+	/*
+	 * @brief Sets window color. 
+	 */
 	void SetWindowColor();
+	/*
+	 * @brief This method adds button with selected position and uses image from Path. 
+	 * @param[in] CUInt x position.
+	 * @param[in] CUInt y position.
+	 * @param[in] String button name. 
+	 * @param[in] Path to button image file. 
+	 */
 	void AddButton( CUInt x, CUInt y, String name, Path path );
+	/*
+	 * @brief quits the game. 
+	 */
 	void QuitGame();
 	CEventHandler eventHandler;
 

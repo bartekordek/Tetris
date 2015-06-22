@@ -21,15 +21,34 @@ public:
 	CBrick( const std::vector<CSlab>& blocks, const Direction direction = Direction::R );
 	CBrick( const CBrick& brick );
 	virtual ~CBrick();
+	/*
+	 * @brief Stores positions of all slabs from bricks in vector. 
+	 * @param[out] vector of positions. 
+	 */
 	CoordinatestList GetBlockPositions()const;
+	/*
+	 * @brief Moves brick in selected direction. 
+	 * @param[in] Direction direction which block is going to be moved.. 
+	 */
 	void Move( const Direction direction = Direction::D );
+	/*
+	 * @brief Rotates brick. 
+	 * @param[in] bool direction which block is going to be rotated. 
+	 */
 	virtual void Rotate( const bool clockWise = true ) = 0;
+	/*
+	 * @brief Sets background image as string path. 
+	 * @param[in] boost::filesystem::path path to file. 
+	 */
 	static void SetBackgroundImage( const Path& path );
-/*
- * @brief Return image location as string.
- * @param[out] std::string - location of image file.
- */
+	/*
+	 * @brief Return image location as string.
+	 * @param[out] std::string - location of image file.
+	 */
 	static const String GetImage();
+	/*
+	 * @brief Returns brick type. 
+	 */
 	BrickTypes GetBlockType()const;
 
 private:

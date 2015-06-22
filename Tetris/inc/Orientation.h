@@ -3,6 +3,9 @@
 
 #include <bitset>
 
+/*
+ * @brief Class to handle orientation. 
+ */
 class COrientation
 {
 public:
@@ -10,7 +13,15 @@ public:
 
 	COrientation( const Direction direction = R );
 
+	/*
+	 * @brief Sets orientation. 
+	 * @param[in] Direction orientation. 
+	 */
 	void Set( const Direction direction );
+	/*
+	 * @brief Gets orientation. 
+	 * @param[in] Direction orientation. 
+	 */
 	const Direction Get()const;
 
 private:
