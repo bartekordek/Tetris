@@ -1,6 +1,6 @@
 #include "Game.h"
 
-int main( int argc, char *TCHAR[] )
+int main( int argc, char *argv[] )
 {
 	const unsigned int columnsCount = 10;
 	const unsigned int rowsCount = 22;
