@@ -53,6 +53,7 @@ private:
 	virtual ~CSDLWrapper();
 	static CSDLWrapper* s_instance;
 	void m_ShowImages();
+	const bool m_ImageExistOnList()const;
 
 	UInt m_width;
 	UInt m_height;

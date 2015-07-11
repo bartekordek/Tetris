@@ -27,16 +27,24 @@ void CSDLWrapper::CreateWindow( CUInt width, CUInt height )
 
 void CSDLWrapper::AddImage( const String& path )
 {
+	if( false == m_ImageExistOnList( path ) )
+	{
+		SDL_Surface* surface = SDL_LoadBMP( path.c_str() );
+		std::pair<SDL_Surface*, String> image( surface, path );
+		images.push_back( image );
+	}	
+}
+
+const bool CSDLWrapper::m_ImageExistOnList( const String& path )const
+{
 	for( auto it = images.begin(); it != images.end(); ++it )
 	{
 		if( path == it->second )
 		{
-			return;
+			return true;
 		}
 	}
-	SDL_Surface* surface = SDL_LoadBMP( path.c_str() );
-	std::pair<SDL_Surface*, String> image( surface, path );
-	images.push_back( image );
+	return false;
 }
 
 void CSDLWrapper::Display( const CMainGrid& grid )
