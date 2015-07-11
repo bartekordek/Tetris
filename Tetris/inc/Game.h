@@ -91,6 +91,8 @@ private:
 	Vector<CButton> m_buttons;
 	std::thread* eventPoolThread;
 	std::thread* mainLoopThread;
+
+	bool m_quit = false;
 };
 
 void QuitGame();
