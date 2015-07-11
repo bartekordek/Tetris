@@ -66,8 +66,8 @@ void CSDLWrapper::Display( const CMainGrid& grid )
 void CSDLWrapper::Display( const CButton& button )
 {
 	SDL_Rect offset;
-	offset.x = button.GetX();
-	offset.y = button.GetY();
+	offset.x = static_cast<Sint16>( button.GetX() );
+	offset.y = static_cast<Sint16>( button.GetY() );
 	offset.h = 40;
 	offset.w = 70;
 	for( auto it = images.begin(); it != images.end(); ++it )
@@ -82,8 +82,8 @@ void CSDLWrapper::Display( const CButton& button )
 void CSDLWrapper::ApplyImage( CUInt imgIndex, CUInt x, CUInt y )
 {
 	SDL_Rect offset;
-	offset.x = x;
-	offset.y = y;
+	offset.x = static_cast<Sint16>( x );
+	offset.y = static_cast<Sint16>( y );
 	offset.h = 10;
 	offset.w = 10;
 	SDL_BlitSurface( images[imgIndex].first, NULL, screen, &offset );
