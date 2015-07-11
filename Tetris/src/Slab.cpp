@@ -16,11 +16,13 @@ CSlab::CSlab( CUInt row, CUInt col, const bool partOfSlab, const bool empty):
 
 CSlab& CSlab::operator=( const CSlab& slab )
 {
-	CSlab newSlab;
-	newSlab.m_position = slab.m_position;
-	newSlab.m_partOfSlab = slab.m_partOfSlab;
-	newSlab.m_empty = slab.m_empty;
-	return newSlab;
+	if( this != &slab )
+	{
+		m_position = slab.m_position;
+		m_partOfSlab = slab.m_partOfSlab;
+		m_empty = slab.m_empty;
+	}
+	return *this;
 }
 
 CUInt CSlab::Row()const
