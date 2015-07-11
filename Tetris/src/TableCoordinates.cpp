@@ -14,6 +14,11 @@ CTableCoor& CTableCoor::operator=( const CTableCoor& coor )
 	return *this;
 }
 
+CTableCoor::~CTableCoor()
+{
+
+}
+
 CUInt CTableCoor::Col()const
 {
 	return m_column;

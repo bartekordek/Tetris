@@ -12,6 +12,7 @@ public:
 	enum Direction{ L, R, U, D };
 
 	COrientation( const Direction direction = R );
+	~COrientation();
 
 	/*
 	 * @brief Sets orientation. 

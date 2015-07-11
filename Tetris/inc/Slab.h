@@ -14,6 +14,7 @@ class CSlab
 public:
 	CSlab( const CSlab& slab );
 	CSlab( CUInt row = 0, CUInt col = 0,  const bool partOfSlab = false, const bool empty = true );
+	virtual ~CSlab();
 	CSlab& operator=( const CSlab& slab );
 	CUInt Row()const;
 	CUInt Col()const;

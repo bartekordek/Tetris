@@ -16,6 +16,15 @@ void CSDLWrapper::Destroy()
 	delete s_instance;
 }
 
+CSDLWrapper::~CSDLWrapper()
+{
+	for( auto it = images.begin(); it != images.end(); ++it )
+	{
+		SDL_FreeSurface( it->first );
+	}
+	SDL_Quit();
+}
+
 void CSDLWrapper::CreateWindow( CUInt width, CUInt height )
 {
 	m_width = width;
@@ -98,14 +107,6 @@ CSDLWrapper::CSDLWrapper(): m_width(0), m_height(0), screen(NULL)
 {
 }
 
-CSDLWrapper::~CSDLWrapper()
-{	
-	for( auto it = images.begin(); it != images.end(); ++it )
-	{
-		SDL_FreeSurface( it->first );
-	}
-	SDL_Quit();
-}
 
 void CSDLWrapper::MainLoop()
 {

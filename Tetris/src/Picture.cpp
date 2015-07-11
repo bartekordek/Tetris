@@ -21,6 +21,11 @@ CPicture::CPicture( const boost::filesystem::path& location,
 
 }
 
+CPicture::~CPicture()
+{
+
+}
+
 void CPicture::Draw( const unsigned int xPost, const unsigned int yPos )
 {
 

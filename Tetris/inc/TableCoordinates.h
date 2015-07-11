@@ -11,6 +11,7 @@ class CTableCoor
 {
 public:
 	CTableCoor( CUInt row, CUInt column );
+	virtual ~CTableCoor();
 	CUInt Row()const;
 	CUInt Col()const;
 	void Row( CUInt row );
