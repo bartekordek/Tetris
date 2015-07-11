@@ -159,8 +159,8 @@ void CMainGrid::MoveActualBrick( const Direction direction )
 const bool CMainGrid::CheckIfBlockCanBeMoved( const Direction direction )const
 {
 	CoordinatestList blockCoords = ActiveBrickCoords();
-	int RowDiff;
-	int ColDiff;
+	int RowDiff = 0;
+	int ColDiff = 0;
 	if( Direction::U == direction )
 	{
 		ColDiff = 0;
