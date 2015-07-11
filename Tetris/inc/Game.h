@@ -76,7 +76,6 @@ private:
 	void m_ShowWindow();
 	void m_ActualizeGrid( const CMainGrid& grid );
 	void m_AddCurrentBrickToGrid();
-	void m_StartEventPoolThread();
 	void m_MainLoopThread();
 	void m_WaitForMove();
 	void m_CheckForFullLines();
@@ -96,6 +95,5 @@ private:
 };
 
 void QuitGame();
-void EventPoolFunction();
 
 #endif

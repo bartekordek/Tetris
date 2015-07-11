@@ -25,6 +25,11 @@ void CGame::Destroy()
 	CSDLWrapper::Destroy();
 }
 
+CGame::~CGame()
+{
+	delete eventPoolThread;
+}
+
 void CGame::Initialize( CUInt rowsCount, CUInt columnsCount )
 {
 	m_SetGameSize( rowsCount, columnsCount );
@@ -32,21 +37,9 @@ void CGame::Initialize( CUInt rowsCount, CUInt columnsCount )
 	SetMainGridSlabBackgroundImage();
 }
 
-void CGame::m_StartEventPoolThread()
-{
-	CGame* gameInstance = CGame::Instance();
-	eventHandler.AddQuitActionHandler( std::bind( &CGame::QuitGame, this ) );
-	eventPoolThread = new std::thread( EventPoolFunction );
-}
-
 void QuitGame()
 {
 	CGame::Instance()->QuitGame();
-}
-
-void EventPoolFunction()
-{
-	CGame::Instance()->eventHandler.MainEventLoop();
 }
 
 void CGame::InitWindow( CUInt xSize, CUInt ySize )
@@ -204,9 +197,4 @@ void CGame::m_SetGameSize( CUInt rows, CUInt columns )
 void CGame::QuitGame()
 {
 	Destroy();
-}
-
-CGame::~CGame()
-{
-	delete eventPoolThread;
 }
