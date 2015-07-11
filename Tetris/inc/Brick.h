@@ -18,7 +18,7 @@ class CBrick
 {
 public:
 	CBrick( BrickTypes typeofBrick, const Direction direction = Direction::R );
-	CBrick( const std::vector<CSlab>& blocks, const Direction direction = Direction::R );
+	CBrick( const Vector<CSlab>& blocks, const Direction direction = Direction::R );
 	CBrick( const CBrick& brick );
 	virtual ~CBrick();
 	/*
