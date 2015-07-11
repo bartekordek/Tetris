@@ -81,22 +81,21 @@ String CGame::m_GetQuitButtonLocation()
 void CGame::MainLoop()
 {
 	SDL_Event event;
-	bool quit = false;
 	mainLoopThread = new std::thread( &CGame::m_MainLoopThread, this );
-	while( quit == false )
+	while( false == m_quit)
 	{
 		while( SDL_PollEvent( &event ) )
 		{
 			if( event.type == SDL_QUIT )
 			{
-				quit = true;
+				m_quit = true;
 			}
 			else if( event.type == SDL_KEYDOWN )
 			{
 				switch( event.key.keysym.sym )
 				{
 					case SDLK_q:
-						quit = true;
+						m_quit = true;
 						break;
 					case SDLK_RIGHT:
 						m_MoveActiveBrick( Direction::R );
@@ -117,9 +116,8 @@ void CGame::MainLoop()
 
 void CGame::m_MainLoopThread()
 {
-	bool quit = false;
 	SDL_Event event;
-	while( true )
+	while( false == m_quit )
 	{
 		if( false == mainGrid.CheckIfBlockCanBeMoved( Direction::D ) )
 		{
