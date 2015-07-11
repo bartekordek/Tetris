@@ -88,7 +88,6 @@ private:
 	CMainGrid mainGrid;
 	static CGame* s_instance;
 	Vector<CButton> m_buttons;
-	std::thread* eventPoolThread;
 	std::thread* mainLoopThread;
 
 	bool m_quit = false;

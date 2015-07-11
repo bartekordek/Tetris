@@ -7,7 +7,7 @@
 
 CGame* CGame::s_instance = NULL;
 
-CGame::CGame()
+CGame::CGame(): mainLoopThread(NULL)
 {
 }
 
@@ -27,7 +27,6 @@ void CGame::Destroy()
 
 CGame::~CGame()
 {
-	delete eventPoolThread;
 }
 
 void CGame::Initialize( CUInt rowsCount, CUInt columnsCount )
