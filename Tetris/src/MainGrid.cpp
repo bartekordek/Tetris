@@ -9,6 +9,7 @@ CMainGrid::CMainGrid( CUInt rowsCount, CUInt columnsCount, CUInt initialX, CUInt
 
 CMainGrid::~CMainGrid()
 {
+	delete m_activeBrick;
 }
 
 void CMainGrid::SetSize( CUInt rowsCount, CUInt columnsCount,  CUInt initialX, CUInt initialY )
