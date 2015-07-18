@@ -5,9 +5,9 @@ CBrick::CBrick( BrickTypes typeofBrick, const Direction direction ): m_direction
 {
 }
 
-CBrick::CBrick( const std::vector<CSlab>& blocks, 
-				const Direction direction ):m_direction( COrientation::R )
-{	
+CBrick::CBrick( const std::vector<CSlab>& blocks,
+				const Direction direction ):m_blocks( blocks ), m_direction( direction )
+{
 }
 
 BrickTypes CBrick::GetBlockType()const
@@ -20,6 +20,15 @@ CBrick::CBrick( const CBrick& brick )
 	m_backgroundImage = brick.m_backgroundImage;
 	m_blocks = brick.m_blocks;
 	m_direction = brick.m_direction;
+}
+
+
+void CBrick::Rotate( const bool clockWise )
+{
+	if( true == clockWise )
+	{
+		m_RotateClockWise();
+	}
 }
 
 CoordinatestList CBrick::GetBlockPositions()const
@@ -83,7 +92,7 @@ CLBrick::CLBrick( const Direction direction ):CBrick( BrickTypes::L, direction )
 	m_blocks.push_back( CSlab( 1, 0 ) );
 }
 
-void CLBrick::Rotate( const bool clockWise )
+void CLBrick::m_RotateClockWise()
 {
 	if( m_direction.Get() == Direction::U )
 	{
@@ -127,7 +136,7 @@ CIBrick::CIBrick( const Direction direction ):CBrick( BrickTypes::I, direction )
 	m_blocks.push_back( CSlab( 0, 3 ) );
 }
 
-void CIBrick::Rotate( const bool clockWise )
+void CIBrick::m_RotateClockWise()
 {
 	if( m_direction.Get() == Direction::U )
 	{
@@ -167,7 +176,7 @@ COBrick::COBrick( const Direction direction ):CBrick( BrickTypes::O, direction )
 	m_blocks.push_back( CSlab( 1, 1 ) );
 }
 
-void COBrick::Rotate( const bool clockWise )
+void COBrick::m_RotateClockWise()
 {
 }
 
@@ -180,7 +189,7 @@ CSBrick::CSBrick( const Direction direction ):CBrick( BrickTypes::S, direction )
 	m_blocks.push_back( CSlab( 1, 2 ) );
 }
 
-void CSBrick::Rotate( const bool clockWise )
+void CSBrick::m_RotateClockWise()
 {
 	if( m_direction.Get() == Direction::U )
 	{
@@ -224,7 +233,7 @@ CTBrick::CTBrick( const Direction direction ):CBrick( BrickTypes::T,direction )
 	m_blocks.push_back( CSlab( 1, 1 ) );
 }
 
-void CTBrick::Rotate( const bool clockWise  )
+void CTBrick::m_RotateClockWise()
 {
 	if( m_direction.Get() == Direction::U )
 	{

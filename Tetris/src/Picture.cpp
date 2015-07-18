@@ -26,18 +26,15 @@ CPicture::~CPicture()
 
 }
 
-void CPicture::Draw( const unsigned int xPost, const unsigned int yPos )
-{
-
-}
-
 CPicture& CPicture::operator=( const CPicture& picture )
 {
-	m_location = picture.m_location;
-	m_name = picture.m_name;
-	m_width = picture.m_width;
-	m_height = picture.m_height;
-
+	if( this != &picture )
+	{
+		m_location = picture.m_location;
+		m_name = picture.m_name;
+		m_width = picture.m_width;
+		m_height = picture.m_height;
+	}
 	return *this;
 }
 

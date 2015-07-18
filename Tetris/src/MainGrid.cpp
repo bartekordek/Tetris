@@ -2,14 +2,14 @@
 #include "BrickFactory.h"
 #include <boost/foreach.hpp>
 
-CMainGrid::CMainGrid( CUInt rowsCount, CUInt columnsCount, CUInt initialX, CUInt initialY )
+CMainGrid::CMainGrid():m_activeBrick(NULL)
 {
 	//SetSize( rowsCount, columnsCount, initialX, initialY );
 }
 
 CMainGrid::~CMainGrid()
 {
-	delete m_activeBrick;
+	//delete m_activeBrick;
 }
 
 void CMainGrid::SetSize( CUInt rowsCount, CUInt columnsCount,  CUInt initialX, CUInt initialY )
@@ -21,8 +21,7 @@ void CMainGrid::SetSize( CUInt rowsCount, CUInt columnsCount,  CUInt initialX, C
 	{
 		for( UInt col = 0; col < m_columnsCount; ++col )
 		{
-			CSlab slab( row + initialY, col + initialX, false, true );
-			m_slab.push_back( slab );
+			m_slab.push_back( CSlab ( row + initialY, col + initialX, false, true ) );
 		}
 	}
 }
@@ -39,14 +38,15 @@ void CMainGrid::SetSlabPic( const Path& picLocation, CUInt width, CUInt height )
 
 void CMainGrid::ReLeaseBrick()
 {
+	delete m_activeBrick;
 	m_activeBrick = CBrickFactory::GetRandomBrick();
 	AddBrick( *m_activeBrick );
 }
 
 void CMainGrid::AddBrick( const CBrick& brick )
 {
-	CoordinatestList& coords = brick.GetBlockPositions();
-	for( auto it = coords.begin(); it != coords.end(); ++it )
+	CoordinatestList* coords = &brick.GetBlockPositions();
+	for( auto it = coords->begin(); it != coords->end(); ++it )
 	{
 		CUInt row = it->Row();
 		CUInt col = it->Col();
@@ -288,7 +288,6 @@ void CMainGrid::AddCurrentBrickToGrid()
 		{
 			m_slab.at( m_RowColToSlabIndex( it->Row(), it->Col() ) ).Empty( false );
 		}
-		delete m_activeBrick;
 	}
 }
 

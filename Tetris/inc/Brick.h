@@ -35,7 +35,7 @@ public:
 	 * @brief Rotates brick. 
 	 * @param[in] bool direction which block is going to be rotated. 
 	 */
-	virtual void Rotate( const bool clockWise = true ) = 0;
+	void Rotate( const bool clockWise = true );
 	/*
 	 * @brief Sets background image as string path. 
 	 * @param[in] boost::filesystem::path path to file. 
@@ -52,6 +52,7 @@ public:
 	BrickTypes GetBlockType()const;
 
 private:
+	virtual void m_RotateClockWise() = 0;
 	static Path m_backgroundImage;
 	BrickTypes m_brickType;
 
@@ -66,16 +67,17 @@ class CLBrick: public CBrick
 {
 public:
 	CLBrick( const Direction direction = Direction::R );
-	void Rotate( const bool clockWise = true );
 private:
+	void m_RotateClockWise();
+
 };
 
 class CIBrick: public CBrick
 {
 public:
 	CIBrick( const Direction direction = Direction::R );
-	void Rotate( const bool clockWise = true );
 private:
+	void m_RotateClockWise();
 };
 
 class COBrick: public CBrick
@@ -83,16 +85,16 @@ class COBrick: public CBrick
 public:
 	COBrick(
 		const Direction direction = Direction::R );
-	void Rotate( const bool clockWise = true );
 private:
+	void m_RotateClockWise();
 };
 
 class CSBrick: public CBrick
 {
 public:
 	CSBrick( const Direction direction = Direction::R );
-	void Rotate( const bool clockWise = true );
 private:
+	void m_RotateClockWise();
 };
 
 class CTBrick: public CBrick
@@ -100,8 +102,8 @@ class CTBrick: public CBrick
 public:
 	CTBrick(
 		const Direction direction = Direction::R );
-	void Rotate( const bool clockWise = true );
 private:
+	void m_RotateClockWise();
 };
 
 #endif

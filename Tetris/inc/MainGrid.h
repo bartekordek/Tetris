@@ -13,7 +13,7 @@
 class CMainGrid
 {
 public:
-	CMainGrid( CUInt rowsCount = 0, CUInt columnsCount = 0, CUInt initialX = 0, CUInt initialY = 0 );
+	CMainGrid( );
 	virtual ~CMainGrid();
 	/*
 	 * @brief Sets size of grid. 

@@ -33,7 +33,7 @@ public:
 	/*
 	 * @brief Displays main grid.
 	 */
-	void ShowGrid();
+	//void ShowGrid();
 	/*
 	 * @brief Main loop method, handles events graphics and logic.
 	 */
@@ -45,23 +45,12 @@ public:
 	/*
 	 * @brief loads block background image. 
 	 */
-	void SetMainGridBlockBackgroundImage();
+//	void SetMainGridBlockBackgroundImage();
 	/*
 	 * @brief loads slab background image. 
 	 */
-	void SetMainGridSlabBackgroundImage();
-	/*
-	 * @brief Sets window color. 
-	 */
-	void SetWindowColor();
-	/*
-	 * @brief This method adds button with selected position and uses image from Path. 
-	 * @param[in] CUInt x position.
-	 * @param[in] CUInt y position.
-	 * @param[in] String button name. 
-	 * @param[in] Path to button image file. 
-	 */
-	void AddButton( CUInt x, CUInt y, String name, Path path );
+//	void SetMainGridSlabBackgroundImage();
+
 	/*
 	 * @brief quits the game. 
 	 */
@@ -74,7 +63,7 @@ private:
 	void m_RotateActualBrick( const bool clockWise = true );
 	void m_ReleaseBrick();
 	void m_ShowWindow();
-	void m_ActualizeGrid( const CMainGrid& grid );
+	void m_ActualizeGrid();
 	void m_AddCurrentBrickToGrid();
 	void m_MainLoopThread();
 	void m_WaitForMove();
@@ -85,7 +74,7 @@ private:
 	
 	bool m_roundInProgress;
 
-	CMainGrid mainGrid;
+	//CMainGrid mainGrid;
 	static CGame* s_instance;
 	Vector<CButton> m_buttons;
 	std::thread* mainLoopThread;
