@@ -9,3 +9,8 @@
 *.suo
 *.tlog
 *.bin
+*.make
+*.internal
+*.check_cache
+*.lastcodeanalysisissucceded
+*.marks
