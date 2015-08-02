@@ -1,5 +1,4 @@
 #include "Brick.h"
-#include <boost/foreach.hpp>
 
 CBrick::CBrick( BrickTypes typeofBrick, const Direction direction ): m_direction( direction ), m_brickType( typeofBrick )
 {
