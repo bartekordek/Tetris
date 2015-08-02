@@ -10,13 +10,10 @@ CPicture::CPicture():
 
 }
 
-CPicture::CPicture( const boost::filesystem::path& location,
-					const unsigned int width,
-					const unsigned int height ):
+CPicture::CPicture( const Path location, CUInt width, CUInt height ):
 					m_location(location),
 					m_width(width),
 					m_height(height)
-
 {
 
 }
