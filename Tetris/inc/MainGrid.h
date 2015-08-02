@@ -29,19 +29,19 @@ public:
 	 * @param[in] CUInt width - width of picture. 
 	 * @param[in] CUInt height - height of picture. 
 	 */
-	void SetBackgroundPicture( const Path& picLocation, CUInt width, CUInt height );
+	void SetBackgroundPicture( const Path picLocation, CUInt width, CUInt height );
 	/*
 	 * @brief Sets slab picture. 
 	 * @param[in] Path picLocation - location of picture. 
 	 * @param[in] CUInt width - width of picture. 
 	 * @param[in] CUInt height - height of picture. 
 	 */
-	void SetSlabPic( const Path& picLocation, CUInt width, CUInt height );
+	void SetSlabPic( const Path picLocation, CUInt width, CUInt height );
 	/*
 	 * @brief Adds brick to not moving slab pool.  
 	 * @param[in] Brick to be added.
 	 */
-	void AddBrick( const CBrick& brick );
+	void AddBrick( const CBrick* brick );
 	/*
 	 * @brief Creates randomly a brick and puts it on grid. 
 	 */
@@ -158,7 +158,7 @@ private:
 	void m_RemoveActualBlockSlabsFromGrid();
 	void m_SetToSlab( CUInt slabIndex );
 	const bool m_LineIsFull( CUInt rowIndex )const;
-	const bool m_CheckIfBlockCanBePlaced( const CBrick& brick );
+	const bool m_CheckIfBlockCanBePlaced( const CBrick* brick );
 	void m_MoveDownAllLines( CUInt toLineIndex );
 	CBrick* m_activeBrick;
 	std::vector<CSlab> m_slab;

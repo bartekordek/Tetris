@@ -4,12 +4,11 @@
 
 CMainGrid::CMainGrid():m_activeBrick(NULL)
 {
-	//SetSize( rowsCount, columnsCount, initialX, initialY );
 }
 
 CMainGrid::~CMainGrid()
 {
-	//delete m_activeBrick;
+	delete m_activeBrick;
 }
 
 void CMainGrid::SetSize( CUInt rowsCount, CUInt columnsCount,  CUInt initialX, CUInt initialY )
@@ -26,12 +25,12 @@ void CMainGrid::SetSize( CUInt rowsCount, CUInt columnsCount,  CUInt initialX, C
 	}
 }
 
-void CMainGrid::SetBackgroundPicture( const Path& picLocation, CUInt width, CUInt height )
+void CMainGrid::SetBackgroundPicture( const Path location, CUInt width, CUInt height )
 {
-	m_slabBackground = CPicture( picLocation, width, height );
+	m_slabBackground = CPicture( location, width, height );
 }
 
-void CMainGrid::SetSlabPic( const Path& picLocation, CUInt width, CUInt height )
+void CMainGrid::SetSlabPic( const Path picLocation, CUInt width, CUInt height )
 {
 	m_brickBckd = CPicture( picLocation, width, height );
 }
@@ -40,13 +39,13 @@ void CMainGrid::ReLeaseBrick()
 {
 	delete m_activeBrick;
 	m_activeBrick = CBrickFactory::GetRandomBrick();
-	AddBrick( *m_activeBrick );
+	AddBrick( m_activeBrick );
 }
 
-void CMainGrid::AddBrick( const CBrick& brick )
+void CMainGrid::AddBrick( const CBrick* brick )
 {
-	CoordinatestList* coords = &brick.GetBlockPositions();
-	for( auto it = coords->begin(); it != coords->end(); ++it )
+	CoordinatestList coords = brick->GetBlockPositions();
+	for( auto it = coords.begin(); it != coords.end(); ++it )
 	{
 		CUInt row = it->Row();
 		CUInt col = it->Col();
@@ -114,7 +113,6 @@ CUInt CMainGrid::SlabCount()const
 {
 	return GetRowsCount()*GetColumnsCount();
 }
-
 const CoordinatestList CMainGrid::ActiveBrickCoords()const
 {
 	CoordinatestList coords = m_activeBrick->GetBlockPositions();
@@ -229,7 +227,7 @@ void CMainGrid::RotateActualBrick( const bool clockWise )
 	}
 
  	tempBrick->Rotate( clockWise );
-	if( true == m_CheckIfBlockCanBePlaced( *tempBrick ) )
+	if( true == m_CheckIfBlockCanBePlaced( tempBrick ) )
 	{
 		m_RemoveActualBlockSlabsFromGrid();
 		m_activeBrick->Rotate( clockWise );
@@ -237,9 +235,9 @@ void CMainGrid::RotateActualBrick( const bool clockWise )
 	delete tempBrick;
 }
 
-const bool CMainGrid::m_CheckIfBlockCanBePlaced( const CBrick& brick )
+const bool CMainGrid::m_CheckIfBlockCanBePlaced( const CBrick* brick )
 {
-	CoordinatestList coords = brick.GetBlockPositions();
+	CoordinatestList coords = brick->GetBlockPositions();
 	for( auto it = coords.begin(); it != coords.end(); ++it )
 	{
 		if( false == SlabExist( it->Row(), it->Col() ) )
@@ -275,7 +273,7 @@ void CMainGrid::m_RemoveActualBlockSlabsFromGrid()
 void CMainGrid::m_MoveActualBlock( const Direction direction )
 {
 	m_activeBrick->Move( direction );
-	AddBrick( *m_activeBrick );
+	AddBrick( m_activeBrick );
 }
 
 
