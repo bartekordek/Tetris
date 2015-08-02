@@ -7,22 +7,22 @@ class CPicture
 {
 public:
 	CPicture();
-	CPicture( const Path& location, 
-			  const unsigned int width = 10, 
-			  const unsigned int height = 10 );
+	CPicture( const Path location, 
+			  CUInt width = 10,
+			  CUInt height = 10 );
 	~CPicture();
 	CPicture& operator=( const CPicture& picture );
 	void SetPictureLocation( const Path& picLocation );
-	void SetPictureSize( const unsigned int width, const unsigned int height );
+	void SetPictureSize( CUInt width, CUInt height );
 	const String GetImgLoc()const;
-	const unsigned int GetImgWidth()const;
-	const unsigned int GetImgHeight()const;
+	CUInt GetImgWidth()const;
+	CUInt GetImgHeight()const;
 
 private:
 	Path m_location;
 	String m_name;
-	unsigned int m_width;
-	unsigned int m_height;
+	UInt m_width;
+	UInt m_height;
 
 };
 
