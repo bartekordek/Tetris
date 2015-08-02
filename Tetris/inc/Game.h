@@ -33,7 +33,7 @@ public:
 	/*
 	 * @brief Displays main grid.
 	 */
-	//void ShowGrid();
+	void ShowGrid();
 	/*
 	 * @brief Main loop method, handles events graphics and logic.
 	 */
@@ -45,17 +45,18 @@ public:
 	/*
 	 * @brief loads block background image. 
 	 */
-//	void SetMainGridBlockBackgroundImage();
+	void SetMainGridBlockBackgroundImage();
 	/*
 	 * @brief loads slab background image. 
 	 */
-//	void SetMainGridSlabBackgroundImage();
+	void SetMainGridSlabBackgroundImage();
 
 	/*
 	 * @brief quits the game. 
 	 */
 	void QuitGame();
 	CEventHandler eventHandler;
+	virtual ~CGame();
 
 private:
 	void m_SetGameSize( CUInt rows, CUInt columns );
@@ -70,16 +71,14 @@ private:
 	void m_CheckForFullLines();
 	String m_GetQuitButtonLocation();
 	CGame();
-	virtual ~CGame();
 	
 	bool m_roundInProgress;
 
-	//CMainGrid mainGrid;
+	CMainGrid* m_mainGrid;
 	static CGame* s_instance;
-	Vector<CButton> m_buttons;
 	std::thread* mainLoopThread;
 
-	bool m_quit = false;
+	bool m_quit;
 };
 
 void QuitGame();

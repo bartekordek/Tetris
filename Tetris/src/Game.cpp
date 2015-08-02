@@ -7,8 +7,9 @@
 
 CGame* CGame::s_instance = NULL;
 
-CGame::CGame(): mainLoopThread(NULL)
+CGame::CGame(): m_roundInProgress(false), m_mainGrid(NULL), mainLoopThread(NULL),m_quit(false)
 {
+	m_mainGrid = new CMainGrid();
 }
 
 CGame* CGame::Instance()
@@ -23,17 +24,20 @@ CGame* CGame::Instance()
 void CGame::Destroy()
 {
 	CSDLWrapper::Destroy();
+	delete s_instance;
+	s_instance = NULL;
 }
 
 CGame::~CGame()
 {
+	delete m_mainGrid;
 }
 
 void CGame::Initialize( CUInt rowsCount, CUInt columnsCount )
 {
-	//m_SetGameSize( rowsCount, columnsCount );
-	//SetMainGridBlockBackgroundImage();
-	//SetMainGridSlabBackgroundImage();
+	m_SetGameSize( rowsCount, columnsCount );
+	SetMainGridBlockBackgroundImage();
+	SetMainGridSlabBackgroundImage();
 }
 
 void QuitGame()
@@ -43,29 +47,20 @@ void QuitGame()
 
 void CGame::InitWindow( CUInt xSize, CUInt ySize )
 {
-//	CSDLWrapper::Instance()->CreateWindow( xSize, ySize );
-//	CSDLWrapper::Instance()->AddImage( mainGrid.SlabPictureLoc() );
-//	CSDLWrapper::Instance()->AddImage( mainGrid.EmptySlabPictureLoc() );
-//	CSDLWrapper::Instance()->AddImage( m_GetQuitButtonLocation() );
+	CSDLWrapper::Instance()->CreateWindow( xSize, ySize );
+	CSDLWrapper::Instance()->AddImage( m_mainGrid->SlabPictureLoc() );
+	CSDLWrapper::Instance()->AddImage( m_mainGrid->EmptySlabPictureLoc() );
 }
 
-//void CGame::StartGame()
-//{
-//	m_ReleaseBrick();
-//	ShowGrid();
-//}
-
-String CGame::m_GetQuitButtonLocation()
+void CGame::StartGame()
 {
-	Path picDir = Fs::current_path();
-	picDir = picDir.parent_path() / "pic" / "ButtonQuit.bmp";
-	String buttonLocationPathAsString( picDir.string() );
-	return buttonLocationPathAsString;
+	m_ReleaseBrick();
+	ShowGrid();
 }
 
 void CGame::MainLoop()
 {
-	/*SDL_Event event;
+	SDL_Event event;
 	mainLoopThread = new std::thread( &CGame::m_MainLoopThread, this );
 	while( false == m_quit)
 	{
@@ -96,66 +91,66 @@ void CGame::MainLoop()
 				}
 			}
 		}
-	}*/
+	}
 }
-//
-//void CGame::m_MainLoopThread()
-//{
-//	while( false == m_quit )
-//	{
-//		if( false == mainGrid.CheckIfBlockCanBeMoved( Direction::D ) )
-//		{
-//			m_AddCurrentBrickToGrid();
-//			m_CheckForFullLines();
-//			m_ReleaseBrick();
-//		}
-//		std::thread waitForSleep( &CGame::m_WaitForMove, this );
-//		waitForSleep.join();
-//		m_MoveActiveBrick( Direction::D );
-//	}
-//}
+
+void CGame::m_MainLoopThread()
+{
+	while( false == m_quit )
+	{
+		if( false == m_mainGrid->CheckIfBlockCanBeMoved( Direction::D ) )
+		{
+			m_AddCurrentBrickToGrid();
+			m_CheckForFullLines();
+			m_ReleaseBrick();
+		}
+		std::thread waitForSleep( &CGame::m_WaitForMove, this );
+		waitForSleep.join();
+		m_MoveActiveBrick( Direction::D );
+	}
+}
 
 void CGame::m_WaitForMove()
 {
 	CTimeMod::SleepMiliSeconds( 500 );
 }
 
-//void CGame::m_ReleaseBrick()
-//{
-//	mainGrid.ReLeaseBrick();
-//	ShowGrid();
-//}
+void CGame::m_ReleaseBrick()
+{
+	m_mainGrid->ReLeaseBrick();
+	ShowGrid();
+}
 
-//void CGame::ShowGrid()
-//{
-//	CSDLWrapper::Instance()->Display( mainGrid );
-//	CSDLWrapper::Instance()->Actualize();
-//}
-//
-//void CGame::m_AddCurrentBrickToGrid()
-//{
-//	mainGrid.AddCurrentBrickToGrid();
-//}
-//
-//void CGame::m_CheckForFullLines()
-//{
-//	mainGrid.ManageFullLine();
-//	m_ActualizeGrid();
-//}
-//
-//void CGame::m_MoveActiveBrick( const Direction direction )
-//{
-//	mainGrid.MoveActualBrick( direction );
-//	m_ActualizeGrid();
-//	ShowGrid();
-//}
-//
-//void CGame::m_RotateActualBrick( const bool clockWise )
-//{
-//	mainGrid.RotateActualBrick( clockWise );
-//	m_ActualizeGrid();
-//	ShowGrid();
-//}
+void CGame::ShowGrid()
+{
+	CSDLWrapper::Instance()->Display( *m_mainGrid );
+	CSDLWrapper::Instance()->Actualize();
+}
+
+void CGame::m_AddCurrentBrickToGrid()
+{
+	m_mainGrid->AddCurrentBrickToGrid();
+}
+
+void CGame::m_CheckForFullLines()
+{
+	m_mainGrid->ManageFullLine();
+	m_ActualizeGrid();
+}
+
+void CGame::m_MoveActiveBrick( const Direction direction )
+{
+	m_mainGrid->MoveActualBrick( direction );
+	m_ActualizeGrid();
+	ShowGrid();
+}
+
+void CGame::m_RotateActualBrick( const bool clockWise )
+{
+	m_mainGrid->RotateActualBrick( clockWise );
+	m_ActualizeGrid();
+	ShowGrid();
+}
 
 void CGame::m_ActualizeGrid( )
 {
@@ -166,24 +161,24 @@ void CGame::m_ShowWindow()
 {
 }
 
-//void CGame::SetMainGridBlockBackgroundImage()
-//{
-//	Path picDir = Fs::current_path();
-//	picDir = picDir.parent_path() / "pic" / "BackGroundBlock.bmp";
-//	mainGrid.SetBackgroundPicture( picDir, 10, 10 );
-//}
-//
-//void CGame::SetMainGridSlabBackgroundImage()
-//{
-//	Path picDir = Fs::current_path();
-//	picDir = picDir.parent_path() / "pic" / "Block.bmp";
-//	mainGrid.SetSlabPic( picDir, 10, 10 );
-//}
-//
-//void CGame::m_SetGameSize( CUInt rows, CUInt columns )
-//{
-//	mainGrid.SetSize( rows, columns );
-//}
+void CGame::SetMainGridBlockBackgroundImage()
+{
+	Path picDir = Fs::current_path().parent_path();
+	picDir =  picDir / "pic" / "BackGroundBlock.bmp";
+	m_mainGrid->SetBackgroundPicture( picDir, 10, 10 );
+}
+
+void CGame::SetMainGridSlabBackgroundImage()
+{
+	Path picDir = Fs::current_path();
+	picDir = picDir.parent_path() / "pic" / "Block.bmp";
+	m_mainGrid->SetSlabPic( picDir, 10, 10 );
+}
+
+void CGame::m_SetGameSize( CUInt rows, CUInt columns )
+{
+	m_mainGrid->SetSize( rows, columns );
+}
 
 void CGame::QuitGame()
 {
