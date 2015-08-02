@@ -1,5 +1,9 @@
 #include "MTime.h"
-#include <SDL\SDL.h>
+#ifdef _WIN32
+	#include "SDL\SDL.h"
+#else
+	#include "SDL/SDL.h"
+#endif
 
 
 void CTimeMod::SleepMiliSeconds( CUInt mSeconds )
