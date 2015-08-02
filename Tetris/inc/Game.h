@@ -76,7 +76,7 @@ private:
 
 	CMainGrid* m_mainGrid;
 	static CGame* s_instance;
-	std::thread* mainLoopThread;
+	std::thread m_mainLoopThread;
 
 	bool m_quit;
 };

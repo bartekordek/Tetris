@@ -7,7 +7,7 @@
 
 CGame* CGame::s_instance = NULL;
 
-CGame::CGame(): m_roundInProgress(false), m_mainGrid(NULL), mainLoopThread(NULL),m_quit(false)
+CGame::CGame(): m_roundInProgress(false), m_mainGrid(NULL),m_quit(false)
 {
 	m_mainGrid = new CMainGrid();
 }
@@ -61,7 +61,7 @@ void CGame::StartGame()
 void CGame::MainLoop()
 {
 	SDL_Event event;
-	mainLoopThread = new std::thread( &CGame::m_MainLoopThread, this );
+	m_mainLoopThread = std::thread( &CGame::m_MainLoopThread, this );
 	while( false == m_quit)
 	{
 		while( SDL_PollEvent( &event ) )
@@ -92,6 +92,7 @@ void CGame::MainLoop()
 			}
 		}
 	}
+	m_mainLoopThread.join();
 }
 
 void CGame::m_MainLoopThread()
