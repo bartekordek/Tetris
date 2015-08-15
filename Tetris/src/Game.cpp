@@ -5,27 +5,20 @@
 #include <cstddef>
 #include <boost/timer/timer.hpp>
 
-CGame* CGame::s_instance = NULL;
-
 CGame::CGame(): m_roundInProgress(false), m_mainGrid(NULL),m_quit(false)
 {
 	m_mainGrid = new CMainGrid();
 }
 
-CGame* CGame::Instance()
+CGame& CGame::Instance()
 {
-	if( NULL == s_instance )
-	{
-		s_instance = new CGame();
-	}
+	static CGame s_instance;
 	return s_instance;
 }
 
 void CGame::Destroy()
 {
 	CSDLWrapper::Destroy();
-	delete s_instance;
-	s_instance = NULL;
 }
 
 CGame::~CGame()
@@ -42,7 +35,7 @@ void CGame::Initialize( CUInt rowsCount, CUInt columnsCount )
 
 void QuitGame()
 {
-	CGame::Instance()->QuitGame();
+	CGame::Instance().QuitGame();
 }
 
 void CGame::InitWindow( CUInt xSize, CUInt ySize )
