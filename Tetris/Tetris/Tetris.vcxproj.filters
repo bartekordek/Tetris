@@ -54,13 +54,7 @@
     <ClInclude Include="..\inc\MTime.h">
       <Filter>inc</Filter>
     </ClInclude>
-    <ClInclude Include="..\inc\EventHandler.h">
-      <Filter>inc</Filter>
-    </ClInclude>
     <ClInclude Include="..\inc\TableCoordinates.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\inc\Button.h">
       <Filter>inc</Filter>
     </ClInclude>
   </ItemGroup>
@@ -99,13 +93,7 @@
     <ClCompile Include="..\src\MTime.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\EventHandler.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\TableCoordinates.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Button.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
