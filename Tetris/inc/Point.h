@@ -3,11 +3,11 @@
 class CPoint
 {
 public:
-	CPoint( const int x = 0, const int y = 0 );
+	CPoint( CInt x = 0, CInt y = 0 );
 	virtual ~CPoint();
 
-	const int GetX()const;
-	const int GetY()const;
+	CInt GetX()const;
+	CInt GetY()const;
 
 private:
 	int m_x;
