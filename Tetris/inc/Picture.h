@@ -7,12 +7,10 @@ class CPicture
 {
 public:
 	CPicture();
-	CPicture( const Path location, 
-			  CUInt width = 10,
-			  CUInt height = 10 );
+	CPicture( const Path location, CUInt width = 10, CUInt height = 10 );
 	~CPicture();
 	CPicture& operator=( const CPicture& picture );
-	void SetPictureLocation( const Path& picLocation );
+	void SetPictureLocation( const Path picLocation );
 	void SetPictureSize( CUInt width, CUInt height );
 	const String GetImgLoc()const;
 	CUInt GetImgWidth()const;
