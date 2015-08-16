@@ -9,15 +9,10 @@
 #include "Button.h"
 #include "EventHandler.h"
 
-/*
- * @brief Main game class. 
- * @details manages operation on different objects. This class is singleton.
- */
 class CGame
 {
 public:
-	static CGame& Instance();
-	static void Destroy();
+	CGame();
 	void Initialize( CUInt rowsCount = 50, CUInt columnsCount = 10 );
 	void InitWindow( CUInt width = 600, CUInt height = 400 );
 	void ShowGrid();
@@ -41,11 +36,10 @@ private:
 	void m_WaitForMove();
 	void m_CheckForFullLines();
 	String m_GetQuitButtonLocation();
-	CGame();
-	
+
 	bool m_roundInProgress;
 
-	CMainGrid* m_mainGrid;
+	CMainGrid m_mainGrid;
 	std::thread m_mainLoopThread;
 
 	bool m_quit;
