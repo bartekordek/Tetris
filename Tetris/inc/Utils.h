@@ -8,7 +8,7 @@
 
 namespace Fs = boost::filesystem;
 typedef const unsigned int CUInt;
-typedef const signed int CIntg;
+typedef const signed int CInt;
 typedef unsigned int UInt;
 typedef Fs::path Path;
 typedef std::string String;
