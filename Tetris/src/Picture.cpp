@@ -7,7 +7,6 @@ CPicture::CPicture():
 	m_width(0),
 	m_height(0)
 {
-
 }
 
 CPicture::CPicture( const Path location, CUInt width, CUInt height ):
@@ -15,12 +14,10 @@ CPicture::CPicture( const Path location, CUInt width, CUInt height ):
 					m_width(width),
 					m_height(height)
 {
-
 }
 
 CPicture::~CPicture()
 {
-
 }
 
 CPicture& CPicture::operator=( const CPicture& picture )
@@ -35,7 +32,7 @@ CPicture& CPicture::operator=( const CPicture& picture )
 	return *this;
 }
 
-void CPicture::SetPictureLocation( const boost::filesystem::path& picLocation )
+void CPicture::SetPictureLocation( Path picLocation )
 {
 	boost::system::error_code errorText;
 	if( true == boost::filesystem::is_regular_file( picLocation, errorText ) )
@@ -48,23 +45,23 @@ void CPicture::SetPictureLocation( const boost::filesystem::path& picLocation )
 	}
 }
 
-void CPicture::SetPictureSize( const unsigned int width, const unsigned int height )
+void CPicture::SetPictureSize( CUInt width, CUInt height )
 {
 	m_width = width;
 	m_height = height;
 }
 
-const std::string CPicture::GetImgLoc()const
+const String CPicture::GetImgLoc()const
 {
 	return m_location.string();
 }
 
-const unsigned int CPicture::GetImgWidth()const
+CUInt CPicture::GetImgWidth()const
 {
 	return m_width;
 }
 
-const unsigned int CPicture::GetImgHeight()const
+CUInt CPicture::GetImgHeight()const
 {
 	return m_height;
 }
