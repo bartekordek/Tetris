@@ -16,7 +16,6 @@ CSlab::CSlab( CUInt row, CUInt col, const bool partOfSlab, const bool empty):
 
 CSlab::~CSlab()
 {
-
 }
 
 CSlab& CSlab::operator=( const CSlab& slab )
