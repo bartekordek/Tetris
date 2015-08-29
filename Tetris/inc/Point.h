@@ -1,5 +1,8 @@
 #ifndef __POINT__
 #define __POINT__
+
+#include <Utils.h>
+
 class CPoint
 {
 public:
