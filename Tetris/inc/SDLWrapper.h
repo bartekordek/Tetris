@@ -3,7 +3,6 @@
 
 #include "Utils.h"
 #include "MainGrid.h"
-#include "Button.h"
 #include "SDL/SDL.h"
 
 class CSDLWrapper
@@ -17,7 +16,6 @@ public:
 
 	void ApplyImage( CUInt imgIndex, CUInt x, CUInt y );
 	void Display( const CMainGrid& grid );
-	void Display( const CButton& button );
 	void Actualize();
 	void MainLoop();
 
