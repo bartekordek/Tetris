@@ -13,14 +13,14 @@ CMainGrid::~CMainGrid()
 
 void CMainGrid::SetSize( CUInt rowsCount, CUInt columnsCount,  CUInt initialX, CUInt initialY )
 {
-	m_slab.erase( m_slab.begin(), m_slab.end() );
+	m_slabs.erase( m_slabs.begin(), m_slabs.end() );
 	m_columnsCount = columnsCount;
 	m_rowsCount = rowsCount;
 	for( UInt row = 0; row < m_rowsCount; ++row )
 	{
 		for( UInt col = 0; col < m_columnsCount; ++col )
 		{
-			m_slab.push_back( CSlab ( row + initialY, col + initialX, false, true ) );
+			m_slabs.push_back( CSlab ( row + initialY, col + initialX, false, true ) );
 		}
 	}
 }
@@ -55,8 +55,8 @@ void CMainGrid::AddBrick( const CBrick* brick )
 
 void CMainGrid::m_SetToSlab( CUInt slabIndex )
 {
-	m_slab.at( slabIndex ).PartOfSlab( true );
-	m_slab.at( slabIndex ).Empty( false );
+	m_slabs.at( slabIndex ).PartOfSlab( true );
+	m_slabs.at( slabIndex ).Empty( false );
 }
 
 CUInt CMainGrid::GetRowsCount()const
@@ -91,22 +91,22 @@ CUInt CMainGrid::GetImgHeight()const
 
 CUInt CMainGrid::GetSlabRow( CUInt slabIndex )const
 {
-	return m_slab.at( slabIndex ).Row();
+	return m_slabs.at( slabIndex ).Row();
 }
 
 CUInt CMainGrid::GetSlabCol( CUInt slabIndex )const
 {
-	return m_slab.at( slabIndex ).Col();
+	return m_slabs.at( slabIndex ).Col();
 }
 
 const bool CMainGrid::PartOfSlab( CUInt slabIndex )const
 {
-	return m_slab[slabIndex].PartOfSlab();
+	return m_slabs[slabIndex].PartOfSlab();
 }
 
 const bool CMainGrid::Empty( CUInt rowIndex, CUInt colIndex )const
 {
-	return m_slab.at( m_RowColToSlabIndex( rowIndex, colIndex ) ).Empty();
+	return m_slabs.at( m_RowColToSlabIndex( rowIndex, colIndex ) ).Empty();
 }
 
 CUInt CMainGrid::SlabCount()const
@@ -117,19 +117,6 @@ const CoordinatestList CMainGrid::ActiveBrickCoords()const
 {
 	CoordinatestList coords = m_activeBrick->GetBlockPositions();
 	return coords;
-}
-
-const bool CMainGrid::SlabExist( CUInt rowIndex, CUInt colIndex )const
-{
-	if( colIndex >= m_columnsCount || rowIndex >= m_rowsCount )
-	{
-		return false;
-	}
-	if( m_RowColToSlabIndex(rowIndex, colIndex ) < m_slab.size() )
-	{
-		return true;
-	}
-	return false;
 }
 
 const bool CMainGrid::PartOfCurrentBrick( CUInt rowIndex, CUInt colIndex )const
@@ -157,28 +144,8 @@ void CMainGrid::MoveActualBrick( const Direction direction )
 const bool CMainGrid::CheckIfBlockCanBeMoved( const Direction direction )const
 {
 	CoordinatestList blockCoords = ActiveBrickCoords();
-	int RowDiff = 0;
-	int ColDiff = 0;
-	if( Direction::U == direction )
-	{
-		ColDiff = 0;
-		RowDiff = -1;
-	}
-	else if( Direction::D == direction )
-	{
-		ColDiff = 0;
-		RowDiff = 1;
-	}
-	else if( Direction::R == direction )
-	{
-		ColDiff = 1;
-		RowDiff = 0;
-	}
-	else if( Direction::L == direction )
-	{
-		ColDiff = -1;
-		RowDiff = 0;
-	}
+	CInt RowDiff = GetRowOffset(direction);
+	CInt ColDiff = GetColOffset(direction);
 
 	for( auto it = blockCoords.begin(); it != blockCoords.end(); ++it )
 	{
@@ -200,6 +167,46 @@ const bool CMainGrid::CheckIfBlockCanBeMoved( const Direction direction )const
 		}
 	}
 	return true;
+}
+
+CInt CMainGrid::GetColOffset( const Direction direction )const
+{
+	if( Direction::U == direction )
+	{
+		return 0;
+	}
+	else if( Direction::D == direction )
+	{
+		return 0;
+	}
+	else if( Direction::R == direction )
+	{
+		return 1;
+	}
+	else if( Direction::L == direction )
+	{
+		return  -1;
+	}
+}
+
+CInt CMainGrid::GetRowOffset( const Direction direction )const
+{
+	if( Direction::U == direction )
+	{
+		return  0;
+	}
+	else if( Direction::D == direction )
+	{
+		return  1;
+	}
+	else if( Direction::R == direction )
+	{
+		return  0;
+	}
+	else if( Direction::L == direction )
+	{
+		return  0;
+	}
 }
 
 void CMainGrid::RotateActualBrick( const bool clockWise )
@@ -258,6 +265,22 @@ const bool CMainGrid::m_CheckIfBlockCanBePlaced( const CBrick* brick )
 	return true;
 }
 
+const bool CMainGrid::SlabExist( CUInt rowIndex, CUInt colIndex )const
+{
+	if( colIndex >= m_columnsCount || rowIndex >= m_rowsCount )
+	{
+		return false;
+	}
+
+	CSlab slab = m_slabs[m_RowColToSlabIndex( rowIndex, colIndex )];
+
+	if( true == slab.Empty() || true == slab.PartOfSlab() )
+	{
+		return true;
+	}
+	return false;
+}
+
 void CMainGrid::m_RemoveActualBlockSlabsFromGrid()
 {
 	CoordinatestList coords = m_activeBrick->GetBlockPositions();
@@ -265,8 +288,8 @@ void CMainGrid::m_RemoveActualBlockSlabsFromGrid()
 	{
 		CUInt row = it->Row();
 		CUInt col = it->Col();
-		m_slab.at( m_RowColToSlabIndex( row, col ) ).Empty( true );
-		m_slab.at( m_RowColToSlabIndex( row, col ) ).PartOfSlab( false );
+		m_slabs.at( m_RowColToSlabIndex( row, col ) ).Empty( true );
+		m_slabs.at( m_RowColToSlabIndex( row, col ) ).PartOfSlab( false );
 	}
 }
 
@@ -284,7 +307,7 @@ void CMainGrid::AddCurrentBrickToGrid()
 		CoordinatestList coords = m_activeBrick->GetBlockPositions();
 		for( auto it = coords.begin(); it != coords.end(); ++it )
 		{
-			m_slab.at( m_RowColToSlabIndex( it->Row(), it->Col() ) ).Empty( false );
+			m_slabs.at( m_RowColToSlabIndex( it->Row(), it->Col() ) ).Empty( false );
 		}
 	}
 }
@@ -304,7 +327,7 @@ const bool CMainGrid::m_LineIsFull( CUInt rowIndex )const
 {
 	for( UInt i = 0; i < m_columnsCount; ++i )
 	{
-		if( true == m_slab.at( m_RowColToSlabIndex( rowIndex, i ) ).Empty() )
+		if( true == m_slabs.at( m_RowColToSlabIndex( rowIndex, i ) ).Empty() )
 		{
 			return false;
 		}
@@ -318,15 +341,15 @@ void CMainGrid::m_MoveDownAllLines( CUInt toLineIndex )
 	{
 		for( UInt j = 0; j < m_columnsCount; ++j )
 		{
-			bool emptiness = m_slab.at( m_RowColToSlabIndex( i - 1, j ) ).Empty();
-			bool partOfBlock = m_slab.at( m_RowColToSlabIndex( i - 1, j ) ).PartOfSlab();
-			m_slab.at( m_RowColToSlabIndex( i, j ) ).Empty( emptiness );
-			m_slab.at( m_RowColToSlabIndex( i, j ) ).PartOfSlab( partOfBlock );
+			bool emptiness = m_slabs.at( m_RowColToSlabIndex( i - 1, j ) ).Empty();
+			bool partOfBlock = m_slabs.at( m_RowColToSlabIndex( i - 1, j ) ).PartOfSlab();
+			m_slabs.at( m_RowColToSlabIndex( i, j ) ).Empty( emptiness );
+			m_slabs.at( m_RowColToSlabIndex( i, j ) ).PartOfSlab( partOfBlock );
 		}
 	}
 	for( UInt j = 0; j < m_columnsCount; ++j )
 	{
-		m_slab.at( m_RowColToSlabIndex( 0, j ) ).Empty( true );
+		m_slabs.at( m_RowColToSlabIndex( 0, j ) ).Empty( true );
 	}
 }
 
