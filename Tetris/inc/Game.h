@@ -1,13 +1,10 @@
 #ifndef __GAME_Z__
 #define __GAME_Z__
 
-#include <thread>
-
 #include "MainGrid.h"
 #include "Brick.h"
 #include "Utils.h"
-#include "Button.h"
-#include "EventHandler.h"
+#include "SDLWrapper.h"
 
 class CGame
 {
@@ -18,33 +15,29 @@ public:
 	void ShowGrid();
 	void MainLoop();
 	void StartGame();
-	void SetMainGridBlockBackgroundImage();
-	void SetMainGridSlabBackgroundImage();
 	void QuitGame();
-	CEventHandler eventHandler;
 	virtual ~CGame();
 
 private:
-	void m_SetGameSize( CUInt rows, CUInt columns );
-	void m_MoveActiveBrick( const Direction direction = Direction::D );
-	void m_RotateActualBrick( const bool clockWise = true );
-	void m_ReleaseBrick();
-	void m_ShowWindow();
-	void m_ActualizeGrid();
-	void m_AddCurrentBrickToGrid();
-	void m_MainLoopThread();
-	void m_WaitForMove();
-	void m_CheckForFullLines();
-	String m_GetQuitButtonLocation();
+	void SetMainGridBlockBackgroundImage();
+	void SetMainGridSlabBackgroundImage();
+	const bool QuitHasBeenHit( const SDL_Event event );
+	const bool IsKeyDown( const SDL_Event event );
+	void HandleKeys( SDLKey sdlkey );
+	void SetGameSize( CUInt rows, CUInt columns );
+	void MoveActiveBrick( const Direction direction = Direction::D );
+	void RotateActualBrick( const bool clockWise = true );
+	void ReleaseBrick();
+	void ActualizeGrid();
+	void AddCurrentBrickToGrid();
+	void MainLoopThread();
+	void WaitForMove();
+	void CheckForFullLines();
 
-	bool m_roundInProgress;
-
+	String GetQuitButtonLocation();
 	CMainGrid m_mainGrid;
-	std::thread m_mainLoopThread;
-
+	Thread m_mainLoopThread;
+	bool m_roundInProgress;
 	bool m_quit;
 };
-
-void QuitGame();
-
-#endif
+#endif 

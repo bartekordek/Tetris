@@ -1,5 +1,5 @@
 #include "Game.h"
-#include "SDLWrapper.h"
+
 #include "BrickFactory.h"
 #include "MTime.h"
 #include <cstddef>
@@ -17,7 +17,7 @@ CGame::~CGame()
 
 void CGame::Initialize( CUInt rowsCount, CUInt columnsCount )
 {
-	m_SetGameSize( rowsCount, columnsCount );
+	SetGameSize( rowsCount, columnsCount );
 	SetMainGridBlockBackgroundImage();
 	SetMainGridSlabBackgroundImage();
 }
@@ -31,69 +31,82 @@ void CGame::InitWindow( CUInt xSize, CUInt ySize )
 
 void CGame::StartGame()
 {
-	m_ReleaseBrick();
+	ReleaseBrick();
 	ShowGrid();
 }
 
 void CGame::MainLoop()
 {
 	SDL_Event event;
-	m_mainLoopThread = std::thread( &CGame::m_MainLoopThread, this );
+	m_mainLoopThread = Thread( &CGame::MainLoopThread, this );
 	while( false == m_quit)
 	{
 		while( SDL_PollEvent( &event ) )
 		{
-			if( event.type == SDL_QUIT )
+			if(  true == QuitHasBeenHit(event) )
 			{
 				m_quit = true;
 			}
-			else if( event.type == SDL_KEYDOWN )
+			else if( IsKeyDown(event) )
 			{
-				switch( event.key.keysym.sym )
-				{
-					case SDLK_q:
-						m_quit = true;
-						break;
-					case SDLK_RIGHT:
-						m_MoveActiveBrick( Direction::R );
-						break;
-					case SDLK_LEFT:
-						m_MoveActiveBrick( Direction::L );
-						break;
-					case SDLK_DOWN:
-						m_MoveActiveBrick( Direction::D );
-						break;
-					case SDLK_SPACE:
-						m_RotateActualBrick();
-				}
+				HandleKeys( event.key.keysym.sym );
 			}
 		}
 	}
 	m_mainLoopThread.join();
 }
 
-void CGame::m_MainLoopThread()
+const bool CGame::IsKeyDown( const SDL_Event event )
+{
+	if( SDL_KEYDOWN == event.type )
+	{
+		return true;
+	}
+	return false;
+}
+
+void CGame::HandleKeys( SDLKey sdlkey )
+{
+	if( SDLK_RIGHT == sdlkey )
+	{
+		MoveActiveBrick( Direction::R );
+	}
+	else if( SDLK_LEFT == sdlkey )
+	{
+		MoveActiveBrick( Direction::L );
+	}
+	else if( SDLK_DOWN == sdlkey )
+	{
+		MoveActiveBrick( Direction::D );
+	}
+	else if( SDLK_SPACE == sdlkey )
+	{
+		RotateActualBrick();
+	}
+}
+
+void CGame::MainLoopThread()
 {
 	while( false == m_quit )
 	{
 		if( false == m_mainGrid.CheckIfBlockCanBeMoved( Direction::D ) )
 		{
-			m_AddCurrentBrickToGrid();
-			m_CheckForFullLines();
-			m_ReleaseBrick();
+			AddCurrentBrickToGrid();
+			CheckForFullLines();
+			ReleaseBrick();
 		}
-		std::thread waitForSleep( &CGame::m_WaitForMove, this );
+		std::thread waitForSleep( &CGame::WaitForMove, this );
 		waitForSleep.join();
-		m_MoveActiveBrick( Direction::D );
+		MoveActiveBrick( Direction::D );
 	}
 }
 
-void CGame::m_WaitForMove()
+void CGame::WaitForMove()
 {
 	CTimeMod::SleepMiliSeconds( 500 );
 }
 
-void CGame::m_ReleaseBrick()
+void CGame::ReleaseBrick()
 {
 	m_mainGrid.ReLeaseBrick();
 	ShowGrid();
@@ -102,41 +115,34 @@ void CGame::m_ReleaseBrick()
 void CGame::ShowGrid()
 {
 	CSDLWrapper::Instance()->Display( m_mainGrid );
-	CSDLWrapper::Instance()->Actualize();
 }
 
-void CGame::m_AddCurrentBrickToGrid()
+void CGame::AddCurrentBrickToGrid()
 {
 	m_mainGrid.AddCurrentBrickToGrid();
 }
 
-void CGame::m_CheckForFullLines()
+void CGame::CheckForFullLines()
 {
 	m_mainGrid.ManageFullLine();
-	m_ActualizeGrid();
+	ActualizeGrid();
 }
 
-void CGame::m_MoveActiveBrick( const Direction direction )
+void CGame::MoveActiveBrick( const Direction direction )
 {
 	m_mainGrid.MoveActualBrick( direction );
-	m_ActualizeGrid();
+	ActualizeGrid();
 	ShowGrid();
 }
 
-void CGame::m_RotateActualBrick( const bool clockWise )
+void CGame::RotateActualBrick( const bool clockWise )
 {
 	m_mainGrid.RotateActualBrick( clockWise );
-	m_ActualizeGrid();
-	ShowGrid();
 }
 
-void CGame::m_ActualizeGrid( )
+void CGame::ActualizeGrid( )
 {
 	CSDLWrapper::Instance()->Actualize();
-}
-
-void CGame::m_ShowWindow()
-{
 }
 
 void CGame::SetMainGridBlockBackgroundImage()
@@ -153,7 +159,16 @@ void CGame::SetMainGridSlabBackgroundImage()
 	m_mainGrid.SetSlabPic( picDir, 10, 10 );
 }
 
-void CGame::m_SetGameSize( CUInt rows, CUInt columns )
+const bool CGame::QuitHasBeenHit( const SDL_Event event )
+{
+	if( event.type == SDL_QUIT || ( event.type == SDL_KEYDOWN && SDLK_q == event.key.keysym.sym ) )
+	{
+		return true;
+	}
+	return false;
+}
+
+void CGame::SetGameSize( CUInt rows, CUInt columns )
 {
 	m_mainGrid.SetSize( rows, columns );
 }
