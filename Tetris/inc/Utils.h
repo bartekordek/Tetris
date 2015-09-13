@@ -18,5 +18,4 @@ typedef std::thread Thread;
 
 template<typename T>
 using Vector = std::vector < T > ;
-
 #endif
