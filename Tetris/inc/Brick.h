@@ -26,14 +26,12 @@ public:
 
 private:
 	virtual void m_RotateClockWise() = 0;
-	static Path m_backgroundImage;
 	BrickTypes m_brickType;
 
 protected:
 	std::vector<CSlab> m_blocks;
 	
 	COrientation m_direction;
-
 };
 
 class CLBrick: public CBrick
@@ -42,7 +40,6 @@ public:
 	CLBrick( const Direction direction = Direction::R );
 private:
 	void m_RotateClockWise();
-
 };
 
 class CIBrick: public CBrick
@@ -78,5 +75,4 @@ public:
 private:
 	void m_RotateClockWise();
 };
-
 #endif

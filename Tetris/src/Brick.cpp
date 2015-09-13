@@ -5,7 +5,8 @@ CBrick::CBrick( BrickTypes typeofBrick, const Direction direction ): m_direction
 }
 
 CBrick::CBrick( const std::vector<CSlab>& blocks,
-				const Direction direction ):m_blocks( blocks ), m_direction( direction )
+				const Direction direction ):
+				m_blocks( blocks ), m_direction( direction )
 {
 }
 
@@ -16,11 +17,9 @@ BrickTypes CBrick::GetBlockType()const
 
 CBrick::CBrick( const CBrick& brick )
 {
-	m_backgroundImage = brick.m_backgroundImage;
 	m_blocks = brick.m_blocks;
 	m_direction = brick.m_direction;
 }
-
 
 void CBrick::Rotate( const bool clockWise )
 {
@@ -71,16 +70,6 @@ void CBrick::Move( const Direction direction )
 		it->Col( it->Col() + colDiff );
 		it->Row( it->Row() + rowDiff );
 	}
-}
-
-void CBrick::SetBackgroundImage( const Path& path )
-{
-	m_backgroundImage = path;
-}
-
-const String CBrick::GetImage()
-{
-	return m_backgroundImage.string();
 }
 
 CLBrick::CLBrick( const Direction direction ):CBrick( BrickTypes::L, direction )
@@ -179,7 +168,6 @@ void COBrick::m_RotateClockWise()
 {
 }
 
-
 CSBrick::CSBrick( const Direction direction ):CBrick( BrickTypes::S, direction )
 {
 	m_blocks.push_back( CSlab( 0, 0 ) );
@@ -265,6 +253,3 @@ void CTBrick::m_RotateClockWise()
 		m_direction.Set( Direction::U );
 	}
 }
-
-
-Path CBrick::m_backgroundImage = "";
