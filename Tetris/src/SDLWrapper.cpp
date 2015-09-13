@@ -92,7 +92,6 @@ CSDLWrapper::CSDLWrapper(): m_width(0), m_height(0), screen(NULL)
 {
 }
 
-
 void CSDLWrapper::MainLoop()
 {
 
