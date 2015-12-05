@@ -20,8 +20,6 @@ public:
 	CoordinatestList GetBlockPositions()const;
 	void Move( const Direction direction = Direction::D );
 	void Rotate( const bool clockWise = true );
-	static void SetBackgroundImage( const Path& path );
-	static const String GetImage();
 	BrickTypes GetBlockType()const;
 
 private:
