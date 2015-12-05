@@ -12,7 +12,6 @@ CGame::CGame(): m_roundInProgress(false),m_quit(false)
 
 CGame::~CGame()
 {
-	CSDLWrapper::Destroy();
 }
 
 void CGame::Initialize( CUInt rowsCount, CUInt columnsCount )
@@ -24,9 +23,9 @@ void CGame::Initialize( CUInt rowsCount, CUInt columnsCount )
 
 void CGame::InitWindow( CUInt xSize, CUInt ySize )
 {
-	CSDLWrapper::Instance()->CreateWindow( xSize, ySize );
-	CSDLWrapper::Instance()->AddImage( m_mainGrid.SlabPictureLoc() );
-	CSDLWrapper::Instance()->AddImage( m_mainGrid.EmptySlabPictureLoc() );
+	sdlWrapper.CreateWindow( xSize, ySize );
+	sdlWrapper.AddImage( m_mainGrid.SlabPictureLoc() );
+	sdlWrapper.AddImage( m_mainGrid.EmptySlabPictureLoc() );
 }
 
 void CGame::StartGame()
@@ -114,7 +113,7 @@ void CGame::ReleaseBrick()
 
 void CGame::ShowGrid()
 {
-	CSDLWrapper::Instance()->Display( m_mainGrid );
+	sdlWrapper.Display( m_mainGrid );
 }
 
 void CGame::AddCurrentBrickToGrid()
@@ -142,21 +141,21 @@ void CGame::RotateActualBrick( const bool clockWise )
 
 void CGame::ActualizeGrid( )
 {
-	CSDLWrapper::Instance()->Actualize();
+	sdlWrapper.Actualize();
 }
 
 void CGame::SetMainGridBlockBackgroundImage()
 {
-	Path picDir = Fs::current_path().parent_path();
-	picDir =  picDir / "pic" / "BackGroundBlock.bmp";
-	m_mainGrid.SetBackgroundPicture( picDir, 10, 10 );
+	//Path picDir = Fs::current_path().parent_path();
+	//picDir =  picDir / "pic" / "BackGroundBlock.bmp";
+	m_mainGrid.SetBackgroundPicture( "D:\\Dev\\Tetris\\Tetris\\pic\\BackGroundBlock.bmp", 10, 10 );
 }
 
 void CGame::SetMainGridSlabBackgroundImage()
 {
-	Path picDir = Fs::current_path();
-	picDir = picDir.parent_path() / "pic" / "Block.bmp";
-	m_mainGrid.SetSlabPic( picDir, 10, 10 );
+	//Path picDir = Fs::current_path();
+	//picDir = picDir.parent_path() / "pic" / "Block.bmp";
+	m_mainGrid.SetSlabPic( "D:\\Dev\\Tetris\\Tetris\\pic\\Block.bmp", 10, 10 );
 }
 
 const bool CGame::QuitHasBeenHit( const SDL_Event event )

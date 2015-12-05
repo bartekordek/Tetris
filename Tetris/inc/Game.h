@@ -36,6 +36,7 @@ private:
 
 	String GetQuitButtonLocation();
 	CMainGrid m_mainGrid;
+	CSDLWrapper sdlWrapper;
 	Thread m_mainLoopThread;
 	bool m_roundInProgress;
 	bool m_quit;

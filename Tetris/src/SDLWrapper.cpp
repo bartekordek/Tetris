@@ -1,21 +1,5 @@
 #include "SDLWrapper.h"
 
-CSDLWrapper* CSDLWrapper::s_instance = NULL;
-
-CSDLWrapper* CSDLWrapper::Instance()
-{
-	if( NULL == s_instance )
-	{
-		s_instance = new CSDLWrapper();
-	}
-	return s_instance;
-}
-
-void CSDLWrapper::Destroy()
-{
-	delete s_instance;
-}
-
 CSDLWrapper::~CSDLWrapper()
 {
 	for( auto it = images.begin(); it != images.end(); ++it )

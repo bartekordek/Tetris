@@ -8,8 +8,8 @@
 class CSDLWrapper
 {
 public:
-	static CSDLWrapper* Instance();
-	static void Destroy();
+	CSDLWrapper();
+	virtual ~CSDLWrapper();
 
 	void CreateWindow( CUInt width = 0, CUInt height = 0 );
 	void AddImage( const String& path );
@@ -20,9 +20,6 @@ public:
 	void MainLoop();
 
 private:
-	CSDLWrapper();
-	virtual ~CSDLWrapper();
-	static CSDLWrapper* s_instance;
 	void m_ShowImages();
 	const bool m_ImageExistOnList( const String& path )const;
 
