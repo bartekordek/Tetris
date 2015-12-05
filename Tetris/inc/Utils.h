@@ -6,13 +6,18 @@
 #include <string>
 #include "Orientation.h"
 #include <thread>
+#include <mutex>
+
+typedef std::mutex Mutex;
+
+typedef std::string String;
 
 namespace Fs = boost::filesystem;
 typedef const unsigned int CUInt;
 typedef const signed int CInt;
 typedef unsigned int UInt;
-typedef Fs::path Path;
-typedef std::string String;
+//typedef Fs::path Path;
+typedef String Path;
 typedef COrientation::Direction Direction;
 typedef std::thread Thread;
 
