@@ -16,7 +16,7 @@ void CSDLWrapper::CreateWindow( CUInt width, CUInt height )
 
 	SDL_Init( SDL_INIT_EVERYTHING );
 	screen = SDL_SetVideoMode( width, height, 32, SDL_HWSURFACE );
-}
+} 
 
 void CSDLWrapper::AddImage( const String& path )
 {

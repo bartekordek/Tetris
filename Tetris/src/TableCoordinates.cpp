@@ -1,4 +1,5 @@
 #include "TableCoordinates.h"
+#include "GeneralUtilities.h"
 
 CTableCoor::CTableCoor( CUInt row, CUInt column ): m_row( row ), m_column( column )
 {

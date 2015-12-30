@@ -42,9 +42,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IntDir>Intermediate\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IntDir>Intermediate\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -53,15 +55,17 @@
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Libraries\temp\boost_1_58_0;$(SolutionDir)\inc;D:\Libraries\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Libraries\boost\boost_1_59_0;..\GeneralUtilities\inc;$(SolutionDir)\inc;D:\Libraries\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <TreatWarningAsError>false</TreatWarningAsError>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\Libraries\temp\boost_1_58_0\stage\lib;D:\Libraries\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL.lib;SDLmain.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\GeneralUtilities\$(Configuration);D:\Libraries\boost\boost_1_59_0\stage\lib;D:\Libraries\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>GeneralUtilities.lib;SDL.lib;SDL_image.lib;SDLmain.lib;libboost_system-vc120-mt-gd-1_59.lib</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
       <EntryPointSymbol>mainCRTStartup </EntryPointSymbol>
@@ -76,13 +80,17 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Libraries\temp\boost_1_58_0;$(SolutionDir)\inc;D:\Libraries\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Libraries\boost\boost_1_59_0;..\GeneralUtilities\inc;$(SolutionDir)\inc;D:\Libraries\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>GeneralUtilities.lib;SDL.lib;SDL_image.lib;SDLmain.lib;libboost_system-vc120-mt-gd-1_59.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\GeneralUtilities\$(Configuration);D:\Libraries\boost\boost_1_59_0\stage\lib;D:\Libraries\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -100,10 +108,14 @@
     <ClInclude Include="..\inc\Slab.h" />
     <ClInclude Include="..\inc\MTime.h" />
     <ClInclude Include="..\inc\TableCoordinates.h" />
-    <ClInclude Include="..\inc\Utils.h" />
+    <ClInclude Include="..\inc\Utilities.h" />
+    <ClInclude Include="..\MOGE\include\Engine.h" />
+    <ClInclude Include="..\MOGE\include\Node.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
+    <ClCompile Include="..\MOGE\src\Engine.cpp" />
+    <ClCompile Include="..\MOGE\src\Node.cpp" />
     <ClCompile Include="..\src\Brick.cpp" />
     <ClCompile Include="..\src\BrickFactory.cpp" />
     <ClCompile Include="..\src\Game.cpp" />
@@ -115,7 +127,7 @@
     <ClCompile Include="..\src\Slab.cpp" />
     <ClCompile Include="..\src\MTime.cpp" />
     <ClCompile Include="..\src\TableCoordinates.cpp" />
-    <ClCompile Include="..\src\Utils.cpp" />
+    <ClCompile Include="..\src\Utilities.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Debug\SDL.dll" />
@@ -126,6 +138,11 @@
     <Image Include="..\pic\BackGroundBlock.bmp" />
     <Image Include="..\pic\Block.bmp" />
     <Image Include="..\pic\ButtonQuit.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GeneralUtilities\GeneralUtilities.vcxproj">
+      <Project>{3aa10523-edad-464d-90d6-43c330411a74}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tetris", "Tetris\Tetris.vcxproj", "{8323F6F2-99CF-4652-8348-3D6C54227046}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GeneralUtilities", "GeneralUtilities\GeneralUtilities.vcxproj", "{3AA10523-EDAD-464D-90D6-43C330411A74}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{8323F6F2-99CF-4652-8348-3D6C54227046}.Debug|Win32.Build.0 = Debug|Win32
 		{8323F6F2-99CF-4652-8348-3D6C54227046}.Release|Win32.ActiveCfg = Release|Win32
 		{8323F6F2-99CF-4652-8348-3D6C54227046}.Release|Win32.Build.0 = Release|Win32
+		{3AA10523-EDAD-464D-90D6-43C330411A74}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3AA10523-EDAD-464D-90D6-43C330411A74}.Debug|Win32.Build.0 = Debug|Win32
+		{3AA10523-EDAD-464D-90D6-43C330411A74}.Release|Win32.ActiveCfg = Release|Win32
+		{3AA10523-EDAD-464D-90D6-43C330411A74}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
