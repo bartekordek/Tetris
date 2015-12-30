@@ -1,6 +1,4 @@
-#ifndef __ORIENTATION_YY__
-#define __ORIENTATION_YY__
-
+#pragma once
 #include <bitset>
 
 /*
@@ -13,20 +11,10 @@ public:
 
 	COrientation( const Direction direction = R );
 	~COrientation();
-
-	/*
-	 * @brief Sets orientation. 
-	 * @param[in] Direction orientation. 
-	 */
 	void Set( const Direction direction );
-	/*
-	 * @brief Gets orientation. 
-	 * @param[in] Direction orientation. 
-	 */
 	const Direction Get()const;
 
 private:
 	Direction m_direction;
 
 };
-#endif

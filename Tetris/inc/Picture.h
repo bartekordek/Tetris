@@ -1,7 +1,6 @@
-#ifndef __PICTURE__Y__
-#define __PICTURE__Y__
+#pragma once
 
-#include "Utils.h"
+#include "GeneralUtilities.h"
 
 class CPicture
 {
@@ -23,6 +22,3 @@ private:
 	UInt m_height;
 
 };
-
-
-#endif

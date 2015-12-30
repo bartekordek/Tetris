@@ -1,7 +1,6 @@
-#ifndef __POINT__
-#define __POINT__
+#pragma once
 
-#include <Utils.h>
+#include "GeneralUtilities.h"
 
 class CPoint
 {
@@ -16,4 +15,3 @@ private:
 	int m_x;
 	int m_y;
 };
-#endif

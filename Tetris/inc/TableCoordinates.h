@@ -1,7 +1,8 @@
 #ifndef _COORDS_
 #define _COORDS_
 
-#include "Utils.h"
+#include "Utilities.h"
+#include "GeneralUtilities.h"
 
 class CTableCoor
 {

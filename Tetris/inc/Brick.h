@@ -1,7 +1,8 @@
 #ifndef __CBRICK__
 #define __CBRICK__
 
-#include "Utils.h"
+#include "Utilities.h"
+#include "GeneralUtilities.h"
 #include "Slab.h"
 #include "Orientation.h"
 #include "Picture.h"

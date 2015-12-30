@@ -3,7 +3,7 @@
 
 #include "MainGrid.h"
 #include "Brick.h"
-#include "Utils.h"
+#include "Utilities.h"
 #include "SDLWrapper.h"
 
 class CGame

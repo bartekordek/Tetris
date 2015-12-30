@@ -1,12 +1,8 @@
-#ifndef __POSITION_Y__
-#define __POSITION_Y__
+#pragma once
 
-#include "Utils.h"
+#include "Utilities.h"
+#include "GeneralUtilities.h"
 
-/*
- * @brief This class contains position represented by positive carthezian coordinates.
- * @details 
- */
 class CPosition
 {
 public:
@@ -22,5 +18,3 @@ private:
 	UInt m_x;
 	UInt m_y;
 };
-
-#endif

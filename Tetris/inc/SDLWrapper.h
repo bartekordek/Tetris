@@ -1,7 +1,6 @@
-#ifndef __SDL__WRAP__
-#define __SDL__WRAP__
+#pragma once
 
-#include "Utils.h"
+#include "Utilities.h"
 #include "MainGrid.h"
 #include "SDL/SDL.h"
 
@@ -26,7 +25,5 @@ private:
 	UInt m_width;
 	UInt m_height;
 	SDL_Surface* screen;
-	std::vector<std::pair<SDL_Surface*, String>> images;
+	Vector<Pair<SDL_Surface*, String>> images;
 };
-
-#endif 
