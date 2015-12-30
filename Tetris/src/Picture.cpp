@@ -34,8 +34,8 @@ CPicture& CPicture::operator=( const CPicture& picture )
 
 void CPicture::SetPictureLocation( Path picLocation )
 {
-	boost::system::error_code errorText;
-	if( true == boost::filesystem::is_regular_file( picLocation, errorText ) )
+	ErrorCode errorText;
+	if( true == FileExists( picLocation, errorText ) )
 	{
 		m_location = picLocation;
 	}
