@@ -2,6 +2,7 @@
 
 int main( int argc, char *argv[] )
 {
+	PrintInputParameters( argc, argv );
 	const unsigned int columnsCount = 10;
 	const unsigned int rowsCount = 22;
 	CGame game;
