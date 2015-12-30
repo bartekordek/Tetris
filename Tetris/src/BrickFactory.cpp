@@ -28,7 +28,7 @@ CBrick* CBrickFactory::GetBrick( const BrickTypes brickType )
 
 CBrick* CBrickFactory::GetRandomBrick()
 {
-	srand( time( NULL ) );
+	srand( static_cast<UInt> ( time( NULL ) ) );
 	int randomNumber = rand() % 5;
 	return GetBrick( static_cast<BrickTypes>(randomNumber) );
 }

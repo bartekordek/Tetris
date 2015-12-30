@@ -187,6 +187,7 @@ CInt CMainGrid::GetColOffset( const Direction direction )const
 	{
 		return  -1;
 	}
+	return -1;
 }
 
 CInt CMainGrid::GetRowOffset( const Direction direction )const
@@ -207,6 +208,7 @@ CInt CMainGrid::GetRowOffset( const Direction direction )const
 	{
 		return  0;
 	}
+	return -1;
 }
 
 void CMainGrid::RotateActualBrick( const bool clockWise )
