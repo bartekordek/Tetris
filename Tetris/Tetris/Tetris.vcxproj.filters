@@ -69,6 +69,10 @@
     <ClInclude Include="..\inc\Utilities.h">
       <Filter>Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="..\MOGE\include\Size.h">
+      <Filter>MOGE</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MOGE\include\Position.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
@@ -114,6 +118,10 @@
     <ClCompile Include="..\src\Utilities.cpp">
       <Filter>Utilities</Filter>
     </ClCompile>
+    <ClCompile Include="..\MOGE\src\Size.cpp">
+      <Filter>MOGE</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MOGE\src\Position.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

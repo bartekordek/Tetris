@@ -35,7 +35,7 @@ CPicture& CPicture::operator=( const CPicture& picture )
 void CPicture::SetPictureLocation( Path picLocation )
 {
 	ErrorCode errorText;
-	if( true == FileExists( picLocation, errorText ) )
+	if( FileExists( picLocation, errorText ) )
 	{
 		m_location = picLocation;
 	}

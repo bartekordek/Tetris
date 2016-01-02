@@ -1,10 +1,18 @@
 #pragma once
 
+#include "GeneralUtilities.h"
+#include "SDL/SDL.h"
+#include "Node.h"
+#include <unordered_map>
 
-class Engine
+namespace MOGE
 {
-public:
-	Engine();
-	virtual ~Engine();
-
-};
+	class MOGE: public Singleton<MOGE>
+	{
+	public:
+		virtual ~MOGE();
+	protected:
+	private:
+		std::unordered_map< String, Node* > mObjects;
+	};
+}

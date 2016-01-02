@@ -55,11 +55,12 @@
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Libraries\boost\boost_1_59_0;..\GeneralUtilities\inc;$(SolutionDir)\inc;D:\Libraries\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\MOGE\include;D:\Libraries\boost\boost_1_59_0;..\GeneralUtilities\inc;$(SolutionDir)\inc;D:\Libraries\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <TreatWarningAsError>false</TreatWarningAsError>
       <SuppressStartupBanner>false</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -80,7 +81,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Libraries\boost\boost_1_59_0;..\GeneralUtilities\inc;$(SolutionDir)\inc;D:\Libraries\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\MOGE\include;D:\Libraries\boost\boost_1_59_0;..\GeneralUtilities\inc;$(SolutionDir)\inc;D:\Libraries\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <SuppressStartupBanner>false</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -111,11 +112,15 @@
     <ClInclude Include="..\inc\Utilities.h" />
     <ClInclude Include="..\MOGE\include\Engine.h" />
     <ClInclude Include="..\MOGE\include\Node.h" />
+    <ClInclude Include="..\MOGE\include\Position.h" />
+    <ClInclude Include="..\MOGE\include\Size.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
     <ClCompile Include="..\MOGE\src\Engine.cpp" />
     <ClCompile Include="..\MOGE\src\Node.cpp" />
+    <ClCompile Include="..\MOGE\src\Position.cpp" />
+    <ClCompile Include="..\MOGE\src\Size.cpp" />
     <ClCompile Include="..\src\Brick.cpp" />
     <ClCompile Include="..\src\BrickFactory.cpp" />
     <ClCompile Include="..\src\Game.cpp" />

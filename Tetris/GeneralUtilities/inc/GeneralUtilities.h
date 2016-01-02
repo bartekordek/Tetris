@@ -32,3 +32,6 @@ void PrintInputParameters( UInt argc, char* argv[] );
 using ErrorCode = boost::system::error_code;
 
 const bool FileExists( const Path& fileLocation, ErrorCode& errorCode );
+
+template <typename TYPE>
+using SharedPtr = std::shared_ptr<TYPE>;
