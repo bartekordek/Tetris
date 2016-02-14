@@ -11,7 +11,7 @@ void PrintInputParameters( UInt argc, char* argv[] )
 
 const bool FileExists( const Path& fileLocation, ErrorCode& errorCode )
 {
-	return boost::filesystem::is_regular_file( FsPath( fileLocation.string() ), errorCode );
+	return boost::filesystem::is_regular_file( FsPath( fileLocation.c_str() ), errorCode );
 }
 
 std::string GeneralUtilites::mBoostFileSystemCrashFix;

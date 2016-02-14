@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Singleton.h"
-//#include "MyString.h"
+#include "FileSystem.h"
 
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/path.hpp>
@@ -14,17 +14,17 @@
 #include <utility>
 #include <vector>
 
-using String = std::string;
+//using String = std::string;
 
 using Mutex = std::mutex;
 using CUInt = const unsigned int;
 typedef const signed int CInt;
 typedef unsigned int UInt;
 typedef boost::filesystem::path FsPath;
-using Path = boost::filesystem::path;
+//using Path = boost::filesystem::path;
 //typedef Fs::path Path;
 //using Path = String;
-//using Path = FS::File;
+using Path = FS::File;
 
 using Thread = std::thread;
 

@@ -38,6 +38,16 @@ namespace FS
 	{
 	}
 
+	const std::string& File::string()const
+	{
+		return mFullPath;
+	}
+
+	const char* File::c_str()const
+	{
+		return mFullPath.c_str();
+	}
+
 	const bool File::operator==( const File& inputPath )const
 	{
 		return mFullPath ==  inputPath.mFullPath;

@@ -42,7 +42,7 @@ namespace MOGE
 	void MOGE::AddObject( NodePtr& node )
 	{
 		mListMutex.lock();
-		mRenderableObjects[node->GetPath().string()] = node;
+		mRenderableObjects[ node->GetPath().string() ] = node;
 		mListMutex.unlock();
 	}
 

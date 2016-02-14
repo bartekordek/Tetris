@@ -26,7 +26,7 @@ namespace MOGE
 		IMAGETYPE imageType = GuessImageType( imagePath );
 		if( IMAGETYPE::BMP == imageType )
 		{
-			image = SDL_LoadBMP( imagePath.string().c_str() );
+			image = SDL_LoadBMP( imagePath.c_str() );
 		}
 		else if( IMAGETYPE::PNG == imageType )
 		{

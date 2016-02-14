@@ -16,6 +16,7 @@ namespace FS
 		File( const File& inputPath );
 		
 		const std::string& string()const;
+		const char* c_str()const;
 
 		const bool operator==( const std::string& inputPath )const;
 		const bool operator==( const String& inputPath )const;

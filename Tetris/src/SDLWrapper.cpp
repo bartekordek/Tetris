@@ -22,7 +22,7 @@ void CSDLWrapper::AddImage( const Path& path )
 {
 	if( false == m_ImageExistOnList( path ) )
 	{
-		SDL_Surface* surface = SDL_LoadBMP( path.string().c_str() );
+		SDL_Surface* surface = SDL_LoadBMP( path.c_str() );
 		std::pair<SDL_Surface*, std::string> image( surface, path.string() );
 		images.push_back( image );
 	}	
@@ -32,7 +32,7 @@ const bool CSDLWrapper::m_ImageExistOnList( const Path& path )const
 {
 	for( auto it = images.begin(); it != images.end(); ++it )
 	{
-		if( path.string() == it->second )
+		if( path == it->second )
 		{
 			return true;
 		}
