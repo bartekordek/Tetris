@@ -18,21 +18,21 @@ void CSDLWrapper::CreateWindow( CUInt width, CUInt height )
 	screen = SDL_SetVideoMode( width, height, 32, SDL_HWSURFACE );
 } 
 
-void CSDLWrapper::AddImage( const String& path )
+void CSDLWrapper::AddImage( const Path& path )
 {
 	if( false == m_ImageExistOnList( path ) )
 	{
-		SDL_Surface* surface = SDL_LoadBMP( path.c_str() );
-		std::pair<SDL_Surface*, String> image( surface, path );
+		SDL_Surface* surface = SDL_LoadBMP( path.string().c_str() );
+		std::pair<SDL_Surface*, std::string> image( surface, path.string() );
 		images.push_back( image );
 	}	
 }
 
-const bool CSDLWrapper::m_ImageExistOnList( const String& path )const
+const bool CSDLWrapper::m_ImageExistOnList( const Path& path )const
 {
 	for( auto it = images.begin(); it != images.end(); ++it )
 	{
-		if( path == it->second )
+		if( path.string() == it->second )
 		{
 			return true;
 		}
@@ -42,16 +42,13 @@ const bool CSDLWrapper::m_ImageExistOnList( const String& path )const
 
 void CSDLWrapper::Display( const CMainGrid& grid )
 {
+	UInt imgIndex;
 	for( UInt i = 0; i < grid.SlabCount(); ++i )
 	{
-		if( true == grid.PartOfSlab( i ) )
-		{
-			ApplyImage( 1, grid.GetSlabCol( i ) * 10, grid.GetSlabRow( i ) * 10 );
-		}
-		else
-		{
-			ApplyImage( 0, grid.GetSlabCol( i ) * 10, grid.GetSlabRow( i ) * 10 );
-		}
+		if( true == grid.PartOfSlab( i ) ) imgIndex = 1;
+		else imgIndex = 0;
+	
+		ApplyImage( imgIndex, grid.GetSlabCol( i ) * 10, grid.GetSlabRow( i ) * 10 );
 	}
 	Actualize();
 }

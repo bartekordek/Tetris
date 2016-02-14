@@ -69,12 +69,12 @@ CUInt CMainGrid::GetColumnsCount()const
 	return m_columnsCount;
 }
 
-const String CMainGrid::SlabPictureLoc()const
+const Path CMainGrid::SlabPictureLoc()const
 {
 	return m_slabBackground.GetImgLoc();
 }
 
-const String CMainGrid::EmptySlabPictureLoc()const
+const Path CMainGrid::EmptySlabPictureLoc()const
 {
 	return m_brickBckd.GetImgLoc();
 }

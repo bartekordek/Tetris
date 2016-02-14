@@ -1,0 +1,62 @@
+#include "NodeImageFactory.h"
+
+namespace MOGE
+{
+	ImagePtr NodeImageFactory::CreateImage( const Path& imagePath )
+	{
+		SDL_Surface* image = CreateSurface( imagePath );
+		ImagePtr imagePtr = CreateSharedImgPtr( image );
+		return imagePtr;
+	}
+
+	ImagePtr NodeImageFactory::CreateScreen( const Size& size, CUInt bitsPerPixel )
+	{
+		SDL_Surface* image = SDL_SetVideoMode( 
+			size.GetWidth(), 
+			size.GetWidth(), 
+			bitsPerPixel, 
+			SDL_HWSURFACE );
+		ImagePtr imagePtr = CreateSharedImgPtr( image );
+		return imagePtr;
+	}
+
+	SDL_Surface* NodeImageFactory::CreateSurface( const Path& imagePath )
+	{
+		SDL_Surface* image = nullptr;
+		IMAGETYPE imageType = GuessImageType( imagePath );
+		if( IMAGETYPE::BMP == imageType )
+		{
+			image = SDL_LoadBMP( imagePath.string().c_str() );
+		}
+		else if( IMAGETYPE::PNG == imageType )
+		{
+
+		}
+			
+		return image;
+	}
+
+	const IMAGETYPE NodeImageFactory::GuessImageType( const Path& imagePath )
+	{
+		IMAGETYPE imageType = IMAGETYPE::UNKOWN;
+		if( false == imagePath.empty() )
+		{
+			
+			const std::string& extension = ".png";// imagePath.extension();
+			if( extension.find( ".bmp" ) != std::string::npos )
+			{
+				return IMAGETYPE::BMP;
+			}
+			else if( extension.find( ".png" ) != std::string::npos )
+			{
+				return IMAGETYPE::PNG;
+			}
+		}
+		return imageType;
+	}
+
+	ImagePtr CreateSharedImgPtr( SDL_Surface* image )
+	{
+		return std::make_shared<SDL_Surface>( *image );
+	}
+}

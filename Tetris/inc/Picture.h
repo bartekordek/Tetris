@@ -11,7 +11,7 @@ public:
 	CPicture& operator=( const CPicture& picture );
 	void SetPictureLocation( const Path picLocation );
 	void SetPictureSize( CUInt width, CUInt height );
-	const String GetImgLoc()const;
+	const Path GetImgLoc()const;
 	CUInt GetImgWidth()const;
 	CUInt GetImgHeight()const;
 

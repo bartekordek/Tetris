@@ -5,7 +5,9 @@
 #include <cstddef>
 #include <boost/timer/timer.hpp>
 
-CGame::CGame(): m_roundInProgress(false),m_quit(false)
+CGame::CGame(): 
+	m_roundInProgress(false),
+	m_quit(false)
 {
 }
 
@@ -146,16 +148,12 @@ void CGame::ActualizeGrid( )
 
 void CGame::SetMainGridBlockBackgroundImage()
 {
-	//Path picDir = Fs::current_path().parent_path();
-	//picDir =  picDir / "pic" / "BackGroundBlock.bmp";
-	m_mainGrid.SetBackgroundPicture( "D:\\Dev\\Tetris\\Tetris\\pic\\BackGroundBlock.bmp", 10, 10 );
+	m_mainGrid.SetBackgroundPicture( Path("D:\\Dev\\Tetris\\Tetris\\pic\\BackGroundBlock.bmp"), 10, 10 );
 }
 
 void CGame::SetMainGridSlabBackgroundImage()
 {
-	//Path picDir = Fs::current_path();
-	//picDir = picDir.parent_path() / "pic" / "Block.bmp";
-	m_mainGrid.SetSlabPic( "D:\\Dev\\Tetris\\Tetris\\pic\\Block.bmp", 10, 10 );
+	m_mainGrid.SetSlabPic( Path( "D:\\Dev\\Tetris\\Tetris\\pic\\Block.bmp"), 10, 10 );
 }
 
 const bool CGame::QuitHasBeenHit( const SDL_Event event )

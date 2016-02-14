@@ -19,8 +19,8 @@ public:
 	void ReLeaseBrick();
 	CUInt GetRowsCount()const;
 	CUInt GetColumnsCount()const;
-	const String SlabPictureLoc()const;
-	const String EmptySlabPictureLoc()const;
+	const Path SlabPictureLoc()const;
+	const Path EmptySlabPictureLoc()const;
 	CUInt GetImgWidth()const;
 	CUInt GetImgHeight()const;
 	CUInt GetSlabRow( CUInt slabIndex )const;

@@ -11,7 +11,7 @@ public:
 	virtual ~CSDLWrapper();
 
 	void CreateWindow( CUInt width = 0, CUInt height = 0 );
-	void AddImage( const String& path );
+	void AddImage( const Path& path );
 
 	void ApplyImage( CUInt imgIndex, CUInt x, CUInt y );
 	void Display( const CMainGrid& grid );
@@ -20,10 +20,10 @@ public:
 
 private:
 	void m_ShowImages();
-	const bool m_ImageExistOnList( const String& path )const;
+	const bool m_ImageExistOnList( const Path& path )const;
 
 	UInt m_width;
 	UInt m_height;
 	SDL_Surface* screen;
-	Vector<Pair<SDL_Surface*, String>> images;
+	Vector<Pair<SDL_Surface*, std::string>> images;
 };

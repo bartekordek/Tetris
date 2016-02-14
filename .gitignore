@@ -18,3 +18,7 @@
 *.cmake
 CMakeFiles/
 Tetris/Debug/
+
+Tetris/Debug/Tetris.exe.lastcodeanalysissucceeded
+*cache
+*.lib

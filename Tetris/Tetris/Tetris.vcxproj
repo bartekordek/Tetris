@@ -41,7 +41,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LinkIncremental>true</LinkIncremental>
+    <LinkIncremental>false</LinkIncremental>
     <IntDir>Intermediate\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -56,7 +56,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\MOGE\include;D:\Libraries\boost\boost_1_59_0;..\GeneralUtilities\inc;$(SolutionDir)\inc;D:\Libraries\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWarningAsError>false</TreatWarningAsError>
       <SuppressStartupBanner>false</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -70,6 +70,7 @@
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
       <EntryPointSymbol>mainCRTStartup </EntryPointSymbol>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -112,6 +113,8 @@
     <ClInclude Include="..\inc\Utilities.h" />
     <ClInclude Include="..\MOGE\include\Engine.h" />
     <ClInclude Include="..\MOGE\include\Node.h" />
+    <ClInclude Include="..\MOGE\include\NodeFactory.h" />
+    <ClInclude Include="..\MOGE\include\NodeImageFactory.h" />
     <ClInclude Include="..\MOGE\include\Position.h" />
     <ClInclude Include="..\MOGE\include\Size.h" />
   </ItemGroup>
@@ -119,6 +122,8 @@
     <ClCompile Include="..\main.cpp" />
     <ClCompile Include="..\MOGE\src\Engine.cpp" />
     <ClCompile Include="..\MOGE\src\Node.cpp" />
+    <ClCompile Include="..\MOGE\src\NodeFactory.cpp" />
+    <ClCompile Include="..\MOGE\src\NodeImageFactory.cpp" />
     <ClCompile Include="..\MOGE\src\Position.cpp" />
     <ClCompile Include="..\MOGE\src\Size.cpp" />
     <ClCompile Include="..\src\Brick.cpp" />
