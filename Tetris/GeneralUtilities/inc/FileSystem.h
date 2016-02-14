@@ -1,6 +1,6 @@
 #pragma once
 
-//#include "MyString.h"
+#include "MyString.h"
 
 namespace FS
 {

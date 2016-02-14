@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Singleton.h"
-#include "MyString.h"
+//#include "MyString.h"
 
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/path.hpp>
@@ -14,7 +14,7 @@
 #include <utility>
 #include <vector>
 
-//using String = std::string;
+using String = std::string;
 
 using Mutex = std::mutex;
 using CUInt = const unsigned int;

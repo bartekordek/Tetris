@@ -3,7 +3,7 @@
 namespace FS
 {
 #ifdef _WIN32
-	std::string File::sSeparator = String( "\\");
+	String File::sSeparator = String( "\\" );
 #else
 	String File::sSeparator = "/";
 #endif
@@ -40,12 +40,12 @@ namespace FS
 
 	const bool File::operator==( const File& inputPath )const
 	{
-		return operator==( inputPath.mFullPath );
+		return mFullPath ==  inputPath.mFullPath;
 	}
 
 	const bool File::operator==( const String& inputPath )const
 	{
-		return operator==( inputPath.string() );
+		return mFullPath ==  inputPath ;
 	}
 
 	const bool File::operator==( const std::string& inputPath )const
@@ -101,7 +101,7 @@ namespace FS
 		auto mExtensionDotPosition = mFullPath.rfind( '.' );
 		if( String::npos != mExtensionDotPosition )
 		{
-			mExtension = mFullPath.string().substr( mExtensionDotPosition, mFullPath.Length() );
+			mExtension = mFullPath.substr( mExtensionDotPosition, mFullPath.length() );
 		}
 	}
 
@@ -110,7 +110,7 @@ namespace FS
 		auto separatorPosition = mFullPath.rfind( sSeparator.c_str() );
 		if( String::npos != separatorPosition )
 		{
-			mBaseName = mFullPath.string().substr( separatorPosition, mFullPath.Length() );
+			mBaseName = mFullPath.substr( separatorPosition, mFullPath.length() );
 			mBaseName = mBaseName.Replace( mExtension, String( "" ) );
 		}
 	}
