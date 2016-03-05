@@ -115,6 +115,7 @@
     <ClInclude Include="..\MOGE\include\Node.h" />
     <ClInclude Include="..\MOGE\include\NodeFactory.h" />
     <ClInclude Include="..\MOGE\include\NodeImageFactory.h" />
+    <ClInclude Include="..\MOGE\include\NodeMgr.h" />
     <ClInclude Include="..\MOGE\include\Position.h" />
     <ClInclude Include="..\MOGE\include\Size.h" />
   </ItemGroup>
@@ -124,6 +125,7 @@
     <ClCompile Include="..\MOGE\src\Node.cpp" />
     <ClCompile Include="..\MOGE\src\NodeFactory.cpp" />
     <ClCompile Include="..\MOGE\src\NodeImageFactory.cpp" />
+    <ClCompile Include="..\MOGE\src\NodeMgr.cpp" />
     <ClCompile Include="..\MOGE\src\Position.cpp" />
     <ClCompile Include="..\MOGE\src\Size.cpp" />
     <ClCompile Include="..\src\Brick.cpp" />

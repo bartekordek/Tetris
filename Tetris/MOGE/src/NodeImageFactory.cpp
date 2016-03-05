@@ -20,6 +20,11 @@ namespace MOGE
 		return imagePtr;
 	}
 
+	ImagePtr NodeImageFactory::CreateImage( SDL_Surface* surface )
+	{
+		return  CreateSharedImgPtr( surface );
+	}
+
 	SDL_Surface* NodeImageFactory::CreateSurface( const Path& imagePath )
 	{
 		SDL_Surface* image = nullptr;
@@ -58,5 +63,6 @@ namespace MOGE
 	ImagePtr CreateSharedImgPtr( SDL_Surface* image )
 	{
 		return std::make_shared<SDL_Surface>( *image );
+		return ImagePtr();
 	}
 }

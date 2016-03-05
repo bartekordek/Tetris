@@ -11,6 +11,7 @@ namespace MOGE
 	public:
 		static ImagePtr CreateImage( const Path& imagePath );
 		static ImagePtr CreateScreen( const Size& size, CUInt bitsPerPixel = 32 );
+		static ImagePtr CreateImage( SDL_Surface* surface );
 	private:
 		static SDL_Surface* CreateSurface( const Path& imagePath );
 		static const IMAGETYPE GuessImageType( const Path& imagePath );

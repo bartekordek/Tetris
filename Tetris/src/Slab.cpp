@@ -73,3 +73,13 @@ void CSlab::PartOfSlab( const bool partOfSlab )
 {
 	m_partOfSlab = partOfSlab;
 }
+
+void CSlab::SetId( CUInt id )
+{
+	mIndex = id;
+}
+
+CUInt CSlab::GetId()const
+{
+	return mIndex;
+}

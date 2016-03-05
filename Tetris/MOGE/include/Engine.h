@@ -7,18 +7,21 @@
 
 namespace MOGE
 {
-
-	class MOGE: public Singleton<MOGE>
+	class Engine: public Singleton<Engine>
 	{
 	public:
-		MOGE( void );
+		Engine( void );
 		static void Initialize( const Size& size = Size( 800, 600 ) );
-		virtual ~MOGE();
+		virtual ~Engine();
 
-		void AddObject( const Path& filePath, const Position& position = Position() );
-		void AddObject( NodePtr& node );
+		void AddObject( const Path& filePath, const Position& position = Position(), const String name = "" );
+		void AddObject( NodePtr& node, std::string name = "" );
+		NodePtr& GetNode( const std::string& nodeName )const;
+		NodePtr& GetNode( const unsigned int noodeIt )const;
 
 	protected:
+
+
 	private:
 		void CreateScreen( const Size& size );
 		void StartMainLoop();

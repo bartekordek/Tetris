@@ -15,33 +15,40 @@ namespace MOGE
 		MAIN_SCREEN
 	};
 
+	class Node;
+
 	using ImagePtr = SharedPtr<SDL_Surface>;
+	using NodePtr = SharedPtr<Node>;
 
 	class Node
 	{
 	public:
-		Node();
-		Node( const Path& path, const Size& size );
-		Node( const Size& size, const Position& position = Position() );
+		Node( const String& name = "", const Path& path = Path( "" ), const Size& size = Size( 0, 0 ), const Position& position = Position() );
 		virtual ~Node();
 
 		void SetImage( ImagePtr& image );
 		const ImagePtr& GetImage()const;
 
 		void SetSize( const Size& size );
-		void SetPosition( const Position& position );
-		void SetVisible( const bool visible = true );
-		const bool IsVisible()const;
-		const Position& GetPosition()const;
 		const Size& GetSize()const;
 
+		void SetPosition( const Position& position );
+		const Position& GetPosition()const;
+
+		void SetVisible( const bool visible = true );
+		const bool GetVisible()const;
+		
 		void SetPath( const Path& path );
 		const Path& GetPath()const;
+
+		void SetName( const String& name );
+		const String& GetName()const;
 
 		SDL_Rect* GetGeometricsInfo();
 
 	protected:
 	private:
+		String mName;
 		Size mSize;
 		Position mPosition;
 		ImagePtr mImg;
@@ -49,6 +56,4 @@ namespace MOGE
 		bool mVisible;
 		SDL_Rect mGeometrics;
 	};
-
-	using NodePtr = SharedPtr<Node>;
 }

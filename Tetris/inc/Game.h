@@ -4,7 +4,8 @@
 #include "MainGrid.h"
 #include "Brick.h"
 #include "Utilities.h"
-#include "SDLWrapper.h"
+#include "Engine.h"
+//#include "SDLWrapper.h"
 
 class CGame
 {
@@ -19,12 +20,13 @@ public:
 	virtual ~CGame();
 
 private:
-	void SetMainGridBlockBackgroundImage();
-	void SetMainGridSlabBackgroundImage();
+	void SetMainGridEmptySlabImage();
+	void SetMainGridFilledSlabImage();
+	void CreateGrid( CUInt xSize, CUInt ySize );
 	const bool QuitHasBeenHit( const SDL_Event event );
 	const bool IsKeyDown( const SDL_Event event );
 	void HandleKeys( SDLKey sdlkey );
-	void SetGameSize( CUInt rows, CUInt columns );
+	void SetMainGridSize( CUInt rows, CUInt columns );
 	void MoveActiveBrick( const Direction direction = Direction::D );
 	void RotateActualBrick( const bool clockWise = true );
 	void ReleaseBrick();
@@ -34,11 +36,18 @@ private:
 	void WaitForMove();
 	void CheckForFullLines();
 
+	MOGE::NodePtr mEmptySlabImage;
+	MOGE::NodePtr mFilledSlabImage;
+
+	Vector<MOGE::NodePtr> slabs;
+
 	String GetQuitButtonLocation();
 	CMainGrid m_mainGrid;
-	CSDLWrapper sdlWrapper;
 	Thread m_mainLoopThread;
 	bool m_roundInProgress;
 	bool m_quit;
+
+	std::string emptySlabName = "emptySlab";
+	std::string slabName = "slab";
 };
 #endif 

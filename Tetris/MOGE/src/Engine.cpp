@@ -3,13 +3,12 @@
 
 namespace MOGE
 {
-	MOGE::MOGE( void ):
-		mScreenBuffor( nullptr )
+	Engine::Engine( void ): mScreenBuffor( nullptr )
 	{
 		SDL_Init( SDL_INIT_EVERYTHING );
 	}
 
-	MOGE::~MOGE()
+	Engine::~Engine()
 	{
 		StopMainLoop();
 		mScreenBuffor.~shared_ptr();
@@ -22,41 +21,60 @@ namespace MOGE
 		SDL_Quit();
 	}
 
-	void MOGE::Initialize( const Size& size )
+	void Engine::Initialize( const Size& size )
 	{
 		Singleton::Instance().CreateScreen( size );
 		Singleton::Instance().StartMainLoop();
 	}
 
-	void MOGE::CreateScreen( const Size& size )
+	void Engine::CreateScreen( const Size& size )
 	{
 		mScreenBuffor = NodeFactory::CreateScreen( size );
 	}
 
-	void MOGE::AddObject( const Path& filePath, const Position& positionn )
+	void Engine::AddObject( const Path& filePath, const Position& positionn, const String name )
 	{
 		NodePtr newNode = NodeFactory::CreateFromImage( filePath, positionn );
+		//TODO MOVE TO FACTORY
 		AddObject( newNode );
+		
 	}
 
-	void MOGE::AddObject( NodePtr& node )
+	void Engine::AddObject( NodePtr& node, std::string name )
 	{
 		mListMutex.lock();
-		mRenderableObjects[ node->GetPath().string() ] = node;
+		if( name.empty() )
+		{
+			static unsigned int namelessObjectIndex = 0;
+			name = "Object_" + std::to_string( namelessObjectIndex++ );
+		}
+		mRenderableObjects[name] = node;
 		mListMutex.unlock();
 	}
 
-	void MOGE::StartMainLoop()
+	NodePtr& Engine::GetNode( const std::string& nodeName )const
+	{
+		static NodePtr node;
+		return node;
+	}
+
+	NodePtr& Engine::GetNode( CUInt noodeIt )const
+	{
+		static NodePtr node;
+		return node;
+	}
+
+	void Engine::StartMainLoop()
 	{
 		//mainLoop.
 	}
 
-	void MOGE::StopMainLoop()
+	void Engine::StopMainLoop()
 	{
 		
 	}
 
-	void MOGE::QueueFrame()
+	void Engine::QueueFrame()
 	{
 		for( auto it = mRenderableObjects.begin(); it != mRenderableObjects.end(); ++it )
 		{
@@ -64,9 +82,9 @@ namespace MOGE
 		}
 	}
 
-	void MOGE::Render( Node& node )
+	void Engine::Render( Node& node )
 	{
-		if( node.IsVisible() )
+		if( node.GetVisible() )
 		{
 			mListMutex.lock();
 			SDL_BlitSurface( node.GetImage().get(), NULL, mScreenBuffor->GetImage().get(), node.GetGeometricsInfo() );

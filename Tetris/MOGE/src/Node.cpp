@@ -3,39 +3,22 @@
 
 namespace MOGE
 {
-	Node::Node():
-		mVisible( true )
-	{
-	}
-
-	Node::Node( const Path& path, const Size& size ):
-		mSize( size ),
-		mFilePath( path ),
-		mImg( nullptr )
-	{
-
-	}
-
-	Node::Node( const Size& size, const Position& position ):
+	Node::Node( const String& name, const Path& path, const Size& size, const Position& position ):
 		mSize( size ),
 		mPosition( position ),
+		mVisible( false ),
 		mImg( nullptr )
 	{
+		if( name.empty() )
+		{
+			static unsigned int index = 0;
+			mName = "Node:" + std::to_string( index++ );
+		}
 	}
 
 	Node::~Node()
 	{
 		SDL_FreeSurface( mImg.get() );
-	}
-
-	void Node::SetVisible( const bool visible )
-	{
-		mVisible = visible;
-	}
-
-	const bool Node::IsVisible()const
-	{
-		return mVisible;
 	}
 
 	void Node::SetImage( ImagePtr& image )
@@ -53,19 +36,14 @@ namespace MOGE
 		return mImg;
 	}
 
-	void Node::SetPath( const Path& path )
-	{
-		mFilePath = path;
-	}
-
-	const Path& Node::GetPath()const
-	{
-		return mFilePath;
-	}
-
 	void Node::SetSize( const Size& size )
 	{
 		mSize = size;
+	}
+
+	const Size& Node::GetSize()const
+	{
+		return mSize;
 	}
 
 	void Node::SetPosition( const Position& position )
@@ -78,9 +56,34 @@ namespace MOGE
 		return mPosition;
 	}
 
-	const Size& Node::GetSize()const
+	void Node::SetVisible( const bool visible )
 	{
-		return mSize;
+		mVisible = visible;
+	}
+
+	const bool Node::GetVisible()const
+	{
+		return mVisible;
+	}
+
+	void Node::SetPath( const Path& path )
+	{
+		mFilePath = path;
+	}
+
+	const Path& Node::GetPath()const
+	{
+		return mFilePath;
+	}
+
+	void Node::SetName( const String& name )
+	{
+		mName = name;
+	}
+
+	const String& Node::GetName()const
+	{
+		return mName;
 	}
 
 	SDL_Rect* Node::GetGeometricsInfo()

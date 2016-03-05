@@ -45,8 +45,14 @@ void CSDLWrapper::Display( const CMainGrid& grid )
 	UInt imgIndex;
 	for( UInt i = 0; i < grid.SlabCount(); ++i )
 	{
-		if( true == grid.PartOfSlab( i ) ) imgIndex = 1;
-		else imgIndex = 0;
+		if( true == grid.PartOfSlab( i ) )
+		{
+			imgIndex = 1;
+		}
+		else
+		{
+			imgIndex = 0;
+		}
 	
 		ApplyImage( imgIndex, grid.GetSlabCol( i ) * 10, grid.GetSlabRow( i ) * 10 );
 	}

@@ -15,6 +15,8 @@ int main( int argc, char *argv[] )
 	game.StartGame();
 	game.MainLoop();
 
+
+
 	boost::log::core::get()->remove_all_sinks();
 	return 0;
 }

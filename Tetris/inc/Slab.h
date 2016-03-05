@@ -20,9 +20,13 @@ public:
 	void PartOfSlab( const bool partOfSlab );
 	const bool Empty()const;
 	void Empty( const bool empty );
+
+	void SetId( CUInt id );
+	CUInt GetId()const;
 	
 private:
 	CTableCoor m_position;
+	unsigned int mIndex = 0;
 	bool m_partOfSlab = false; // C++ 11 feature.
 	bool m_empty;
 };

@@ -75,10 +75,13 @@
     <ClInclude Include="..\MOGE\include\NodeImageFactory.h">
       <Filter>MOGE</Filter>
     </ClInclude>
-    <ClInclude Include="..\MOGE\include\NodeFactory.h" />
     <ClInclude Include="..\MOGE\include\Position.h">
       <Filter>MOGE</Filter>
     </ClInclude>
+    <ClInclude Include="..\MOGE\include\NodeFactory.h">
+      <Filter>MOGE</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MOGE\include\NodeMgr.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
@@ -130,10 +133,13 @@
     <ClCompile Include="..\MOGE\src\NodeImageFactory.cpp">
       <Filter>MOGE</Filter>
     </ClCompile>
-    <ClCompile Include="..\MOGE\src\NodeFactory.cpp" />
     <ClCompile Include="..\MOGE\src\Position.cpp">
       <Filter>MOGE</Filter>
     </ClCompile>
+    <ClCompile Include="..\MOGE\src\NodeFactory.cpp">
+      <Filter>MOGE</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MOGE\src\NodeMgr.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

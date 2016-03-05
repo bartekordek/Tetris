@@ -13,17 +13,14 @@
 #include <unordered_map>
 #include <utility>
 #include <vector>
-
-//using String = std::string;
+#include <set>
 
 using Mutex = std::mutex;
 using CUInt = const unsigned int;
 typedef const signed int CInt;
 typedef unsigned int UInt;
 typedef boost::filesystem::path FsPath;
-//using Path = boost::filesystem::path;
-//typedef Fs::path Path;
-//using Path = String;
+
 using Path = FS::File;
 
 using Thread = std::thread;
@@ -33,6 +30,9 @@ using Vector = std::vector < T > ;
 
 template<typename KEY, typename TYPE>
 using UnorderedMap = std::unordered_map<KEY, TYPE>;
+
+template <typename TYPE>
+using Set = std::set<TYPE>;
 
 template<typename T, typename Y>
 using Pair = std::pair < T, Y > ;
@@ -45,10 +45,6 @@ const bool FileExists( const Path& fileLocation, ErrorCode& errorCode );
 
 template <typename TYPE>
 using SharedPtr = std::shared_ptr<TYPE>;
-
-//template <typename TYPE>
-//using MakeSharedPtr = std::make_shared;
-
 
 class GeneralUtilites
 {

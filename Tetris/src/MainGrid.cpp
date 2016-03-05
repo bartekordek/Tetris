@@ -20,7 +20,9 @@ void CMainGrid::SetSize( CUInt rowsCount, CUInt columnsCount,  CUInt initialX, C
 	{
 		for( UInt col = 0; col < m_columnsCount; ++col )
 		{
-			m_slabs.push_back( CSlab ( row + initialY, col + initialX, false, true ) );
+			CSlab slab( row + initialY, col + initialX, false, true );
+			slab.SetId( m_RowColToSlabIndex( slab.Row(), slab.Col() ) );
+			m_slabs.push_back( slab );
 		}
 	}
 }
@@ -323,6 +325,11 @@ void CMainGrid::ManageFullLine()
 			m_MoveDownAllLines(i);
 		}
 	}
+}
+
+const std::vector<CSlab>& CMainGrid::GetSlabs()const
+{
+	return m_slabs;
 }
 
 const bool CMainGrid::m_LineIsFull( CUInt rowIndex )const
