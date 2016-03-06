@@ -7,12 +7,23 @@
 #include "Engine.h"
 //#include "SDLWrapper.h"
 
+struct Resolution
+{
+	Resolution( const unsigned int width, const unsigned int height ):
+		width( width ),
+		height( height )
+	{
+
+	}
+	unsigned int width;
+	unsigned int height;
+};
+
 class CGame
 {
 public:
 	CGame();
-	void Initialize( CUInt rowsCount = 50, CUInt columnsCount = 10 );
-	void InitWindow( CUInt width = 600, CUInt height = 400 );
+	void Initialize( CUInt rowsCount = 50, CUInt columnsCount = 10, const Resolution& resoltion = Resolution( 640, 480 ) );
 	void ShowGrid();
 	void MainLoop();
 	void StartGame();
@@ -22,7 +33,7 @@ public:
 private:
 	void SetMainGridEmptySlabImage();
 	void SetMainGridFilledSlabImage();
-	void CreateGrid( CUInt xSize, CUInt ySize );
+	void CreateGrid();
 	const bool QuitHasBeenHit( const SDL_Event event );
 	const bool IsKeyDown( const SDL_Event event );
 	void HandleKeys( SDLKey sdlkey );
@@ -36,8 +47,8 @@ private:
 	void WaitForMove();
 	void CheckForFullLines();
 
-	MOGE::NodePtr mEmptySlabImage;
-	MOGE::NodePtr mFilledSlabImage;
+	MOGE::ImagePtr mEmptySlabImage;
+	MOGE::ImagePtr mFilledSlabImage;
 
 	Vector<MOGE::NodePtr> slabs;
 

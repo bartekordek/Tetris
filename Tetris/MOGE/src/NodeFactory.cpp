@@ -5,98 +5,89 @@ namespace MOGE
 {
 	NodePtr& NodeFactory::CreateScreen( const Size& size )
 	{
-		//Node* newNode = new Node( "", Path( "" ), size );
-		//newNode->SetName( "MainScreen" );
+		Node* newNode = new Node( "MainScreen", Path( "" ), size );
 
-		//ImagePtr imagePtr = NodeImageFactory::CreateScreen( size );
-		//newNode->SetImage( imagePtr );
+		ImagePtr imagePtr = NodeImageFactory::CreateScreen( size );
+		newNode->SetImage( imagePtr );
 
-		//NodePtr& nodePtr = CreateEmpty( newNode );
-		//
-		//return nodePtr;
-		return NodePtr();
+		NodePtr& nodePtr = Create( newNode );
+		
+		return nodePtr;
 	}
 
-	NodePtr& NodeFactory::CreateFromImage( Path filePath, Position position, const String& name )
+	NodePtr& NodeFactory::CreateFromImage( const Path filePath, const Position position, const String& name )
 	{
-		//Node* newNode = new Node( "", Path(""), Size(), position );
-		//if( name.empty() )
-		//{
-		//	newNode->SetName( filePath.string() );
-		//}
-		//else
-		//{
-		//	newNode->SetName( name );
-		//}
+		Node* newNode = new Node( name, filePath, Size(), position );
 
-		//ImagePtr imagePtr = NodeImageFactory::CreateImage( filePath );
-		//newNode->SetImage( imagePtr );
+		ImagePtr imagePtr = NodeImageFactory::CreateImage( filePath );
+		newNode->SetImage( imagePtr );
 
-		//NodePtr& nodePtr = CreateEmpty( newNode );
-		//
-		//return nodePtr;
-		return NodePtr();
+		NodePtr& nodePtr = Create( newNode );
+		
+		return nodePtr;
 	}
 
 	NodePtr& NodeFactory::CreateEmpty( const Position& position, const Size& size )
 	{
-		//Node* newNode = new Node( "", "", size, position );
-		//NodePtr& nodePtr = CreateEmpty( newNode );
-		//return nodePtr;
-		return NodePtr();
+		Node* newNode = new Node( "", "", size, position );
+		NodePtr& nodePtr = Create( newNode );
+		return nodePtr;
 	}
-
-	//NodePtr& NodeFactory::CopyNode( const NodePtr& node )
-	//{
-	//	NodePtr& 
-	//}
 
 	NodePtr NodeFactory::GetNode( const Path& path )
 	{
-		//for( auto& node : nodes )
-		//{
-		//	if( node->GetPath() == path )
-		//	{
-		//		return node;
-		//	}
-		//}
-		//return NodePtr();
+		for( auto& node : nodes )
+		{
+			if( node->GetPath() == path )
+			{
+				return node;
+			}
+		}
 		return NodePtr();
 	}
 
-	NodePtr& NodeFactory::CreateEmpty( Node* nodeRawPtr )
+	NodePtr NodeFactory::GetNodeByName( const String& name )
 	{
-		//NodePtr* nodePtr = new NodePtr( nodeRawPtr );
-		//nodes.push_back( *nodePtr );
-		//return *nodePtr;
+		for( auto& node : nodes )
+		{
+			if( node->GetName() == name )
+			{
+				return node;
+			}
+		}
 		return NodePtr();
+	}
+
+	NodePtr& NodeFactory::Create( Node* nodeRawPtr )
+	{
+		NodePtr* nodePtr = new NodePtr( nodeRawPtr );
+		nodes.push_back( *nodePtr );
+		return *nodePtr;
 	}
 
 	const bool NodeFactory::NodeExist( const String& nodeName )
 	{
-		//for( const auto& node: nodes )
-		//{
-		//	if( node->GetName() == nodeName )
-		//	{
-		//		return true;
-		//	}
-		//}
-		//return false;
-		return true;
+		for( const auto& node: nodes )
+		{
+			if( node->GetName() == nodeName )
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	const bool NodeFactory::NodeExist( const NodePtr& node )
 	{
-		//for( const auto& currentNode : nodes )
-		//{
-		//	if( currentNode.get() == node.get() )
-		//	{
-		//		return true;
-		//	}
-		//}
-		//return false;
-		return true;
+		for( const auto& currentNode : nodes )
+		{
+			if( currentNode.get() == node.get() )
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
-//	Vector<NodePtr> NodeFactory::nodes;
+	Vector<NodePtr> NodeFactory::nodes;
 }

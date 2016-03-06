@@ -16,8 +16,8 @@ namespace MOGE
 
 		void AddObject( const Path& filePath, const Position& position = Position(), const String name = "" );
 		void AddObject( NodePtr& node, std::string name = "" );
-		NodePtr& GetNode( const std::string& nodeName )const;
-		NodePtr& GetNode( const unsigned int noodeIt )const;
+
+		void RenderFrame();
 
 	protected:
 

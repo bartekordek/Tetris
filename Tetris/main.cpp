@@ -10,12 +10,9 @@ int main( int argc, char *argv[] )
 	const unsigned int rowsCount = 22;
 	CGame game;
 	game.Initialize( rowsCount, columnsCount );
-	game.InitWindow();
 	game.ShowGrid();
 	game.StartGame();
 	game.MainLoop();
-
-
 
 	boost::log::core::get()->remove_all_sinks();
 	return 0;

@@ -48,6 +48,8 @@ namespace MOGE
 
 	protected:
 	private:
+		void UpdateGeometrics();
+
 		String mName;
 		Size mSize;
 		Position mPosition;

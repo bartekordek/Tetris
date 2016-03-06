@@ -13,7 +13,7 @@ namespace MOGE
 	{
 		SDL_Surface* image = SDL_SetVideoMode( 
 			size.GetWidth(), 
-			size.GetWidth(), 
+			size.GetHeight(), 
 			bitsPerPixel, 
 			SDL_HWSURFACE );
 		ImagePtr imagePtr = CreateSharedImgPtr( image );
@@ -35,7 +35,6 @@ namespace MOGE
 		}
 		else if( IMAGETYPE::PNG == imageType )
 		{
-
 		}
 			
 		return image;
@@ -46,13 +45,12 @@ namespace MOGE
 		IMAGETYPE imageType = IMAGETYPE::UNKOWN;
 		if( false == imagePath.empty() )
 		{
-			
-			const std::string& extension = ".png";// imagePath.extension();
-			if( extension.find( ".bmp" ) != std::string::npos )
+			const String extension = imagePath.extension();
+			if( extension.find( "bmp" ) != std::string::npos )
 			{
 				return IMAGETYPE::BMP;
 			}
-			else if( extension.find( ".png" ) != std::string::npos )
+			else if( extension.find( "png" ) != std::string::npos )
 			{
 				return IMAGETYPE::PNG;
 			}
@@ -63,6 +61,5 @@ namespace MOGE
 	ImagePtr CreateSharedImgPtr( SDL_Surface* image )
 	{
 		return std::make_shared<SDL_Surface>( *image );
-		return ImagePtr();
 	}
 }

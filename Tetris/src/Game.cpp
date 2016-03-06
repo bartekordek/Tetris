@@ -1,5 +1,6 @@
 #include "Game.h"
 #include "NodeFactory.h"
+#include "NodeImageFactory.h"
 
 #include "BrickFactory.h"
 #include "MTime.h"
@@ -13,53 +14,47 @@ CGame::CGame():
 {
 }
 
-
 CGame::~CGame()
 {
 }
 
-void CGame::Initialize( CUInt rowsCount, CUInt columnsCount )
+void CGame::Initialize( CUInt rowsCount, CUInt columnsCount, const Resolution& resoltion )
 {
-	MOGE::Engine::Instance().Initialize();
+	MOGE::Engine::Instance().Initialize( MOGE::Size( resoltion.width, resoltion.height ));
 	SetMainGridSize( rowsCount, columnsCount );
+	SetMainGridFilledSlabImage();
+	SetMainGridEmptySlabImage();
+	CreateGrid();
 }
 
 void CGame::SetMainGridSize( CUInt rows, CUInt columns )
 {
 	m_mainGrid.SetSize( rows, columns );
 }
-void CGame::InitWindow( CUInt xSize, CUInt ySize )
-{
-	SetMainGridFilledSlabImage();
-	SetMainGridEmptySlabImage();
-	CreateGrid( xSize, ySize );
-	//sdlWrapper.CreateWindow( xSize, ySize );
-	//sdlWrapper.AddImage( m_mainGrid.SlabPictureLoc() );
-	//sdlWrapper.AddImage( m_mainGrid.EmptySlabPictureLoc() );
-}
 
 void CGame::SetMainGridFilledSlabImage()
 {
-	mFilledSlabImage = MOGE::NodeFactory::CreateFromImage( "D:\\Dev\\Tetris\\Tetris\\pic\\Block.bmp" );
+	mFilledSlabImage = MOGE::NodeImageFactory::CreateImage( "D:\\Dev\\Tetris\\Tetris\\pic\\Block.bmp" );
 }
 
 void CGame::SetMainGridEmptySlabImage()
 {
-	mEmptySlabImage = MOGE::NodeFactory::CreateFromImage( "D:\\Dev\\Tetris\\Tetris\\pic\\BackGroundBlock.bmp" );
+	mEmptySlabImage = MOGE::NodeImageFactory::CreateImage( "D:\\Dev\\Tetris\\Tetris\\pic\\BackGroundBlock.bmp" );
 }
 
-void CGame::CreateGrid( CUInt xSize, CUInt ySize )
+void CGame::CreateGrid()
 {
-	for( auto& slab: m_mainGrid.GetSlabs() )
+	MOGE::Size size( 10, 10 );// TODO: Removed magic number '10'.
+	for( CSlab& slab: m_mainGrid.GetSlabs() )
 	{
-	//	MOGE::NodePtr& node = MOGE::NodeFactory::C
-
-		MOGE::Position position( slab.Col(), slab.Row() );
-		MOGE::Size size( 10, 10 );// TODO: Removed magic number '10'.
+		MOGE::Position position( slab.Col() * size.GetWidth(), slab.Row() * size.GetHeight() );
 
 		MOGE::NodePtr slabNode = MOGE::NodeFactory::CreateEmpty( position, size );
+		slab.SetNode( slabNode );
+		slab.GetNode()->SetImage( mEmptySlabImage );
+		
 		slabNode->SetVisible();
-		MOGE::Engine::Instance().AddObject( slabNode, std::to_string( slab.GetId()) );
+		MOGE::Engine::Instance().AddObject( slabNode );//TODO: redundant add, should be moved to NodeMgr
 	}
 }
 
@@ -148,16 +143,7 @@ void CGame::ReleaseBrick()
 
 void CGame::ShowGrid()
 {
-	//MOGE::MOGE::Instance().
-	//sdlWrapper.Display( m_mainGrid );
-
-	//for( auto slab: m_mainGrid.GetSlabs() )
-	//{
-	//	if( slab.Empty() )
-	//	{
-	//		MOGE::Engine::Instance().GetNode( );
-	//	}
-	//}
+	MOGE::Engine::Instance().RenderFrame();
 }
 
 void CGame::AddCurrentBrickToGrid()

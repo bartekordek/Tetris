@@ -36,8 +36,7 @@ public:
 	const bool CheckIfBlockCanBeMoved( const Direction direction )const;
 	void RotateActualBrick( const bool clockWise = true );
 	void ManageFullLine();
-	const std::vector<CSlab>& GetSlabs()const;
-
+	std::vector<CSlab>& GetSlabs();
 
 private:
 	CInt GetColOffset( const Direction direction )const;

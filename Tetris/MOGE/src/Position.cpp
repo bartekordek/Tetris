@@ -2,7 +2,9 @@
 
 namespace MOGE
 {
-	Position::Position()
+	Position::Position():
+		mX(0),
+		mY(0)
 	{
 	}
 

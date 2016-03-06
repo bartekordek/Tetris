@@ -327,7 +327,7 @@ void CMainGrid::ManageFullLine()
 	}
 }
 
-const std::vector<CSlab>& CMainGrid::GetSlabs()const
+std::vector<CSlab>& CMainGrid::GetSlabs()
 {
 	return m_slabs;
 }

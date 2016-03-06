@@ -52,16 +52,10 @@ namespace MOGE
 		mListMutex.unlock();
 	}
 
-	NodePtr& Engine::GetNode( const std::string& nodeName )const
+	void Engine::RenderFrame()
 	{
-		static NodePtr node;
-		return node;
-	}
-
-	NodePtr& Engine::GetNode( CUInt noodeIt )const
-	{
-		static NodePtr node;
-		return node;
+		QueueFrame();
+		SDL_Flip( mScreenBuffor->GetImage().get() );
 	}
 
 	void Engine::StartMainLoop()
@@ -76,9 +70,9 @@ namespace MOGE
 
 	void Engine::QueueFrame()
 	{
-		for( auto it = mRenderableObjects.begin(); it != mRenderableObjects.end(); ++it )
+		for( auto object : mRenderableObjects )
 		{
-			Render( *it->second );
+			Render( *object.second );
 		}
 	}
 

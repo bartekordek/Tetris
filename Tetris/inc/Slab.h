@@ -1,5 +1,6 @@
-#ifndef __CSLAB__
-#define __CSLAB__
+#pragma once
+
+#include <Node.h>
 
 #include "Position.h"
 #include "Utilities.h"
@@ -23,12 +24,14 @@ public:
 
 	void SetId( CUInt id );
 	CUInt GetId()const;
+
+	void SetNode( const MOGE::NodePtr& node );
+	MOGE::NodePtr& GetNode();
 	
 private:
-	CTableCoor m_position;
+	CTableCoor mPosition;
 	unsigned int mIndex = 0;
-	bool m_partOfSlab = false; // C++ 11 feature.
-	bool m_empty;
+	bool mPartOfSlab = false;
+	bool mEmpty;
+	MOGE::NodePtr mNode;
 };
-
-#endif

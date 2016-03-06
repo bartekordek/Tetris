@@ -36,7 +36,7 @@ protected:
 class CLBrick: public CBrick
 {
 public:
-	CLBrick( const Direction direction = Direction::R );
+	explicit CLBrick( const Direction direction = Direction::R );
 private:
 	void m_RotateClockWise();
 };
@@ -44,7 +44,7 @@ private:
 class CIBrick: public CBrick
 {
 public:
-	CIBrick( const Direction direction = Direction::R );
+	explicit CIBrick( const Direction direction = Direction::R );
 private:
 	void m_RotateClockWise();
 };
@@ -52,7 +52,7 @@ private:
 class COBrick: public CBrick
 {
 public:
-	COBrick(
+	explicit COBrick(
 		const Direction direction = Direction::R );
 private:
 	void m_RotateClockWise();
@@ -61,7 +61,7 @@ private:
 class CSBrick: public CBrick
 {
 public:
-	CSBrick( const Direction direction = Direction::R );
+	explicit CSBrick( const Direction direction = Direction::R );
 private:
 	void m_RotateClockWise();
 };
@@ -69,7 +69,7 @@ private:
 class CTBrick: public CBrick
 {
 public:
-	CTBrick(
+	explicit CTBrick(
 		const Direction direction = Direction::R );
 private:
 	void m_RotateClockWise();

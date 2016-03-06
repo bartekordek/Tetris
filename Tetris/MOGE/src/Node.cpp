@@ -6,6 +6,7 @@ namespace MOGE
 	Node::Node( const String& name, const Path& path, const Size& size, const Position& position ):
 		mSize( size ),
 		mPosition( position ),
+		mFilePath( path ),
 		mVisible( false ),
 		mImg( nullptr )
 	{
@@ -14,6 +15,7 @@ namespace MOGE
 			static unsigned int index = 0;
 			mName = "Node:" + std::to_string( index++ );
 		}
+		UpdateGeometrics();
 	}
 
 	Node::~Node()
@@ -25,10 +27,8 @@ namespace MOGE
 	{
 		SDL_FreeSurface( mImg.get() );
 		mImg = image;
-
-		mGeometrics.h = static_cast<Uint16> ( mImg->h );
-		mGeometrics.w = static_cast<Uint16> ( mImg->w );
-		mSize.Set( mGeometrics.w, mGeometrics.h );
+		mSize.Set( mImg->w, mImg->h );
+		UpdateGeometrics();
 	}
 
 	const ImagePtr& Node::GetImage()const
@@ -39,6 +39,7 @@ namespace MOGE
 	void Node::SetSize( const Size& size )
 	{
 		mSize = size;
+		UpdateGeometrics();
 	}
 
 	const Size& Node::GetSize()const
@@ -49,6 +50,7 @@ namespace MOGE
 	void Node::SetPosition( const Position& position )
 	{
 		mPosition = position;
+		UpdateGeometrics();
 	}
 
 	const Position& Node::GetPosition()const
@@ -89,5 +91,13 @@ namespace MOGE
 	SDL_Rect* Node::GetGeometricsInfo()
 	{
 		return &mGeometrics;
+	}
+
+	void Node::UpdateGeometrics()
+	{
+		mGeometrics.x = static_cast<Sint16>( mPosition.GetX() );
+		mGeometrics.y = static_cast<Sint16>( mPosition.GetY() );
+		mGeometrics.w = static_cast<Uint16>( mSize.GetWidth() );
+		mGeometrics.h = static_cast<Uint16>( mSize.GetHeight() );
 	}
 }
