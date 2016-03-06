@@ -34,7 +34,7 @@ namespace FS
 		void SetUpPaths( const String& fullPath );
 		void SetFullPath( const String& fullPath );
 		void GetExtension();
-		void GetBaseName();
+		void GetBaseNameAndPath();
 
 		String mFullPath;
 		String mExtension;

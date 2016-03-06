@@ -20,22 +20,25 @@ namespace FS
 	File::File( const char* inputPath ):
 		mFullPath( inputPath )
 	{
-
+		SetUpPaths( inputPath );
 	}
 
 	File::File( const std::string& inputPath ):
 		mFullPath( inputPath )
 	{
+		SetUpPaths( inputPath );
 	}
 
 	File::File( const String& inputPath ):
 		mFullPath( inputPath )
 	{
+		SetUpPaths( inputPath );
 	}
 
 	File::File( const File& inputPath ):
 		mFullPath( inputPath.string() )
 	{
+		SetUpPaths( mFullPath );
 	}
 
 	const std::string& File::string()const
@@ -96,9 +99,8 @@ namespace FS
 
 	void File::SetUpPaths( const String& fullPath )
 	{
-		SetFullPath( fullPath );
 		GetExtension();
-		GetBaseName();
+		GetBaseNameAndPath();
 	}
 
 	void File::SetFullPath( const String& fullPath )
@@ -111,17 +113,17 @@ namespace FS
 		auto mExtensionDotPosition = mFullPath.rfind( '.' );
 		if( String::npos != mExtensionDotPosition )
 		{
-			mExtension = mFullPath.substr( mExtensionDotPosition, mFullPath.length() );
+			mExtension = mFullPath.substr( ++mExtensionDotPosition, mFullPath.length() );
 		}
 	}
 
-	void File::GetBaseName()
+	void File::GetBaseNameAndPath()
 	{
 		auto separatorPosition = mFullPath.rfind( sSeparator.c_str() );
 		if( String::npos != separatorPosition )
 		{
-			mBaseName = mFullPath.substr( separatorPosition, mFullPath.length() );
-			mBaseName = mBaseName.Replace( mExtension, String( "" ) );
+			mBaseName = mFullPath.substr( ++separatorPosition, mFullPath.length() );
+			mBaseName = mBaseName.Replace( "." + mExtension, String( "" ) );
 		}
 	}
 }
