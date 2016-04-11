@@ -24,3 +24,4 @@ Tetris/Debug/Tetris.exe.lastcodeanalysissucceeded
 *.lib
 *.ipch
 *.dll
+*.exp
