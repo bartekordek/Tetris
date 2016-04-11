@@ -14,7 +14,7 @@ namespace MOGE
 		static ImagePtr CreateImage( SDL_Surface* surface );
 	private:
 		static SDL_Surface* CreateSurface( const Path& imagePath );
-		static const IMAGETYPE GuessImageType( const Path& imagePath );
+//		static const IMAGETYPE GuessImageType( const Path& imagePath );
 	};
 
 	ImagePtr CreateSharedImgPtr( SDL_Surface* image );

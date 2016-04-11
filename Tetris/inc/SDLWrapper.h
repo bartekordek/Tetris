@@ -2,7 +2,7 @@
 
 #include "Utilities.h"
 #include "MainGrid.h"
-#include "SDL/SDL.h"
+#include "SDL.h"
 
 class CSDLWrapper
 {

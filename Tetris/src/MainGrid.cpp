@@ -304,16 +304,9 @@ void CMainGrid::m_MoveActualBlock( const Direction direction )
 }
 
 
-void CMainGrid::AddCurrentBrickToGrid()
+CBrick* CMainGrid::GetCurrentBrick()
 {
-	if( NULL != m_activeBrick )
-	{
-		CoordinatestList coords = m_activeBrick->GetBlockPositions();
-		for( auto it = coords.begin(); it != coords.end(); ++it )
-		{
-			m_slabs.at( m_RowColToSlabIndex( it->Row(), it->Col() ) ).Empty( false );
-		}
-	}
+	return m_activeBrick;
 }
 
 void CMainGrid::ManageFullLine()
@@ -330,6 +323,11 @@ void CMainGrid::ManageFullLine()
 std::vector<CSlab>& CMainGrid::GetSlabs()
 {
 	return m_slabs;
+}
+
+CSlab& CMainGrid::GetSlab( CUInt row, CUInt column )
+{
+	return m_slabs.at( m_RowColToSlabIndex( row, column ) );
 }
 
 const bool CMainGrid::m_LineIsFull( CUInt rowIndex )const

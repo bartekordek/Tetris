@@ -21,7 +21,7 @@ typedef const signed int CInt;
 typedef unsigned int UInt;
 typedef boost::filesystem::path FsPath;
 
-using Path = FS::File;
+using Path = FS::Path;
 
 using Thread = std::thread;
 

@@ -11,13 +11,11 @@ namespace MOGE
 	Engine::~Engine()
 	{
 		StopMainLoop();
-		mScreenBuffor.~shared_ptr();
-		mListMutex.lock();
+		std::lock_guard<std::mutex> lck( mListMutex );
 		for( auto it = mRenderableObjects.begin(); it != mRenderableObjects.end(); ++it )
 		{
 			it->second.~shared_ptr();
 		}
-		mListMutex.unlock();
 		SDL_Quit();
 	}
 
@@ -29,33 +27,35 @@ namespace MOGE
 
 	void Engine::CreateScreen( const Size& size )
 	{
+		std::lock_guard<std::mutex> lck( mListMutex );
 		mScreenBuffor = NodeFactory::CreateScreen( size );
 	}
 
 	void Engine::AddObject( const Path& filePath, const Position& positionn, const String name )
 	{
+		std::lock_guard<std::mutex> lck( mListMutex );
 		NodePtr newNode = NodeFactory::CreateFromImage( filePath, positionn );
-		//TODO MOVE TO FACTORY
-		AddObject( newNode );
-		
+		AddObject( newNode, name );//TODO MOVE TO FACTORY
 	}
 
 	void Engine::AddObject( NodePtr& node, std::string name )
 	{
-		mListMutex.lock();
+		std::lock_guard<std::mutex> lck( mListMutex );
 		if( name.empty() )
 		{
 			static unsigned int namelessObjectIndex = 0;
 			name = "Object_" + std::to_string( namelessObjectIndex++ );
 		}
 		mRenderableObjects[name] = node;
-		mListMutex.unlock();
 	}
 
 	void Engine::RenderFrame()
 	{
-		QueueFrame();
-		SDL_Flip( mScreenBuffor->GetImage().get() );
+	/*	QueueFrame();
+		std::lock_guard<std::mutex> lck( mListMutex );
+		SDL_RenderPresent( mScreenBuffor->GetImage().get() );
+		SDL_Flip(  );*/
+		// TODO
 	}
 
 	void Engine::StartMainLoop()
@@ -70,9 +70,11 @@ namespace MOGE
 
 	void Engine::QueueFrame()
 	{
+		unsigned int index = 0;
 		for( auto object : mRenderableObjects )
 		{
 			Render( *object.second );
+			++index;
 		}
 	}
 
@@ -80,9 +82,13 @@ namespace MOGE
 	{
 		if( node.GetVisible() )
 		{
-			mListMutex.lock();
-			SDL_BlitSurface( node.GetImage().get(), NULL, mScreenBuffor->GetImage().get(), node.GetGeometricsInfo() );
-			mListMutex.unlock();
+			/*std::lock_guard<std::mutex> lck( mListMutex );
+			SDL_Surface* screen = mScreenBuffor->GetImage().get();
+			SDL_Rect* screenRect = node.GetGeometricsInfo();
+			SDL_Surface* image = node.GetImage().get();
+			SDL_Rect* imageRect = nullptr;
+			SDL_BlitSurface( image, imageRect, screen, screenRect );*/
+			//TODO
 		}
 	}
 }

@@ -18,11 +18,6 @@ public:
 		return sInstance;
 	}
 
-	static void Destroy()
-	{
-		delete mInstance;
-	}
-
 protected:
 
 private:

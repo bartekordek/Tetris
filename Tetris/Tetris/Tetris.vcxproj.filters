@@ -16,9 +16,6 @@
     <Filter Include="ExternalLibrary">
       <UniqueIdentifier>{c660a021-0ce1-49dc-a30e-66965013b2da}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MOGE">
-      <UniqueIdentifier>{0be614e6-4035-4724-bcd8-f11ee15f49d2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Utilities">
       <UniqueIdentifier>{6c5b36a9-e694-4d61-aa15-2c62c684a283}</UniqueIdentifier>
     </Filter>
@@ -60,28 +57,12 @@
     <ClInclude Include="..\inc\TableCoordinates.h">
       <Filter>inc</Filter>
     </ClInclude>
-    <ClInclude Include="..\MOGE\include\Node.h">
-      <Filter>MOGE</Filter>
-    </ClInclude>
-    <ClInclude Include="..\MOGE\include\Engine.h">
-      <Filter>MOGE</Filter>
-    </ClInclude>
     <ClInclude Include="..\inc\Utilities.h">
       <Filter>Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="..\MOGE\include\Size.h">
-      <Filter>MOGE</Filter>
-    </ClInclude>
-    <ClInclude Include="..\MOGE\include\NodeImageFactory.h">
-      <Filter>MOGE</Filter>
-    </ClInclude>
-    <ClInclude Include="..\MOGE\include\Position.h">
-      <Filter>MOGE</Filter>
-    </ClInclude>
-    <ClInclude Include="..\MOGE\include\NodeFactory.h">
-      <Filter>MOGE</Filter>
-    </ClInclude>
     <ClInclude Include="..\MOGE\include\NodeMgr.h" />
+    <ClInclude Include="..\MOGE\include\Named.h" />
+    <ClInclude Include="..\MOGE\include\Path.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
@@ -118,28 +99,12 @@
     <ClCompile Include="..\src\TableCoordinates.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\MOGE\src\Node.cpp">
-      <Filter>MOGE</Filter>
-    </ClCompile>
-    <ClCompile Include="..\MOGE\src\Engine.cpp">
-      <Filter>MOGE</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\Utilities.cpp">
       <Filter>Utilities</Filter>
     </ClCompile>
-    <ClCompile Include="..\MOGE\src\Size.cpp">
-      <Filter>MOGE</Filter>
-    </ClCompile>
-    <ClCompile Include="..\MOGE\src\NodeImageFactory.cpp">
-      <Filter>MOGE</Filter>
-    </ClCompile>
-    <ClCompile Include="..\MOGE\src\Position.cpp">
-      <Filter>MOGE</Filter>
-    </ClCompile>
-    <ClCompile Include="..\MOGE\src\NodeFactory.cpp">
-      <Filter>MOGE</Filter>
-    </ClCompile>
     <ClCompile Include="..\MOGE\src\NodeMgr.cpp" />
+    <ClCompile Include="..\MOGE\src\Named.cpp" />
+    <ClCompile Include="..\MOGE\src\Path.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

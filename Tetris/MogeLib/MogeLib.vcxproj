@@ -11,25 +11,25 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{3AA10523-EDAD-464D-90D6-43C330411A74}</ProjectGuid>
+    <ProjectGuid>{13C885BA-C0E2-4B79-A153-1F684A9BF3C5}</ProjectGuid>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <Keyword>ManagedCProj</Keyword>
-    <RootNamespace>GeneralUtilities</RootNamespace>
+    <RootNamespace>MogeLib</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
     <CLRSupport>false</CLRSupport>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
     <CLRSupport>false</CLRSupport>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -44,62 +44,44 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(ProjectDir)$(Configuration)\</OutDir>
-    <IntDir>Intermediate\</IntDir>
+    <IntDir>Intermediate\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(ProjectDir)$(Configuration)\</OutDir>
-    <IntDir>Intermediate\</IntDir>
+    <IntDir>Intermediate\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;MOGE_EXPORT;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <AdditionalIncludeDirectories>D:\Libraries\boost\boost_1_59_0;.\inc</AdditionalIncludeDirectories>
-      <SuppressStartupBanner>false</SuppressStartupBanner>
-      <ProgramDataBaseFileName>$(ProjectDir)$(Configuration)\$(TargetName).pdb</ProgramDataBaseFileName>
-      <TreatWarningAsError>true</TreatWarningAsError>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>inc;$(SolutionDir)GeneralUtilities\inc;$(BOOST);$(SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAsManaged>false</CompileAsManaged>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <MinimalRebuild>false</MinimalRebuild>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies />
+      <AdditionalDependencies>GeneralUtilities.lib;SDL2.lib;SDL2main.lib;libboost_system-vc120-mt-gd-1_59.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(BOOST)\stage\lib;$(SDL2)\Build\$(Configuration);..\GeneralUtilities\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>MSVCP120D.dll</IgnoreSpecificDefaultLibraries>
     </Link>
-    <Lib>
-      <OutputFile>$(ProjectDir)$(Configuration)\$(TargetName)$(TargetExt)</OutputFile>
-    </Lib>
-    <Lib>
-      <SuppressStartupBanner>false</SuppressStartupBanner>
-      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
-    </Lib>
-    <ProjectReference>
-      <LinkLibraryDependencies>true</LinkLibraryDependencies>
-    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <WarningLevel>TurnOffAllWarnings</WarningLevel>
-      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;MOGE_EXPORT;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <AdditionalIncludeDirectories>D:\Libraries\boost\boost_1_59_0;.\inc</AdditionalIncludeDirectories>
-      <SuppressStartupBanner>false</SuppressStartupBanner>
-      <Optimization>Full</Optimization>
+      <AdditionalIncludeDirectories>inc;$(SolutionDir)GeneralUtilities\inc;$(BOOST);$(SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies />
+      <AdditionalDependencies>GeneralUtilities.lib;SDL2.lib;SDL2main.lib;libboost_system-vc120-mt-gd-1_59.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(BOOST)\stage\lib;$(SDL2)\Build\$(Configuration);..\GeneralUtilities\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>MSVCP120D.dll</IgnoreSpecificDefaultLibraries>
     </Link>
-    <Lib>
-      <OutputFile>$(ProjectDir)$(Configuration)\$(TargetName)$(TargetExt)</OutputFile>
-    </Lib>
-    <Lib>
-      <SuppressStartupBanner>false</SuppressStartupBanner>
-    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -107,16 +89,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="inc\FileSystem.h" />
-    <ClInclude Include="inc\GeneralUtilities.h" />
-    <ClInclude Include="inc\MyString.h" />
-    <ClInclude Include="inc\Singleton.h" />
+    <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\FileSystem.cpp" />
-    <ClCompile Include="src\GeneralUtilities.cpp" />
-    <ClCompile Include="src\MyString.cpp" />
-    <ClCompile Include="src\Singleton.cpp" />
+    <ClInclude Include="inc\Engine.h" />
+    <ClInclude Include="inc\MOGE.h" />
+    <ClInclude Include="inc\Named.h" />
+    <ClInclude Include="inc\Node.h" />
+    <ClInclude Include="inc\NodeFactory.h" />
+    <ClInclude Include="inc\NodeImageFactory.h" />
+    <ClInclude Include="inc\NodeMgr.h" />
+    <ClInclude Include="inc\ObjectNode.h" />
+    <ClInclude Include="inc\Position.h" />
+    <ClInclude Include="inc\ScreenNode.h" />
+    <ClInclude Include="inc\Size.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Engine.cpp" />
+    <ClCompile Include="src\Named.cpp" />
+    <ClCompile Include="src\Node.cpp" />
+    <ClCompile Include="src\NodeFactory.cpp" />
+    <ClCompile Include="src\NodeImageFactory.cpp" />
+    <ClCompile Include="src\NodeMgr.cpp" />
+    <ClCompile Include="src\ObjectNode.cpp" />
+    <ClCompile Include="src\Position.cpp" />
+    <ClCompile Include="src\ScreenNode.cpp" />
+    <ClCompile Include="src\Size.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

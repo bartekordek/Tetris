@@ -1,5 +1,6 @@
-#ifndef __MAIN_GRID_Y__
-#define __MAIN_GRID_Y__
+#pragma once 
+
+#include "NodeImageFactory.h"
 
 #include <vector>
 #include "Utilities.h"
@@ -30,13 +31,15 @@ public:
 	CUInt SlabCount()const;
 	const CoordinatestList ActiveBrickCoords()const;
 	const bool SlabExist( CUInt rowIndex, CUInt colIndex )const;
-	void AddCurrentBrickToGrid();
+	CBrick* GetCurrentBrick();
 	const bool PartOfCurrentBrick( CUInt rowIndex, CUInt colIndex )const;
 	void MoveActualBrick( const Direction direction );
 	const bool CheckIfBlockCanBeMoved( const Direction direction )const;
 	void RotateActualBrick( const bool clockWise = true );
 	void ManageFullLine();
 	std::vector<CSlab>& GetSlabs();
+
+	CSlab& GetSlab( CUInt row, CUInt column );
 
 private:
 	CInt GetColOffset( const Direction direction )const;
@@ -48,12 +51,13 @@ private:
 	const bool m_LineIsFull( CUInt rowIndex )const;
 	const bool m_CheckIfBlockCanBePlaced( const CBrick* brick );
 	void m_MoveDownAllLines( CUInt toLineIndex );
+
+
 	CBrick* m_activeBrick;
 	std::vector<CSlab> m_slabs;
 	UInt m_columnsCount;
 	UInt m_rowsCount;
 	CPicture m_slabBackground;
 	CPicture m_brickBckd;
+	Mutex slabsMutex;
 };
-
-#endif

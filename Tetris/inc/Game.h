@@ -1,10 +1,10 @@
-#ifndef __GAME_Z__
-#define __GAME_Z__
+#pragma once
 
 #include "MainGrid.h"
 #include "Brick.h"
 #include "Utilities.h"
 #include "Engine.h"
+
 //#include "SDLWrapper.h"
 
 struct Resolution
@@ -36,7 +36,7 @@ private:
 	void CreateGrid();
 	const bool QuitHasBeenHit( const SDL_Event event );
 	const bool IsKeyDown( const SDL_Event event );
-	void HandleKeys( SDLKey sdlkey );
+	void HandleKeys( SDL_Keycode sdlkey );
 	void SetMainGridSize( CUInt rows, CUInt columns );
 	void MoveActiveBrick( const Direction direction = Direction::D );
 	void RotateActualBrick( const bool clockWise = true );
@@ -61,4 +61,3 @@ private:
 	std::string emptySlabName = "emptySlab";
 	std::string slabName = "slab";
 };
-#endif 

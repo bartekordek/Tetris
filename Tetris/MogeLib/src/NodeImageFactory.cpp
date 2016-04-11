@@ -11,13 +11,16 @@ namespace MOGE
 
 	ImagePtr NodeImageFactory::CreateScreen( const Size& size, CUInt bitsPerPixel )
 	{
-		SDL_Surface* image = SDL_SetVideoMode( 
+	/*	SDL_Window* image = SDL_CreateWindow(
+			"Tetris",
+			0,
+			0,
 			size.GetWidth(), 
 			size.GetHeight(), 
-			bitsPerPixel, 
-			SDL_HWSURFACE );
+			SDL_WINDOW_OPENGL );
 		ImagePtr imagePtr = CreateSharedImgPtr( image );
-		return imagePtr;
+		return imagePtr;*/
+		return ImagePtr();
 	}
 
 	ImagePtr NodeImageFactory::CreateImage( SDL_Surface* surface )
@@ -27,7 +30,7 @@ namespace MOGE
 
 	SDL_Surface* NodeImageFactory::CreateSurface( const Path& imagePath )
 	{
-		SDL_Surface* image = nullptr;
+		/*SDL_Surface* image = nullptr;
 		IMAGETYPE imageType = GuessImageType( imagePath );
 		if( IMAGETYPE::BMP == imageType )
 		{
@@ -37,26 +40,27 @@ namespace MOGE
 		{
 		}
 			
-		return image;
+		return image;*/
+		return nullptr;
 	}
 
-	const IMAGETYPE NodeImageFactory::GuessImageType( const Path& imagePath )
-	{
-		IMAGETYPE imageType = IMAGETYPE::UNKOWN;
-		if( false == imagePath.empty() )
-		{
-			const String extension = imagePath.extension();
-			if( extension.find( "bmp" ) != std::string::npos )
-			{
-				return IMAGETYPE::BMP;
-			}
-			else if( extension.find( "png" ) != std::string::npos )
-			{
-				return IMAGETYPE::PNG;
-			}
-		}
-		return imageType;
-	}
+	//const IMAGETYPE NodeImageFactory::GuessImageType( const Path& imagePath )
+	//{
+	//	IMAGETYPE imageType = IMAGETYPE::UNKOWN;
+	//	if( false == imagePath.empty() )
+	//	{
+	//		const String extension = imagePath.extension();
+	//		if( extension.find( "bmp" ) != std::string::npos )
+	//		{
+	//			return IMAGETYPE::BMP;
+	//		}
+	//		else if( extension.find( "png" ) != std::string::npos )
+	//		{
+	//			return IMAGETYPE::PNG;
+	//		}
+	//	}
+	//	return imageType;
+	//}
 
 	ImagePtr CreateSharedImgPtr( SDL_Surface* image )
 	{

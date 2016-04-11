@@ -4,43 +4,56 @@
 
 namespace FS
 {
-	class File
+	class Path
 	{
 	public:
-		File();
-		virtual ~File();
+		Path();
+		virtual ~Path();
 
-		File( const char* inputPath );
-		File( const std::string& inputPath );
-		File( const String& inputPath );
-		File( const File& inputPath );
+		Path( const char* inputPath );
+		Path( const std::string& inputPath );
+		Path( const String& inputPath );
+		Path( const Path& inputPath );
 		
 		const std::string& string()const;
 		const char* c_str()const;
 
 		const bool operator==( const std::string& inputPath )const;
 		const bool operator==( const String& inputPath )const;
-		const bool operator==( const File& inputPath )const;
+		const bool operator==( const Path& inputPath )const;
 
-		File& operator=( const std::string& inputPath );
-		File& operator=( const String& inputPath );
-		File& operator=( const File& inputPath );
+		Path& operator=( const std::string& inputPath );
+		Path& operator=( const String& inputPath );
+		Path& operator=( const Path& inputPath );
 
 		const bool empty()const;
-		const String& extension()const;
+		const String& Extension()const;
+		const String& FullPath()const;
+		const String& BaseName()const;
+		const String& Directory()const;
+
+		static const String& GetDirectorySeparator();
+		static const String& GetExtensionSeparator();
+		
 
 	protected:
+
 	private:
 		void SetUpPaths( const String& fullPath );
 		void SetFullPath( const String& fullPath );
-		void GetExtension();
-		void GetBaseNameAndPath();
 
 		String mFullPath;
 		String mExtension;
 		String mBaseName;
-		String mPathWithoutFile;
+		String mDirectory;
 
-		static String sSeparator;
+		static String directorySeparator;
+		static String extensionSeparator;
 	};
+
+	
+
+	const String GetBaseName( const String& path );
+	const String GetExtension( const String& path );
+	const String GetDirectory( const String& path );
 }

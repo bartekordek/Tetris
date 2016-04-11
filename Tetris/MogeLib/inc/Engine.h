@@ -1,13 +1,14 @@
 #pragma once
 
+#include <MOGE.h>
 #include "GeneralUtilities.h"
-#include "SDL/SDL.h"
+#include <SDL.h>
 #include "Node.h"
 #include <unordered_map>
 
 namespace MOGE
 {
-	class Engine: public Singleton<Engine>
+	class MOGE_API Engine: public Singleton<Engine>
 	{
 	public:
 		Engine( void );
@@ -20,7 +21,6 @@ namespace MOGE
 		void RenderFrame();
 
 	protected:
-
 
 	private:
 		void CreateScreen( const Size& size );

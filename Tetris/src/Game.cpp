@@ -67,7 +67,8 @@ void CGame::StartGame()
 void CGame::MainLoop()
 {
 	SDL_Event event;
-	m_mainLoopThread = Thread( &CGame::MainLoopThread, this );
+	MainLoopThread();
+	//m_mainLoopThread = Thread( &CGame::MainLoopThread, this );
 	while( false == m_quit)
 	{
 		while( SDL_PollEvent( &event ) )
@@ -148,7 +149,16 @@ void CGame::ShowGrid()
 
 void CGame::AddCurrentBrickToGrid()
 {
-	m_mainGrid.AddCurrentBrickToGrid();
+	CBrick* currentBrick = m_mainGrid.GetCurrentBrick();
+	if( currentBrick )
+	{
+		for( auto& coord : currentBrick->GetBlockPositions() )
+		{
+			CSlab& slab = m_mainGrid.GetSlab( coord.Row(), coord.Col() );
+			slab.Empty( false );
+			slab.GetNode()->SetImage( mFilledSlabImage );
+		}
+	}
 }
 
 void CGame::CheckForFullLines()
@@ -171,7 +181,7 @@ void CGame::RotateActualBrick( const bool clockWise )
 
 void CGame::ActualizeGrid( )
 {
-//	sdlWrapper.Actualize();
+	MOGE::Engine::Instance().RenderFrame();
 }
 
 const bool CGame::QuitHasBeenHit( const SDL_Event event )

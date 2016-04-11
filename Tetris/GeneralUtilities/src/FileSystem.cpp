@@ -2,83 +2,75 @@
 
 namespace FS
 {
-#ifdef _WIN32
-	String File::sSeparator = String( "\\" );
-#else
-	String File::sSeparator = "/";
-#endif
-
-	File::File():
-		mFullPath("")
+	Path::Path(): mFullPath("")
 	{
 	}
 
-	File::~File()
+	Path::~Path()
 	{
 	}
 
-	File::File( const char* inputPath ):
+	Path::Path( const char* inputPath ): mFullPath( inputPath )
+	{
+		SetUpPaths( inputPath );
+	}
+
+	Path::Path( const std::string& inputPath ):
 		mFullPath( inputPath )
 	{
 		SetUpPaths( inputPath );
 	}
 
-	File::File( const std::string& inputPath ):
+	Path::Path( const String& inputPath ):
 		mFullPath( inputPath )
 	{
 		SetUpPaths( inputPath );
 	}
 
-	File::File( const String& inputPath ):
-		mFullPath( inputPath )
-	{
-		SetUpPaths( inputPath );
-	}
-
-	File::File( const File& inputPath ):
+	Path::Path( const Path& inputPath ):
 		mFullPath( inputPath.string() )
 	{
 		SetUpPaths( mFullPath );
 	}
 
-	const std::string& File::string()const
+	const std::string& Path::string()const
 	{
 		return mFullPath;
 	}
 
-	const char* File::c_str()const
+	const char* Path::c_str()const
 	{
 		return mFullPath.c_str();
 	}
 
-	const bool File::operator==( const File& inputPath )const
+	const bool Path::operator==( const Path& inputPath )const
 	{
 		return mFullPath ==  inputPath.mFullPath;
 	}
 
-	const bool File::operator==( const String& inputPath )const
+	const bool Path::operator==( const String& inputPath )const
 	{
 		return mFullPath ==  inputPath ;
 	}
 
-	const bool File::operator==( const std::string& inputPath )const
+	const bool Path::operator==( const std::string& inputPath )const
 	{
 		return mFullPath == inputPath;
 	}
 
-	File& File::operator=( const std::string& inputPath )
+	Path& Path::operator=( const std::string& inputPath )
 	{
 		mFullPath = inputPath;
 		return *this;
 	}
 
-	File& File::operator=( const String& inputPath )
+	Path& Path::operator=( const String& inputPath )
 	{
 		mFullPath = inputPath;
 		return *this;
 	}
 
-	File& File::operator=( const File& inputPath )
+	Path& Path::operator=( const Path& inputPath )
 	{
 		if( this != &inputPath )
 		{
@@ -87,43 +79,92 @@ namespace FS
 		return *this;
 	}
 
-	const bool File::empty()const
+	const bool Path::empty()const
 	{
 		return mFullPath.empty();
 	}
 
-	const String& File::extension()const
+	const String& Path::Extension()const
 	{
 		return mExtension;
 	}
 
-	void File::SetUpPaths( const String& fullPath )
+	const String& Path::FullPath()const
 	{
-		GetExtension();
-		GetBaseNameAndPath();
+		return mFullPath;
 	}
 
-	void File::SetFullPath( const String& fullPath )
+	const String& Path::BaseName()const
+	{
+		return mBaseName;
+	}
+
+	const String& Path::Directory()const
+	{
+		return mDirectory;
+	}
+
+	const String& Path::GetDirectorySeparator()
+	{
+		return directorySeparator;
+	}
+
+	const String& Path::GetExtensionSeparator()
+	{
+		return extensionSeparator;
+	}
+
+	void Path::SetUpPaths( const String& fullPath )
+	{
+		mFullPath = fullPath;
+		mExtension = GetExtension( fullPath );
+		mBaseName = GetBaseName( fullPath );
+		mDirectory = GetDirectory( fullPath );
+	}
+
+	void Path::SetFullPath( const String& fullPath )
 	{
 		mFullPath = fullPath;
 	}
 
-	void File::GetExtension()
-	{
-		auto mExtensionDotPosition = mFullPath.rfind( '.' );
-		if( String::npos != mExtensionDotPosition )
-		{
-			mExtension = mFullPath.substr( ++mExtensionDotPosition, mFullPath.length() );
-		}
-	}
+#ifdef _WIN32
+	String Path::directorySeparator = "\\";
+#else
+	String Path::directorySeparator = "/";
+#endif
+	String Path::extensionSeparator = ".";
 
-	void File::GetBaseNameAndPath()
+	const String GetBaseName( const String& path )
 	{
-		auto separatorPosition = mFullPath.rfind( sSeparator.c_str() );
+		String baseName = "";
+		auto separatorPosition = path.rfind( Path::GetDirectorySeparator() );
 		if( String::npos != separatorPosition )
 		{
-			mBaseName = mFullPath.substr( ++separatorPosition, mFullPath.length() );
-			mBaseName = mBaseName.Replace( "." + mExtension, String( "" ) );
+			baseName = path.substr( ++separatorPosition );
+			baseName = baseName.Replace( "." + GetExtension( path ), String( "" ) );
 		}
+		return baseName;
+	}
+
+	const String GetExtension( const String& path )
+	{
+		String extension = "";
+		auto mExtensionDotPosition = path.rfind( Path::GetExtensionSeparator() );
+		if( String::npos != mExtensionDotPosition )
+		{
+			extension = path.substr( ++mExtensionDotPosition );
+		}
+		return extension;
+	}
+
+	const String GetDirectory( const String& path )
+	{
+		String directory = "";
+		auto lastSlashPosition = path.rfind( Path::GetDirectorySeparator() );
+		if( String::npos != lastSlashPosition )
+		{
+			directory = path.substr( 0, lastSlashPosition );
+		}
+		return directory;
 	}
 }
