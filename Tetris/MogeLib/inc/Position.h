@@ -1,10 +1,11 @@
 #pragma once
 
+#include <MOGE.h>
 #include "GeneralUtilities.h"
 
 namespace MOGE
 {
-	class Position
+	class MOGE_API Position
 	{
 	public:
 		Position();

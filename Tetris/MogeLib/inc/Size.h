@@ -1,10 +1,11 @@
 #pragma once
 
+#include <MOGE.h>
 #include "GeneralUtilities.h"
 
 namespace MOGE
 {
-	class Size
+	class MOGE_API Size
 	{
 	public:
 		Size();
