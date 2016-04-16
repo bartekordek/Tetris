@@ -8,7 +8,7 @@ namespace MOGE
 	class MOGE_API Named
 	{
 	public:
-		Named();
+		Named( const String& name = "" );
 		virtual ~Named();
 
 		void SetName( const String& name );

@@ -3,7 +3,7 @@
 
 namespace MOGE
 {
-	Node::Node()
+	Node::Node(): Named(""), Position(0, 0), Size( 640, 480 )
 	{
 		//if( name.empty() )
 		//{

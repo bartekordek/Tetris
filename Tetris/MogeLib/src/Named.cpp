@@ -2,7 +2,7 @@
 
 namespace MOGE
 {
-	Named::Named()
+	Named::Named(const String& name): mName(name)
 	{
 	}
 
