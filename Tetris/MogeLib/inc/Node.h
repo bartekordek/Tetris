@@ -15,7 +15,7 @@ namespace MOGE
 		public Size
 	{
 	public:
-		Node();
+		Node( const String& name = "" );
 		virtual ~Node();
 
 		void SetVisible( const bool visible = true );
