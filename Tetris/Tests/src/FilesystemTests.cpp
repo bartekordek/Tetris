@@ -4,23 +4,23 @@
 TEST_F( FilesystemTests, GetExtension )
 {
 	MOGE::Path file("C:\\SomeDirectory\\SomeFile.extension");
-	EXPECT_EQ( file.Extension(), "extension" );
+	ASSERT_EQ( file.Extension(), "extension" );
 }
 
 TEST_F( FilesystemTests, GetDirectory )
 {
 	MOGE::Path file( "C:\\SomeDirectory\\SomeFile.extension" );
-	EXPECT_EQ( file.Directory(), "C:\\SomeDirectory" );
+	ASSERT_EQ( file.Directory(), "C:\\SomeDirectory" );
 }
 
 TEST_F( FilesystemTests, GetBaseName )
 {
 	MOGE::Path file( "C:\\SomeDirectory\\SomeFile.extension" );
-	EXPECT_EQ( file.BaseName(), "SomeFile" );
+	ASSERT_EQ( file.BaseName(), "SomeFile" );
 }
 
 TEST_F( FilesystemTests, GetFullPath )
 {
 	MOGE::Path file( "C:\\SomeDirectory\\SomeFile.extension" );
-	EXPECT_EQ( file.FullPath(), "C:\\SomeDirectory\\SomeFile.extension" );
+	ASSERT_EQ( file.FullPath(), "C:\\SomeDirectory\\SomeFile.extension" );
 }
