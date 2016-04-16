@@ -1,5 +1,5 @@
 #include "Node.h"
-//#include "Size.h"
+#include <SDL.h>
 
 namespace MOGE
 {
@@ -15,12 +15,7 @@ namespace MOGE
 
 	Node::~Node()
 	{
-		//if( mImg.get()->hwdata )
-		//{
-		//	SDL_FreeSurface( mImg.get() );
-		//}
 	}
-
 	
 	void Node::SetVisible( const bool visible )
 	{
@@ -35,17 +30,6 @@ namespace MOGE
 	SDL_Rect* Node::GetGeometricsInfo()
 	{
 		return &mGeometrics;
-	}
-
-	void Node::FreeCurrentImage()
-	{
-		/*if( mImg.get() )
-		{
-			if( mImg.get()->format )
-			{
-				SDL_FreeSurface( mImg.get() );
-			}
-		}*/
 	}
 
 	void Node::UpdateGeometrics()

@@ -4,12 +4,11 @@
 #include "Named.h"
 #include "Position.h"
 #include "Size.h"
-
 #include <SDL.h>
 
 namespace MOGE
 {
-	class Node:
+	class MOGE_API Node:
 		public Named,
 		public Position,
 		public Size
@@ -25,7 +24,7 @@ namespace MOGE
 
 	protected:
 	private:
-		void FreeCurrentImage();
+		virtual void FreeContent() = 0;
 		void UpdateGeometrics();
 
 		bool mVisible;
