@@ -1,5 +1,5 @@
 #include "Node.h"
-#include "Size.h"
+//#include "Size.h"
 
 namespace MOGE
 {
@@ -39,20 +39,20 @@ namespace MOGE
 
 	void Node::FreeCurrentImage()
 	{
-		if( mImg.get() )
+		/*if( mImg.get() )
 		{
 			if( mImg.get()->format )
 			{
 				SDL_FreeSurface( mImg.get() );
 			}
-		}
+		}*/
 	}
 
 	void Node::UpdateGeometrics()
 	{
-		mGeometrics.x = static_cast<Sint16>( mPosition.GetX() );
-		mGeometrics.y = static_cast<Sint16>( mPosition.GetY() );
-		mGeometrics.w = static_cast<Uint16>( mSize.GetWidth() );
-		mGeometrics.h = static_cast<Uint16>( mSize.GetHeight() );
+		//mGeometrics.x = static_cast<Sint16>( mPosition.GetX() );
+		//mGeometrics.y = static_cast<Sint16>( mPosition.GetY() );
+		//mGeometrics.w = static_cast<Uint16>( mSize.GetWidth() );
+		//mGeometrics.h = static_cast<Uint16>( mSize.GetHeight() );
 	}
 }

@@ -56,7 +56,7 @@
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\MOGE\include;D:\Libraries\boost\boost_1_59_0;..\GeneralUtilities\inc;$(SolutionDir)\inc;$(SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Dev\Tetris\Tetris\MogeLib\inc;D:\Libraries\boost\boost_1_59_0;..\GeneralUtilities\inc;$(SolutionDir)\inc;$(SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWarningAsError>true</TreatWarningAsError>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -91,7 +91,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\MOGE\include;D:\Libraries\boost\boost_1_59_0;..\GeneralUtilities\inc;$(SolutionDir)\inc;$(SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Dev\Tetris\Tetris\MogeLib\inc;D:\Libraries\boost\boost_1_59_0;..\GeneralUtilities\inc;$(SolutionDir)\inc;$(SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <SuppressStartupBanner>false</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -123,15 +123,9 @@
     <ClInclude Include="..\inc\MTime.h" />
     <ClInclude Include="..\inc\TableCoordinates.h" />
     <ClInclude Include="..\inc\Utilities.h" />
-    <ClInclude Include="..\MOGE\include\Named.h" />
-    <ClInclude Include="..\MOGE\include\NodeMgr.h" />
-    <ClInclude Include="..\MOGE\include\Path.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
-    <ClCompile Include="..\MOGE\src\Named.cpp" />
-    <ClCompile Include="..\MOGE\src\NodeMgr.cpp" />
-    <ClCompile Include="..\MOGE\src\Path.cpp" />
     <ClCompile Include="..\src\Brick.cpp" />
     <ClCompile Include="..\src\BrickFactory.cpp" />
     <ClCompile Include="..\src\Game.cpp" />
@@ -154,11 +148,6 @@
     <Image Include="..\pic\BackGroundBlock.bmp" />
     <Image Include="..\pic\Block.bmp" />
     <Image Include="..\pic\ButtonQuit.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GeneralUtilities\GeneralUtilities.vcxproj">
-      <Project>{3aa10523-edad-464d-90d6-43c330411a74}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

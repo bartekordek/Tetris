@@ -1,18 +1,15 @@
 #pragma once
 
+#include <MOGE.h>
 #include "Named.h"
-#include "Size.h"
 #include "Position.h"
+#include "Size.h"
+
 #include <SDL.h>
 
 namespace MOGE
 {
-	class Node;
-
-	using ImagePtr = SharedPtr<SDL_Surface>;
-	using NodePtr = SharedPtr<Node>;
-
-	class Node: 
+	class Node:
 		public Named,
 		public Position,
 		public Size
@@ -31,10 +28,6 @@ namespace MOGE
 		void FreeCurrentImage();
 		void UpdateGeometrics();
 
-		Size mSize;
-		Position mPosition;
-		ImagePtr mImg;
-		Path mFilePath;
 		bool mVisible;
 		SDL_Rect mGeometrics;
 	};

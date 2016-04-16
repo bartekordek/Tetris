@@ -5,18 +5,12 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tetris", "Tetris\Tetris.vcxproj", "{8323F6F2-99CF-4652-8348-3D6C54227046}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GeneralUtilities", "GeneralUtilities\GeneralUtilities.vcxproj", "{3AA10523-EDAD-464D-90D6-43C330411A74}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tests", "Tests\Tests.vcxproj", "{AB3E04B6-736C-4791-A253-93F572E0BCD5}"
 	ProjectSection(ProjectDependencies) = postProject
-		{3AA10523-EDAD-464D-90D6-43C330411A74} = {3AA10523-EDAD-464D-90D6-43C330411A74}
 		{13C885BA-C0E2-4B79-A153-1F684A9BF3C5} = {13C885BA-C0E2-4B79-A153-1F684A9BF3C5}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MogeLib", "MogeLib\MogeLib.vcxproj", "{13C885BA-C0E2-4B79-A153-1F684A9BF3C5}"
-	ProjectSection(ProjectDependencies) = postProject
-		{3AA10523-EDAD-464D-90D6-43C330411A74} = {3AA10523-EDAD-464D-90D6-43C330411A74}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,10 +22,6 @@ Global
 		{8323F6F2-99CF-4652-8348-3D6C54227046}.Debug|Win32.Build.0 = Debug|Win32
 		{8323F6F2-99CF-4652-8348-3D6C54227046}.Release|Win32.ActiveCfg = Release|Win32
 		{8323F6F2-99CF-4652-8348-3D6C54227046}.Release|Win32.Build.0 = Release|Win32
-		{3AA10523-EDAD-464D-90D6-43C330411A74}.Debug|Win32.ActiveCfg = Debug|Win32
-		{3AA10523-EDAD-464D-90D6-43C330411A74}.Debug|Win32.Build.0 = Debug|Win32
-		{3AA10523-EDAD-464D-90D6-43C330411A74}.Release|Win32.ActiveCfg = Release|Win32
-		{3AA10523-EDAD-464D-90D6-43C330411A74}.Release|Win32.Build.0 = Release|Win32
 		{AB3E04B6-736C-4791-A253-93F572E0BCD5}.Debug|Win32.ActiveCfg = Debug|Win32
 		{AB3E04B6-736C-4791-A253-93F572E0BCD5}.Debug|Win32.Build.0 = Debug|Win32
 		{AB3E04B6-736C-4791-A253-93F572E0BCD5}.Release|Win32.ActiveCfg = Release|Win32

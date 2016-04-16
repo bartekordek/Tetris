@@ -1,6 +1,6 @@
 #include "FileSystem.h"
 
-namespace FS
+namespace MOGE
 {
 	Path::Path(): mFullPath("")
 	{

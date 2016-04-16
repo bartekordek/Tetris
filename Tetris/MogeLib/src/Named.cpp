@@ -2,11 +2,9 @@
 
 namespace MOGE
 {
-
 	Named::Named()
 	{
 	}
-
 
 	Named::~Named()
 	{
@@ -21,5 +19,4 @@ namespace MOGE
 	{
 		return mName;
 	}
-
 }

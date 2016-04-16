@@ -1,7 +1,5 @@
 #pragma once 
 
-#include "NodeImageFactory.h"
-
 #include <vector>
 #include "Utilities.h"
 #include "Slab.h"

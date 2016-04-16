@@ -1,10 +1,10 @@
 #pragma once
-
+#include <MOGE.h>
 #include "MyString.h"
 
-namespace FS
+namespace MOGE
 {
-	class Path
+	class MOGE_API Path
 	{
 	public:
 		Path();

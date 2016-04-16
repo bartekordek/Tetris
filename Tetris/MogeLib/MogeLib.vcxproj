@@ -57,14 +57,14 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;MOGE_EXPORT;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <AdditionalIncludeDirectories>inc;$(SolutionDir)GeneralUtilities\inc;$(BOOST);$(SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>inc;$(BOOST);$(SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAsManaged>false</CompileAsManaged>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>GeneralUtilities.lib;SDL2.lib;SDL2main.lib;libboost_system-vc120-mt-gd-1_59.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(BOOST)\stage\lib;$(SDL2)\Build\$(Configuration);..\GeneralUtilities\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;libboost_system-vc120-mt-gd-1_59.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(BOOST)\stage\lib;$(SDL2)\Build\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>MSVCP120D.dll</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
@@ -73,13 +73,13 @@
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;MOGE_EXPORT;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <AdditionalIncludeDirectories>inc;$(SolutionDir)GeneralUtilities\inc;$(BOOST);$(SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>inc;$(BOOST);$(SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>GeneralUtilities.lib;SDL2.lib;SDL2main.lib;libboost_system-vc120-mt-gd-1_59.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(BOOST)\stage\lib;$(SDL2)\Build\$(Configuration);..\GeneralUtilities\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;libboost_system-vc120-mt-gd-1_59.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(BOOST)\stage\lib;$(SDL2)\Build\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>MSVCP120D.dll</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
@@ -92,29 +92,24 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="inc\Engine.h" />
-    <ClInclude Include="inc\MOGE.h" />
-    <ClInclude Include="inc\Named.h" />
-    <ClInclude Include="inc\Node.h" />
-    <ClInclude Include="inc\NodeFactory.h" />
-    <ClInclude Include="inc\NodeImageFactory.h" />
-    <ClInclude Include="inc\NodeMgr.h" />
-    <ClInclude Include="inc\ObjectNode.h" />
-    <ClInclude Include="inc\Position.h" />
-    <ClInclude Include="inc\ScreenNode.h" />
-    <ClInclude Include="inc\Size.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\Engine.cpp" />
+    <ClCompile Include="src\Aliases.cpp" />
+    <ClCompile Include="src\FileSystem.cpp" />
+    <ClCompile Include="src\MyString.cpp" />
     <ClCompile Include="src\Named.cpp" />
     <ClCompile Include="src\Node.cpp" />
-    <ClCompile Include="src\NodeFactory.cpp" />
-    <ClCompile Include="src\NodeImageFactory.cpp" />
-    <ClCompile Include="src\NodeMgr.cpp" />
-    <ClCompile Include="src\ObjectNode.cpp" />
     <ClCompile Include="src\Position.cpp" />
     <ClCompile Include="src\ScreenNode.cpp" />
     <ClCompile Include="src\Size.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="inc\Aliases.h" />
+    <ClInclude Include="inc\FileSystem.h" />
+    <ClInclude Include="inc\MyString.h" />
+    <ClInclude Include="inc\Named.h" />
+    <ClInclude Include="inc\Node.h" />
+    <ClInclude Include="inc\Position.h" />
+    <ClInclude Include="inc\ScreenNode.h" />
+    <ClInclude Include="inc\Size.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

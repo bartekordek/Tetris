@@ -60,9 +60,6 @@
     <ClInclude Include="..\inc\Utilities.h">
       <Filter>Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="..\MOGE\include\NodeMgr.h" />
-    <ClInclude Include="..\MOGE\include\Named.h" />
-    <ClInclude Include="..\MOGE\include\Path.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
@@ -102,9 +99,6 @@
     <ClCompile Include="..\src\Utilities.cpp">
       <Filter>Utilities</Filter>
     </ClCompile>
-    <ClCompile Include="..\MOGE\src\NodeMgr.cpp" />
-    <ClCompile Include="..\MOGE\src\Named.cpp" />
-    <ClCompile Include="..\MOGE\src\Path.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

@@ -1,8 +1,6 @@
 #include "gtest/gtest.h"
 #include "FilesystemTests.h"
 
-#include <string>
-
 int main( int argc, char **argv )
 {
 	::testing::InitGoogleTest( &argc, argv );

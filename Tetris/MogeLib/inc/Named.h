@@ -1,7 +1,7 @@
 #pragma once
 
 #include <MOGE.h>
-#include "GeneralUtilities.h"
+#include "MyString.h"
 
 namespace MOGE
 {

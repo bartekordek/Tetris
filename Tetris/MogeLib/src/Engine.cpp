@@ -28,14 +28,14 @@ namespace MOGE
 	void Engine::CreateScreen( const Size& size )
 	{
 		std::lock_guard<std::mutex> lck( mListMutex );
-		mScreenBuffor = NodeFactory::CreateScreen( size );
+//		mScreenBuffor = NodeFactory::CreateScreen( size );
 	}
 
 	void Engine::AddObject( const Path& filePath, const Position& positionn, const String name )
 	{
 		std::lock_guard<std::mutex> lck( mListMutex );
-		NodePtr newNode = NodeFactory::CreateFromImage( filePath, positionn );
-		AddObject( newNode, name );//TODO MOVE TO FACTORY
+	//	NodePtr newNode = NodeFactory::CreateFromImage( filePath, positionn );
+	//	AddObject( newNode, name );//TODO MOVE TO FACTORY
 	}
 
 	void Engine::AddObject( NodePtr& node, std::string name )
@@ -73,7 +73,7 @@ namespace MOGE
 		unsigned int index = 0;
 		for( auto object : mRenderableObjects )
 		{
-			Render( *object.second );
+	//		Render( *object.second );
 			++index;
 		}
 	}

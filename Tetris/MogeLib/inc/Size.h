@@ -1,7 +1,7 @@
 #pragma once
 
 #include <MOGE.h>
-#include "GeneralUtilities.h"
+#include "Aliases.h"
 
 namespace MOGE
 {

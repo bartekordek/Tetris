@@ -3,16 +3,16 @@
 namespace MOGE
 {
 	Path::Path():
-		mPath(""),
-		mBaseName(""),
-		mExtension(""),
-		mDirectory("")
+		mPath( "" ),
+		mBaseName( "" ),
+		mExtension( "" ),
+		mDirectory( "" )
 	{
 	}
 
 	Path::Path( const Path& path )
 	{
-		*(this) = path;
+		*( this ) = path;
 	}
 
 	Path::~Path()
@@ -70,7 +70,7 @@ namespace MOGE
 	const String Path::ExtractExtension( const String& path )
 	{
 		String result = "";
-		auto mDotPosition = path.rfind( extensionSeparator );
+		auto mDotPosition = path.rfind( mExtensionSeparator );
 		if( String::npos != mDotPosition )
 		{
 			result = path.substr( mDotPosition );
@@ -78,3 +78,4 @@ namespace MOGE
 		return result;
 	}
 
+}
