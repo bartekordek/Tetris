@@ -19,4 +19,6 @@ namespace MOGE
 
 		String& Replace( const String& inWhat, const String& inFor );
 	};
+
+	MOGE_API_TEMPLATE class MOGE_API String;
 }
