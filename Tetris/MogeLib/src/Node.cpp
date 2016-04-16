@@ -3,14 +3,14 @@
 
 namespace MOGE
 {
-	Node::Node(): Named(""), Position(0, 0), Size( 640, 480 )
+	Node::Node( const String& name ): Named( name ), Position( 0, 0 ), Size( 640, 480 )
 	{
-		//if( name.empty() )
-		//{
-		//	static unsigned int index = 0;
-		//	Named::SetName( "Node:" + std::to_string( index++ ));
-		//}
-		//UpdateGeometrics();
+		if( Named::GetName().empty() )
+		{
+			static unsigned int index = 0;
+			Named::SetName( "Node:" + std::to_string( index++ ) );
+		}
+		UpdateGeometrics();
 	}
 
 	Node::~Node()
@@ -50,9 +50,9 @@ namespace MOGE
 
 	void Node::UpdateGeometrics()
 	{
-		//mGeometrics.x = static_cast<Sint16>( mPosition.GetX() );
-		//mGeometrics.y = static_cast<Sint16>( mPosition.GetY() );
-		//mGeometrics.w = static_cast<Uint16>( mSize.GetWidth() );
-		//mGeometrics.h = static_cast<Uint16>( mSize.GetHeight() );
+		mGeometrics.x = static_cast<Sint16>( Position::GetX() );
+		mGeometrics.y = static_cast<Sint16>( Position::GetY() );
+		mGeometrics.w = static_cast<Uint16>( Size::GetWidth() );
+		mGeometrics.h = static_cast<Uint16>( Size::GetHeight() );
 	}
 }
