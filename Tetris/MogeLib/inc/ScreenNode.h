@@ -4,17 +4,17 @@
 
 namespace MOGE
 {
-	class ScreeNode: public Node
+	class MOGE_API ScreenNode: public Node
 	{
 	public:
-		ScreeNode();
-		~ScreeNode();
+		ScreenNode();
+		~ScreenNode();
 
 		void CreateScreen();
-
 		SDL_Window* GetScreen()const;
 
 	private:
+		void FreeContent() override;
 		SDL_Window* mainScreen = nullptr;
 	};
 }
