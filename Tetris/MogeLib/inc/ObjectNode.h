@@ -4,7 +4,6 @@
 
 namespace MOGE
 {
-
 	enum IMAGETYPE
 	{
 		UNKOWN = -1,
@@ -13,11 +12,14 @@ namespace MOGE
 		MAIN_SCREEN
 	};
 
-	class ObjectNode: public Node
+	class MOGE_API ObjectNode: public Node
 	{
 	public:
 		ObjectNode();
 		~ObjectNode();
+
+	private:
+		void FreeContent() override;
 	};
 
 }

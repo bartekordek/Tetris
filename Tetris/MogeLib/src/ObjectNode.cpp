@@ -12,4 +12,8 @@ namespace MOGE
 	{
 	}
 
+	void ObjectNode::FreeContent()
+	{
+
+	}
 }
