@@ -99,6 +99,7 @@
     <ClCompile Include="src\MyString.cpp" />
     <ClCompile Include="src\Named.cpp" />
     <ClCompile Include="src\Node.cpp" />
+    <ClCompile Include="src\ObjectNode.cpp" />
     <ClCompile Include="src\Position.cpp" />
     <ClCompile Include="src\ScreenNode.cpp" />
     <ClCompile Include="src\Size.cpp" />
@@ -110,6 +111,7 @@
     <ClInclude Include="inc\MyString.h" />
     <ClInclude Include="inc\Named.h" />
     <ClInclude Include="inc\Node.h" />
+    <ClInclude Include="inc\ObjectNode.h" />
     <ClInclude Include="inc\Position.h" />
     <ClInclude Include="inc\ScreenNode.h" />
     <ClInclude Include="inc\Size.h" />
