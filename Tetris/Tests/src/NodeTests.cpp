@@ -12,4 +12,14 @@ TEST_F( NodeTests, ScreenAfterCreationIsNotNull )
 	MOGE::ScreenNode screenNode;
 	screenNode.CreateScreen();
 	ASSERT_NE( screenNode.GetScreen(), nullptr );
+	screenNode.DestroyScreen();
+}
+
+TEST_F( NodeTests, DestroyScreen )
+{
+	MOGE::ScreenNode screenNode;
+	screenNode.CreateScreen();
+	ASSERT_NE( screenNode.GetScreen(), nullptr );
+	screenNode.DestroyScreen();
+	ASSERT_NE( screenNode.GetScreen(), nullptr );
 }
