@@ -15,15 +15,28 @@ namespace MOGE
 	void ScreenNode::CreateScreen()
 	{
 		mainScreen = SDL_CreateWindow( Named::GetName().c_str(), Position::GetX(), Position::GetY(), Size::GetWidth(), Size::GetHeight(), SDL_WINDOW_SHOWN );
-	}
-
-	void ScreenNode::FreeContent()
-	{
-		SDL_DestroyWindow( mainScreen );
+		mainRenderer = SDL_CreateRenderer( mainScreen, -1, SDL_RENDERER_ACCELERATED );
 	}
 
 	SDL_Window* ScreenNode::GetScreen()const
 	{
 		return mainScreen;
 	}
+
+	SDL_Renderer* ScreenNode::GetRenderer()const
+	{
+		return mainRenderer;
+	}
+
+	void ScreenNode::DestroyScreen()
+	{
+		FreeContent();
+	}
+
+	void ScreenNode::FreeContent()
+	{
+		SDL_DestroyRenderer( mainRenderer );
+		SDL_DestroyWindow( mainScreen );
+	}
+
 }
