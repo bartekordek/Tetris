@@ -15,7 +15,7 @@ namespace MOGE
 		void SetName( const String& name );
 		const String& GetName()const;
 
-		Name& operator=( Name& name );
+		Name& operator=( const Name& name );
 
 	protected:
 	private:

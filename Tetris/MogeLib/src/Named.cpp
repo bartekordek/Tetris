@@ -24,7 +24,7 @@ namespace MOGE
 		return mName;
 	}
 
-	Name& Name::operator=( Name& name )
+	Name& Name::operator=( const Name& name )
 	{
 		if( this != &name )
 		{
