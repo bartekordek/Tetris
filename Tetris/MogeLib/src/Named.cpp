@@ -2,21 +2,34 @@
 
 namespace MOGE
 {
-	Named::Named(const String& name): mName(name)
+	Name::Name(const String& name): mName(name)
 	{
 	}
 
-	Named::~Named()
+	Name::Name(const Name& name):mName(name.mName)
 	{
 	}
 
-	void Named::SetName( const String& name )
+	Name::~Name()
+	{
+	}
+
+	void Name::SetName( const String& name )
 	{
 		mName = name;
 	}
 
-	const String& Named::GetName()const
+	const String& Name::GetName()const
 	{
 		return mName;
+	}
+
+	Name& Name::operator=( Name& name )
+	{
+		if( this != &name )
+		{
+			this->mName = name.mName;
+		}
+		return *this;
 	}
 }

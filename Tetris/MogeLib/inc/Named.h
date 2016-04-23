@@ -5,14 +5,17 @@
 
 namespace MOGE
 {
-	class MOGE_API Named
+	class MOGE_API Name
 	{
 	public:
-		Named( const String& name = "" );
-		virtual ~Named();
+		Name( const String& name = "" );
+		Name( const Name& name );
+		virtual ~Name();
 
 		void SetName( const String& name );
 		const String& GetName()const;
+
+		Name& operator=( Name& name );
 
 	protected:
 	private:
