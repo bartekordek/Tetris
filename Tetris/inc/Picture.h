@@ -1,8 +1,12 @@
 #pragma once
 
-#include "GeneralUtilities.h"
+#include <FileSystem.h>
+#include <Named.h>
 
-class CPicture
+
+using Path = MOGE::Path;
+
+class CPicture: public MOGE::Name
 {
 public:
 	CPicture();
@@ -17,7 +21,6 @@ public:
 
 private:
 	Path m_location;
-	String m_name;
 	UInt m_width;
 	UInt m_height;
 

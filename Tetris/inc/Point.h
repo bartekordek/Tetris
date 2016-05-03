@@ -1,6 +1,6 @@
 #pragma once
 
-#include "GeneralUtilities.h"
+#include "Aliases.h"
 
 class CPoint
 {
