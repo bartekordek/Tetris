@@ -1,97 +1,94 @@
 #include "Slab.h"
 
-CSlab::CSlab( const CSlab& slab ): 
-	mPosition( CTableCoor( slab.Row(), slab.Col() ) ),
-	mPartOfSlab( slab.mPartOfSlab ),
-	mEmpty( slab.mEmpty ),
-	mNode( nullptr )
+namespace Tetris
 {
-}
 
-CSlab::CSlab( CUInt row, CUInt col, const bool partOfSlab, const bool empty):
-	mPosition( CTableCoor( row, col ) ),
-	mPartOfSlab(partOfSlab),
-	mEmpty(empty),
-	mNode( nullptr )
-{
-}
-
-CSlab::~CSlab()
-{
-}
-
-CSlab& CSlab::operator=( const CSlab& slab )
-{
-	if( this != &slab )
+	CSlab::CSlab( const CSlab& slab ):
+		mPosition( CTableCoor( slab.Row(), slab.Col() ) ),
+		mPartOfSlab( slab.mPartOfSlab ),
+		mEmpty( slab.mEmpty )
 	{
-		mPosition = slab.mPosition;
-		mPartOfSlab = slab.mPartOfSlab;
-		mEmpty = slab.mEmpty;
 	}
-	return *this;
-}
 
-CUInt CSlab::Row()const
-{
-	return mPosition.Row();
-}
+	CSlab::CSlab( CUInt row, CUInt col, const bool partOfSlab, const bool empty ):
+		mPosition( CTableCoor( row, col ) ),
+		mPartOfSlab( partOfSlab ),
+		mEmpty( empty )
+	{
+	}
 
-void CSlab::Row( CUInt row )
-{
-	mPosition.Row( row );
-}
+	CSlab::~CSlab()
+	{
+	}
 
-void CSlab::Col( CUInt col )
-{
-	mPosition.Col( col );
-}
+	CSlab& CSlab::operator=( const CSlab& slab )
+	{
+		if( this != &slab )
+		{
+			mPosition = slab.mPosition;
+			mPartOfSlab = slab.mPartOfSlab;
+			mEmpty = slab.mEmpty;
+		}
+		return *this;
+	}
 
-CUInt CSlab::Col()const
-{
-	return mPosition.Col();
-}
+	CUInt CSlab::Row()const
+	{
+		return mPosition.Row();
+	}
 
-void CSlab::SetPosition( CUInt row, CUInt col )
-{
-	mPosition.ChangePosition( row, col ); 
-}
+	void CSlab::Row( CUInt row )
+	{
+		mPosition.Row( row );
+	}
 
-const bool CSlab::PartOfSlab()const
-{
-	return mPartOfSlab;
-}
+	void CSlab::Col( CUInt col )
+	{
+		mPosition.Col( col );
+	}
 
-const bool CSlab::Empty()const
-{
-	return mEmpty;
-}
+	CUInt CSlab::Col()const
+	{
+		return mPosition.Col();
+	}
 
-void CSlab::Empty( const bool empty )
-{
-	mEmpty = empty;
-}
+	void CSlab::SetPosition( CUInt row, CUInt col )
+	{
+		mPosition.ChangePosition( row, col );
+	}
 
-void CSlab::PartOfSlab( const bool partOfSlab )
-{
-	mPartOfSlab = partOfSlab;
-}
+	const bool CSlab::PartOfSlab()const
+	{
+		return mPartOfSlab;
+	}
 
-void CSlab::SetId( CUInt id )
-{
-	mIndex = id;
-}
+	const bool CSlab::Empty()const
+	{
+		return mEmpty;
+	}
 
-CUInt CSlab::GetId()const
-{
-	return mIndex;
-}
+	void CSlab::Empty( const bool empty )
+	{
+		mEmpty = empty;
+	}
 
-void CSlab::SetNode( const MOGE::NodePtr& node )
-{
-	mNode = node;
-}
+	void CSlab::PartOfSlab( const bool partOfSlab )
+	{
+		mPartOfSlab = partOfSlab;
+	}
 
-MOGE::NodePtr& CSlab::GetNode()
-{
-	return mNode;
+	void CSlab::SetId( CUInt id )
+	{
+		mIndex = id;
+	}
+
+	CUInt CSlab::GetId()const
+	{
+		return mIndex;
+	}
+
+	MOGE::ObjectNode& CSlab::GetNode()
+	{
+		return mNode;
+	}
 }
