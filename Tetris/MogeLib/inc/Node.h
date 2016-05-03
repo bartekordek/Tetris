@@ -9,7 +9,7 @@
 namespace MOGE
 {
 	class MOGE_API Node:
-		public Named,
+		public Name,
 		public Position,
 		public Size
 	{
