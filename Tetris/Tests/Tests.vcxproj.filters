@@ -13,14 +13,20 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Generic">
-      <UniqueIdentifier>{4e3742ae-c784-482f-a685-ea03503fea05}</UniqueIdentifier>
-    </Filter>
     <Filter Include="FileSystem">
       <UniqueIdentifier>{1b2e731d-422c-4a40-85e3-37717afe3dd1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Node">
+    <Filter Include="Tests">
+      <UniqueIdentifier>{23fa66a5-e7b3-42eb-9ad1-ffa5a67e5f18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\Generic">
+      <UniqueIdentifier>{4e3742ae-c784-482f-a685-ea03503fea05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\Node">
       <UniqueIdentifier>{39f3cf1a-97b0-402e-b7f9-fbf7b771ed6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\Name">
+      <UniqueIdentifier>{4282f525-5418-48b3-a15a-e3faf8e7e78b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -28,24 +34,30 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\MogeGenericTests.cpp">
-      <Filter>Generic</Filter>
+      <Filter>Tests\Generic</Filter>
     </ClCompile>
     <ClCompile Include="src\FilesystemTests.cpp">
       <Filter>FileSystem</Filter>
     </ClCompile>
     <ClCompile Include="src\NodeTests.cpp">
-      <Filter>Node</Filter>
+      <Filter>Tests\Node</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NameTests.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\MogeGenericTests.h">
-      <Filter>Generic</Filter>
+      <Filter>Tests\Generic</Filter>
     </ClInclude>
     <ClInclude Include="inc\FilesystemTests.h">
       <Filter>FileSystem</Filter>
     </ClInclude>
     <ClInclude Include="inc\NodeTests.h">
-      <Filter>Node</Filter>
+      <Filter>Tests\Node</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\NameTests.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
