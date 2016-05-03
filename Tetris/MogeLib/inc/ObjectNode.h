@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Node.h"
+#include <memory>
 
 namespace MOGE
 {
@@ -12,6 +13,8 @@ namespace MOGE
 		MAIN_SCREEN
 	};
 
+	template class MOGE_API std::shared_ptr<SDL_Surface>;
+
 	class MOGE_API ObjectNode: public Node
 	{
 	public:
@@ -20,6 +23,8 @@ namespace MOGE
 
 	private:
 		void FreeContent() override;
+		std::shared_ptr<SDL_Surface> surface;
+
 	};
 
 }
