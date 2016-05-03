@@ -1,6 +1,7 @@
 #pragma once
 #include <MOGE.h>
 #include "MyString.h"
+#include <Aliases.h>
 
 namespace MOGE
 {
@@ -34,6 +35,7 @@ namespace MOGE
 
 		static const String& GetDirectorySeparator();
 		static const String& GetExtensionSeparator();
+		const bool Exist()const;
 		
 
 	protected:
@@ -56,4 +58,5 @@ namespace MOGE
 	const String GetBaseName( const String& path );
 	const String GetExtension( const String& path );
 	const String GetDirectory( const String& path );
+	const bool FileExists( const String& path, ErrorCode& errocode = ErrorCode() );
 }

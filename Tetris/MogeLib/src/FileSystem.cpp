@@ -114,6 +114,11 @@ namespace MOGE
 		return extensionSeparator;
 	}
 
+	const bool Path::Exist()const
+	{
+		return FileExists( mFullPath.c_str() );
+	}
+
 	void Path::SetUpPaths( const String& fullPath )
 	{
 		mFullPath = fullPath;
@@ -166,5 +171,10 @@ namespace MOGE
 			directory = path.substr( 0, lastSlashPosition );
 		}
 		return directory;
+	}
+
+	const bool FileExists( const String& path, ErrorCode& errocode )
+	{
+		return boost::filesystem::is_regular_file( path.c_str(), errocode );
 	}
 }
