@@ -24,3 +24,15 @@ TEST_F( FilesystemTests, GetFullPath )
 	MOGE::Path file( "C:\\SomeDirectory\\SomeFile.extension" );
 	ASSERT_EQ( file.FullPath(), "C:\\SomeDirectory\\SomeFile.extension" );
 }
+
+TEST_F( FilesystemTests, FileExistence )
+{
+	MOGE::Path file("C:\\Windows\\System32\\xcopy.exe");
+	ASSERT_EQ( file.Exist(), true );
+}
+
+TEST_F( FilesystemTests, FileNotExist )
+{
+	MOGE::Path file( "C:\\Windows\\System32\\xcopy312312.exe" );
+	ASSERT_EQ( file.Exist(), false );
+}
