@@ -6,7 +6,7 @@
 
 TEST_F( MogeGenericTests, NamedSetGetName )
 {
-	class EmptyClass: public MOGE::Named
+	class EmptyClass: public MOGE::Name
 	{
 
 	};
