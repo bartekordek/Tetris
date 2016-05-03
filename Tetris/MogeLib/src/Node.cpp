@@ -3,12 +3,12 @@
 
 namespace MOGE
 {
-	Node::Node( const String& name ): Named( name ), Position( 0, 0 ), Size( 640, 480 )
+	Node::Node( const String& name ): Name( name ), Position( 0, 0 ), Size( 640, 480 )
 	{
-		if( Named::GetName().empty() )
+		if( Name::GetName().empty() )
 		{
 			static unsigned int index = 0;
-			Named::SetName( "Node:" + std::to_string( index++ ) );
+			Name::SetName( "Node:" + std::to_string( index++ ) );
 		}
 		UpdateGeometrics();
 	}

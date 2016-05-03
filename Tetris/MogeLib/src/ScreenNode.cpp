@@ -14,7 +14,7 @@ namespace MOGE
 
 	void ScreenNode::CreateScreen()
 	{
-		mainScreen = SDL_CreateWindow( Named::GetName().c_str(), Position::GetX(), Position::GetY(), Size::GetWidth(), Size::GetHeight(), SDL_WINDOW_SHOWN );
+		mainScreen = SDL_CreateWindow( Name::GetName().c_str(), Position::GetX(), Position::GetY(), Size::GetWidth(), Size::GetHeight(), SDL_WINDOW_SHOWN );
 		mainRenderer = SDL_CreateRenderer( mainScreen, -1, SDL_RENDERER_ACCELERATED );
 	}
 
