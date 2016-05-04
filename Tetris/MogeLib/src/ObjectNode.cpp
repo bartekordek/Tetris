@@ -14,6 +14,6 @@ namespace MOGE
 
 	void ObjectNode::FreeContent()
 	{
-
+		SDL_FreeSurface( surface.get() );
 	}
 }

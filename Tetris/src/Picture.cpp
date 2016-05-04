@@ -3,7 +3,6 @@
 
 CPicture::CPicture(): 
 	m_location(""), 
-	m_name(""), 
 	m_width(0),
 	m_height(0)
 {
@@ -24,8 +23,8 @@ CPicture& CPicture::operator=( const CPicture& picture )
 {
 	if( this != &picture )
 	{
+		MOGE::Name::operator=(picture);
 		m_location = picture.m_location;
-		m_name = picture.m_name;
 		m_width = picture.m_width;
 		m_height = picture.m_height;
 	}
@@ -34,14 +33,13 @@ CPicture& CPicture::operator=( const CPicture& picture )
 
 void CPicture::SetPictureLocation( Path picLocation )
 {
-	ErrorCode errorText;
-	if( FileExists( picLocation, errorText ) )
+	if( picLocation.Exist() )
 	{
 		m_location = picLocation;
 	}
 	else
 	{
-		std::cerr << "IMAGE LOCATION ERROR: " << errorText << std::endl;
+		std::cerr << "FILE" << picLocation.string() << "DOES NOT EXIST." << std::endl;
 	}
 }
 
