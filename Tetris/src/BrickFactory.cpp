@@ -3,7 +3,6 @@
 
 namespace Tetris
 {
-
 	CBrick* CBrickFactory::GetBrick( const BrickTypes brickType )
 	{
 		if( L == brickType )
