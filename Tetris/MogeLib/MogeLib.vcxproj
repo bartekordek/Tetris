@@ -102,6 +102,7 @@
     <ClCompile Include="src\MyString.cpp" />
     <ClCompile Include="src\Named.cpp" />
     <ClCompile Include="src\Node.cpp" />
+    <ClCompile Include="src\NodeCreator.cpp" />
     <ClCompile Include="src\NodeImageCreator.cpp" />
     <ClCompile Include="src\ObjectNode.cpp" />
     <ClCompile Include="src\Position.cpp" />
@@ -117,6 +118,7 @@
     <ClInclude Include="inc\MyString.h" />
     <ClInclude Include="inc\Named.h" />
     <ClInclude Include="inc\Node.h" />
+    <ClInclude Include="inc\NodeCreator.h" />
     <ClInclude Include="inc\NodeImageCreator.h" />
     <ClInclude Include="inc\ObjectNode.h" />
     <ClInclude Include="inc\Position.h" />
