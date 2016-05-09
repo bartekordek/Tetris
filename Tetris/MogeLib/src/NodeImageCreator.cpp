@@ -4,9 +4,9 @@
 
 namespace MOGE
 {
-	ImageSurface ImageCreator::CreateSurfaceFromImage( const Path& imagePath )
+	std::shared_ptr<SurfaceWrapper> ImageCreator::CreateSurfaceFromImage( const Path& imagePath )
 	{
-		ImageSurface result;
+		std::shared_ptr<SurfaceWrapper> result;
 		SurfaceWrapper* surfaceWrapper = new SurfaceWrapper();
 		ImageTypes imageType = GetImageType( imagePath );
 		if( ImageTypes::BMP == imageType )
