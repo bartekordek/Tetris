@@ -10,7 +10,7 @@ namespace MOGE
 		ScreenNode();
 		~ScreenNode();
 
-		void CreateScreen();
+		void Initialize();
 		SDL_Window* GetScreen()const;
 		SDL_Renderer* GetRenderer()const;
 		void DestroyScreen();
