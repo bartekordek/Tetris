@@ -10,7 +10,7 @@ TEST_F( NodeTests, CheckIfScreenIsNullptrAfterConstructorCall )
 TEST_F( NodeTests, ScreenAfterCreationIsNotNull )
 {
 	MOGE::ScreenNode screenNode;
-	screenNode.CreateScreen();
+	screenNode.Initialize();
 	ASSERT_NE( screenNode.GetScreen(), nullptr );
 	screenNode.DestroyScreen();
 }
@@ -18,7 +18,7 @@ TEST_F( NodeTests, ScreenAfterCreationIsNotNull )
 TEST_F( NodeTests, DestroyScreen )
 {
 	MOGE::ScreenNode screenNode;
-	screenNode.CreateScreen();
+	screenNode.Initialize();
 	ASSERT_NE( screenNode.GetScreen(), nullptr );
 	screenNode.DestroyScreen();
 	ASSERT_NE( screenNode.GetScreen(), nullptr );
