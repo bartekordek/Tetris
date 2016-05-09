@@ -56,6 +56,8 @@
       <PreprocessorDefinitions>WIN32;MOGE_EXPORT;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SDL2)\include;$(BOOST);inc;D:\Dev\Tetris\Tetris\MogeLib\inc;D:\Libraries\googletest\googletest\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+      <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -94,15 +96,19 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\FilesystemTests.cpp" />
+    <ClCompile Include="src\ImageCreatorTests.cpp" />
     <ClCompile Include="src\MogeGenericTests.cpp" />
     <ClCompile Include="src\NameTests.cpp" />
     <ClCompile Include="src\NodeTests.cpp" />
+    <ClCompile Include="src\ObjectNodeTests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\FilesystemTests.h" />
+    <ClInclude Include="inc\ImageCreatorTests.h" />
     <ClInclude Include="inc\MogeGenericTests.h" />
     <ClInclude Include="inc\NameTests.h" />
     <ClInclude Include="inc\NodeTests.h" />
+    <ClInclude Include="inc\ObjectNodeTests.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

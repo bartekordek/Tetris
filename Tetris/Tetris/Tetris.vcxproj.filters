@@ -48,9 +48,6 @@
     <ClInclude Include="..\inc\Point.h">
       <Filter>inc</Filter>
     </ClInclude>
-    <ClInclude Include="..\inc\SDLWrapper.h">
-      <Filter>inc</Filter>
-    </ClInclude>
     <ClInclude Include="..\inc\MTime.h">
       <Filter>inc</Filter>
     </ClInclude>
@@ -85,9 +82,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Point.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\SDLWrapper.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\MTime.cpp">

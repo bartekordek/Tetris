@@ -28,6 +28,9 @@
     <Filter Include="Tests\Name">
       <UniqueIdentifier>{4282f525-5418-48b3-a15a-e3faf8e7e78b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ImageFactory">
+      <UniqueIdentifier>{70d109fc-2828-4db0-a1f7-37702921199f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -43,7 +46,13 @@
       <Filter>Tests\Node</Filter>
     </ClCompile>
     <ClCompile Include="src\NameTests.cpp">
+      <Filter>Tests\Name</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ObjectNodeTests.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ImageCreatorTests.cpp">
+      <Filter>ImageFactory</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -57,7 +66,13 @@
       <Filter>Tests\Node</Filter>
     </ClInclude>
     <ClInclude Include="inc\NameTests.h">
+      <Filter>Tests\Name</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ObjectNodeTests.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ImageCreatorTests.h">
+      <Filter>ImageFactory</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

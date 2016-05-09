@@ -1,9 +1,9 @@
 #include "Engine.h"
-#include "NodeFactory.h"
+
 
 namespace MOGE
 {
-	Engine::Engine( void ): mScreenBuffor( nullptr )
+	Engine::Engine( void )
 	{
 		SDL_Init( SDL_INIT_EVERYTHING );
 	}
@@ -14,7 +14,7 @@ namespace MOGE
 		std::lock_guard<std::mutex> lck( mListMutex );
 		for( auto it = mRenderableObjects.begin(); it != mRenderableObjects.end(); ++it )
 		{
-			it->second.~shared_ptr();
+			it->second.~ObjectNode();
 		}
 		SDL_Quit();
 	}
@@ -38,7 +38,7 @@ namespace MOGE
 	//	AddObject( newNode, name );//TODO MOVE TO FACTORY
 	}
 
-	void Engine::AddObject( NodePtr& node, std::string name )
+	void Engine::AddObject( ObjectNode& node, std::string name )
 	{
 		std::lock_guard<std::mutex> lck( mListMutex );
 		if( name.empty() )

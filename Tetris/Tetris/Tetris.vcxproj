@@ -118,7 +118,6 @@
     <ClInclude Include="..\inc\Orientation.h" />
     <ClInclude Include="..\inc\Picture.h" />
     <ClInclude Include="..\inc\Point.h" />
-    <ClInclude Include="..\inc\SDLWrapper.h" />
     <ClInclude Include="..\inc\Slab.h" />
     <ClInclude Include="..\inc\MTime.h" />
     <ClInclude Include="..\inc\TableCoordinates.h" />
@@ -133,7 +132,6 @@
     <ClCompile Include="..\src\Orientation.cpp" />
     <ClCompile Include="..\src\Picture.cpp" />
     <ClCompile Include="..\src\Point.cpp" />
-    <ClCompile Include="..\src\SDLWrapper.cpp" />
     <ClCompile Include="..\src\Slab.cpp" />
     <ClCompile Include="..\src\MTime.cpp" />
     <ClCompile Include="..\src\TableCoordinates.cpp" />
