@@ -3,11 +3,11 @@
 namespace MOGE
 {
 
-	ObjectNode::ObjectNode()
+	ObjectNode::ObjectNode(): mFilePath("")
 	{
 	}
 
-	ObjectNode::ObjectNode( const Path& filePath )
+	ObjectNode::ObjectNode(const Path& filePath):mFilePath( filePath )
 	{
 
 	}
@@ -17,9 +17,14 @@ namespace MOGE
 		FreeContent();
 	}
 
-	const std::shared_ptr<SDL_Surface> ObjectNode::GetContent()const
+	const std::shared_ptr<SurfaceWrapper> ObjectNode::GetContent()const
 	{
 		return surface;
+	}
+
+	const Path& ObjectNode::GetPath()const
+	{
+		return mFilePath;
 	}
 
 	void ObjectNode::FreeContent()

@@ -4,7 +4,7 @@
 
 #include "Node.h"
 #include "FileSystem.h"
-
+#include "SurfaceWrapper.h"
 
 namespace MOGE
 {
@@ -25,12 +25,14 @@ namespace MOGE
 		ObjectNode( const Path& filePath );
 		~ObjectNode();
 
-		const std::shared_ptr<SDL_Surface> GetContent()const;
+		const std::shared_ptr<SurfaceWrapper> GetContent()const;
+
+		const Path& GetPath()const;
 
 	private:
 		void FreeContent() override;
-		std::shared_ptr<SDL_Surface> surface;
+		std::shared_ptr<SurfaceWrapper> surface;
+		Path mFilePath;
 
 	};
-
 }
