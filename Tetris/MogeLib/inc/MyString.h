@@ -18,6 +18,7 @@ namespace MOGE
 		const bool Contains( const char* inputString )const;
 
 		String& Replace( const String& inWhat, const String& inFor );
+		const std::string ToLower()const;
 	};
 
 	MOGE_API_TEMPLATE class MOGE_API String;

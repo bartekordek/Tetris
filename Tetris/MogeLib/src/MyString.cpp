@@ -1,4 +1,5 @@
 #include "MyString.h"
+#include <boost\algorithm\string.hpp>
 
 namespace MOGE
 {
@@ -46,5 +47,12 @@ namespace MOGE
 			std::string::replace( inWhatPosition, inWhat.length(), inFor.c_str() );
 		}
 		return *this;
+	}
+
+	const std::string String::ToLower()const
+	{
+		std::string result = static_cast<std::string>( *this );
+		boost::algorithm::to_lower( result );
+		return result;
 	}
 }
