@@ -24,4 +24,6 @@ namespace MOGE
 
 		SDL_Surface* surface = nullptr;
 	};
+
+
 }

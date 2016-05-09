@@ -16,7 +16,7 @@ namespace MOGE
 		MAIN_SCREEN
 	};
 
-	template class MOGE_API std::shared_ptr<SDL_Surface>;
+	template class MOGE_API std::shared_ptr<SurfaceWrapper>;
 
 	class MOGE_API ObjectNode: public Node
 	{
