@@ -1,10 +1,16 @@
-#include "NodeFactory.h"
-#include "NodeImageFactory.h"
+#include "NodeCreator.h"
+#include "NodeImageCreator.h"
 #include "GeneralUtilities.h"
-#include "Node.h"
+
+#include "ObjectNode.h"
+#include "ScreenNode.h"
 
 namespace MOGE
 {
+	ScreenNode NodeCreator::CreateScreen( const Size& size )
+	{
+
+	}
 	//NodePtr& NodeFactory::CreateScreen( const Size& size )
 	//{
 	//	//Node* newNode = new Node( "MainScreen", Path( "" ), size );

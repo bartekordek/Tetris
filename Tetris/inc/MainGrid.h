@@ -10,7 +10,6 @@
 
 namespace Tetris
 {
-
 	class CMainGrid
 	{
 	public:

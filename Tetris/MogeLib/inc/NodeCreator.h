@@ -1,14 +1,22 @@
 #pragma once
 
-#include "Node.h"
+
 
 namespace MOGE
 {
+	class NodeCreator
+	{
+	public:
+		static ScreenNode CreateScreen( const Size& size );
+	protected:
+	private:
+		
+	};
 	//class NodeFactory
 	//{
 	//public:
 
-	//	static NodePtr& CreateScreen( const Size& size );
+	//	
 	//	static NodePtr& CreateFromImage( const Path filePath, const Position position = Position(), const String& name = "" );
 	//	static NodePtr& CreateEmpty( const Position& position = Position(), const Size& size = Size() );
 	//	static NodePtr GetNode( const Path& path );

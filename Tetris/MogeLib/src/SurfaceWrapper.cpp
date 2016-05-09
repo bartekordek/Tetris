@@ -3,7 +3,6 @@
 
 namespace MOGE
 {
-
 	SurfaceWrapper::SurfaceWrapper()
 	{
 	}
