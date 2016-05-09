@@ -27,7 +27,7 @@ TEST_F( MogeGenericTests, PositionSetGetTwoArgumentMethod )
 	EmptyClass instance;
 	CUInt x = 0;
 	CUInt y = 0;
-	instance.Set( x, y );
+	instance.SetXY( x, y );
 	ASSERT_EQ( instance.GetX(), x );
 	ASSERT_EQ( instance.GetY(), y );
 }
@@ -58,7 +58,7 @@ TEST_F( MogeGenericTests, SizeSetGetTwoArgumentMethod )
 	EmptyClass instance;
 	CUInt width = 10;
 	CUInt height = 10;
-	instance.Set( width, height );
+	instance.SetWH( width, height );
 	ASSERT_EQ( instance.GetWidth(), width );
 	ASSERT_EQ( instance.GetHeight(), height );
 }
