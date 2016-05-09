@@ -1,13 +1,24 @@
 #pragma once
 
-#include <MOGE.h>
-#include "GeneralUtilities.h"
+#include <map>
+#include <thread>
+#include <mutex>
+
+
+#include "Singleton.h"
+#include "FileSystem.h"
+#include "ObjectNode.h"
+#include "ScreenNode.h"
+
 #include <SDL.h>
-#include "Node.h"
-#include <unordered_map>
+
 
 namespace MOGE
 {
+	class MOGE_API std::thread;
+	class MOGE_API std::mutex;
+	template class MOGE_API std::map< std::string, ObjectNode>;
+
 	class MOGE_API Engine: public Singleton<Engine>
 	{
 	public:
@@ -16,7 +27,7 @@ namespace MOGE
 		virtual ~Engine();
 
 		void AddObject( const Path& filePath, const Position& position = Position(), const String name = "" );
-		void AddObject( NodePtr& node, std::string name = "" );
+		void AddObject( ObjectNode& node, std::string name = "" );
 
 		void RenderFrame();
 
@@ -29,9 +40,9 @@ namespace MOGE
 		void QueueFrame();
 		void Render( Node& node );
 
-		NodePtr mScreenBuffor;
-		UnorderedMap< std::string, NodePtr> mRenderableObjects;
-		Mutex mListMutex;
-		Thread mainLoop;
+		ScreenNode mScreenBuffor;
+		std::map< std::string, ObjectNode> mRenderableObjects;
+		std::mutex mListMutex;
+		std::thread mainLoop;
 	};
 }
