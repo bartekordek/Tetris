@@ -1,7 +1,10 @@
 #pragma once
 
-#include "Node.h"
 #include <memory>
+
+#include "Node.h"
+#include "FileSystem.h"
+
 
 namespace MOGE
 {
@@ -19,7 +22,10 @@ namespace MOGE
 	{
 	public:
 		ObjectNode();
+		ObjectNode( const Path& filePath );
 		~ObjectNode();
+
+		const std::shared_ptr<SDL_Surface> GetContent()const;
 
 	private:
 		void FreeContent() override;
