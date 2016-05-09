@@ -20,7 +20,7 @@ namespace MOGE
 
 		void SetX( CInt x );
 		void SetY( CInt y );
-		void Set( CInt x, CInt y );
+		void SetXY( CInt x, CInt y );
 
 	protected:
 	private:

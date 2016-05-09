@@ -20,7 +20,7 @@ namespace MOGE
 
 		void SetWidth( CUInt width );
 		void SetHeight( CUInt height );
-		void Set( CUInt width, CUInt height );
+		void SetWH( CUInt width, CUInt height );
 
 	protected:
 	private:

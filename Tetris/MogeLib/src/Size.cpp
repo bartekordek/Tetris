@@ -49,7 +49,7 @@ namespace MOGE
 		mHeight = height;
 	}
 
-	void Size::Set( CUInt width, CUInt height )
+	void Size::SetWH( CUInt width, CUInt height )
 	{
 		mWidth = width;
 		mHeight = height;

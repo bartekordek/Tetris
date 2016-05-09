@@ -51,7 +51,7 @@ namespace MOGE
 		mY = y;
 	}
 
-	void Position::Set( CInt x, CInt y )
+	void Position::SetXY( CInt x, CInt y )
 	{
 		mX = x;
 		mY = y;
