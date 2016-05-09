@@ -29,6 +29,11 @@ namespace MOGE
 		return *this;
 	}
 
+	SDL_Surface* SurfaceWrapper::GetSdlSurface()const
+	{
+		return surface;
+	}
+
 	void SurfaceWrapper::ReleseSurface()
 	{
 		if( this->surface )

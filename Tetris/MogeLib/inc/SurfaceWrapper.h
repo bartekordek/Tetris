@@ -16,7 +16,7 @@ namespace MOGE
 
 		SurfaceWrapper& operator=( SDL_Surface* sdlSurface );
 
-
+		SDL_Surface* GetSdlSurface()const;
 
 	private:
 		void ReleseSurface();
