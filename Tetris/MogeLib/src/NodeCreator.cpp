@@ -9,101 +9,32 @@ namespace MOGE
 {
 	ScreenNode NodeCreator::CreateScreen( const Size& size )
 	{
-
+		ScreenNode screenNode;
+		return screenNode;
 	}
-	//NodePtr& NodeFactory::CreateScreen( const Size& size )
-	//{
-	//	//Node* newNode = new Node( "MainScreen", Path( "" ), size );
 
-	//	//ImagePtr imagePtr = NodeImageFactory::CreateScreen( size );
-	//	//newNode->SetImage( imagePtr );
+	std::shared_ptr<ObjectNode> NodeCreator::CreateFromImage( const Path& filePath, const Position& position, const String& name )
+	{
+		std::shared_ptr<SurfaceWrapper> imageSurface = MOGE::ImageCreator::CreateSurfaceFromImage( filePath );
+		ObjectNode* objectNode = new ObjectNode();
+		objectNode->SetXY( position.GetX(), position.GetY() );
+		objectNode->SetName(name);
+		sObjectNodes.insert( objectNode );
+		std::shared_ptr<ObjectNode> result( objectNode );
+		return result;
+	}
 
-	//	//NodePtr& nodePtr = Create( newNode );
-	//	//
-	//	//return nodePtr;
-	//	static NodePtr node;
-	//	return node;
-	//}
+	std::shared_ptr<ObjectNode> NodeCreator::GetObjectNode( const Path& path )
+	{
+		for( auto& node: sObjectNodes )
+		{
+			if( node->GetPath() == path )
+			{
+				return std::shared_ptr<ObjectNode>(node);
+			}
+		}
+		return std::shared_ptr<ObjectNode>( nullptr );
+	}
 
-	//NodePtr& NodeFactory::CreateFromImage( const Path filePath, const Position position, const String& name )
-	//{
-	///*	Node* newNode = new Node( name, filePath, Size(), position );
-
-	//	ImagePtr imagePtr = NodeImageFactory::CreateImage( filePath );
-	//	newNode->SetImage( imagePtr );
-
-	//	NodePtr& nodePtr = Create( newNode );
-	//	
-	//	return nodePtr;*/
-	//	static NodePtr node;
-	//	return node;
-	//}
-
-	//NodePtr& NodeFactory::CreateEmpty( const Position& position, const Size& size )
-	//{
-	//	//Node* newNode = new Node( "", "", size, position );
-	//	//NodePtr& nodePtr = Create( newNode );
-	//	//return nodePtr;
-	//	static NodePtr node;
-	//	return node;
-	//}
-
-	//NodePtr NodeFactory::GetNode( const Path& path )
-	//{
-	//	//for( auto& node : nodes )
-	//	//{
-	//	//	if( node->GetPath() == path )
-	//	//	{
-	//	//		return node;
-	//	//	}
-	//	//}
-	//	return NodePtr();
-	//}
-
-	//NodePtr NodeFactory::GetNodeByName( const String& name )
-	//{
-	//	//for( const NodePtr& node : nodes )
-	//	//{
-	//	////	Node node;
-	//	//	node->
-	//	//	if( node->GetName() == name )
-	//	//	{
-	//	//		return node;
-	//	//	}
-	//	//}
-	//	return NodePtr();
-	//}
-
-	//NodePtr& NodeFactory::Create( Node* nodeRawPtr )
-	//{
-	//	NodePtr* nodePtr = new NodePtr( nodeRawPtr );
-	//	nodes.push_back( *nodePtr );
-	//	return *nodePtr;
-	//}
-
-	//const bool NodeFactory::NodeExist( const String& nodeName )
-	//{
-	//	//for( const auto& node: nodes )
-	//	//{
-	//	//	if( node->GetName() == nodeName )
-	//	//	{
-	//	//		return true;
-	//	//	}
-	//	//}
-	//	return false;
-	//}
-
-	//const bool NodeFactory::NodeExist( const NodePtr& node )
-	//{
-	//	for( const auto& currentNode : nodes )
-	//	{
-	//		if( currentNode.get() == node.get() )
-	//		{
-	//			return true;
-	//		}
-	//	}
-	//	return false;
-	//}
-
-	//Vector<NodePtr> NodeFactory::nodes;
+	std::set< ObjectNode* > NodeCreator::sObjectNodes;
 }

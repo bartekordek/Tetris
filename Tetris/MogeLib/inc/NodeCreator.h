@@ -1,34 +1,22 @@
 #pragma once
 
+#include "ScreenNode.h"
+#include "ObjectNode.h"
 
+#include <set>
 
 namespace MOGE
 {
-	class NodeCreator
+	template class MOGE_API std::set< ObjectNode* >;
+
+	class MOGE_API NodeCreator
 	{
 	public:
 		static ScreenNode CreateScreen( const Size& size );
+		static std::shared_ptr<ObjectNode> CreateFromImage( const Path& filePath, const Position& position = Position(), const String& name = "" );
+		static std::shared_ptr<ObjectNode> GetObjectNode( const Path& path );
 	protected:
 	private:
-		
+		static std::set< ObjectNode* > sObjectNodes;
 	};
-	//class NodeFactory
-	//{
-	//public:
-
-	//	
-	//	static NodePtr& CreateFromImage( const Path filePath, const Position position = Position(), const String& name = "" );
-	//	static NodePtr& CreateEmpty( const Position& position = Position(), const Size& size = Size() );
-	//	static NodePtr GetNode( const Path& path );
-	//	static NodePtr GetNodeByName( const String& name );
-
-	//private:
-	//	static NodePtr& Create( Node* nodeRawPtr );
-	//	static const bool NodeExist( const String& nodeName );
-	//	static const bool NodeExist( const NodePtr& node );
-
-	//private:
-	//	static Vector<NodePtr> nodes;
-
-	//};
 } 
