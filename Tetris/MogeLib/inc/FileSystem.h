@@ -57,10 +57,10 @@ namespace MOGE
 		static String extensionSeparator;
 	};
 
-	Path MOGE_API operator+( const Path& path, const std::string& inputPath );
-	Path MOGE_API operator+( const Path& path, const String& inputPath );
-	Path MOGE_API operator+( const Path& path, const Path& inputPath );
-	Path MOGE_API operator+( const Path& path, const char* inputPath );
+	Path operator+( const Path& path, const std::string& inputPath );
+	Path operator+( const Path& path, const String& inputPath );
+	Path operator+( const Path& path, const Path& inputPath );
+	Path operator+( const Path& path, const char* inputPath );
 	
 
 	const String GetBaseName( const String& path );
