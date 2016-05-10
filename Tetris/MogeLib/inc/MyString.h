@@ -19,7 +19,11 @@ namespace MOGE
 
 		String& Replace( const String& inWhat, const String& inFor );
 		const std::string ToLower()const;
+
+		const std::string string()const;
 	};
+
+	String operator+( const String& string1, const String& string2 );
 
 	MOGE_API_TEMPLATE class MOGE_API String;
 }

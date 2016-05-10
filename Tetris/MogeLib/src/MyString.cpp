@@ -55,4 +55,15 @@ namespace MOGE
 		boost::algorithm::to_lower( result );
 		return result;
 	}
+
+	const std::string String::string()const
+	{
+		return static_cast<std::string>( *this );
+	}
+
+	String operator+( const String& string1, const String& string2 )
+	{
+		String string( string1.string() + string2.string() );
+		return string;
+	}
 }
