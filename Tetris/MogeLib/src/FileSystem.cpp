@@ -27,8 +27,7 @@ namespace MOGE
 		SetUpPaths( inputPath );
 	}
 
-	Path::Path( const Path& inputPath ):
-		mFullPath( inputPath.string() )
+	Path::Path( const Path& inputPath ): mFullPath( inputPath.string() )
 	{
 		SetUpPaths( mFullPath );
 	}
@@ -60,22 +59,49 @@ namespace MOGE
 
 	Path& Path::operator=( const std::string& inputPath )
 	{
-		mFullPath = inputPath;
+		SetUpPaths( inputPath );
 		return *this;
 	}
 
 	Path& Path::operator=( const String& inputPath )
 	{
-		mFullPath = inputPath;
+		SetUpPaths( inputPath );
 		return *this;
 	}
 
 	Path& Path::operator=( const Path& inputPath )
 	{
-		if( this != &inputPath )
-		{
-			mFullPath = inputPath.mFullPath;
-		}
+		SetUpPaths( inputPath.c_str() );
+		return *this;
+	}
+
+	Path& Path::operator=( const char* inputPath )
+	{
+		SetUpPaths( inputPath );
+		return *this;
+	}
+
+	Path& Path::operator+( const std::string& inputPath )
+	{
+		SetUpPaths( mFullPath + inputPath );
+		return *this;
+	}
+
+	Path& Path::operator+( const String& inputPath )
+	{
+		SetUpPaths( mFullPath + inputPath );
+		return *this;
+	}
+
+	Path& Path::operator+( const Path& inputPath )
+	{
+		SetUpPaths( mFullPath + inputPath.FullPath() );
+		return *this;
+	}
+
+	Path& Path::operator+( const char* inputPath )
+	{
+		SetUpPaths( mFullPath + inputPath );
 		return *this;
 	}
 
@@ -112,6 +138,12 @@ namespace MOGE
 	const String& Path::GetExtensionSeparator()
 	{
 		return extensionSeparator;
+	}
+
+	const Path Path::GetCurrentDirectory()
+	{
+		Path path( boost::filesystem::current_path().string() );
+		return path;
 	}
 
 	const bool Path::Exist()const

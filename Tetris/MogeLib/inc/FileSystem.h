@@ -26,6 +26,12 @@ namespace MOGE
 		Path& operator=( const std::string& inputPath );
 		Path& operator=( const String& inputPath );
 		Path& operator=( const Path& inputPath );
+		Path& operator=( const char* inputPath );
+
+		Path& operator+( const std::string& inputPath );
+		Path& operator+( const String& inputPath );
+		Path& operator+( const Path& inputPath );
+		Path& operator+( const char* inputPath );
 
 		const bool empty()const;
 		const String& Extension()const;
@@ -35,6 +41,7 @@ namespace MOGE
 
 		static const String& GetDirectorySeparator();
 		static const String& GetExtensionSeparator();
+		static const Path GetCurrentDirectory();
 		const bool Exist()const;
 		
 
