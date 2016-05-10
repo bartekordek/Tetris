@@ -27,6 +27,11 @@ namespace MOGE
 		return mFilePath;
 	}
 
+	void ObjectNode::SetSurface( const std::shared_ptr<SurfaceWrapper>& surface )
+	{
+		this->surface = surface;
+	}
+
 	void ObjectNode::FreeContent()
 	{
 		if( surface.get() )

@@ -29,6 +29,8 @@ namespace MOGE
 
 		const Path& GetPath()const;
 
+		void SetSurface( const std::shared_ptr<SurfaceWrapper>& surface );
+
 	private:
 		void FreeContent() override;
 		std::shared_ptr<SurfaceWrapper> surface;
