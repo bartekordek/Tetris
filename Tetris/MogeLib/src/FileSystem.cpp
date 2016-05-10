@@ -15,14 +15,12 @@ namespace MOGE
 		SetUpPaths( inputPath );
 	}
 
-	Path::Path( const std::string& inputPath ):
-		mFullPath( inputPath )
+	Path::Path( const std::string& inputPath ): mFullPath( inputPath )
 	{
 		SetUpPaths( inputPath );
 	}
 
-	Path::Path( const String& inputPath ):
-		mFullPath( inputPath )
+	Path::Path( const String& inputPath ): mFullPath( inputPath )
 	{
 		SetUpPaths( inputPath );
 	}
@@ -78,30 +76,6 @@ namespace MOGE
 	Path& Path::operator=( const char* inputPath )
 	{
 		SetUpPaths( inputPath );
-		return *this;
-	}
-
-	Path& Path::operator+( const std::string& inputPath )
-	{
-		SetUpPaths( mFullPath + inputPath );
-		return *this;
-	}
-
-	Path& Path::operator+( const String& inputPath )
-	{
-		SetUpPaths( mFullPath + inputPath );
-		return *this;
-	}
-
-	Path& Path::operator+( const Path& inputPath )
-	{
-		SetUpPaths( mFullPath + inputPath.FullPath() );
-		return *this;
-	}
-
-	Path& Path::operator+( const char* inputPath )
-	{
-		SetUpPaths( mFullPath + inputPath );
 		return *this;
 	}
 
@@ -178,7 +152,7 @@ namespace MOGE
 		if( String::npos != separatorPosition )
 		{
 			baseName = path.substr( ++separatorPosition );
-			baseName = baseName.Replace( "." + GetExtension( path ), String( "" ) );
+			baseName = baseName.Replace( String(".") + GetExtension( path ), String( "" ) );
 		}
 		return baseName;
 	}
@@ -208,5 +182,29 @@ namespace MOGE
 	const bool FileExists( const String& path, ErrorCode& errocode )
 	{
 		return boost::filesystem::is_regular_file( path.c_str(), errocode );
+	}
+
+	Path operator+( const Path& path, const std::string& inputPath )
+	{
+		Path result( path.FullPath().string() + inputPath );
+		return result;
+	}
+
+	Path operator+( const Path& path, const String& inputPath )
+	{
+		Path result( path.FullPath() + inputPath );
+		return result;
+	}
+
+	Path operator+( const Path& path, const Path& inputPath )
+	{
+		Path result( path.FullPath() + inputPath.FullPath() );
+		return result;
+	}
+
+	Path operator+( const Path& path, const char* inputPath )
+	{
+		Path result( path.string() + inputPath );
+		return result;
 	}
 }
