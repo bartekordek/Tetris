@@ -4,6 +4,8 @@
 
 TEST_F( ImageCreatorTests, BmpLoadTest )
 {
-	std::shared_ptr<MOGE::SurfaceWrapper> imageSurface = MOGE::ImageCreator::CreateSurfaceFromImage( genericWindowsImagePath );
+	std::shared_ptr<MOGE::SurfaceWrapper> imageSurface = MOGE::ImageCreator::CreateSurfaceFromImage( testBmpFile );
 	ASSERT_NE( nullptr, imageSurface.get() );
 }
+
+MOGE::Path ImageCreatorTests::testBmpFile;

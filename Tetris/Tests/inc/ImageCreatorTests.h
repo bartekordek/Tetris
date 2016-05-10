@@ -17,12 +17,17 @@ protected:
 
 	virtual void SetUp()
 	{
-		ASSERT_EQ( genericWindowsImagePath.Exist(), true );
+		ASSERT_EQ( testBmpFile.Exist(), true );
 	}
 
 	virtual void TearDown()
 	{
 	}
 
-	MOGE::Path genericWindowsImagePath = "C:\\Windows\\SysWOW64\\oobe\\background.bmp";
+	static void SetUpTestCase()
+	{
+		testBmpFile = MOGE::Path::GetCurrentDirectory() + "\\..\\pic\\BackGroundBlock.bmp";
+	}
+
+	static MOGE::Path testBmpFile;
 };

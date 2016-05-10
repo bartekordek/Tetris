@@ -24,8 +24,7 @@ protected:
 	
 	static void SetUpTestCase()
 	{
-		testBmpFile = MOGE::Path::GetCurrentDirectory() + "\\pic\\BackGroundBlock.bmp";
-		genericWindowsImagePath = "C:\\Windows\\SysWOW64\\oobe\\background.bmp";
+		testBmpFile = MOGE::Path::GetCurrentDirectory() + "\\..\\pic\\BackGroundBlock.bmp";
 	}
 
 	static void TearDownTestCase()
@@ -33,5 +32,4 @@ protected:
 	}
 
 	static MOGE::Path testBmpFile;
-	static MOGE::Path genericWindowsImagePath;
 };
