@@ -19,6 +19,7 @@ namespace MOGE
 		ObjectNode* objectNode = new ObjectNode();
 		objectNode->SetXY( position.GetX(), position.GetY() );
 		objectNode->SetName(name);
+		objectNode->SetSurface( imageSurface );
 		sObjectNodes.insert( objectNode );
 		return std::shared_ptr<ObjectNode>( objectNode );;
 	}
@@ -35,14 +36,13 @@ namespace MOGE
 		return std::shared_ptr<ObjectNode>( nullptr );
 	}
 
-	void NodeCreator::RemoveNode( std::shared_ptr<ObjectNode> node )
+	void NodeCreator::RemoveNode( std::shared_ptr<ObjectNode>& node )
 	{
 		sObjectNodes.erase( node.get() );
-		delete node.get();
 		node.reset();
 	}
 
-	const bool NodeCreator::Exist( std::shared_ptr<ObjectNode> node )
+	const bool NodeCreator::Exist( std::shared_ptr<ObjectNode>& node )
 	{
 		for( auto& currentNode : sObjectNodes )
 		{
@@ -52,6 +52,11 @@ namespace MOGE
 			}
 		}
 		return false;
+	}
+
+	const unsigned int NodeCreator::NodesCount()
+	{
+		return sObjectNodes.size();
 	}
 
 	std::set< ObjectNode* > NodeCreator::sObjectNodes;
