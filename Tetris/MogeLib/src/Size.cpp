@@ -54,4 +54,12 @@ namespace MOGE
 		mWidth = width;
 		mHeight = height;
 	}
+
+	void Size::SetWH( const Size& size )
+	{
+		if( this != & size )
+		{
+			*this = size;
+		}
+	}
 }

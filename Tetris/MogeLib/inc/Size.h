@@ -21,6 +21,7 @@ namespace MOGE
 		void SetWidth( CUInt width );
 		void SetHeight( CUInt height );
 		void SetWH( CUInt width, CUInt height );
+		void SetWH( const Size& size );
 
 	protected:
 	private:
