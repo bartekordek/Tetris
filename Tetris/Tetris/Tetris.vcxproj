@@ -67,8 +67,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\GeneralUtilities\$(Configuration);D:\Libraries\boost\boost_1_59_0\stage\lib;$(SDL2)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>GeneralUtilities.lib;SDL2.lib;SDL_image.lib;SDLmain2.lib;libboost_system-vc120-mt-gd-1_59.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)MogeLib\$(Configuration);..\GeneralUtilities\$(Configuration);D:\Libraries\boost\boost_1_59_0\stage\lib;$(SDL2)\Build\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;libboost_system-vc120-mt-gd-1_59.lib;MogeLib.lib</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
       <EntryPointSymbol>mainCRTStartup </EntryPointSymbol>
@@ -100,8 +100,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>GeneralUtilities.lib;SDL2.lib;SDL_image.lib;SDLmain2.lib;libboost_system-vc120-mt-gd-1_59.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\GeneralUtilities\$(Configuration);D:\Libraries\boost\boost_1_59_0\stage\lib;$(SDL2)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;libboost_system-vc120-mt-gd-1_59.lib;MogeLib.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)MogeLib\$(Configuration);..\GeneralUtilities\$(Configuration);D:\Libraries\boost\boost_1_59_0\stage\lib;$(SDL2)\Build\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PreBuildEvent>
       <Command>xcopy $(SDL2)\Build\$(Configuration)\SDL2.dll $(TargetDir)</Command>

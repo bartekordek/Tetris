@@ -97,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Aliases.cpp" />
+    <ClCompile Include="src\ConsoleUtilities.cpp" />
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\FileSystem.cpp" />
     <ClCompile Include="src\MyString.cpp" />
@@ -112,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Aliases.h" />
+    <ClInclude Include="inc\ConsoleUtilities.h" />
     <ClInclude Include="inc\Engine.h" />
     <ClInclude Include="inc\FileSystem.h" />
     <ClInclude Include="inc\MOGE.h" />
