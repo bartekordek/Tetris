@@ -10,6 +10,7 @@ namespace MOGE
 	ScreenNode NodeCreator::CreateScreen( const Size& size )
 	{
 		ScreenNode screenNode;
+		screenNode.SetWH( size );
 		return screenNode;
 	}
 
