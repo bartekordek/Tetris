@@ -79,7 +79,9 @@
       </Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>xcopy $(SDL2)\Build\$(Configuration)\SDL2.dll $(TargetDir) /y</Command>
+      <Command>xcopy $(SDL2)\Build\$(Configuration)\SDL2.dll $(TargetDir) /Y
+xcopy "$(SolutionDir)MogeLib\$(Configuration)\MogeLib.dll" "$(LocalDebuggerWorkingDirectory)" /Y
+xcopy "$(SolutionDir)MogeLib\$(Configuration)\MogeLib.pdb" "$(LocalDebuggerWorkingDirectory)" /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -106,6 +108,11 @@
     <PreBuildEvent>
       <Command>xcopy $(SDL2)\Build\$(Configuration)\SDL2.dll $(TargetDir)</Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>xcopy $(SDL2)\Build\$(Configuration)\SDL2.dll $(TargetDir) /Y
+xcopy "$(SolutionDir)MogeLib\$(Configuration)\MogeLib.dll" "$(LocalDebuggerWorkingDirectory)" /Y
+xcopy "$(SolutionDir)MogeLib\$(Configuration)\MogeLib.pdb" "$(LocalDebuggerWorkingDirectory)" /Y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />

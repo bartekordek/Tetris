@@ -66,7 +66,8 @@
       <AdditionalDependencies>gtest.lib;gtest_main.lib;MogeLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)MogeLib\$(Configuration)\MogeLib.dll" "$(LocalDebuggerWorkingDirectory)" /Y
+      <Command>xcopy $(SDL2)\Build\$(Configuration)\SDL2.dll $(TargetDir) /Y
+xcopy "$(SolutionDir)MogeLib\$(Configuration)\MogeLib.dll" "$(LocalDebuggerWorkingDirectory)" /Y
 xcopy "$(SolutionDir)MogeLib\$(Configuration)\MogeLib.pdb" "$(LocalDebuggerWorkingDirectory)" /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -91,7 +92,9 @@ xcopy "$(SolutionDir)MogeLib\$(Configuration)\MogeLib.pdb" "$(LocalDebuggerWorki
       <AdditionalDependencies>gtest.lib;gtest_main.lib;MogeLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)MogeLib\$(Configuration)\MogeLib.dll" "$(LocalDebuggerWorkingDirectory)" /Y</Command>
+      <Command>xcopy $(SDL2)\Build\$(Configuration)\SDL2.dll $(TargetDir) /Y
+xcopy "$(SolutionDir)MogeLib\$(Configuration)\MogeLib.dll" "$(LocalDebuggerWorkingDirectory)" /Y
+xcopy "$(SolutionDir)MogeLib\$(Configuration)\MogeLib.pdb" "$(LocalDebuggerWorkingDirectory)" /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
