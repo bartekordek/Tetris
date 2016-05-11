@@ -18,18 +18,18 @@ namespace MOGE
 
 	template class MOGE_API std::shared_ptr<SurfaceWrapper>;
 
-	class MOGE_API ObjectNode: public Node
+	class MOGE_API ObjectNodeContent: public Node
 	{
 	public:
-		ObjectNode();
-		ObjectNode( const Path& filePath );
-		~ObjectNode();
+		ObjectNodeContent();
+		ObjectNodeContent( const Path& filePath );
+		~ObjectNodeContent();
 
-		const std::shared_ptr<SurfaceWrapper> GetContent()const;
+		const ImageSurface& GetContent()const;
 
 		const Path& GetPath()const;
 
-		void SetSurface( const std::shared_ptr<SurfaceWrapper>& surface );
+		void SetSurface( const ImageSurface& surface );
 
 	private:
 		void FreeContent() override;
@@ -37,4 +37,6 @@ namespace MOGE
 		Path mFilePath;
 
 	};
+	template class MOGE_API std::shared_ptr<ObjectNodeContent>;
+	using ObjectNode = std::shared_ptr<ObjectNodeContent>;
 }

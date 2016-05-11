@@ -9,7 +9,7 @@ namespace MOGE
 	class MOGE_API ImageCreator
 	{
 	public:
-		static std::shared_ptr<SurfaceWrapper> CreateSurfaceFromImage( const Path& imagePath );
+		static ImageSurface CreateSurfaceFromImage( const Path& imagePath );
 
 	private:
 		enum ImageTypes

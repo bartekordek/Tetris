@@ -1,11 +1,14 @@
 #include "Game.h"
-#include "NodeFactory.h"
-
 #include "BrickFactory.h"
 #include "MTime.h"
 
+#include <NodeCreator.h>
+
 #include <cstddef>
 #include <boost/timer/timer.hpp>
+#include <SDL.h>
+#include <SDL_keyboard.h>
+#include <SDL_keycode.h>
 
 namespace Tetris
 {
@@ -35,29 +38,27 @@ namespace Tetris
 
 	void CGame::SetMainGridFilledSlabImage()
 	{
-		mFilledSlabImage = MOGE::ImageCreator::CreateSurfaceFromImage( "D:\\Dev\\Tetris\\Tetris\\pic\\Block.bmp"  );
+		MOGE::Path blockImagepath = MOGE::Path::GetCurrentDirectory() + "\\..\\pic\\Block.bmp";
+		mFilledSlabImage = MOGE::ImageCreator::CreateSurfaceFromImage( blockImagepath );
 	}
 
 	void CGame::SetMainGridEmptySlabImage()
 	{
-		mEmptySlabImage = MOGE::ImageCreator::CreateSurfaceFromImage( "D:\\Dev\\Tetris\\Tetris\\pic\\BackGroundBlock.bmp" );
+		MOGE::Path bgBlockImagepath = MOGE::Path::GetCurrentDirectory() + "\\..\\pic\\BackGroundBlock.bmp";
+		mEmptySlabImage = MOGE::ImageCreator::CreateSurfaceFromImage( bgBlockImagepath );
 	}
 
 	void CGame::CreateGrid()
 	{
-		MOGE::Size size( 10, 10 );// TODO: Removed magic number '10'.
 		for( CSlab& slab : m_mainGrid.GetSlabs() )
 		{
-			MOGE::Position position( slab.Col() * size.GetWidth(), slab.Row() * size.GetHeight() );
-
-			MOGE::ObjectNode slabNode = MOGE::Node
-
-			MOGE::NodePtr slabNode = MOGE::NodeFactory::CreateEmpty( position, size );
+			MOGE::ObjectNode slabNode = MOGE::NodeCreator::CreateFromImage( mEmptySlabImage );
+			MOGE::Position position( slab.Col() * slabNode->GetWidth(), slab.Row() * slabNode->GetHeight() );
+			slabNode->SetXY( position.GetX(), position.GetY() );
 			slab.SetNode( slabNode );
-			slab.GetNode()->SetImage( mEmptySlabImage );
 
 			slabNode->SetVisible();
-			MOGE::Engine::Instance().AddObject( slabNode );//TODO: redundant add, should be moved to NodeMgr
+			MOGE::Engine::Instance().AddObject( slabNode.get() );//TODO: redundant add, should be moved to NodeMgr
 		}
 	}
 
@@ -98,7 +99,7 @@ namespace Tetris
 		return false;
 	}
 
-	void CGame::HandleKeys( SDLKey sdlkey )
+	void CGame::HandleKeys( SDL_Keycode sdlkey )
 	{
 		if( SDLK_RIGHT == sdlkey )
 		{
@@ -159,7 +160,7 @@ namespace Tetris
 			{
 				CSlab& slab = m_mainGrid.GetSlab( coord.Row(), coord.Col() );
 				slab.Empty( false );
-				slab.GetNode()->SetImage( mFilledSlabImage );
+				slab.GetNode().get()->SetSurface( mFilledSlabImage );
 			}
 		}
 	}

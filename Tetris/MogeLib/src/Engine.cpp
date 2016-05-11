@@ -12,10 +12,12 @@ namespace MOGE
 	{
 		StopMainLoop();
 		std::lock_guard<std::mutex> lck( mListMutex );
-		for( auto it = mRenderableObjects.begin(); it != mRenderableObjects.end(); ++it )
+
+		for( auto& renderableObject: mRenderableObjects)
 		{
-			it->second.~ObjectNode();
+			renderableObject.second->~ObjectNodeContent();
 		}
+
 		SDL_Quit();
 	}
 
@@ -38,15 +40,8 @@ namespace MOGE
 	//	AddObject( newNode, name );//TODO MOVE TO FACTORY
 	}
 
-	void Engine::AddObject( ObjectNode& node, std::string name )
+	void Engine::AddObject( ObjectNodeContent* node, std::string name )
 	{
-		std::lock_guard<std::mutex> lck( mListMutex );
-		if( name.empty() )
-		{
-			static unsigned int namelessObjectIndex = 0;
-			name = "Object_" + std::to_string( namelessObjectIndex++ );
-		}
-		mRenderableObjects[name] = node;
 	}
 
 	void Engine::RenderFrame()

@@ -3,7 +3,7 @@
 
 TEST_F( ObjectNodeTests, CheckIfIsNullptrAfterConstructorCall )
 {
-	MOGE::ObjectNode objectNode;
+	MOGE::ObjectNodeContent objectNode;
 	ASSERT_EQ( objectNode.GetContent(), nullptr );
 }
 

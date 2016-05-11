@@ -3,36 +3,36 @@
 namespace MOGE
 {
 
-	ObjectNode::ObjectNode(): mFilePath("")
+	ObjectNodeContent::ObjectNodeContent(): mFilePath("")
 	{
 	}
 
-	ObjectNode::ObjectNode(const Path& filePath):mFilePath( filePath )
+	ObjectNodeContent::ObjectNodeContent(const Path& filePath):mFilePath( filePath )
 	{
 
 	}
 
-	ObjectNode::~ObjectNode()
+	ObjectNodeContent::~ObjectNodeContent()
 	{
 		FreeContent();
 	}
 
-	const std::shared_ptr<SurfaceWrapper> ObjectNode::GetContent()const
+	const ImageSurface& ObjectNodeContent::GetContent()const
 	{
 		return surface;
 	}
 
-	const Path& ObjectNode::GetPath()const
+	const Path& ObjectNodeContent::GetPath()const
 	{
 		return mFilePath;
 	}
 
-	void ObjectNode::SetSurface( const std::shared_ptr<SurfaceWrapper>& surface )
+	void ObjectNodeContent::SetSurface( const ImageSurface& surface )
 	{
 		this->surface = surface;
 	}
 
-	void ObjectNode::FreeContent()
+	void ObjectNodeContent::FreeContent()
 	{
 		if( surface.get() )
 		{

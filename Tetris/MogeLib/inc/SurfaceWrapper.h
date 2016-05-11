@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 #include <MOGE.h>
 
 struct SDL_Surface;
@@ -24,6 +26,5 @@ namespace MOGE
 
 		SDL_Surface* surface = nullptr;
 	};
-
-
+	using ImageSurface = std::shared_ptr<SurfaceWrapper>;
 }

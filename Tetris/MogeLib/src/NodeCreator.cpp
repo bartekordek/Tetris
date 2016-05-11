@@ -13,36 +13,41 @@ namespace MOGE
 		return screenNode;
 	}
 
-	std::shared_ptr<ObjectNode> NodeCreator::CreateFromImage( const Path& filePath, const Position& position, const String& name )
+	ObjectNode NodeCreator::CreateFromImage( const Path& filePath, const Position& position, const String& name )
 	{
-		std::shared_ptr<SurfaceWrapper> imageSurface = MOGE::ImageCreator::CreateSurfaceFromImage( filePath );
-		ObjectNode* objectNode = new ObjectNode();
-		objectNode->SetXY( position.GetX(), position.GetY() );
-		objectNode->SetName(name);
-		objectNode->SetSurface( imageSurface );
-		sObjectNodes.insert( objectNode );
-		return std::shared_ptr<ObjectNode>( objectNode );;
+		ImageSurface imageSurface = MOGE::ImageCreator::CreateSurfaceFromImage( filePath );
+		return CreateFromImage( imageSurface, position, name );
 	}
 
-	std::shared_ptr<ObjectNode> NodeCreator::GetObjectNode( const Path& path )
+	ObjectNode NodeCreator::CreateFromImage( const ImageSurface& imageSurface, const Position& position, const String& name )
+	{
+		ObjectNodeContent* objectNodeContent = new ObjectNodeContent();
+		objectNodeContent->SetXY( position.GetX(), position.GetY() );
+		objectNodeContent->SetName( name );
+		objectNodeContent->SetSurface( imageSurface );
+		sObjectNodes.insert( objectNodeContent );
+		return ObjectNode( objectNodeContent );;
+	}
+
+	ObjectNode NodeCreator::GetObjectNode( const Path& path )
 	{
 		for( auto& node: sObjectNodes )
 		{
 			if( node->GetPath() == path )
 			{
-				return std::shared_ptr<ObjectNode>(node);
+				return ObjectNode( node );
 			}
 		}
-		return std::shared_ptr<ObjectNode>( nullptr );
+		return ObjectNode( nullptr );
 	}
 
-	void NodeCreator::RemoveNode( std::shared_ptr<ObjectNode>& node )
+	void NodeCreator::RemoveNode( std::shared_ptr<ObjectNodeContent>& node )
 	{
 		sObjectNodes.erase( node.get() );
 		node.reset();
 	}
 
-	const bool NodeCreator::Exist( std::shared_ptr<ObjectNode>& node )
+	const bool NodeCreator::Exist( std::shared_ptr<ObjectNodeContent>& node )
 	{
 		for( auto& currentNode : sObjectNodes )
 		{
@@ -54,10 +59,10 @@ namespace MOGE
 		return false;
 	}
 
-	const unsigned int NodeCreator::NodesCount()
+	const unsigned int NodeCreator::Count()
 	{
 		return sObjectNodes.size();
 	}
 
-	std::set< ObjectNode* > NodeCreator::sObjectNodes;
+	std::set< ObjectNodeContent* > NodeCreator::sObjectNodes;
 }
