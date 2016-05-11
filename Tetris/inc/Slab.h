@@ -28,6 +28,7 @@ namespace Tetris
 		void SetId( CUInt id );
 		CUInt GetId()const;
 
+		void SetNode( const MOGE::ObjectNode& node );
 		MOGE::ObjectNode& GetNode();
 
 	private:
