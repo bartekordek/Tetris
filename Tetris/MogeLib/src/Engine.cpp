@@ -1,5 +1,5 @@
 #include "Engine.h"
-
+#include "NodeCreator.h"
 
 namespace MOGE
 {
@@ -30,7 +30,8 @@ namespace MOGE
 	void Engine::CreateScreen( const Size& size )
 	{
 		std::lock_guard<std::mutex> lck( mListMutex );
-//		mScreenBuffor = NodeFactory::CreateScreen( size );
+		mScreenBuffor = NodeCreator::CreateScreen( size );
+		mScreenBuffor.Initialize();
 	}
 
 	void Engine::AddObject( const Path& filePath, const Position& positionn, const String name )
