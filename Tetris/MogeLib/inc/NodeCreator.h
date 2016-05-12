@@ -2,6 +2,7 @@
 
 #include "ScreenNode.h"
 #include "ObjectNode.h"
+#include "Position3d.h"
 
 #include <set>
 
@@ -13,8 +14,8 @@ namespace MOGE
 	{
 	public:
 		static ScreenNode CreateScreen( const Size& size );
-		static ObjectNode CreateFromImage( const Path& filePath, const Position& position = Position(), const String& name = "" );
-		static ObjectNode CreateFromImage( const ImageSurface& imageSurface, const Position& position = Position(), const String& name = "" );
+		static ObjectNode CreateFromImage( const Path& filePath, const Position3d& position = Position3d(), const String& name = "" );
+		static ObjectNode CreateFromImage( const ImageSurface& imageSurface, const Position3d& position = Position3d(), const String& name = "" );
 		static ObjectNode GetObjectNode( const Path& path );
 		static void RemoveNode( std::shared_ptr<ObjectNodeContent>& node);
 		static const bool Exist( std::shared_ptr<ObjectNodeContent>& node );
