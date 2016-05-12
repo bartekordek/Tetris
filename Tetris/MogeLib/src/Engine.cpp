@@ -15,70 +15,85 @@ namespace MOGE
 
 		for( auto& renderableObject: mRenderableObjects)
 		{
-			renderableObject.second->~ObjectNodeContent();
+			delete renderableObject;
 		}
 
 		SDL_Quit();
-	}
-
-	void Engine::Initialize( const Size& size )
-	{
-		Singleton::Instance().CreateScreen( size );
-		Singleton::Instance().StartMainLoop();
 	}
 
 	void Engine::CreateScreen( const Size& size )
 	{
 		std::lock_guard<std::mutex> lck( mListMutex );
 		mScreenBuffor = NodeCreator::CreateScreen( size );
+		mScreenBuffor.SetXY( 256, 256 );
 		mScreenBuffor.Initialize();
 	}
 
-	void Engine::AddObject( const Path& filePath, const Position& positionn, const String name )
+	void Engine::AddObject( const Path& filePath, const Position3d& position, const String& name )
 	{
-		std::lock_guard<std::mutex> lck( mListMutex );
-	//	NodePtr newNode = NodeFactory::CreateFromImage( filePath, positionn );
-	//	AddObject( newNode, name );//TODO MOVE TO FACTORY
+		ObjectNode newNode = NodeCreator::CreateFromImage( filePath, position, name );
+		AddObject( newNode.get(), name );
 	}
 
-	void Engine::AddObject( ObjectNodeContent* node, std::string name )
+	void Engine::AddObject( ObjectNodeContent* node, const String& name )
 	{
+		mRenderableObjectsMutex.lock();
+		mRenderableObjects.insert( node );
+		mRenderableObjectsMutex.unlock();
 	}
 
-	void Engine::RenderFrame()
+	const unsigned int Engine::ObjectCount()const
 	{
-	/*	QueueFrame();
-		std::lock_guard<std::mutex> lck( mListMutex );
-		SDL_RenderPresent( mScreenBuffor->GetImage().get() );
-		SDL_Flip(  );*/
-		// TODO
+		return mRenderableObjects.size();
 	}
 
 	void Engine::StartMainLoop()
 	{
-		//mainLoop.
+		mMainLoopMutex.lock();
+		mainLoopIsRuning = true;
+		mMainLoopMutex.unlock();
+		mainLoop = std::thread( &Engine::MainLoop, this );
 	}
 
 	void Engine::StopMainLoop()
 	{
-		
+		mMainLoopMutex.lock();
+		mainLoopIsRuning = false;
+		mMainLoopMutex.unlock();
+		mainLoop.join();
+	}
+
+	void Engine::MainLoop()
+	{
+		while( mainLoopIsRuning )
+		{
+			QueueFrame();
+		}
 	}
 
 	void Engine::QueueFrame()
 	{
-		unsigned int index = 0;
-		for( auto object : mRenderableObjects )
+		mRenderableObjectsMutex.lock();
+		for( auto& object : mRenderableObjects )
 		{
-	//		Render( *object.second );
-			++index;
+			Render( *object );
 		}
+		mRenderableObjectsMutex.unlock();
+		//SDL_RenderPresent( mScreenBuffor.GetRenderer() );
+		SDL_UpdateWindowSurface( mScreenBuffor.GetScreen() );
+		++mFrameCount;
 	}
 
-	void Engine::Render( Node& node )
+	void Engine::Render( ObjectNodeContent& node )
 	{
 		if( node.GetVisible() )
 		{
-			/*std::lock_guard<std::mutex> lck( mListMutex );
+			std::lock_guard<std::mutex> lck( mListMutex );
+			SDL_Rect* screenRect = node.GetGeometricsInfo();
+			SDL_Rect* imageRect = nullptr;
+			SDL_BlitSurface( node.GetSurface()->GetSdlSurface(), imageRect, mScreenBuffor.GetSdlSurface(), screenRect );
+
+			/*
 			SDL_Surface* screen = mScreenBuffor->GetImage().get();
 			SDL_Rect* screenRect = node.GetGeometricsInfo();
 			SDL_Surface* image = node.GetImage().get();

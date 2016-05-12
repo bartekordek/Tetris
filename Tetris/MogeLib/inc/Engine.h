@@ -1,10 +1,10 @@
 #pragma once
 
-#include <map>
+#include <set>
 #include <thread>
 #include <mutex>
 
-
+#include "Position3d.h"
 #include "Singleton.h"
 #include "FileSystem.h"
 #include "ObjectNode.h"
@@ -17,32 +17,35 @@ namespace MOGE
 {
 	class MOGE_API std::thread;
 	class MOGE_API std::mutex;
-	template class MOGE_API std::map< std::string, ObjectNodeContent*>;
+	template class MOGE_API std::set<ObjectNodeContent*>;
 
 	class MOGE_API Engine: public Singleton<Engine>
 	{
 	public:
 		Engine( void );
-		static void Initialize( const Size& size = Size( 800, 600 ) );
 		virtual ~Engine();
 
-		void AddObject( const Path& filePath, const Position& position = Position(), const String name = "" );
-		void AddObject( ObjectNodeContent* node, std::string name = "" );
-
-		void RenderFrame();
+		void AddObject( const Path& filePath, const Position3d& position = Position3d(), const String& name = "" );
+		void AddObject( ObjectNodeContent* node, const String& name = "" );
+		const unsigned int ObjectCount()const;
+		void CreateScreen( const Size& size );
+		void StartMainLoop();
+		void StopMainLoop();
 
 	protected:
 
 	private:
-		void CreateScreen( const Size& size );
-		void StartMainLoop();
-		void StopMainLoop();
+		void MainLoop();
 		void QueueFrame();
-		void Render( Node& node );
+		void Render( ObjectNodeContent& node );
 
 		ScreenNode mScreenBuffor;
-		std::map< std::string, ObjectNodeContent*> mRenderableObjects;
+		std::set<ObjectNodeContent*> mRenderableObjects;
+		std::mutex mRenderableObjectsMutex;
 		std::mutex mListMutex;
 		std::thread mainLoop;
+		bool mainLoopIsRuning = false;
+		std::mutex mMainLoopMutex;
+		unsigned int mFrameCount = 0;
 	};
 }
