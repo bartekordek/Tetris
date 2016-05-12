@@ -1,5 +1,8 @@
+#include "Game.h"
 #include "MainGrid.h"
 #include "BrickFactory.h"
+#include <NodeCreator.h>
+
 #include <boost/foreach.hpp>
 
 namespace Tetris
@@ -54,14 +57,17 @@ namespace Tetris
 		{
 			CUInt row = it->Row();
 			CUInt col = it->Col();
-			m_SetToSlab( m_RowColToSlabIndex( row, col ) );
+			MarkSlabAsPartOfMovingBlock( m_RowColToSlabIndex( row, col ) );
 		}
 	}
 
-	void CMainGrid::m_SetToSlab( CUInt slabIndex )
+	void CMainGrid::MarkSlabAsPartOfMovingBlock( CUInt slabIndex )
 	{
-		m_slabs.at( slabIndex ).PartOfSlab( true );
-		m_slabs.at( slabIndex ).Empty( false );
+		CSlab& slab = m_slabs.at( slabIndex );
+		slab.PartOfSlab( true );
+		slab.Empty( false );
+		auto slabNode = slab.GetNode();
+		slabNode->SetSurface( mGamePtr->GetFilledSlabSurface() );
 	}
 
 	CUInt CMainGrid::GetRowsCount()const
@@ -118,11 +124,6 @@ namespace Tetris
 	{
 		return GetRowsCount()*GetColumnsCount();
 	}
-	const CoordinatestList CMainGrid::ActiveBrickCoords()const
-	{
-		CoordinatestList coords = m_activeBrick->GetBlockPositions();
-		return coords;
-	}
 
 	const bool CMainGrid::PartOfCurrentBrick( CUInt rowIndex, CUInt colIndex )const
 	{
@@ -148,25 +149,21 @@ namespace Tetris
 
 	const bool CMainGrid::CheckIfBlockCanBeMoved( const Direction direction )const
 	{
-		CoordinatestList blockCoords = ActiveBrickCoords();
-		CInt RowDiff = GetRowOffset( direction );
-		CInt ColDiff = GetColOffset( direction );
-
-		for( auto it = blockCoords.begin(); it != blockCoords.end(); ++it )
+		for( auto& coord : m_activeBrick->GetBlockPositions() )
 		{
-			CUInt actRow = it->Row();
-			CUInt actCol = it->Col();
-			if( false == SlabExist( actRow + RowDiff, actCol + ColDiff ) ) // Check if you are not in the bottom
+			CUInt newRow = coord.Row() + GetRowOffset( direction );
+			CUInt newCol = coord.Col() + GetColOffset( direction );
+			if( false == SlabExist( newRow, newCol) ) // Check if you are not in the bottom
 			{
 				return false;
 			}
 
-			if( true == PartOfCurrentBrick( actRow + RowDiff, actCol + ColDiff ) )
+			if( true == PartOfCurrentBrick( newRow, newCol ) )
 			{
 				continue;
 			}
 
-			if( false == Empty( actRow + RowDiff, actCol + ColDiff ) )
+			if( false == Empty( newRow, newCol ) )
 			{
 				return false;
 			}
@@ -290,13 +287,15 @@ namespace Tetris
 
 	void CMainGrid::m_RemoveActualBlockSlabsFromGrid()
 	{
-		CoordinatestList coords = m_activeBrick->GetBlockPositions();
-		for( auto it = coords.begin(); it != coords.end(); ++it )
+		for( auto& coord : m_activeBrick->GetBlockPositions() )
 		{
-			CUInt row = it->Row();
-			CUInt col = it->Col();
-			m_slabs.at( m_RowColToSlabIndex( row, col ) ).Empty( true );
-			m_slabs.at( m_RowColToSlabIndex( row, col ) ).PartOfSlab( false );
+			CUInt row = coord.Row();
+			CUInt col = coord.Col();
+			auto& slab = m_slabs.at( m_RowColToSlabIndex( row, col ) );
+			slab.Empty( true );
+			slab.PartOfSlab( false );
+			auto slabnode = slab.GetNode();
+			slabnode->SetSurface( mGamePtr->GetEmptySlabSurface());
 		}
 	}
 
@@ -305,7 +304,6 @@ namespace Tetris
 		m_activeBrick->Move( direction );
 		AddBrick( m_activeBrick );
 	}
-
 
 	CBrick* CMainGrid::GetCurrentBrick()
 	{
@@ -323,6 +321,11 @@ namespace Tetris
 		}
 	}
 
+	void CMainGrid::SetGamePtr( CGame* game )
+	{
+		mGamePtr = game;
+	}
+
 	std::vector<CSlab>& CMainGrid::GetSlabs()
 	{
 		return m_slabs;
@@ -335,9 +338,9 @@ namespace Tetris
 
 	const bool CMainGrid::m_LineIsFull( CUInt rowIndex )const
 	{
-		for( UInt i = 0; i < m_columnsCount; ++i )
+		for( UInt columnIndex = 0; columnIndex < m_columnsCount; ++columnIndex )
 		{
-			if( true == m_slabs.at( m_RowColToSlabIndex( rowIndex, i ) ).Empty() )
+			if( m_slabs.at( m_RowColToSlabIndex( rowIndex, columnIndex ) ).Empty() )
 			{
 				return false;
 			}

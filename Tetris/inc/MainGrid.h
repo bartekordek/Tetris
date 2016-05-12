@@ -10,6 +10,10 @@
 
 namespace Tetris
 {
+	class CGame;
+
+	using SlabRow = std::vector<CSlab>;
+
 	class CMainGrid
 	{
 	public:
@@ -31,7 +35,6 @@ namespace Tetris
 		const bool PartOfSlab( CUInt slabIndex )const;
 		const bool Empty( CUInt rowIndex, CUInt colIndex )const;
 		CUInt SlabCount()const;
-		const CoordinatestList ActiveBrickCoords()const;
 		const bool SlabExist( CUInt rowIndex, CUInt colIndex )const;
 		CBrick* GetCurrentBrick();
 		const bool PartOfCurrentBrick( CUInt rowIndex, CUInt colIndex )const;
@@ -39,6 +42,7 @@ namespace Tetris
 		const bool CheckIfBlockCanBeMoved( const Direction direction )const;
 		void RotateActualBrick( const bool clockWise = true );
 		void ManageFullLine();
+		void SetGamePtr( CGame* game );
 		std::vector<CSlab>& GetSlabs();
 
 		CSlab& GetSlab( CUInt row, CUInt column );
@@ -49,11 +53,12 @@ namespace Tetris
 		CUInt m_RowColToSlabIndex( CUInt rowIndex, CUInt colIndex )const;
 		void m_MoveActualBlock( const Direction direction );
 		void m_RemoveActualBlockSlabsFromGrid();
-		void m_SetToSlab( CUInt slabIndex );
+		void MarkSlabAsPartOfMovingBlock( CUInt slabIndex );
 		const bool m_LineIsFull( CUInt rowIndex )const;
 		const bool m_CheckIfBlockCanBePlaced( const CBrick* brick );
 		void m_MoveDownAllLines( CUInt toLineIndex );
 
+		CGame* mGamePtr = nullptr;
 
 		CBrick* m_activeBrick;
 		std::vector<CSlab> m_slabs;
