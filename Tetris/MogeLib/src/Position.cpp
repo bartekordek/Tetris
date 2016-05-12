@@ -44,16 +44,19 @@ namespace MOGE
 	void Position::SetX( CInt x )
 	{
 		mX = x;
+		UpdateImplementation();
 	}
 
 	void Position::SetY( CInt y )
 	{
 		mY = y;
+		UpdateImplementation();
 	}
 
 	void Position::SetXY( CInt x, CInt y )
 	{
 		mX = x;
 		mY = y;
+		UpdateImplementation();
 	}
 }

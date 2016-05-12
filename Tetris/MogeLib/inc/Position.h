@@ -23,6 +23,8 @@ namespace MOGE
 		void SetXY( CInt x, CInt y );
 
 	protected:
+		virtual void UpdateImplementation() = 0;
+
 	private:
 		int mX;
 		int mY;
