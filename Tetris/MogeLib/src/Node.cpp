@@ -17,16 +17,6 @@ namespace MOGE
 	{
 	}
 	
-	void Node::SetVisible( const bool visible )
-	{
-		mVisible = visible;
-	}
-
-	const bool Node::GetVisible()const
-	{
-		return mVisible;
-	}
-
 	SDL_Rect* Node::GetGeometricsInfo()
 	{
 		return &mGeometrics;
