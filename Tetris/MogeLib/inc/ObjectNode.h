@@ -3,8 +3,10 @@
 #include <memory>
 
 #include "Node.h"
+#include "Visible.h"
 #include "FileSystem.h"
 #include "SurfaceWrapper.h"
+
 
 namespace MOGE
 {
@@ -18,18 +20,20 @@ namespace MOGE
 
 	template class MOGE_API std::shared_ptr<SurfaceWrapper>;
 
-	class MOGE_API ObjectNodeContent: public Node
+	class MOGE_API ObjectNodeContent: public Node, public Visible
 	{
 	public:
 		ObjectNodeContent();
 		ObjectNodeContent( const Path& filePath );
 		~ObjectNodeContent();
 
-		const ImageSurface& GetContent()const;
+		const ImageSurface& GetSurface()const;
 
 		const Path& GetPath()const;
 
 		void SetSurface( const ImageSurface& surface );
+	protected:
+		virtual void UpdateImplementation();
 
 	private:
 		void FreeContent() override;

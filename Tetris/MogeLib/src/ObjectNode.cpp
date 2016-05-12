@@ -17,7 +17,7 @@ namespace MOGE
 		FreeContent();
 	}
 
-	const ImageSurface& ObjectNodeContent::GetContent()const
+	const ImageSurface& ObjectNodeContent::GetSurface()const
 	{
 		return surface;
 	}
@@ -30,6 +30,17 @@ namespace MOGE
 	void ObjectNodeContent::SetSurface( const ImageSurface& surface )
 	{
 		this->surface = surface;
+		Size::SetWH( surface->GetSdlSurface()->w, surface->GetSdlSurface()->h );
+		Node::UpdateGeometrics();
+	}
+
+	void ObjectNodeContent::UpdateImplementation()
+	{
+		if( surface && surface->GetSdlSurface() )
+		{
+			Size::SetWH( surface->GetSdlSurface()->w, surface->GetSdlSurface()->h );
+			Node::UpdateGeometrics();
+		}
 	}
 
 	void ObjectNodeContent::FreeContent()
