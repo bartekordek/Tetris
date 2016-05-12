@@ -62,15 +62,19 @@ namespace Tetris
 	void CGame::CreateGrid()
 	{		
 		m_mainGrid.SetGamePtr( this );
-		for( CSlab& slab : m_mainGrid.GetSlabs() )
-		{
-			MOGE::ObjectNode slabNode = MOGE::NodeCreator::CreateFromImage( mEmptySlabImage );
-			MOGE::Position3d position( slab.Col() * slabNode->GetWidth(), slab.Row() * slabNode->GetHeight(), 0 );
-			slabNode->SetXY( position.GetX(), position.GetY() );
-			slab.SetNode( slabNode );
 
-			slabNode->SetVisible();
-			MOGE::Engine::Instance().AddObject( slabNode.get() );//TODO: redundant add, should be moved to NodeMgr
+		for( auto& slabRow : m_mainGrid.GetSlabs() )
+		{
+			for( auto& slab: slabRow )
+			{
+				MOGE::ObjectNode slabNode = MOGE::NodeCreator::CreateFromImage( mEmptySlabImage );
+				MOGE::Position3d position( slab.Col() * slabNode->GetWidth(), slab.Row() * slabNode->GetHeight(), 0 );
+				slabNode->SetXY( position.GetX(), position.GetY() );
+				slab.SetNode( slabNode );
+
+				slabNode->SetVisible();
+				MOGE::Engine::Instance().AddObject( slabNode.get() );//TODO: redundant add, should be moved to NodeMgr
+			}
 		}
 		auto nodesCount = MOGE::Engine::Instance().ObjectCount();
 	}

@@ -28,11 +28,7 @@ namespace Tetris
 		CUInt GetColumnsCount()const;
 		const Path SlabPictureLoc()const;
 		const Path EmptySlabPictureLoc()const;
-		CUInt GetImgWidth()const;
-		CUInt GetImgHeight()const;
-		CUInt GetSlabRow( CUInt slabIndex )const;
-		CUInt GetSlabCol( CUInt slabIndex )const;
-		const bool PartOfSlab( CUInt slabIndex )const;
+		const bool PartOfSlab( CUInt rowIndex, CUInt colIndex )const;
 		const bool Empty( CUInt rowIndex, CUInt colIndex )const;
 		CUInt SlabCount()const;
 		const bool SlabExist( CUInt rowIndex, CUInt colIndex )const;
@@ -43,7 +39,7 @@ namespace Tetris
 		void RotateActualBrick( const bool clockWise = true );
 		void ManageFullLine();
 		void SetGamePtr( CGame* game );
-		std::vector<CSlab>& GetSlabs();
+		std::vector<SlabRow>& GetSlabs();
 
 		CSlab& GetSlab( CUInt row, CUInt column );
 
@@ -53,7 +49,7 @@ namespace Tetris
 		CUInt m_RowColToSlabIndex( CUInt rowIndex, CUInt colIndex )const;
 		void m_MoveActualBlock( const Direction direction );
 		void m_RemoveActualBlockSlabsFromGrid();
-		void MarkSlabAsPartOfMovingBlock( CUInt slabIndex );
+		void MarkSlabAsPartOfMovingBlock( CUInt row, CUInt col );
 		const bool m_LineIsFull( CUInt rowIndex )const;
 		const bool m_CheckIfBlockCanBePlaced( const CBrick* brick );
 		void m_MoveDownAllLines( CUInt toLineIndex );
@@ -61,7 +57,7 @@ namespace Tetris
 		CGame* mGamePtr = nullptr;
 
 		CBrick* m_activeBrick;
-		std::vector<CSlab> m_slabs;
+		std::vector<SlabRow> mSlabsRows;
 		UInt m_columnsCount;
 		UInt m_rowsCount;
 		CPicture m_slabBackground;

@@ -19,17 +19,19 @@ namespace Tetris
 
 	void CMainGrid::SetSize( CUInt rowsCount, CUInt columnsCount, CUInt initialX, CUInt initialY )
 	{
-		m_slabs.erase( m_slabs.begin(), m_slabs.end() );
+		mSlabsRows.erase( mSlabsRows.begin(), mSlabsRows.end() );
 		m_columnsCount = columnsCount;
 		m_rowsCount = rowsCount;
 		for( UInt row = 0; row < m_rowsCount; ++row )
 		{
+			SlabRow rows;
 			for( UInt col = 0; col < m_columnsCount; ++col )
 			{
 				CSlab slab( row + initialY, col + initialX, false, true );
 				slab.SetId( m_RowColToSlabIndex( slab.Row(), slab.Col() ) );
-				m_slabs.push_back( slab );
+				rows.push_back( slab );
 			}
+			mSlabsRows.push_back( rows );
 		}
 	}
 
@@ -57,13 +59,13 @@ namespace Tetris
 		{
 			CUInt row = it->Row();
 			CUInt col = it->Col();
-			MarkSlabAsPartOfMovingBlock( m_RowColToSlabIndex( row, col ) );
+			MarkSlabAsPartOfMovingBlock( row, col );
 		}
 	}
 
-	void CMainGrid::MarkSlabAsPartOfMovingBlock( CUInt slabIndex )
+	void CMainGrid::MarkSlabAsPartOfMovingBlock( CUInt row, CUInt col )
 	{
-		CSlab& slab = m_slabs.at( slabIndex );
+		CSlab& slab = mSlabsRows.at( row ).at( col );
 		slab.PartOfSlab( true );
 		slab.Empty( false );
 		auto slabNode = slab.GetNode();
@@ -90,34 +92,14 @@ namespace Tetris
 		return m_brickBckd.GetImgLoc();
 	}
 
-	CUInt CMainGrid::GetImgWidth()const
+	const bool CMainGrid::PartOfSlab( CUInt rowIndex, CUInt colIndex )const
 	{
-		return 10;
-	}
-
-	CUInt CMainGrid::GetImgHeight()const
-	{
-		return 10;
-	}
-
-	CUInt CMainGrid::GetSlabRow( CUInt slabIndex )const
-	{
-		return m_slabs.at( slabIndex ).Row();
-	}
-
-	CUInt CMainGrid::GetSlabCol( CUInt slabIndex )const
-	{
-		return m_slabs.at( slabIndex ).Col();
-	}
-
-	const bool CMainGrid::PartOfSlab( CUInt slabIndex )const
-	{
-		return m_slabs[slabIndex].PartOfSlab();
+		return mSlabsRows[rowIndex].at(colIndex).PartOfSlab();
 	}
 
 	const bool CMainGrid::Empty( CUInt rowIndex, CUInt colIndex )const
 	{
-		return m_slabs.at( m_RowColToSlabIndex( rowIndex, colIndex ) ).Empty();
+		return mSlabsRows.at( rowIndex).at( colIndex ).Empty();
 	}
 
 	CUInt CMainGrid::SlabCount()const
@@ -276,7 +258,7 @@ namespace Tetris
 			return false;
 		}
 
-		CSlab slab = m_slabs[m_RowColToSlabIndex( rowIndex, colIndex )];
+		CSlab slab = mSlabsRows[rowIndex].at( colIndex );
 
 		if( true == slab.Empty() || true == slab.PartOfSlab() )
 		{
@@ -291,7 +273,7 @@ namespace Tetris
 		{
 			CUInt row = coord.Row();
 			CUInt col = coord.Col();
-			auto& slab = m_slabs.at( m_RowColToSlabIndex( row, col ) );
+			auto& slab = mSlabsRows.at( row ).at( col );
 			slab.Empty( true );
 			slab.PartOfSlab( false );
 			auto slabnode = slab.GetNode();
@@ -326,21 +308,21 @@ namespace Tetris
 		mGamePtr = game;
 	}
 
-	std::vector<CSlab>& CMainGrid::GetSlabs()
+	std::vector<SlabRow>& CMainGrid::GetSlabs()
 	{
-		return m_slabs;
+		return mSlabsRows;
 	}
 
 	CSlab& CMainGrid::GetSlab( CUInt row, CUInt column )
 	{
-		return m_slabs.at( m_RowColToSlabIndex( row, column ) );
+		return mSlabsRows.at( row ).at( column );
 	}
 
 	const bool CMainGrid::m_LineIsFull( CUInt rowIndex )const
 	{
 		for( UInt columnIndex = 0; columnIndex < m_columnsCount; ++columnIndex )
 		{
-			if( m_slabs.at( m_RowColToSlabIndex( rowIndex, columnIndex ) ).Empty() )
+			if( mSlabsRows.at(rowIndex).at( columnIndex ).Empty() )
 			{
 				return false;
 			}
@@ -354,15 +336,19 @@ namespace Tetris
 		{
 			for( UInt j = 0; j < m_columnsCount; ++j )
 			{
-				bool emptiness = m_slabs.at( m_RowColToSlabIndex( i - 1, j ) ).Empty();
-				bool partOfBlock = m_slabs.at( m_RowColToSlabIndex( i - 1, j ) ).PartOfSlab();
-				m_slabs.at( m_RowColToSlabIndex( i, j ) ).Empty( emptiness );
-				m_slabs.at( m_RowColToSlabIndex( i, j ) ).PartOfSlab( partOfBlock );
+				CSlab& slabHigher = mSlabsRows.at( i - 1 ).at( j );
+				CSlab& slabLower = mSlabsRows.at( i ).at( j );
+				bool emptiness = slabHigher.Empty();
+				bool partOfBlock = slabHigher.PartOfSlab();
+				slabLower.Empty( emptiness );
+				slabLower.PartOfSlab( partOfBlock );
 			}
 		}
+
 		for( UInt j = 0; j < m_columnsCount; ++j )
 		{
-			m_slabs.at( m_RowColToSlabIndex( 0, j ) ).Empty( true );
+			CSlab& slab = mSlabsRows.at( 0 ).at( j );
+			slab.Empty( true );
 		}
 	}
 
