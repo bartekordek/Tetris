@@ -107,9 +107,11 @@
     <ClCompile Include="src\NodeImageCreator.cpp" />
     <ClCompile Include="src\ObjectNode.cpp" />
     <ClCompile Include="src\Position.cpp" />
+    <ClCompile Include="src\Position3d.cpp" />
     <ClCompile Include="src\ScreenNode.cpp" />
     <ClCompile Include="src\Size.cpp" />
     <ClCompile Include="src\SurfaceWrapper.cpp" />
+    <ClCompile Include="src\Visible.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Aliases.h" />
@@ -124,10 +126,12 @@
     <ClInclude Include="inc\NodeImageCreator.h" />
     <ClInclude Include="inc\ObjectNode.h" />
     <ClInclude Include="inc\Position.h" />
+    <ClInclude Include="inc\Position3d.h" />
     <ClInclude Include="inc\ScreenNode.h" />
     <ClInclude Include="inc\Singleton.h" />
     <ClInclude Include="inc\Size.h" />
     <ClInclude Include="inc\SurfaceWrapper.h" />
+    <ClInclude Include="inc\Visible.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
