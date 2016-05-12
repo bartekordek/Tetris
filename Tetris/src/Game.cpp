@@ -22,9 +22,20 @@ namespace Tetris
 	{
 	}
 
+	MOGE::ImageSurface CGame::GetEmptySlabSurface()const
+	{
+		return mEmptySlabImage;
+	}
+
+	MOGE::ImageSurface CGame::GetFilledSlabSurface()const
+	{
+		return mFilledSlabImage;
+	}
+
 	void CGame::Initialize( CUInt rowsCount, CUInt columnsCount, const Resolution& resoltion )
 	{
-		MOGE::Engine::Instance().Initialize( MOGE::Size( resoltion.width, resoltion.height ) );
+		MOGE::Engine::Instance().CreateScreen( MOGE::Size( resoltion.width, resoltion.height ) );
+		MOGE::Engine::Instance().StartMainLoop();
 		SetMainGridSize( rowsCount, columnsCount );
 		SetMainGridFilledSlabImage();
 		SetMainGridEmptySlabImage();
@@ -49,17 +60,19 @@ namespace Tetris
 	}
 
 	void CGame::CreateGrid()
-	{
+	{		
+		m_mainGrid.SetGamePtr( this );
 		for( CSlab& slab : m_mainGrid.GetSlabs() )
 		{
 			MOGE::ObjectNode slabNode = MOGE::NodeCreator::CreateFromImage( mEmptySlabImage );
-			MOGE::Position position( slab.Col() * slabNode->GetWidth(), slab.Row() * slabNode->GetHeight() );
+			MOGE::Position3d position( slab.Col() * slabNode->GetWidth(), slab.Row() * slabNode->GetHeight(), 0 );
 			slabNode->SetXY( position.GetX(), position.GetY() );
 			slab.SetNode( slabNode );
 
 			slabNode->SetVisible();
 			MOGE::Engine::Instance().AddObject( slabNode.get() );//TODO: redundant add, should be moved to NodeMgr
 		}
+		auto nodesCount = MOGE::Engine::Instance().ObjectCount();
 	}
 
 	void CGame::StartGame()
@@ -71,8 +84,8 @@ namespace Tetris
 	void CGame::MainLoop()
 	{
 		SDL_Event event;
-		MainLoopThread();
-		//m_mainLoopThread = Thread( &CGame::MainLoopThread, this );
+		//MainLoopThread();
+		m_mainLoopThread = std::thread( &CGame::MainLoopThread, this );
 		while( false == m_quit )
 		{
 			while( SDL_PollEvent( &event ) )
@@ -126,18 +139,12 @@ namespace Tetris
 			if( false == m_mainGrid.CheckIfBlockCanBeMoved( Direction::D ) )
 			{
 				AddCurrentBrickToGrid();
-				CheckForFullLines();
+				m_mainGrid.ManageFullLine();
 				ReleaseBrick();
 			}
-			std::thread waitForSleep( &CGame::WaitForMove, this );
-			waitForSleep.join();
+			CTimeMod::SleepMiliSeconds( 500 );
 			MoveActiveBrick( Direction::D );
 		}
-	}
-
-	void CGame::WaitForMove()
-	{
-		CTimeMod::SleepMiliSeconds( 500 );
 	}
 
 	void CGame::ReleaseBrick()
@@ -148,7 +155,7 @@ namespace Tetris
 
 	void CGame::ShowGrid()
 	{
-		MOGE::Engine::Instance().RenderFrame();
+		//MOGE::Engine::Instance().RenderFrame();
 	}
 
 	void CGame::AddCurrentBrickToGrid()
@@ -165,12 +172,6 @@ namespace Tetris
 		}
 	}
 
-	void CGame::CheckForFullLines()
-	{
-		m_mainGrid.ManageFullLine();
-		ActualizeGrid();
-	}
-
 	void CGame::MoveActiveBrick( const Direction direction )
 	{
 		m_mainGrid.MoveActualBrick( direction );
@@ -185,7 +186,7 @@ namespace Tetris
 
 	void CGame::ActualizeGrid()
 	{
-		MOGE::Engine::Instance().RenderFrame();
+	//	MOGE::Engine::Instance().RenderFrame();
 	}
 
 	const bool CGame::QuitHasBeenHit( const SDL_Event event )

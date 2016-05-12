@@ -33,6 +33,9 @@ namespace Tetris
 		void QuitGame();
 		virtual ~CGame();
 
+		MOGE::ImageSurface GetEmptySlabSurface()const;
+		MOGE::ImageSurface GetFilledSlabSurface()const;
+
 	private:
 		void SetMainGridEmptySlabImage();
 		void SetMainGridFilledSlabImage();
@@ -47,8 +50,6 @@ namespace Tetris
 		void ActualizeGrid();
 		void AddCurrentBrickToGrid();
 		void MainLoopThread();
-		void WaitForMove();
-		void CheckForFullLines();
 
 		MOGE::ImageSurface mEmptySlabImage;
 		MOGE::ImageSurface mFilledSlabImage;
