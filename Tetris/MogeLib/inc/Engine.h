@@ -17,7 +17,7 @@ namespace MOGE
 {
 	class MOGE_API std::thread;
 	class MOGE_API std::mutex;
-	template class MOGE_API std::set<ObjectNodeContent*>;
+	template class MOGE_API std::set<ObjectNode>;
 
 	class MOGE_API Engine: public Singleton<Engine>
 	{
@@ -26,7 +26,7 @@ namespace MOGE
 		virtual ~Engine();
 
 		void AddObject( const Path& filePath, const Position3d& position = Position3d(), const String& name = "" );
-		void AddObject( ObjectNodeContent* node, const String& name = "" );
+		void AddObject( const ObjectNode node, const String& name = "" );
 		const unsigned int ObjectCount()const;
 		void CreateScreen( const Size& size );
 		void StartMainLoop();
@@ -40,7 +40,7 @@ namespace MOGE
 		void Render( ObjectNodeContent& node );
 
 		ScreenNode mScreenBuffor;
-		std::set<ObjectNodeContent*> mRenderableObjects;
+		std::set<ObjectNode> mRenderableObjects;
 		std::mutex mRenderableObjectsMutex;
 		std::mutex mListMutex;
 		std::thread mainLoop;

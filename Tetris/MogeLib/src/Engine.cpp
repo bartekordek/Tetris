@@ -13,10 +13,7 @@ namespace MOGE
 		StopMainLoop();
 		std::lock_guard<std::mutex> lck( mListMutex );
 
-		for( auto& renderableObject: mRenderableObjects)
-		{
-			delete renderableObject;
-		}
+		mRenderableObjects.erase( mRenderableObjects.begin(), mRenderableObjects.end() );
 
 		SDL_Quit();
 	}
@@ -32,10 +29,10 @@ namespace MOGE
 	void Engine::AddObject( const Path& filePath, const Position3d& position, const String& name )
 	{
 		ObjectNode newNode = NodeCreator::CreateFromImage( filePath, position, name );
-		AddObject( newNode.get(), name );
+		AddObject( newNode, name );
 	}
 
-	void Engine::AddObject( ObjectNodeContent* node, const String& name )
+	void Engine::AddObject( const ObjectNode  node, const String& name )
 	{
 		mRenderableObjectsMutex.lock();
 		mRenderableObjects.insert( node );
