@@ -40,11 +40,6 @@ namespace Tetris
 		m_slabBackground = CPicture( location, width, height );
 	}
 
-	void CMainGrid::SetSlabPic( const Path picLocation, CUInt width, CUInt height )
-	{
-		m_brickBckd = CPicture( picLocation, width, height );
-	}
-
 	void CMainGrid::ReLeaseBrick()
 	{
 		delete m_activeBrick;
@@ -66,7 +61,6 @@ namespace Tetris
 	void CMainGrid::MarkSlabAsPartOfMovingBlock( CUInt row, CUInt col )
 	{
 		CSlab& slab = mSlabsRows.at( row ).at( col );
-		slab.PartOfSlab( true );
 		slab.Empty( false );
 		auto slabNode = slab.GetNode();
 		slabNode->SetSurface( mGamePtr->GetFilledSlabSurface() );
@@ -90,11 +84,6 @@ namespace Tetris
 	const Path CMainGrid::EmptySlabPictureLoc()const
 	{
 		return m_brickBckd.GetImgLoc();
-	}
-
-	const bool CMainGrid::PartOfSlab( CUInt rowIndex, CUInt colIndex )const
-	{
-		return mSlabsRows[rowIndex].at(colIndex).PartOfSlab();
 	}
 
 	const bool CMainGrid::Empty( CUInt rowIndex, CUInt colIndex )const
@@ -135,7 +124,13 @@ namespace Tetris
 		{
 			CUInt newRow = coord.Row() + GetRowOffset( direction );
 			CUInt newCol = coord.Col() + GetColOffset( direction );
-			if( false == SlabExist( newRow, newCol) ) // Check if you are not in the bottom
+
+			if( newRow >= mSlabsRows.size() )
+			{
+				return false;
+			}
+
+			if( false == SlabExist( newRow, newCol) ) 
 			{
 				return false;
 			}
@@ -233,6 +228,11 @@ namespace Tetris
 		CoordinatestList coords = brick->GetBlockPositions();
 		for( auto it = coords.begin(); it != coords.end(); ++it )
 		{
+
+			if( it->Row() >= mSlabsRows.size() )
+			{
+				return false;
+			}
 			if( false == SlabExist( it->Row(), it->Col() ) )
 			{
 				return false;
@@ -258,13 +258,7 @@ namespace Tetris
 			return false;
 		}
 
-		CSlab slab = mSlabsRows[rowIndex].at( colIndex );
-
-		if( true == slab.Empty() || true == slab.PartOfSlab() )
-		{
-			return true;
-		}
-		return false;
+		return true;
 	}
 
 	void CMainGrid::m_RemoveActualBlockSlabsFromGrid()
@@ -275,7 +269,6 @@ namespace Tetris
 			CUInt col = coord.Col();
 			auto& slab = mSlabsRows.at( row ).at( col );
 			slab.Empty( true );
-			slab.PartOfSlab( false );
 			auto slabnode = slab.GetNode();
 			slabnode->SetSurface( mGamePtr->GetEmptySlabSurface());
 		}
@@ -294,11 +287,12 @@ namespace Tetris
 
 	void CMainGrid::ManageFullLine()
 	{
-		for( UInt i = 0; i < m_rowsCount; ++i )
+		for( std::vector<SlabRow>::iterator rowsIterator = mSlabsRows.begin(); rowsIterator != mSlabsRows.end(); ++rowsIterator )
 		{
-			if( m_LineIsFull( i ) )
+			SlabRow& slabRow = *rowsIterator;
+			if( RowIsConnected( slabRow ) )
 			{
-				m_MoveDownAllLines( i );
+				MoveAllLinesOneLineDown( rowsIterator );
 			}
 		}
 	}
@@ -318,11 +312,11 @@ namespace Tetris
 		return mSlabsRows.at( row ).at( column );
 	}
 
-	const bool CMainGrid::m_LineIsFull( CUInt rowIndex )const
+	const bool CMainGrid::RowIsConnected( const SlabRow& slabRow )const
 	{
-		for( UInt columnIndex = 0; columnIndex < m_columnsCount; ++columnIndex )
+		for( auto& slab : slabRow )
 		{
-			if( mSlabsRows.at(rowIndex).at( columnIndex ).Empty() )
+			if( slab.Empty() )
 			{
 				return false;
 			}
@@ -330,18 +324,20 @@ namespace Tetris
 		return true;
 	}
 
-	void CMainGrid::m_MoveDownAllLines( CUInt toLineIndex )
+	void CMainGrid::MoveAllLinesOneLineDown( std::vector<SlabRow>::iterator rowIterator )
 	{
-		for( UInt i = toLineIndex; i > 1; --i )
+		for( ; rowIterator != mSlabsRows.begin() + 1; --rowIterator )
 		{
-			for( UInt j = 0; j < m_columnsCount; ++j )
+			auto& currentRow = *rowIterator;
+			auto& oneRowHigher = *(rowIterator - 1);
+
+			for( unsigned columnIterator = 0; columnIterator < currentRow.size(); ++columnIterator )
 			{
-				CSlab& slabHigher = mSlabsRows.at( i - 1 ).at( j );
-				CSlab& slabLower = mSlabsRows.at( i ).at( j );
+				CSlab& slabHigher = oneRowHigher.at( columnIterator );
+				CSlab& slabLower = currentRow.at( columnIterator );
 				bool emptiness = slabHigher.Empty();
-				bool partOfBlock = slabHigher.PartOfSlab();
 				slabLower.Empty( emptiness );
-				slabLower.PartOfSlab( partOfBlock );
+				SetSlabImagSurface( slabLower );
 			}
 		}
 
@@ -349,6 +345,20 @@ namespace Tetris
 		{
 			CSlab& slab = mSlabsRows.at( 0 ).at( j );
 			slab.Empty( true );
+			SetSlabImagSurface( slab );
+		}
+	}
+
+	void CMainGrid::SetSlabImagSurface( CSlab& slab )
+	{
+		auto& slabNode = slab.GetNode();
+		if( slab.Empty() )
+		{
+			slabNode->SetSurface( mGamePtr->GetEmptySlabSurface() );
+		}
+		else
+		{
+			slabNode->SetSurface( mGamePtr->GetFilledSlabSurface() );
 		}
 	}
 

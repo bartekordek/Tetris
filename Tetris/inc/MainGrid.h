@@ -21,14 +21,12 @@ namespace Tetris
 		virtual ~CMainGrid();
 		void SetSize( CUInt rowsCount, CUInt columnsCount, CUInt initialX = 0, CUInt initialY = 0 );
 		void SetBackgroundPicture( const Path picLocation, CUInt width, CUInt height );
-		void SetSlabPic( const Path picLocation, CUInt width, CUInt height );
 		void AddBrick( const CBrick* brick );
 		void ReLeaseBrick();
 		CUInt GetRowsCount()const;
 		CUInt GetColumnsCount()const;
 		const Path SlabPictureLoc()const;
 		const Path EmptySlabPictureLoc()const;
-		const bool PartOfSlab( CUInt rowIndex, CUInt colIndex )const;
 		const bool Empty( CUInt rowIndex, CUInt colIndex )const;
 		CUInt SlabCount()const;
 		const bool SlabExist( CUInt rowIndex, CUInt colIndex )const;
@@ -50,9 +48,10 @@ namespace Tetris
 		void m_MoveActualBlock( const Direction direction );
 		void m_RemoveActualBlockSlabsFromGrid();
 		void MarkSlabAsPartOfMovingBlock( CUInt row, CUInt col );
-		const bool m_LineIsFull( CUInt rowIndex )const;
+		const bool RowIsConnected( const SlabRow& slabRow )const;
 		const bool m_CheckIfBlockCanBePlaced( const CBrick* brick );
-		void m_MoveDownAllLines( CUInt toLineIndex );
+		void MoveAllLinesOneLineDown( std::vector<SlabRow>::iterator rowIterator );
+		void SetSlabImagSurface( CSlab& slab );
 
 		CGame* mGamePtr = nullptr;
 
