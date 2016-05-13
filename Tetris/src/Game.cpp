@@ -73,7 +73,7 @@ namespace Tetris
 				slab.SetNode( slabNode );
 
 				slabNode->SetVisible();
-				MOGE::Engine::Instance().AddObject( slabNode.get() );//TODO: redundant add, should be moved to NodeMgr
+				MOGE::Engine::Instance().AddObject( slabNode );//TODO: redundant add, should be moved to NodeMgr
 			}
 		}
 		auto nodesCount = MOGE::Engine::Instance().ObjectCount();
