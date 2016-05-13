@@ -25,7 +25,7 @@ namespace MOGE
 	{
 		std::lock_guard<std::mutex> lck( mListMutex );
 		mScreenBuffor = NodeCreator::CreateScreen( size );
-		mScreenBuffor.SetXY( 256, 256 );
+		mScreenBuffor.SetXY( -1024, 256 );
 		mScreenBuffor.Initialize();
 	}
 
