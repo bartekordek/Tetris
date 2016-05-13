@@ -14,7 +14,7 @@ namespace Tetris
 
 	CMainGrid::~CMainGrid()
 	{
-		delete m_activeBrick;
+		mSlabsRows.erase( mSlabsRows.begin(), mSlabsRows.end() );
 	}
 
 	void CMainGrid::SetSize( CUInt rowsCount, CUInt columnsCount, CUInt initialX, CUInt initialY )
