@@ -45,10 +45,5 @@ namespace MOGE
 
 	void ObjectNodeContent::FreeContent()
 	{
-		if( surface.get() )
-		{
-			SDL_FreeSurface( surface.get()->GetSdlSurface() );
-		}
-		surface = nullptr;
 	}
 }
