@@ -2,18 +2,15 @@
 
 namespace Tetris
 {
-
-	CSlab::CSlab( const CSlab& slab ):
-		mPosition( CTableCoor( slab.Row(), slab.Col() ) ),
-		mPartOfSlab( slab.mPartOfSlab ),
-		mEmpty( slab.mEmpty )
+	CSlab::CSlab( CUInt row, CUInt col, const bool partOfSlab, const bool empty ):
+		mPosition( CTableCoor( row, col ) ),
+		mEmpty( empty )
 	{
 	}
 
-	CSlab::CSlab( CUInt row, CUInt col, const bool partOfSlab, const bool empty ):
-		mPosition( CTableCoor( row, col ) ),
-		mPartOfSlab( partOfSlab ),
-		mEmpty( empty )
+	CSlab::CSlab( const CSlab& slab ):
+		mPosition( slab.mPosition ),
+		mEmpty( slab.mEmpty )
 	{
 	}
 
@@ -26,8 +23,8 @@ namespace Tetris
 		if( this != &slab )
 		{
 			mPosition = slab.mPosition;
-			mPartOfSlab = slab.mPartOfSlab;
 			mEmpty = slab.mEmpty;
+			mNode = slab.mNode;
 		}
 		return *this;
 	}
@@ -57,11 +54,6 @@ namespace Tetris
 		mPosition.ChangePosition( row, col );
 	}
 
-	const bool CSlab::PartOfSlab()const
-	{
-		return mPartOfSlab;
-	}
-
 	const bool CSlab::Empty()const
 	{
 		return mEmpty;
@@ -70,11 +62,6 @@ namespace Tetris
 	void CSlab::Empty( const bool empty )
 	{
 		mEmpty = empty;
-	}
-
-	void CSlab::PartOfSlab( const bool partOfSlab )
-	{
-		mPartOfSlab = partOfSlab;
 	}
 
 	void CSlab::SetId( CUInt id )

@@ -20,8 +20,6 @@ namespace Tetris
 		void Row( CUInt row );
 		void Col( CUInt col );
 		void SetPosition( CUInt row, CUInt col );
-		const bool PartOfSlab()const;
-		void PartOfSlab( const bool partOfSlab );
 		const bool Empty()const;
 		void Empty( const bool empty );
 
@@ -34,7 +32,6 @@ namespace Tetris
 	private:
 		CTableCoor mPosition;
 		unsigned int mIndex = 0;
-		bool mPartOfSlab = false;
 		bool mEmpty;
 		MOGE::ObjectNode mNode;
 	};
