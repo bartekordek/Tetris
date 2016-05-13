@@ -7,6 +7,7 @@
 class CTableCoor
 {
 public:
+	CTableCoor( const CTableCoor& tableCoord );
 	CTableCoor( CUInt row, CUInt column );
 	virtual ~CTableCoor();
 	CUInt Row()const;
