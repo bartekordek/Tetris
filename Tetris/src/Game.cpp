@@ -76,7 +76,6 @@ namespace Tetris
 				MOGE::Engine::Instance().AddObject( slabNode );//TODO: redundant add, should be moved to NodeMgr
 			}
 		}
-		auto nodesCount = MOGE::Engine::Instance().ObjectCount();
 	}
 
 	void CGame::StartGame()
@@ -88,7 +87,6 @@ namespace Tetris
 	void CGame::MainLoop()
 	{
 		SDL_Event event;
-		//MainLoopThread();
 		m_mainLoopThread = std::thread( &CGame::MainLoopThread, this );
 		while( false == m_quit )
 		{
