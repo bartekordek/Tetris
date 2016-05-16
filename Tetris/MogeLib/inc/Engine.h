@@ -4,6 +4,7 @@
 #include <thread>
 #include <mutex>
 
+
 #include "Position3d.h"
 #include "Singleton.h"
 #include "FileSystem.h"
@@ -11,7 +12,6 @@
 #include "ScreenNode.h"
 
 #include <SDL.h>
-
 
 namespace MOGE
 {
@@ -27,7 +27,6 @@ namespace MOGE
 
 		void AddObject( const Path& filePath, const Position3d& position = Position3d(), const String& name = "" );
 		void AddObject( const ObjectNode node, const String& name = "" );
-		const unsigned int ObjectCount()const;
 		void CreateScreen( const Size& size );
 		void StartMainLoop();
 		void StopMainLoop();

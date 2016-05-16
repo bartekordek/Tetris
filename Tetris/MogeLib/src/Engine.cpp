@@ -12,9 +12,7 @@ namespace MOGE
 	{
 		StopMainLoop();
 		std::lock_guard<std::mutex> lck( mListMutex );
-
 		mRenderableObjects.erase( mRenderableObjects.begin(), mRenderableObjects.end() );
-
 		SDL_Quit();
 	}
 
@@ -22,7 +20,7 @@ namespace MOGE
 	{
 		std::lock_guard<std::mutex> lck( mListMutex );
 		mScreenBuffor = NodeCreator::CreateScreen( size );
-		mScreenBuffor.SetXY( -1024, 256 );
+		mScreenBuffor.SetXY( 256, 256 );
 		mScreenBuffor.Initialize();
 	}
 
@@ -37,11 +35,6 @@ namespace MOGE
 		mRenderableObjectsMutex.lock();
 		mRenderableObjects.insert( node );
 		mRenderableObjectsMutex.unlock();
-	}
-
-	const unsigned int Engine::ObjectCount()const
-	{
-		return mRenderableObjects.size();
 	}
 
 	void Engine::StartMainLoop()
