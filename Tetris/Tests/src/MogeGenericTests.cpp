@@ -8,7 +8,11 @@ TEST_F( MogeGenericTests, NamedSetGetName )
 {
 	class EmptyClass: public MOGE::Name
 	{
+	protected:
+		virtual void UpdateImplementation()
+		{
 
+		}
 	};
 
 	EmptyClass instance;
@@ -21,7 +25,11 @@ TEST_F( MogeGenericTests, PositionSetGetTwoArgumentMethod )
 {
 	class EmptyClass: public MOGE::Position
 	{
+	protected:
+		virtual void UpdateImplementation()
+		{
 
+		}
 	};
 
 	EmptyClass instance;
@@ -36,7 +44,11 @@ TEST_F( MogeGenericTests, PositionSetGetOneArgumentMethod )
 {
 	class EmptyClass: public MOGE::Position
 	{
+	protected:
+		virtual void UpdateImplementation()
+		{
 
+		}
 	};
 
 	EmptyClass instance;
@@ -52,7 +64,11 @@ TEST_F( MogeGenericTests, SizeSetGetTwoArgumentMethod )
 {
 	class EmptyClass: public MOGE::Size
 	{
+	protected:
+		virtual void UpdateImplementation()
+		{
 
+		}
 	};
 
 	EmptyClass instance;
@@ -67,7 +83,11 @@ TEST_F( MogeGenericTests, SizeSetGetOneArgumentMethod )
 {
 	class EmptyClass: public MOGE::Size
 	{
+	protected:
+		virtual void UpdateImplementation()
+		{
 
+		}
 	};
 
 	EmptyClass instance;
