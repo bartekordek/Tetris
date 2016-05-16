@@ -51,14 +51,14 @@
     <ClCompile Include="src\NameTests.cpp">
       <Filter>Tests\Name</Filter>
     </ClCompile>
-    <ClCompile Include="src\ObjectNodeTests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\ImageCreatorTests.cpp">
       <Filter>ImageFactory</Filter>
     </ClCompile>
     <ClCompile Include="src\NodeCreatorTests.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Tests\NodeCreator</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ObjectNodeTests.cpp">
+      <Filter>Tests\Node</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -74,14 +74,14 @@
     <ClInclude Include="inc\NameTests.h">
       <Filter>Tests\Name</Filter>
     </ClInclude>
-    <ClInclude Include="inc\ObjectNodeTests.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\ImageCreatorTests.h">
       <Filter>ImageFactory</Filter>
     </ClInclude>
+    <ClInclude Include="inc\ObjectNodeTests.h">
+      <Filter>Tests\Node</Filter>
+    </ClInclude>
     <ClInclude Include="inc\NodeCreatorTests.h">
-      <Filter>Header Files</Filter>
+      <Filter>Tests\NodeCreator</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

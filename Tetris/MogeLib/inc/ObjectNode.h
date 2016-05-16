@@ -1,12 +1,12 @@
 #pragma once
 
 #include <memory>
+#include <set>
 
 #include "Node.h"
 #include "Visible.h"
 #include "FileSystem.h"
 #include "SurfaceWrapper.h"
-
 
 namespace MOGE
 {
@@ -17,8 +17,6 @@ namespace MOGE
 		PNG,
 		MAIN_SCREEN
 	};
-
-	template class MOGE_API std::shared_ptr<SurfaceWrapper>;
 
 	class MOGE_API ObjectNodeContent: public Node, public Visible
 	{
@@ -41,6 +39,6 @@ namespace MOGE
 		Path mFilePath;
 
 	};
-	template class MOGE_API std::shared_ptr<ObjectNodeContent>;
+	
 	using ObjectNode = std::shared_ptr<ObjectNodeContent>;
 }

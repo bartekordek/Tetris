@@ -42,13 +42,13 @@ namespace MOGE
 		return ObjectNode( nullptr );
 	}
 
-	void NodeCreator::RemoveNode( std::shared_ptr<ObjectNodeContent>& node )
+	void NodeCreator::RemoveNode( ObjectNode& node )
 	{
 		sObjectNodes.erase( node.get() );
 		node.reset();
 	}
 
-	const bool NodeCreator::Exist( std::shared_ptr<ObjectNodeContent>& node )
+	const bool NodeCreator::Exist( ObjectNode& node )
 	{
 		for( auto& currentNode : sObjectNodes )
 		{

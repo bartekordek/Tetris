@@ -3,6 +3,8 @@
 #include <MOGE.h>
 #include <string>
 
+#pragma warning( disable : 4251)
+
 namespace MOGE
 {
 	class MOGE_API String: public std::string

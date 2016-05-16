@@ -4,12 +4,8 @@
 #include "ObjectNode.h"
 #include "Position3d.h"
 
-#include <set>
-
 namespace MOGE
 {
-	template class MOGE_API std::set< ObjectNodeContent* >;
-
 	class MOGE_API NodeCreator
 	{
 	public:
@@ -17,8 +13,8 @@ namespace MOGE
 		static ObjectNode CreateFromImage( const Path& filePath, const Position3d& position = Position3d(), const String& name = "" );
 		static ObjectNode CreateFromImage( const ImageSurface& imageSurface, const Position3d& position = Position3d(), const String& name = "" );
 		static ObjectNode GetObjectNode( const Path& path );
-		static void RemoveNode( std::shared_ptr<ObjectNodeContent>& node);
-		static const bool Exist( std::shared_ptr<ObjectNodeContent>& node );
+		static void RemoveNode( ObjectNode& node);
+		static const bool Exist( ObjectNode& node );
 		static const unsigned int Count();
 	protected:
 	private:

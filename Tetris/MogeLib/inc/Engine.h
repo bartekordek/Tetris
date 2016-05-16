@@ -4,7 +4,6 @@
 #include <thread>
 #include <mutex>
 
-
 #include "Position3d.h"
 #include "Singleton.h"
 #include "FileSystem.h"
@@ -17,7 +16,6 @@ namespace MOGE
 {
 	class MOGE_API std::thread;
 	class MOGE_API std::mutex;
-	template class MOGE_API std::set<ObjectNode>;
 
 	class MOGE_API Engine: public Singleton<Engine>
 	{
