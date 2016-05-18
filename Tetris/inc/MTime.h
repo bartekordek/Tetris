@@ -1,5 +1,4 @@
-#ifndef _TIMER_C__
-#define _TIMER_C__
+#pragma once
 
 #include "GeneralUtilities.h"
 
@@ -10,5 +9,3 @@ public:
 	static void SleepMiliSeconds( CUInt mSeconds );
 private:
 };
-
-#endif
