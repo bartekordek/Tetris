@@ -101,6 +101,7 @@
     <ClCompile Include="src\ConsoleUtilities.cpp" />
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\FileSystem.cpp" />
+    <ClCompile Include="src\GeneralUtilities.cpp" />
     <ClCompile Include="src\KeyboardObservable.cpp" />
     <ClCompile Include="src\KeyboardListener.cpp" />
     <ClCompile Include="src\MyString.cpp" />
@@ -121,6 +122,7 @@
     <ClInclude Include="inc\ConsoleUtilities.h" />
     <ClInclude Include="inc\Engine.h" />
     <ClInclude Include="inc\FileSystem.h" />
+    <ClInclude Include="inc\GeneralUtilities.h" />
     <ClInclude Include="inc\KeyboardObservable.h" />
     <ClInclude Include="inc\KeyboardListener.h" />
     <ClInclude Include="inc\MOGE.h" />
