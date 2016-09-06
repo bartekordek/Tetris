@@ -10,13 +10,8 @@
 #include "ObjectNode.h"
 #include "ScreenNode.h"
 
-#include <SDL.h>
-
 namespace MOGE
 {
-	class MOGE_API std::thread;
-	class MOGE_API std::mutex;
-
 	class MOGE_API Engine: public Singleton<Engine>
 	{
 	public:
