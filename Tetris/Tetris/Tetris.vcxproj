@@ -121,9 +121,10 @@
       </Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>xcopy $(SDL2)\Build\$(Configuration)\SDL2.dll $(TargetDir) /Y
-xcopy "$(SolutionDir)MogeLib\$(Configuration)\MogeLib.dll" "$(LocalDebuggerWorkingDirectory)" /Y
-xcopy "$(SolutionDir)MogeLib\$(Configuration)\MogeLib.pdb" "$(LocalDebuggerWorkingDirectory)" /Y</Command>
+      <Command>xcopy "$(SDL2)\Build\$(Configuration)\SDL2.dll"  "$(LocalDebuggerWorkingDirectory)" /Y
+xcopy "$(TargetDir)*.dll" "$(LocalDebuggerWorkingDirectory)" /Y
+xcopy "$(TargetDir)*.pdb" "$(LocalDebuggerWorkingDirectory)" /Y
+xcopy "$(TargetDir)*.exe" "$(LocalDebuggerWorkingDirectory)" /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -157,9 +158,10 @@ xcopy "$(SolutionDir)MogeLib\$(Configuration)\MogeLib.pdb" "$(LocalDebuggerWorki
       </Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>xcopy $(SDL2)\Build\$(Configuration)\SDL2.dll $(TargetDir) /Y
-xcopy "$(SolutionDir)MogeLib\$(Configuration)\MogeLib.dll" "$(LocalDebuggerWorkingDirectory)" /Y
-xcopy "$(SolutionDir)MogeLib\$(Configuration)\MogeLib.pdb" "$(LocalDebuggerWorkingDirectory)" /Y</Command>
+      <Command>xcopy "$(SDL2)\Build\$(Configuration)\SDL2.dll"  "$(LocalDebuggerWorkingDirectory)" /Y
+xcopy "$(TargetDir)*.dll" "$(LocalDebuggerWorkingDirectory)" /Y
+xcopy "$(TargetDir)*.pdb" "$(LocalDebuggerWorkingDirectory)" /Y
+xcopy "$(TargetDir)*.exe" "$(LocalDebuggerWorkingDirectory)" /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -188,9 +190,10 @@ xcopy "$(SolutionDir)MogeLib\$(Configuration)\MogeLib.pdb" "$(LocalDebuggerWorki
       <Command>xcopy $(SDL2)\Build\$(Configuration)\SDL2.dll $(TargetDir)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>xcopy $(SDL2)\Build\$(Configuration)\SDL2.dll $(TargetDir) /Y
-xcopy "$(SolutionDir)MogeLib\$(Configuration)\MogeLib.dll" "$(LocalDebuggerWorkingDirectory)" /Y
-xcopy "$(SolutionDir)MogeLib\$(Configuration)\MogeLib.pdb" "$(LocalDebuggerWorkingDirectory)" /Y</Command>
+      <Command>xcopy "$(SDL2)\Build\$(Configuration)\SDL2.dll"  "$(LocalDebuggerWorkingDirectory)" /Y
+xcopy "$(TargetDir)*.dll" "$(LocalDebuggerWorkingDirectory)" /Y
+xcopy "$(TargetDir)*.pdb" "$(LocalDebuggerWorkingDirectory)" /Y
+xcopy "$(TargetDir)*.exe" "$(LocalDebuggerWorkingDirectory)" /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -219,9 +222,10 @@ xcopy "$(SolutionDir)MogeLib\$(Configuration)\MogeLib.pdb" "$(LocalDebuggerWorki
       <Command>xcopy $(SDL2)\Build\$(Configuration)\SDL2.dll $(TargetDir)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>xcopy $(SDL2)\Build\$(Configuration)\SDL2.dll $(TargetDir) /Y
-xcopy "$(SolutionDir)MogeLib\$(Configuration)\MogeLib.dll" "$(LocalDebuggerWorkingDirectory)" /Y
-xcopy "$(SolutionDir)MogeLib\$(Configuration)\MogeLib.pdb" "$(LocalDebuggerWorkingDirectory)" /Y</Command>
+      <Command>xcopy "$(SDL2)\Build\$(Configuration)\SDL2.dll"  "$(LocalDebuggerWorkingDirectory)" /Y
+xcopy "$(TargetDir)*.dll" "$(LocalDebuggerWorkingDirectory)" /Y
+xcopy "$(TargetDir)*.pdb" "$(LocalDebuggerWorkingDirectory)" /Y
+xcopy "$(TargetDir)*.exe" "$(LocalDebuggerWorkingDirectory)" /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
