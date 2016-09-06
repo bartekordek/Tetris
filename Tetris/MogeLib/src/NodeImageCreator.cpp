@@ -9,6 +9,7 @@ namespace MOGE
 		ImageSurface result;
 		SurfaceWrapper* surfaceWrapper = new SurfaceWrapper();
 		ImageTypes imageType = GetImageType( imagePath );
+		BOOST_ASSERT( imagePath.Exist() );
 		if( ImageTypes::BMP == imageType )
 		{
 			*surfaceWrapper = SDL_LoadBMP( imagePath.c_str() );
