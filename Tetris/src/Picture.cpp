@@ -51,7 +51,6 @@ void CPicture::SetPictureSize( CUInt width, CUInt height )
 
 const Path CPicture::GetImgLoc()const
 {
-//	return m_location.string();
 	return m_location;
 }
 
