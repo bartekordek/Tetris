@@ -23,7 +23,7 @@ namespace MOGE
 	public:
 		ObjectNodeContent();
 		ObjectNodeContent( const Path& filePath );
-		~ObjectNodeContent();
+		virtual ~ObjectNodeContent();
 
 		const ImageSurface& GetSurface()const;
 
