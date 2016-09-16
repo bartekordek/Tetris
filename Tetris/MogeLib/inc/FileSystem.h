@@ -28,8 +28,6 @@ namespace MogeLib
 		Path& operator=( const Path& inputPath );
 		Path& operator=( const char* inputPath );
 
-
-
 		const bool empty()const;
 		const String& Extension()const;
 		const String& FullPath()const;
@@ -40,7 +38,6 @@ namespace MogeLib
 		static const String& GetExtensionSeparator();
 		static const Path GetCurrentDirectory();
 		const bool Exist()const;
-		
 
 	protected:
 
