@@ -1,5 +1,9 @@
 #include "FileSystem.h"
 
+#include <boost/filesystem.hpp>
+#include <boost/filesystem/path.hpp>
+using ErrorCode = boost::system::error_code;
+
 namespace MogeLib
 {
 	Path::Path(): mFullPath("")
