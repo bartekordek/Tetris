@@ -1,1 +1,34 @@
+[Tetris/MogeLib/inc/MyString.h:14]: (style) Class 'String' has a constructor with 1 argument that is not explicit.
+[Tetris/MogeLib/inc/MyString.h:16]: (style) Class 'String' has a constructor with 1 argument that is not explicit.
+[Tetris/MogeLib/inc/FileSystem.h:14]: (style) Class 'Path' has a constructor with 1 argument that is not explicit.
+[Tetris/MogeLib/inc/FileSystem.h:15]: (style) Class 'Path' has a constructor with 1 argument that is not explicit.
+[Tetris/MogeLib/inc/FileSystem.h:16]: (style) Class 'Path' has a constructor with 1 argument that is not explicit.
+[Tetris/MogeLib/inc/Named.h:11]: (style) Class 'Name' has a constructor with 1 argument that is not explicit.
+[Tetris/MogeLib/inc/Node.h:17]: (style) Class 'Node' has a constructor with 1 argument that is not explicit.
+[Tetris/MogeLib/inc/SurfaceWrapper.h:16]: (style) Class 'SurfaceWrapper' has a constructor with 1 argument that is not explicit.
+[Tetris/MogeLib/inc/ObjectNode.h:25]: (style) Class 'ObjectNodeContent' has a constructor with 1 argument that is not explicit.
+[Tetris/MogeLib/inc/FileSystem.h:46]: (style) Unused private function: 'Path::SetFullPath'
+[Tetris/src/Brick.cpp:10]: (warning) Member variable 'CBrick::m_brickType' is not initialized in the constructor.
+[Tetris/src/Brick.cpp:23]: (performance) Variable 'm_blocks' is assigned in constructor body. Consider performing initialization in initialization list.
+[Tetris/src/Brick.cpp:24]: (performance) Variable 'm_direction' is assigned in constructor body. Consider performing initialization in initialization list.
+[Tetris/src/SDLWrapper.cpp:21]: (style) The function 'AddImage' is never used.
+[Tetris/src/SDLWrapper.cpp:12]: (style) The function 'CreateWindow' is never used.
+[Tetris/src/SDLWrapper.cpp:43]: (style) The function 'Display' is never used.
+[Tetris/src/MainGrid.cpp:82]: (style) The function 'EmptySlabPictureLoc' is never used.
+[Tetris/src/Slab.cpp:72]: (style) The function 'GetId' is never used.
+[Tetris/src/Picture.cpp:63]: (style) The function 'GetImgHeight' is never used.
+[Tetris/src/Picture.cpp:58]: (style) The function 'GetImgWidth' is never used.
+[Tetris/MogeLib/src/NodeCreator.cpp:33]: (style) The function 'GetObjectNode' is never used.
+[Tetris/MogeLib/src/ScreenNode.cpp:27]: (style) The function 'GetRenderer' is never used.
+[Tetris/MogeLib/src/Position3d.cpp:28]: (style) The function 'GetZ' is never used.
+[Tetris/src/Rectangle.cpp:19]: (style) The function 'Height' is never used.
+[Tetris/MogeLib/src/KeyboardListener.cpp:14]: (style) The function 'KeyEvent' is never used.
+[Tetris/MogeLib/src/KeyboardObservable.cpp:21]: (style) The function 'Register' is never used.
+[Tetris/src/MainGrid.cpp:36]: (style) The function 'SetBackgroundPicture' is never used.
+[Tetris/MogeLib/src/FileSystem.cpp:140]: (style) The function 'SetFullPath' is never used.
+[Tetris/src/Picture.cpp:34]: (style) The function 'SetPictureLocation' is never used.
+[Tetris/src/Picture.cpp:46]: (style) The function 'SetPictureSize' is never used.
+[Tetris/src/MainGrid.cpp:77]: (style) The function 'SlabPictureLoc' is never used.
+[Tetris/MogeLib/src/MTime.cpp:6]: (style) The function 'SleepSeconds' is never used.
+[Tetris/src/Rectangle.cpp:14]: (style) The function 'Width' is never used.
 (information) Cppcheck cannot find all the include files (use --check-config for details)
