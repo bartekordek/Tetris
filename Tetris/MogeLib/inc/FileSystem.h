@@ -63,5 +63,5 @@ namespace MogeLib
 	const String GetBaseName( const String& path );
 	const String GetExtension( const String& path );
 	const String GetDirectory( const String& path );
-	const bool FileExists( const String& path, ErrorCode& errocode = ErrorCode() );
+	const bool FileExists( const String& path, std::string& errorMessage = std::string() );
 }

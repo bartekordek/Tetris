@@ -179,9 +179,12 @@ namespace MogeLib
 		return directory;
 	}
 
-	const bool FileExists( const String& path, ErrorCode& errocode )
+	const bool FileExists( const String& path, std::string& errorMessage )
 	{
-		return boost::filesystem::is_regular_file( path.c_str(), errocode );
+		ErrorCode errocode;
+		const bool result = boost::filesystem::is_regular_file( path.c_str(), errocode );
+		errorMessage = errocode.message();
+		return  result;
 	}
 
 	Path operator+( const Path& path, const std::string& inputPath )
