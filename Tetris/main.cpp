@@ -5,10 +5,8 @@
 int main( int argc, char *argv[] )
 {
 	MogeLib::ConsoleUtilities::PrintInputParameters( argc, argv );
-	const unsigned int columnsCount = 10;
-	const unsigned int rowsCount = 22;
 	Tetris::CGame game;
-	game.Initialize( rowsCount, columnsCount );
+	game.Initialize( 22, 10 );
 	game.ShowGrid();
 	game.StartGame();
 	game.MainLoop();
