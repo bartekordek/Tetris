@@ -157,7 +157,6 @@ namespace Tetris
 
 	void CGame::ShowGrid()
 	{
-		//MOGE::Engine::Instance().RenderFrame();
 	}
 
 	void CGame::AddCurrentBrickToGrid()
@@ -188,7 +187,6 @@ namespace Tetris
 
 	void CGame::ActualizeGrid()
 	{
-	//	MOGE::Engine::Instance().RenderFrame();
 	}
 
 	const bool CGame::QuitHasBeenHit( const SDL_Event event )
