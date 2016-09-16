@@ -10,7 +10,7 @@ namespace MogeLib
 	class MOGE_API String: public std::string
 	{
 	public:
-		String( void );
+		String();
 		String( const char* inputString );
 		String( const String& inputString );
 		String( const std::string& inputString );
@@ -26,6 +26,4 @@ namespace MogeLib
 	};
 
 	String operator+( const String& string1, const String& string2 );
-
-	MOGE_API_TEMPLATE class MOGE_API String;
 }

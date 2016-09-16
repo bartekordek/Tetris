@@ -3,7 +3,7 @@
 
 namespace MogeLib
 {
-	String::String( void ): std::string( "" )
+	String::String(): std::string( "" )
 	{
 	}
 
