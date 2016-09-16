@@ -10,8 +10,8 @@ namespace MogeLib
 	{
 	public:
 		static ScreenNode CreateScreen( const Size& size );
-		static ObjectNode CreateFromImage( const Path& filePath, const Position3d& position = Position3d(), const String& name = "" );
-		static ObjectNode CreateFromImage( const ImageSurface& imageSurface, const Position3d& position = Position3d(), const String& name = "" );
+		static ObjectNode CreateFromImage( const Path& filePath, const Position3d& position = Position3d(), const MyString& name = "" );
+		static ObjectNode CreateFromImage( const ImageSurface& imageSurface, const Position3d& position = Position3d(), const MyString& name = "" );
 		static ObjectNode GetObjectNode( const Path& path );
 		static void RemoveNode( ObjectNode& node);
 		static const bool Exist( ObjectNode& node );

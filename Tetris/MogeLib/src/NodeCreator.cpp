@@ -14,13 +14,13 @@ namespace MogeLib
 		return screenNode;
 	}
 
-	ObjectNode NodeCreator::CreateFromImage( const Path& filePath, const Position3d& position, const String& name )
+	ObjectNode NodeCreator::CreateFromImage( const Path& filePath, const Position3d& position, const MyString& name )
 	{
 		ImageSurface imageSurface = MogeLib::ImageCreator::CreateSurfaceFromImage( filePath );
 		return CreateFromImage( imageSurface, position, name );
 	}
 
-	ObjectNode NodeCreator::CreateFromImage( const ImageSurface& imageSurface, const Position3d& position, const String& name )
+	ObjectNode NodeCreator::CreateFromImage( const ImageSurface& imageSurface, const Position3d& position, const MyString& name )
 	{
 		ObjectNodeContent* objectNodeContent = new ObjectNodeContent();
 		objectNodeContent->SetXY( position.GetX(), position.GetY() );

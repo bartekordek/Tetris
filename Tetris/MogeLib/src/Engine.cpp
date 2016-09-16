@@ -24,13 +24,13 @@ namespace MogeLib
 		mScreenBuffor.Initialize();
 	}
 
-	void Engine::AddObject( const Path& filePath, const Position3d& position, const String& name )
+	void Engine::AddObject( const Path& filePath, const Position3d& position, const MyString& name )
 	{
 		ObjectNode newNode = NodeCreator::CreateFromImage( filePath, position, name );
 		AddObject( newNode, name );
 	}
 
-	void Engine::AddObject( const ObjectNode  node, const String& name )
+	void Engine::AddObject( const ObjectNode  node, const MyString& name )
 	{
 		mRenderableObjectsMutex.lock();
 		mRenderableObjects.insert( node );

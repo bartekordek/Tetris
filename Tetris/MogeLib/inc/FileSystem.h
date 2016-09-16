@@ -12,54 +12,54 @@ namespace MogeLib
 		virtual ~Path();
 
 		Path( const char* inputPath );
-		Path( const String& inputPath );
+		Path( const MyString& inputPath );
 		Path( const Path& inputPath );
 		
 		const char* c_str()const;
 
 		const bool operator==( const std::string& inputPath )const;
-		const bool operator==( const String& inputPath )const;
+		const bool operator==( const MyString& inputPath )const;
 		const bool operator==( const Path& inputPath )const;
 
 		Path& operator=( const std::string& inputPath );
-		Path& operator=( const String& inputPath );
+		Path& operator=( const MyString& inputPath );
 		Path& operator=( const Path& inputPath );
 		Path& operator=( const char* inputPath );
 
 		const bool empty()const;
-		const String& Extension()const;
-		const String& FullPath()const;
-		const String& BaseName()const;
-		const String& Directory()const;
+		const MyString& Extension()const;
+		const MyString& FullPath()const;
+		const MyString& BaseName()const;
+		const MyString& Directory()const;
 
-		static const String& GetDirectorySeparator();
-		static const String& GetExtensionSeparator();
+		static const MyString& GetDirectorySeparator();
+		static const MyString& GetExtensionSeparator();
 		static const Path GetCurrentDirectory();
 		const bool Exist()const;
 
 	protected:
 
 	private:
-		void SetUpPaths( const String& fullPath );
-		void SetFullPath( const String& fullPath );
+		void SetUpPaths( const MyString& fullPath );
+		void SetFullPath( const MyString& fullPath );
 
-		String mFullPath;
-		String mExtension;
-		String mBaseName;
-		String mDirectory;
+		MyString mFullPath;
+		MyString mExtension;
+		MyString mBaseName;
+		MyString mDirectory;
 
-		static String directorySeparator;
-		static String extensionSeparator;
+		static MyString directorySeparator;
+		static MyString extensionSeparator;
 	};
 
 	Path operator+( const Path& path, const std::string& inputPath );
-	Path operator+( const Path& path, const String& inputPath );
+	Path operator+( const Path& path, const MyString& inputPath );
 	Path operator+( const Path& path, const Path& inputPath );
 	Path MOGE_API operator+( const Path& path, const char* inputPath );
 	
 
-	const String GetBaseName( const String& path );
-	const String GetExtension( const String& path );
-	const String GetDirectory( const String& path );
-	const bool FileExists( const String& path, std::string& errorMessage = std::string() );
+	const MyString GetBaseName( const MyString& path );
+	const MyString GetExtension( const MyString& path );
+	const MyString GetDirectory( const MyString& path );
+	const bool FileExists( const MyString& path, std::string& errorMessage = std::string() );
 }

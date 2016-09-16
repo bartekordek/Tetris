@@ -3,34 +3,34 @@
 
 namespace MogeLib
 {
-	String::String(): std::string( "" )
+	MyString::MyString(): std::string( "" )
 	{
 	}
 
-	String::String( const char* inputString ):std::string( inputString )
+	MyString::MyString( const char* inputString ):std::string( inputString )
 	{
 	}
 
-	String::String( const String& inputString ):std::string( inputString )
+	MyString::MyString( const MyString& inputString ):std::string( inputString )
 	{
 	}
 
-	String::String( const std::string& inputString ):std::string( inputString )
+	MyString::MyString( const std::string& inputString ):std::string( inputString )
 	{
 
 	}
 
-	String::~String()
+	MyString::~MyString()
 	{
 	}
 
 
-	const bool String::Contains( const String& inputString )const
+	const bool MyString::Contains( const MyString& inputString )const
 	{
 		return Contains( inputString.c_str() );
 	}
 
-	const bool String::Contains( const char* inputString )const
+	const bool MyString::Contains( const char* inputString )const
 	{
 		if( std::string::npos == std::string::find( inputString ) )
 		{
@@ -39,7 +39,7 @@ namespace MogeLib
 		return true;
 	}
 
-	String& String::Replace( const String& inWhat, const String& inFor )
+	MyString& MyString::Replace( const MyString& inWhat, const MyString& inFor )
 	{
 		auto inWhatPosition = std::string::find( inWhat.c_str() );
 		if( std::string::npos != inWhatPosition )
@@ -49,21 +49,21 @@ namespace MogeLib
 		return *this;
 	}
 
-	const std::string String::ToLower()const
+	const std::string MyString::ToLower()const
 	{
 		std::string result = static_cast<std::string>( *this );
 		boost::algorithm::to_lower( result );
 		return result;
 	}
 
-	const std::string String::string()const
+	const std::string MyString::string()const
 	{
 		return static_cast<std::string>( *this );
 	}
 
-	String operator+( const String& string1, const String& string2 )
+	MyString operator+( const MyString& string1, const MyString& string2 )
 	{
-		String string( string1.string() + string2.string() );
+		MyString string( string1.string() + string2.string() );
 		return string;
 	}
 }

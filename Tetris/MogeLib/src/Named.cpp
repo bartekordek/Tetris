@@ -2,7 +2,7 @@
 
 namespace MogeLib
 {
-	Name::Name(const String& name): mName(name)
+	Name::Name(const MyString& name): mName(name)
 	{
 	}
 
@@ -14,12 +14,12 @@ namespace MogeLib
 	{
 	}
 
-	void Name::SetName( const String& name )
+	void Name::SetName( const MyString& name )
 	{
 		mName = name;
 	}
 
-	const String& Name::GetName()const
+	const MyString& Name::GetName()const
 	{
 		return mName;
 	}

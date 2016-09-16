@@ -54,7 +54,7 @@ namespace Tetris
 		MogeLib::ImageSurface mEmptySlabImage;
 		MogeLib::ImageSurface mFilledSlabImage;
 
-		MogeLib::String GetQuitButtonLocation();
+		MogeLib::MyString GetQuitButtonLocation();
 		CMainGrid m_mainGrid;
 		std::thread m_mainLoopThread;
 		bool m_roundInProgress;

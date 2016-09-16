@@ -14,7 +14,7 @@ namespace MogeLib
 		public Size
 	{
 	public:
-		Node( const String& name = "" );
+		Node( const MyString& name = "" );
 		virtual ~Node();
 		
 		SDL_Rect* GetGeometricsInfo();

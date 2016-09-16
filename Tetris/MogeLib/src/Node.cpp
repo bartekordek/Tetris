@@ -3,7 +3,7 @@
 
 namespace MogeLib
 {
-	Node::Node( const String& name ): Name( name ), Position( 0, 0 ), Size( 640, 480 )
+	Node::Node( const MyString& name ): Name( name ), Position( 0, 0 ), Size( 640, 480 )
 	{
 		if( Name::GetName().empty() )
 		{

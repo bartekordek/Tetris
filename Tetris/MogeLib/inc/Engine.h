@@ -18,8 +18,8 @@ namespace MogeLib
 		Engine( void );
 		virtual ~Engine();
 
-		void AddObject( const Path& filePath, const Position3d& position = Position3d(), const String& name = "" );
-		void AddObject( const ObjectNode node, const String& name = "" );
+		void AddObject( const Path& filePath, const Position3d& position = Position3d(), const MyString& name = "" );
+		void AddObject( const ObjectNode node, const MyString& name = "" );
 		void CreateScreen( const Size& size );
 		void StartMainLoop();
 		void StopMainLoop();

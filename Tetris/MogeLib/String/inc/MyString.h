@@ -7,23 +7,23 @@
 
 namespace MogeLib
 {
-	class MOGE_API String: public std::string
+	class MOGE_API MyString: public std::string
 	{
 	public:
-		String();
-		String( const char* inputString );
-		String( const String& inputString );
-		String( const std::string& inputString );
-		virtual ~String();
+		MyString();
+		MyString( const char* inputString );
+		MyString( const MyString& inputString );
+		MyString( const std::string& inputString );
+		virtual ~MyString();
 
-		const bool Contains( const String& inputString )const;
+		const bool Contains( const MyString& inputString )const;
 		const bool Contains( const char* inputString )const;
 
-		String& Replace( const String& inWhat, const String& inFor );
+		MyString& Replace( const MyString& inWhat, const MyString& inFor );
 		const std::string ToLower()const;
 
 		const std::string string()const;
 	};
 
-	String operator+( const String& string1, const String& string2 );
+	MyString operator+( const MyString& string1, const MyString& string2 );
 }

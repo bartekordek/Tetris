@@ -22,7 +22,7 @@ namespace MogeLib
 		SetUpPaths( inputPath );
 	}
 
-	Path::Path( const String& inputPath ): mFullPath( inputPath )
+	Path::Path( const MyString& inputPath ): mFullPath( inputPath )
 	{
 		SetUpPaths( inputPath );
 	}
@@ -42,7 +42,7 @@ namespace MogeLib
 		return mFullPath ==  inputPath.mFullPath;
 	}
 
-	const bool Path::operator==( const String& inputPath )const
+	const bool Path::operator==( const MyString& inputPath )const
 	{
 		return mFullPath ==  inputPath ;
 	}
@@ -58,7 +58,7 @@ namespace MogeLib
 		return *this;
 	}
 
-	Path& Path::operator=( const String& inputPath )
+	Path& Path::operator=( const MyString& inputPath )
 	{
 		SetUpPaths( inputPath );
 		return *this;
@@ -81,32 +81,32 @@ namespace MogeLib
 		return mFullPath.empty();
 	}
 
-	const String& Path::Extension()const
+	const MyString& Path::Extension()const
 	{
 		return mExtension;
 	}
 
-	const String& Path::FullPath()const
+	const MyString& Path::FullPath()const
 	{
 		return mFullPath;
 	}
 
-	const String& Path::BaseName()const
+	const MyString& Path::BaseName()const
 	{
 		return mBaseName;
 	}
 
-	const String& Path::Directory()const
+	const MyString& Path::Directory()const
 	{
 		return mDirectory;
 	}
 
-	const String& Path::GetDirectorySeparator()
+	const MyString& Path::GetDirectorySeparator()
 	{
 		return directorySeparator;
 	}
 
-	const String& Path::GetExtensionSeparator()
+	const MyString& Path::GetExtensionSeparator()
 	{
 		return extensionSeparator;
 	}
@@ -122,7 +122,7 @@ namespace MogeLib
 		return FileExists( mFullPath.c_str() );
 	}
 
-	void Path::SetUpPaths( const String& fullPath )
+	void Path::SetUpPaths( const MyString& fullPath )
 	{
 		mFullPath = fullPath;
 		mExtension = GetExtension( fullPath );
@@ -130,53 +130,53 @@ namespace MogeLib
 		mDirectory = GetDirectory( fullPath );
 	}
 
-	void Path::SetFullPath( const String& fullPath )
+	void Path::SetFullPath( const MyString& fullPath )
 	{
 		mFullPath = fullPath;
 	}
 
 #ifdef _WIN32
-	String Path::directorySeparator = "\\";
+	MyString Path::directorySeparator = "\\";
 #else
-	String Path::directorySeparator = "/";
+	MyString Path::directorySeparator = "/";
 #endif
-	String Path::extensionSeparator = ".";
+	MyString Path::extensionSeparator = ".";
 
-	const String GetBaseName( const String& path )
+	const MyString GetBaseName( const MyString& path )
 	{
-		String baseName = "";
+		MyString baseName = "";
 		auto separatorPosition = path.rfind( Path::GetDirectorySeparator() );
-		if( String::npos != separatorPosition )
+		if( MyString::npos != separatorPosition )
 		{
 			baseName = path.substr( ++separatorPosition );
-			baseName = baseName.Replace( String(".") + GetExtension( path ), String( "" ) );
+			baseName = baseName.Replace( MyString(".") + GetExtension( path ), MyString( "" ) );
 		}
 		return baseName;
 	}
 
-	const String GetExtension( const String& path )
+	const MyString GetExtension( const MyString& path )
 	{
-		String extension = "";
+		MyString extension = "";
 		auto mExtensionDotPosition = path.rfind( Path::GetExtensionSeparator() );
-		if( String::npos != mExtensionDotPosition )
+		if( MyString::npos != mExtensionDotPosition )
 		{
 			extension = path.substr( ++mExtensionDotPosition );
 		}
 		return extension;
 	}
 
-	const String GetDirectory( const String& path )
+	const MyString GetDirectory( const MyString& path )
 	{
-		String directory = "";
+		MyString directory = "";
 		auto lastSlashPosition = path.rfind( Path::GetDirectorySeparator() );
-		if( String::npos != lastSlashPosition )
+		if( MyString::npos != lastSlashPosition )
 		{
 			directory = path.substr( 0, lastSlashPosition );
 		}
 		return directory;
 	}
 
-	const bool FileExists( const String& path, std::string& errorMessage )
+	const bool FileExists( const MyString& path, std::string& errorMessage )
 	{
 		ErrorCode errocode;
 		const bool result = boost::filesystem::is_regular_file( path.c_str(), errocode );
@@ -190,7 +190,7 @@ namespace MogeLib
 		return result;
 	}
 
-	Path operator+( const Path& path, const String& inputPath )
+	Path operator+( const Path& path, const MyString& inputPath )
 	{
 		Path result( path.FullPath() + inputPath );
 		return result;
