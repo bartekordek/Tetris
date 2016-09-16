@@ -2,7 +2,7 @@
 
 #include "Position.h"
 
-namespace MOGE
+namespace MogeLib
 {
 	class MOGE_API Position3d: public Position
 	{

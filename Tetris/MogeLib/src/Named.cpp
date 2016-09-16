@@ -1,6 +1,6 @@
 #include "Named.h"
 
-namespace MOGE
+namespace MogeLib
 {
 	Name::Name(const String& name): mName(name)
 	{

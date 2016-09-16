@@ -3,7 +3,7 @@
 #include <MOGE.h>
 #include "Aliases.h"
 
-namespace MOGE
+namespace MogeLib
 {
 	class MOGE_API Position
 	{

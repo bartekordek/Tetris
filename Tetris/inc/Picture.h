@@ -4,9 +4,9 @@
 #include <Named.h>
 
 
-using Path = MOGE::Path;
+using Path = MogeLib::Path;
 
-class CPicture: public MOGE::Name
+class CPicture: public MogeLib::Name
 {
 public:
 	CPicture();

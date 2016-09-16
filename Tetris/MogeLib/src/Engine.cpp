@@ -1,7 +1,7 @@
 #include "Engine.h"
 #include "NodeCreator.h"
 
-namespace MOGE
+namespace MogeLib
 {
 	Engine::Engine( void )
 	{

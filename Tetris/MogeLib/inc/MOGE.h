@@ -11,7 +11,7 @@
 #define MOGE_API_TEMPLATE extern
 #endif
 
-namespace MOGE
+namespace MogeLib
 {
 	class ObjectNodeContent;
 	//MOGE_API_TEMPLATE template class MOGE_API std::set<std::shared_ptr<ObjectNodeContent>>;

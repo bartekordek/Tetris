@@ -1,6 +1,6 @@
 #include "Size.h"
 
-namespace MOGE
+namespace MogeLib
 {
 	Size::Size(): mWidth( 0 ), mHeight( 0 )
 	{

@@ -1,6 +1,6 @@
 #include "ObjectNode.h"
 
-namespace MOGE
+namespace MogeLib
 {
 
 	ObjectNodeContent::ObjectNodeContent(): mFilePath("")

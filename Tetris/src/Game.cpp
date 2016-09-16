@@ -22,20 +22,20 @@ namespace Tetris
 	{
 	}
 
-	MOGE::ImageSurface CGame::GetEmptySlabSurface()const
+	MogeLib::ImageSurface CGame::GetEmptySlabSurface()const
 	{
 		return mEmptySlabImage;
 	}
 
-	MOGE::ImageSurface CGame::GetFilledSlabSurface()const
+	MogeLib::ImageSurface CGame::GetFilledSlabSurface()const
 	{
 		return mFilledSlabImage;
 	}
 
 	void CGame::Initialize( CUInt rowsCount, CUInt columnsCount, const Resolution& resoltion )
 	{
-		MOGE::Engine::Instance().CreateScreen( MOGE::Size( resoltion.width, resoltion.height ) );
-		MOGE::Engine::Instance().StartMainLoop();
+		MogeLib::Engine::Instance().CreateScreen( MogeLib::Size( resoltion.width, resoltion.height ) );
+		MogeLib::Engine::Instance().StartMainLoop();
 		SetMainGridSize( rowsCount, columnsCount );
 		SetMainGridFilledSlabImage();
 		SetMainGridEmptySlabImage();
@@ -49,14 +49,14 @@ namespace Tetris
 
 	void CGame::SetMainGridFilledSlabImage()
 	{
-		MOGE::Path blockImagepath = MOGE::Path::GetCurrentDirectory() + "\\..\\..\\Media\\Block.bmp";
-		mFilledSlabImage = MOGE::ImageCreator::CreateSurfaceFromImage( blockImagepath );
+		MogeLib::Path blockImagepath = MogeLib::Path::GetCurrentDirectory() + "\\..\\..\\Media\\Block.bmp";
+		mFilledSlabImage = MogeLib::ImageCreator::CreateSurfaceFromImage( blockImagepath );
 	}
 
 	void CGame::SetMainGridEmptySlabImage()
 	{
-		MOGE::Path bgBlockImagepath = MOGE::Path::GetCurrentDirectory() + "\\..\\..\\Media\\BackGroundBlock.bmp";
-		mEmptySlabImage = MOGE::ImageCreator::CreateSurfaceFromImage( bgBlockImagepath );
+		MogeLib::Path bgBlockImagepath = MogeLib::Path::GetCurrentDirectory() + "\\..\\..\\Media\\BackGroundBlock.bmp";
+		mEmptySlabImage = MogeLib::ImageCreator::CreateSurfaceFromImage( bgBlockImagepath );
 	}
 
 	void CGame::CreateGrid()
@@ -67,13 +67,13 @@ namespace Tetris
 		{
 			for( auto& slab: slabRow )
 			{
-				std::shared_ptr<MOGE::ObjectNodeContent> slabNode = MOGE::NodeCreator::CreateFromImage( mEmptySlabImage );
-				MOGE::Position3d position( slab.Col() * slabNode->GetWidth(), slab.Row() * slabNode->GetHeight(), 0 );
+				std::shared_ptr<MogeLib::ObjectNodeContent> slabNode = MogeLib::NodeCreator::CreateFromImage( mEmptySlabImage );
+				MogeLib::Position3d position( slab.Col() * slabNode->GetWidth(), slab.Row() * slabNode->GetHeight(), 0 );
 				slabNode->SetXY( position.GetX(), position.GetY() );
 				slab.SetNode( slabNode );
 
 				slabNode->SetVisible();
-				MOGE::Engine::Instance().AddObject( slabNode );//TODO: redundant add, should be moved to NodeMgr
+				MogeLib::Engine::Instance().AddObject( slabNode );//TODO: redundant add, should be moved to NodeMgr
 			}
 		}
 	}

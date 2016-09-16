@@ -1,6 +1,6 @@
 #include "Position.h"
 
-namespace MOGE
+namespace MogeLib
 {
 	Position::Position(): mX(0), mY(0)
 	{

@@ -5,7 +5,7 @@
 
 #pragma warning( disable : 4251)
 
-namespace MOGE
+namespace MogeLib
 {
 	class MOGE_API String: public std::string
 	{

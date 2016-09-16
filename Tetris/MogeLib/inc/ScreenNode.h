@@ -2,7 +2,7 @@
 
 #include "Node.h"
 
-namespace MOGE
+namespace MogeLib
 {
 	class MOGE_API ScreenNode: public Node
 	{

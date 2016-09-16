@@ -1,7 +1,7 @@
 #include "SurfaceWrapper.h"
 #include <SDL_surface.h>
 
-namespace MOGE
+namespace MogeLib
 {
 	SurfaceWrapper::SurfaceWrapper()
 	{

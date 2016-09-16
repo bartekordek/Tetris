@@ -1,7 +1,7 @@
 #include "Node.h"
 #include <SDL.h>
 
-namespace MOGE
+namespace MogeLib
 {
 	Node::Node( const String& name ): Name( name ), Position( 0, 0 ), Size( 640, 480 )
 	{

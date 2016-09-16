@@ -8,7 +8,7 @@
 #include "FileSystem.h"
 #include "SurfaceWrapper.h"
 
-namespace MOGE
+namespace MogeLib
 {
 	enum IMAGETYPE
 	{

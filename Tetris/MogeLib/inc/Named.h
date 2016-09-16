@@ -3,7 +3,7 @@
 #include <MOGE.h>
 #include "MyString.h"
 
-namespace MOGE
+namespace MogeLib
 {
 	class MOGE_API Name
 	{

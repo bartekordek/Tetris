@@ -1,6 +1,6 @@
 #include "ScreenNode.h"
 
-namespace MOGE
+namespace MogeLib
 {
 	ScreenNode::ScreenNode()
 	{

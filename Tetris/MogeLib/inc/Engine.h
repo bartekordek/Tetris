@@ -10,7 +10,7 @@
 #include "ObjectNode.h"
 #include "ScreenNode.h"
 
-namespace MOGE
+namespace MogeLib
 {
 	class MOGE_API Engine: public Singleton<Engine>
 	{

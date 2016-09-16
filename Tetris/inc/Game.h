@@ -33,8 +33,8 @@ namespace Tetris
 		void QuitGame();
 		virtual ~CGame();
 
-		MOGE::ImageSurface GetEmptySlabSurface()const;
-		MOGE::ImageSurface GetFilledSlabSurface()const;
+		MogeLib::ImageSurface GetEmptySlabSurface()const;
+		MogeLib::ImageSurface GetFilledSlabSurface()const;
 
 	private:
 		void SetMainGridEmptySlabImage();
@@ -51,10 +51,10 @@ namespace Tetris
 		void AddCurrentBrickToGrid();
 		void MainLoopThread();
 
-		MOGE::ImageSurface mEmptySlabImage;
-		MOGE::ImageSurface mFilledSlabImage;
+		MogeLib::ImageSurface mEmptySlabImage;
+		MogeLib::ImageSurface mFilledSlabImage;
 
-		MOGE::String GetQuitButtonLocation();
+		MogeLib::String GetQuitButtonLocation();
 		CMainGrid m_mainGrid;
 		std::thread m_mainLoopThread;
 		bool m_roundInProgress;

@@ -4,7 +4,7 @@
 #include "ObjectNode.h"
 #include "Position3d.h"
 
-namespace MOGE
+namespace MogeLib
 {
 	class MOGE_API NodeCreator
 	{

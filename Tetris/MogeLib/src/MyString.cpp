@@ -1,7 +1,7 @@
 #include "MyString.h"
 #include <boost\algorithm\string.hpp>
 
-namespace MOGE
+namespace MogeLib
 {
 	String::String( void ): std::string( "" )
 	{

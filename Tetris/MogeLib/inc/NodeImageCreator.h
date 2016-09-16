@@ -4,7 +4,7 @@
 #include "Node.h"
 #include "SurfaceWrapper.h"
 
-namespace MOGE
+namespace MogeLib
 {
 	class MOGE_API ImageCreator
 	{

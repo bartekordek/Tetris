@@ -6,7 +6,7 @@
 
 struct SDL_Surface;
 
-namespace MOGE
+namespace MogeLib
 {
 	class MOGE_API SurfaceWrapper
 	{

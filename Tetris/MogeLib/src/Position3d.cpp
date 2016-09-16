@@ -1,6 +1,6 @@
 #include "Position3d.h"
 
-namespace MOGE
+namespace MogeLib
 {
 	Position3d::Position3d(): Position( 0, 0 ), mZ( 0 )
 	{

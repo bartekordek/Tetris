@@ -2,7 +2,7 @@
 
 #include "MOGE.h"
 
-namespace MOGE
+namespace MogeLib
 {
 	class MOGE_API ConsoleUtilities
 	{

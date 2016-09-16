@@ -6,7 +6,7 @@
 #include "Size.h"
 #include <SDL.h>
 
-namespace MOGE
+namespace MogeLib
 {
 	class MOGE_API Node:
 		public Name,

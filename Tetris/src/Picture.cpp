@@ -23,7 +23,7 @@ CPicture& CPicture::operator=( const CPicture& picture )
 {
 	if( this != &picture )
 	{
-		MOGE::Name::operator=(picture);
+		MogeLib::Name::operator=(picture);
 		m_location = picture.m_location;
 		m_width = picture.m_width;
 		m_height = picture.m_height;

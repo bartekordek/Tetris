@@ -5,7 +5,7 @@
 #include "ObjectNode.h"
 #include "ScreenNode.h"
 
-namespace MOGE
+namespace MogeLib
 {
 	ScreenNode NodeCreator::CreateScreen( const Size& size )
 	{
@@ -16,7 +16,7 @@ namespace MOGE
 
 	ObjectNode NodeCreator::CreateFromImage( const Path& filePath, const Position3d& position, const String& name )
 	{
-		ImageSurface imageSurface = MOGE::ImageCreator::CreateSurfaceFromImage( filePath );
+		ImageSurface imageSurface = MogeLib::ImageCreator::CreateSurfaceFromImage( filePath );
 		return CreateFromImage( imageSurface, position, name );
 	}
 

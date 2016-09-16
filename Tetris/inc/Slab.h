@@ -26,13 +26,13 @@ namespace Tetris
 		void SetId( CUInt id );
 		CUInt GetId()const;
 
-		void SetNode( const MOGE::ObjectNode& node );
-		MOGE::ObjectNode& GetNode();
+		void SetNode( const MogeLib::ObjectNode& node );
+		MogeLib::ObjectNode& GetNode();
 
 	private:
 		CTableCoor mPosition;
 		unsigned int mIndex = 0;
 		bool mEmpty;
-		MOGE::ObjectNode mNode;
+		MogeLib::ObjectNode mNode;
 	};
 }

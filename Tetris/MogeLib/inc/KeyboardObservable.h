@@ -7,7 +7,7 @@
 
 #include "KeyboardListener.h"
 
-namespace MOGE
+namespace MogeLib
 {
 	class KeyboardObservable
 	{
