@@ -49,13 +49,13 @@ namespace Tetris
 
 	void CGame::SetMainGridFilledSlabImage()
 	{
-		MOGE::Path blockImagepath = MOGE::Path::GetCurrentDirectory() + "\\..\\pic\\Block.bmp";
+		MOGE::Path blockImagepath = MOGE::Path::GetCurrentDirectory() + "\\..\\..\\Media\\Block.bmp";
 		mFilledSlabImage = MOGE::ImageCreator::CreateSurfaceFromImage( blockImagepath );
 	}
 
 	void CGame::SetMainGridEmptySlabImage()
 	{
-		MOGE::Path bgBlockImagepath = MOGE::Path::GetCurrentDirectory() + "\\..\\pic\\BackGroundBlock.bmp";
+		MOGE::Path bgBlockImagepath = MOGE::Path::GetCurrentDirectory() + "\\..\\..\\Media\\BackGroundBlock.bmp";
 		mEmptySlabImage = MOGE::ImageCreator::CreateSurfaceFromImage( bgBlockImagepath );
 	}
 
