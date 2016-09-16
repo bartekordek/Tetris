@@ -12,11 +12,9 @@ namespace MogeLib
 		virtual ~Path();
 
 		Path( const char* inputPath );
-		Path( const std::string& inputPath );
 		Path( const String& inputPath );
 		Path( const Path& inputPath );
 		
-		const std::string& string()const;
 		const char* c_str()const;
 
 		const bool operator==( const std::string& inputPath )const;

@@ -1,7 +1,10 @@
-#include "FileSystem.h"
+#include <string>
 
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/path.hpp>
+
+#include "FileSystem.h"
+
 using ErrorCode = boost::system::error_code;
 
 namespace MogeLib
@@ -19,24 +22,14 @@ namespace MogeLib
 		SetUpPaths( inputPath );
 	}
 
-	Path::Path( const std::string& inputPath ): mFullPath( inputPath )
-	{
-		SetUpPaths( inputPath );
-	}
-
 	Path::Path( const String& inputPath ): mFullPath( inputPath )
 	{
 		SetUpPaths( inputPath );
 	}
 
-	Path::Path( const Path& inputPath ): mFullPath( inputPath.string() )
+	Path::Path( const Path& inputPath ): mFullPath( inputPath.c_str() )
 	{
 		SetUpPaths( mFullPath );
-	}
-
-	const std::string& Path::string()const
-	{
-		return mFullPath;
 	}
 
 	const char* Path::c_str()const
@@ -211,7 +204,8 @@ namespace MogeLib
 
 	Path operator+( const Path& path, const char* inputPath )
 	{
-		Path result( path.string() + inputPath );
+		std::string string = std::string( path.c_str() ) + std::string( inputPath );
+		Path result( string );
 		return result;
 	}
 }

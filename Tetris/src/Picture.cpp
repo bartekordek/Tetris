@@ -39,7 +39,7 @@ void CPicture::SetPictureLocation( Path picLocation )
 	}
 	else
 	{
-		std::cerr << "FILE" << picLocation.string() << "DOES NOT EXIST." << std::endl;
+		std::cerr << "FILE" << picLocation.c_str() << "DOES NOT EXIST." << std::endl;
 	}
 }
 
@@ -51,7 +51,6 @@ void CPicture::SetPictureSize( CUInt width, CUInt height )
 
 const Path CPicture::GetImgLoc()const
 {
-//	return m_location.string();
 	return m_location;
 }
 

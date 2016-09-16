@@ -9,7 +9,6 @@ namespace MogeLib
 
 	ObjectNodeContent::ObjectNodeContent(const Path& filePath):mFilePath( filePath )
 	{
-
 	}
 
 	ObjectNodeContent::~ObjectNodeContent()
