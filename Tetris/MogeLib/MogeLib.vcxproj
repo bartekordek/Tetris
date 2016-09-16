@@ -191,6 +191,7 @@
     <ClInclude Include="inc\KeyboardListener.h" />
     <ClInclude Include="inc\KeyboardObservable.h" />
     <ClInclude Include="inc\MOGE.h" />
+    <ClInclude Include="inc\MTime.h" />
     <ClInclude Include="inc\MyString.h" />
     <ClInclude Include="inc\Named.h" />
     <ClInclude Include="inc\Node.h" />
@@ -215,6 +216,7 @@
     <ClCompile Include="src\GeneralUtilities.cpp" />
     <ClCompile Include="src\KeyboardListener.cpp" />
     <ClCompile Include="src\KeyboardObservable.cpp" />
+    <ClCompile Include="src\MTime.cpp" />
     <ClCompile Include="src\MyString.cpp" />
     <ClCompile Include="src\Named.cpp" />
     <ClCompile Include="src\Node.cpp" />
