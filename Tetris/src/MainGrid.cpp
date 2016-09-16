@@ -3,8 +3,6 @@
 #include "BrickFactory.h"
 #include <NodeCreator.h>
 
-#include <boost/foreach.hpp>
-
 namespace Tetris
 {
 

@@ -5,7 +5,7 @@
 #include <NodeCreator.h>
 
 #include <cstddef>
-#include <boost/timer/timer.hpp>
+
 #include <SDL.h>
 #include <SDL_keyboard.h>
 #include <SDL_keycode.h>
@@ -144,7 +144,7 @@ namespace Tetris
 				m_mainGrid.ManageFullLine();
 				ReleaseBrick();
 			}
-			CTimeMod::SleepMiliSeconds( 500 );
+			MogeLib::CTimeMod::SleepMiliSeconds( 500 );
 			MoveActiveBrick( Direction::D );
 		}
 	}

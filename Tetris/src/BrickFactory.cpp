@@ -1,5 +1,6 @@
 #include "BrickFactory.h"
 #include <cstdlib> //rand
+#include <ctime>
 
 namespace Tetris
 {
