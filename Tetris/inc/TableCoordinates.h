@@ -1,5 +1,4 @@
-#ifndef _COORDS_
-#define _COORDS_
+#pragma once
 
 #include "Utilities.h"
 #include "GeneralUtilities.h"
@@ -23,5 +22,3 @@ private:
 };
 
 typedef std::vector<CTableCoor> CoordinatestList;
-
-#endif
