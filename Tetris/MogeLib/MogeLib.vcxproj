@@ -213,6 +213,8 @@
     <ClInclude Include="String\inc\MyString.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="RenderableObject\src\RenderableObjectContainer.cpp" />
+    <ClCompile Include="RenderableObject\src\RenderableObjectContainerImpl.cpp" />
     <ClCompile Include="src\Aliases.cpp" />
     <ClCompile Include="src\ConsoleUtilities.cpp" />
     <ClCompile Include="src\Engine.cpp" />
@@ -229,6 +231,7 @@
     <ClCompile Include="src\ObjectNode.cpp" />
     <ClCompile Include="src\Position.cpp" />
     <ClCompile Include="src\Position3d.cpp" />
+    <ClCompile Include="src\Scene.cpp" />
     <ClCompile Include="src\ScreenNode.cpp" />
     <ClCompile Include="src\Singleton.cpp" />
     <ClCompile Include="src\Size.cpp" />
