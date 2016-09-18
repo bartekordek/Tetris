@@ -12,7 +12,7 @@
 
 namespace MogeLib
 {
-	class MOGE_API Engine: public Singleton<Engine>
+	class MogeLib_API Engine: public Singleton<Engine>
 	{
 	public:
 		Engine( void );

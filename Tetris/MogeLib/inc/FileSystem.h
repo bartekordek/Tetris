@@ -1,11 +1,11 @@
 #pragma once
-#include <MOGE.h>
+#include <MogeLib.h>
 #include "MyString.h"
 #include <Aliases.h>
 
 namespace MogeLib
 {
-	class MOGE_API Path
+	class MogeLib_API Path
 	{
 	public:
 		Path();
@@ -55,7 +55,7 @@ namespace MogeLib
 	Path operator+( const Path& path, const std::string& inputPath );
 	Path operator+( const Path& path, const MyString& inputPath );
 	Path operator+( const Path& path, const Path& inputPath );
-	Path MOGE_API operator+( const Path& path, const char* inputPath );
+	Path MogeLib_API operator+( const Path& path, const char* inputPath );
 	
 
 	const MyString GetBaseName( const MyString& path );

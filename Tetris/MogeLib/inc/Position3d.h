@@ -4,7 +4,7 @@
 
 namespace MogeLib
 {
-	class MOGE_API Position3d: public Position
+	class MogeLib_API Position3d: public Position
 	{
 	public:
 		Position3d();

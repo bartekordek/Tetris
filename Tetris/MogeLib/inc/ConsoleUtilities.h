@@ -1,10 +1,10 @@
 #pragma once
 
-#include "MOGE.h"
+#include "MogeLib.h"
 
 namespace MogeLib
 {
-	class MOGE_API ConsoleUtilities
+	class MogeLib_API ConsoleUtilities
 	{
 	public:
 		static void PrintInputParameters( int argc, char *argv[] );

@@ -2,13 +2,13 @@
 
 #include <memory>
 
-#include <MOGE.h>
+#include <MogeLib.h>
 
 struct SDL_Surface;
 
 namespace MogeLib
 {
-	class MOGE_API SurfaceWrapper
+	class MogeLib_API SurfaceWrapper
 	{
 	public:
 		SurfaceWrapper();

@@ -26,8 +26,8 @@ protected:
 
 	static void SetUpTestCase()
 	{
-		testBmpFile = MOGE::Path::GetCurrentDirectory() + "\\..\\pic\\BackGroundBlock.bmp";
+		testBmpFile = MogeLib::Path::GetCurrentDirectory() + "\\..\\pic\\BackGroundBlock.bmp";
 	}
 
-	static MOGE::Path testBmpFile;
+	static MogeLib::Path testBmpFile;
 };

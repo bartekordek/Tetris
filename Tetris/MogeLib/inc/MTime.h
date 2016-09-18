@@ -1,11 +1,11 @@
 #pragma once
 
-#include "MOGE.h"
+#include "MogeLib.h"
 #include "Aliases.h"
 
 namespace MogeLib
 {
-	class MOGE_API CTimeMod
+	class MogeLib_API CTimeMod
 	{
 	public:
 		static void SleepSeconds( CUInt seconds );

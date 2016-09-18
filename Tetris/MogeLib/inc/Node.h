@@ -1,6 +1,6 @@
 #pragma once
 
-#include <MOGE.h>
+#include <MogeLib.h>
 #include "Named.h"
 #include "Position3d.h"
 #include "Size.h"
@@ -8,7 +8,7 @@
 
 namespace MogeLib
 {
-	class MOGE_API Node:
+	class MogeLib_API Node:
 		public Name,
 		public Position,
 		public Size

@@ -1,6 +1,6 @@
 #include "RenderableObjectContainerImpl.h"
 
-namespace MOGE
+namespace MogeLib
 {
 	RenderableObjectContainerImpl::RenderableObjectContainerImpl()
 	{

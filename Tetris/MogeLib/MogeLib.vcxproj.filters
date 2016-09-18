@@ -16,6 +16,12 @@
     <Filter Include="String">
       <UniqueIdentifier>{8092cf07-e252-4ccd-b248-c8148a7e3db9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="RenderableObject">
+      <UniqueIdentifier>{ce159ea6-fc81-4b19-a38e-13e50e0b2e10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{4b26329d-0993-47c6-b4e0-a258f8c5db08}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Aliases.h">
@@ -37,9 +43,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\KeyboardObservable.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\MOGE.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\Named.h">
@@ -89,6 +92,21 @@
     </ClInclude>
     <ClInclude Include="String\inc\MyString.h">
       <Filter>String</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderableObject\inc\RenderableObjectContainer.h">
+      <Filter>RenderableObject</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderableObject\src\RenderableObjectContainerImpl.h">
+      <Filter>RenderableObject</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\MogeLib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\inc\Scene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\inc\SceneImpl.h">
+      <Filter>Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +178,18 @@
     </ClCompile>
     <ClCompile Include="String\src\MyString.cpp">
       <Filter>String</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderableObject\src\RenderableObjectContainer.cpp">
+      <Filter>RenderableObject</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderableObject\src\RenderableObjectContainerImpl.cpp">
+      <Filter>RenderableObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\src\Scene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\src\SceneImpl.cpp">
+      <Filter>Scene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

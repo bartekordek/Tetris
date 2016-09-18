@@ -6,7 +6,7 @@
 
 namespace MogeLib
 {
-	class MOGE_API ImageCreator
+	class MogeLib_API ImageCreator
 	{
 	public:
 		static ImageSurface CreateSurfaceFromImage( const Path& imagePath );

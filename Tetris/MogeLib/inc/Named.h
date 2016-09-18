@@ -1,11 +1,11 @@
 #pragma once
 
-#include <MOGE.h>
+#include <MogeLib.h>
 #include "MyString.h"
 
 namespace MogeLib
 {
-	class MOGE_API Name
+	class MogeLib_API Name
 	{
 	public:
 		Name( const MyString& name = "" );

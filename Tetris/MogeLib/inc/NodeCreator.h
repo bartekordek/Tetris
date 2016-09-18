@@ -6,7 +6,7 @@
 
 namespace MogeLib
 {
-	class MOGE_API NodeCreator
+	class MogeLib_API NodeCreator
 	{
 	public:
 		static ScreenNode CreateScreen( const Size& size );

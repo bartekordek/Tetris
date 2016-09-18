@@ -4,7 +4,7 @@
 
 namespace MogeLib
 {
-	class MOGE_API ScreenNode: public Node
+	class MogeLib_API ScreenNode: public Node
 	{
 	public:
 		ScreenNode();

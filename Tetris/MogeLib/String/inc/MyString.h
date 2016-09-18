@@ -1,13 +1,13 @@
 #pragma once
 
-#include <MOGE.h>
+#include <MogeLib.h>
 #include <string>
 
 #pragma warning( disable : 4251)
 
 namespace MogeLib
 {
-	class MOGE_API MyString: public std::string
+	class MogeLib_API MyString: public std::string
 	{
 	public:
 		MyString();

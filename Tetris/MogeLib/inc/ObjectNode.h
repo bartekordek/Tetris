@@ -18,7 +18,7 @@ namespace MogeLib
 		MAIN_SCREEN
 	};
 
-	class MOGE_API ObjectNodeContent: public Node, public Visible
+	class MogeLib_API ObjectNodeContent: public Node, public Visible
 	{
 	public:
 		ObjectNodeContent();

@@ -1,7 +1,7 @@
 #include "RenderableObjectContainer.h"
 #include "RenderableObjectContainerImpl.h"
 
-namespace MOGE
+namespace MogeLib
 {
 	RenderableObjectContainer::RenderableObjectContainer()
 	{
@@ -13,4 +13,10 @@ namespace MOGE
 		delete this->impl;
 		this->impl = nullptr;
 	}
+
+	void RenderableObjectContainer::addObject( const std::shared_ptr< ObjectNode >& node )
+	{
+		this->impl->addObject( node );
+	}
+
 }
