@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-namespace MogeLib
+namespace Moge
 {
 	void ConsoleUtilities::PrintInputParameters( int argc, char *argv[] )
 	{

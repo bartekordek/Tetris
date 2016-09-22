@@ -3,7 +3,7 @@
 #include "MogeLib.h"
 #include "Aliases.h"
 
-namespace MogeLib
+namespace Moge
 {
 	class MogeLib_API CTimeMod
 	{

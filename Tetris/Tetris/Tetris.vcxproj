@@ -97,7 +97,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;MogeLib_EXPORT;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)MogeLib\String\inc\;$(SolutionDir)MogeLib\inc\;$(SolutionDir)\inc\;$(HOME_SDL2)\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)MogeMath\inc;$(SolutionDir)MogeLib\String\inc\;$(SolutionDir)MogeLib\inc\;$(SolutionDir)\inc\;$(HOME_SDL2)\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWarningAsError>true</TreatWarningAsError>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -119,7 +119,7 @@
     </Link>
     <PreBuildEvent>
       <Command>
-</Command>
+      </Command>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>xcopy "$(TargetDir)*.exe" "$(LocalDebuggerWorkingDirectory)" /y
@@ -134,7 +134,7 @@ xcopy "$(TargetDir)*.pdb" "$(LocalDebuggerWorkingDirectory)" /y</Command>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;MogeLib_EXPORT;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)MogeLib\String\inc\;$(SolutionDir)MogeLib\inc\;$(SolutionDir)\inc\;$(HOME_SDL2)\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)MogeMath\inc;$(SolutionDir)MogeLib\String\inc\;$(SolutionDir)MogeLib\inc\;$(SolutionDir)\inc\;$(HOME_SDL2)\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWarningAsError>true</TreatWarningAsError>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -156,7 +156,7 @@ xcopy "$(TargetDir)*.pdb" "$(LocalDebuggerWorkingDirectory)" /y</Command>
     </Link>
     <PreBuildEvent>
       <Command>
-</Command>
+      </Command>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>xcopy "$(TargetDir)*.exe" "$(LocalDebuggerWorkingDirectory)" /y
@@ -173,7 +173,7 @@ xcopy "$(TargetDir)*.pdb" "$(LocalDebuggerWorkingDirectory)" /y</Command>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;MogeLib_EXPORT;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)MogeLib\String\inc\;$(SolutionDir)MogeLib\inc\;$(SolutionDir)\inc\;$(HOME_SDL2)\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)MogeMath\inc;$(SolutionDir)MogeLib\String\inc\;$(SolutionDir)MogeLib\inc\;$(SolutionDir)\inc\;$(HOME_SDL2)\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
@@ -189,7 +189,7 @@ xcopy "$(TargetDir)*.pdb" "$(LocalDebuggerWorkingDirectory)" /y</Command>
     </Link>
     <PreBuildEvent>
       <Command>
-</Command>
+      </Command>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>xcopy "$(TargetDir)*.exe" "$(LocalDebuggerWorkingDirectory)" /y
@@ -206,7 +206,7 @@ xcopy "$(TargetDir)*.pdb" "$(LocalDebuggerWorkingDirectory)" /y</Command>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;MogeLib_EXPORT;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)MogeLib\String\inc\;$(SolutionDir)MogeLib\inc\;$(SolutionDir)\inc\;$(HOME_SDL2)\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)MogeMath\inc;$(SolutionDir)MogeLib\String\inc\;$(SolutionDir)MogeLib\inc\;$(SolutionDir)\inc\;$(HOME_SDL2)\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
@@ -222,7 +222,7 @@ xcopy "$(TargetDir)*.pdb" "$(LocalDebuggerWorkingDirectory)" /y</Command>
     </Link>
     <PreBuildEvent>
       <Command>
-</Command>
+      </Command>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>xcopy "$(TargetDir)*.exe" "$(LocalDebuggerWorkingDirectory)" /y

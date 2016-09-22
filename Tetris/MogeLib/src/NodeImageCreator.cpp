@@ -2,7 +2,7 @@
 
 #include <SDL.h>
 
-namespace MogeLib
+namespace Moge
 {
 	ImageSurface ImageCreator::CreateSurfaceFromImage( const Path& imagePath )
 	{

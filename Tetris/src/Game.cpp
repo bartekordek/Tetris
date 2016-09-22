@@ -1,8 +1,8 @@
 #include "Game.h"
 #include "BrickFactory.h"
 #include "MTime.h"
-
-#include <NodeCreator.h>
+#include "NodeCreator.h"
+#include "MultiPointFactory.h"
 
 #include <cstddef>
 
@@ -22,20 +22,20 @@ namespace Tetris
 	{
 	}
 
-	MogeLib::ImageSurface CGame::GetEmptySlabSurface()const
+	Moge::ImageSurface CGame::GetEmptySlabSurface()const
 	{
 		return mEmptySlabImage;
 	}
 
-	MogeLib::ImageSurface CGame::GetFilledSlabSurface()const
+	Moge::ImageSurface CGame::GetFilledSlabSurface()const
 	{
 		return mFilledSlabImage;
 	}
 
 	void CGame::Initialize( CUInt rowsCount, CUInt columnsCount, const Resolution& resoltion )
 	{
-		MogeLib::Engine::Instance().CreateScreen( MogeLib::Size( resoltion.width, resoltion.height ) );
-		MogeLib::Engine::Instance().StartMainLoop();
+		Moge::Engine::Instance().CreateScreen( Moge::Math::MultiPointFactory::create2d<unsigned int>( 640, 480 ) );
+		Moge::Engine::Instance().StartMainLoop();
 		SetMainGridSize( rowsCount, columnsCount );
 		SetMainGridFilledSlabImage();
 		SetMainGridEmptySlabImage();
@@ -49,14 +49,14 @@ namespace Tetris
 
 	void CGame::SetMainGridFilledSlabImage()
 	{
-		MogeLib::Path blockImagepath = MogeLib::Path::GetCurrentDirectory() + "\\..\\..\\Media\\Block.bmp";
-		mFilledSlabImage = MogeLib::ImageCreator::CreateSurfaceFromImage( blockImagepath );
+		Moge::Path blockImagepath = Moge::Path::GetCurrentDirectory() + "\\..\\..\\Media\\Block.bmp";
+		mFilledSlabImage = Moge::ImageCreator::CreateSurfaceFromImage( blockImagepath );
 	}
 
 	void CGame::SetMainGridEmptySlabImage()
 	{
-		MogeLib::Path bgBlockImagepath = MogeLib::Path::GetCurrentDirectory() + "\\..\\..\\Media\\BackGroundBlock.bmp";
-		mEmptySlabImage = MogeLib::ImageCreator::CreateSurfaceFromImage( bgBlockImagepath );
+		Moge::Path bgBlockImagepath = Moge::Path::GetCurrentDirectory() + "\\..\\..\\Media\\BackGroundBlock.bmp";
+		mEmptySlabImage = Moge::ImageCreator::CreateSurfaceFromImage( bgBlockImagepath );
 	}
 
 	void CGame::CreateGrid()
@@ -67,13 +67,14 @@ namespace Tetris
 		{
 			for( auto& slab: slabRow )
 			{
-				std::shared_ptr<MogeLib::ObjectNodeContent> slabNode = MogeLib::NodeCreator::CreateFromImage( mEmptySlabImage );
-				MogeLib::Position3d position( slab.Col() * slabNode->GetWidth(), slab.Row() * slabNode->GetHeight(), 0 );
-				slabNode->SetXY( position.GetX(), position.GetY() );
+				std::shared_ptr<Moge::ObjectNodeContent> slabNode = Moge::NodeCreator::CreateFromImage( mEmptySlabImage, Moge::Math::MultiPointFactory::create2d<int>( 0, 0 ) );
+				Moge::Math::MultiPoint<int> postion = Moge::Math::MultiPointFactory::create2d<int>( slab.Col() * slabNode->getWidth(), slab.Row() * slabNode->getHeight() );
+				slabNode->setXyz( position.getX(), position.getY() );
+				slabNode->SetXY( ,  );
 				slab.SetNode( slabNode );
 
 				slabNode->SetVisible();
-				MogeLib::Engine::Instance().AddObject( slabNode );//TODO: redundant add, should be moved to NodeMgr
+				Moge::Engine::Instance().AddObject( slabNode );//TODO: redundant add, should be moved to NodeMgr
 			}
 		}
 	}
@@ -144,7 +145,7 @@ namespace Tetris
 				m_mainGrid.ManageFullLine();
 				ReleaseBrick();
 			}
-			MogeLib::CTimeMod::SleepMiliSeconds( 500 );
+			Moge::CTimeMod::SleepMiliSeconds( 500 );
 			MoveActiveBrick( Direction::D );
 		}
 	}

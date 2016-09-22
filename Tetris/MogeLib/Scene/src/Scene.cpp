@@ -1,7 +1,7 @@
 #include "Scene.h"
 #include "SceneImpl.h"
 
-namespace MogeLib
+namespace Moge
 {
 	Scene::Scene()
 	{

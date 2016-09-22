@@ -1,7 +1,7 @@
 #include "MTime.h"
 #include <SDL.h>
 
-namespace MogeLib
+namespace Moge
 {
 	void CTimeMod::SleepSeconds( CUInt seconds )
 	{

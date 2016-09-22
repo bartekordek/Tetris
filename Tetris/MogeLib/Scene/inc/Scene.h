@@ -2,7 +2,7 @@
 
 #include "MogeLib.h"
 
-namespace MogeLib
+namespace Moge
 {
 	class MogeLib_API ObjectNode;
 	class SceneImpl;

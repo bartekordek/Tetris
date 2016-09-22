@@ -33,8 +33,8 @@ namespace Tetris
 		void QuitGame();
 		virtual ~CGame();
 
-		MogeLib::ImageSurface GetEmptySlabSurface()const;
-		MogeLib::ImageSurface GetFilledSlabSurface()const;
+		Moge::ImageSurface GetEmptySlabSurface()const;
+		Moge::ImageSurface GetFilledSlabSurface()const;
 
 	private:
 		void SetMainGridEmptySlabImage();

@@ -1,7 +1,7 @@
 #include "KeyboardObservable.h"
 #include <SDL_events.h>
 
-namespace MogeLib
+namespace Moge
 {
 	KeyboardObservable::KeyboardObservable()
 	{

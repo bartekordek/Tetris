@@ -4,7 +4,7 @@
 #include <memory>
 #include <mutex>
 
-namespace MogeLib
+namespace Moge
 {
 	class ObjectNode;
 	class RenderableObjectContainerImpl

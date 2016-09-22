@@ -1,10 +1,11 @@
 #include "Node.h"
 #include <SDL.h>
 
-namespace MogeLib
+namespace Moge
 {
-	Node::Node( const MyString& name ): Name( name ), Position( 0, 0 ), Size( 640, 480 )
+	Node::Node( const MyString& name ): Name( name )
 	{
+		this->mGeometrics = new SDL_Rect();
 		if( Name::GetName().empty() )
 		{
 			static unsigned int index = 0;
@@ -19,14 +20,14 @@ namespace MogeLib
 	
 	SDL_Rect* Node::GetGeometricsInfo()
 	{
-		return &mGeometrics;
+		return mGeometrics;
 	}
 
 	void Node::UpdateGeometrics()
 	{
-		mGeometrics.x = static_cast<Sint16>( Position::GetX() );
-		mGeometrics.y = static_cast<Sint16>( Position::GetY() );
-		mGeometrics.w = static_cast<Uint16>( Size::GetWidth() );
-		mGeometrics.h = static_cast<Uint16>( Size::GetHeight() );
+		mGeometrics->x = static_cast<Sint16>( getX() );
+		mGeometrics->y = static_cast<Sint16>( getY() );
+		mGeometrics->w = static_cast<Uint16>( getWidth() );
+		mGeometrics->h = static_cast<Uint16>( getHeight() );
 	}
 }

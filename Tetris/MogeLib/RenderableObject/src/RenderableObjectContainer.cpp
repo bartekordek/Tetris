@@ -1,7 +1,7 @@
 #include "RenderableObjectContainer.h"
 #include "RenderableObjectContainerImpl.h"
 
-namespace MogeLib
+namespace Moge
 {
 	RenderableObjectContainer::RenderableObjectContainer()
 	{

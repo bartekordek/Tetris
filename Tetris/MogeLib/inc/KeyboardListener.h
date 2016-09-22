@@ -6,7 +6,7 @@
 #include <SDL_keycode.h>
 #include <SDL_events.h>
 
-namespace MogeLib
+namespace Moge
 {
 	class KeyboardObservable;
 

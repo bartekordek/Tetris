@@ -7,7 +7,7 @@
 
 using ErrorCode = boost::system::error_code;
 
-namespace MogeLib
+namespace Moge
 {
 	Path::Path(): mFullPath("")
 	{

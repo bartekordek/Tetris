@@ -63,12 +63,6 @@
     <ClInclude Include="inc\ObjectNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Position.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Position3d.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\ScreenNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -107,6 +101,18 @@
     </ClInclude>
     <ClInclude Include="Scene\inc\SceneImpl.h">
       <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\IPosition.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\PositionOLD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ISize.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\IVector.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -147,12 +153,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\ObjectNode.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Position.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Position3d.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\ScreenNode.cpp">

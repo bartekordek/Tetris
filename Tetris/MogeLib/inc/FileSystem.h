@@ -3,7 +3,7 @@
 #include "MyString.h"
 #include <Aliases.h>
 
-namespace MogeLib
+namespace Moge
 {
 	class MogeLib_API Path
 	{

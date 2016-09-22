@@ -4,13 +4,13 @@
 #include <thread>
 #include <mutex>
 
-#include "Position3d.h"
+#include "MultiPoint.h"
 #include "Singleton.h"
 #include "FileSystem.h"
 #include "ObjectNode.h"
 #include "ScreenNode.h"
 
-namespace MogeLib
+namespace Moge
 {
 	class MogeLib_API Engine: public Singleton<Engine>
 	{
@@ -18,9 +18,9 @@ namespace MogeLib
 		Engine( void );
 		virtual ~Engine();
 
-		void AddObject( const Path& filePath, const Position3d& position = Position3d(), const MyString& name = "" );
+		void AddObject( const Path& filePath, const Math::MultiPoint<int>& position, const MyString& name = "" );
 		void AddObject( const ObjectNode node, const MyString& name = "" );
-		void CreateScreen( const Size& size );
+		void CreateScreen( const Math::MultiPoint<unsigned int>& resolution = Math::MultiPoint<unsigned int>( 2 ) );
 		void StartMainLoop();
 		void StopMainLoop();
 
@@ -31,7 +31,7 @@ namespace MogeLib
 		void QueueFrame();
 		void Render( ObjectNodeContent& node );
 
-		ScreenNode mScreenBuffor;
+		std::shared_ptr<ScreenNode> mScreenBuffor;
 		std::set<ObjectNode> mRenderableObjects;
 		std::mutex mRenderableObjectsMutex;
 		std::mutex mListMutex;

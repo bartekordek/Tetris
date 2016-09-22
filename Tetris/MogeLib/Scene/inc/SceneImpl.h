@@ -3,7 +3,7 @@
 #include <set>
 #include <memory>
 
-namespace MogeLib
+namespace Moge
 {
 	class ObjectNode;
 	class SceneImpl

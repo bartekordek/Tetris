@@ -2,19 +2,17 @@
 
 #include <MogeLib.h>
 #include "Named.h"
-#include "Position3d.h"
-#include "Size.h"
-#include <SDL.h>
+#include "ISize.h"
+#include "IPosition.h"
 
-namespace MogeLib
+struct SDL_Rect;
+
+namespace Moge
 {
-	class MogeLib_API Node:
-		public Name,
-		public Position,
-		public Size
+	class MogeLib_API Node: public Name, public IPosition<int>, public ISize<unsigned int>
 	{
 	public:
-		Node( const MyString& name = "" );
+		Node( const MyString& name = MyString( "" ) );
 		virtual ~Node();
 		
 		SDL_Rect* GetGeometricsInfo();
@@ -25,7 +23,6 @@ namespace MogeLib
 	private:
 		virtual void FreeContent() = 0;
 		
-
-		SDL_Rect mGeometrics;
+		SDL_Rect* mGeometrics;
 	};
 }
