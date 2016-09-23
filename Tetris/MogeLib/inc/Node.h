@@ -9,7 +9,7 @@ struct SDL_Rect;
 
 namespace Moge
 {
-	class MogeLib_API Node: public Name, public IPosition<int>, public ISize<unsigned int>
+	class MogeLib_API Node: public Name, public Math::IPosition<int>, public Math::ISize<unsigned int>
 	{
 	public:
 		Node( const MyString& name = MyString( "" ) );
@@ -18,7 +18,7 @@ namespace Moge
 		SDL_Rect* GetGeometricsInfo();
 
 	protected:
-		void UpdateGeometrics();
+		virtual void UpdateGeometrics();
 
 	private:
 		virtual void FreeContent() = 0;
