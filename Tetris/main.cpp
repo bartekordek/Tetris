@@ -4,7 +4,7 @@
 
 int main( int argc, char *argv[] )
 {
-	MogeLib::ConsoleUtilities::PrintInputParameters( argc, argv );
+	Moge::ConsoleUtilities::PrintInputParameters( argc, argv );
 	Tetris::CGame game;
 	game.Initialize( 22, 10 );
 	game.ShowGrid();
