@@ -3,12 +3,14 @@
 #include "MTime.h"
 #include "NodeCreator.h"
 #include "MultiPointFactory.h"
+#include "IPositionAdapter.h"
 
 #include <cstddef>
 
 #include <SDL.h>
 #include <SDL_keyboard.h>
 #include <SDL_keycode.h>
+#include <SDL_events.h>
 
 namespace Tetris
 {
@@ -68,9 +70,8 @@ namespace Tetris
 			for( auto& slab: slabRow )
 			{
 				std::shared_ptr<Moge::ObjectNodeContent> slabNode = Moge::NodeCreator::CreateFromImage( mEmptySlabImage, Moge::Math::MultiPointFactory::create2d<int>( 0, 0 ) );
-				Moge::Math::MultiPoint<int> postion = Moge::Math::MultiPointFactory::create2d<int>( slab.Col() * slabNode->getWidth(), slab.Row() * slabNode->getHeight() );
-				slabNode->setXyz( position.getX(), position.getY() );
-				slabNode->SetXY( ,  );
+				Moge::Math::IPositionAdapter<int> position( slab.Col() * slabNode->getWidth(), slab.Row() * slabNode->getHeight(), 0 );
+				slabNode->setXyz( position.getX(), position.getY(), 0 );
 				slab.SetNode( slabNode );
 
 				slabNode->SetVisible();
@@ -147,6 +148,7 @@ namespace Tetris
 			}
 			Moge::CTimeMod::SleepMiliSeconds( 500 );
 			MoveActiveBrick( Direction::D );
+			//Moge::Engine::Instance().QueueFrame();
 		}
 	}
 
