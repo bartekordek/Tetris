@@ -3,7 +3,7 @@
 
 namespace Moge
 {
-	Node::Node( const MyString& name ): Name( name )
+	Node::Node( const MyString& name ): Name( name ), Math::IPosition<int>(), Math::ISize<unsigned int>()
 	{
 		this->mGeometrics = new SDL_Rect();
 		if( Name::GetName().empty() )
@@ -11,7 +11,7 @@ namespace Moge
 			static unsigned int index = 0;
 			Name::SetName( "Node:" + std::to_string( index++ ) );
 		}
-		UpdateGeometrics();
+		//UpdateGeometrics();
 	}
 
 	Node::~Node()

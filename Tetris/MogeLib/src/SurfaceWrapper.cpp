@@ -9,12 +9,17 @@ namespace Moge
 
 	SurfaceWrapper::SurfaceWrapper( const SurfaceWrapper& surfaceWrapper )
 	{
-		SetNewSurface( surfaceWrapper.surface );
+		setNewSurface( surfaceWrapper.surface );
+		setPath( path );
 	}
 
 	SurfaceWrapper::SurfaceWrapper( SDL_Surface* sdlSurface )
 	{
-		SetNewSurface( sdlSurface );
+		setNewSurface( sdlSurface );
+	}
+
+	SurfaceWrapper::SurfaceWrapper( const Path& path ): path(path)
+	{
 	}
 
 	SurfaceWrapper::~SurfaceWrapper()
@@ -25,13 +30,28 @@ namespace Moge
 	SurfaceWrapper& SurfaceWrapper::operator=( SDL_Surface* sdlSurface )
 	{
 		ReleseSurface();
-		SetNewSurface( sdlSurface );
+		setNewSurface( sdlSurface );
+		return *this;
+	}
+
+	SurfaceWrapper& SurfaceWrapper::operator=( const SurfaceWrapper& surfaceWrapper )
+	{
+		if( &surfaceWrapper != this )
+		{
+			setNewSurface( surfaceWrapper.surface );
+			setPath( path );
+		}
 		return *this;
 	}
 
 	SDL_Surface* SurfaceWrapper::GetSdlSurface()const
 	{
 		return surface;
+	}
+
+	void SurfaceWrapper::setPath( const Path& path )
+	{
+		this->path = path;
 	}
 
 	void SurfaceWrapper::ReleseSurface()
@@ -43,7 +63,7 @@ namespace Moge
 		}
 	}
 
-	void SurfaceWrapper::SetNewSurface( SDL_Surface* surface )
+	void SurfaceWrapper::setNewSurface( SDL_Surface* surface )
 	{
 		this->surface = surface;
 	}

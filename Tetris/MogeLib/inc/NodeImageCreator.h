@@ -12,7 +12,7 @@ namespace Moge
 		static ImageSurface CreateSurfaceFromImage( const Path& imagePath );
 
 	private:
-		enum ImageTypes
+		enum class ImageTypes: signed char
 		{
 			UNKOWN = -1,
 			BMP = 1,

@@ -6,15 +6,15 @@ namespace Moge
 {
 	ImageSurface ImageCreator::CreateSurfaceFromImage( const Path& imagePath )
 	{
-		ImageSurface result;
-		SurfaceWrapper* surfaceWrapper = new SurfaceWrapper();
+		SurfaceWrapper* surfaceWrapper = new SurfaceWrapper( imagePath );
 		ImageTypes imageType = GetImageType( imagePath );
 		if( ImageTypes::BMP == imageType )
 		{
-			*surfaceWrapper = SDL_LoadBMP( imagePath.c_str() );
-			result.reset(surfaceWrapper);
+			surfaceWrapper->setNewSurface( SDL_LoadBMP( imagePath.c_str() ) );
 		}
-		return result;
+		ImageSurface surface;
+		surface.reset( surfaceWrapper );
+		return surface;
 	}
 
 	ImageCreator::ImageTypes ImageCreator::GetImageType( const Path& imagePath )

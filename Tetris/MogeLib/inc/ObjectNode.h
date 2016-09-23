@@ -24,6 +24,7 @@ namespace Moge
 	public:
 		ObjectNodeContent();
 		ObjectNodeContent( const Path& filePath );
+		ObjectNodeContent( const ObjectNodeContent& objectNodeContent );
 		virtual ~ObjectNodeContent();
 
 		virtual const int getX()const override;
@@ -47,6 +48,8 @@ namespace Moge
 		virtual const unsigned int getHeight()const override;
 		virtual const unsigned int getDepth()const override;
 
+		ObjectNodeContent& operator=( const ObjectNodeContent& right );
+
 		const ImageSurface& GetSurface()const;
 		const Path& GetPath()const;
 		void SetSurface( const ImageSurface& surface );
@@ -59,8 +62,8 @@ namespace Moge
 		std::shared_ptr<SurfaceWrapper> surface;
 		Path mFilePath;
 
-		Math::MultiPoint<int> position = Math::MultiPointFactory::create2d<int>( 100, 100 );
-		Math::MultiPoint<unsigned int> size = Math::MultiPointFactory::create2d<unsigned int>( 640, 480 );
+		Math::MultiPoint<int> position = Math::MultiPointFactory::create3d<int>( 0, 0, 0 );
+		Math::MultiPoint<unsigned int> size = Math::MultiPointFactory::create3d<unsigned int>( 0, 0, 0 );
 	};
 	
 	using ObjectNode = std::shared_ptr<ObjectNodeContent>;
