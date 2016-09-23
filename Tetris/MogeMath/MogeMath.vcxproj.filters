@@ -48,6 +48,15 @@
     <ClInclude Include="inc\MultiPointFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\IPosition.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ISize.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\IPositionAdapter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Frustum.cpp">

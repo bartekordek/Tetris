@@ -144,6 +144,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="inc\Frustum.h" />
+    <ClInclude Include="inc\IPosition.h" />
+    <ClInclude Include="inc\IPositionAdapter.h" />
+    <ClInclude Include="inc\ISize.h" />
     <ClInclude Include="inc\Line.h" />
     <ClInclude Include="inc\MultiPoint.h" />
     <ClInclude Include="inc\MultiPointFactory.h" />

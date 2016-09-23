@@ -192,8 +192,6 @@
     <ClInclude Include="inc\Engine.h" />
     <ClInclude Include="inc\FileSystem.h" />
     <ClInclude Include="inc\GeneralUtilities.h" />
-    <ClInclude Include="inc\IPosition.h" />
-    <ClInclude Include="inc\ISize.h" />
     <ClInclude Include="inc\IVector.h" />
     <ClInclude Include="inc\KeyboardListener.h" />
     <ClInclude Include="inc\KeyboardObservable.h" />
