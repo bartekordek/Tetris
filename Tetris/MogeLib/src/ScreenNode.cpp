@@ -109,9 +109,9 @@ namespace Moge
 
 	void ScreenNode::initialize()
 	{
-	//	mainScreen = SDL_CreateWindow( Name::GetName().c_str(), IPosition::getX(), IPosition::getY(), ISize::getWidth(), ISize::getHeight(), SDL_WINDOW_SHOWN );
-	////	mainRenderer = SDL_CreateRenderer( mainScreen, -1, SDL_RENDERER_ACCELERATED );
-	//	mainScreenSurface = SDL_GetWindowSurface( mainScreen );
+		mainScreen = SDL_CreateWindow( GetName().c_str(), getX(), getY(), getWidth(), getHeight(), SDL_WINDOW_SHOWN );
+	//	mainRenderer = SDL_CreateRenderer( mainScreen, -1, SDL_RENDERER_ACCELERATED );
+		mainScreenSurface = SDL_GetWindowSurface( mainScreen );
 	}
 
 	SDL_Window* ScreenNode::GetScreen()const
