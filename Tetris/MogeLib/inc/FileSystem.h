@@ -11,8 +11,8 @@ namespace Moge
 		Path();
 		virtual ~Path();
 
-		Path( const char* inputPath );
-		Path( const MyString& inputPath );
+		explicit Path( const char* inputPath );
+		explicit Path( const MyString& inputPath );
 		Path( const Path& inputPath );
 		
 		const char* c_str()const;
