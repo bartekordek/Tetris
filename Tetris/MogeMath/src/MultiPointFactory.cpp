@@ -6,5 +6,8 @@ namespace Moge
 {
 	namespace Math
 	{
+		void MultiPointFactory::translationUnitIsNotEmpty()
+		{
+		}
 	}
 }

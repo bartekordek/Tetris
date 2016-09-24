@@ -29,6 +29,7 @@ namespace Moge
 			}
 
 		protected:
+			void translationUnitIsNotEmpty();
 		private:
 			MultiPointFactory() {}
 			virtual ~MultiPointFactory() {}
