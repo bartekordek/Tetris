@@ -1,4 +1,3 @@
-[Tetris/MogeLib/inc/Node.h:15]: (style) Class 'Node' has a constructor with 1 argument that is not explicit.
 [Tetris/MogeLib/inc/ObjectNode.h:26]: (style) Class 'ObjectNodeContent' has a constructor with 1 argument that is not explicit.
 [Tetris/MogeLib/inc/FileSystem.h:44]: (style) Unused private function: 'Path::SetFullPath'
 [Tetris/MogeLib/inc/Node.h:26]: (style) Class 'Node' is unsafe, 'Node::mGeometrics' can leak by wrong usage.

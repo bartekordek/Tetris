@@ -12,7 +12,7 @@ namespace Moge
 	class MogeLib_API Node: public Name, public Math::IPosition<int>, public Math::ISize<unsigned int>
 	{
 	public:
-		Node( const MyString& name = MyString( "" ) );
+		explicit Node( const MyString& name = MyString( "" ) );
 		virtual ~Node();
 		
 		SDL_Rect* GetGeometricsInfo();
