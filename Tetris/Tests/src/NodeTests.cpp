@@ -3,22 +3,22 @@
 
 TEST_F( NodeTests, CheckIfScreenIsNullptrAfterConstructorCall )
 {
-	MogeLib::ScreenNode screenNode;
+	Moge::ScreenNode screenNode;
 	ASSERT_EQ( screenNode.GetScreen(), nullptr );
 }
 
 TEST_F( NodeTests, ScreenAfterCreationIsNotNull )
 {
-	MogeLib::ScreenNode screenNode;
-	screenNode.Initialize();
+	Moge::ScreenNode screenNode;
+	screenNode.initialize();
 	ASSERT_NE( screenNode.GetScreen(), nullptr );
 	screenNode.DestroyScreen();
 }
 
 TEST_F( NodeTests, DestroyScreen )
 {
-	MogeLib::ScreenNode screenNode;
-	screenNode.Initialize();
+	Moge::ScreenNode screenNode;
+	screenNode.initialize();
 	ASSERT_NE( screenNode.GetScreen(), nullptr );
 	screenNode.DestroyScreen();
 	ASSERT_NE( screenNode.GetScreen(), nullptr );
