@@ -1,7 +1,8 @@
 #include "Engine.h"
 #include "NodeCreator.h"
+#include <SDL.h>
 
-namespace MOGE
+namespace Moge
 {
 	Engine::Engine( void )
 	{
@@ -16,21 +17,20 @@ namespace MOGE
 		SDL_Quit();
 	}
 
-	void Engine::CreateScreen( const Size& size )
+	void Engine::CreateScreen( const Math::MultiPoint<unsigned int>& resolution )
 	{
 		std::lock_guard<std::mutex> lck( mListMutex );
-		mScreenBuffor = NodeCreator::CreateScreen( size );
-		mScreenBuffor.SetXY( 256, 256 );
-		mScreenBuffor.Initialize();
+		mScreenBuffor = NodeCreator::CreateScreen( resolution );
+		mScreenBuffor->initialize();
 	}
 
-	void Engine::AddObject( const Path& filePath, const Position3d& position, const String& name )
+	void Engine::AddObject( const Path& filePath, const Math::MultiPoint<int>& position, const MyString& name )
 	{
 		ObjectNode newNode = NodeCreator::CreateFromImage( filePath, position, name );
 		AddObject( newNode, name );
 	}
 
-	void Engine::AddObject( const ObjectNode  node, const String& name )
+	void Engine::AddObject( const ObjectNode  node, const MyString& name )
 	{
 		mRenderableObjectsMutex.lock();
 		mRenderableObjects.insert( node );
@@ -70,7 +70,7 @@ namespace MOGE
 		}
 		mRenderableObjectsMutex.unlock();
 		//SDL_RenderPresent( mScreenBuffor.GetRenderer() );
-		SDL_UpdateWindowSurface( mScreenBuffor.GetScreen() );
+		SDL_UpdateWindowSurface( mScreenBuffor->GetScreen() );
 		++mFrameCount;
 	}
 
@@ -81,7 +81,7 @@ namespace MOGE
 			std::lock_guard<std::mutex> lck( mListMutex );
 			SDL_Rect* screenRect = node.GetGeometricsInfo();
 			SDL_Rect* imageRect = nullptr;
-			SDL_BlitSurface( node.GetSurface()->GetSdlSurface(), imageRect, mScreenBuffor.GetSdlSurface(), screenRect );
+			SDL_BlitSurface( node.GetSurface()->GetSdlSurface(), imageRect, mScreenBuffor->GetSdlSurface(), screenRect );
 
 			/*
 			SDL_Surface* screen = mScreenBuffor->GetImage().get();

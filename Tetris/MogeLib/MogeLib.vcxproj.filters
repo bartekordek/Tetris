@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="String">
+      <UniqueIdentifier>{8092cf07-e252-4ccd-b248-c8148a7e3db9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderableObject">
+      <UniqueIdentifier>{ce159ea6-fc81-4b19-a38e-13e50e0b2e10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{4b26329d-0993-47c6-b4e0-a258f8c5db08}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Aliases.h">
@@ -36,12 +45,6 @@
     <ClInclude Include="inc\KeyboardObservable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\MOGE.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\MyString.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\Named.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -60,12 +63,6 @@
     <ClInclude Include="inc\ObjectNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Position.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Position3d.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\ScreenNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -82,6 +79,33 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\Visible.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\MTime.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="String\inc\MyString.h">
+      <Filter>String</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderableObject\inc\RenderableObjectContainer.h">
+      <Filter>RenderableObject</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderableObject\src\RenderableObjectContainerImpl.h">
+      <Filter>RenderableObject</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\MogeLib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\inc\Scene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\inc\SceneImpl.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\PositionOLD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\IVector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -107,9 +131,6 @@
     <ClCompile Include="src\KeyboardObservable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\MyString.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Named.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -126,12 +147,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\ObjectNode.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Position.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Position3d.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\ScreenNode.cpp">
@@ -151,6 +166,24 @@
     </ClCompile>
     <ClCompile Include="src\Visible.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MTime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="String\src\MyString.cpp">
+      <Filter>String</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderableObject\src\RenderableObjectContainer.cpp">
+      <Filter>RenderableObject</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderableObject\src\RenderableObjectContainerImpl.cpp">
+      <Filter>RenderableObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\src\Scene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\src\SceneImpl.cpp">
+      <Filter>Scene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

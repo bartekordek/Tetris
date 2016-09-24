@@ -1,5 +1,4 @@
 #include "TableCoordinates.h"
-#include "GeneralUtilities.h"
 
 CTableCoor::CTableCoor( const CTableCoor& tableCoord ):m_row( tableCoord.m_row ), m_column( tableCoord.m_column )
 {

@@ -6,6 +6,9 @@
 #include <Engine.h>
 #include <NodeImageCreator.h>
 #include <MyString.h>
+#include <SDL_keycode.h>
+
+union SDL_Event;
 
 namespace Tetris
 {
@@ -33,8 +36,8 @@ namespace Tetris
 		void QuitGame();
 		virtual ~CGame();
 
-		MOGE::ImageSurface GetEmptySlabSurface()const;
-		MOGE::ImageSurface GetFilledSlabSurface()const;
+		Moge::ImageSurface GetEmptySlabSurface()const;
+		Moge::ImageSurface GetFilledSlabSurface()const;
 
 	private:
 		void SetMainGridEmptySlabImage();
@@ -51,10 +54,10 @@ namespace Tetris
 		void AddCurrentBrickToGrid();
 		void MainLoopThread();
 
-		MOGE::ImageSurface mEmptySlabImage;
-		MOGE::ImageSurface mFilledSlabImage;
+		Moge::ImageSurface mEmptySlabImage;
+		Moge::ImageSurface mFilledSlabImage;
 
-		MOGE::String GetQuitButtonLocation();
+		Moge::MyString GetQuitButtonLocation();
 		CMainGrid m_mainGrid;
 		std::thread m_mainLoopThread;
 		bool m_roundInProgress;

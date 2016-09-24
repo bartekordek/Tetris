@@ -2,29 +2,34 @@
 
 #include <memory>
 
-#include <MOGE.h>
+#include "FileSystem.h"
 
 struct SDL_Surface;
 
-namespace MOGE
+namespace Moge
 {
-	class MOGE_API SurfaceWrapper
+	class MogeLib_API SurfaceWrapper
 	{
 	public:
-		SurfaceWrapper();
-		SurfaceWrapper( const SurfaceWrapper& surfaceWrapper );
-		SurfaceWrapper( SDL_Surface* sdlSurface );
-		~SurfaceWrapper();
+		explicit SurfaceWrapper();
+		explicit SurfaceWrapper( const SurfaceWrapper& surfaceWrapper );
+		explicit SurfaceWrapper( SDL_Surface* sdlSurface );
+		explicit SurfaceWrapper( const Path& path );
+		virtual ~SurfaceWrapper();
 
 		SurfaceWrapper& operator=( SDL_Surface* sdlSurface );
+		SurfaceWrapper& operator=( const SurfaceWrapper& surfaceWrapper );
 
 		SDL_Surface* GetSdlSurface()const;
+		void setNewSurface( SDL_Surface* surface );
+		void setPath( const Path& path );
 
 	private:
 		void ReleseSurface();
-		void SetNewSurface( SDL_Surface* surface );
+		
 
 		SDL_Surface* surface = nullptr;
+		Path path;
 	};
 	using ImageSurface = std::shared_ptr<SurfaceWrapper>;
 }

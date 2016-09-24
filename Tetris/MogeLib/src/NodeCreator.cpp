@@ -5,25 +5,28 @@
 #include "ObjectNode.h"
 #include "ScreenNode.h"
 
-namespace MOGE
+namespace Moge
 {
-	ScreenNode NodeCreator::CreateScreen( const Size& size )
+	std::shared_ptr<ScreenNode> NodeCreator::CreateScreen( const Math::MultiPoint<unsigned int>& size )
 	{
-		ScreenNode screenNode;
-		screenNode.SetWH( size );
-		return screenNode;
+		ScreenNode* screenNode = new ScreenNode();
+		screenNode->setWidth( size.getValue( Math::Axes::X ) );
+		screenNode->setHeight( size.getValue( Math::Axes::Y ) );
+		std::shared_ptr<ScreenNode> result( screenNode );
+		return result;
 	}
 
-	ObjectNode NodeCreator::CreateFromImage( const Path& filePath, const Position3d& position, const String& name )
+	ObjectNode NodeCreator::CreateFromImage( const Path& filePath, const Math::MultiPoint<int>& position, const MyString& name )
 	{
-		ImageSurface imageSurface = MOGE::ImageCreator::CreateSurfaceFromImage( filePath );
+		ImageSurface imageSurface = ImageCreator::CreateSurfaceFromImage( filePath );
 		return CreateFromImage( imageSurface, position, name );
 	}
 
-	ObjectNode NodeCreator::CreateFromImage( const ImageSurface& imageSurface, const Position3d& position, const String& name )
+	ObjectNode NodeCreator::CreateFromImage( const ImageSurface& imageSurface, const Math::MultiPoint<int>& position, const MyString& name )
 	{
 		ObjectNodeContent* objectNodeContent = new ObjectNodeContent();
-		objectNodeContent->SetXY( position.GetX(), position.GetY() );
+		objectNodeContent->setX( position.getValue( Math::Axes::X ) );
+		objectNodeContent->setY( position.getValue( Math::Axes::Y ) );
 		objectNodeContent->SetName( name );
 		objectNodeContent->SetSurface( imageSurface );
 		sObjectNodes.insert( objectNodeContent );

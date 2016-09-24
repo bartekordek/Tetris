@@ -1,6 +1,6 @@
 #include "Visible.h"
 
-namespace MOGE
+namespace Moge
 {
 	Visible::Visible()
 	{

@@ -1,25 +1,25 @@
 #pragma once
 
-#include <MOGE.h>
+#include <MogeLib.h>
 #include "MyString.h"
 
-namespace MOGE
+namespace Moge
 {
-	class MOGE_API Name
+	class MogeLib_API Name
 	{
 	public:
-		Name( const String& name = "" );
-		Name( const Name& name );
+		explicit Name( const MyString& name = "" );
+		explicit Name( const Name& name );
 		virtual ~Name();
 
-		void SetName( const String& name );
-		const String& GetName()const;
+		void SetName( const MyString& name );
+		const MyString& GetName()const;
 
 		Name& operator=( const Name& name );
 
 	protected:
 	private:
-		String mName;
+		MyString mName;
 
 	};
 }

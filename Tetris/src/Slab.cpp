@@ -74,12 +74,12 @@ namespace Tetris
 		return mIndex;
 	}
 
-	void CSlab::SetNode( const MOGE::ObjectNode& node )
+	void CSlab::SetNode( const Moge::ObjectNode& node )
 	{
 		this->mNode = node;
 	}
 
-	MOGE::ObjectNode& CSlab::GetNode()
+	Moge::ObjectNode& CSlab::GetNode()
 	{
 		return mNode;
 	}

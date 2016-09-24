@@ -6,7 +6,7 @@
 
 TEST_F( MogeGenericTests, NamedSetGetName )
 {
-	class EmptyClass: public MOGE::Name
+	class EmptyClass: public MogeLib::Name
 	{
 	protected:
 		virtual void UpdateImplementation()
@@ -16,14 +16,14 @@ TEST_F( MogeGenericTests, NamedSetGetName )
 	};
 
 	EmptyClass instance;
-	const MOGE::String genericName = "GenericName";
+	const MogeLib::String genericName = "GenericName";
 	instance.SetName( genericName );
 	ASSERT_EQ( instance.GetName(), genericName );
 }
 
 TEST_F( MogeGenericTests, PositionSetGetTwoArgumentMethod )
 {
-	class EmptyClass: public MOGE::Position
+	class EmptyClass: public MogeLib::Position
 	{
 	protected:
 		virtual void UpdateImplementation()
@@ -42,7 +42,7 @@ TEST_F( MogeGenericTests, PositionSetGetTwoArgumentMethod )
 
 TEST_F( MogeGenericTests, PositionSetGetOneArgumentMethod )
 {
-	class EmptyClass: public MOGE::Position
+	class EmptyClass: public MogeLib::Position
 	{
 	protected:
 		virtual void UpdateImplementation()
@@ -62,7 +62,7 @@ TEST_F( MogeGenericTests, PositionSetGetOneArgumentMethod )
 
 TEST_F( MogeGenericTests, SizeSetGetTwoArgumentMethod )
 {
-	class EmptyClass: public MOGE::Size
+	class EmptyClass: public MogeLib::Size
 	{
 	protected:
 		virtual void UpdateImplementation()
@@ -81,7 +81,7 @@ TEST_F( MogeGenericTests, SizeSetGetTwoArgumentMethod )
 
 TEST_F( MogeGenericTests, SizeSetGetOneArgumentMethod )
 {
-	class EmptyClass: public MOGE::Size
+	class EmptyClass: public MogeLib::Size
 	{
 	protected:
 		virtual void UpdateImplementation()

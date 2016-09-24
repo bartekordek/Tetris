@@ -4,15 +4,15 @@
 #include "Node.h"
 #include "SurfaceWrapper.h"
 
-namespace MOGE
+namespace Moge
 {
-	class MOGE_API ImageCreator
+	class MogeLib_API ImageCreator
 	{
 	public:
 		static ImageSurface CreateSurfaceFromImage( const Path& imagePath );
 
 	private:
-		enum ImageTypes
+		enum class ImageTypes: signed char
 		{
 			UNKOWN = -1,
 			BMP = 1,

@@ -24,12 +24,12 @@ protected:
 	
 	static void SetUpTestCase()
 	{
-		testBmpFile = MOGE::Path::GetCurrentDirectory() + "\\..\\pic\\BackGroundBlock.bmp";
+		testBmpFile = MogeLib::Path::GetCurrentDirectory() + "\\..\\pic\\BackGroundBlock.bmp";
 	}
 
 	static void TearDownTestCase()
 	{
 	}
 
-	static MOGE::Path testBmpFile;
+	static MogeLib::Path testBmpFile;
 };

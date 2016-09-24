@@ -1,31 +1,28 @@
 #pragma once
 
-#include <MOGE.h>
+#include <MogeLib.h>
 #include "Named.h"
-#include "Position3d.h"
-#include "Size.h"
-#include <SDL.h>
+#include "ISize.h"
+#include "IPosition.h"
 
-namespace MOGE
+struct SDL_Rect;
+
+namespace Moge
 {
-	class MOGE_API Node:
-		public Name,
-		public Position,
-		public Size
+	class MogeLib_API Node: public Name, public Math::IPosition<int>, public Math::ISize<unsigned int>
 	{
 	public:
-		Node( const String& name = "" );
+		explicit Node( const MyString& name = MyString( "" ) );
 		virtual ~Node();
 		
 		SDL_Rect* GetGeometricsInfo();
 
 	protected:
-		void UpdateGeometrics();
+		virtual void UpdateGeometrics();
 
 	private:
 		virtual void FreeContent() = 0;
 		
-
-		SDL_Rect mGeometrics;
+		SDL_Rect* mGeometrics;
 	};
 }

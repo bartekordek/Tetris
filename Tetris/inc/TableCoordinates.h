@@ -1,8 +1,9 @@
-#ifndef _COORDS_
-#define _COORDS_
+#pragma once
 
+#include <vector>
+
+#include "Aliases.h"
 #include "Utilities.h"
-#include "GeneralUtilities.h"
 
 class CTableCoor
 {
@@ -23,5 +24,3 @@ private:
 };
 
 typedef std::vector<CTableCoor> CoordinatestList;
-
-#endif

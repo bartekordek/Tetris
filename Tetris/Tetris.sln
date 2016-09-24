@@ -14,6 +14,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tests", "Tests\Tests.vcxpro
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MogeLib", "MogeLib\MogeLib.vcxproj", "{145B5FFB-B482-4209-9969-82A1F22C0992}"
+	ProjectSection(ProjectDependencies) = postProject
+		{90A728E4-10C0-41C5-8549-7A9EC7B5B911} = {90A728E4-10C0-41C5-8549-7A9EC7B5B911}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MogeMath", "MogeMath\MogeMath.vcxproj", "{90A728E4-10C0-41C5-8549-7A9EC7B5B911}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +48,14 @@ Global
 		{145B5FFB-B482-4209-9969-82A1F22C0992}.Release|Win32.Build.0 = Release|Win32
 		{145B5FFB-B482-4209-9969-82A1F22C0992}.Release|x64.ActiveCfg = Release|x64
 		{145B5FFB-B482-4209-9969-82A1F22C0992}.Release|x64.Build.0 = Release|x64
+		{90A728E4-10C0-41C5-8549-7A9EC7B5B911}.Debug|Win32.ActiveCfg = Debug|Win32
+		{90A728E4-10C0-41C5-8549-7A9EC7B5B911}.Debug|Win32.Build.0 = Debug|Win32
+		{90A728E4-10C0-41C5-8549-7A9EC7B5B911}.Debug|x64.ActiveCfg = Debug|x64
+		{90A728E4-10C0-41C5-8549-7A9EC7B5B911}.Debug|x64.Build.0 = Debug|x64
+		{90A728E4-10C0-41C5-8549-7A9EC7B5B911}.Release|Win32.ActiveCfg = Release|Win32
+		{90A728E4-10C0-41C5-8549-7A9EC7B5B911}.Release|Win32.Build.0 = Release|Win32
+		{90A728E4-10C0-41C5-8549-7A9EC7B5B911}.Release|x64.ActiveCfg = Release|x64
+		{90A728E4-10C0-41C5-8549-7A9EC7B5B911}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

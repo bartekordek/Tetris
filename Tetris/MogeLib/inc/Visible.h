@@ -1,10 +1,10 @@
 #pragma once
 
-#include "MOGE.h"
+#include "MogeLib.h"
 
-namespace MOGE
+namespace Moge
 {
-	class MOGE_API Visible
+	class MogeLib_API Visible
 	{
 	public:
 		Visible();

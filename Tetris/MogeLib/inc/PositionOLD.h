@@ -1,11 +1,11 @@
 #pragma once
 
-#include <MOGE.h>
+#include <MogeLib.h>
 #include "Aliases.h"
 
-namespace MOGE
+namespace Moge
 {
-	class MOGE_API Position
+	class MogeLib_API Position
 	{
 	public:
 		Position();

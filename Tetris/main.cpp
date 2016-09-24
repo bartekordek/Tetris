@@ -1,15 +1,12 @@
-#include "inc/Game.h"
-#include <boost/log/core.hpp>
+#include "Game.h"
 
 #include <ConsoleUtilities.h>
 
 int main( int argc, char *argv[] )
 {
-	MOGE::ConsoleUtilities::PrintInputParameters( argc, argv );
-	const unsigned int columnsCount = 10;
-	const unsigned int rowsCount = 22;
+	Moge::ConsoleUtilities::PrintInputParameters( argc, argv );
 	Tetris::CGame game;
-	game.Initialize( rowsCount, columnsCount );
+	game.Initialize( 22, 10 );
 	game.ShowGrid();
 	game.StartGame();
 	game.MainLoop();
