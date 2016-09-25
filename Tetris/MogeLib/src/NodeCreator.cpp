@@ -1,5 +1,6 @@
 #include "NodeCreator.h"
 #include "NodeImageCreator.h"
+#include "IPositionAdapter.h"
 #include "GeneralUtilities.h"
 
 #include "ObjectNode.h"
@@ -7,30 +8,30 @@
 
 namespace Moge
 {
-	std::shared_ptr<ScreenNode> NodeCreator::CreateScreen( const Math::MultiPoint<unsigned int>& size )
+	using namespace Math;
+	std::shared_ptr<ScreenNode> NodeCreator::CreateScreen( const MultiPoint<unsigned int>& size )
 	{
 		ScreenNode* screenNode = new ScreenNode();
-		screenNode->setWidth( size.getValue( Math::Axes::X ) );
-		screenNode->setHeight( size.getValue( Math::Axes::Y ) );
+		screenNode->setWidth( size.getValue( Axes::X ) );
+		screenNode->setHeight( size.getValue( Axes::Y ) );
 		std::shared_ptr<ScreenNode> result( screenNode );
 		return result;
 	}
 
-	ObjectNode NodeCreator::CreateFromImage( const Path& filePath, const Math::MultiPoint<int>& position, const MyString& name )
+	ObjectNode NodeCreator::CreateFromImage( const Path& filePath, const IPosition<int>& position, const MyString& name )
 	{
 		ImageSurface imageSurface = ImageCreator::CreateSurfaceFromImage( filePath );
 		return CreateFromImage( imageSurface, position, name );
 	}
 
-	ObjectNode NodeCreator::CreateFromImage( const ImageSurface& imageSurface, const Math::MultiPoint<int>& position, const MyString& name )
+	ObjectNode NodeCreator::CreateFromImage( const ImageSurface& imageSurface, const IPosition<int>& position, const MyString& name )
 	{
 		ObjectNodeContent* objectNodeContent = new ObjectNodeContent();
-		objectNodeContent->setX( position.getValue( Math::Axes::X ) );
-		objectNodeContent->setY( position.getValue( Math::Axes::Y ) );
+		objectNodeContent->setXyz( position );
 		objectNodeContent->SetName( name );
 		objectNodeContent->SetSurface( imageSurface );
 		sObjectNodes.insert( objectNodeContent );
-		return ObjectNode( objectNodeContent );;
+		return ObjectNode( objectNodeContent );
 	}
 
 	ObjectNode NodeCreator::GetObjectNode( const Path& path )
