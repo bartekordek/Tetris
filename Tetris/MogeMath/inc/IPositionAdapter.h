@@ -21,6 +21,11 @@ namespace Moge
 				MultiPoint<Type>::setValue( Axes::Z, z );
 			}
 
+			explicit IPositionAdapter( const MultiPoint<Type>& mp )
+			{
+				MultiPoint<Type>::operator=( mp );
+			}
+
 			virtual ~IPositionAdapter()
 			{
 			}

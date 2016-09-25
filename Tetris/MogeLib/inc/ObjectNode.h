@@ -1,7 +1,6 @@
 #pragma once
 
 #include <memory>
-#include <set>
 
 #include "Node.h"
 #include "Visible.h"
@@ -23,30 +22,30 @@ namespace Moge
 	{
 	public:
 		ObjectNodeContent();
-		ObjectNodeContent( const Path& filePath );
+		explicit ObjectNodeContent( const Path& filePath );
 		ObjectNodeContent( const ObjectNodeContent& objectNodeContent );
 		virtual ~ObjectNodeContent();
 
-		virtual const int getX()const override;
-		virtual const int getY()const override;
-		virtual const int getZ()const override;
+		const int getX()const override;
+		const int getY()const override;
+		const int getZ()const override;
 
-		virtual void setXyz( const int x, const int y, const int z )override;
-		virtual void setXyz( const IPosition& size )override;
+		void setXyz( const int x, const int y, const int z )override;
+		void setXyz( const IPosition& size )override;
 
-		virtual void setX( const int x )override;
-		virtual void setY( const int y )override;
-		virtual void setZ( const int z )override;
+		void setX( const int x )override;
+		void setY( const int y )override;
+		void setZ( const int z )override;
 
-		virtual void setSize( const unsigned int width, const unsigned int height, const unsigned int depth ) override;
-		virtual void setSize( const ISize& size )override;
-		virtual void setWidth( const unsigned int width ) override;
-		virtual void setHeight( const unsigned int height ) override;
-		virtual void setHepth( const unsigned int depth ) override;
+		void setSize( const unsigned int width, const unsigned int height, const unsigned int depth ) override;
+		void setSize( const ISize& size )override;
+		void setWidth( const unsigned int width ) override;
+		void setHeight( const unsigned int height ) override;
+		void setHepth( const unsigned int depth ) override;
 
-		virtual const unsigned int getWidth()const override;
-		virtual const unsigned int getHeight()const override;
-		virtual const unsigned int getDepth()const override;
+		const unsigned int getWidth()const override;
+		const unsigned int getHeight()const override;
+		const unsigned int getDepth()const override;
 
 		ObjectNodeContent& operator=( const ObjectNodeContent& right );
 

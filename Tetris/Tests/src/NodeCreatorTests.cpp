@@ -1,28 +1,28 @@
 #include "NodeCreatorTests.h"
-
 #include "NodeCreator.h"
 
 TEST_F( NodeCreatorTests, BmpLoadTest )
 {
-	std::shared_ptr<MogeLib::ObjectNodeContent> node = MogeLib::NodeCreator::CreateFromImage( testBmpFile );
+	std::shared_ptr<Moge::ObjectNodeContent> node = Moge::NodeCreator::CreateFromImage( testBmpFile );
 	ASSERT_NE( node.get(), nullptr );
-	MogeLib::NodeCreator::RemoveNode( node );
+	Moge::NodeCreator::RemoveNode( node );
 }
 
 TEST_F( NodeCreatorTests, RemoveTest )
 {
-	auto nodesCountBeforeAddingNewNode = MogeLib::NodeCreator::Count();
-	std::shared_ptr<MogeLib::ObjectNodeContent> node = MogeLib::NodeCreator::CreateFromImage( testBmpFile );
+	auto nodesCountBeforeAddingNewNode = Moge::NodeCreator::Count();
+	
+	std::shared_ptr<Moge::ObjectNodeContent> node = Moge::NodeCreator::CreateFromImage( testBmpFile );
 	ASSERT_NE( node.get(), nullptr );
-	MogeLib::NodeCreator::RemoveNode( node );
-	ASSERT_EQ( MogeLib::NodeCreator::Count(), nodesCountBeforeAddingNewNode );
+	Moge::NodeCreator::RemoveNode( node );
+	ASSERT_EQ( Moge::NodeCreator::Count(), nodesCountBeforeAddingNewNode );
 }
 
 TEST_F( NodeCreatorTests, NodeAutoAutoAddTest )
 {
-	std::shared_ptr<MogeLib::ObjectNodeContent> node = MogeLib::NodeCreator::CreateFromImage( testBmpFile );
-	ASSERT_EQ( MogeLib::NodeCreator::Exist( node ), true );
-	MogeLib::NodeCreator::RemoveNode( node );
+	std::shared_ptr<Moge::ObjectNodeContent> node = Moge::NodeCreator::CreateFromImage( testBmpFile );
+	ASSERT_EQ( Moge::NodeCreator::Exist( node ), true );
+	Moge::NodeCreator::RemoveNode( node );
 }
 
-MogeLib::Path NodeCreatorTests::testBmpFile;
+Moge::Path NodeCreatorTests::testBmpFile;

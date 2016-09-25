@@ -3,7 +3,7 @@
 
 TEST_F( ObjectNodeTests, CheckIfIsNullptrAfterConstructorCall )
 {
-	MogeLib::ObjectNodeContent objectNode;
+	Moge::ObjectNodeContent objectNode;
 	ASSERT_EQ( objectNode.GetSurface(), nullptr );
 }
 

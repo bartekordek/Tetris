@@ -69,7 +69,7 @@ namespace Tetris
 		{
 			for( auto& slab: slabRow )
 			{
-				std::shared_ptr<Moge::ObjectNodeContent> slabNode = Moge::NodeCreator::CreateFromImage( mEmptySlabImage, Moge::Math::MultiPointFactory::create2d<int>( 0, 0 ) );
+				std::shared_ptr<Moge::ObjectNodeContent> slabNode = Moge::NodeCreator::CreateFromImage( mEmptySlabImage );
 				Moge::Math::IPositionAdapter<int> position( slab.Col() * slabNode->getWidth(), slab.Row() * slabNode->getHeight(), 0 );
 				slabNode->setXyz( position.getX(), position.getY(), 0 );
 				slab.SetNode( slabNode );

@@ -1,5 +1,6 @@
 #include "Engine.h"
 #include "NodeCreator.h"
+#include "IPositionAdapter.h"
 #include <SDL.h>
 
 namespace Moge
@@ -26,7 +27,8 @@ namespace Moge
 
 	void Engine::AddObject( const Path& filePath, const Math::MultiPoint<int>& position, const MyString& name )
 	{
-		ObjectNode newNode = NodeCreator::CreateFromImage( filePath, position, name );
+		Math::IPositionAdapter<int> positionAdapter( position );
+		ObjectNode newNode = NodeCreator::CreateFromImage( filePath, positionAdapter, name );
 		AddObject( newNode, name );
 	}
 

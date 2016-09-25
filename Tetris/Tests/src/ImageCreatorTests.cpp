@@ -4,8 +4,8 @@
 
 TEST_F( ImageCreatorTests, BmpLoadTest )
 {
-	MogeLib::ImageSurface imageSurface = MogeLib::ImageCreator::CreateSurfaceFromImage( testBmpFile );
+	Moge::ImageSurface imageSurface = Moge::ImageCreator::CreateSurfaceFromImage( testBmpFile );
 	ASSERT_NE( nullptr, imageSurface.get() );
 }
 
-MogeLib::Path ImageCreatorTests::testBmpFile;
+Moge::Path ImageCreatorTests::testBmpFile;
