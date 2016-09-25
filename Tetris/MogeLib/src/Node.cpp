@@ -16,9 +16,10 @@ namespace Moge
 
 	Node::~Node()
 	{
+		delete this->mGeometrics;
 	}
 	
-	SDL_Rect* Node::GetGeometricsInfo()
+	SDL_Rect* Node::GetGeometricsInfo()const
 	{
 		return mGeometrics;
 	}

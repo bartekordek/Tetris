@@ -15,7 +15,7 @@ namespace Moge
 		explicit Node( const MyString& name = MyString( "" ) );
 		virtual ~Node();
 		
-		SDL_Rect* GetGeometricsInfo();
+		SDL_Rect* GetGeometricsInfo()const;
 
 	protected:
 		virtual void UpdateGeometrics();
@@ -23,6 +23,6 @@ namespace Moge
 	private:
 		virtual void FreeContent() = 0;
 		
-		SDL_Rect* mGeometrics;
+		SDL_Rect* mGeometrics = nullptr;
 	};
 }
