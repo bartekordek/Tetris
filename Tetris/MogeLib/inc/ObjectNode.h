@@ -22,7 +22,7 @@ namespace Moge
 	{
 	public:
 		ObjectNodeContent();
-		ObjectNodeContent( const Path& filePath );
+		explicit ObjectNodeContent( const Path& filePath );
 		ObjectNodeContent( const ObjectNodeContent& objectNodeContent );
 		virtual ~ObjectNodeContent();
 
