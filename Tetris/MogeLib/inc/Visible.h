@@ -8,7 +8,7 @@ namespace Moge
 	{
 	public:
 		Visible();
-		~Visible();
+		virtual ~Visible();
 		const bool GetVisible()const;
 		void SetVisible( const bool visible = true );
 
