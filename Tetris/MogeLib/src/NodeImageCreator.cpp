@@ -1,6 +1,7 @@
 #include "NodeImageCreator.h"
 
 #include <SDL.h>
+#include <boost/assert.hpp>
 
 namespace Moge
 {
@@ -11,6 +12,7 @@ namespace Moge
 		if( ImageTypes::BMP == imageType )
 		{
 			surfaceWrapper->setNewSurface( SDL_LoadBMP( imagePath.c_str() ) );
+			BOOST_ASSERT( surfaceWrapper->GetSdlSurface() != nullptr  );
 		}
 		ImageSurface surface;
 		surface.reset( surfaceWrapper );
