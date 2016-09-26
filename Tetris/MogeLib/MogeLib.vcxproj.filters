@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="String">
-      <UniqueIdentifier>{8092cf07-e252-4ccd-b248-c8148a7e3db9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="RenderableObject">
       <UniqueIdentifier>{ce159ea6-fc81-4b19-a38e-13e50e0b2e10}</UniqueIdentifier>
     </Filter>
@@ -83,9 +80,6 @@
     </ClInclude>
     <ClInclude Include="inc\MTime.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="String\inc\MyString.h">
-      <Filter>String</Filter>
     </ClInclude>
     <ClInclude Include="RenderableObject\inc\RenderableObjectContainer.h">
       <Filter>RenderableObject</Filter>
@@ -169,9 +163,6 @@
     </ClCompile>
     <ClCompile Include="src\MTime.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="String\src\MyString.cpp">
-      <Filter>String</Filter>
     </ClCompile>
     <ClCompile Include="RenderableObject\src\RenderableObjectContainer.cpp">
       <Filter>RenderableObject</Filter>
