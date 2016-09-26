@@ -6,27 +6,27 @@ namespace Tetris
 {
 	CBrick* CBrickFactory::GetBrick( const BrickTypes brickType )
 	{
-		if( L == brickType )
+		if( BrickTypes::L == brickType )
 		{
 			return new CLBrick();
 		}
-		else if( I == brickType )
+		else if( BrickTypes::I == brickType )
 		{
 			return new CIBrick();
 		}
-		else if( O == brickType )
+		else if( BrickTypes::O == brickType )
 		{
 			return new COBrick();
 		}
-		else if( S == brickType )
+		else if( BrickTypes::S == brickType )
 		{
 			return new CSBrick();
 		}
-		else if( T == brickType )
+		else if( BrickTypes::T == brickType )
 		{
 			return new CTBrick();
 		}
-		return NULL;
+		return nullptr;
 	}
 
 	CBrick* CBrickFactory::GetRandomBrick()
