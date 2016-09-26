@@ -124,7 +124,7 @@ namespace Moge
 
 	void Path::SetUpPaths( const MyString& fullPath )
 	{
-		mFullPath = fullPath;
+		SetFullPath( fullPath );
 		mExtension = GetExtension( fullPath );
 		mBaseName = GetBaseName( fullPath );
 		mDirectory = GetDirectory( fullPath );
