@@ -56,7 +56,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\main.cpp" />
     <ClCompile Include="..\src\Orientation.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -87,6 +86,7 @@
     <ClCompile Include="..\src\Utilities.cpp">
       <Filter>Utilities</Filter>
     </ClCompile>
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

@@ -246,7 +246,6 @@ xcopy "$(TargetDir)*.pdb" "$(LocalDebuggerWorkingDirectory)" /y</Command>
     <ClInclude Include="..\inc\Utilities.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\main.cpp" />
     <ClCompile Include="..\src\Brick.cpp" />
     <ClCompile Include="..\src\BrickFactory.cpp" />
     <ClCompile Include="..\src\Game.cpp" />
@@ -257,6 +256,7 @@ xcopy "$(TargetDir)*.pdb" "$(LocalDebuggerWorkingDirectory)" /y</Command>
     <ClCompile Include="..\src\Slab.cpp" />
     <ClCompile Include="..\src\TableCoordinates.cpp" />
     <ClCompile Include="..\src\Utilities.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Debug\SDL.dll" />
