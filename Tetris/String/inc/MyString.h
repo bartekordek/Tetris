@@ -12,7 +12,7 @@ namespace Moge
 		MyString();
 		explicit MyString( const char* inputString );
 		MyString( const MyString& inputString );
-		MyString( const std::string& inputString );
+		explicit MyString( const std::string& inputString );
 		virtual ~MyString();
 
 		MyString& operator=( const char* someString );
