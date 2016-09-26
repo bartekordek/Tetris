@@ -26,7 +26,6 @@ namespace Tetris
 		CUInt GetRowsCount()const;
 		CUInt GetColumnsCount()const;
 		const Path SlabPictureLoc()const;
-		const Path EmptySlabPictureLoc()const;
 		const bool Empty( CUInt rowIndex, CUInt colIndex )const;
 		CUInt SlabCount()const;
 		const bool SlabExist( CUInt rowIndex, CUInt colIndex )const;

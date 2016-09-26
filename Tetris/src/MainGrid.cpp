@@ -79,11 +79,6 @@ namespace Tetris
 		return m_slabBackground.GetImgLoc();
 	}
 
-	const Path CMainGrid::EmptySlabPictureLoc()const
-	{
-		return m_brickBckd.GetImgLoc();
-	}
-
 	const bool CMainGrid::Empty( CUInt rowIndex, CUInt colIndex )const
 	{
 		return mSlabsRows.at( rowIndex).at( colIndex ).Empty();

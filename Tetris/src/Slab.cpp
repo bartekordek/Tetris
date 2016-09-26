@@ -69,11 +69,6 @@ namespace Tetris
 		mIndex = id;
 	}
 
-	CUInt CSlab::GetId()const
-	{
-		return mIndex;
-	}
-
 	void CSlab::SetNode( const Moge::ObjectNode& node )
 	{
 		this->mNode = node;

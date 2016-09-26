@@ -22,10 +22,7 @@ namespace Tetris
 		void SetPosition( CUInt row, CUInt col );
 		const bool Empty()const;
 		void Empty( const bool empty );
-
 		void SetId( CUInt id );
-		CUInt GetId()const;
-
 		void SetNode( const Moge::ObjectNode& node );
 		Moge::ObjectNode& GetNode();
 
