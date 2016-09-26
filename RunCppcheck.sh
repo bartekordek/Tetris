@@ -6,7 +6,7 @@ MOGELIB_SCENE="-I MogeLib/Scene/inc "
 MOGELIB_STRING="-I String/inc "
 MOGEMATH_ROOT="-I MogeMath/inc "
 TESTS="-I Tests/inc/"
-TETRIS_ROOT="-I inc"
+TETRIS_ROOT="-I Tetris/inc"
 INCLUDES="$MOGELIB_ROOT $MOGELIB_RO $MOGELIB_SCENE $MOGELIB_STRING $MOGEMATH_ROOT $TETRIS_ROOT $TESTS" 
 PREPROCESOR='-D MogeLib_EXPORT=True'
 SETTINGS="--enable=all --std=c++11 --suppress=missingIncludeSystem"

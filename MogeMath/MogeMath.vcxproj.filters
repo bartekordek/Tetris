@@ -36,15 +36,6 @@
     <ClInclude Include="inc\MultiPoint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Point1D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Point2D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Point3D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\MultiPointFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
