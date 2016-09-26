@@ -23,11 +23,8 @@ namespace Tetris
 		void SetBackgroundPicture( const Path picLocation, CUInt width, CUInt height );
 		void AddBrick( const CBrick* brick );
 		void ReLeaseBrick();
-		CUInt GetRowsCount()const;
-		CUInt GetColumnsCount()const;
 		const Path SlabPictureLoc()const;
 		const bool Empty( CUInt rowIndex, CUInt colIndex )const;
-		CUInt SlabCount()const;
 		const bool SlabExist( CUInt rowIndex, CUInt colIndex )const;
 		CBrick* GetCurrentBrick();
 		const bool PartOfCurrentBrick( CUInt rowIndex, CUInt colIndex )const;

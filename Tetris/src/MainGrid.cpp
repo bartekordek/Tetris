@@ -64,16 +64,6 @@ namespace Tetris
 		slabNode->SetSurface( mGamePtr->GetFilledSlabSurface() );
 	}
 
-	CUInt CMainGrid::GetRowsCount()const
-	{
-		return m_rowsCount;
-	}
-
-	CUInt CMainGrid::GetColumnsCount()const
-	{
-		return m_columnsCount;
-	}
-
 	const Path CMainGrid::SlabPictureLoc()const
 	{
 		return m_slabBackground.GetImgLoc();
@@ -82,11 +72,6 @@ namespace Tetris
 	const bool CMainGrid::Empty( CUInt rowIndex, CUInt colIndex )const
 	{
 		return mSlabsRows.at( rowIndex).at( colIndex ).Empty();
-	}
-
-	CUInt CMainGrid::SlabCount()const
-	{
-		return GetRowsCount()*GetColumnsCount();
 	}
 
 	const bool CMainGrid::PartOfCurrentBrick( CUInt rowIndex, CUInt colIndex )const
