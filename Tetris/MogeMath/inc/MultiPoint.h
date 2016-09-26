@@ -105,7 +105,7 @@ namespace Moge
 				return *this;
 			}
 
-			MultiPoint<Type> operator*( const MultiPoint<Type> p )const
+			MultiPoint<Type> operator*( const MultiPoint<Type>& p )const
 			{
 				const unsigned axesCount = std::max( this->axisValue.size(), p.axisValue.size() );
 				const unsigned lowerAxesCount = std::min( this->axisValue.size(), p.axisValue.size() );
