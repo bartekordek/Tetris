@@ -3,7 +3,6 @@
 #include <vector>
 #include <mutex>
 
-#include "Utilities.h"
 #include "Slab.h"
 #include "Brick.h"
 #include "Picture.h"

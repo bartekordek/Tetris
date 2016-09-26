@@ -48,9 +48,6 @@
     <ClInclude Include="inc\TableCoordinates.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Utilities.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -79,9 +76,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\TableCoordinates.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Utilities.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
