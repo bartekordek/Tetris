@@ -11,6 +11,7 @@ namespace Moge
 	{
 	public:
 		RenderableObjectContainerImpl();
+		explicit RenderableObjectContainerImpl( const RenderableObjectContainerImpl& renderableObject );
 		virtual ~RenderableObjectContainerImpl();
 		void addObject( const std::shared_ptr<ObjectNode>& node );
 

@@ -16,8 +16,6 @@ public:
 	void SetPictureLocation( const Path picLocation );
 	void SetPictureSize( CUInt width, CUInt height );
 	const Path GetImgLoc()const;
-	CUInt GetImgWidth()const;
-	CUInt GetImgHeight()const;
 
 private:
 	Path m_location;

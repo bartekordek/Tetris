@@ -18,8 +18,8 @@ namespace Moge
 		Engine( void );
 		virtual ~Engine();
 
-		void AddObject( const Path& filePath, const Math::MultiPoint<int>& position, const MyString& name = "" );
-		void AddObject( const ObjectNode node, const MyString& name = "" );
+		void AddObject( const Path& filePath, const Math::MultiPoint<int>& position, const MyString& name = MyString( "" ) );
+		void AddObject( const ObjectNode node, const MyString& name = MyString( "" ) );
 		void CreateScreen( const Math::MultiPoint<unsigned int>& resolution = Math::MultiPoint<unsigned int>( 2 ) );
 		void StartMainLoop();
 		void StopMainLoop();

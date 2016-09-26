@@ -53,13 +53,3 @@ const Path CPicture::GetImgLoc()const
 {
 	return m_location;
 }
-
-CUInt CPicture::GetImgWidth()const
-{
-	return m_width;
-}
-
-CUInt CPicture::GetImgHeight()const
-{
-	return m_height;
-}

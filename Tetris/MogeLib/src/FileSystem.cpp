@@ -19,7 +19,7 @@ namespace Moge
 
 	Path::Path( const char* inputPath ): mFullPath( inputPath )
 	{
-		SetUpPaths( inputPath );
+		SetUpPaths( MyString(inputPath) );
 	}
 
 	Path::Path( const MyString& inputPath ): mFullPath( inputPath )
@@ -54,7 +54,7 @@ namespace Moge
 
 	Path& Path::operator=( const std::string& inputPath )
 	{
-		SetUpPaths( inputPath );
+		SetUpPaths( MyString( inputPath ) );
 		return *this;
 	}
 
@@ -66,13 +66,13 @@ namespace Moge
 
 	Path& Path::operator=( const Path& inputPath )
 	{
-		SetUpPaths( inputPath.c_str() );
+		SetUpPaths( MyString(inputPath.c_str()) );
 		return *this;
 	}
 
 	Path& Path::operator=( const char* inputPath )
 	{
-		SetUpPaths( inputPath );
+		SetUpPaths( MyString( inputPath ) );
 		return *this;
 	}
 
@@ -113,18 +113,18 @@ namespace Moge
 
 	const Path Path::GetCurrentDirectory()
 	{
-		Path path( boost::filesystem::current_path().string() );
+		Path path( MyString( boost::filesystem::current_path().string() ) );
 		return path;
 	}
 
 	const bool Path::Exist()const
 	{
-		return FileExists( mFullPath.c_str() );
+		return FileExists( MyString( mFullPath.c_str() ) );
 	}
 
 	void Path::SetUpPaths( const MyString& fullPath )
 	{
-		mFullPath = fullPath;
+		SetFullPath( fullPath );
 		mExtension = GetExtension( fullPath );
 		mBaseName = GetBaseName( fullPath );
 		mDirectory = GetDirectory( fullPath );
@@ -136,19 +136,19 @@ namespace Moge
 	}
 
 #ifdef _WIN32
-	MyString Path::directorySeparator = "\\";
+	MyString Path::directorySeparator = MyString( "\\" );
 #else
-	MyString Path::directorySeparator = "/";
+	MyString Path::directorySeparator = MyString( "/" );
 #endif
-	MyString Path::extensionSeparator = ".";
+	MyString Path::extensionSeparator = MyString( "." );
 
 	const MyString GetBaseName( const MyString& path )
 	{
-		MyString baseName = "";
+		MyString baseName;
 		auto separatorPosition = path.rfind( Path::GetDirectorySeparator() );
 		if( MyString::npos != separatorPosition )
 		{
-			baseName = path.substr( ++separatorPosition );
+			baseName = MyString( path.substr( ++separatorPosition ) );
 			baseName = baseName.Replace( MyString(".") + GetExtension( path ), MyString( "" ) );
 		}
 		return baseName;
@@ -156,22 +156,22 @@ namespace Moge
 
 	const MyString GetExtension( const MyString& path )
 	{
-		MyString extension = "";
+		MyString extension;
 		auto mExtensionDotPosition = path.rfind( Path::GetExtensionSeparator() );
 		if( MyString::npos != mExtensionDotPosition )
 		{
-			extension = path.substr( ++mExtensionDotPosition );
+			extension = MyString( path.substr( ++mExtensionDotPosition ) );
 		}
 		return extension;
 	}
 
 	const MyString GetDirectory( const MyString& path )
 	{
-		MyString directory = "";
+		MyString directory;
 		auto lastSlashPosition = path.rfind( Path::GetDirectorySeparator() );
 		if( MyString::npos != lastSlashPosition )
 		{
-			directory = path.substr( 0, lastSlashPosition );
+			directory = MyString( path.substr( 0, lastSlashPosition ) );
 		}
 		return directory;
 	}
@@ -186,7 +186,7 @@ namespace Moge
 
 	Path operator+( const Path& path, const std::string& inputPath )
 	{
-		Path result( path.FullPath().string() + inputPath );
+		Path result( MyString( path.FullPath().string() + inputPath ) );
 		return result;
 	}
 
@@ -205,7 +205,7 @@ namespace Moge
 	Path operator+( const Path& path, const char* inputPath )
 	{
 		std::string string = std::string( path.c_str() ) + std::string( inputPath );
-		Path result( string );
+		Path result( string.c_str() );
 		return result;
 	}
 }

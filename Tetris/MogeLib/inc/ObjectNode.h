@@ -50,7 +50,6 @@ namespace Moge
 		ObjectNodeContent& operator=( const ObjectNodeContent& right );
 
 		const ImageSurface& GetSurface()const;
-		const Path& GetPath()const;
 		void SetSurface( const ImageSurface& surface );
 
 	protected:

@@ -10,6 +10,7 @@ namespace Moge
 	{
 	public:
 		SceneImpl();
+		explicit SceneImpl( const SceneImpl& sceneImpl );
 		virtual ~SceneImpl();
 	protected:
 	private:

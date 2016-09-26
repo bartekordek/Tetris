@@ -16,7 +16,7 @@ TEST_F( MogeGenericTests, NamedSetGetName )
 	};
 
 	EmptyClass instance;
-	const Moge::MyString genericName = "GenericName";
+	const Moge::MyString genericName = Moge::MyString( "GenericName" );
 	instance.SetName( genericName );
 	ASSERT_EQ( instance.GetName(), genericName );
 }

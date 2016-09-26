@@ -3,7 +3,9 @@
 namespace Tetris
 {
 
-	CBrick::CBrick( BrickTypes typeofBrick, const Direction direction ): m_direction( direction ), m_brickType( typeofBrick )
+	CBrick::CBrick( BrickTypes typeofBrick, const Direction direction ): 
+		m_direction( direction ), 
+		m_brickType( typeofBrick )
 	{
 	}
 
@@ -18,10 +20,10 @@ namespace Tetris
 		return m_brickType;
 	}
 
-	CBrick::CBrick( const CBrick& brick )
+	CBrick::CBrick( const CBrick& brick ):
+		m_blocks( brick.m_blocks ),
+		m_direction( brick.m_direction )
 	{
-		m_blocks = brick.m_blocks;
-		m_direction = brick.m_direction;
 	}
 
 	void CBrick::Rotate( const bool clockWise )

@@ -6,6 +6,12 @@ namespace Moge
 	{
 	}
 
+	RenderableObjectContainerImpl::RenderableObjectContainerImpl( const RenderableObjectContainerImpl& renderableObject )
+	{
+		std::lock_guard<std::mutex> guard( nodeMutex );
+		this->nodes = renderableObject.nodes;
+	}
+
 	RenderableObjectContainerImpl::~RenderableObjectContainerImpl()
 	{
 	}

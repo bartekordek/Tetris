@@ -8,10 +8,12 @@
 #include <vector>
 #include <utility>
 
-enum BrickTypes { L, I, O, S, T };
-
 namespace Tetris
 {
+	enum class BrickTypes: char
+	{
+		L, I, O, S, T
+	};
 
 	class CBrick
 	{
@@ -27,7 +29,7 @@ namespace Tetris
 
 	private:
 		virtual void m_RotateClockWise() = 0;
-		BrickTypes m_brickType;
+		BrickTypes m_brickType = BrickTypes::T;
 
 	protected:
 		std::vector<CSlab> m_blocks;

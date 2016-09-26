@@ -8,7 +8,7 @@ namespace Moge
 	class MogeLib_API Name
 	{
 	public:
-		explicit Name( const MyString& name = "" );
+		explicit Name( const MyString& name = MyString("") );
 		explicit Name( const Name& name );
 		virtual ~Name();
 

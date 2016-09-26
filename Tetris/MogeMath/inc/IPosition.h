@@ -5,7 +5,7 @@ namespace Moge
 	namespace Math
 	{
 		template <typename Type>
-		class MogeLib_API IPosition
+		class IPosition
 		{
 		public:
 			IPosition()
