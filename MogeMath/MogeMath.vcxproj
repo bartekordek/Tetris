@@ -152,9 +152,6 @@
     <ClInclude Include="inc\Line.h" />
     <ClInclude Include="inc\MultiPoint.h" />
     <ClInclude Include="inc\MultiPointFactory.h" />
-    <ClInclude Include="inc\Point1D.h" />
-    <ClInclude Include="inc\Point2D.h" />
-    <ClInclude Include="inc\Point3D.h" />
     <ClInclude Include="inc\PointFactory.h" />
     <ClInclude Include="inc\Quaternion.h" />
     <ClInclude Include="inc\Rectangle.h" />
