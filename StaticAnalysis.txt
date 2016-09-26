@@ -1,8 +1,5 @@
-[Tetris/MogeMath/inc/MultiPoint.h:108]: (performance) Function parameter 'p' should be passed by reference.
-[Tetris/MogeLib/src/ScreenNode.cpp:16]: (performance) Variable 'position' is assigned in constructor body. Consider performing initialization in initialization list.
-[Tetris/MogeLib/src/ScreenNode.cpp:17]: (performance) Variable 'size' is assigned in constructor body. Consider performing initialization in initialization list.
 [Tetris/MogeLib/src/NodeCreator.cpp:37]: (style) The function 'GetObjectNode' is never used.
-[Tetris/MogeLib/src/ScreenNode.cpp:122]: (style) The function 'GetRenderer' is never used.
+[Tetris/MogeLib/src/ScreenNode.cpp:123]: (style) The function 'GetRenderer' is never used.
 [Tetris/MogeLib/src/KeyboardListener.cpp:14]: (style) The function 'KeyEvent' is never used.
 [Tetris/MogeLib/src/KeyboardObservable.cpp:21]: (style) The function 'Register' is never used.
 [Tetris/src/MainGrid.cpp:36]: (style) The function 'SetBackgroundPicture' is never used.
@@ -14,7 +11,7 @@
 [Tetris/src/MainGrid.cpp:77]: (style) The function 'SlabPictureLoc' is never used.
 [Tetris/MogeLib/src/MTime.cpp:6]: (style) The function 'SleepSeconds' is never used.
 [Tetris/MogeLib/src/ObjectNode.cpp:98]: (style) The function 'setHepth' is never used.
-[Tetris/MogeLib/src/ScreenNode.cpp:137]: (style) The function 'setResolution' is never used.
+[Tetris/MogeLib/src/ScreenNode.cpp:138]: (style) The function 'setResolution' is never used.
 [Tetris/MogeLib/src/ObjectNode.cpp:70]: (style) The function 'setSize' is never used.
 [Tetris/MogeLib/src/ObjectNode.cpp:52]: (style) The function 'setX' is never used.
 [Tetris/MogeLib/src/ObjectNode.cpp:58]: (style) The function 'setY' is never used.
