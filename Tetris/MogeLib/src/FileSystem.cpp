@@ -205,7 +205,7 @@ namespace Moge
 	Path operator+( const Path& path, const char* inputPath )
 	{
 		std::string string = std::string( path.c_str() ) + std::string( inputPath );
-		Path result( string );
+		Path result( string.c_str() );
 		return result;
 	}
 }
