@@ -96,9 +96,6 @@
     <ClInclude Include="Scene\inc\SceneImpl.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="inc\PositionOLD.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\IVector.h">
       <Filter>Header Files</Filter>
     </ClInclude>

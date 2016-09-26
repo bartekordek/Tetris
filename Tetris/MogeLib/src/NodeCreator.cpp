@@ -34,18 +34,6 @@ namespace Moge
 		return ObjectNode( objectNodeContent );
 	}
 
-	ObjectNode NodeCreator::GetObjectNode( const Path& path )
-	{
-		for( auto& node: sObjectNodes )
-		{
-			if( node->GetPath() == path )
-			{
-				return ObjectNode( node );
-			}
-		}
-		return ObjectNode( nullptr );
-	}
-
 	void NodeCreator::RemoveNode( ObjectNode& node )
 	{
 		sObjectNodes.erase( node.get() );

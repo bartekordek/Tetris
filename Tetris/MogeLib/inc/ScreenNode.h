@@ -52,7 +52,6 @@ namespace Moge
 		void FreeContent() override;
 
 		SDL_Window* mainScreen = nullptr;
-		SDL_Renderer* mainRenderer = nullptr;
 		SDL_Surface* mainScreenSurface = nullptr;
 		Math::MultiPoint<int> position = Math::MultiPointFactory::create2d<int>( 100, 100 );
 		Math::MultiPoint<unsigned int> size = Math::MultiPointFactory::create2d<unsigned int>( 640, 480 );

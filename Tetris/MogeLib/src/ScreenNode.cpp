@@ -10,12 +10,10 @@ namespace Moge
 
 	ScreenNode::ScreenNode( const ScreenNode& screenNode ):
 		mainScreen ( screenNode.mainScreen ),
-		mainRenderer ( screenNode.mainRenderer ),
 		mainScreenSurface ( screenNode.mainScreenSurface ),
 		position ( screenNode.position ),
 		size ( screenNode.size )
 	{
-		
 	}
 
 	ScreenNode::~ScreenNode()
@@ -111,18 +109,12 @@ namespace Moge
 	void ScreenNode::initialize()
 	{
 		mainScreen = SDL_CreateWindow( GetName().c_str(), getX(), getY(), getWidth(), getHeight(), SDL_WINDOW_SHOWN );
-	//	mainRenderer = SDL_CreateRenderer( mainScreen, -1, SDL_RENDERER_ACCELERATED );
 		mainScreenSurface = SDL_GetWindowSurface( mainScreen );
 	}
 
 	SDL_Window* ScreenNode::GetScreen()const
 	{
 		return mainScreen;
-	}
-
-	SDL_Renderer* ScreenNode::GetRenderer()const
-	{
-		return mainRenderer;
 	}
 
 	SDL_Surface* ScreenNode::GetSdlSurface()const
@@ -145,7 +137,6 @@ namespace Moge
 
 	void ScreenNode::FreeContent()
 	{
-		SDL_DestroyRenderer( this->mainRenderer );
 		SDL_DestroyWindow( this->mainScreen );
 	}
 }

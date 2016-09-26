@@ -203,7 +203,6 @@
     <ClInclude Include="inc\NodeImageCreator.h" />
     <ClInclude Include="inc\NodeMgr.h" />
     <ClInclude Include="inc\ObjectNode.h" />
-    <ClInclude Include="inc\PositionOLD.h" />
     <ClInclude Include="inc\ScreenNode.h" />
     <ClInclude Include="inc\Singleton.h" />
     <ClInclude Include="inc\Size.h" />

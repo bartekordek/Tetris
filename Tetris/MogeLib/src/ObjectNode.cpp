@@ -138,11 +138,6 @@ namespace Moge
 		return surface;
 	}
 
-	const Path& ObjectNodeContent::GetPath()const
-	{
-		return mFilePath;
-	}
-
 	void ObjectNodeContent::SetSurface( const ImageSurface& surface )
 	{
 		this->surface = surface;
