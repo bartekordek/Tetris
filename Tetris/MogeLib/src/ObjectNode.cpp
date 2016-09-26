@@ -3,7 +3,6 @@
 
 namespace Moge
 {
-
 	ObjectNodeContent::ObjectNodeContent(): mFilePath("")
 	{
 	}
@@ -12,11 +11,12 @@ namespace Moge
 	{
 	}
 
-	ObjectNodeContent::ObjectNodeContent( const ObjectNodeContent& objectNodeContent )
+	ObjectNodeContent::ObjectNodeContent( const ObjectNodeContent& objectNodeContent ):
+		surface( objectNodeContent.surface ),
+		position( objectNodeContent.position ),
+		size( objectNodeContent.size ),
+		mFilePath( "" )
 	{
-		this->surface = objectNodeContent.surface;
-		this->position = objectNodeContent.position;
-		this->size = objectNodeContent.size;
 	}
 
 	const int ObjectNodeContent::getX()const
