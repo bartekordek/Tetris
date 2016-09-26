@@ -2,7 +2,6 @@
 
 #include <ObjectNode.h>
 
-#include "Utilities.h"
 #include "TableCoordinates.h"
 
 namespace Tetris

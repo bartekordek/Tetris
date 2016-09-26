@@ -3,12 +3,18 @@
 class COrientation
 {
 public:
-	enum Direction{ L, R, U, D };
+	enum class Direction: char
+	{ 
+		L,
+		R, 
+		U, 
+		D 
+	};
 
-	explicit COrientation( const Direction direction = Direction::R );
+	explicit COrientation( const COrientation::Direction direction = Direction::R );
 	virtual ~COrientation();
-	void Set( const Direction direction );
-	const Direction Get()const;
+	void Set( const COrientation::Direction direction );
+	const COrientation::Direction Get()const;
 
 private:
 	Direction m_direction;

@@ -12,3 +12,5 @@ PREPROCESOR='-D MogeLib_EXPORT=True'
 SETTINGS="--enable=all --std=c++11 --suppress=missingIncludeSystem"
 cppcheck "$ROOTDIR" --check-config $SETTINGS $PREPROCESOR $INCLUDES 2> "CppCheckConfig.log"
 cppcheck "$ROOTDIR" $SETTINGS $PREPROCESOR $INCLUDES 2> StaticAnalysis.txt
+find . -name '*.h' > HeaderList.txt
+find . -name '*.cpp' > SourceList.txt
