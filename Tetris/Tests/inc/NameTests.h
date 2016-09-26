@@ -1,5 +1,6 @@
 #pragma once
 
+#include "MyString.h"
 #include "gtest/gtest.h"
 
 class NameTests: public ::testing::Test
@@ -20,4 +21,5 @@ protected:
 	virtual void TearDown()
 	{
 	}
+	Moge::MyString genericName = Moge::MyString( "Generic name." );
 };
