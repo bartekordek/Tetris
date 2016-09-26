@@ -2,7 +2,6 @@
 
 #include <ObjectNode.h>
 
-#include "Position.h"
 #include "Utilities.h"
 #include "TableCoordinates.h"
 
