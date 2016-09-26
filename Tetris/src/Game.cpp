@@ -4,6 +4,7 @@
 #include "NodeCreator.h"
 #include "MultiPointFactory.h"
 #include "IPositionAdapter.h"
+#include "NodeImageCreator.h"
 
 #include <cstddef>
 
@@ -120,15 +121,15 @@ namespace Tetris
 	{
 		if( SDLK_RIGHT == sdlkey )
 		{
-			MoveActiveBrick( Direction::R );
+			MoveActiveBrick( COrientation::Direction::R );
 		}
 		else if( SDLK_LEFT == sdlkey )
 		{
-			MoveActiveBrick( Direction::L );
+			MoveActiveBrick( COrientation::Direction::L );
 		}
 		else if( SDLK_DOWN == sdlkey )
 		{
-			MoveActiveBrick( Direction::D );
+			MoveActiveBrick( COrientation::Direction::D );
 		}
 		else if( SDLK_SPACE == sdlkey )
 		{
@@ -140,14 +141,14 @@ namespace Tetris
 	{
 		while( false == m_quit )
 		{
-			if( false == m_mainGrid.CheckIfBlockCanBeMoved( Direction::D ) )
+			if( false == m_mainGrid.CheckIfBlockCanBeMoved( COrientation::Direction::D ) )
 			{
 				AddCurrentBrickToGrid();
 				m_mainGrid.ManageFullLine();
 				ReleaseBrick();
 			}
 			Moge::CTimeMod::SleepMiliSeconds( 500 );
-			MoveActiveBrick( Direction::D );
+			MoveActiveBrick( COrientation::Direction::D );
 			//Moge::Engine::Instance().QueueFrame();
 		}
 	}
@@ -176,7 +177,7 @@ namespace Tetris
 		}
 	}
 
-	void CGame::MoveActiveBrick( const Direction direction )
+	void CGame::MoveActiveBrick( const COrientation::Direction direction )
 	{
 		m_mainGrid.MoveActualBrick( direction );
 		ActualizeGrid();

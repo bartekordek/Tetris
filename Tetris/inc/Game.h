@@ -2,9 +2,7 @@
 
 #include "MainGrid.h"
 #include "Brick.h"
-#include "Utilities.h"
 #include <Engine.h>
-#include <NodeImageCreator.h>
 #include <MyString.h>
 #include <SDL_keycode.h>
 
@@ -33,7 +31,6 @@ namespace Tetris
 		void ShowGrid();
 		void MainLoop();
 		void StartGame();
-		void QuitGame();
 		virtual ~CGame();
 
 		Moge::ImageSurface GetEmptySlabSurface()const;
@@ -47,7 +44,7 @@ namespace Tetris
 		const bool IsKeyDown( const SDL_Event event );
 		void HandleKeys( SDL_Keycode sdlkey );
 		void SetMainGridSize( CUInt rows, CUInt columns );
-		void MoveActiveBrick( const Direction direction = Direction::D );
+		void MoveActiveBrick( const COrientation::Direction direction = COrientation::Direction::D );
 		void RotateActualBrick( const bool clockWise = true );
 		void ReleaseBrick();
 		void ActualizeGrid();
@@ -57,13 +54,12 @@ namespace Tetris
 		Moge::ImageSurface mEmptySlabImage;
 		Moge::ImageSurface mFilledSlabImage;
 
-		Moge::MyString GetQuitButtonLocation();
 		CMainGrid m_mainGrid;
 		std::thread m_mainLoopThread;
 		bool m_roundInProgress;
 		bool m_quit;
 
-		std::string emptySlabName = "emptySlab";
-		std::string slabName = "slab";
+		Moge::MyString emptySlabName = Moge::MyString( "emptySlab" );
+		Moge::MyString slabName = Moge::MyString( "slab" );
 	};
 }
