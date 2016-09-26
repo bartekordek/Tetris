@@ -9,7 +9,7 @@ namespace Moge
 		if( Name::GetName().empty() )
 		{
 			static unsigned int index = 0;
-			Name::SetName( "Node:" + std::to_string( index++ ) );
+			Name::SetName( MyString( ( "Node:" + std::to_string( index++ ) ).c_str() ) );
 		}
 		//UpdateGeometrics();
 	}

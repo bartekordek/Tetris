@@ -21,7 +21,7 @@ namespace Moge
 		{
 		public:
 
-			MultiPoint( const unsigned int axisRows = 0 )
+			explicit MultiPoint( const unsigned int axisRows = 0 )
 			{
 				if( 0 != axisRows )
 				{
@@ -94,7 +94,6 @@ namespace Moge
 			{
 				if( this != &right )
 				{
-					const unsigned int axisCount = this->axisValue.size();
 					const unsigned int pAxisCount = right.axisValue.size();
 					this->setAxesCount( pAxisCount );
 
