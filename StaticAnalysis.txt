@@ -1,10 +1,14 @@
-[Tetris/src/MainGrid.cpp:82]: (style) The function 'EmptySlabPictureLoc' is never used.
-[Tetris/src/Slab.cpp:72]: (style) The function 'GetId' is never used.
-[Tetris/src/Picture.cpp:62]: (style) The function 'GetImgHeight' is never used.
-[Tetris/src/Picture.cpp:57]: (style) The function 'GetImgWidth' is never used.
+[Tetris/MogeLib/RenderableObject/inc/RenderableObjectContainer.h:9]: (style) 'class RenderableObjectContainer' does not have a copy constructor which is recommended since the class contains a pointer to allocated memory.
+[Tetris/MogeLib/Scene/inc/Scene.h:9]: (style) 'class Scene' does not have a copy constructor which is recommended since the class contains a pointer to allocated memory.
+[Tetris/MogeLib/String/inc/MyString.h:14]: (style) Class 'MyString' has a constructor with 1 argument that is not explicit.
+[Tetris/MogeLib/String/inc/MyString.h:16]: (style) Class 'MyString' has a constructor with 1 argument that is not explicit.
+[Tetris/MogeMath/inc/MultiPoint.h:97]: (style) Variable 'axisCount' is assigned a value that is never used.
+[Tetris/MogeMath/inc/MultiPoint.h:24]: (style) Class 'MultiPoint' has a constructor with 1 argument that is not explicit.
+[Tetris/MogeMath/inc/MultiPoint.h:109]: (performance) Function parameter 'p' should be passed by reference.
+[Tetris/MogeLib/src/ScreenNode.cpp:16]: (performance) Variable 'position' is assigned in constructor body. Consider performing initialization in initialization list.
+[Tetris/MogeLib/src/ScreenNode.cpp:17]: (performance) Variable 'size' is assigned in constructor body. Consider performing initialization in initialization list.
 [Tetris/MogeLib/src/NodeCreator.cpp:37]: (style) The function 'GetObjectNode' is never used.
 [Tetris/MogeLib/src/ScreenNode.cpp:122]: (style) The function 'GetRenderer' is never used.
-[Tetris/src/Rectangle.cpp:19]: (style) The function 'Height' is never used.
 [Tetris/MogeLib/src/KeyboardListener.cpp:14]: (style) The function 'KeyEvent' is never used.
 [Tetris/MogeLib/src/KeyboardObservable.cpp:21]: (style) The function 'Register' is never used.
 [Tetris/src/MainGrid.cpp:36]: (style) The function 'SetBackgroundPicture' is never used.
@@ -12,14 +16,14 @@
 [Tetris/src/Picture.cpp:46]: (style) The function 'SetPictureSize' is never used.
 [Tetris/MogeLib/src/PositionOLD.cpp:44]: (style) The function 'SetX' is never used.
 [Tetris/MogeLib/src/PositionOLD.cpp:50]: (style) The function 'SetY' is never used.
-[Tetris/src/MainGrid.cpp:92]: (style) The function 'SlabCount' is never used.
+[Tetris/src/MainGrid.cpp:87]: (style) The function 'SlabCount' is never used.
 [Tetris/src/MainGrid.cpp:77]: (style) The function 'SlabPictureLoc' is never used.
 [Tetris/MogeLib/src/MTime.cpp:6]: (style) The function 'SleepSeconds' is never used.
-[Tetris/src/Rectangle.cpp:14]: (style) The function 'Width' is never used.
 [Tetris/MogeLib/src/ObjectNode.cpp:98]: (style) The function 'setHepth' is never used.
 [Tetris/MogeLib/src/ScreenNode.cpp:137]: (style) The function 'setResolution' is never used.
 [Tetris/MogeLib/src/ObjectNode.cpp:70]: (style) The function 'setSize' is never used.
 [Tetris/MogeLib/src/ObjectNode.cpp:52]: (style) The function 'setX' is never used.
 [Tetris/MogeLib/src/ObjectNode.cpp:58]: (style) The function 'setY' is never used.
 [Tetris/MogeLib/src/ObjectNode.cpp:64]: (style) The function 'setZ' is never used.
+[Tetris/MogeMath/src/MultiPointFactory.cpp:9]: (style) The function 'translationUnitIsNotEmpty' is never used.
 (information) Cppcheck cannot find all the include files (use --check-config for details)
