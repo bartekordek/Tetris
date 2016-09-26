@@ -1,6 +1,3 @@
-[Tetris/src/Brick.cpp:10]: (warning) Member variable 'CBrick::m_brickType' is not initialized in the constructor.
-[Tetris/src/Brick.cpp:23]: (performance) Variable 'm_blocks' is assigned in constructor body. Consider performing initialization in initialization list.
-[Tetris/src/Brick.cpp:24]: (performance) Variable 'm_direction' is assigned in constructor body. Consider performing initialization in initialization list.
 [Tetris/src/SDLWrapper.cpp:21]: (style) The function 'AddImage' is never used.
 [Tetris/src/SDLWrapper.cpp:12]: (style) The function 'CreateWindow' is never used.
 [Tetris/src/SDLWrapper.cpp:43]: (style) The function 'Display' is never used.
