@@ -1,7 +1,7 @@
 #include "MyString.h"
 #include <algorithm>
 
-namespace MogeLib
+namespace Moge
 {
 	MyString::MyString(): std::string( "" )
 	{
@@ -17,13 +17,29 @@ namespace MogeLib
 
 	MyString::MyString( const std::string& inputString ):std::string( inputString )
 	{
-
 	}
 
 	MyString::~MyString()
 	{
 	}
 
+	MyString& MyString::operator=( const char* someString )
+	{
+		if( 0 != std::string::compare( someString ) )
+		{
+			std::string::operator=( someString );
+		}
+		return *this;
+	}
+
+	MyString& MyString::operator=( const MyString& someString )
+	{
+		if( &someString != this )
+		{
+			std::string::operator=( someString );
+		}
+		return *this;
+	}
 
 	const bool MyString::Contains( const MyString& inputString )const
 	{
