@@ -1,8 +1,4 @@
-[Tetris/MogeLib/String/inc/MyString.h:14]: (style) Class 'MyString' has a constructor with 1 argument that is not explicit.
-[Tetris/MogeLib/String/inc/MyString.h:16]: (style) Class 'MyString' has a constructor with 1 argument that is not explicit.
-[Tetris/MogeMath/inc/MultiPoint.h:97]: (style) Variable 'axisCount' is assigned a value that is never used.
-[Tetris/MogeMath/inc/MultiPoint.h:24]: (style) Class 'MultiPoint' has a constructor with 1 argument that is not explicit.
-[Tetris/MogeMath/inc/MultiPoint.h:109]: (performance) Function parameter 'p' should be passed by reference.
+[Tetris/MogeMath/inc/MultiPoint.h:108]: (performance) Function parameter 'p' should be passed by reference.
 [Tetris/MogeLib/src/ScreenNode.cpp:16]: (performance) Variable 'position' is assigned in constructor body. Consider performing initialization in initialization list.
 [Tetris/MogeLib/src/ScreenNode.cpp:17]: (performance) Variable 'size' is assigned in constructor body. Consider performing initialization in initialization list.
 [Tetris/MogeLib/src/NodeCreator.cpp:37]: (style) The function 'GetObjectNode' is never used.
