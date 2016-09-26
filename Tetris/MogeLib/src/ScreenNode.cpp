@@ -8,13 +8,14 @@ namespace Moge
 	{
 	}
 
-	ScreenNode::ScreenNode( const ScreenNode& screenNode )
+	ScreenNode::ScreenNode( const ScreenNode& screenNode ):
+		mainScreen ( screenNode.mainScreen ),
+		mainRenderer ( screenNode.mainRenderer ),
+		mainScreenSurface ( screenNode.mainScreenSurface ),
+		position ( screenNode.position ),
+		size ( screenNode.size )
 	{
-		this->mainScreen = screenNode.mainScreen;
-		this->mainRenderer = screenNode.mainRenderer;
-		this->mainScreenSurface = screenNode.mainScreenSurface;
-		this->position = screenNode.position;
-		this->size = screenNode.size;
+		
 	}
 
 	ScreenNode::~ScreenNode()
