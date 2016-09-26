@@ -8,6 +8,11 @@ namespace Moge
 		this->impl = new RenderableObjectContainerImpl();
 	}
 
+	RenderableObjectContainer::RenderableObjectContainer( const RenderableObjectContainer& renderableObjectContainer )
+	{
+		this->impl = new RenderableObjectContainerImpl( *renderableObjectContainer.impl );
+	}
+
 	RenderableObjectContainer::~RenderableObjectContainer()
 	{
 		delete this->impl;

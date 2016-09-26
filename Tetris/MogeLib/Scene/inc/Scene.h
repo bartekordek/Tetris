@@ -10,6 +10,7 @@ namespace Moge
 	{
 	public:
 		Scene();
+		Scene( const Scene& scene );
 		virtual ~Scene();
 	protected:
 	private:

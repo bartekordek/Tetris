@@ -1,5 +1,3 @@
-[Tetris/MogeLib/RenderableObject/inc/RenderableObjectContainer.h:9]: (style) 'class RenderableObjectContainer' does not have a copy constructor which is recommended since the class contains a pointer to allocated memory.
-[Tetris/MogeLib/Scene/inc/Scene.h:9]: (style) 'class Scene' does not have a copy constructor which is recommended since the class contains a pointer to allocated memory.
 [Tetris/MogeLib/String/inc/MyString.h:14]: (style) Class 'MyString' has a constructor with 1 argument that is not explicit.
 [Tetris/MogeLib/String/inc/MyString.h:16]: (style) Class 'MyString' has a constructor with 1 argument that is not explicit.
 [Tetris/MogeMath/inc/MultiPoint.h:97]: (style) Variable 'axisCount' is assigned a value that is never used.

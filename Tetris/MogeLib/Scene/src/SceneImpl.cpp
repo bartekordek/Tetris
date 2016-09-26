@@ -6,6 +6,9 @@ namespace Moge
 	{
 	}
 
+	SceneImpl::SceneImpl( const SceneImpl& sceneImpl ): nodes( sceneImpl.nodes )
+	{
+	}
 
 	SceneImpl::~SceneImpl()
 	{

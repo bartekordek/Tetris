@@ -8,6 +8,11 @@ namespace Moge
 		this->impl = new SceneImpl();
 	}
 
+	Scene::Scene( const Scene& scene )
+	{
+		this->impl = new SceneImpl( *scene.impl );
+	}
+
 	Scene::~Scene()
 	{
 		delete this->impl;
