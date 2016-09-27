@@ -31,7 +31,10 @@ namespace Moge
 		protected:
 			void translationUnitIsNotEmpty();
 		private:
-			MultiPointFactory() {}
+			MultiPointFactory() 
+			{
+				translationUnitIsNotEmpty();
+			}
 			virtual ~MultiPointFactory() {}
 		};
 	}
