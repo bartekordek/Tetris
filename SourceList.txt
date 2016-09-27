@@ -43,9 +43,7 @@
 ./Tetris/src/BrickFactory.cpp
 ./Tetris/src/Game.cpp
 ./Tetris/src/MainGrid.cpp
-./Tetris/src/Orientation.cpp
 ./Tetris/src/Picture.cpp
 ./Tetris/src/Point.cpp
 ./Tetris/src/Slab.cpp
 ./Tetris/src/TableCoordinates.cpp
-./Tetris/src/Utilities.cpp

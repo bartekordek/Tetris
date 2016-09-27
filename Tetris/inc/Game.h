@@ -44,7 +44,7 @@ namespace Tetris
 		const bool IsKeyDown( const SDL_Event event );
 		void HandleKeys( SDL_Keycode sdlkey );
 		void SetMainGridSize( CUInt rows, CUInt columns );
-		void MoveActiveBrick( const COrientation::Direction direction = COrientation::Direction::D );
+		void MoveActiveBrick( const Direction direction = Direction::D );
 		void RotateActualBrick( const bool clockWise = true );
 		void ReleaseBrick();
 		void ActualizeGrid();

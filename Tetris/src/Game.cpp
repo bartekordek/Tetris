@@ -121,15 +121,15 @@ namespace Tetris
 	{
 		if( SDLK_RIGHT == sdlkey )
 		{
-			MoveActiveBrick( COrientation::Direction::R );
+			MoveActiveBrick( Direction::R );
 		}
 		else if( SDLK_LEFT == sdlkey )
 		{
-			MoveActiveBrick( COrientation::Direction::L );
+			MoveActiveBrick( Direction::L );
 		}
 		else if( SDLK_DOWN == sdlkey )
 		{
-			MoveActiveBrick( COrientation::Direction::D );
+			MoveActiveBrick( Direction::D );
 		}
 		else if( SDLK_SPACE == sdlkey )
 		{
@@ -141,14 +141,14 @@ namespace Tetris
 	{
 		while( false == m_quit )
 		{
-			if( false == m_mainGrid.CheckIfBlockCanBeMoved( COrientation::Direction::D ) )
+			if( false == m_mainGrid.CheckIfBlockCanBeMoved( Direction::D ) )
 			{
 				AddCurrentBrickToGrid();
 				m_mainGrid.ManageFullLine();
 				ReleaseBrick();
 			}
 			Moge::CTimeMod::SleepMiliSeconds( 500 );
-			MoveActiveBrick( COrientation::Direction::D );
+			MoveActiveBrick( Direction::D );
 			//Moge::Engine::Instance().QueueFrame();
 		}
 	}
@@ -177,7 +177,7 @@ namespace Tetris
 		}
 	}
 
-	void CGame::MoveActiveBrick( const COrientation::Direction direction )
+	void CGame::MoveActiveBrick( const Direction direction )
 	{
 		m_mainGrid.MoveActualBrick( direction );
 		ActualizeGrid();
