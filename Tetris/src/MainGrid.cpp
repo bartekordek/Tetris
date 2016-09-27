@@ -5,7 +5,6 @@
 
 namespace Tetris
 {
-
 	CMainGrid::CMainGrid():m_activeBrick( NULL )
 	{
 	}
