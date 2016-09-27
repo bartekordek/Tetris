@@ -33,9 +33,6 @@
     <ClInclude Include="inc\MainGrid.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Orientation.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\Picture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -61,9 +58,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\MainGrid.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Orientation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Picture.cpp">

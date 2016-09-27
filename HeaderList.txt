@@ -48,9 +48,7 @@
 ./Tetris/inc/BrickFactory.h
 ./Tetris/inc/Game.h
 ./Tetris/inc/MainGrid.h
-./Tetris/inc/Orientation.h
 ./Tetris/inc/Picture.h
 ./Tetris/inc/Point.h
 ./Tetris/inc/Slab.h
 ./Tetris/inc/TableCoordinates.h
-./Tetris/inc/Utilities.h

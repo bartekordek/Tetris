@@ -84,13 +84,18 @@ namespace Tetris
 	void CGame::StartGame()
 	{
 		ReleaseBrick();
-		ShowGrid();
 	}
 
 	void CGame::MainLoop()
 	{
-		SDL_Event event;
 		m_mainLoopThread = std::thread( &CGame::MainLoopThread, this );
+		userInputLoop();
+		m_mainLoopThread.join();
+	}
+
+	void CGame::userInputLoop()
+	{
+		SDL_Event event;
 		while( false == m_quit )
 		{
 			while( SDL_PollEvent( &event ) )
@@ -105,7 +110,6 @@ namespace Tetris
 				}
 			}
 		}
-		m_mainLoopThread.join();
 	}
 
 	const bool CGame::IsKeyDown( const SDL_Event event )
@@ -121,19 +125,19 @@ namespace Tetris
 	{
 		if( SDLK_RIGHT == sdlkey )
 		{
-			MoveActiveBrick( COrientation::Direction::R );
+			m_mainGrid.MoveActualBrick( Direction::R );
 		}
 		else if( SDLK_LEFT == sdlkey )
 		{
-			MoveActiveBrick( COrientation::Direction::L );
+			m_mainGrid.MoveActualBrick( Direction::L );
 		}
 		else if( SDLK_DOWN == sdlkey )
 		{
-			MoveActiveBrick( COrientation::Direction::D );
+			m_mainGrid.MoveActualBrick( Direction::D );
 		}
 		else if( SDLK_SPACE == sdlkey )
 		{
-			RotateActualBrick();
+			m_mainGrid.RotateActualBrick( true );
 		}
 	}
 
@@ -141,26 +145,20 @@ namespace Tetris
 	{
 		while( false == m_quit )
 		{
-			if( false == m_mainGrid.CheckIfBlockCanBeMoved( COrientation::Direction::D ) )
+			if( false == m_mainGrid.CheckIfBlockCanBeMoved( Direction::D ) )
 			{
 				AddCurrentBrickToGrid();
 				m_mainGrid.ManageFullLine();
 				ReleaseBrick();
 			}
 			Moge::CTimeMod::SleepMiliSeconds( 500 );
-			MoveActiveBrick( COrientation::Direction::D );
-			//Moge::Engine::Instance().QueueFrame();
+			m_mainGrid.MoveActualBrick( Direction::D );
 		}
 	}
 
 	void CGame::ReleaseBrick()
 	{
 		m_mainGrid.ReLeaseBrick();
-		ShowGrid();
-	}
-
-	void CGame::ShowGrid()
-	{
 	}
 
 	void CGame::AddCurrentBrickToGrid()
@@ -177,25 +175,12 @@ namespace Tetris
 		}
 	}
 
-	void CGame::MoveActiveBrick( const COrientation::Direction direction )
-	{
-		m_mainGrid.MoveActualBrick( direction );
-		ActualizeGrid();
-		ShowGrid();
-	}
-
-	void CGame::RotateActualBrick( const bool clockWise )
-	{
-		m_mainGrid.RotateActualBrick( clockWise );
-	}
-
-	void CGame::ActualizeGrid()
-	{
-	}
-
 	const bool CGame::QuitHasBeenHit( const SDL_Event event )
 	{
-		if( event.type == SDL_QUIT || ( event.type == SDL_KEYDOWN && SDLK_q == event.key.keysym.sym ) )
+		if( 
+			SDL_QUIT == event.type || (
+				SDL_KEYDOWN == event.type &&
+				SDLK_q == event.key.keysym.sym ) )
 		{
 			return true;
 		}

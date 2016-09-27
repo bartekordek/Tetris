@@ -5,8 +5,7 @@
 
 namespace Tetris
 {
-
-	CMainGrid::CMainGrid():m_activeBrick( NULL )
+	CMainGrid::CMainGrid():m_activeBrick( nullptr )
 	{
 	}
 
@@ -87,16 +86,16 @@ namespace Tetris
 		return false;
 	}
 
-	void CMainGrid::MoveActualBrick( const COrientation::Direction direction )
+	void CMainGrid::MoveActualBrick( const Direction direction )
 	{
 		if( true == CheckIfBlockCanBeMoved( direction ) )
 		{
 			m_RemoveActualBlockSlabsFromGrid();
-			m_MoveActualBlock( direction );
+			moveCurrentBrick( direction );
 		}
 	}
 
-	const bool CMainGrid::CheckIfBlockCanBeMoved( const COrientation::Direction direction )const
+	const bool CMainGrid::CheckIfBlockCanBeMoved( const Direction direction )const
 	{
 		for( auto& coord : m_activeBrick->GetBlockPositions() )
 		{
@@ -126,42 +125,42 @@ namespace Tetris
 		return true;
 	}
 
-	CInt CMainGrid::GetColOffset( const COrientation::Direction direction )const
+	CInt CMainGrid::GetColOffset( const Direction direction )const
 	{
-		if( COrientation::Direction::U == direction )
+		if( Direction::U == direction )
 		{
 			return 0;
 		}
-		else if( COrientation::Direction::D == direction )
+		else if( Direction::D == direction )
 		{
 			return 0;
 		}
-		else if( COrientation::Direction::R == direction )
+		else if( Direction::R == direction )
 		{
 			return 1;
 		}
-		else if( COrientation::Direction::L == direction )
+		else if( Direction::L == direction )
 		{
 			return  -1;
 		}
 		return -1;
 	}
 
-	CInt CMainGrid::GetRowOffset( const COrientation::Direction direction )const
+	CInt CMainGrid::GetRowOffset( const Direction direction )const
 	{
-		if( COrientation::Direction::U == direction )
+		if( Direction::U == direction )
 		{
 			return  0;
 		}
-		else if( COrientation::Direction::D == direction )
+		else if( Direction::D == direction )
 		{
 			return  1;
 		}
-		else if( COrientation::Direction::R == direction )
+		else if( Direction::R == direction )
 		{
 			return  0;
 		}
-		else if( COrientation::Direction::L == direction )
+		else if( Direction::L == direction )
 		{
 			return  0;
 		}
@@ -252,7 +251,7 @@ namespace Tetris
 		}
 	}
 
-	void CMainGrid::m_MoveActualBlock( const COrientation::Direction direction )
+	void CMainGrid::moveCurrentBrick( const Direction direction )
 	{
 		m_activeBrick->Move( direction );
 		AddBrick( m_activeBrick );
