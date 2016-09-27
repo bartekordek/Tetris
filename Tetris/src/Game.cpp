@@ -90,6 +90,7 @@ namespace Tetris
 	{
 		m_mainLoopThread = std::thread( &CGame::MainLoopThread, this );
 		userInputLoop();
+		m_mainLoopThread.join();
 	}
 
 	void CGame::userInputLoop()
@@ -109,7 +110,6 @@ namespace Tetris
 				}
 			}
 		}
-		m_mainLoopThread.join();
 	}
 
 	const bool CGame::IsKeyDown( const SDL_Event event )
