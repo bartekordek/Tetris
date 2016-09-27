@@ -47,7 +47,6 @@ namespace Tetris
 		void MoveActiveBrick( const Direction direction = Direction::D );
 		void RotateActualBrick( const bool clockWise = true );
 		void ReleaseBrick();
-		void ActualizeGrid();
 		void AddCurrentBrickToGrid();
 		void MainLoopThread();
 

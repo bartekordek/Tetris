@@ -180,7 +180,6 @@ namespace Tetris
 	void CGame::MoveActiveBrick( const Direction direction )
 	{
 		m_mainGrid.MoveActualBrick( direction );
-		ActualizeGrid();
 		ShowGrid();
 	}
 
@@ -189,13 +188,12 @@ namespace Tetris
 		m_mainGrid.RotateActualBrick( clockWise );
 	}
 
-	void CGame::ActualizeGrid()
-	{
-	}
-
 	const bool CGame::QuitHasBeenHit( const SDL_Event event )
 	{
-		if( event.type == SDL_QUIT || ( event.type == SDL_KEYDOWN && SDLK_q == event.key.keysym.sym ) )
+		if( 
+			SDL_QUIT == event.type || (
+				SDL_KEYDOWN == event.type &&
+				SDLK_q == event.key.keysym.sym ) )
 		{
 			return true;
 		}
