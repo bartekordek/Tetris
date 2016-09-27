@@ -5,7 +5,7 @@
 
 namespace Tetris
 {
-	CMainGrid::CMainGrid():m_activeBrick( NULL )
+	CMainGrid::CMainGrid():m_activeBrick( nullptr )
 	{
 	}
 
@@ -91,7 +91,7 @@ namespace Tetris
 		if( true == CheckIfBlockCanBeMoved( direction ) )
 		{
 			m_RemoveActualBlockSlabsFromGrid();
-			m_MoveActualBlock( direction );
+			moveCurrentBrick( direction );
 		}
 	}
 
@@ -251,7 +251,7 @@ namespace Tetris
 		}
 	}
 
-	void CMainGrid::m_MoveActualBlock( const Direction direction )
+	void CMainGrid::moveCurrentBrick( const Direction direction )
 	{
 		m_activeBrick->Move( direction );
 		AddBrick( m_activeBrick );

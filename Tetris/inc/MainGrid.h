@@ -38,7 +38,7 @@ namespace Tetris
 		CInt GetColOffset( const Direction direction )const;
 		CInt GetRowOffset( const Direction direction )const;
 		CUInt m_RowColToSlabIndex( CUInt rowIndex, CUInt colIndex )const;
-		void m_MoveActualBlock( const Direction direction );
+		void moveCurrentBrick( const Direction direction );
 		void m_RemoveActualBlockSlabsFromGrid();
 		void MarkSlabAsPartOfMovingBlock( CUInt row, CUInt col );
 		const bool RowIsConnected( const SlabRow& slabRow )const;

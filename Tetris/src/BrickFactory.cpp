@@ -31,7 +31,7 @@ namespace Tetris
 
 	CBrick* CBrickFactory::GetRandomBrick()
 	{
-		srand( static_cast<UInt> ( time( NULL ) ) );
+		srand( static_cast<UInt> ( time( nullptr ) ) );
 		int randomNumber = rand() % 5;
 		return GetBrick( static_cast<BrickTypes>( randomNumber ) );
 	}
