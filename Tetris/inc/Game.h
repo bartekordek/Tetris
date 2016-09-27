@@ -28,7 +28,6 @@ namespace Tetris
 	public:
 		CGame();
 		void Initialize( CUInt rowsCount = 50, CUInt columnsCount = 10, const Resolution& resoltion = Resolution( 640, 480 ) );
-		void ShowGrid();
 		void MainLoop();
 		void StartGame();
 		virtual ~CGame();
@@ -37,6 +36,7 @@ namespace Tetris
 		Moge::ImageSurface GetFilledSlabSurface()const;
 
 	private:
+		void userInputLoop();
 		void SetMainGridEmptySlabImage();
 		void SetMainGridFilledSlabImage();
 		void CreateGrid();
@@ -44,8 +44,6 @@ namespace Tetris
 		const bool IsKeyDown( const SDL_Event event );
 		void HandleKeys( SDL_Keycode sdlkey );
 		void SetMainGridSize( CUInt rows, CUInt columns );
-		void MoveActiveBrick( const Direction direction = Direction::D );
-		void RotateActualBrick( const bool clockWise = true );
 		void ReleaseBrick();
 		void AddCurrentBrickToGrid();
 		void MainLoopThread();

@@ -84,13 +84,17 @@ namespace Tetris
 	void CGame::StartGame()
 	{
 		ReleaseBrick();
-		ShowGrid();
 	}
 
 	void CGame::MainLoop()
 	{
-		SDL_Event event;
 		m_mainLoopThread = std::thread( &CGame::MainLoopThread, this );
+		userInputLoop();
+	}
+
+	void CGame::userInputLoop()
+	{
+		SDL_Event event;
 		while( false == m_quit )
 		{
 			while( SDL_PollEvent( &event ) )
@@ -121,19 +125,19 @@ namespace Tetris
 	{
 		if( SDLK_RIGHT == sdlkey )
 		{
-			MoveActiveBrick( Direction::R );
+			m_mainGrid.MoveActualBrick( Direction::R );
 		}
 		else if( SDLK_LEFT == sdlkey )
 		{
-			MoveActiveBrick( Direction::L );
+			m_mainGrid.MoveActualBrick( Direction::L );
 		}
 		else if( SDLK_DOWN == sdlkey )
 		{
-			MoveActiveBrick( Direction::D );
+			m_mainGrid.MoveActualBrick( Direction::D );
 		}
 		else if( SDLK_SPACE == sdlkey )
 		{
-			RotateActualBrick();
+			m_mainGrid.RotateActualBrick( true );
 		}
 	}
 
@@ -148,19 +152,13 @@ namespace Tetris
 				ReleaseBrick();
 			}
 			Moge::CTimeMod::SleepMiliSeconds( 500 );
-			MoveActiveBrick( Direction::D );
-			//Moge::Engine::Instance().QueueFrame();
+			m_mainGrid.MoveActualBrick( Direction::D );
 		}
 	}
 
 	void CGame::ReleaseBrick()
 	{
 		m_mainGrid.ReLeaseBrick();
-		ShowGrid();
-	}
-
-	void CGame::ShowGrid()
-	{
 	}
 
 	void CGame::AddCurrentBrickToGrid()
@@ -175,17 +173,6 @@ namespace Tetris
 				slab.GetNode().get()->SetSurface( mFilledSlabImage );
 			}
 		}
-	}
-
-	void CGame::MoveActiveBrick( const Direction direction )
-	{
-		m_mainGrid.MoveActualBrick( direction );
-		ShowGrid();
-	}
-
-	void CGame::RotateActualBrick( const bool clockWise )
-	{
-		m_mainGrid.RotateActualBrick( clockWise );
 	}
 
 	const bool CGame::QuitHasBeenHit( const SDL_Event event )
