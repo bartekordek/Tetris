@@ -13,14 +13,13 @@ namespace Tetris
 
 	struct Resolution
 	{
-		Resolution( const unsigned int width, const unsigned int height ):
+		Resolution( CUInt width, CUInt height ):
 			width( width ),
 			height( height )
 		{
-
 		}
-		unsigned int width;
-		unsigned int height;
+		UInt width;
+		UInt height;
 	};
 
 	class CGame
