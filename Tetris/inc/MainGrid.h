@@ -27,7 +27,8 @@ namespace Tetris
 		void AddBrick( const CBrick* brick );
 		const bool SlabExist( CUInt rowIndex, CUInt colIndex )const;
 		const bool PartOfCurrentBrick( CUInt rowIndex, CUInt colIndex )const;
-		const bool CheckIfBlockCanBeMoved( const Direction direction );
+		const bool checkIfBlockCanBeMoved( const Direction direction );
+		const bool checkIfBlockCanBeRotated( const bool clockWise = true );
 		void addCurrentBrickToGrid();
 		void ManageFullLine();
 		CInt GetColOffset( const Direction direction )const;

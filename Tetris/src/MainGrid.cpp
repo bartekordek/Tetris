@@ -24,7 +24,7 @@ namespace Tetris
 
 	void CMainGrid::updateGrid()
 	{
-		if( false == CheckIfBlockCanBeMoved( Direction::D ) )
+		if( false == checkIfBlockCanBeMoved( Direction::D ) )
 		{
 			addCurrentBrickToGrid();
 			ManageFullLine();
@@ -109,14 +109,14 @@ namespace Tetris
 
 	void CMainGrid::MoveActualBrick( const Direction direction )
 	{
-		if( true == CheckIfBlockCanBeMoved( direction ) )
+		if( true == checkIfBlockCanBeMoved( direction ) )
 		{
 			m_RemoveActualBlockSlabsFromGrid();
 			moveCurrentBrick( direction );
 		}
 	}
 
-	const bool CMainGrid::CheckIfBlockCanBeMoved( const Direction direction )
+	const bool CMainGrid::checkIfBlockCanBeMoved( const Direction direction )
 	{
 		for( auto& coord : m_activeBrick->GetBlockPositions() )
 		{
@@ -144,6 +144,11 @@ namespace Tetris
 			}
 		}
 		return true;
+	}
+
+	const bool CMainGrid::checkIfBlockCanBeRotated( const bool clockWise = true )
+	{
+
 	}
 
 	CInt CMainGrid::GetColOffset( const Direction direction )const
