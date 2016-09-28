@@ -32,7 +32,6 @@ namespace Tetris
 		void ManageFullLine();
 		CInt GetColOffset( const Direction direction )const;
 		CInt GetRowOffset( const Direction direction )const;
-		CUInt m_RowColToSlabIndex( CUInt rowIndex, CUInt colIndex )const;
 		void moveCurrentBrick( const Direction direction );
 		void m_RemoveActualBlockSlabsFromGrid();
 		void MarkSlabAsPartOfMovingBlock( CUInt row, CUInt col );
@@ -41,12 +40,8 @@ namespace Tetris
 		void MoveAllLinesOneLineDown( std::vector<SlabRow>::iterator rowIterator );
 		void SetSlabImagSurface( CSlab& slab );
 
-		CGame* mGamePtr = nullptr;
-
 		CBrick* m_activeBrick;
 		std::vector<SlabRow> mSlabsRows;
-		UInt m_columnsCount;
-		UInt m_rowsCount;
 		CPicture m_slabBackground;
 		CPicture m_brickBckd;
 		std::mutex slabsMutex;

@@ -37,15 +37,12 @@ namespace Tetris
 	void CMainGrid::SetSize( CUInt rowsCount, CUInt columnsCount, CUInt initialX, CUInt initialY )
 	{
 		mSlabsRows.erase( mSlabsRows.begin(), mSlabsRows.end() );
-		m_columnsCount = columnsCount;
-		m_rowsCount = rowsCount;
-		for( UInt row = 0; row < m_rowsCount; ++row )
+		for( UInt row = 0; row < rowsCount; ++row )
 		{
 			SlabRow rows;
-			for( UInt col = 0; col < m_columnsCount; ++col )
+			for( UInt col = 0; col < columnsCount; ++col )
 			{
 				CSlab slab( row + initialY, col + initialX, false, true );
-				slab.SetId( m_RowColToSlabIndex( slab.Row(), slab.Col() ) );
 				rows.push_back( slab );
 			}
 			mSlabsRows.push_back( rows );
@@ -86,6 +83,11 @@ namespace Tetris
 
 	void CMainGrid::MarkSlabAsPartOfMovingBlock( CUInt row, CUInt col )
 	{
+		if( row >= mSlabsRows.size() || ( mSlabsRows.size() > 0 && col > mSlabsRows.at( 0 ).size() ) )
+		{
+			return;
+		}
+
 		CSlab& slab = mSlabsRows.at( row ).at( col );
 		slab.Empty( false );
 		auto slabNode = slab.GetNode();
@@ -262,7 +264,7 @@ namespace Tetris
 
 	const bool CMainGrid::SlabExist( CUInt rowIndex, CUInt colIndex )const
 	{
-		if( colIndex >= m_columnsCount || rowIndex >= m_rowsCount )
+		if( colIndex >= mSlabsRows.at( 0 ).size() || rowIndex >= mSlabsRows.size() )
 		{
 			return false;
 		}
@@ -327,7 +329,7 @@ namespace Tetris
 			}
 		}
 
-		for( UInt j = 0; j < m_columnsCount; ++j )
+		for( UInt j = 0; j < rowIterator->size(); ++j )
 		{
 			CSlab& slab = mSlabsRows.at( 0 ).at( j );
 			slab.Empty( true );
@@ -346,10 +348,5 @@ namespace Tetris
 		{
 			slabNode->SetSurface( mFilledSlabImage );
 		}
-	}
-
-	CUInt CMainGrid::m_RowColToSlabIndex( CUInt rowIndex, CUInt colIndex )const
-	{
-		return rowIndex*m_columnsCount + colIndex;
 	}
 }
