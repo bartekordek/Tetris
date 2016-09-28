@@ -146,26 +146,23 @@ namespace Tetris
 		return true;
 	}
 
-	const bool CMainGrid::checkIfBlockCanBeRotated( const bool clockWise = true )
+	const bool CMainGrid::checkIfBlockCanBeRotated( const bool clockWise )
 	{
-
+		return false;
 	}
 
 	CInt CMainGrid::GetColOffset( const Direction direction )const
 	{
-		if( Direction::U == direction )
+		if( Direction::U == direction || Direction::D == direction )
 		{
 			return 0;
 		}
-		else if( Direction::D == direction )
-		{
-			return 0;
-		}
-		else if( Direction::R == direction )
+
+		if( Direction::R == direction )
 		{
 			return 1;
 		}
-		else if( Direction::L == direction )
+		if( Direction::L == direction )
 		{
 			return  -1;
 		}
