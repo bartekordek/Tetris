@@ -10,7 +10,6 @@ union SDL_Event;
 
 namespace Tetris
 {
-
 	struct Resolution
 	{
 		Resolution( CUInt width, CUInt height ):
