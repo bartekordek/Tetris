@@ -14,9 +14,7 @@
 
 namespace Tetris
 {
-	CGame::CGame():
-		m_roundInProgress( false ),
-		m_quit( false )
+	CGame::CGame()
 	{
 	}
 

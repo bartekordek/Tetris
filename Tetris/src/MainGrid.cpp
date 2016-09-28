@@ -66,11 +66,6 @@ namespace Tetris
 		}
 	}
 
-	void CMainGrid::SetBackgroundPicture( const Path location, CUInt width, CUInt height )
-	{
-		m_slabBackground = CPicture( location, width, height );
-	}
-
 	void CMainGrid::ReLeaseBrick()
 	{
 		delete m_activeBrick;
@@ -95,16 +90,6 @@ namespace Tetris
 		slab.Empty( false );
 		auto slabNode = slab.GetNode();
 		slabNode->SetSurface( mFilledSlabImage );
-	}
-
-	const Path CMainGrid::SlabPictureLoc()const
-	{
-		return m_slabBackground.GetImgLoc();
-	}
-
-	const bool CMainGrid::Empty( CUInt rowIndex, CUInt colIndex )const
-	{
-		return mSlabsRows.at( rowIndex).at( colIndex ).Empty();
 	}
 
 	const bool CMainGrid::PartOfCurrentBrick( CUInt rowIndex, CUInt colIndex )const
@@ -151,7 +136,7 @@ namespace Tetris
 				continue;
 			}
 
-			if( false == Empty( newRow, newCol ) )
+			if( false == mSlabsRows.at( newRow ).at( newCol ).Empty() )
 			{
 				return false;
 			}
@@ -240,7 +225,7 @@ namespace Tetris
 		{
 			for( auto& coord : m_activeBrick->GetBlockPositions() )
 			{
-				CSlab& slab = GetSlab( coord.Row(), coord.Col() );
+				CSlab& slab = mSlabsRows.at( coord.Row() ).at( coord.Col() );
 				slab.Empty( false );
 				slab.GetNode().get()->SetSurface( mFilledSlabImage );
 			}
@@ -267,7 +252,7 @@ namespace Tetris
 				continue;
 			}
 
-			if( false == Empty( it->Row(), it->Col() ) )
+			if( false == mSlabsRows.at( it->Row() ).at( it->Col() ).Empty() )
 			{
 				return false;
 			}
@@ -311,11 +296,6 @@ namespace Tetris
 				MoveAllLinesOneLineDown( rowsIterator );
 			}
 		}
-	}
-
-	CSlab& CMainGrid::GetSlab( CUInt row, CUInt column )
-	{
-		return mSlabsRows.at( row ).at( column );
 	}
 
 	const bool CMainGrid::RowIsConnected( const SlabRow& slabRow )const

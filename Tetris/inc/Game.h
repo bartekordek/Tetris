@@ -38,15 +38,8 @@ namespace Tetris
 		void HandleKeys( SDL_Keycode sdlkey );
 		void MainLoopThread();
 
-		Moge::ImageSurface mEmptySlabImage;
-		Moge::ImageSurface mFilledSlabImage;
-
 		CMainGrid m_mainGrid;
 		std::thread m_mainLoopThread;
-		bool m_roundInProgress;
-		bool m_quit;
-
-		Moge::MyString emptySlabName = Moge::MyString( "emptySlab" );
-		Moge::MyString slabName = Moge::MyString( "slab" );
+		bool m_quit = false;
 	};
 }
