@@ -31,20 +31,11 @@ namespace Tetris
 		void StartGame();
 		virtual ~CGame();
 
-		Moge::ImageSurface GetEmptySlabSurface()const;
-		Moge::ImageSurface GetFilledSlabSurface()const;
-
 	private:
 		void userInputLoop();
-		void SetMainGridEmptySlabImage();
-		void SetMainGridFilledSlabImage();
-		void CreateGrid();
 		const bool QuitHasBeenHit( const SDL_Event event );
 		const bool IsKeyDown( const SDL_Event event );
 		void HandleKeys( SDL_Keycode sdlkey );
-		void SetMainGridSize( CUInt rows, CUInt columns );
-		void ReleaseBrick();
-		void AddCurrentBrickToGrid();
 		void MainLoopThread();
 
 		Moge::ImageSurface mEmptySlabImage;

@@ -16,6 +16,7 @@ namespace Tetris
 	public:
 		CMainGrid();
 		virtual ~CMainGrid();
+		void updateGrid();
 		void SetSize( CUInt rowsCount, CUInt columnsCount, CUInt initialX = 0, CUInt initialY = 0 );
 		void SetBackgroundPicture( const Path picLocation, CUInt width, CUInt height );
 		void AddBrick( const CBrick* brick );
@@ -23,14 +24,12 @@ namespace Tetris
 		const Path SlabPictureLoc()const;
 		const bool Empty( CUInt rowIndex, CUInt colIndex )const;
 		const bool SlabExist( CUInt rowIndex, CUInt colIndex )const;
-		CBrick* GetCurrentBrick();
 		const bool PartOfCurrentBrick( CUInt rowIndex, CUInt colIndex )const;
 		void MoveActualBrick( const Direction direction );
-		const bool CheckIfBlockCanBeMoved( const Direction direction )const;
+		const bool CheckIfBlockCanBeMoved( const Direction direction );
 		void RotateActualBrick( const bool clockWise = true );
+		void addCurrentBrickToGrid();
 		void ManageFullLine();
-		void SetGamePtr( CGame* game );
-		std::vector<SlabRow>& GetSlabs();
 
 		CSlab& GetSlab( CUInt row, CUInt column );
 
@@ -55,5 +54,8 @@ namespace Tetris
 		CPicture m_slabBackground;
 		CPicture m_brickBckd;
 		std::mutex slabsMutex;
+		std::mutex currentBrickMutex;
+		Moge::ImageSurface mEmptySlabImage;
+		Moge::ImageSurface mFilledSlabImage;
 	};
 }

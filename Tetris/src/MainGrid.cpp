@@ -1,17 +1,37 @@
 #include "Game.h"
 #include "MainGrid.h"
 #include "BrickFactory.h"
-#include <NodeCreator.h>
+#include "NodeCreator.h"
+#include "NodeImageCreator.h"
+#include "MTime.h"
 
 namespace Tetris
 {
 	CMainGrid::CMainGrid():m_activeBrick( nullptr )
 	{
+		std::lock_guard<std::mutex> slabLock( currentBrickMutex );
+		Moge::Path blockImagepath = Moge::Path::GetCurrentDirectory() + "\\..\\..\\Media\\Block.bmp";
+		mFilledSlabImage = Moge::ImageCreator::CreateSurfaceFromImage( blockImagepath );
+
+		Moge::Path bgBlockImagepath = Moge::Path::GetCurrentDirectory() + "\\..\\..\\Media\\BackGroundBlock.bmp";
+		mEmptySlabImage = Moge::ImageCreator::CreateSurfaceFromImage( bgBlockImagepath );
 	}
 
 	CMainGrid::~CMainGrid()
 	{
 		mSlabsRows.erase( mSlabsRows.begin(), mSlabsRows.end() );
+	}
+
+	void CMainGrid::updateGrid()
+	{
+		if( false == CheckIfBlockCanBeMoved( Direction::D ) )
+		{
+			addCurrentBrickToGrid();
+			ManageFullLine();
+			ReLeaseBrick();
+		}
+		Moge::CTimeMod::SleepMiliSeconds( 500 );
+		MoveActualBrick( Direction::D );
 	}
 
 	void CMainGrid::SetSize( CUInt rowsCount, CUInt columnsCount, CUInt initialX, CUInt initialY )
@@ -29,6 +49,20 @@ namespace Tetris
 				rows.push_back( slab );
 			}
 			mSlabsRows.push_back( rows );
+		}
+
+		for( auto& slabRow : mSlabsRows )
+		{
+			for( auto& slab : slabRow )
+			{
+				std::shared_ptr<Moge::ObjectNodeContent> slabNode = Moge::NodeCreator::CreateFromImage( mEmptySlabImage );
+				Moge::Math::IPositionAdapter<int> position( slab.Col() * slabNode->getWidth(), slab.Row() * slabNode->getHeight(), 0 );
+				slabNode->setXyz( position.getX(), position.getY(), 0 );
+				slab.SetNode( slabNode );
+
+				slabNode->SetVisible();
+				Moge::Engine::Instance().AddObject( slabNode );//TODO: redundant add, should be moved to NodeMgr
+			}
 		}
 	}
 
@@ -60,7 +94,7 @@ namespace Tetris
 		CSlab& slab = mSlabsRows.at( row ).at( col );
 		slab.Empty( false );
 		auto slabNode = slab.GetNode();
-		slabNode->SetSurface( mGamePtr->GetFilledSlabSurface() );
+		slabNode->SetSurface( mFilledSlabImage );
 	}
 
 	const Path CMainGrid::SlabPictureLoc()const
@@ -95,7 +129,7 @@ namespace Tetris
 		}
 	}
 
-	const bool CMainGrid::CheckIfBlockCanBeMoved( const Direction direction )const
+	const bool CMainGrid::CheckIfBlockCanBeMoved( const Direction direction )
 	{
 		for( auto& coord : m_activeBrick->GetBlockPositions() )
 		{
@@ -200,6 +234,19 @@ namespace Tetris
 		delete tempBrick;
 	}
 
+	void CMainGrid::addCurrentBrickToGrid()
+	{
+		if( m_activeBrick )
+		{
+			for( auto& coord : m_activeBrick->GetBlockPositions() )
+			{
+				CSlab& slab = GetSlab( coord.Row(), coord.Col() );
+				slab.Empty( false );
+				slab.GetNode().get()->SetSurface( mFilledSlabImage );
+			}
+		}
+	}
+
 	const bool CMainGrid::m_CheckIfBlockCanBePlaced( const CBrick* brick )
 	{
 		CoordinatestList coords = brick->GetBlockPositions();
@@ -234,7 +281,6 @@ namespace Tetris
 		{
 			return false;
 		}
-
 		return true;
 	}
 
@@ -242,12 +288,10 @@ namespace Tetris
 	{
 		for( auto& coord : m_activeBrick->GetBlockPositions() )
 		{
-			CUInt row = coord.Row();
-			CUInt col = coord.Col();
-			auto& slab = mSlabsRows.at( row ).at( col );
+			auto& slab = mSlabsRows.at( coord.Row() ).at( coord.Col() );
 			slab.Empty( true );
 			auto slabnode = slab.GetNode();
-			slabnode->SetSurface( mGamePtr->GetEmptySlabSurface());
+			slabnode->SetSurface( mEmptySlabImage );
 		}
 	}
 
@@ -255,11 +299,6 @@ namespace Tetris
 	{
 		m_activeBrick->Move( direction );
 		AddBrick( m_activeBrick );
-	}
-
-	CBrick* CMainGrid::GetCurrentBrick()
-	{
-		return m_activeBrick;
 	}
 
 	void CMainGrid::ManageFullLine()
@@ -272,16 +311,6 @@ namespace Tetris
 				MoveAllLinesOneLineDown( rowsIterator );
 			}
 		}
-	}
-
-	void CMainGrid::SetGamePtr( CGame* game )
-	{
-		mGamePtr = game;
-	}
-
-	std::vector<SlabRow>& CMainGrid::GetSlabs()
-	{
-		return mSlabsRows;
 	}
 
 	CSlab& CMainGrid::GetSlab( CUInt row, CUInt column )
@@ -331,11 +360,11 @@ namespace Tetris
 		auto& slabNode = slab.GetNode();
 		if( slab.Empty() )
 		{
-			slabNode->SetSurface( mGamePtr->GetEmptySlabSurface() );
+			slabNode->SetSurface( mEmptySlabImage );
 		}
 		else
 		{
-			slabNode->SetSurface( mGamePtr->GetFilledSlabSurface() );
+			slabNode->SetSurface( mFilledSlabImage );
 		}
 	}
 
