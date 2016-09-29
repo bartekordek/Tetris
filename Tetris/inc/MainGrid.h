@@ -20,20 +20,20 @@ namespace Tetris
 		void SetSize( CUInt rowsCount, CUInt columnsCount, CUInt initialX = 0, CUInt initialY = 0 );
 		
 		void ReLeaseBrick();
-		void MoveActualBrick( const Direction direction );
+		void MoveActualBrick( const Directions direction );
 		void RotateActualBrick( const bool clockWise = true );
 
 	private:
 		void AddBrick( const CBrick* brick );
 		const bool SlabExist( CUInt rowIndex, CUInt colIndex )const;
 		const bool PartOfCurrentBrick( CUInt rowIndex, CUInt colIndex )const;
-		const bool checkIfBlockCanBeMoved( const Direction direction );
+		const bool checkIfBlockCanBeMoved( const Directions direction );
 		const bool checkIfBlockCanBeRotated( const bool clockWise = true );
 		void addCurrentBrickToGrid();
 		void ManageFullLine();
-		CInt GetColOffset( const Direction direction )const;
-		CInt GetRowOffset( const Direction direction )const;
-		void moveCurrentBrick( const Direction direction );
+		CInt GetColOffset( const Directions direction )const;
+		CInt GetRowOffset( const Directions direction )const;
+		void moveCurrentBrick( const Directions direction );
 		void m_RemoveActualBlockSlabsFromGrid();
 		void MarkSlabAsPartOfMovingBlock( CUInt row, CUInt col );
 		const bool RowIsConnected( const SlabRow& slabRow )const;

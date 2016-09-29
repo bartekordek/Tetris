@@ -1,10 +1,7 @@
 #pragma once
 
-#include "GeneralUtilities.h"
 #include "Slab.h"
-#include "Picture.h"
 #include <vector>
-#include <utility>
 
 namespace Tetris
 {
@@ -13,7 +10,7 @@ namespace Tetris
 		L, I, O, S, T
 	};
 
-	enum class Direction: char
+	enum class Directions: char
 	{
 		L,
 		R,
@@ -24,12 +21,12 @@ namespace Tetris
 	class CBrick
 	{
 	public:
-		CBrick( BrickTypes typeofBrick, const Direction direction = Direction::R );
-		CBrick( const std::vector<CSlab>& blocks, const Direction direction = Direction::R );
+		CBrick( BrickTypes typeofBrick, const Directions direction = Directions::R );
+		CBrick( const std::vector<CSlab>& blocks, const Directions direction = Directions::R );
 		CBrick( const CBrick& brick );
 		virtual ~CBrick();
 		CoordinatestList GetBlockPositions()const;
-		void Move( const Direction direction = Direction::D );
+		void Move( const Directions direction = Directions::D );
 		void Rotate( const bool clockWise = true );
 		BrickTypes GetBlockType()const;
 
@@ -40,13 +37,13 @@ namespace Tetris
 	protected:
 		std::vector<CSlab> m_blocks;
 
-		Direction m_direction;
+		Directions m_direction;
 	};
 
 	class CLBrick: public CBrick
 	{
 	public:
-		explicit CLBrick( const Direction direction = Direction::R );
+		explicit CLBrick( const Directions direction = Directions::R );
 	private:
 		void m_RotateClockWise();
 	};
@@ -54,7 +51,7 @@ namespace Tetris
 	class CIBrick: public CBrick
 	{
 	public:
-		explicit CIBrick( const Direction direction = Direction::R );
+		explicit CIBrick( const Directions direction = Directions::R );
 	private:
 		void m_RotateClockWise();
 	};
@@ -63,7 +60,7 @@ namespace Tetris
 	{
 	public:
 		explicit COBrick(
-			const Direction direction = Direction::R );
+			const Directions direction = Directions::R );
 	private:
 		void m_RotateClockWise();
 	};
@@ -71,7 +68,7 @@ namespace Tetris
 	class CSBrick: public CBrick
 	{
 	public:
-		explicit CSBrick( const Direction direction = Direction::R );
+		explicit CSBrick( const Directions direction = Directions::R );
 	private:
 		void m_RotateClockWise();
 	};
@@ -80,7 +77,7 @@ namespace Tetris
 	{
 	public:
 		explicit CTBrick(
-			const Direction direction = Direction::R );
+			const Directions direction = Directions::R );
 	private:
 		void m_RotateClockWise();
 	};

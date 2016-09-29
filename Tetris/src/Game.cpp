@@ -73,15 +73,15 @@ namespace Tetris
 	{
 		if( SDLK_RIGHT == sdlkey )
 		{
-			m_mainGrid.MoveActualBrick( Direction::R );
+			m_mainGrid.MoveActualBrick( Directions::R );
 		}
 		else if( SDLK_LEFT == sdlkey )
 		{
-			m_mainGrid.MoveActualBrick( Direction::L );
+			m_mainGrid.MoveActualBrick( Directions::L );
 		}
 		else if( SDLK_DOWN == sdlkey )
 		{
-			m_mainGrid.MoveActualBrick( Direction::D );
+			m_mainGrid.MoveActualBrick( Directions::D );
 		}
 		else if( SDLK_SPACE == sdlkey )
 		{

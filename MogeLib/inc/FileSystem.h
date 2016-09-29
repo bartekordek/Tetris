@@ -9,11 +9,10 @@ namespace Moge
 	{
 	public:
 		Path();
-		virtual ~Path();
-
 		explicit Path( const char* inputPath );
 		explicit Path( const MyString& inputPath );
 		Path( const Path& inputPath );
+		virtual ~Path();
 		
 		const char* c_str()const;
 

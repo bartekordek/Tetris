@@ -24,14 +24,14 @@ namespace Tetris
 
 	void CMainGrid::updateGrid()
 	{
-		if( false == checkIfBlockCanBeMoved( Direction::D ) )
+		if( false == checkIfBlockCanBeMoved( Directions::D ) )
 		{
 			addCurrentBrickToGrid();
 			ManageFullLine();
 			ReLeaseBrick();
 		}
 		Moge::CTimeMod::SleepMiliSeconds( 500 );
-		MoveActualBrick( Direction::D );
+		MoveActualBrick( Directions::D );
 	}
 
 	void CMainGrid::SetSize( CUInt rowsCount, CUInt columnsCount, CUInt initialX, CUInt initialY )
@@ -107,7 +107,7 @@ namespace Tetris
 		return false;
 	}
 
-	void CMainGrid::MoveActualBrick( const Direction direction )
+	void CMainGrid::MoveActualBrick( const Directions direction )
 	{
 		if( true == checkIfBlockCanBeMoved( direction ) )
 		{
@@ -116,7 +116,7 @@ namespace Tetris
 		}
 	}
 
-	const bool CMainGrid::checkIfBlockCanBeMoved( const Direction direction )
+	const bool CMainGrid::checkIfBlockCanBeMoved( const Directions direction )
 	{
 		for( auto& coord : m_activeBrick->GetBlockPositions() )
 		{
@@ -151,39 +151,39 @@ namespace Tetris
 		return false;
 	}
 
-	CInt CMainGrid::GetColOffset( const Direction direction )const
+	CInt CMainGrid::GetColOffset( const Directions direction )const
 	{
-		if( Direction::U == direction || Direction::D == direction )
+		if( Directions::U == direction || Directions::D == direction )
 		{
 			return 0;
 		}
 
-		if( Direction::R == direction )
+		if( Directions::R == direction )
 		{
 			return 1;
 		}
-		if( Direction::L == direction )
+		if( Directions::L == direction )
 		{
 			return  -1;
 		}
 		return -1;
 	}
 
-	CInt CMainGrid::GetRowOffset( const Direction direction )const
+	CInt CMainGrid::GetRowOffset( const Directions direction )const
 	{
-		if( Direction::U == direction )
+		if( Directions::U == direction )
 		{
 			return  0;
 		}
-		else if( Direction::D == direction )
+		else if( Directions::D == direction )
 		{
 			return  1;
 		}
-		else if( Direction::R == direction )
+		else if( Directions::R == direction )
 		{
 			return  0;
 		}
-		else if( Direction::L == direction )
+		else if( Directions::L == direction )
 		{
 			return  0;
 		}
@@ -284,7 +284,7 @@ namespace Tetris
 		}
 	}
 
-	void CMainGrid::moveCurrentBrick( const Direction direction )
+	void CMainGrid::moveCurrentBrick( const Directions direction )
 	{
 		m_activeBrick->Move( direction );
 		AddBrick( m_activeBrick );
