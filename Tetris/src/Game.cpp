@@ -1,9 +1,9 @@
 #include "Game.h"
 #include "BrickFactory.h"
-#include "MTime.h"
 #include "NodeCreator.h"
 #include "MultiPointFactory.h"
 #include "IPositionAdapter.h"
+#include "NodeImageCreator.h"
 
 #include <cstddef>
 
@@ -14,9 +14,7 @@
 
 namespace Tetris
 {
-	CGame::CGame():
-		m_roundInProgress( false ),
-		m_quit( false )
+	CGame::CGame()
 	{
 	}
 
@@ -24,72 +22,28 @@ namespace Tetris
 	{
 	}
 
-	Moge::ImageSurface CGame::GetEmptySlabSurface()const
-	{
-		return mEmptySlabImage;
-	}
-
-	Moge::ImageSurface CGame::GetFilledSlabSurface()const
-	{
-		return mFilledSlabImage;
-	}
-
 	void CGame::Initialize( CUInt rowsCount, CUInt columnsCount, const Resolution& resoltion )
 	{
 		Moge::Engine::Instance().CreateScreen( Moge::Math::MultiPointFactory::create2d<unsigned int>( 640, 480 ) );
 		Moge::Engine::Instance().StartMainLoop();
-		SetMainGridSize( rowsCount, columnsCount );
-		SetMainGridFilledSlabImage();
-		SetMainGridEmptySlabImage();
-		CreateGrid();
-	}
-
-	void CGame::SetMainGridSize( CUInt rows, CUInt columns )
-	{
-		m_mainGrid.SetSize( rows, columns );
-	}
-
-	void CGame::SetMainGridFilledSlabImage()
-	{
-		Moge::Path blockImagepath = Moge::Path::GetCurrentDirectory() + "\\..\\..\\Media\\Block.bmp";
-		mFilledSlabImage = Moge::ImageCreator::CreateSurfaceFromImage( blockImagepath );
-	}
-
-	void CGame::SetMainGridEmptySlabImage()
-	{
-		Moge::Path bgBlockImagepath = Moge::Path::GetCurrentDirectory() + "\\..\\..\\Media\\BackGroundBlock.bmp";
-		mEmptySlabImage = Moge::ImageCreator::CreateSurfaceFromImage( bgBlockImagepath );
-	}
-
-	void CGame::CreateGrid()
-	{		
-		m_mainGrid.SetGamePtr( this );
-
-		for( auto& slabRow : m_mainGrid.GetSlabs() )
-		{
-			for( auto& slab: slabRow )
-			{
-				std::shared_ptr<Moge::ObjectNodeContent> slabNode = Moge::NodeCreator::CreateFromImage( mEmptySlabImage );
-				Moge::Math::IPositionAdapter<int> position( slab.Col() * slabNode->getWidth(), slab.Row() * slabNode->getHeight(), 0 );
-				slabNode->setXyz( position.getX(), position.getY(), 0 );
-				slab.SetNode( slabNode );
-
-				slabNode->SetVisible();
-				Moge::Engine::Instance().AddObject( slabNode );//TODO: redundant add, should be moved to NodeMgr
-			}
-		}
+		m_mainGrid.SetSize( rowsCount, columnsCount );
 	}
 
 	void CGame::StartGame()
 	{
-		ReleaseBrick();
-		ShowGrid();
+		m_mainGrid.ReLeaseBrick();
 	}
 
 	void CGame::MainLoop()
 	{
-		SDL_Event event;
 		m_mainLoopThread = std::thread( &CGame::MainLoopThread, this );
+		userInputLoop();
+		m_mainLoopThread.join();
+	}
+
+	void CGame::userInputLoop()
+	{
+		SDL_Event event;
 		while( false == m_quit )
 		{
 			while( SDL_PollEvent( &event ) )
@@ -104,7 +58,6 @@ namespace Tetris
 				}
 			}
 		}
-		m_mainLoopThread.join();
 	}
 
 	const bool CGame::IsKeyDown( const SDL_Event event )
@@ -120,19 +73,19 @@ namespace Tetris
 	{
 		if( SDLK_RIGHT == sdlkey )
 		{
-			MoveActiveBrick( Direction::R );
+			m_mainGrid.MoveActualBrick( Directions::R );
 		}
 		else if( SDLK_LEFT == sdlkey )
 		{
-			MoveActiveBrick( Direction::L );
+			m_mainGrid.MoveActualBrick( Directions::L );
 		}
 		else if( SDLK_DOWN == sdlkey )
 		{
-			MoveActiveBrick( Direction::D );
+			m_mainGrid.MoveActualBrick( Directions::D );
 		}
 		else if( SDLK_SPACE == sdlkey )
 		{
-			RotateActualBrick();
+			m_mainGrid.RotateActualBrick( true );
 		}
 	}
 
@@ -140,61 +93,16 @@ namespace Tetris
 	{
 		while( false == m_quit )
 		{
-			if( false == m_mainGrid.CheckIfBlockCanBeMoved( Direction::D ) )
-			{
-				AddCurrentBrickToGrid();
-				m_mainGrid.ManageFullLine();
-				ReleaseBrick();
-			}
-			Moge::CTimeMod::SleepMiliSeconds( 500 );
-			MoveActiveBrick( Direction::D );
-			//Moge::Engine::Instance().QueueFrame();
+			m_mainGrid.updateGrid();
 		}
-	}
-
-	void CGame::ReleaseBrick()
-	{
-		m_mainGrid.ReLeaseBrick();
-		ShowGrid();
-	}
-
-	void CGame::ShowGrid()
-	{
-	}
-
-	void CGame::AddCurrentBrickToGrid()
-	{
-		CBrick* currentBrick = m_mainGrid.GetCurrentBrick();
-		if( currentBrick )
-		{
-			for( auto& coord : currentBrick->GetBlockPositions() )
-			{
-				CSlab& slab = m_mainGrid.GetSlab( coord.Row(), coord.Col() );
-				slab.Empty( false );
-				slab.GetNode().get()->SetSurface( mFilledSlabImage );
-			}
-		}
-	}
-
-	void CGame::MoveActiveBrick( const Direction direction )
-	{
-		m_mainGrid.MoveActualBrick( direction );
-		ActualizeGrid();
-		ShowGrid();
-	}
-
-	void CGame::RotateActualBrick( const bool clockWise )
-	{
-		m_mainGrid.RotateActualBrick( clockWise );
-	}
-
-	void CGame::ActualizeGrid()
-	{
 	}
 
 	const bool CGame::QuitHasBeenHit( const SDL_Event event )
 	{
-		if( event.type == SDL_QUIT || ( event.type == SDL_KEYDOWN && SDLK_q == event.key.keysym.sym ) )
+		if( 
+			SDL_QUIT == event.type || (
+				SDL_KEYDOWN == event.type &&
+				SDLK_q == event.key.keysym.sym ) )
 		{
 			return true;
 		}

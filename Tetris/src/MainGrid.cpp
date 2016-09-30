@@ -1,13 +1,20 @@
 #include "Game.h"
 #include "MainGrid.h"
 #include "BrickFactory.h"
-#include <NodeCreator.h>
+#include "NodeCreator.h"
+#include "NodeImageCreator.h"
+#include "MTime.h"
 
 namespace Tetris
 {
-
-	CMainGrid::CMainGrid():m_activeBrick( NULL )
+	CMainGrid::CMainGrid():m_activeBrick( nullptr )
 	{
+		std::lock_guard<std::mutex> slabLock( currentBrickMutex );
+		Moge::Path blockImagepath = Moge::Path::GetCurrentDirectory() + "\\..\\..\\Media\\Block.bmp";
+		mFilledSlabImage = Moge::ImageCreator::CreateSurfaceFromImage( blockImagepath );
+
+		Moge::Path bgBlockImagepath = Moge::Path::GetCurrentDirectory() + "\\..\\..\\Media\\BackGroundBlock.bmp";
+		mEmptySlabImage = Moge::ImageCreator::CreateSurfaceFromImage( bgBlockImagepath );
 	}
 
 	CMainGrid::~CMainGrid()
@@ -15,27 +22,45 @@ namespace Tetris
 		mSlabsRows.erase( mSlabsRows.begin(), mSlabsRows.end() );
 	}
 
+	void CMainGrid::updateGrid()
+	{
+		if( false == checkIfBlockCanBeMoved( Directions::D ) )
+		{
+			addCurrentBrickToGrid();
+			ManageFullLine();
+			ReLeaseBrick();
+		}
+		Moge::CTimeMod::SleepMiliSeconds( 500 );
+		MoveActualBrick( Directions::D );
+	}
+
 	void CMainGrid::SetSize( CUInt rowsCount, CUInt columnsCount, CUInt initialX, CUInt initialY )
 	{
 		mSlabsRows.erase( mSlabsRows.begin(), mSlabsRows.end() );
-		m_columnsCount = columnsCount;
-		m_rowsCount = rowsCount;
-		for( UInt row = 0; row < m_rowsCount; ++row )
+		for( UInt row = 0; row < rowsCount; ++row )
 		{
 			SlabRow rows;
-			for( UInt col = 0; col < m_columnsCount; ++col )
+			for( UInt col = 0; col < columnsCount; ++col )
 			{
 				CSlab slab( row + initialY, col + initialX, false, true );
-				slab.SetId( m_RowColToSlabIndex( slab.Row(), slab.Col() ) );
 				rows.push_back( slab );
 			}
 			mSlabsRows.push_back( rows );
 		}
-	}
 
-	void CMainGrid::SetBackgroundPicture( const Path location, CUInt width, CUInt height )
-	{
-		m_slabBackground = CPicture( location, width, height );
+		for( auto& slabRow : mSlabsRows )
+		{
+			for( auto& slab : slabRow )
+			{
+				std::shared_ptr<Moge::ObjectNodeContent> slabNode = Moge::NodeCreator::CreateFromImage( mEmptySlabImage );
+				Moge::Math::IPositionAdapter<int> position( slab.Col() * slabNode->getWidth(), slab.Row() * slabNode->getHeight(), 0 );
+				slabNode->setXyz( position.getX(), position.getY(), 0 );
+				slab.SetNode( slabNode );
+
+				slabNode->SetVisible();
+				Moge::Engine::Instance().AddObject( slabNode );//TODO: redundant add, should be moved to NodeMgr
+			}
+		}
 	}
 
 	void CMainGrid::ReLeaseBrick()
@@ -58,40 +83,15 @@ namespace Tetris
 
 	void CMainGrid::MarkSlabAsPartOfMovingBlock( CUInt row, CUInt col )
 	{
+		if( row >= mSlabsRows.size() || ( mSlabsRows.size() > 0 && col > mSlabsRows.at( 0 ).size() ) )
+		{
+			return;
+		}
+
 		CSlab& slab = mSlabsRows.at( row ).at( col );
 		slab.Empty( false );
 		auto slabNode = slab.GetNode();
-		slabNode->SetSurface( mGamePtr->GetFilledSlabSurface() );
-	}
-
-	CUInt CMainGrid::GetRowsCount()const
-	{
-		return m_rowsCount;
-	}
-
-	CUInt CMainGrid::GetColumnsCount()const
-	{
-		return m_columnsCount;
-	}
-
-	const Path CMainGrid::SlabPictureLoc()const
-	{
-		return m_slabBackground.GetImgLoc();
-	}
-
-	const Path CMainGrid::EmptySlabPictureLoc()const
-	{
-		return m_brickBckd.GetImgLoc();
-	}
-
-	const bool CMainGrid::Empty( CUInt rowIndex, CUInt colIndex )const
-	{
-		return mSlabsRows.at( rowIndex).at( colIndex ).Empty();
-	}
-
-	CUInt CMainGrid::SlabCount()const
-	{
-		return GetRowsCount()*GetColumnsCount();
+		slabNode->SetSurface( mFilledSlabImage );
 	}
 
 	const bool CMainGrid::PartOfCurrentBrick( CUInt rowIndex, CUInt colIndex )const
@@ -107,16 +107,16 @@ namespace Tetris
 		return false;
 	}
 
-	void CMainGrid::MoveActualBrick( const Direction direction )
+	void CMainGrid::MoveActualBrick( const Directions direction )
 	{
-		if( true == CheckIfBlockCanBeMoved( direction ) )
+		if( true == checkIfBlockCanBeMoved( direction ) )
 		{
 			m_RemoveActualBlockSlabsFromGrid();
-			m_MoveActualBlock( direction );
+			moveCurrentBrick( direction );
 		}
 	}
 
-	const bool CMainGrid::CheckIfBlockCanBeMoved( const Direction direction )const
+	const bool CMainGrid::checkIfBlockCanBeMoved( const Directions direction )
 	{
 		for( auto& coord : m_activeBrick->GetBlockPositions() )
 		{
@@ -138,7 +138,7 @@ namespace Tetris
 				continue;
 			}
 
-			if( false == Empty( newRow, newCol ) )
+			if( false == mSlabsRows.at( newRow ).at( newCol ).Empty() )
 			{
 				return false;
 			}
@@ -146,42 +146,44 @@ namespace Tetris
 		return true;
 	}
 
-	CInt CMainGrid::GetColOffset( const Direction direction )const
+	const bool CMainGrid::checkIfBlockCanBeRotated( const bool clockWise )
 	{
-		if( Direction::U == direction )
+		return false;
+	}
+
+	CInt CMainGrid::GetColOffset( const Directions direction )const
+	{
+		if( Directions::U == direction || Directions::D == direction )
 		{
 			return 0;
 		}
-		else if( Direction::D == direction )
-		{
-			return 0;
-		}
-		else if( Direction::R == direction )
+
+		if( Directions::R == direction )
 		{
 			return 1;
 		}
-		else if( Direction::L == direction )
+		if( Directions::L == direction )
 		{
 			return  -1;
 		}
 		return -1;
 	}
 
-	CInt CMainGrid::GetRowOffset( const Direction direction )const
+	CInt CMainGrid::GetRowOffset( const Directions direction )const
 	{
-		if( Direction::U == direction )
+		if( Directions::U == direction )
 		{
 			return  0;
 		}
-		else if( Direction::D == direction )
+		else if( Directions::D == direction )
 		{
 			return  1;
 		}
-		else if( Direction::R == direction )
+		else if( Directions::R == direction )
 		{
 			return  0;
 		}
-		else if( Direction::L == direction )
+		else if( Directions::L == direction )
 		{
 			return  0;
 		}
@@ -221,6 +223,19 @@ namespace Tetris
 		delete tempBrick;
 	}
 
+	void CMainGrid::addCurrentBrickToGrid()
+	{
+		if( m_activeBrick )
+		{
+			for( auto& coord : m_activeBrick->GetBlockPositions() )
+			{
+				CSlab& slab = mSlabsRows.at( coord.Row() ).at( coord.Col() );
+				slab.Empty( false );
+				slab.GetNode().get()->SetSurface( mFilledSlabImage );
+			}
+		}
+	}
+
 	const bool CMainGrid::m_CheckIfBlockCanBePlaced( const CBrick* brick )
 	{
 		CoordinatestList coords = brick->GetBlockPositions();
@@ -241,7 +256,7 @@ namespace Tetris
 				continue;
 			}
 
-			if( false == Empty( it->Row(), it->Col() ) )
+			if( false == mSlabsRows.at( it->Row() ).at( it->Col() ).Empty() )
 			{
 				return false;
 			}
@@ -251,11 +266,10 @@ namespace Tetris
 
 	const bool CMainGrid::SlabExist( CUInt rowIndex, CUInt colIndex )const
 	{
-		if( colIndex >= m_columnsCount || rowIndex >= m_rowsCount )
+		if( colIndex >= mSlabsRows.at( 0 ).size() || rowIndex >= mSlabsRows.size() )
 		{
 			return false;
 		}
-
 		return true;
 	}
 
@@ -263,24 +277,17 @@ namespace Tetris
 	{
 		for( auto& coord : m_activeBrick->GetBlockPositions() )
 		{
-			CUInt row = coord.Row();
-			CUInt col = coord.Col();
-			auto& slab = mSlabsRows.at( row ).at( col );
+			auto& slab = mSlabsRows.at( coord.Row() ).at( coord.Col() );
 			slab.Empty( true );
 			auto slabnode = slab.GetNode();
-			slabnode->SetSurface( mGamePtr->GetEmptySlabSurface());
+			slabnode->SetSurface( mEmptySlabImage );
 		}
 	}
 
-	void CMainGrid::m_MoveActualBlock( const Direction direction )
+	void CMainGrid::moveCurrentBrick( const Directions direction )
 	{
 		m_activeBrick->Move( direction );
 		AddBrick( m_activeBrick );
-	}
-
-	CBrick* CMainGrid::GetCurrentBrick()
-	{
-		return m_activeBrick;
 	}
 
 	void CMainGrid::ManageFullLine()
@@ -293,21 +300,6 @@ namespace Tetris
 				MoveAllLinesOneLineDown( rowsIterator );
 			}
 		}
-	}
-
-	void CMainGrid::SetGamePtr( CGame* game )
-	{
-		mGamePtr = game;
-	}
-
-	std::vector<SlabRow>& CMainGrid::GetSlabs()
-	{
-		return mSlabsRows;
-	}
-
-	CSlab& CMainGrid::GetSlab( CUInt row, CUInt column )
-	{
-		return mSlabsRows.at( row ).at( column );
 	}
 
 	const bool CMainGrid::RowIsConnected( const SlabRow& slabRow )const
@@ -339,7 +331,7 @@ namespace Tetris
 			}
 		}
 
-		for( UInt j = 0; j < m_columnsCount; ++j )
+		for( UInt j = 0; j < rowIterator->size(); ++j )
 		{
 			CSlab& slab = mSlabsRows.at( 0 ).at( j );
 			slab.Empty( true );
@@ -352,16 +344,11 @@ namespace Tetris
 		auto& slabNode = slab.GetNode();
 		if( slab.Empty() )
 		{
-			slabNode->SetSurface( mGamePtr->GetEmptySlabSurface() );
+			slabNode->SetSurface( mEmptySlabImage );
 		}
 		else
 		{
-			slabNode->SetSurface( mGamePtr->GetFilledSlabSurface() );
+			slabNode->SetSurface( mFilledSlabImage );
 		}
-	}
-
-	CUInt CMainGrid::m_RowColToSlabIndex( CUInt rowIndex, CUInt colIndex )const
-	{
-		return rowIndex*m_columnsCount + colIndex;
 	}
 }

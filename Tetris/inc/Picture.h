@@ -1,26 +1,25 @@
 #pragma once
 
 #include <FileSystem.h>
-#include <Named.h>
+#include "Named.h"
+#include "Aliases.h"
 
+#include <memory>
 
-using Path = Moge::Path;
-
+class Path;
 class CPicture: public Moge::Name
 {
 public:
 	CPicture();
-	CPicture( const Path location, CUInt width = 10, CUInt height = 10 );
+	CPicture( const char* path, CUInt width = 10, CUInt height = 10 );
 	~CPicture();
 	CPicture& operator=( const CPicture& picture );
-	void SetPictureLocation( const Path picLocation );
+	void SetPictureLocation( const char* picLocation );
 	void SetPictureSize( CUInt width, CUInt height );
-	const Path GetImgLoc()const;
-	CUInt GetImgWidth()const;
-	CUInt GetImgHeight()const;
+	const char* GetImgLoc()const;
 
 private:
-	Path m_location;
+	Moge::Path m_location;
 	UInt m_width;
 	UInt m_height;
 

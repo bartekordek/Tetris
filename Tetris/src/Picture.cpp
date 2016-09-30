@@ -1,18 +1,19 @@
 #include "Picture.h"
+
+
 #include <iostream>
 
 CPicture::CPicture(): 
-	m_location(""), 
 	m_width(0),
 	m_height(0)
 {
 }
 
-CPicture::CPicture( const Path location, CUInt width, CUInt height ):
-					m_location(location),
+CPicture::CPicture( const char* location, CUInt width, CUInt height ):
 					m_width(width),
 					m_height(height)
 {
+	this->m_location = location;
 }
 
 CPicture::~CPicture()
@@ -31,15 +32,15 @@ CPicture& CPicture::operator=( const CPicture& picture )
 	return *this;
 }
 
-void CPicture::SetPictureLocation( Path picLocation )
+void CPicture::SetPictureLocation( const char* picLocation )
 {
-	if( picLocation.Exist() )
+	if( Moge::Path( picLocation ).Exist() )
 	{
 		m_location = picLocation;
 	}
 	else
 	{
-		std::cerr << "FILE" << picLocation.c_str() << "DOES NOT EXIST." << std::endl;
+		std::cerr << "FILE" << picLocation << "DOES NOT EXIST." << std::endl;
 	}
 }
 
@@ -49,17 +50,7 @@ void CPicture::SetPictureSize( CUInt width, CUInt height )
 	m_height = height;
 }
 
-const Path CPicture::GetImgLoc()const
+const char* CPicture::GetImgLoc()const
 {
-	return m_location;
-}
-
-CUInt CPicture::GetImgWidth()const
-{
-	return m_width;
-}
-
-CUInt CPicture::GetImgHeight()const
-{
-	return m_height;
+	return m_location.c_str();
 }

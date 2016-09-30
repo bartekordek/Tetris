@@ -3,7 +3,6 @@
 #include <vector>
 
 #include "Aliases.h"
-#include "Utilities.h"
 
 class CTableCoor
 {
