@@ -10,7 +10,6 @@ union SDL_Event;
 
 namespace Tetris
 {
-
 	struct Resolution
 	{
 		Resolution( CUInt width, CUInt height ):
@@ -31,31 +30,15 @@ namespace Tetris
 		void StartGame();
 		virtual ~CGame();
 
-		Moge::ImageSurface GetEmptySlabSurface()const;
-		Moge::ImageSurface GetFilledSlabSurface()const;
-
 	private:
 		void userInputLoop();
-		void SetMainGridEmptySlabImage();
-		void SetMainGridFilledSlabImage();
-		void CreateGrid();
 		const bool QuitHasBeenHit( const SDL_Event event );
 		const bool IsKeyDown( const SDL_Event event );
 		void HandleKeys( SDL_Keycode sdlkey );
-		void SetMainGridSize( CUInt rows, CUInt columns );
-		void ReleaseBrick();
-		void AddCurrentBrickToGrid();
 		void MainLoopThread();
-
-		Moge::ImageSurface mEmptySlabImage;
-		Moge::ImageSurface mFilledSlabImage;
 
 		CMainGrid m_mainGrid;
 		std::thread m_mainLoopThread;
-		bool m_roundInProgress;
-		bool m_quit;
-
-		Moge::MyString emptySlabName = Moge::MyString( "emptySlab" );
-		Moge::MyString slabName = Moge::MyString( "slab" );
+		bool m_quit = false;
 	};
 }
