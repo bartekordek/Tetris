@@ -1,9 +1,7 @@
 #pragma once
 
 #include "MainGrid.h"
-#include "Brick.h"
 #include <Engine.h>
-#include <MyString.h>
 #include <SDL_keycode.h>
 
 union SDL_Event;
