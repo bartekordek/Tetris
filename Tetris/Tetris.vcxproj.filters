@@ -77,12 +77,6 @@
     <None Include="..\Debug\SDL.dll">
       <Filter>ExternalLibrary</Filter>
     </None>
-    <None Include="ClassDiagram.cd">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="ClassDiagram1.cd">
-      <Filter>Header Files</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\pic\Block.bmp">

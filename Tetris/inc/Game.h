@@ -10,22 +10,11 @@ union SDL_Event;
 
 namespace Tetris
 {
-	struct Resolution
-	{
-		Resolution( CUInt width, CUInt height ):
-			width( width ),
-			height( height )
-		{
-		}
-		UInt width;
-		UInt height;
-	};
-
 	class CGame
 	{
 	public:
 		CGame();
-		void Initialize( CUInt rowsCount = 50, CUInt columnsCount = 10, const Resolution& resoltion = Resolution( 640, 480 ) );
+		void initialize( CUInt rowsCount = 50, CUInt columnsCount = 10, CUInt winWidth = 640, CUInt winHeight = 480 );
 		void MainLoop();
 		void StartGame();
 		virtual ~CGame();

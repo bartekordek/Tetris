@@ -256,8 +256,6 @@ xcopy "$(TargetDir)*.pdb" "$(LocalDebuggerWorkingDirectory)" /y</Command>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Debug\SDL.dll" />
-    <None Include="ClassDiagram.cd" />
-    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\pic\BackGroundBlock.bmp" />
