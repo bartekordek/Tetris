@@ -21,8 +21,8 @@ namespace Tetris
 
 	private:
 		void userInputLoop();
-		const bool QuitHasBeenHit( const SDL_Event event );
-		const bool IsKeyDown( const SDL_Event event );
+		static const bool QuitHasBeenHit( const SDL_Event event );
+		static const bool IsKeyDown( const SDL_Event event );
 		void HandleKeys( SDL_Keycode sdlkey );
 		void MainLoopThread();
 
