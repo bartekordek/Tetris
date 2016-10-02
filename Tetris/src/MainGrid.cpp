@@ -148,6 +148,7 @@ namespace Tetris
 
 	const bool CMainGrid::checkIfBlockCanBeRotated( const bool clockWise )
 	{
+
 		return false;
 	}
 

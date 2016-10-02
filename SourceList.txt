@@ -44,6 +44,5 @@
 ./Tetris/src/Game.cpp
 ./Tetris/src/MainGrid.cpp
 ./Tetris/src/Picture.cpp
-./Tetris/src/Point.cpp
 ./Tetris/src/Slab.cpp
 ./Tetris/src/TableCoordinates.cpp

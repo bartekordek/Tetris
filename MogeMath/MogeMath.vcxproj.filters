@@ -48,6 +48,12 @@
     <ClInclude Include="inc\IPositionAdapter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\Matrix2D.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\SquareMatrix2D.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Frustum.cpp">

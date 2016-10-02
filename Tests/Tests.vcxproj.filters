@@ -34,6 +34,9 @@
     <Filter Include="Tests\NodeCreator">
       <UniqueIdentifier>{d9ccca2f-8a11-45d7-91fb-f509c87d5938}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Tests\Matrix">
+      <UniqueIdentifier>{ac755291-68a7-4be2-94a7-a0e281b36683}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -60,6 +63,9 @@
     <ClCompile Include="src\ObjectNodeTests.cpp">
       <Filter>Tests\Node</Filter>
     </ClCompile>
+    <ClCompile Include="src\MatrixTests.cpp">
+      <Filter>Tests\Matrix</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\MogeGenericTests.h">
@@ -82,6 +88,9 @@
     </ClInclude>
     <ClInclude Include="inc\NodeCreatorTests.h">
       <Filter>Tests\NodeCreator</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\MatrixTests.h">
+      <Filter>Tests\Matrix</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

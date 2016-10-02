@@ -9,7 +9,6 @@
 
 namespace Tetris
 {
-	class CGame;
 	using SlabRow = std::vector<CSlab>;
 	class CMainGrid
 	{
