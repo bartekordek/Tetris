@@ -36,9 +36,6 @@
     <ClInclude Include="inc\Picture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Point.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\Slab.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -61,9 +58,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Picture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Point.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Slab.cpp">
