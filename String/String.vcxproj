@@ -97,7 +97,8 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
-      <ProgramDataBaseFileName>$(TargetDir)$(ProjectName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -109,7 +110,8 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
-      <ProgramDataBaseFileName>$(TargetDir)$(ProjectName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -121,7 +123,8 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(ProjectDir)inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <ProgramDataBaseFileName>$(TargetDir)$(ProjectName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -137,7 +140,8 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(ProjectDir)inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <ProgramDataBaseFileName>$(TargetDir)$(ProjectName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>

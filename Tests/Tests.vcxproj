@@ -105,7 +105,8 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
-      <ProgramDataBaseFileName>$(TargetDir)$(ProjectName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -134,7 +135,8 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
-      <ProgramDataBaseFileName>$(TargetDir)$(ProjectName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -161,7 +163,8 @@
       <AdditionalIncludeDirectories>$(ProjectDir)inc;$(HOME_GTEST)\googletest\include;%(AdditionalIncludeDirectories);$(SolutionDir)MogeMath\inc;$(SolutionDir)String\inc\;$(SolutionDir)MogeLib\inc\;$(SolutionDir)inc\</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <ProgramDataBaseFileName>$(TargetDir)$(ProjectName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -190,7 +193,8 @@
       <AdditionalIncludeDirectories>$(ProjectDir)inc;$(HOME_GTEST)\googletest\include;%(AdditionalIncludeDirectories);$(SolutionDir)MogeMath\inc;$(SolutionDir)String\inc\;$(SolutionDir)MogeLib\inc\;$(SolutionDir)inc\</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <ProgramDataBaseFileName>$(TargetDir)$(ProjectName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

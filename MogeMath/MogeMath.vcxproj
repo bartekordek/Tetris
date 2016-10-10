@@ -96,7 +96,8 @@
       <MinimalRebuild>false</MinimalRebuild>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
-      <ProgramDataBaseFileName>$(TargetDir)$(ProjectName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
     </ClCompile>
     <PreBuildEvent>
       <Command>del "$(OutputPath)*.pdb"</Command>
@@ -112,7 +113,8 @@
       <MinimalRebuild>false</MinimalRebuild>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
-      <ProgramDataBaseFileName>$(TargetDir)$(ProjectName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
     </ClCompile>
     <PreBuildEvent>
       <Command>del "$(OutputPath)*.pdb"</Command>
@@ -128,7 +130,8 @@
       <AdditionalIncludeDirectories>$(ProjectDir)inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
-      <ProgramDataBaseFileName>$(TargetDir)$(ProjectName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -148,7 +151,8 @@
       <AdditionalIncludeDirectories>$(ProjectDir)inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
-      <ProgramDataBaseFileName>$(TargetDir)$(ProjectName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>

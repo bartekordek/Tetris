@@ -20,8 +20,8 @@ TEST_F( MatrixTests, setTest )
 
 TEST_F( MatrixTests, rotateTest )
 {
-	const unsigned size = 2;
-	SquareMatrix2D<int> matrix( size );
+	const unsigned size = 6;
+	SquareMatrix2D<unsigned int> matrix( size );
 	for( unsigned int i = 0; i < size*size; ++i )
 	{
 		matrix( i ) = i;
@@ -29,5 +29,72 @@ TEST_F( MatrixTests, rotateTest )
 	matrix.print();
 	matrix.rotate();
 	matrix.print();
+	matrix.rotate( false );
+	matrix.print();
 
+	for( unsigned int i = 0; i < size*size; ++i )
+	{
+		ASSERT_EQ( matrix( i ), i );
+	}
+}
+
+TEST_F( MatrixTests, moveTestUp )
+{
+	const unsigned size = 6;
+	SquareMatrix2D<unsigned int> matrix( size );
+	for( unsigned int i = 0; i < size*size; ++i )
+	{
+		matrix( i ) = i;
+	}
+	matrix.moveElements( Directions::U );
+	matrix.print();
+
+	for( unsigned int i = 0; i < size*size; ++i )
+	{
+		unsigned int expected = 0;
+		if( i < size * size - size )
+		{
+			expected = ( i + size ) % ( size * size );
+		}
+		auto given = matrix( i );
+		ASSERT_EQ( given, expected  );
+	}
+}
+
+TEST_F( MatrixTests, moveTestDown )
+{
+	const unsigned size = 6;
+	SquareMatrix2D<unsigned int> matrix( size );
+	for( unsigned int i = 0; i < size*size; ++i )
+	{
+		matrix( i ) = i;
+	}
+	matrix.moveElements( Directions::D );
+	matrix.print();
+
+	for( unsigned int i = 0; i < size*size; ++i )
+	{
+		unsigned int expected = ( i + size ) % ( size * size );
+		if( i < size * size - size )
+		{
+			expected = 0;
+		}
+		auto given = matrix( i );
+		ASSERT_EQ( given, expected );
+	}
+}
+
+TEST_F( MatrixTests, moveTestRight )
+{
+	const unsigned size = 2;
+	SquareMatrix2D<unsigned int> matrix( size );
+	for( unsigned int i = 0; i < size*size; ++i )
+	{
+		matrix( i ) = i;
+	}
+	matrix.moveElements( Directions::D );
+	ASSERT_EQ( matrix( 0, 0 ), 0 );
+	ASSERT_EQ( matrix( 0, 1 ), 0 );
+	ASSERT_EQ( matrix( 1, 0 ), 0 );
+	ASSERT_EQ( matrix( 1, 1 ), 1 );
 }

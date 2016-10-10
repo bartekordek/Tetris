@@ -4,7 +4,7 @@
 
 namespace Tetris
 {
-	CBrick* CBrickFactory::GetBrick( const BrickTypes brickType )
+	Brick* CBrickFactory::GetBrick( const BrickTypes brickType )
 	{
 		if( BrickTypes::L == brickType )
 		{
@@ -29,7 +29,7 @@ namespace Tetris
 		return nullptr;
 	}
 
-	CBrick* CBrickFactory::GetRandomBrick()
+	Brick* CBrickFactory::GetRandomBrick()
 	{
 		srand( static_cast<UInt> ( time( nullptr ) ) );
 		int randomNumber = rand() % 5;

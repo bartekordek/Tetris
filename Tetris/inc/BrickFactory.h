@@ -1,14 +1,16 @@
 #pragma once
 
 #include "Brick.h"
+#include "SquareMatrix2D.hpp"
 
 namespace Tetris
 {
 	class CBrickFactory
 	{
 	public:
-		static CBrick* GetBrick( const BrickTypes brickType );
-		static CBrick* GetRandomBrick();
+		static Brick* GetBrick( const BrickTypes brickType );
+		static Brick* GetRandomBrick();
+		static Moge::Math::SquareMatrix2D<int> createBric();
 	private:
 	};
 }

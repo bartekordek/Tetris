@@ -1,5 +1,4 @@
 #include "Game.h"
-#include "NodeCreator.h"
 #include "MultiPointFactory.h"
 #include "NodeImageCreator.h"
 
@@ -68,15 +67,15 @@ namespace Tetris
 	{
 		if( SDLK_RIGHT == sdlkey )
 		{
-			m_mainGrid.MoveActualBrick( Directions::R );
+			m_mainGrid.MoveActualBrick( Moge::Math::Directions::R );
 		}
 		else if( SDLK_LEFT == sdlkey )
 		{
-			m_mainGrid.MoveActualBrick( Directions::L );
+			m_mainGrid.MoveActualBrick( Moge::Math::Directions::L );
 		}
 		else if( SDLK_DOWN == sdlkey )
 		{
-			m_mainGrid.MoveActualBrick( Directions::D );
+			m_mainGrid.MoveActualBrick( Moge::Math::Directions::D );
 		}
 		else if( SDLK_SPACE == sdlkey )
 		{

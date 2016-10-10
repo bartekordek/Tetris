@@ -27,13 +27,25 @@ public:
 	{
 		Type** copiedValues = Matrix2D<Type>::copyValues();
 		const unsigned int size = Matrix2D<Type>::getRowsCount();
-		for( unsigned int i = 0; i < size; ++i )
+		for( unsigned int rowIndex = 0; rowIndex < size; ++rowIndex )
 		{
-			for( unsigned int j = 0; j < size; ++j )
+			for( unsigned int columnIndex = 0; columnIndex < size; ++columnIndex )
 			{
-				Matrix2D<Type>::operator()( i, j ) = copiedValues[size - j][i];
+				if( clockWise )
+				{
+					Matrix2D<Type>::operator()( rowIndex, columnIndex ) = copiedValues[size - columnIndex - 1][rowIndex];
+				}
+				else
+				{
+					Matrix2D<Type>::operator()( rowIndex, columnIndex ) = copiedValues[columnIndex][size - rowIndex - 1];
+				}
 			}
 		}
+		for( unsigned int rowIndex = 0; rowIndex < size; ++rowIndex )
+		{
+			delete[] copiedValues[rowIndex];
+		}
+		delete[] copiedValues;
 	}
 
 	const unsigned int getSize()const
