@@ -74,8 +74,8 @@ TEST_F( MatrixTests, moveTestDown )
 
 	for( unsigned int i = 0; i < size*size; ++i )
 	{
-		unsigned int expected = ( i + size ) % ( size * size );
-		if( i < size * size - size )
+		unsigned int expected = i - size;
+		if( i < size )
 		{
 			expected = 0;
 		}
@@ -97,4 +97,4 @@ TEST_F( MatrixTests, moveTestRight )
 	ASSERT_EQ( matrix( 0, 1 ), 0 );
 	ASSERT_EQ( matrix( 1, 0 ), 0 );
 	ASSERT_EQ( matrix( 1, 1 ), 1 );
-}
+} 
