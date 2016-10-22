@@ -48,26 +48,26 @@ public:
 
 	Matrix2D( const unsigned rowsCount, const unsigned columnsCount ): rowsCount( rowsCount ), columnsCount( columnsCount )
 	{
-		setSize( rowsCount, columnsCount );
+		createMatrixOfSize( rowsCount, columnsCount );
 	}
 
 	Matrix2D( const Matrix2D& matrix )
 	{
-		setSize( matrix.rowsCount, matrix.columnsCount );
+		createMatrixOfSize( matrix.rowsCount, matrix.columnsCount );
 		copy( matrix );
 	}
 
 	virtual ~Matrix2D()
 	{
-		clear();
+		release();
 	}
 
 	Matrix2D& operator=( const Matrix2D& matrix )
 	{
 		if( &matrix != this )
 		{
-			clear();
-			setSize( matrix.rowsCount, matrix.columnsCount );
+			release();
+			createMatrixOfSize( matrix.rowsCount, matrix.columnsCount );
 			copy( matrix );
 		}
 		return *this;
@@ -208,19 +208,37 @@ private:
 		}
 	}
 
-	void setSize( const unsigned rowsCount, const unsigned columnsCount )
+	void createMatrixOfSize( const unsigned rowsCount, const unsigned columnsCount )
+	{
+		setRowsCount( rowsCount );
+		setColumnsCount( columnsCount );
+		allocateValues();
+		applyValue( static_cast<Type>( 0 ) );
+	}
+
+	void setRowsCount( const unsigned int rowsCount )
 	{
 		this->rowsCount = rowsCount;
+	}
+
+	void setColumnsCount( const unsigned int columnsCount )
+	{
 		this->columnsCount = columnsCount;
-		values = new Type*[rowsCount];
-		applyValue( static_cast<Type>( 0 ) );
+	}
+
+	void allocateValues()
+	{
+		this->values = new Type*[rowsCount];
+		for( unsigned int rowIndex = 0; rowIndex < this->rowsCount; ++rowIndex )
+		{
+			this->values[rowIndex] = new Type[columnsCount];
+		}
 	}
 
 	void applyValue( const Type& value )
 	{
 		for( unsigned int rowIndex = 0; rowIndex < this->rowsCount; ++rowIndex )
 		{
-			this->values[rowIndex] = new Type[columnsCount];
 			for( unsigned int columnIndex = 0; columnIndex < this->columnsCount; ++columnIndex )
 			{
 				this->values[rowIndex][columnIndex] = static_cast<Type>( 0 );
@@ -228,9 +246,14 @@ private:
 		}
 	}
 
-	void clear()
+	Type& getValue( const unsigned int rowIndex, const unsigned int columnIndex )
 	{
-		for( unsigned int i = 0; i < rowsCount; ++ i )
+		
+	}
+
+	void release()
+	{
+		for( unsigned int i = 0; i < rowsCount; ++i )
 		{
 			delete[] this->values[i];
 		}
