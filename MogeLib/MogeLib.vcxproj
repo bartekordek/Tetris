@@ -102,7 +102,8 @@
       <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\inc\;$(ProjectDir)Position\;$(ProjectDir)Scene\inc\;$(ProjectDir)String\inc\;$(ProjectDir)inc\;$(HOME_BOOST);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
-      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
@@ -126,7 +127,8 @@
       <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\inc\;$(ProjectDir)Position\;$(ProjectDir)Scene\inc\;$(ProjectDir)String\inc\;$(ProjectDir)inc\;$(HOME_BOOST);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
-      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
@@ -150,7 +152,8 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\inc\;$(ProjectDir)Position\;$(ProjectDir)Scene\inc\;$(ProjectDir)String\inc\;$(ProjectDir)inc\;$(HOME_BOOST);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
-      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -175,7 +178,8 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\inc\;$(ProjectDir)Position\;$(ProjectDir)Scene\inc\;$(ProjectDir)String\inc\;$(ProjectDir)inc\;$(HOME_BOOST);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
-      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
