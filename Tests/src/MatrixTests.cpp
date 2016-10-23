@@ -132,3 +132,35 @@ TEST_F( MatrixTests, moveElementsUntillNoEmptyLineUpTest )
 		}
 	}
 }
+
+TEST_F( MatrixTests, moveElementsUntillNoEmptyLineDownTest )
+{
+	const unsigned size = 3;
+	SquareMatrix2D<unsigned int> matrix( size );
+	for( unsigned int i = 0; i < size*size; ++i )
+	{
+		if( i < 2 * size )
+		{
+			matrix( i ) = i + 1;
+		}
+		else
+		{
+			matrix( i ) = 0;
+		}
+	}
+	matrix.print();
+	matrix.moveElementsUntillNoEmptyLine( Directions::D );
+	matrix.print();
+	for( unsigned int i = 0; i < size*size; ++i )
+	{
+		if( i < 3 )
+		{
+			ASSERT_EQ(  0, matrix( i ) );
+		}
+		else
+		{
+			ASSERT_EQ(  i - 2, matrix( i ) );
+		}
+		
+	}
+}
