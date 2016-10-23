@@ -104,7 +104,8 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <ProgramDataBaseFileName>$(TargetDir)$(ProjectName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -122,9 +123,9 @@
       </Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>xcopy "$(TargetDir)*.exe" "$(LocalDebuggerWorkingDirectory)" /y
-xcopy "$(TargetDir)*.dll" "$(LocalDebuggerWorkingDirectory)" /y
-xcopy "$(TargetDir)*.pdb" "$(LocalDebuggerWorkingDirectory)" /y</Command>
+      <Command>xcopy "$(TargetDir)*.exe" "$(LocalDebuggerWorkingDirectory)" /y 2&gt;&gt; copyError.txt
+xcopy "$(TargetDir)*.dll" "$(LocalDebuggerWorkingDirectory)" /y 2&gt;&gt; copyError.txt
+xcopy "$(TargetDir)*.pdb" "$(LocalDebuggerWorkingDirectory)" /y 2&gt;&gt; copyError.txt</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -141,7 +142,8 @@ xcopy "$(TargetDir)*.pdb" "$(LocalDebuggerWorkingDirectory)" /y</Command>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <ProgramDataBaseFileName>$(TargetDir)$(ProjectName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -159,9 +161,9 @@ xcopy "$(TargetDir)*.pdb" "$(LocalDebuggerWorkingDirectory)" /y</Command>
       </Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>xcopy "$(TargetDir)*.exe" "$(LocalDebuggerWorkingDirectory)" /y
-xcopy "$(TargetDir)*.dll" "$(LocalDebuggerWorkingDirectory)" /y
-xcopy "$(TargetDir)*.pdb" "$(LocalDebuggerWorkingDirectory)" /y</Command>
+      <Command>xcopy "$(TargetDir)*.exe" "$(LocalDebuggerWorkingDirectory)" /y 2&gt;&gt; copyError.txt
+xcopy "$(TargetDir)*.dll" "$(LocalDebuggerWorkingDirectory)" /y 2&gt;&gt; copyError.txt
+xcopy "$(TargetDir)*.pdb" "$(LocalDebuggerWorkingDirectory)" /y 2&gt;&gt; copyError.txt</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -176,7 +178,8 @@ xcopy "$(TargetDir)*.pdb" "$(LocalDebuggerWorkingDirectory)" /y</Command>
       <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(SolutionDir)MogeLib\String\inc\;$(SolutionDir)MogeLib\inc\;$(ProjectDir)inc;$(HOME_SDL2)\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -192,9 +195,9 @@ xcopy "$(TargetDir)*.pdb" "$(LocalDebuggerWorkingDirectory)" /y</Command>
       </Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>xcopy "$(TargetDir)*.exe" "$(LocalDebuggerWorkingDirectory)" /y
-xcopy "$(TargetDir)*.dll" "$(LocalDebuggerWorkingDirectory)" /y
-xcopy "$(TargetDir)*.pdb" "$(LocalDebuggerWorkingDirectory)" /y</Command>
+      <Command>xcopy "$(TargetDir)*.exe" "$(LocalDebuggerWorkingDirectory)" /y 2&gt;&gt; copyError.txt
+xcopy "$(TargetDir)*.dll" "$(LocalDebuggerWorkingDirectory)" /y 2&gt;&gt; copyError.txt
+xcopy "$(TargetDir)*.pdb" "$(LocalDebuggerWorkingDirectory)" /y 2&gt;&gt; copyError.txt</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -209,7 +212,8 @@ xcopy "$(TargetDir)*.pdb" "$(LocalDebuggerWorkingDirectory)" /y</Command>
       <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(SolutionDir)MogeLib\String\inc\;$(SolutionDir)MogeLib\inc\;$(ProjectDir)inc;$(HOME_SDL2)\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -225,9 +229,9 @@ xcopy "$(TargetDir)*.pdb" "$(LocalDebuggerWorkingDirectory)" /y</Command>
       </Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>xcopy "$(TargetDir)*.exe" "$(LocalDebuggerWorkingDirectory)" /y
-xcopy "$(TargetDir)*.dll" "$(LocalDebuggerWorkingDirectory)" /y
-xcopy "$(TargetDir)*.pdb" "$(LocalDebuggerWorkingDirectory)" /y</Command>
+      <Command>xcopy "$(TargetDir)*.exe" "$(LocalDebuggerWorkingDirectory)" /y 2&gt;&gt; copyError.txt
+xcopy "$(TargetDir)*.dll" "$(LocalDebuggerWorkingDirectory)" /y 2&gt;&gt; copyError.txt
+xcopy "$(TargetDir)*.pdb" "$(LocalDebuggerWorkingDirectory)" /y 2&gt;&gt; copyError.txt</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -239,7 +243,6 @@ xcopy "$(TargetDir)*.pdb" "$(LocalDebuggerWorkingDirectory)" /y</Command>
     <ClInclude Include="inc\Game.h" />
     <ClInclude Include="inc\MainGrid.h" />
     <ClInclude Include="inc\Picture.h" />
-    <ClInclude Include="inc\Point.h" />
     <ClInclude Include="inc\Slab.h" />
     <ClInclude Include="inc\TableCoordinates.h" />
   </ItemGroup>
@@ -250,14 +253,11 @@ xcopy "$(TargetDir)*.pdb" "$(LocalDebuggerWorkingDirectory)" /y</Command>
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\MainGrid.cpp" />
     <ClCompile Include="src\Picture.cpp" />
-    <ClCompile Include="src\Point.cpp" />
     <ClCompile Include="src\Slab.cpp" />
     <ClCompile Include="src\TableCoordinates.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Debug\SDL.dll" />
-    <None Include="ClassDiagram.cd" />
-    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\pic\BackGroundBlock.bmp" />

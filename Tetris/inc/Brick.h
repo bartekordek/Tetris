@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Slab.h"
+#include "SquareMatrix2D.hpp"
 #include <vector>
 
 namespace Tetris
@@ -10,74 +11,67 @@ namespace Tetris
 		L, I, O, S, T
 	};
 
-	enum class Directions: char
-	{
-		L,
-		R,
-		U,
-		D
-	};
-
-	class CBrick
+	class Brick
 	{
 	public:
-		CBrick( BrickTypes typeofBrick, const Directions direction = Directions::R );
-		CBrick( const std::vector<CSlab>& blocks, const Directions direction = Directions::R );
-		CBrick( const CBrick& brick );
-		virtual ~CBrick();
-		CoordinatestList GetBlockPositions()const;
-		void Move( const Directions direction = Directions::D );
-		void Rotate( const bool clockWise = true );
-		BrickTypes GetBlockType()const;
+		Brick( const BrickTypes typeofBrick, const Moge::Math::Directions direction = Moge::Math::Directions::R );
+		Brick( const std::vector<CSlab>& blocks, const Moge::Math::Directions direction = Moge::Math::Directions::R );
+		Brick( const Brick& brick );
+		virtual ~Brick();
+		CoordinatestList getBlockPositions()const;
+		void move( const Moge::Math::Directions direction = Moge::Math::Directions::D );
+		void rotate( const bool clockWise = true );
+		BrickTypes getBlockType()const;
+
+	protected:
+		static Moge::Math::SquareMatrix2D<bool> slab2Matrix( const std::vector<CSlab>& slabs );
+		std::vector<CSlab> m_blocks;
+		Moge::Math::SquareMatrix2D<bool> blockMatrix = Moge::Math::SquareMatrix2D<bool>( 4 );
+		Moge::Math::Directions m_direction;
 
 	private:
 		virtual void m_RotateClockWise() = 0;
 		BrickTypes m_brickType = BrickTypes::T;
-
-	protected:
-		std::vector<CSlab> m_blocks;
-
-		Directions m_direction;
 	};
 
-	class CLBrick: public CBrick
+	class CLBrick: public Brick
 	{
 	public:
-		explicit CLBrick( const Directions direction = Directions::R );
+		explicit CLBrick( const Moge::Math::Directions direction = Moge::Math::Directions::R );
 	private:
 		void m_RotateClockWise();
 	};
 
-	class CIBrick: public CBrick
+	class CIBrick: public Brick
 	{
 	public:
-		explicit CIBrick( const Directions direction = Directions::R );
+		explicit CIBrick( const Moge::Math::Directions direction = Moge::Math::Directions::R );
 	private:
 		void m_RotateClockWise();
 	};
 
-	class COBrick: public CBrick
+	class COBrick: public Brick
 	{
 	public:
 		explicit COBrick(
-			const Directions direction = Directions::R );
+			const Moge::Math::Directions direction = Moge::Math::Directions::R );
 	private:
 		void m_RotateClockWise();
 	};
 
-	class CSBrick: public CBrick
+	class CSBrick: public Brick
 	{
 	public:
-		explicit CSBrick( const Directions direction = Directions::R );
+		explicit CSBrick( const Moge::Math::Directions direction = Moge::Math::Directions::R );
 	private:
 		void m_RotateClockWise();
 	};
 
-	class CTBrick: public CBrick
+	class CTBrick: public Brick
 	{
 	public:
 		explicit CTBrick(
-			const Directions direction = Directions::R );
+			const Moge::Math::Directions direction = Moge::Math::Directions::R );
 	private:
 		void m_RotateClockWise();
 	};

@@ -24,14 +24,14 @@ namespace Tetris
 
 	void CMainGrid::updateGrid()
 	{
-		if( false == checkIfBlockCanBeMoved( Directions::D ) )
+		if( false == checkIfBlockCanBeMoved( Moge::Math::Directions::D ) )
 		{
 			addCurrentBrickToGrid();
 			ManageFullLine();
 			ReLeaseBrick();
 		}
 		Moge::CTimeMod::SleepMiliSeconds( 500 );
-		MoveActualBrick( Directions::D );
+		MoveActualBrick( Moge::Math::Directions::D );
 	}
 
 	void CMainGrid::SetSize( CUInt rowsCount, CUInt columnsCount, CUInt initialX, CUInt initialY )
@@ -70,9 +70,9 @@ namespace Tetris
 		AddBrick( m_activeBrick );
 	}
 
-	void CMainGrid::AddBrick( const CBrick* brick )
+	void CMainGrid::AddBrick( const Brick* brick )
 	{
-		CoordinatestList coords = brick->GetBlockPositions();
+		CoordinatestList coords = brick->getBlockPositions();
 		for( auto it = coords.begin(); it != coords.end(); ++it )
 		{
 			CUInt row = it->Row();
@@ -96,7 +96,7 @@ namespace Tetris
 
 	const bool CMainGrid::PartOfCurrentBrick( CUInt rowIndex, CUInt colIndex )const
 	{
-		CoordinatestList coords = m_activeBrick->GetBlockPositions();
+		CoordinatestList coords = m_activeBrick->getBlockPositions();
 		for( auto it = coords.begin(); it != coords.end(); ++it )
 		{
 			if( it->Row() == rowIndex && it->Col() == colIndex )
@@ -107,7 +107,7 @@ namespace Tetris
 		return false;
 	}
 
-	void CMainGrid::MoveActualBrick( const Directions direction )
+	void CMainGrid::MoveActualBrick( const Moge::Math::Directions direction )
 	{
 		if( true == checkIfBlockCanBeMoved( direction ) )
 		{
@@ -116,9 +116,9 @@ namespace Tetris
 		}
 	}
 
-	const bool CMainGrid::checkIfBlockCanBeMoved( const Directions direction )
+	const bool CMainGrid::checkIfBlockCanBeMoved( const Moge::Math::Directions direction )
 	{
-		for( auto& coord : m_activeBrick->GetBlockPositions() )
+		for( auto& coord : m_activeBrick->getBlockPositions() )
 		{
 			CUInt newRow = coord.Row() + GetRowOffset( direction );
 			CUInt newCol = coord.Col() + GetColOffset( direction );
@@ -148,42 +148,43 @@ namespace Tetris
 
 	const bool CMainGrid::checkIfBlockCanBeRotated( const bool clockWise )
 	{
+
 		return false;
 	}
 
-	CInt CMainGrid::GetColOffset( const Directions direction )const
+	CInt CMainGrid::GetColOffset( const Moge::Math::Directions direction )const
 	{
-		if( Directions::U == direction || Directions::D == direction )
+		if( Moge::Math::Directions::U == direction || Moge::Math::Directions::D == direction )
 		{
 			return 0;
 		}
 
-		if( Directions::R == direction )
+		if( Moge::Math::Directions::R == direction )
 		{
 			return 1;
 		}
-		if( Directions::L == direction )
+		if( Moge::Math::Directions::L == direction )
 		{
 			return  -1;
 		}
 		return -1;
 	}
 
-	CInt CMainGrid::GetRowOffset( const Directions direction )const
+	CInt CMainGrid::GetRowOffset( const Moge::Math::Directions direction )const
 	{
-		if( Directions::U == direction )
+		if( Moge::Math::Directions::U == direction )
 		{
 			return  0;
 		}
-		else if( Directions::D == direction )
+		else if( Moge::Math::Directions::D == direction )
 		{
 			return  1;
 		}
-		else if( Directions::R == direction )
+		else if( Moge::Math::Directions::R == direction )
 		{
 			return  0;
 		}
-		else if( Directions::L == direction )
+		else if( Moge::Math::Directions::L == direction )
 		{
 			return  0;
 		}
@@ -192,20 +193,20 @@ namespace Tetris
 
 	void CMainGrid::RotateActualBrick( const bool clockWise )
 	{
-		CBrick* tempBrick;
-		if( m_activeBrick->GetBlockType() == BrickTypes::L )
+		Brick* tempBrick;
+		if( m_activeBrick->getBlockType() == BrickTypes::L )
 		{
 			tempBrick = new CLBrick( *dynamic_cast<CLBrick*>( m_activeBrick ) );
 		}
-		else if( m_activeBrick->GetBlockType() == BrickTypes::I )
+		else if( m_activeBrick->getBlockType() == BrickTypes::I )
 		{
 			tempBrick = new CIBrick( *dynamic_cast<CIBrick*>( m_activeBrick ) );
 		}
-		else if( m_activeBrick->GetBlockType() == BrickTypes::O )
+		else if( m_activeBrick->getBlockType() == BrickTypes::O )
 		{
 			tempBrick = new COBrick( *dynamic_cast<COBrick*>( m_activeBrick ) );
 		}
-		else if( m_activeBrick->GetBlockType() == BrickTypes::S )
+		else if( m_activeBrick->getBlockType() == BrickTypes::S )
 		{
 			tempBrick = new CSBrick( *dynamic_cast<CSBrick*>( m_activeBrick ) );
 		}
@@ -214,11 +215,11 @@ namespace Tetris
 			tempBrick = new CTBrick( *dynamic_cast<CTBrick*>( m_activeBrick ) );
 		}
 
-		tempBrick->Rotate( clockWise );
+		tempBrick->rotate( clockWise );
 		if( true == m_CheckIfBlockCanBePlaced( tempBrick ) )
 		{
 			m_RemoveActualBlockSlabsFromGrid();
-			m_activeBrick->Rotate( clockWise );
+			m_activeBrick->rotate( clockWise );
 		}
 		delete tempBrick;
 	}
@@ -227,7 +228,7 @@ namespace Tetris
 	{
 		if( m_activeBrick )
 		{
-			for( auto& coord : m_activeBrick->GetBlockPositions() )
+			for( auto& coord : m_activeBrick->getBlockPositions() )
 			{
 				CSlab& slab = mSlabsRows.at( coord.Row() ).at( coord.Col() );
 				slab.Empty( false );
@@ -236,9 +237,9 @@ namespace Tetris
 		}
 	}
 
-	const bool CMainGrid::m_CheckIfBlockCanBePlaced( const CBrick* brick )
+	const bool CMainGrid::m_CheckIfBlockCanBePlaced( const Brick* brick )
 	{
-		CoordinatestList coords = brick->GetBlockPositions();
+		CoordinatestList coords = brick->getBlockPositions();
 		for( auto it = coords.begin(); it != coords.end(); ++it )
 		{
 
@@ -275,7 +276,7 @@ namespace Tetris
 
 	void CMainGrid::m_RemoveActualBlockSlabsFromGrid()
 	{
-		for( auto& coord : m_activeBrick->GetBlockPositions() )
+		for( auto& coord : m_activeBrick->getBlockPositions() )
 		{
 			auto& slab = mSlabsRows.at( coord.Row() ).at( coord.Col() );
 			slab.Empty( true );
@@ -284,9 +285,9 @@ namespace Tetris
 		}
 	}
 
-	void CMainGrid::moveCurrentBrick( const Directions direction )
+	void CMainGrid::moveCurrentBrick( const Moge::Math::Directions direction )
 	{
-		m_activeBrick->Move( direction );
+		m_activeBrick->move( direction );
 		AddBrick( m_activeBrick );
 	}
 

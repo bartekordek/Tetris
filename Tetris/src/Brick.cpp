@@ -1,31 +1,42 @@
 #include "Brick.h"
 
+using namespace Moge;
+using namespace Math;
 namespace Tetris
 {
-	CBrick::CBrick( BrickTypes typeofBrick, const Directions direction ): 
+	Brick::Brick( const BrickTypes typeofBrick, const Directions direction ): 
 		m_direction( direction ), 
 		m_brickType( typeofBrick )
 	{
 	}
 
-	CBrick::CBrick( const std::vector<CSlab>& blocks,
-					const Directions direction ):
+	Brick::Brick( const std::vector<CSlab>& blocks, const Directions direction ):
 					m_blocks( blocks ), m_direction( direction )
 	{
 	}
 
-	BrickTypes CBrick::GetBlockType()const
+	BrickTypes Brick::getBlockType()const
 	{
 		return m_brickType;
 	}
 
-	CBrick::CBrick( const CBrick& brick ):
+	SquareMatrix2D<bool> Brick::slab2Matrix( const std::vector<CSlab>& slabs )
+	{
+		SquareMatrix2D<bool> result( slabs.size() / 2 );
+		for( const auto& slab: slabs )
+		{
+			result( slab.Row(), slab.Col() ) = true;
+		}
+		return result;
+	}
+
+	Brick::Brick( const Brick& brick ):
 		m_blocks( brick.m_blocks ),
 		m_direction( brick.m_direction )
 	{
 	}
 
-	void CBrick::Rotate( const bool clockWise )
+	void Brick::rotate( const bool clockWise )
 	{
 		if( true == clockWise )
 		{
@@ -33,7 +44,7 @@ namespace Tetris
 		}
 	}
 
-	CoordinatestList CBrick::GetBlockPositions()const
+	CoordinatestList Brick::getBlockPositions()const
 	{
 		CoordinatestList positions;
 		for( std::vector<CSlab>::const_iterator it = m_blocks.begin(); it != m_blocks.end(); ++it )
@@ -43,12 +54,11 @@ namespace Tetris
 		return positions;
 	}
 
-	CBrick::~CBrick()
+	Brick::~Brick()
 	{
-
 	}
 
-	void CBrick::Move( const Directions direction )
+	void Brick::move( const Directions direction )
 	{
 		int rowDiff = 0;
 		int colDiff = 0;
@@ -69,19 +79,20 @@ namespace Tetris
 			rowDiff = -1;
 		}
 
-		for( std::vector<CSlab>::iterator it = m_blocks.begin(); it != m_blocks.end(); ++it )
+		for( auto& slab: m_blocks )
 		{
-			it->Col( it->Col() + colDiff );
-			it->Row( it->Row() + rowDiff );
+			slab.Col( slab.Col() + colDiff );
+			slab.Row( slab.Row() + rowDiff );
 		}
 	}
 
-	CLBrick::CLBrick( const Directions direction ):CBrick( BrickTypes::L, direction )
+	CLBrick::CLBrick( const Directions direction ):Brick( BrickTypes::L, direction )
 	{
 		m_blocks.push_back( CSlab( 0, 0 ) );
 		m_blocks.push_back( CSlab( 0, 1 ) );
 		m_blocks.push_back( CSlab( 0, 2 ) );
 		m_blocks.push_back( CSlab( 1, 0 ) );
+		blockMatrix = slab2Matrix( m_blocks );
 	}
 
 	void CLBrick::m_RotateClockWise()
@@ -118,14 +129,16 @@ namespace Tetris
 			m_blocks[3].SetPosition( m_blocks[3].Row() + 2, m_blocks[3].Col() - 1 );
 			m_direction = Directions::U;
 		}
+		blockMatrix.rotate();
 	}
 
-	CIBrick::CIBrick( const Directions direction ):CBrick( BrickTypes::I, direction )
+	CIBrick::CIBrick( const Directions direction ):Brick( BrickTypes::I, direction )
 	{
 		m_blocks.push_back( CSlab( 0, 0 ) );
 		m_blocks.push_back( CSlab( 0, 1 ) );
 		m_blocks.push_back( CSlab( 0, 2 ) );
 		m_blocks.push_back( CSlab( 0, 3 ) );
+		blockMatrix = slab2Matrix( m_blocks );
 	}
 
 	void CIBrick::m_RotateClockWise()
@@ -158,26 +171,29 @@ namespace Tetris
 			m_blocks[3].SetPosition( m_blocks[3].Row() + 3, m_blocks[3].Col() - 3 );
 			m_direction = Directions::U;
 		}
+		blockMatrix.rotate();
 	}
 
-	COBrick::COBrick( const Directions direction ):CBrick( BrickTypes::O, direction )
+	COBrick::COBrick( const Directions direction ):Brick( BrickTypes::O, direction )
 	{
 		m_blocks.push_back( CSlab( 0, 0 ) );
 		m_blocks.push_back( CSlab( 0, 1 ) );
 		m_blocks.push_back( CSlab( 1, 0 ) );
 		m_blocks.push_back( CSlab( 1, 1 ) );
+		blockMatrix = slab2Matrix( m_blocks );
 	}
 
 	void COBrick::m_RotateClockWise()
 	{
 	}
 
-	CSBrick::CSBrick( const Directions direction ):CBrick( BrickTypes::S, direction )
+	CSBrick::CSBrick( const Directions direction ):Brick( BrickTypes::S, direction )
 	{
 		m_blocks.push_back( CSlab( 0, 0 ) );
 		m_blocks.push_back( CSlab( 0, 1 ) );
 		m_blocks.push_back( CSlab( 1, 1 ) );
 		m_blocks.push_back( CSlab( 1, 2 ) );
+		blockMatrix = slab2Matrix( m_blocks );
 	}
 
 	void CSBrick::m_RotateClockWise()
@@ -214,14 +230,16 @@ namespace Tetris
 			m_blocks[3].SetPosition( m_blocks[3].Row() + 1, m_blocks[3].Col() - 2 );
 			m_direction = Directions::U;
 		}
+		blockMatrix.rotate();
 	}
 
-	CTBrick::CTBrick( const Directions direction ):CBrick( BrickTypes::T, direction )
+	CTBrick::CTBrick( const Directions direction ):Brick( BrickTypes::T, direction )
 	{
 		m_blocks.push_back( CSlab( 0, 0 ) );
 		m_blocks.push_back( CSlab( 1, 0 ) );
 		m_blocks.push_back( CSlab( 2, 0 ) );
 		m_blocks.push_back( CSlab( 1, 1 ) );
+		blockMatrix = slab2Matrix( m_blocks );
 	}
 
 	void CTBrick::m_RotateClockWise()
@@ -256,5 +274,6 @@ namespace Tetris
 			m_blocks[3].SetPosition( m_blocks[3].Row() - 1, m_blocks[3].Col() + 1 );
 			m_direction = Directions::U;
 		}
+		blockMatrix.rotate();
 	}
 }
