@@ -73,26 +73,21 @@ public:
 		return *this;
 	}
 
-	Type& operator()( const unsigned rowIndex, const unsigned colIndex )const
+	Type& operator()( const unsigned rowIndex, const unsigned colIndex )
 	{
-		return this->values[rowIndex][colIndex];
+		return this->getValue( rowIndex, colIndex );
 	}
 
-	Type& operator()( const unsigned int elementIndex )const
+	Type& operator()( const unsigned int elementIndex )
 	{
 		const unsigned int colIndex = elementIndex % this->columnsCount;
 		const unsigned int rowIndex = elementIndex / this->rowsCount;
-		return this->values[rowIndex][colIndex];
-	}
-
-	const Type& get( const unsigned rowIndex, const unsigned colIndex )const
-	{
-		return this->values[rowIndex][colIndex];
+		return this->getValue( rowIndex, colIndex );
 	}
 
 	void set( const unsigned rowIndex, const unsigned colIndex, const Type& value )
 	{
-		this->values[rowIndex][colIndex] = value;
+		this->getValue( rowIndex, colIndex ) = value;
 	}
 
 	const unsigned int getColumnCount()const
@@ -107,9 +102,38 @@ public:
 
 	void moveElementsUntillNoEmptyLine( const Directions direction )
 	{
-		if( true )
+		if( true == isZero() )
 		{
-			
+			return;
+		}
+
+		if( Directions::U == direction )
+		{
+			while( this->rowIsEmpty( 0 ) )
+			{
+				moveElements( direction );
+			}
+		}
+		else if( Directions::D == direction )
+		{
+			while( this->rowIsEmpty( this->rowsCount - 1 ) )
+			{
+				moveElements( direction );
+			}
+		}
+		else if( Directions::R == direction )
+		{
+			while( this->columnIsEmpty( this->columnsCount - 1 ) )
+			{
+				moveElements( direction );
+			}
+		}
+		else if( Directions::L == direction )
+		{
+			while( this->columnIsEmpty( 0 ) )
+			{
+				moveElements( direction );
+			}
 		}
 	}
 
@@ -182,6 +206,40 @@ public:
 	}
 
 protected:
+	const bool columnIsEmpty( const unsigned int columnIndex )const
+	{
+		if( columnIndex >= this->columnsCount )
+		{
+			return false;
+		}
+
+		for( unsigned int i = 0; i < this->rowsCount; ++i )
+		{
+			if( this->values[i][columnIndex] != static_cast<Type>( 0 ) )
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+
+	const bool rowIsEmpty( const unsigned int rowIndex )const
+	{
+		if( rowIndex >= this->rowsCount )
+		{
+			return false;
+		}
+
+		for( unsigned int i = 0; i < this->columnsCount; ++i )
+		{
+			if( this->values[rowIndex][i] != static_cast<Type>( 0 ) )
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+
 	Type** copyValues()const
 	{
 		Type** result = new Type*[rowsCount];
@@ -248,7 +306,25 @@ private:
 
 	Type& getValue( const unsigned int rowIndex, const unsigned int columnIndex )
 	{
-		
+		if( rowIndex >= this->rowsCount )
+		{
+			throw std::runtime_error( 
+				"Row index " + 
+				std::to_string( rowIndex ) + 
+				" is bigger than rows count: " +
+				std::to_string( this->rowsCount ) + "." );
+		}
+
+		if( columnIndex >= this->columnsCount )
+		{
+			throw std::runtime_error( 
+				"Column index " + 
+				std::to_string( columnIndex ) + 
+				" is bigger than column count: " + 
+				std::to_string( this->columnsCount ) + "." );
+		}
+
+		return values[rowIndex][columnIndex];
 	}
 
 	void release()
