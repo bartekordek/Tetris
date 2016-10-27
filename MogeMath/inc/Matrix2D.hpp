@@ -148,20 +148,20 @@ public:
 			Directions::D == direction ? --rowIndex: ++rowIndex )
 		{
 			for( 
-				unsigned int columnIndex =
-				Directions::L == direction ? this->columnsCount: 0 ;
-				Directions::L == direction ? columnIndex >= 0: columnIndex < this->columnsCount;
-				Directions::L == direction ? --columnIndex: ++columnIndex )
+				int columnIndex =
+				Directions::R == direction ? this->columnsCount - 1: 0 ;
+				Directions::R == direction ? columnIndex >= 0: columnIndex < static_cast<int> (this->columnsCount);
+				Directions::R == direction ? --columnIndex: ++columnIndex )
 			{
-				if( elementExist( rowIndex + offset.first, columnIndex + offset.second ) )
+				const unsigned int targetColumnIndex = columnIndex - offset.second;
+				if( elementExist( rowIndex + offset.first, targetColumnIndex ) )
 				{
-					this->values[rowIndex][columnIndex] = this->values[rowIndex + offset.first][columnIndex + offset.second];
+					this->values[rowIndex][columnIndex] = this->values[rowIndex + offset.first][targetColumnIndex];
 				}
 				else
 				{
 					this->values[rowIndex][columnIndex] = static_cast<Type>( 0 );
 				}
-
 			}
 		}
 	}
