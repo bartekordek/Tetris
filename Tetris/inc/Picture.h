@@ -19,5 +19,4 @@ private:
 	Moge::Path location;
 	UInt width;
 	UInt height;
-
 };
