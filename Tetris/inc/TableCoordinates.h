@@ -18,8 +18,8 @@ public:
 	CTableCoor& operator=( const CTableCoor& coor );
 
 private:
-	unsigned m_row;
-	unsigned m_column;
+	unsigned row;
+	unsigned column;
 };
 
 typedef std::vector<CTableCoor> CoordinatestList;

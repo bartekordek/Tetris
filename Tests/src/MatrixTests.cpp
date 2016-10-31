@@ -120,16 +120,12 @@ TEST_F( MatrixTests, moveElementsUntillNoEmptyLineUpTest )
 	for( unsigned int i = 0; i < size*size; ++i )
 	{
 		auto matrixValue = matrix( i );
+		auto expected = 0;
 		if( i < size*2 )
 		{
-			auto expected = i + 3;
-			ASSERT_EQ( matrixValue, expected );
+			expected = i + 3;
 		}
-		else
-		{
-			auto expected = 0;
-			ASSERT_EQ( matrixValue, expected );
-		}
+		ASSERT_EQ( matrixValue, expected );
 	}
 }
 
@@ -163,4 +159,29 @@ TEST_F( MatrixTests, moveElementsUntillNoEmptyLineDownTest )
 		}
 		
 	}
+}
+
+TEST_F( MatrixTests, moveElementsUntillNoEmptyLineRightTest )
+{
+	const unsigned size = 3;
+	SquareMatrix2D<unsigned int> matrix( size );
+
+	matrix( 0, 0 ) = 1;
+	matrix( 1, 0 ) = 1;
+	matrix( 2, 0 ) = 1;
+	matrix.print();
+	matrix.moveElementsUntillNoEmptyLine( Directions::R );
+	matrix.print();
+	ASSERT_EQ( 1, matrix( 0, 2 ) );
+	ASSERT_EQ( 1, matrix( 1, 2 ) );
+	ASSERT_EQ( 1, matrix( 2, 2 ) );
+
+	ASSERT_EQ( 0, matrix( 0, 0 ) );
+	ASSERT_EQ( 0, matrix( 0, 1 ) );
+
+	ASSERT_EQ( 0, matrix( 1, 0 ) );
+	ASSERT_EQ( 0, matrix( 1, 1 ) );
+
+	ASSERT_EQ( 0, matrix( 2, 0 ) );
+	ASSERT_EQ( 0, matrix( 2, 1 ) );
 }
