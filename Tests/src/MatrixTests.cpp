@@ -120,16 +120,12 @@ TEST_F( MatrixTests, moveElementsUntillNoEmptyLineUpTest )
 	for( unsigned int i = 0; i < size*size; ++i )
 	{
 		auto matrixValue = matrix( i );
+		auto expected = 0;
 		if( i < size*2 )
 		{
-			auto expected = i + 3;
-			ASSERT_EQ( matrixValue, expected );
+			expected = i + 3;
 		}
-		else
-		{
-			auto expected = 0;
-			ASSERT_EQ( matrixValue, expected );
-		}
+		ASSERT_EQ( matrixValue, expected );
 	}
 }
 

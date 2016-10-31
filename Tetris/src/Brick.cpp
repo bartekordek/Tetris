@@ -20,9 +20,9 @@ namespace Tetris
 		return m_brickType;
 	}
 
-	SquareMatrix2D<bool> Brick::slab2Matrix( const std::vector<CSlab>& slabs )
+	SquareMatrix2D<myBool> Brick::slab2Matrix( const std::vector<CSlab>& slabs )
 	{
-		SquareMatrix2D<bool> result( slabs.size() / 2 );
+		SquareMatrix2D<myBool> result( slabs.size() / 2 );
 		for( const auto& slab: slabs )
 		{
 			result( slab.Row(), slab.Col() ) = true;

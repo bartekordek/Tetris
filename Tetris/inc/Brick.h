@@ -6,6 +6,10 @@
 
 namespace Tetris
 {
+	//http://stackoverflow.com/questions/8399417/why-vectorboolreference-doesnt-return-reference-to-bool
+	using myBool = unsigned char;
+	static const myBool False = 0;
+	static const myBool True = 1;
 	enum class BrickTypes: char
 	{
 		L, I, O, S, T
@@ -24,9 +28,9 @@ namespace Tetris
 		BrickTypes getBlockType()const;
 
 	protected:
-		static Moge::Math::SquareMatrix2D<bool> slab2Matrix( const std::vector<CSlab>& slabs );
+		static Moge::Math::SquareMatrix2D<myBool> slab2Matrix( const std::vector<CSlab>& slabs );
 		std::vector<CSlab> m_blocks;
-		Moge::Math::SquareMatrix2D<bool> blockMatrix = Moge::Math::SquareMatrix2D<bool>( 4 );
+		Moge::Math::SquareMatrix2D<myBool> blockMatrix = Moge::Math::SquareMatrix2D<myBool>( 4 );
 		Moge::Math::Directions m_direction;
 
 	private:

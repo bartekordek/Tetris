@@ -6,7 +6,6 @@ namespace Moge
 {
 namespace Math
 {
-
 template <typename Type>
 class SquareMatrix2D: public Matrix2D<Type>
 {
@@ -25,7 +24,7 @@ public:
 
 	void rotate( const bool clockWise = true )
 	{
-		Type** copiedValues = Matrix2D<Type>::copyValues();
+		std::vector< std::vector<Type> > copiedValues = Matrix2D<Type>::copyValues();
 		const unsigned int size = Matrix2D<Type>::getRowsCount();
 		for( unsigned int rowIndex = 0; rowIndex < size; ++rowIndex )
 		{
@@ -41,11 +40,6 @@ public:
 				}
 			}
 		}
-		for( unsigned int rowIndex = 0; rowIndex < size; ++rowIndex )
-		{
-			delete[] copiedValues[rowIndex];
-		}
-		delete[] copiedValues;
 	}
 
 	const unsigned int getSize()const

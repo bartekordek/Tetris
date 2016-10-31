@@ -1,7 +1,18 @@
 #pragma once
 
+/*
+ * As the vector itself, this container for some reason do not work with bool.
+ * Please see:
+ * http://stackoverflow.com/questions/8399417/why-vectorboolreference-doesnt-return-reference-to-bool
+ * Workaround: define your own bool type:
+	using myBool = unsigned char;
+	static const myBool False = 0;
+	static const myBool True = 1;
+ */
+
 #include <iostream>
 #include <iomanip>
+#include <vector>
 
 namespace Moge
 {
@@ -46,15 +57,13 @@ public:
 	{
 	}
 
-	Matrix2D( const unsigned rowsCount, const unsigned columnsCount ): rowsCount( rowsCount ), columnsCount( columnsCount )
+	Matrix2D( const unsigned rowsCount, const unsigned columnsCount )
 	{
 		createMatrixOfSize( rowsCount, columnsCount );
 	}
 
-	Matrix2D( const Matrix2D& matrix )
+	Matrix2D( const Matrix2D& matrix ): values( matrix.values )
 	{
-		createMatrixOfSize( matrix.rowsCount, matrix.columnsCount );
-		copy( matrix );
 	}
 
 	virtual ~Matrix2D()
@@ -66,9 +75,7 @@ public:
 	{
 		if( &matrix != this )
 		{
-			release();
-			createMatrixOfSize( matrix.rowsCount, matrix.columnsCount );
-			copy( matrix );
+			this->values = matrix.values;
 		}
 		return *this;
 	}
@@ -80,8 +87,8 @@ public:
 
 	Type& operator()( const unsigned int elementIndex )
 	{
-		const unsigned int colIndex = elementIndex % this->columnsCount;
-		const unsigned int rowIndex = elementIndex / this->rowsCount;
+		const unsigned int colIndex = elementIndex % getColumnCount();
+		const unsigned int rowIndex = elementIndex / getRowsCount();
 		return this->getValue( rowIndex, colIndex );
 	}
 
@@ -92,20 +99,26 @@ public:
 
 	const unsigned int getColumnCount()const
 	{
-		return this->columnsCount;
+		if( 0 == this->values.size() )
+		{
+			return 0;
+		}
+		return this->values[0].size();
 	}
 
 	const unsigned int getRowsCount()const
 	{
-		return this->rowsCount;
+		return this->values.size();
 	}
 
 	void moveElementsUntillNoEmptyLine( const Directions direction )
 	{
-		if( true == isZero() )
+		const unsigned int rowsCount = this->values.size();
+		if( true == isZero() || 0 == rowsCount )
 		{
 			return;
 		}
+		const unsigned int columnsCount = this->values[0].size();
 
 		if( Directions::U == direction )
 		{
@@ -116,14 +129,14 @@ public:
 		}
 		else if( Directions::D == direction )
 		{
-			while( this->rowIsEmpty( this->rowsCount - 1 ) )
+			while( this->rowIsEmpty( rowsCount - 1 ) )
 			{
 				moveElements( direction );
 			}
 		}
 		else if( Directions::R == direction )
 		{
-			while( this->columnIsEmpty( this->columnsCount - 1 ) )
+			while( this->columnIsEmpty( columnsCount - 1 ) )
 			{
 				moveElements( direction );
 			}
@@ -140,17 +153,24 @@ public:
 	void moveElements( const Directions direction )
 	{
 		std::pair<int, int> offset = direction2RowCol( direction );
+		const unsigned int rowsCount = this->values.size();
+		if( 0 == rowsCount )
+		{
+			return;
+		}
+
+		const unsigned int columnsCount = this->values[0].size();
 
 		for( 
 			int rowIndex =
-			Directions::D == direction ? this->rowsCount - 1 : 0 ;
-			Directions::D == direction ? rowIndex >= 0 : rowIndex < static_cast<int>( this->rowsCount );
+			Directions::D == direction ? rowsCount - 1 : 0 ;
+			Directions::D == direction ? rowIndex >= 0 : rowIndex < static_cast<int>( rowsCount );
 			Directions::D == direction ? --rowIndex: ++rowIndex )
 		{
 			for( 
 				int columnIndex =
-				Directions::R == direction ? this->columnsCount - 1: 0 ;
-				Directions::R == direction ? columnIndex >= 0: columnIndex < static_cast<int> (this->columnsCount);
+				Directions::R == direction ? columnsCount - 1: 0 ;
+				Directions::R == direction ? columnIndex >= 0: columnIndex < static_cast<int> (columnsCount);
 				Directions::R == direction ? --columnIndex: ++columnIndex )
 			{
 				const unsigned int targetColumnIndex = columnIndex - offset.second;
@@ -168,7 +188,7 @@ public:
 
 	const bool elementExist( const unsigned row, const unsigned col )const
 	{
-		if( this->rowsCount <= row || this->columnsCount <= col )
+		if( this->getRowsCount() <= row || this->getColumnCount() <= col )
 		{
 			return false;
 		}
@@ -177,12 +197,13 @@ public:
 
 	const bool isZero()const
 	{
-		auto zeroValue = static_cast<Type>( 0 );
-		for( unsigned int i = 0; i < this->rowsCount; ++i )
+		const Type zeroValue = static_cast<Type>( 0 );
+
+		for( const std::vector<Type>& row: this->values )
 		{
-			for( unsigned int j = 0; j < this->rowsCount; ++j )
+			for( const Type& value: row )
 			{
-				if( zeroValue !=  this->values[i][j] )
+				if( zeroValue != value )
 				{
 					return false;
 				}
@@ -193,11 +214,11 @@ public:
 
 	void print()const
 	{
-		for( unsigned int i = 0; i < this->rowsCount; ++i )
+		for( const std::vector<Type>& row: this->values )
 		{
-			for( unsigned int j = 0; j < this->rowsCount; ++j )
+			for( const Type& value: row )
 			{
-				std::cout << std::setw( 3 ) << this->values[i][j];
+				std::cout << std::setw( 3 ) << value;
 			}
 			std::cout << std::endl;
 		}
@@ -208,12 +229,12 @@ public:
 protected:
 	const bool columnIsEmpty( const unsigned int columnIndex )const
 	{
-		if( columnIndex >= this->columnsCount )
+		if( getRowsCount() == 0 && columnIndex >= getColumnCount() )
 		{
 			return false;
 		}
-
-		for( unsigned int i = 0; i < this->rowsCount; ++i )
+		const unsigned int rowsCount = getRowsCount();
+		for( unsigned int i = 0; i < rowsCount; ++i )
 		{
 			if( this->values[i][columnIndex] != static_cast<Type>( 0 ) )
 			{
@@ -225,14 +246,15 @@ protected:
 
 	const bool rowIsEmpty( const unsigned int rowIndex )const
 	{
-		if( rowIndex >= this->rowsCount )
+		if( rowIndex >= getRowsCount() )
 		{
 			return false;
 		}
 
-		for( unsigned int i = 0; i < this->columnsCount; ++i )
+		const std::vector<Type>& row = this->values[rowIndex];
+		for( const Type& value : row )
 		{
-			if( this->values[rowIndex][i] != static_cast<Type>( 0 ) )
+			if( static_cast<Type>( 0 ) != value )
 			{
 				return false;
 			}
@@ -240,17 +262,10 @@ protected:
 		return true;
 	}
 
-	Type** copyValues()const
+	std::vector< std::vector<Type> > copyValues()const
 	{
-		Type** result = new Type*[rowsCount];
-		for( unsigned int rowIndex = 0; rowIndex < this->rowsCount; ++rowIndex )
-		{
-			result[rowIndex] = new Type[columnsCount];
-			for( unsigned int columnIndex = 0; columnIndex < this->columnsCount; ++columnIndex )
-			{
-				result[rowIndex][columnIndex] = static_cast<Type>( this->values[ rowIndex ][ columnIndex ] );
-			}
-		}
+		std::vector< std::vector<Type> > result;
+		result = this->values;
 		return result;
 	}
 
@@ -268,79 +283,42 @@ private:
 
 	void createMatrixOfSize( const unsigned rowsCount, const unsigned columnsCount )
 	{
-		setRowsCount( rowsCount );
-		setColumnsCount( columnsCount );
-		allocateValues();
+		allocateValues( rowsCount, columnsCount );
 		applyValue( static_cast<Type>( 0 ) );
 	}
 
-	void setRowsCount( const unsigned int rowsCount )
+	void allocateValues( const unsigned int rowsCount, const unsigned int columnsCount )
 	{
-		this->rowsCount = rowsCount;
-	}
-
-	void setColumnsCount( const unsigned int columnsCount )
-	{
-		this->columnsCount = columnsCount;
-	}
-
-	void allocateValues()
-	{
-		this->values = new Type*[rowsCount];
-		for( unsigned int rowIndex = 0; rowIndex < this->rowsCount; ++rowIndex )
+		this->values.resize( rowsCount );
+		for( std::vector<Type>& row: this->values )
 		{
-			this->values[rowIndex] = new Type[columnsCount];
+			row.resize( columnsCount );
 		}
 	}
 
 	void applyValue( const Type& value )
 	{
-		for( unsigned int rowIndex = 0; rowIndex < this->rowsCount; ++rowIndex )
+		for( std::vector<Type>& row : this->values )
 		{
-			for( unsigned int columnIndex = 0; columnIndex < this->columnsCount; ++columnIndex )
+			const unsigned int columnsCount = row.size();
+			for( unsigned int columnIndex = 0; columnIndex < columnsCount; ++ columnIndex )
 			{
-				this->values[rowIndex][columnIndex] = static_cast<Type>( 0 );
+				row[columnIndex] = value;
 			}
 		}
 	}
 
 	Type& getValue( const unsigned int rowIndex, const unsigned int columnIndex )
 	{
-		if( rowIndex >= this->rowsCount )
-		{
-			throw std::runtime_error( 
-				"Row index " + 
-				std::to_string( rowIndex ) + 
-				" is bigger than rows count: " +
-				std::to_string( this->rowsCount ) + "." );
-		}
-
-		if( columnIndex >= this->columnsCount )
-		{
-			throw std::runtime_error( 
-				"Column index " + 
-				std::to_string( columnIndex ) + 
-				" is bigger than column count: " + 
-				std::to_string( this->columnsCount ) + "." );
-		}
-
-		return values[rowIndex][columnIndex];
+		return this->values[rowIndex][columnIndex];
 	}
 
 	void release()
 	{
-		for( unsigned int i = 0; i < rowsCount; ++i )
-		{
-			delete[] this->values[i];
-		}
-
-		delete[] this->values;
-		this->values = nullptr;
+		this->values.resize( 0 );
 	}
 
-	Type** values = nullptr;
-	unsigned int rowsCount = 0;
-	unsigned int columnsCount = 0;
+	std::vector< std::vector<Type> > values;
 };
 }
 }
