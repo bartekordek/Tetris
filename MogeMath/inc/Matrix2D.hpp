@@ -290,7 +290,7 @@ private:
 		for( std::vector<Type>& row : this->values )
 		{
 			const unsigned int columnsCount = row.size();
-			for( unsigned int columnIndex = 0; columnIndex < columnsCount; ++ columnIndex )
+			for( unsigned int columnIndex = 0; columnIndex < columnsCount; ++columnIndex )
 			{
 				row[columnIndex] = value;
 			}
