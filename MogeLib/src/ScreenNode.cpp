@@ -79,7 +79,7 @@ namespace Moge
 		this->position.setValue( Math::Axes::Y, height );
 	}
 
-	void ScreenNode::setHepth( const unsigned int depth )
+	void ScreenNode::setDepth( const unsigned int depth )
 	{
 		this->position.setValue( Math::Axes::Z, depth );
 	}
