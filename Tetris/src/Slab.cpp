@@ -64,11 +64,6 @@ void Slab::Empty( const bool empty )
 	this->empty = empty;
 }
 
-void Slab::SetId( CUInt id )
-{
-	this->index = id;
-}
-
 void Slab::SetNode( const Moge::ObjectNode& node )
 {
 	this->node = node;

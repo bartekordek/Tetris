@@ -26,7 +26,6 @@ namespace Tetris
 
 	private:
 		CTableCoor position;
-		unsigned int index = 0;
 		bool empty;
 		Moge::ObjectNode node;
 	};
