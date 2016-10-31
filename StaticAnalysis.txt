@@ -1,13 +1,14 @@
+[MogeMath/inc/Matrix2D.hpp:304]: (style) Unused private function: 'Matrix2D::release'
 [Tetris/inc/MainGrid.h:30]: (style) Unused private function: 'CMainGrid::checkIfBlockCanBeRotated'
 [/cygdrive/c/Dev/Tetris/MogeLib/src/KeyboardObservable.cpp:16]: (style) The function 'Initialize' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/KeyboardListener.cpp:14]: (style) The function 'KeyEvent' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/KeyboardObservable.cpp:21]: (style) The function 'Register' is never used.
-[/cygdrive/c/Dev/Tetris/Tetris/src/Slab.cpp:67]: (style) The function 'SetId' is never used.
 [/cygdrive/c/Dev/Tetris/Tetris/src/Picture.cpp:35]: (style) The function 'SetPictureLocation' is never used.
 [/cygdrive/c/Dev/Tetris/Tetris/src/Picture.cpp:47]: (style) The function 'SetPictureSize' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/MTime.cpp:6]: (style) The function 'SleepSeconds' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:149]: (style) The function 'UpdateImplementation' is never used.
 [/cygdrive/c/Dev/Tetris/Tetris/src/MainGrid.cpp:149]: (style) The function 'checkIfBlockCanBeRotated' is never used.
+[/cygdrive/c/Dev/Tetris/Tetris/src/BrickFactory.cpp:33]: (style) The function 'createBrick' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:98]: (style) The function 'setHepth' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/ScreenNode.cpp:130]: (style) The function 'setResolution' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:70]: (style) The function 'setSize' is never used.
