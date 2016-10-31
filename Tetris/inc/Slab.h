@@ -25,7 +25,7 @@ public:
 
 private:
 	CTableCoor position;
-	bool empty;
+	bool empty = true;
 	Moge::ObjectNode node;
 };
 }
