@@ -26,12 +26,13 @@ namespace Tetris
 		void move( const Moge::Math::Directions direction = Moge::Math::Directions::D );
 		void rotate( const bool clockWise = true );
 		BrickTypes getBlockType()const;
+		Brick& operator=( const Brick& right );
 
 	protected:
 		static Moge::Math::SquareMatrix2D<myBool> slab2Matrix( const std::vector<Slab>& slabs );
 		std::vector<Slab> m_blocks;
-		Moge::Math::SquareMatrix2D<myBool> blockMatrix = Moge::Math::SquareMatrix2D<myBool>( 4 );
 		Moge::Math::Directions m_direction;
+		Moge::Math::SquareMatrix2D<myBool> blockMatrix = Moge::Math::SquareMatrix2D<myBool>( 4 );
 
 	private:
 		virtual void rotateClockWise() = 0;

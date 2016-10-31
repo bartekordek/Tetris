@@ -20,6 +20,17 @@ namespace Tetris
 		return brickType;
 	}
 
+	Brick& Brick::operator=( const Brick& right )
+	{
+		if( &right != this )
+		{
+			this->m_blocks = right.m_blocks;
+			this->m_direction = right.m_direction;
+			this->blockMatrix = right.blockMatrix;
+		}
+		return *this;
+	}
+
 	SquareMatrix2D<myBool> Brick::slab2Matrix( const std::vector<Slab>& slabs )
 	{
 		SquareMatrix2D<myBool> result( 4 );
@@ -34,7 +45,8 @@ namespace Tetris
 
 	Brick::Brick( const Brick& brick ):
 		m_blocks( brick.m_blocks ),
-		m_direction( brick.m_direction )
+		m_direction( brick.m_direction ),
+		blockMatrix( brick.blockMatrix )
 	{
 	}
 
@@ -131,7 +143,11 @@ namespace Tetris
 			m_blocks[3].SetPosition( m_blocks[3].Row() + 2, m_blocks[3].Col() - 1 );
 			m_direction = Directions::U;
 		}
+		blockMatrix.print();
 		blockMatrix.rotate();
+		blockMatrix.moveElementsUntillNoEmptyLine( Directions::U );
+		blockMatrix.moveElementsUntillNoEmptyLine( Directions::L );
+		blockMatrix.print();
 	}
 
 	CIBrick::CIBrick( const Directions direction ):Brick( BrickTypes::I, direction )
