@@ -12,7 +12,7 @@ namespace Tetris
 	static const myBool True = 1;
 	enum class BrickTypes: char
 	{
-		L, I, O, S, T
+		L, I, O, S, T, Z
 	};
 
 	class Brick
