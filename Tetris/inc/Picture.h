@@ -4,8 +4,6 @@
 #include "Named.h"
 #include "Aliases.h"
 
-#include <memory>
-
 class Path;
 class CPicture: public Moge::Name
 {
