@@ -68,7 +68,6 @@ public:
 
 	virtual ~Matrix2D()
 	{
-		release();
 	}
 
 	Matrix2D& operator=( const Matrix2D& matrix )
