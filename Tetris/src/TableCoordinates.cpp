@@ -22,27 +22,27 @@ CTableCoor::~CTableCoor()
 {
 }
 
-CUInt CTableCoor::Col()const
+CUInt CTableCoor::getCol()const
 {
 	return this->column;
 }
 
-CUInt CTableCoor::Row()const
+CUInt CTableCoor::getRow()const
 {
 	return this->row;
 }
 
-void CTableCoor::Row( CUInt row )
+void CTableCoor::getRow( CUInt row )
 {
 	this->row = row;
 }
 
-void CTableCoor::Col( CUInt col )
+void CTableCoor::getCol( CUInt col )
 {
 	this->column = col;
 }
 
-void CTableCoor::ChangePosition( CUInt row, CUInt col )
+void CTableCoor::changePosition( CUInt row, CUInt col )
 {
 	this->row = row;
 	this->column = col;

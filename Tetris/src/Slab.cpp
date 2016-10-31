@@ -29,29 +29,29 @@ Slab& Slab::operator=( const Slab& slab )
 	return *this;
 }
 
-CUInt Slab::Row()const
+CUInt Slab::row()const
 {
-	return position.Row();
+	return position.getRow();
 }
 
-void Slab::Row( CUInt row )
+void Slab::row( CUInt row )
 {
-	position.Row( row );
+	position.getRow( row );
 }
 
-void Slab::Col( CUInt col )
+void Slab::col( CUInt col )
 {
-	position.Col( col );
+	position.getCol( col );
 }
 
-CUInt Slab::Col()const
+CUInt Slab::col()const
 {
-	return position.Col();
+	return position.getCol();
 }
 
 void Slab::SetPosition( CUInt row, CUInt col )
 {
-	this->position.ChangePosition( row, col );
+	this->position.changePosition( row, col );
 }
 
 const bool Slab::Empty()const

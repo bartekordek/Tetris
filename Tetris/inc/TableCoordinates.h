@@ -10,16 +10,16 @@ public:
 	CTableCoor( const CTableCoor& tableCoord );
 	CTableCoor( CUInt row, CUInt column );
 	virtual ~CTableCoor();
-	CUInt Row()const;
-	CUInt Col()const;
-	void Row( CUInt row );
-	void Col( CUInt col );
-	void ChangePosition( CUInt row, CUInt col );
+	CUInt getRow()const;
+	CUInt getCol()const;
+	void getRow( CUInt row );
+	void getCol( CUInt col );
+	void changePosition( CUInt row, CUInt col );
 	CTableCoor& operator=( const CTableCoor& coor );
 
 private:
-	unsigned row;
-	unsigned column;
+	unsigned row = 0;
+	unsigned column = 0;
 };
 
 typedef std::vector<CTableCoor> CoordinatestList;

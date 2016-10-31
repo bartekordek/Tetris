@@ -53,7 +53,7 @@ namespace Tetris
 			for( auto& slab : slabRow )
 			{
 				std::shared_ptr<Moge::ObjectNodeContent> slabNode = Moge::NodeCreator::CreateFromImage( emptySlabImage );
-				Moge::Math::IPositionAdapter<int> position( slab.Col() * slabNode->getWidth(), slab.Row() * slabNode->getHeight(), 0 );
+				Moge::Math::IPositionAdapter<int> position( slab.col() * slabNode->getWidth(), slab.row() * slabNode->getHeight(), 0 );
 				slabNode->setXyz( position.getX(), position.getY(), 0 );
 				slab.SetNode( slabNode );
 
@@ -75,8 +75,8 @@ namespace Tetris
 		CoordinatestList coords = brick->getBlockPositions();
 		for( auto it = coords.begin(); it != coords.end(); ++it )
 		{
-			CUInt row = it->Row();
-			CUInt col = it->Col();
+			CUInt row = it->getRow();
+			CUInt col = it->getCol();
 			MarkSlabAsPartOfMovingBlock( row, col );
 		}
 	}
@@ -99,7 +99,7 @@ namespace Tetris
 		CoordinatestList coords = activeBrick->getBlockPositions();
 		for( auto it = coords.begin(); it != coords.end(); ++it )
 		{
-			if( it->Row() == rowIndex && it->Col() == colIndex )
+			if( it->getRow() == rowIndex && it->getCol() == colIndex )
 			{
 				return true;
 			}
@@ -120,8 +120,8 @@ namespace Tetris
 	{
 		for( auto& coord : activeBrick->getBlockPositions() )
 		{
-			CUInt newRow = coord.Row() + GetRowOffset( direction );
-			CUInt newCol = coord.Col() + GetColOffset( direction );
+			CUInt newRow = coord.getRow() + GetRowOffset( direction );
+			CUInt newCol = coord.getCol() + GetColOffset( direction );
 
 			if( newRow >= slabsRows.size() )
 			{
@@ -230,7 +230,7 @@ namespace Tetris
 		{
 			for( auto& coord : activeBrick->getBlockPositions() )
 			{
-				Slab& slab = slabsRows.at( coord.Row() ).at( coord.Col() );
+				Slab& slab = slabsRows.at( coord.getRow() ).at( coord.getCol() );
 				slab.Empty( false );
 				slab.GetNode().get()->SetSurface( filledSlabImage );
 			}
@@ -243,21 +243,21 @@ namespace Tetris
 		for( auto it = coords.begin(); it != coords.end(); ++it )
 		{
 
-			if( it->Row() >= slabsRows.size() )
+			if( it->getRow() >= slabsRows.size() )
 			{
 				return false;
 			}
-			if( false == SlabExist( it->Row(), it->Col() ) )
+			if( false == SlabExist( it->getRow(), it->getCol() ) )
 			{
 				return false;
 			}
 
-			if( true == PartOfCurrentBrick( it->Row(), it->Col() ) )
+			if( true == PartOfCurrentBrick( it->getRow(), it->getCol() ) )
 			{
 				continue;
 			}
 
-			if( false == slabsRows.at( it->Row() ).at( it->Col() ).Empty() )
+			if( false == slabsRows.at( it->getRow() ).at( it->getCol() ).Empty() )
 			{
 				return false;
 			}
@@ -278,7 +278,7 @@ namespace Tetris
 	{
 		for( auto& coord : activeBrick->getBlockPositions() )
 		{
-			auto& slab = slabsRows.at( coord.Row() ).at( coord.Col() );
+			auto& slab = slabsRows.at( coord.getRow() ).at( coord.getCol() );
 			slab.Empty( true );
 			auto slabnode = slab.GetNode();
 			slabnode->SetSurface( emptySlabImage );

@@ -13,10 +13,10 @@ public:
 	Slab( CUInt row = 0, CUInt col = 0, const bool empty = true );
 	virtual ~Slab();
 	Slab& operator=( const Slab& slab );
-	CUInt Row()const;
-	CUInt Col()const;
-	void Row( CUInt row );
-	void Col( CUInt col );
+	CUInt row()const;
+	CUInt col()const;
+	void row( CUInt row );
+	void col( CUInt col );
 	void SetPosition( CUInt row, CUInt col );
 	const bool Empty()const;
 	void Empty( const bool empty );

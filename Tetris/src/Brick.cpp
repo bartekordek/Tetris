@@ -36,8 +36,8 @@ namespace Tetris
 		SquareMatrix2D<myBool> result( 4 );
 		for( const auto& slab: slabs )
 		{
-			const unsigned int row = slab.Row();
-			const unsigned int col = slab.Col();
+			const unsigned int row = slab.row();
+			const unsigned int col = slab.col();
 			result( row, col ) = true;
 		}
 		return result;
@@ -63,7 +63,7 @@ namespace Tetris
 		CoordinatestList positions;
 		for( std::vector<Slab>::const_iterator it = m_blocks.begin(); it != m_blocks.end(); ++it )
 		{
-			positions.push_back( CTableCoor( it->Row(), it->Col() ) );
+			positions.push_back( CTableCoor( it->row(), it->col() ) );
 		}
 		return positions;
 	}
@@ -95,8 +95,8 @@ namespace Tetris
 
 		for( auto& slab: m_blocks )
 		{
-			slab.Col( slab.Col() + colDiff );
-			slab.Row( slab.Row() + rowDiff );
+			slab.col( slab.col() + colDiff );
+			slab.row( slab.row() + rowDiff );
 		}
 	}
 
@@ -113,34 +113,34 @@ namespace Tetris
 	{
 		if( m_direction == Directions::U )
 		{
-			m_blocks[0].SetPosition( m_blocks[0].Row() - 2, m_blocks[0].Col() + 0 );
-			m_blocks[1].SetPosition( m_blocks[1].Row() - 1, m_blocks[1].Col() + 1 );
-			m_blocks[2].SetPosition( m_blocks[2].Row(), m_blocks[2].Col() + 2 );
-			m_blocks[3].SetPosition( m_blocks[3].Row() - 1, m_blocks[3].Col() - 1 );
+			m_blocks[0].SetPosition( m_blocks[0].row() - 2, m_blocks[0].col() + 0 );
+			m_blocks[1].SetPosition( m_blocks[1].row() - 1, m_blocks[1].col() + 1 );
+			m_blocks[2].SetPosition( m_blocks[2].row(), m_blocks[2].col() + 2 );
+			m_blocks[3].SetPosition( m_blocks[3].row() - 1, m_blocks[3].col() - 1 );
 			m_direction = Directions::R;
 		}
 		else if( m_direction == Directions::R )
 		{
-			m_blocks[0].SetPosition( m_blocks[0].Row(), m_blocks[0].Col() + 1 );
-			m_blocks[1].SetPosition( m_blocks[1].Row() + 1, m_blocks[1].Col() + 0 );
-			m_blocks[2].SetPosition( m_blocks[2].Row() + 2, m_blocks[2].Col() - 1 );
-			m_blocks[3].SetPosition( m_blocks[3].Row() - 1, m_blocks[3].Col() + 0 );
+			m_blocks[0].SetPosition( m_blocks[0].row(), m_blocks[0].col() + 1 );
+			m_blocks[1].SetPosition( m_blocks[1].row() + 1, m_blocks[1].col() + 0 );
+			m_blocks[2].SetPosition( m_blocks[2].row() + 2, m_blocks[2].col() - 1 );
+			m_blocks[3].SetPosition( m_blocks[3].row() - 1, m_blocks[3].col() + 0 );
 			m_direction = Directions::D;
 		}
 		else if( m_direction == Directions::D )
 		{
-			m_blocks[0].SetPosition( m_blocks[0].Row() + 1, m_blocks[0].Col() + 1 );
+			m_blocks[0].SetPosition( m_blocks[0].row() + 1, m_blocks[0].col() + 1 );
 
-			m_blocks[2].SetPosition( m_blocks[2].Row() - 1, m_blocks[2].Col() - 1 );
-			m_blocks[3].SetPosition( m_blocks[3].Row(), m_blocks[3].Col() + 2 );
+			m_blocks[2].SetPosition( m_blocks[2].row() - 1, m_blocks[2].col() - 1 );
+			m_blocks[3].SetPosition( m_blocks[3].row(), m_blocks[3].col() + 2 );
 			m_direction = Directions::L;
 		}
 		else
 		{
-			m_blocks[0].SetPosition( m_blocks[0].Row() + 1, m_blocks[0].Col() - 2 );
-			m_blocks[1].SetPosition( m_blocks[1].Row(), m_blocks[1].Col() - 1 );
-			m_blocks[2].SetPosition( m_blocks[2].Row() - 1, m_blocks[2].Col() );
-			m_blocks[3].SetPosition( m_blocks[3].Row() + 2, m_blocks[3].Col() - 1 );
+			m_blocks[0].SetPosition( m_blocks[0].row() + 1, m_blocks[0].col() - 2 );
+			m_blocks[1].SetPosition( m_blocks[1].row(), m_blocks[1].col() - 1 );
+			m_blocks[2].SetPosition( m_blocks[2].row() - 1, m_blocks[2].col() );
+			m_blocks[3].SetPosition( m_blocks[3].row() + 2, m_blocks[3].col() - 1 );
 			m_direction = Directions::U;
 		}
 		blockMatrix.print();
@@ -163,30 +163,30 @@ namespace Tetris
 	{
 		if( m_direction == Directions::U )
 		{
-			m_blocks[1].SetPosition( m_blocks[1].Row() - 1, m_blocks[1].Col() + 1 );
-			m_blocks[2].SetPosition( m_blocks[2].Row() - 2, m_blocks[2].Col() + 2 );
-			m_blocks[3].SetPosition( m_blocks[3].Row() - 3, m_blocks[3].Col() + 3 );
+			m_blocks[1].SetPosition( m_blocks[1].row() - 1, m_blocks[1].col() + 1 );
+			m_blocks[2].SetPosition( m_blocks[2].row() - 2, m_blocks[2].col() + 2 );
+			m_blocks[3].SetPosition( m_blocks[3].row() - 3, m_blocks[3].col() + 3 );
 			m_direction = Directions::R;
 		}
 		else if( m_direction == Directions::R )
 		{
-			m_blocks[1].SetPosition( m_blocks[1].Row() + 1, m_blocks[1].Col() - 1 );
-			m_blocks[2].SetPosition( m_blocks[2].Row() + 2, m_blocks[2].Col() - 2 );
-			m_blocks[3].SetPosition( m_blocks[3].Row() + 3, m_blocks[3].Col() - 3 );
+			m_blocks[1].SetPosition( m_blocks[1].row() + 1, m_blocks[1].col() - 1 );
+			m_blocks[2].SetPosition( m_blocks[2].row() + 2, m_blocks[2].col() - 2 );
+			m_blocks[3].SetPosition( m_blocks[3].row() + 3, m_blocks[3].col() - 3 );
 			m_direction = Directions::D;
 		}
 		else if( m_direction == Directions::D )
 		{
-			m_blocks[1].SetPosition( m_blocks[1].Row() - 1, m_blocks[1].Col() + 1 );
-			m_blocks[2].SetPosition( m_blocks[2].Row() - 2, m_blocks[2].Col() + 2 );
-			m_blocks[3].SetPosition( m_blocks[3].Row() - 3, m_blocks[3].Col() + 3 );
+			m_blocks[1].SetPosition( m_blocks[1].row() - 1, m_blocks[1].col() + 1 );
+			m_blocks[2].SetPosition( m_blocks[2].row() - 2, m_blocks[2].col() + 2 );
+			m_blocks[3].SetPosition( m_blocks[3].row() - 3, m_blocks[3].col() + 3 );
 			m_direction = Directions::L;
 		}
 		else
 		{
-			m_blocks[1].SetPosition( m_blocks[1].Row() + 1, m_blocks[1].Col() - 1 );
-			m_blocks[2].SetPosition( m_blocks[2].Row() + 2, m_blocks[2].Col() - 2 );
-			m_blocks[3].SetPosition( m_blocks[3].Row() + 3, m_blocks[3].Col() - 3 );
+			m_blocks[1].SetPosition( m_blocks[1].row() + 1, m_blocks[1].col() - 1 );
+			m_blocks[2].SetPosition( m_blocks[2].row() + 2, m_blocks[2].col() - 2 );
+			m_blocks[3].SetPosition( m_blocks[3].row() + 3, m_blocks[3].col() - 3 );
 			m_direction = Directions::U;
 		}
 		blockMatrix.rotate();
@@ -218,34 +218,34 @@ namespace Tetris
 	{
 		if( m_direction == Directions::U )
 		{
-			m_blocks[0].SetPosition( m_blocks[0].Row(), m_blocks[0].Col() - 1 );
-			m_blocks[1].SetPosition( m_blocks[1].Row() - 1, m_blocks[1].Col() );
-			m_blocks[2].SetPosition( m_blocks[2].Row(), m_blocks[2].Col() + 1 );
-			m_blocks[3].SetPosition( m_blocks[3].Row() - 1, m_blocks[3].Col() + 2 );
+			m_blocks[0].SetPosition( m_blocks[0].row(), m_blocks[0].col() - 1 );
+			m_blocks[1].SetPosition( m_blocks[1].row() - 1, m_blocks[1].col() );
+			m_blocks[2].SetPosition( m_blocks[2].row(), m_blocks[2].col() + 1 );
+			m_blocks[3].SetPosition( m_blocks[3].row() - 1, m_blocks[3].col() + 2 );
 			m_direction = Directions::R;
 		}
 		else if( m_direction == Directions::R )
 		{
-			m_blocks[0].SetPosition( m_blocks[0].Row(), m_blocks[0].Col() + 1 );
-			m_blocks[1].SetPosition( m_blocks[1].Row() + 1, m_blocks[1].Col() );
-			m_blocks[2].SetPosition( m_blocks[2].Row(), m_blocks[2].Col() - 1 );
-			m_blocks[3].SetPosition( m_blocks[3].Row() + 1, m_blocks[3].Col() - 2 );
+			m_blocks[0].SetPosition( m_blocks[0].row(), m_blocks[0].col() + 1 );
+			m_blocks[1].SetPosition( m_blocks[1].row() + 1, m_blocks[1].col() );
+			m_blocks[2].SetPosition( m_blocks[2].row(), m_blocks[2].col() - 1 );
+			m_blocks[3].SetPosition( m_blocks[3].row() + 1, m_blocks[3].col() - 2 );
 			m_direction = Directions::D;
 		}
 		else if( m_direction == Directions::D )
 		{
-			m_blocks[0].SetPosition( m_blocks[0].Row(), m_blocks[0].Col() - 1 );
-			m_blocks[1].SetPosition( m_blocks[1].Row() - 1, m_blocks[1].Col() );
-			m_blocks[2].SetPosition( m_blocks[2].Row(), m_blocks[2].Col() + 1 );
-			m_blocks[3].SetPosition( m_blocks[3].Row() - 1, m_blocks[3].Col() + 2 );
+			m_blocks[0].SetPosition( m_blocks[0].row(), m_blocks[0].col() - 1 );
+			m_blocks[1].SetPosition( m_blocks[1].row() - 1, m_blocks[1].col() );
+			m_blocks[2].SetPosition( m_blocks[2].row(), m_blocks[2].col() + 1 );
+			m_blocks[3].SetPosition( m_blocks[3].row() - 1, m_blocks[3].col() + 2 );
 			m_direction = Directions::L;
 		}
 		else
 		{
-			m_blocks[0].SetPosition( m_blocks[0].Row(), m_blocks[0].Col() + 1 );
-			m_blocks[1].SetPosition( m_blocks[1].Row() + 1, m_blocks[1].Col() );
-			m_blocks[2].SetPosition( m_blocks[2].Row(), m_blocks[2].Col() - 1 );
-			m_blocks[3].SetPosition( m_blocks[3].Row() + 1, m_blocks[3].Col() - 2 );
+			m_blocks[0].SetPosition( m_blocks[0].row(), m_blocks[0].col() + 1 );
+			m_blocks[1].SetPosition( m_blocks[1].row() + 1, m_blocks[1].col() );
+			m_blocks[2].SetPosition( m_blocks[2].row(), m_blocks[2].col() - 1 );
+			m_blocks[3].SetPosition( m_blocks[3].row() + 1, m_blocks[3].col() - 2 );
 			m_direction = Directions::U;
 		}
 		blockMatrix.rotate();
@@ -264,32 +264,32 @@ namespace Tetris
 	{
 		if( m_direction == Directions::U )
 		{
-			m_blocks[0].SetPosition( m_blocks[0].Row() - 1, m_blocks[0].Col() );
-			m_blocks[1].SetPosition( m_blocks[1].Row(), m_blocks[1].Col() - 1 );
-			m_blocks[2].SetPosition( m_blocks[2].Row() + 1, m_blocks[2].Col() - 2 );
-			m_blocks[3].SetPosition( m_blocks[3].Row() + 1, m_blocks[3].Col() );
+			m_blocks[0].SetPosition( m_blocks[0].row() - 1, m_blocks[0].col() );
+			m_blocks[1].SetPosition( m_blocks[1].row(), m_blocks[1].col() - 1 );
+			m_blocks[2].SetPosition( m_blocks[2].row() + 1, m_blocks[2].col() - 2 );
+			m_blocks[3].SetPosition( m_blocks[3].row() + 1, m_blocks[3].col() );
 			m_direction = Directions::R;
 		}
 		else if( m_direction == Directions::R )
 		{
-			m_blocks[1].SetPosition( m_blocks[1].Row() - 1, m_blocks[1].Col() + 1 );
-			m_blocks[2].SetPosition( m_blocks[2].Row() - 2, m_blocks[2].Col() + 2 );
-			m_blocks[3].SetPosition( m_blocks[3].Row(), m_blocks[3].Col() );
+			m_blocks[1].SetPosition( m_blocks[1].row() - 1, m_blocks[1].col() + 1 );
+			m_blocks[2].SetPosition( m_blocks[2].row() - 2, m_blocks[2].col() + 2 );
+			m_blocks[3].SetPosition( m_blocks[3].row(), m_blocks[3].col() );
 			m_direction = Directions::D;
 		}
 		else if( m_direction == Directions::D )
 		{
-			m_blocks[0].SetPosition( m_blocks[0].Row(), m_blocks[0].Col() + 1 );
-			m_blocks[1].SetPosition( m_blocks[1].Row() + 1, m_blocks[1].Col() );
-			m_blocks[2].SetPosition( m_blocks[2].Row() + 2, m_blocks[2].Col() - 1 );
-			m_blocks[3].SetPosition( m_blocks[3].Row(), m_blocks[3].Col() - 1 );
+			m_blocks[0].SetPosition( m_blocks[0].row(), m_blocks[0].col() + 1 );
+			m_blocks[1].SetPosition( m_blocks[1].row() + 1, m_blocks[1].col() );
+			m_blocks[2].SetPosition( m_blocks[2].row() + 2, m_blocks[2].col() - 1 );
+			m_blocks[3].SetPosition( m_blocks[3].row(), m_blocks[3].col() - 1 );
 			m_direction = Directions::L;
 		}
 		else
 		{
-			m_blocks[0].SetPosition( m_blocks[0].Row() + 1, m_blocks[0].Col() - 1 );
-			m_blocks[2].SetPosition( m_blocks[2].Row() - 1, m_blocks[2].Col() + 1 );
-			m_blocks[3].SetPosition( m_blocks[3].Row() - 1, m_blocks[3].Col() + 1 );
+			m_blocks[0].SetPosition( m_blocks[0].row() + 1, m_blocks[0].col() - 1 );
+			m_blocks[2].SetPosition( m_blocks[2].row() - 1, m_blocks[2].col() + 1 );
+			m_blocks[3].SetPosition( m_blocks[3].row() - 1, m_blocks[3].col() + 1 );
 			m_direction = Directions::U;
 		}
 		blockMatrix.rotate();
