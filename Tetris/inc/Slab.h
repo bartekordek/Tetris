@@ -10,7 +10,7 @@ class Slab
 {
 public:
 	Slab( const Slab& slab );
-	Slab( CUInt row = 0, CUInt col = 0, const bool partOfSlab = false, const bool empty = true );
+	Slab( CUInt row = 0, CUInt col = 0, const bool empty = true );
 	virtual ~Slab();
 	Slab& operator=( const Slab& slab );
 	CUInt Row()const;

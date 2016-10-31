@@ -2,7 +2,7 @@
 
 namespace Tetris
 {
-Slab::Slab( CUInt row, CUInt col, const bool partOfSlab, const bool empty ):
+Slab::Slab( CUInt row, CUInt col, const bool empty ):
 	position( CTableCoor( row, col ) ),
 	empty( empty )
 {

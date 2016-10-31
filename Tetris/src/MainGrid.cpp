@@ -42,7 +42,7 @@ namespace Tetris
 			SlabRow rows;
 			for( UInt col = 0; col < columnsCount; ++col )
 			{
-				Slab slab( row + initialY, col + initialX, false, true );
+				Slab slab( row + initialY, col + initialX, true );
 				rows.push_back( slab );
 			}
 			slabsRows.push_back( rows );
