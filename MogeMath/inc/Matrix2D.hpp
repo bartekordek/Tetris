@@ -270,17 +270,6 @@ protected:
 	}
 
 private:
-	void copy( const Matrix2D& matrix )
-	{
-		for( unsigned int rowIndex = 0; rowIndex < this->rowsCount; ++rowIndex )
-		{
-			for( unsigned int columnIndex = 0; columnIndex < this->columnsCount; ++columnIndex )
-			{
-				this->values[rowIndex][columnIndex] = matrix.values[rowIndex][columnIndex];
-			}
-		}
-	}
-
 	void createMatrixOfSize( const unsigned rowsCount, const unsigned columnsCount )
 	{
 		allocateValues( rowsCount, columnsCount );
