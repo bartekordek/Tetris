@@ -33,6 +33,7 @@
 ./Tests/main.cpp
 ./Tests/src/FilesystemTests.cpp
 ./Tests/src/ImageCreatorTests.cpp
+./Tests/src/MatrixTests.cpp
 ./Tests/src/MogeGenericTests.cpp
 ./Tests/src/NameTests.cpp
 ./Tests/src/NodeCreatorTests.cpp

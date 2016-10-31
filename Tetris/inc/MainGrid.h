@@ -9,7 +9,7 @@
 
 namespace Tetris
 {
-	using SlabRow = std::vector<CSlab>;
+	using SlabRow = std::vector<Slab>;
 	class CMainGrid
 	{
 	public:
@@ -38,15 +38,15 @@ namespace Tetris
 		const bool RowIsConnected( const SlabRow& slabRow )const;
 		const bool m_CheckIfBlockCanBePlaced( const Brick* brick );
 		void MoveAllLinesOneLineDown( std::vector<SlabRow>::iterator rowIterator );
-		void SetSlabImagSurface( CSlab& slab );
+		void SetSlabImagSurface( Slab& slab );
 
-		Brick* m_activeBrick;
-		std::vector<SlabRow> mSlabsRows;
-		CPicture m_slabBackground;
-		CPicture m_brickBckd;
+		Brick* activeBrick;
+		std::vector<SlabRow> slabsRows;
+		CPicture slabBackground;
+		CPicture brickBckd;
 		std::mutex slabsMutex;
 		std::mutex currentBrickMutex;
-		Moge::ImageSurface mEmptySlabImage;
-		Moge::ImageSurface mFilledSlabImage;
+		Moge::ImageSurface emptySlabImage;
+		Moge::ImageSurface filledSlabImage;
 	};
 }

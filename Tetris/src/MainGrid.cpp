@@ -7,19 +7,19 @@
 
 namespace Tetris
 {
-	CMainGrid::CMainGrid():m_activeBrick( nullptr )
+	CMainGrid::CMainGrid():activeBrick( nullptr )
 	{
 		std::lock_guard<std::mutex> slabLock( currentBrickMutex );
 		Moge::Path blockImagepath = Moge::Path::GetCurrentDirectory() + "\\..\\..\\Media\\Block.bmp";
-		mFilledSlabImage = Moge::ImageCreator::CreateSurfaceFromImage( blockImagepath );
+		filledSlabImage = Moge::ImageCreator::CreateSurfaceFromImage( blockImagepath );
 
 		Moge::Path bgBlockImagepath = Moge::Path::GetCurrentDirectory() + "\\..\\..\\Media\\BackGroundBlock.bmp";
-		mEmptySlabImage = Moge::ImageCreator::CreateSurfaceFromImage( bgBlockImagepath );
+		emptySlabImage = Moge::ImageCreator::CreateSurfaceFromImage( bgBlockImagepath );
 	}
 
 	CMainGrid::~CMainGrid()
 	{
-		mSlabsRows.erase( mSlabsRows.begin(), mSlabsRows.end() );
+		slabsRows.erase( slabsRows.begin(), slabsRows.end() );
 	}
 
 	void CMainGrid::updateGrid()
@@ -36,23 +36,23 @@ namespace Tetris
 
 	void CMainGrid::SetSize( CUInt rowsCount, CUInt columnsCount, CUInt initialX, CUInt initialY )
 	{
-		mSlabsRows.erase( mSlabsRows.begin(), mSlabsRows.end() );
+		slabsRows.erase( slabsRows.begin(), slabsRows.end() );
 		for( UInt row = 0; row < rowsCount; ++row )
 		{
 			SlabRow rows;
 			for( UInt col = 0; col < columnsCount; ++col )
 			{
-				CSlab slab( row + initialY, col + initialX, false, true );
+				Slab slab( row + initialY, col + initialX, false, true );
 				rows.push_back( slab );
 			}
-			mSlabsRows.push_back( rows );
+			slabsRows.push_back( rows );
 		}
 
-		for( auto& slabRow : mSlabsRows )
+		for( auto& slabRow : slabsRows )
 		{
 			for( auto& slab : slabRow )
 			{
-				std::shared_ptr<Moge::ObjectNodeContent> slabNode = Moge::NodeCreator::CreateFromImage( mEmptySlabImage );
+				std::shared_ptr<Moge::ObjectNodeContent> slabNode = Moge::NodeCreator::CreateFromImage( emptySlabImage );
 				Moge::Math::IPositionAdapter<int> position( slab.Col() * slabNode->getWidth(), slab.Row() * slabNode->getHeight(), 0 );
 				slabNode->setXyz( position.getX(), position.getY(), 0 );
 				slab.SetNode( slabNode );
@@ -65,9 +65,9 @@ namespace Tetris
 
 	void CMainGrid::ReLeaseBrick()
 	{
-		delete m_activeBrick;
-		m_activeBrick = CBrickFactory::GetRandomBrick();
-		AddBrick( m_activeBrick );
+		delete activeBrick;
+		activeBrick = CBrickFactory::GetRandomBrick();
+		AddBrick( activeBrick );
 	}
 
 	void CMainGrid::AddBrick( const Brick* brick )
@@ -83,20 +83,20 @@ namespace Tetris
 
 	void CMainGrid::MarkSlabAsPartOfMovingBlock( CUInt row, CUInt col )
 	{
-		if( row >= mSlabsRows.size() || ( mSlabsRows.size() > 0 && col > mSlabsRows.at( 0 ).size() ) )
+		if( row >= slabsRows.size() || ( slabsRows.size() > 0 && col > slabsRows.at( 0 ).size() ) )
 		{
 			return;
 		}
 
-		CSlab& slab = mSlabsRows.at( row ).at( col );
+		Slab& slab = slabsRows.at( row ).at( col );
 		slab.Empty( false );
 		auto slabNode = slab.GetNode();
-		slabNode->SetSurface( mFilledSlabImage );
+		slabNode->SetSurface( filledSlabImage );
 	}
 
 	const bool CMainGrid::PartOfCurrentBrick( CUInt rowIndex, CUInt colIndex )const
 	{
-		CoordinatestList coords = m_activeBrick->getBlockPositions();
+		CoordinatestList coords = activeBrick->getBlockPositions();
 		for( auto it = coords.begin(); it != coords.end(); ++it )
 		{
 			if( it->Row() == rowIndex && it->Col() == colIndex )
@@ -118,12 +118,12 @@ namespace Tetris
 
 	const bool CMainGrid::checkIfBlockCanBeMoved( const Moge::Math::Directions direction )
 	{
-		for( auto& coord : m_activeBrick->getBlockPositions() )
+		for( auto& coord : activeBrick->getBlockPositions() )
 		{
 			CUInt newRow = coord.Row() + GetRowOffset( direction );
 			CUInt newCol = coord.Col() + GetColOffset( direction );
 
-			if( newRow >= mSlabsRows.size() )
+			if( newRow >= slabsRows.size() )
 			{
 				return false;
 			}
@@ -138,7 +138,7 @@ namespace Tetris
 				continue;
 			}
 
-			if( false == mSlabsRows.at( newRow ).at( newCol ).Empty() )
+			if( false == slabsRows.at( newRow ).at( newCol ).Empty() )
 			{
 				return false;
 			}
@@ -194,45 +194,45 @@ namespace Tetris
 	void CMainGrid::RotateActualBrick( const bool clockWise )
 	{
 		Brick* tempBrick;
-		if( m_activeBrick->getBlockType() == BrickTypes::L )
+		if( activeBrick->getBlockType() == BrickTypes::L )
 		{
-			tempBrick = new CLBrick( *dynamic_cast<CLBrick*>( m_activeBrick ) );
+			tempBrick = new CLBrick( *dynamic_cast<CLBrick*>( activeBrick ) );
 		}
-		else if( m_activeBrick->getBlockType() == BrickTypes::I )
+		else if( activeBrick->getBlockType() == BrickTypes::I )
 		{
-			tempBrick = new CIBrick( *dynamic_cast<CIBrick*>( m_activeBrick ) );
+			tempBrick = new CIBrick( *dynamic_cast<CIBrick*>( activeBrick ) );
 		}
-		else if( m_activeBrick->getBlockType() == BrickTypes::O )
+		else if( activeBrick->getBlockType() == BrickTypes::O )
 		{
-			tempBrick = new COBrick( *dynamic_cast<COBrick*>( m_activeBrick ) );
+			tempBrick = new COBrick( *dynamic_cast<COBrick*>( activeBrick ) );
 		}
-		else if( m_activeBrick->getBlockType() == BrickTypes::S )
+		else if( activeBrick->getBlockType() == BrickTypes::S )
 		{
-			tempBrick = new CSBrick( *dynamic_cast<CSBrick*>( m_activeBrick ) );
+			tempBrick = new CSBrick( *dynamic_cast<CSBrick*>( activeBrick ) );
 		}
 		else
 		{
-			tempBrick = new CTBrick( *dynamic_cast<CTBrick*>( m_activeBrick ) );
+			tempBrick = new CTBrick( *dynamic_cast<CTBrick*>( activeBrick ) );
 		}
 
 		tempBrick->rotate( clockWise );
 		if( true == m_CheckIfBlockCanBePlaced( tempBrick ) )
 		{
 			m_RemoveActualBlockSlabsFromGrid();
-			m_activeBrick->rotate( clockWise );
+			activeBrick->rotate( clockWise );
 		}
 		delete tempBrick;
 	}
 
 	void CMainGrid::addCurrentBrickToGrid()
 	{
-		if( m_activeBrick )
+		if( activeBrick )
 		{
-			for( auto& coord : m_activeBrick->getBlockPositions() )
+			for( auto& coord : activeBrick->getBlockPositions() )
 			{
-				CSlab& slab = mSlabsRows.at( coord.Row() ).at( coord.Col() );
+				Slab& slab = slabsRows.at( coord.Row() ).at( coord.Col() );
 				slab.Empty( false );
-				slab.GetNode().get()->SetSurface( mFilledSlabImage );
+				slab.GetNode().get()->SetSurface( filledSlabImage );
 			}
 		}
 	}
@@ -243,7 +243,7 @@ namespace Tetris
 		for( auto it = coords.begin(); it != coords.end(); ++it )
 		{
 
-			if( it->Row() >= mSlabsRows.size() )
+			if( it->Row() >= slabsRows.size() )
 			{
 				return false;
 			}
@@ -257,7 +257,7 @@ namespace Tetris
 				continue;
 			}
 
-			if( false == mSlabsRows.at( it->Row() ).at( it->Col() ).Empty() )
+			if( false == slabsRows.at( it->Row() ).at( it->Col() ).Empty() )
 			{
 				return false;
 			}
@@ -267,7 +267,7 @@ namespace Tetris
 
 	const bool CMainGrid::SlabExist( CUInt rowIndex, CUInt colIndex )const
 	{
-		if( colIndex >= mSlabsRows.at( 0 ).size() || rowIndex >= mSlabsRows.size() )
+		if( colIndex >= slabsRows.at( 0 ).size() || rowIndex >= slabsRows.size() )
 		{
 			return false;
 		}
@@ -276,24 +276,24 @@ namespace Tetris
 
 	void CMainGrid::m_RemoveActualBlockSlabsFromGrid()
 	{
-		for( auto& coord : m_activeBrick->getBlockPositions() )
+		for( auto& coord : activeBrick->getBlockPositions() )
 		{
-			auto& slab = mSlabsRows.at( coord.Row() ).at( coord.Col() );
+			auto& slab = slabsRows.at( coord.Row() ).at( coord.Col() );
 			slab.Empty( true );
 			auto slabnode = slab.GetNode();
-			slabnode->SetSurface( mEmptySlabImage );
+			slabnode->SetSurface( emptySlabImage );
 		}
 	}
 
 	void CMainGrid::moveCurrentBrick( const Moge::Math::Directions direction )
 	{
-		m_activeBrick->move( direction );
-		AddBrick( m_activeBrick );
+		activeBrick->move( direction );
+		AddBrick( activeBrick );
 	}
 
 	void CMainGrid::ManageFullLine()
 	{
-		for( std::vector<SlabRow>::iterator rowsIterator = mSlabsRows.begin(); rowsIterator != mSlabsRows.end(); ++rowsIterator )
+		for( std::vector<SlabRow>::iterator rowsIterator = slabsRows.begin(); rowsIterator != slabsRows.end(); ++rowsIterator )
 		{
 			SlabRow& slabRow = *rowsIterator;
 			if( RowIsConnected( slabRow ) )
@@ -317,15 +317,15 @@ namespace Tetris
 
 	void CMainGrid::MoveAllLinesOneLineDown( std::vector<SlabRow>::iterator rowIterator )
 	{
-		for( ; rowIterator != mSlabsRows.begin() + 1; --rowIterator )
+		for( ; rowIterator != slabsRows.begin() + 1; --rowIterator )
 		{
 			auto& currentRow = *rowIterator;
 			auto& oneRowHigher = *(rowIterator - 1);
 
 			for( unsigned columnIterator = 0; columnIterator < currentRow.size(); ++columnIterator )
 			{
-				CSlab& slabHigher = oneRowHigher.at( columnIterator );
-				CSlab& slabLower = currentRow.at( columnIterator );
+				Slab& slabHigher = oneRowHigher.at( columnIterator );
+				Slab& slabLower = currentRow.at( columnIterator );
 				bool emptiness = slabHigher.Empty();
 				slabLower.Empty( emptiness );
 				SetSlabImagSurface( slabLower );
@@ -334,22 +334,22 @@ namespace Tetris
 
 		for( UInt j = 0; j < rowIterator->size(); ++j )
 		{
-			CSlab& slab = mSlabsRows.at( 0 ).at( j );
+			Slab& slab = slabsRows.at( 0 ).at( j );
 			slab.Empty( true );
 			SetSlabImagSurface( slab );
 		}
 	}
 
-	void CMainGrid::SetSlabImagSurface( CSlab& slab )
+	void CMainGrid::SetSlabImagSurface( Slab& slab )
 	{
 		auto& slabNode = slab.GetNode();
 		if( slab.Empty() )
 		{
-			slabNode->SetSurface( mEmptySlabImage );
+			slabNode->SetSurface( emptySlabImage );
 		}
 		else
 		{
-			slabNode->SetSurface( mFilledSlabImage );
+			slabNode->SetSurface( filledSlabImage );
 		}
 	}
 }

@@ -4,16 +4,16 @@
 #include <iostream>
 
 CPicture::CPicture(): 
-	m_width(0),
-	m_height(0)
+	width(0),
+	height(0)
 {
 }
 
 CPicture::CPicture( const char* location, CUInt width, CUInt height ):
-					m_width(width),
-					m_height(height)
+					location( location ),
+					width(width),
+					height(height)
 {
-	this->m_location = location;
 }
 
 CPicture::~CPicture()
@@ -25,9 +25,9 @@ CPicture& CPicture::operator=( const CPicture& picture )
 	if( this != &picture )
 	{
 		Moge::Name::operator=(picture);
-		m_location = picture.m_location;
-		m_width = picture.m_width;
-		m_height = picture.m_height;
+		location = picture.location;
+		width = picture.width;
+		height = picture.height;
 	}
 	return *this;
 }
@@ -36,7 +36,7 @@ void CPicture::SetPictureLocation( const char* picLocation )
 {
 	if( Moge::Path( picLocation ).Exist() )
 	{
-		m_location = picLocation;
+		this->location = picLocation;
 	}
 	else
 	{
@@ -46,11 +46,6 @@ void CPicture::SetPictureLocation( const char* picLocation )
 
 void CPicture::SetPictureSize( CUInt width, CUInt height )
 {
-	m_width = width;
-	m_height = height;
-}
-
-const char* CPicture::GetImgLoc()const
-{
-	return m_location.c_str();
+	this->width = width;
+	this->height = height;
 }

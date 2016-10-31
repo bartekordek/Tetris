@@ -16,11 +16,10 @@ public:
 	CPicture& operator=( const CPicture& picture );
 	void SetPictureLocation( const char* picLocation );
 	void SetPictureSize( CUInt width, CUInt height );
-	const char* GetImgLoc()const;
 
 private:
-	Moge::Path m_location;
-	UInt m_width;
-	UInt m_height;
+	Moge::Path location;
+	UInt width;
+	UInt height;
 
 };

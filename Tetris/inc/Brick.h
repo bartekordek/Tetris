@@ -19,7 +19,7 @@ namespace Tetris
 	{
 	public:
 		Brick( const BrickTypes typeofBrick, const Moge::Math::Directions direction = Moge::Math::Directions::R );
-		Brick( const std::vector<CSlab>& blocks, const Moge::Math::Directions direction = Moge::Math::Directions::R );
+		Brick( const std::vector<Slab>& blocks, const Moge::Math::Directions direction = Moge::Math::Directions::R );
 		Brick( const Brick& brick );
 		virtual ~Brick();
 		CoordinatestList getBlockPositions()const;
@@ -28,14 +28,14 @@ namespace Tetris
 		BrickTypes getBlockType()const;
 
 	protected:
-		static Moge::Math::SquareMatrix2D<myBool> slab2Matrix( const std::vector<CSlab>& slabs );
-		std::vector<CSlab> m_blocks;
+		static Moge::Math::SquareMatrix2D<myBool> slab2Matrix( const std::vector<Slab>& slabs );
+		std::vector<Slab> m_blocks;
 		Moge::Math::SquareMatrix2D<myBool> blockMatrix = Moge::Math::SquareMatrix2D<myBool>( 4 );
 		Moge::Math::Directions m_direction;
 
 	private:
-		virtual void m_RotateClockWise() = 0;
-		BrickTypes m_brickType = BrickTypes::T;
+		virtual void rotateClockWise() = 0;
+		BrickTypes brickType = BrickTypes::T;
 	};
 
 	class CLBrick: public Brick
@@ -43,7 +43,7 @@ namespace Tetris
 	public:
 		explicit CLBrick( const Moge::Math::Directions direction = Moge::Math::Directions::R );
 	private:
-		void m_RotateClockWise()override;
+		void rotateClockWise()override;
 	};
 
 	class CIBrick: public Brick
@@ -51,7 +51,7 @@ namespace Tetris
 	public:
 		explicit CIBrick( const Moge::Math::Directions direction = Moge::Math::Directions::R );
 	private:
-		void m_RotateClockWise()override;
+		void rotateClockWise()override;
 	};
 
 	class COBrick: public Brick
@@ -60,7 +60,7 @@ namespace Tetris
 		explicit COBrick(
 			const Moge::Math::Directions direction = Moge::Math::Directions::R );
 	private:
-		void m_RotateClockWise()override;
+		void rotateClockWise()override;
 	};
 
 	class CSBrick: public Brick
@@ -68,7 +68,7 @@ namespace Tetris
 	public:
 		explicit CSBrick( const Moge::Math::Directions direction = Moge::Math::Directions::R );
 	private:
-		void m_RotateClockWise()override;
+		void rotateClockWise()override;
 	};
 
 	class CTBrick: public Brick
@@ -77,6 +77,6 @@ namespace Tetris
 		explicit CTBrick(
 			const Moge::Math::Directions direction = Moge::Math::Directions::R );
 	private:
-		void m_RotateClockWise()override;
+		void rotateClockWise()override;
 	};
 }

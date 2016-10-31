@@ -2,80 +2,80 @@
 
 namespace Tetris
 {
-	CSlab::CSlab( CUInt row, CUInt col, const bool partOfSlab, const bool empty ):
-		mPosition( CTableCoor( row, col ) ),
-		mEmpty( empty )
+	Slab::Slab( CUInt row, CUInt col, const bool partOfSlab, const bool empty ):
+		position( CTableCoor( row, col ) ),
+		empty( empty )
 	{
 	}
 
-	CSlab::CSlab( const CSlab& slab ):
-		mPosition( slab.mPosition ),
-		mEmpty( slab.mEmpty )
+	Slab::Slab( const Slab& slab ):
+		position( slab.position ),
+		empty( slab.empty )
 	{
 	}
 
-	CSlab::~CSlab()
+	Slab::~Slab()
 	{
 	}
 
-	CSlab& CSlab::operator=( const CSlab& slab )
+	Slab& Slab::operator=( const Slab& slab )
 	{
 		if( this != &slab )
 		{
-			mPosition = slab.mPosition;
-			mEmpty = slab.mEmpty;
-			mNode = slab.mNode;
+			this->position = slab.position;
+			this->empty = slab.empty;
+			this->node = slab.node;
 		}
 		return *this;
 	}
 
-	CUInt CSlab::Row()const
+	CUInt Slab::Row()const
 	{
-		return mPosition.Row();
+		return position.Row();
 	}
 
-	void CSlab::Row( CUInt row )
+	void Slab::Row( CUInt row )
 	{
-		mPosition.Row( row );
+		position.Row( row );
 	}
 
-	void CSlab::Col( CUInt col )
+	void Slab::Col( CUInt col )
 	{
-		mPosition.Col( col );
+		position.Col( col );
 	}
 
-	CUInt CSlab::Col()const
+	CUInt Slab::Col()const
 	{
-		return mPosition.Col();
+		return position.Col();
 	}
 
-	void CSlab::SetPosition( CUInt row, CUInt col )
+	void Slab::SetPosition( CUInt row, CUInt col )
 	{
-		mPosition.ChangePosition( row, col );
+		this->position.ChangePosition( row, col );
 	}
 
-	const bool CSlab::Empty()const
+	const bool Slab::Empty()const
 	{
-		return mEmpty;
+		return this->empty;
 	}
 
-	void CSlab::Empty( const bool empty )
+	void Slab::Empty( const bool empty )
 	{
-		mEmpty = empty;
+		this->empty = empty;
 	}
 
-	void CSlab::SetId( CUInt id )
+	void Slab::SetId( CUInt id )
 	{
-		mIndex = id;
+		this->index = id;
 	}
 
-	void CSlab::SetNode( const Moge::ObjectNode& node )
+	void Slab::SetNode( const Moge::ObjectNode& node )
 	{
-		this->mNode = node;
+		this->node = node;
 	}
 
-	Moge::ObjectNode& CSlab::GetNode()
+	const Moge::ObjectNode& Slab::GetNode()const
 	{
-		return mNode;
+		return this->node;
 	}
 }
