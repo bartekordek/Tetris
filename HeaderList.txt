@@ -39,6 +39,7 @@
 ./String/inc/MyString.h
 ./Tests/inc/FilesystemTests.h
 ./Tests/inc/ImageCreatorTests.h
+./Tests/inc/MatrixTests.h
 ./Tests/inc/MogeGenericTests.h
 ./Tests/inc/NameTests.h
 ./Tests/inc/NodeCreatorTests.h
