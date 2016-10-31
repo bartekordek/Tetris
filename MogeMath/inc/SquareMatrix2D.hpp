@@ -14,7 +14,7 @@ public:
 	{
 	}
 
-	SquareMatrix2D( const unsigned size ): Matrix2D<Type>( size, size )
+	explicit SquareMatrix2D( const unsigned size ): Matrix2D<Type>( size, size )
 	{
 	}
 
