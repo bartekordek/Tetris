@@ -84,6 +84,11 @@ public:
 		return this->getValue( rowIndex, colIndex );
 	}
 
+	const Type& operator()( const unsigned rowIndex, const unsigned colIndex )const
+	{
+		return this->getValue( rowIndex, colIndex );
+	}
+
 	Type& operator()( const unsigned int elementIndex )
 	{
 		const unsigned int colIndex = elementIndex % getColumnCount();
@@ -225,6 +230,11 @@ public:
 		std::cout << std::endl;
 	}
 
+	void setMatrix( std::vector<std::vector<Type>>& matrix )
+	{
+		this->values = matrix;
+	}
+
 protected:
 	const bool columnIsEmpty( const unsigned int columnIndex )const
 	{
@@ -297,6 +307,11 @@ private:
 	}
 
 	Type& getValue( const unsigned int rowIndex, const unsigned int columnIndex )
+	{
+		return this->values[rowIndex][columnIndex];
+	}
+
+	const Type& getValue( const unsigned int rowIndex, const unsigned int columnIndex )const
 	{
 		return this->values[rowIndex][columnIndex];
 	}
