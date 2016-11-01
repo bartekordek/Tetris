@@ -12,71 +12,33 @@ namespace Tetris
 	static const myBool True = 1;
 	enum class BrickTypes: char
 	{
-		L, I, O, S, T
+		L, 
+		I, 
+		O, 
+		S, 
+		T, 
+		Z,
+		ITEMS_COUNT
 	};
 
 	class Brick
 	{
 	public:
-		Brick( const BrickTypes typeofBrick, const Moge::Math::Directions direction = Moge::Math::Directions::R );
-		Brick( const std::vector<Slab>& blocks, const Moge::Math::Directions direction = Moge::Math::Directions::R );
+		Brick( const BrickTypes typeofBrick );
 		Brick( const Brick& brick );
 		virtual ~Brick();
-		CoordinatestList getBlockPositions()const;
+		const CoordinatestList getBlockPositions()const;
 		void move( const Moge::Math::Directions direction = Moge::Math::Directions::D );
 		void rotate( const bool clockWise = true );
-		BrickTypes getBlockType()const;
+		const BrickTypes getBlockType()const;
+		Brick& operator=( const Brick& right );
 
 	protected:
-		static Moge::Math::SquareMatrix2D<myBool> slab2Matrix( const std::vector<Slab>& slabs );
-		std::vector<Slab> m_blocks;
-		Moge::Math::SquareMatrix2D<myBool> blockMatrix = Moge::Math::SquareMatrix2D<myBool>( 4 );
-		Moge::Math::Directions m_direction;
-
 	private:
-		virtual void rotateClockWise() = 0;
+		static Moge::Math::SquareMatrix2D<int> slab2Matrix( const std::vector<Slab>& slabs );
+
+		Moge::Math::SquareMatrix2D<int> blockMatrix = Moge::Math::SquareMatrix2D<int>( 4 );
 		BrickTypes brickType = BrickTypes::T;
-	};
-
-	class CLBrick: public Brick
-	{
-	public:
-		explicit CLBrick( const Moge::Math::Directions direction = Moge::Math::Directions::R );
-	private:
-		void rotateClockWise()override;
-	};
-
-	class CIBrick: public Brick
-	{
-	public:
-		explicit CIBrick( const Moge::Math::Directions direction = Moge::Math::Directions::R );
-	private:
-		void rotateClockWise()override;
-	};
-
-	class COBrick: public Brick
-	{
-	public:
-		explicit COBrick(
-			const Moge::Math::Directions direction = Moge::Math::Directions::R );
-	private:
-		void rotateClockWise()override;
-	};
-
-	class CSBrick: public Brick
-	{
-	public:
-		explicit CSBrick( const Moge::Math::Directions direction = Moge::Math::Directions::R );
-	private:
-		void rotateClockWise()override;
-	};
-
-	class CTBrick: public Brick
-	{
-	public:
-		explicit CTBrick(
-			const Moge::Math::Directions direction = Moge::Math::Directions::R );
-	private:
-		void rotateClockWise()override;
+		CTableCoor position;
 	};
 }

@@ -1,57 +1,71 @@
 #include "Brick.h"
+#include "BrickFactory.h"
 
 using namespace Moge;
 using namespace Math;
 namespace Tetris
 {
-	Brick::Brick( const BrickTypes typeofBrick, const Directions direction ): 
-		m_direction( direction ), 
-		brickType( typeofBrick )
+	Brick::Brick( const BrickTypes typeofBrick ): brickType( typeofBrick )
+	{
+		this->blockMatrix = CBrickFactory::createBrick( typeofBrick );
+	}
+
+	Brick::Brick( const Brick& brick ):
+		blockMatrix( brick.blockMatrix ),
+		brickType( brick.brickType ), 
+		position( brick.position )
 	{
 	}
 
-	Brick::Brick( const std::vector<Slab>& blocks, const Directions direction ):
-					m_blocks( blocks ), m_direction( direction )
-	{
-	}
-
-	BrickTypes Brick::getBlockType()const
+	const BrickTypes Brick::getBlockType()const
 	{
 		return brickType;
 	}
 
-	SquareMatrix2D<myBool> Brick::slab2Matrix( const std::vector<Slab>& slabs )
+	Brick& Brick::operator=( const Brick& right )
 	{
-		SquareMatrix2D<myBool> result( 4 );
+		if( &right != this )
+		{
+			this->blockMatrix = right.blockMatrix;
+			this->brickType = right.brickType;
+			this->position = right.position;
+		}
+		return *this;
+	}
+
+	SquareMatrix2D<int> Brick::slab2Matrix( const std::vector<Slab>& slabs )
+	{
+		SquareMatrix2D<int> result( 4 );
 		for( const auto& slab: slabs )
 		{
-			const unsigned int row = slab.Row();
-			const unsigned int col = slab.Col();
+			const unsigned int row = slab.row();
+			const unsigned int col = slab.col();
 			result( row, col ) = true;
 		}
 		return result;
 	}
 
-	Brick::Brick( const Brick& brick ):
-		m_blocks( brick.m_blocks ),
-		m_direction( brick.m_direction )
-	{
-	}
 
 	void Brick::rotate( const bool clockWise )
 	{
-		if( true == clockWise )
-		{
-			rotateClockWise();
-		}
+		blockMatrix.rotate( clockWise );
+		blockMatrix.moveElementsUntillNoEmptyLine( Directions::U );
+		blockMatrix.moveElementsUntillNoEmptyLine( Directions::L );
 	}
 
-	CoordinatestList Brick::getBlockPositions()const
+	const CoordinatestList Brick::getBlockPositions()const
 	{
 		CoordinatestList positions;
-		for( std::vector<Slab>::const_iterator it = m_blocks.begin(); it != m_blocks.end(); ++it )
+
+		for( unsigned int rowIndex = 0; rowIndex < this->blockMatrix.getRowsCount(); ++rowIndex )
 		{
-			positions.push_back( CTableCoor( it->Row(), it->Col() ) );
+			for( unsigned int colIndex = 0; colIndex < this->blockMatrix.getColumnCount(); ++colIndex )
+			{
+				if( True == this->blockMatrix( rowIndex, colIndex ) )
+				{
+					positions.push_back( CTableCoor( rowIndex, colIndex ) + this->position );
+				}
+			}
 		}
 		return positions;
 	}
@@ -81,201 +95,7 @@ namespace Tetris
 			rowDiff = -1;
 		}
 
-		for( auto& slab: m_blocks )
-		{
-			slab.Col( slab.Col() + colDiff );
-			slab.Row( slab.Row() + rowDiff );
-		}
-	}
-
-	CLBrick::CLBrick( const Directions direction ):Brick( BrickTypes::L, direction )
-	{
-		m_blocks.push_back( Slab( 0, 0 ) );
-		m_blocks.push_back( Slab( 0, 1 ) );
-		m_blocks.push_back( Slab( 0, 2 ) );
-		m_blocks.push_back( Slab( 1, 0 ) );
-		blockMatrix = slab2Matrix( m_blocks );
-	}
-
-	void CLBrick::rotateClockWise()
-	{
-		if( m_direction == Directions::U )
-		{
-			m_blocks[0].SetPosition( m_blocks[0].Row() - 2, m_blocks[0].Col() + 0 );
-			m_blocks[1].SetPosition( m_blocks[1].Row() - 1, m_blocks[1].Col() + 1 );
-			m_blocks[2].SetPosition( m_blocks[2].Row(), m_blocks[2].Col() + 2 );
-			m_blocks[3].SetPosition( m_blocks[3].Row() - 1, m_blocks[3].Col() - 1 );
-			m_direction = Directions::R;
-		}
-		else if( m_direction == Directions::R )
-		{
-			m_blocks[0].SetPosition( m_blocks[0].Row(), m_blocks[0].Col() + 1 );
-			m_blocks[1].SetPosition( m_blocks[1].Row() + 1, m_blocks[1].Col() + 0 );
-			m_blocks[2].SetPosition( m_blocks[2].Row() + 2, m_blocks[2].Col() - 1 );
-			m_blocks[3].SetPosition( m_blocks[3].Row() - 1, m_blocks[3].Col() + 0 );
-			m_direction = Directions::D;
-		}
-		else if( m_direction == Directions::D )
-		{
-			m_blocks[0].SetPosition( m_blocks[0].Row() + 1, m_blocks[0].Col() + 1 );
-
-			m_blocks[2].SetPosition( m_blocks[2].Row() - 1, m_blocks[2].Col() - 1 );
-			m_blocks[3].SetPosition( m_blocks[3].Row(), m_blocks[3].Col() + 2 );
-			m_direction = Directions::L;
-		}
-		else
-		{
-			m_blocks[0].SetPosition( m_blocks[0].Row() + 1, m_blocks[0].Col() - 2 );
-			m_blocks[1].SetPosition( m_blocks[1].Row(), m_blocks[1].Col() - 1 );
-			m_blocks[2].SetPosition( m_blocks[2].Row() - 1, m_blocks[2].Col() );
-			m_blocks[3].SetPosition( m_blocks[3].Row() + 2, m_blocks[3].Col() - 1 );
-			m_direction = Directions::U;
-		}
-		blockMatrix.rotate();
-	}
-
-	CIBrick::CIBrick( const Directions direction ):Brick( BrickTypes::I, direction )
-	{
-		m_blocks.push_back( Slab( 0, 0 ) );
-		m_blocks.push_back( Slab( 0, 1 ) );
-		m_blocks.push_back( Slab( 0, 2 ) );
-		m_blocks.push_back( Slab( 0, 3 ) );
-		blockMatrix = slab2Matrix( m_blocks );
-	}
-
-	void CIBrick::rotateClockWise()
-	{
-		if( m_direction == Directions::U )
-		{
-			m_blocks[1].SetPosition( m_blocks[1].Row() - 1, m_blocks[1].Col() + 1 );
-			m_blocks[2].SetPosition( m_blocks[2].Row() - 2, m_blocks[2].Col() + 2 );
-			m_blocks[3].SetPosition( m_blocks[3].Row() - 3, m_blocks[3].Col() + 3 );
-			m_direction = Directions::R;
-		}
-		else if( m_direction == Directions::R )
-		{
-			m_blocks[1].SetPosition( m_blocks[1].Row() + 1, m_blocks[1].Col() - 1 );
-			m_blocks[2].SetPosition( m_blocks[2].Row() + 2, m_blocks[2].Col() - 2 );
-			m_blocks[3].SetPosition( m_blocks[3].Row() + 3, m_blocks[3].Col() - 3 );
-			m_direction = Directions::D;
-		}
-		else if( m_direction == Directions::D )
-		{
-			m_blocks[1].SetPosition( m_blocks[1].Row() - 1, m_blocks[1].Col() + 1 );
-			m_blocks[2].SetPosition( m_blocks[2].Row() - 2, m_blocks[2].Col() + 2 );
-			m_blocks[3].SetPosition( m_blocks[3].Row() - 3, m_blocks[3].Col() + 3 );
-			m_direction = Directions::L;
-		}
-		else
-		{
-			m_blocks[1].SetPosition( m_blocks[1].Row() + 1, m_blocks[1].Col() - 1 );
-			m_blocks[2].SetPosition( m_blocks[2].Row() + 2, m_blocks[2].Col() - 2 );
-			m_blocks[3].SetPosition( m_blocks[3].Row() + 3, m_blocks[3].Col() - 3 );
-			m_direction = Directions::U;
-		}
-		blockMatrix.rotate();
-	}
-
-	COBrick::COBrick( const Directions direction ):Brick( BrickTypes::O, direction )
-	{
-		m_blocks.push_back( Slab( 0, 0 ) );
-		m_blocks.push_back( Slab( 0, 1 ) );
-		m_blocks.push_back( Slab( 1, 0 ) );
-		m_blocks.push_back( Slab( 1, 1 ) );
-		blockMatrix = slab2Matrix( m_blocks );
-	}
-
-	void COBrick::rotateClockWise()
-	{
-	}
-
-	CSBrick::CSBrick( const Directions direction ):Brick( BrickTypes::S, direction )
-	{
-		m_blocks.push_back( Slab( 0, 0 ) );
-		m_blocks.push_back( Slab( 0, 1 ) );
-		m_blocks.push_back( Slab( 1, 1 ) );
-		m_blocks.push_back( Slab( 1, 2 ) );
-		blockMatrix = slab2Matrix( m_blocks );
-	}
-
-	void CSBrick::rotateClockWise()
-	{
-		if( m_direction == Directions::U )
-		{
-			m_blocks[0].SetPosition( m_blocks[0].Row(), m_blocks[0].Col() - 1 );
-			m_blocks[1].SetPosition( m_blocks[1].Row() - 1, m_blocks[1].Col() );
-			m_blocks[2].SetPosition( m_blocks[2].Row(), m_blocks[2].Col() + 1 );
-			m_blocks[3].SetPosition( m_blocks[3].Row() - 1, m_blocks[3].Col() + 2 );
-			m_direction = Directions::R;
-		}
-		else if( m_direction == Directions::R )
-		{
-			m_blocks[0].SetPosition( m_blocks[0].Row(), m_blocks[0].Col() + 1 );
-			m_blocks[1].SetPosition( m_blocks[1].Row() + 1, m_blocks[1].Col() );
-			m_blocks[2].SetPosition( m_blocks[2].Row(), m_blocks[2].Col() - 1 );
-			m_blocks[3].SetPosition( m_blocks[3].Row() + 1, m_blocks[3].Col() - 2 );
-			m_direction = Directions::D;
-		}
-		else if( m_direction == Directions::D )
-		{
-			m_blocks[0].SetPosition( m_blocks[0].Row(), m_blocks[0].Col() - 1 );
-			m_blocks[1].SetPosition( m_blocks[1].Row() - 1, m_blocks[1].Col() );
-			m_blocks[2].SetPosition( m_blocks[2].Row(), m_blocks[2].Col() + 1 );
-			m_blocks[3].SetPosition( m_blocks[3].Row() - 1, m_blocks[3].Col() + 2 );
-			m_direction = Directions::L;
-		}
-		else
-		{
-			m_blocks[0].SetPosition( m_blocks[0].Row(), m_blocks[0].Col() + 1 );
-			m_blocks[1].SetPosition( m_blocks[1].Row() + 1, m_blocks[1].Col() );
-			m_blocks[2].SetPosition( m_blocks[2].Row(), m_blocks[2].Col() - 1 );
-			m_blocks[3].SetPosition( m_blocks[3].Row() + 1, m_blocks[3].Col() - 2 );
-			m_direction = Directions::U;
-		}
-		blockMatrix.rotate();
-	}
-
-	CTBrick::CTBrick( const Directions direction ):Brick( BrickTypes::T, direction )
-	{
-		m_blocks.push_back( Slab( 0, 0 ) );
-		m_blocks.push_back( Slab( 1, 0 ) );
-		m_blocks.push_back( Slab( 2, 0 ) );
-		m_blocks.push_back( Slab( 1, 1 ) );
-		blockMatrix = slab2Matrix( m_blocks );
-	}
-
-	void CTBrick::rotateClockWise()
-	{
-		if( m_direction == Directions::U )
-		{
-			m_blocks[0].SetPosition( m_blocks[0].Row() - 1, m_blocks[0].Col() );
-			m_blocks[1].SetPosition( m_blocks[1].Row(), m_blocks[1].Col() - 1 );
-			m_blocks[2].SetPosition( m_blocks[2].Row() + 1, m_blocks[2].Col() - 2 );
-			m_blocks[3].SetPosition( m_blocks[3].Row() + 1, m_blocks[3].Col() );
-			m_direction = Directions::R;
-		}
-		else if( m_direction == Directions::R )
-		{
-			m_blocks[1].SetPosition( m_blocks[1].Row() - 1, m_blocks[1].Col() + 1 );
-			m_blocks[2].SetPosition( m_blocks[2].Row() - 2, m_blocks[2].Col() + 2 );
-			m_blocks[3].SetPosition( m_blocks[3].Row(), m_blocks[3].Col() );
-			m_direction = Directions::D;
-		}
-		else if( m_direction == Directions::D )
-		{
-			m_blocks[0].SetPosition( m_blocks[0].Row(), m_blocks[0].Col() + 1 );
-			m_blocks[1].SetPosition( m_blocks[1].Row() + 1, m_blocks[1].Col() );
-			m_blocks[2].SetPosition( m_blocks[2].Row() + 2, m_blocks[2].Col() - 1 );
-			m_blocks[3].SetPosition( m_blocks[3].Row(), m_blocks[3].Col() - 1 );
-			m_direction = Directions::L;
-		}
-		else
-		{
-			m_blocks[0].SetPosition( m_blocks[0].Row() + 1, m_blocks[0].Col() - 1 );
-			m_blocks[2].SetPosition( m_blocks[2].Row() - 1, m_blocks[2].Col() + 1 );
-			m_blocks[3].SetPosition( m_blocks[3].Row() - 1, m_blocks[3].Col() + 1 );
-			m_direction = Directions::U;
-		}
-		blockMatrix.rotate();
+		position.setRow( position.getRow() + rowDiff );
+		position.setCol( position.getCol() + colDiff );
 	}
 }

@@ -5,12 +5,11 @@
 
 namespace Tetris
 {
-	class CBrickFactory
-	{
-	public:
-		static Brick* GetBrick( const BrickTypes brickType );
-		static Brick* GetRandomBrick();
-		static Moge::Math::SquareMatrix2D<int> createBrick();
-	private:
-	};
+class CBrickFactory
+{
+public:
+	static Brick* GetRandomBrick();
+	static Moge::Math::SquareMatrix2D<int> createBrick( const BrickTypes brickType );
+private:
+};
 }

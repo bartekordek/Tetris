@@ -31,7 +31,7 @@ namespace Moge
 		virtual void setSize( const unsigned int width, const unsigned int height, const unsigned int depth ) override;
 		virtual void setWidth( const unsigned int width ) override;
 		virtual void setHeight( const unsigned int height ) override;
-		virtual void setHepth( const unsigned int depth ) override;
+		virtual void setDepth( const unsigned int depth ) override;
 		virtual void setSize( const ISize& size )override;
 
 		virtual const unsigned int getWidth()const override;

@@ -14,6 +14,10 @@ public:
 	{
 	}
 
+	SquareMatrix2D( const SquareMatrix2D<Type>& right ): Matrix2D<Type>( right )
+	{
+	}
+
 	explicit SquareMatrix2D( const unsigned size ): Matrix2D<Type>( size, size )
 	{
 	}
@@ -40,6 +44,15 @@ public:
 				}
 			}
 		}
+	}
+
+	SquareMatrix2D<Type>& operator=( const SquareMatrix2D<Type>& right )
+	{
+		if( &right != this )
+		{
+			Matrix2D<Type>::operator=( right );
+		}
+		return *this;
 	}
 
 	const unsigned int getSize()const

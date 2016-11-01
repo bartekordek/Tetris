@@ -1,5 +1,9 @@
 #include "TableCoordinates.h"
 
+CTableCoor::CTableCoor()
+{	
+}
+
 CTableCoor::CTableCoor( const CTableCoor& tableCoord ):row( tableCoord.row ), column( tableCoord.column )
 {
 }
@@ -22,27 +26,39 @@ CTableCoor::~CTableCoor()
 {
 }
 
-CUInt CTableCoor::Col()const
+CTableCoor CTableCoor::operator+( const CTableCoor& right ) const
+{
+	CTableCoor result( this->row + right.row, this->column + right.column );
+	return result;
+}
+
+CTableCoor CTableCoor::operator-( const CTableCoor& right ) const
+{
+	CTableCoor result( this->row - right.row, this->column - right.column );
+	return result;
+}
+
+CUInt CTableCoor::getCol()const
 {
 	return this->column;
 }
 
-CUInt CTableCoor::Row()const
+CUInt CTableCoor::getRow()const
 {
 	return this->row;
 }
 
-void CTableCoor::Row( CUInt row )
+void CTableCoor::setRow( CUInt row )
 {
 	this->row = row;
 }
 
-void CTableCoor::Col( CUInt col )
+void CTableCoor::setCol( CUInt col )
 {
 	this->column = col;
 }
 
-void CTableCoor::ChangePosition( CUInt row, CUInt col )
+void CTableCoor::changePosition( CUInt row, CUInt col )
 {
 	this->row = row;
 	this->column = col;

@@ -53,7 +53,7 @@ namespace Tetris
 			for( auto& slab : slabRow )
 			{
 				std::shared_ptr<Moge::ObjectNodeContent> slabNode = Moge::NodeCreator::CreateFromImage( emptySlabImage );
-				Moge::Math::IPositionAdapter<int> position( slab.Col() * slabNode->getWidth(), slab.Row() * slabNode->getHeight(), 0 );
+				Moge::Math::IPositionAdapter<int> position( slab.col() * slabNode->getWidth(), slab.row() * slabNode->getHeight(), 0 );
 				slabNode->setXyz( position.getX(), position.getY(), 0 );
 				slab.SetNode( slabNode );
 
@@ -72,12 +72,10 @@ namespace Tetris
 
 	void CMainGrid::AddBrick( const Brick* brick )
 	{
-		CoordinatestList coords = brick->getBlockPositions();
+		const CoordinatestList coords = brick->getBlockPositions();
 		for( auto it = coords.begin(); it != coords.end(); ++it )
 		{
-			CUInt row = it->Row();
-			CUInt col = it->Col();
-			MarkSlabAsPartOfMovingBlock( row, col );
+			MarkSlabAsPartOfMovingBlock( it->getRow(), it->getCol() );
 		}
 	}
 
@@ -99,7 +97,7 @@ namespace Tetris
 		CoordinatestList coords = activeBrick->getBlockPositions();
 		for( auto it = coords.begin(); it != coords.end(); ++it )
 		{
-			if( it->Row() == rowIndex && it->Col() == colIndex )
+			if( it->getRow() == rowIndex && it->getCol() == colIndex )
 			{
 				return true;
 			}
@@ -120,8 +118,8 @@ namespace Tetris
 	{
 		for( auto& coord : activeBrick->getBlockPositions() )
 		{
-			CUInt newRow = coord.Row() + GetRowOffset( direction );
-			CUInt newCol = coord.Col() + GetColOffset( direction );
+			CUInt newRow = coord.getRow() + GetRowOffset( direction );
+			CUInt newCol = coord.getCol() + GetColOffset( direction );
 
 			if( newRow >= slabsRows.size() )
 			{
@@ -193,28 +191,7 @@ namespace Tetris
 
 	void CMainGrid::RotateActualBrick( const bool clockWise )
 	{
-		Brick* tempBrick;
-		if( activeBrick->getBlockType() == BrickTypes::L )
-		{
-			tempBrick = new CLBrick( *dynamic_cast<CLBrick*>( activeBrick ) );
-		}
-		else if( activeBrick->getBlockType() == BrickTypes::I )
-		{
-			tempBrick = new CIBrick( *dynamic_cast<CIBrick*>( activeBrick ) );
-		}
-		else if( activeBrick->getBlockType() == BrickTypes::O )
-		{
-			tempBrick = new COBrick( *dynamic_cast<COBrick*>( activeBrick ) );
-		}
-		else if( activeBrick->getBlockType() == BrickTypes::S )
-		{
-			tempBrick = new CSBrick( *dynamic_cast<CSBrick*>( activeBrick ) );
-		}
-		else
-		{
-			tempBrick = new CTBrick( *dynamic_cast<CTBrick*>( activeBrick ) );
-		}
-
+		Brick* tempBrick = new Brick( *activeBrick );
 		tempBrick->rotate( clockWise );
 		if( true == m_CheckIfBlockCanBePlaced( tempBrick ) )
 		{
@@ -230,7 +207,7 @@ namespace Tetris
 		{
 			for( auto& coord : activeBrick->getBlockPositions() )
 			{
-				Slab& slab = slabsRows.at( coord.Row() ).at( coord.Col() );
+				Slab& slab = slabsRows.at( coord.getRow() ).at( coord.getCol() );
 				slab.Empty( false );
 				slab.GetNode().get()->SetSurface( filledSlabImage );
 			}
@@ -243,21 +220,21 @@ namespace Tetris
 		for( auto it = coords.begin(); it != coords.end(); ++it )
 		{
 
-			if( it->Row() >= slabsRows.size() )
+			if( it->getRow() >= slabsRows.size() )
 			{
 				return false;
 			}
-			if( false == SlabExist( it->Row(), it->Col() ) )
+			if( false == SlabExist( it->getRow(), it->getCol() ) )
 			{
 				return false;
 			}
 
-			if( true == PartOfCurrentBrick( it->Row(), it->Col() ) )
+			if( true == PartOfCurrentBrick( it->getRow(), it->getCol() ) )
 			{
 				continue;
 			}
 
-			if( false == slabsRows.at( it->Row() ).at( it->Col() ).Empty() )
+			if( false == slabsRows.at( it->getRow() ).at( it->getCol() ).Empty() )
 			{
 				return false;
 			}
@@ -278,7 +255,7 @@ namespace Tetris
 	{
 		for( auto& coord : activeBrick->getBlockPositions() )
 		{
-			auto& slab = slabsRows.at( coord.Row() ).at( coord.Col() );
+			auto& slab = slabsRows.at( coord.getRow() ).at( coord.getCol() );
 			slab.Empty( true );
 			auto slabnode = slab.GetNode();
 			slabnode->SetSurface( emptySlabImage );

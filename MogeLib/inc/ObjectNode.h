@@ -41,7 +41,7 @@ namespace Moge
 		void setSize( const ISize& size )override;
 		void setWidth( const unsigned int width ) override;
 		void setHeight( const unsigned int height ) override;
-		void setHepth( const unsigned int depth ) override;
+		void setDepth( const unsigned int depth ) override;
 
 		const unsigned int getWidth()const override;
 		const unsigned int getHeight()const override;

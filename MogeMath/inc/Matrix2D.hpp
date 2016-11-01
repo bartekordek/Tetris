@@ -68,7 +68,6 @@ public:
 
 	virtual ~Matrix2D()
 	{
-		release();
 	}
 
 	Matrix2D& operator=( const Matrix2D& matrix )
@@ -81,6 +80,11 @@ public:
 	}
 
 	Type& operator()( const unsigned rowIndex, const unsigned colIndex )
+	{
+		return this->getValue( rowIndex, colIndex );
+	}
+
+	const Type& operator()( const unsigned rowIndex, const unsigned colIndex )const
 	{
 		return this->getValue( rowIndex, colIndex );
 	}
@@ -226,6 +230,11 @@ public:
 		std::cout << std::endl;
 	}
 
+	void setMatrix( std::vector<std::vector<Type>>& matrix )
+	{
+		this->values = matrix;
+	}
+
 protected:
 	const bool columnIsEmpty( const unsigned int columnIndex )const
 	{
@@ -298,6 +307,11 @@ private:
 	}
 
 	Type& getValue( const unsigned int rowIndex, const unsigned int columnIndex )
+	{
+		return this->values[rowIndex][columnIndex];
+	}
+
+	const Type& getValue( const unsigned int rowIndex, const unsigned int columnIndex )const
 	{
 		return this->values[rowIndex][columnIndex];
 	}
