@@ -4,30 +4,14 @@
 
 namespace Tetris
 {
-Brick* CBrickFactory::GetBrick( const BrickTypes brickType )
-{
-	switch( brickType )
-	{
-	case BrickTypes::L:
-		return new CLBrick();
-	case BrickTypes::I:
-		return new CIBrick();
-	case BrickTypes::O:
-		return new COBrick();
-	case BrickTypes::S:
-		return new CSBrick();
-	case BrickTypes::T:
-		return new CTBrick();
-	default:
-		return nullptr;
-	}
-}
-
 Brick* CBrickFactory::GetRandomBrick()
 {
 	srand( static_cast<UInt> ( time( nullptr ) ) );
-	int randomNumber = rand() % 5;
-	return GetBrick( static_cast<BrickTypes>( randomNumber ) );
+	unsigned int enumSize = static_cast<unsigned int>(BrickTypes::ITEMS_COUNT) - 1;
+	int randomNumber = rand() % enumSize;
+	BrickTypes brickType = static_cast<BrickTypes>( randomNumber );
+	Brick* result = new Brick( brickType );
+	return result;
 }
 
 Moge::Math::SquareMatrix2D<int> CBrickFactory::createBrick( const BrickTypes brickType )
@@ -71,6 +55,8 @@ Moge::Math::SquareMatrix2D<int> CBrickFactory::createBrick( const BrickTypes bri
 		result( 0, 2 ) = 1;
 		result( 1, 1 ) = 1;
 		break;
+	default:
+		result( 0, 0 ) = 1;
 	}
 	return result;
 }

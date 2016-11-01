@@ -72,12 +72,10 @@ namespace Tetris
 
 	void CMainGrid::AddBrick( const Brick* brick )
 	{
-		CoordinatestList coords = brick->getBlockPositions();
+		const CoordinatestList coords = brick->getBlockPositions();
 		for( auto it = coords.begin(); it != coords.end(); ++it )
 		{
-			CUInt row = it->getRow();
-			CUInt col = it->getCol();
-			MarkSlabAsPartOfMovingBlock( row, col );
+			MarkSlabAsPartOfMovingBlock( it->getRow(), it->getCol() );
 		}
 	}
 
@@ -193,28 +191,7 @@ namespace Tetris
 
 	void CMainGrid::RotateActualBrick( const bool clockWise )
 	{
-		Brick* tempBrick;
-		if( activeBrick->getBlockType() == BrickTypes::L )
-		{
-			tempBrick = new CLBrick( *dynamic_cast<CLBrick*>( activeBrick ) );
-		}
-		else if( activeBrick->getBlockType() == BrickTypes::I )
-		{
-			tempBrick = new CIBrick( *dynamic_cast<CIBrick*>( activeBrick ) );
-		}
-		else if( activeBrick->getBlockType() == BrickTypes::O )
-		{
-			tempBrick = new COBrick( *dynamic_cast<COBrick*>( activeBrick ) );
-		}
-		else if( activeBrick->getBlockType() == BrickTypes::S )
-		{
-			tempBrick = new CSBrick( *dynamic_cast<CSBrick*>( activeBrick ) );
-		}
-		else
-		{
-			tempBrick = new CTBrick( *dynamic_cast<CTBrick*>( activeBrick ) );
-		}
-
+		Brick* tempBrick = new Brick( *activeBrick );
 		tempBrick->rotate( clockWise );
 		if( true == m_CheckIfBlockCanBePlaced( tempBrick ) )
 		{

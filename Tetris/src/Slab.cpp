@@ -36,12 +36,12 @@ CUInt Slab::row()const
 
 void Slab::row( CUInt row )
 {
-	position.getRow( row );
+	position.setRow( row );
 }
 
 void Slab::col( CUInt col )
 {
-	position.getCol( col );
+	position.setCol( col );
 }
 
 CUInt Slab::col()const

@@ -7,15 +7,20 @@
 class CTableCoor
 {
 public:
+	CTableCoor();
 	CTableCoor( const CTableCoor& tableCoord );
 	CTableCoor( CUInt row, CUInt column );
 	virtual ~CTableCoor();
+
+	CTableCoor& operator=( const CTableCoor& right );
+	CTableCoor operator+( const CTableCoor& right )const;
+	CTableCoor operator-( const CTableCoor& right )const;
+
 	CUInt getRow()const;
 	CUInt getCol()const;
-	void getRow( CUInt row );
-	void getCol( CUInt col );
+	void setRow( CUInt row );
+	void setCol( CUInt col );
 	void changePosition( CUInt row, CUInt col );
-	CTableCoor& operator=( const CTableCoor& coor );
 
 private:
 	unsigned row = 0;
