@@ -54,12 +54,12 @@ void Slab::SetPosition( CUInt row, CUInt col )
 	this->position.changePosition( row, col );
 }
 
-const bool Slab::Empty()const
+const bool Slab::isEmpty()const
 {
 	return this->empty;
 }
 
-void Slab::Empty( const bool empty )
+void Slab::setEmpty( const bool empty )
 {
 	this->empty = empty;
 }

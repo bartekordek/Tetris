@@ -87,7 +87,7 @@ void CMainGrid::MarkSlabAsPartOfMovingBlock( CUInt row, CUInt col )
 	}
 
 	Slab& slab = slabsRows.at( row ).at( col );
-	slab.Empty( false );
+	slab.setEmpty( false );
 	auto slabNode = slab.GetNode();
 	slabNode->SetSurface( filledSlabImage );
 }
@@ -136,7 +136,7 @@ const bool CMainGrid::checkIfBlockCanBeMoved( const Moge::Math::Directions direc
 			continue;
 		}
 
-		if( false == slabsRows.at( newRow ).at( newCol ).Empty() )
+		if( false == slabsRows.at( newRow ).at( newCol ).isEmpty() )
 		{
 			return false;
 		}
@@ -202,7 +202,7 @@ void CMainGrid::addCurrentBrickToGrid()
 		for( auto& coord : activeBrick->getBlockPositions() )
 		{
 			Slab& slab = slabsRows.at( coord.getRow() ).at( coord.getCol() );
-			slab.Empty( false );
+			slab.setEmpty( false );
 			slab.GetNode().get()->SetSurface( filledSlabImage );
 		}
 	}
@@ -228,7 +228,7 @@ const bool CMainGrid::m_CheckIfBlockCanBePlaced( const Brick* brick )
 			continue;
 		}
 
-		if( false == slabsRows.at( it->getRow() ).at( it->getCol() ).Empty() )
+		if( false == slabsRows.at( it->getRow() ).at( it->getCol() ).isEmpty() )
 		{
 			return false;
 		}
@@ -250,7 +250,7 @@ void CMainGrid::m_RemoveActualBlockSlabsFromGrid()
 	for( auto& coord : activeBrick->getBlockPositions() )
 	{
 		auto& slab = slabsRows.at( coord.getRow() ).at( coord.getCol() );
-		slab.Empty( true );
+		slab.setEmpty( true );
 		auto slabnode = slab.GetNode();
 		slabnode->SetSurface( emptySlabImage );
 	}
@@ -278,7 +278,7 @@ const bool CMainGrid::RowIsConnected( const SlabRow& slabRow )const
 {
 	for( auto& slab : slabRow )
 	{
-		if( slab.Empty() )
+		if( slab.isEmpty() )
 		{
 			return false;
 		}
@@ -297,8 +297,8 @@ void CMainGrid::MoveAllLinesOneLineDown( std::vector<SlabRow>::iterator rowItera
 		{
 			Slab& slabHigher = oneRowHigher.at( columnIterator );
 			Slab& slabLower = currentRow.at( columnIterator );
-			bool emptiness = slabHigher.Empty();
-			slabLower.Empty( emptiness );
+			bool emptiness = slabHigher.isEmpty();
+			slabLower.setEmpty( emptiness );
 			SetSlabImagSurface( slabLower );
 		}
 	}
@@ -306,7 +306,7 @@ void CMainGrid::MoveAllLinesOneLineDown( std::vector<SlabRow>::iterator rowItera
 	for( UInt j = 0; j < rowIterator->size(); ++j )
 	{
 		Slab& slab = slabsRows.at( 0 ).at( j );
-		slab.Empty( true );
+		slab.setEmpty( true );
 		SetSlabImagSurface( slab );
 	}
 }
@@ -314,13 +314,13 @@ void CMainGrid::MoveAllLinesOneLineDown( std::vector<SlabRow>::iterator rowItera
 void CMainGrid::SetSlabImagSurface( Slab& slab )
 {
 	auto& slabNode = slab.GetNode();
-	if( slab.Empty() )
+	if( slab.isEmpty() )
 	{
-		slabNode->SetSurface( emptySlabImage );
+		slabNode->SetSurface( this->emptySlabImage );
 	}
 	else
 	{
-		slabNode->SetSurface( filledSlabImage );
+		slabNode->SetSurface( this->filledSlabImage );
 	}
 }
 }

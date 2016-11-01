@@ -18,8 +18,8 @@ public:
 	void row( CUInt row );
 	void col( CUInt col );
 	void SetPosition( CUInt row, CUInt col );
-	const bool Empty()const;
-	void Empty( const bool empty );
+	const bool isEmpty()const;
+	void setEmpty( const bool empty );
 	void SetNode( const Moge::ObjectNode& node );
 	const Moge::ObjectNode& GetNode()const;
 
