@@ -1,13 +1,7 @@
 #include "Game.h"
-#include "BrickFactory.h"
-#include "NodeCreator.h"
 #include "MultiPointFactory.h"
-#include "IPositionAdapter.h"
 #include "NodeImageCreator.h"
 
-#include <cstddef>
-
-#include <SDL.h>
 #include <SDL_keyboard.h>
 #include <SDL_keycode.h>
 #include <SDL_events.h>
@@ -22,9 +16,9 @@ namespace Tetris
 	{
 	}
 
-	void CGame::Initialize( CUInt rowsCount, CUInt columnsCount, const Resolution& resoltion )
+	void CGame::initialize( CUInt rowsCount, CUInt columnsCount, CUInt winWidth, CUInt winHeight )
 	{
-		Moge::Engine::Instance().CreateScreen( Moge::Math::MultiPointFactory::create2d<unsigned int>( 640, 480 ) );
+		Moge::Engine::Instance().CreateScreen( Moge::Math::MultiPointFactory::create2d<unsigned int>( winWidth, winHeight ) );
 		Moge::Engine::Instance().StartMainLoop();
 		m_mainGrid.SetSize( rowsCount, columnsCount );
 	}
@@ -73,15 +67,15 @@ namespace Tetris
 	{
 		if( SDLK_RIGHT == sdlkey )
 		{
-			m_mainGrid.MoveActualBrick( Directions::R );
+			m_mainGrid.MoveActualBrick( Moge::Math::Directions::R );
 		}
 		else if( SDLK_LEFT == sdlkey )
 		{
-			m_mainGrid.MoveActualBrick( Directions::L );
+			m_mainGrid.MoveActualBrick( Moge::Math::Directions::L );
 		}
 		else if( SDLK_DOWN == sdlkey )
 		{
-			m_mainGrid.MoveActualBrick( Directions::D );
+			m_mainGrid.MoveActualBrick( Moge::Math::Directions::D );
 		}
 		else if( SDLK_SPACE == sdlkey )
 		{

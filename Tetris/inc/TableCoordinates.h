@@ -7,19 +7,24 @@
 class CTableCoor
 {
 public:
+	CTableCoor();
 	CTableCoor( const CTableCoor& tableCoord );
 	CTableCoor( CUInt row, CUInt column );
 	virtual ~CTableCoor();
-	CUInt Row()const;
-	CUInt Col()const;
-	void Row( CUInt row );
-	void Col( CUInt col );
-	void ChangePosition( CUInt row, CUInt col );
-	CTableCoor& operator=( const CTableCoor& coor );
+
+	CTableCoor& operator=( const CTableCoor& right );
+	CTableCoor operator+( const CTableCoor& right )const;
+	CTableCoor operator-( const CTableCoor& right )const;
+
+	CUInt getRow()const;
+	CUInt getCol()const;
+	void setRow( CUInt row );
+	void setCol( CUInt col );
+	void changePosition( CUInt row, CUInt col );
 
 private:
-	unsigned m_row;
-	unsigned m_column;
+	unsigned row = 0;
+	unsigned column = 0;
 };
 
 typedef std::vector<CTableCoor> CoordinatestList;

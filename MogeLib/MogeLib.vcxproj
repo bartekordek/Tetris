@@ -102,14 +102,16 @@
       <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\inc\;$(ProjectDir)Position\;$(ProjectDir)Scene\inc\;$(ProjectDir)String\inc\;$(ProjectDir)inc\;$(HOME_BOOST);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
-      <ProgramDataBaseFileName>$(TargetDir)$(ProjectName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib;MogeMath.lib;String.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST)\stage\lib;$(HOME_SDL2)\lib\$(Platform)\</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>$(OutDir)$(TargetName)FullDatabase.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>
+      </ProgramDatabaseFile>
+      <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(HOME_SDL2)\lib\$(Platform)\*.dll" "$(TargetDir)" /y</Command>
@@ -125,14 +127,16 @@
       <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\inc\;$(ProjectDir)Position\;$(ProjectDir)Scene\inc\;$(ProjectDir)String\inc\;$(ProjectDir)inc\;$(HOME_BOOST);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
-      <ProgramDataBaseFileName>$(TargetDir)$(ProjectName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib;MogeMath.lib;String.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST)\stage\lib;$(HOME_SDL2)\lib\$(Platform)\</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>$(OutDir)$(TargetName)FullDatabase.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>
+      </ProgramDatabaseFile>
+      <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(HOME_SDL2)\lib\$(Platform)\*.dll" "$(TargetDir)" /y</Command>
@@ -148,7 +152,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\inc\;$(ProjectDir)Position\;$(ProjectDir)Scene\inc\;$(ProjectDir)String\inc\;$(ProjectDir)inc\;$(HOME_BOOST);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
-      <ProgramDataBaseFileName>$(TargetDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -156,7 +160,9 @@
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib;MogeMath.lib;String.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST)\stage\lib;$(HOME_SDL2)\lib\$(Platform)\</AdditionalLibraryDirectories>
-      <ProgramDatabaseFile>$(OutDir)$(TargetName)FullDatabase.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>
+      </ProgramDatabaseFile>
+      <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(HOME_SDL2)\lib\$(Platform)\*.dll" "$(TargetDir)" /y</Command>
@@ -172,7 +178,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\inc\;$(ProjectDir)Position\;$(ProjectDir)Scene\inc\;$(ProjectDir)String\inc\;$(ProjectDir)inc\;$(HOME_BOOST);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
-      <ProgramDataBaseFileName>$(TargetDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -180,7 +186,9 @@
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib;MogeMath.lib;String.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST)\stage\lib;$(HOME_SDL2)\lib\$(Platform)\</AdditionalLibraryDirectories>
-      <ProgramDatabaseFile>$(OutDir)$(TargetName)FullDatabase.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>
+      </ProgramDatabaseFile>
+      <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(HOME_SDL2)\lib\$(Platform)\*.dll" "$(TargetDir)" /y</Command>

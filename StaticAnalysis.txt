@@ -1,18 +1,17 @@
-[/cygdrive/c/Dev/Tetris/Tetris/src/MainGrid.cpp:316]: (style) The function 'GetSlab' is never used.
-[/cygdrive/c/Dev/Tetris/Tetris/src/Point.cpp:11]: (style) The function 'GetX' is never used.
-[/cygdrive/c/Dev/Tetris/Tetris/src/Point.cpp:16]: (style) The function 'GetY' is never used.
+[/cygdrive/c/Dev/Tetris/MogeLib/src/KeyboardObservable.cpp:16]: (style) The function 'Initialize' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/KeyboardListener.cpp:14]: (style) The function 'KeyEvent' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/KeyboardObservable.cpp:21]: (style) The function 'Register' is never used.
-[/cygdrive/c/Dev/Tetris/Tetris/src/MainGrid.cpp:69]: (style) The function 'SetBackgroundPicture' is never used.
-[/cygdrive/c/Dev/Tetris/Tetris/src/Picture.cpp:34]: (style) The function 'SetPictureLocation' is never used.
-[/cygdrive/c/Dev/Tetris/Tetris/src/Picture.cpp:46]: (style) The function 'SetPictureSize' is never used.
-[/cygdrive/c/Dev/Tetris/Tetris/src/MainGrid.cpp:100]: (style) The function 'SlabPictureLoc' is never used.
+[/cygdrive/c/Dev/Tetris/Tetris/src/Picture.cpp:35]: (style) The function 'SetPictureLocation' is never used.
+[/cygdrive/c/Dev/Tetris/Tetris/src/Picture.cpp:47]: (style) The function 'SetPictureSize' is never used.
+[/cygdrive/c/Dev/Tetris/Tetris/src/Slab.cpp:52]: (style) The function 'SetPosition' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/MTime.cpp:6]: (style) The function 'SleepSeconds' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:149]: (style) The function 'UpdateImplementation' is never used.
-[/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:98]: (style) The function 'setHepth' is never used.
+[/cygdrive/c/Dev/Tetris/Tetris/src/Brick.cpp:21]: (style) The function 'getBlockType' is never used.
+[/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:98]: (style) The function 'setDepth' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/ScreenNode.cpp:130]: (style) The function 'setResolution' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:70]: (style) The function 'setSize' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:52]: (style) The function 'setX' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:58]: (style) The function 'setY' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:64]: (style) The function 'setZ' is never used.
+[/cygdrive/c/Dev/Tetris/Tetris/src/Brick.cpp:37]: (style) The function 'slab2Matrix' is never used.
 (information) Cppcheck cannot find all the include files (use --check-config for details)

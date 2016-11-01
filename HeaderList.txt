@@ -39,6 +39,7 @@
 ./String/inc/MyString.h
 ./Tests/inc/FilesystemTests.h
 ./Tests/inc/ImageCreatorTests.h
+./Tests/inc/MatrixTests.h
 ./Tests/inc/MogeGenericTests.h
 ./Tests/inc/NameTests.h
 ./Tests/inc/NodeCreatorTests.h
@@ -49,6 +50,5 @@
 ./Tetris/inc/Game.h
 ./Tetris/inc/MainGrid.h
 ./Tetris/inc/Picture.h
-./Tetris/inc/Point.h
 ./Tetris/inc/Slab.h
 ./Tetris/inc/TableCoordinates.h

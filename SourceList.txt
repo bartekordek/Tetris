@@ -33,6 +33,7 @@
 ./Tests/main.cpp
 ./Tests/src/FilesystemTests.cpp
 ./Tests/src/ImageCreatorTests.cpp
+./Tests/src/MatrixTests.cpp
 ./Tests/src/MogeGenericTests.cpp
 ./Tests/src/NameTests.cpp
 ./Tests/src/NodeCreatorTests.cpp
@@ -44,6 +45,5 @@
 ./Tetris/src/Game.cpp
 ./Tetris/src/MainGrid.cpp
 ./Tetris/src/Picture.cpp
-./Tetris/src/Point.cpp
 ./Tetris/src/Slab.cpp
 ./Tetris/src/TableCoordinates.cpp

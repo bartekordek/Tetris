@@ -95,7 +95,7 @@ namespace Moge
 		UpdateGeometrics();
 	}
 
-	void ObjectNodeContent::setHepth( const unsigned int depth )
+	void ObjectNodeContent::setDepth( const unsigned int depth )
 	{
 		this->size.setValue( Math::Axes::Z, depth );
 		UpdateGeometrics();

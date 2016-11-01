@@ -1,10 +1,14 @@
 #include "TableCoordinates.h"
 
-CTableCoor::CTableCoor( const CTableCoor& tableCoord ):m_row( tableCoord.m_row ), m_column( tableCoord.m_column )
+CTableCoor::CTableCoor()
+{	
+}
+
+CTableCoor::CTableCoor( const CTableCoor& tableCoord ):row( tableCoord.row ), column( tableCoord.column )
 {
 }
 
-CTableCoor::CTableCoor( CUInt row, CUInt column ): m_row( row ), m_column( column )
+CTableCoor::CTableCoor( CUInt row, CUInt column ): row( row ), column( column )
 {
 }
 
@@ -12,39 +16,50 @@ CTableCoor& CTableCoor::operator=( const CTableCoor& coor )
 {
 	if( this != &coor )
 	{
-		m_column = coor.m_column;
-		m_row = coor.m_row;
+		this->column = coor.column;
+		this->row = coor.row;
 	}
 	return *this;
 }
 
 CTableCoor::~CTableCoor()
 {
-
 }
 
-CUInt CTableCoor::Col()const
+CTableCoor CTableCoor::operator+( const CTableCoor& right ) const
 {
-	return m_column;
+	CTableCoor result( this->row + right.row, this->column + right.column );
+	return result;
 }
 
-CUInt CTableCoor::Row()const
+CTableCoor CTableCoor::operator-( const CTableCoor& right ) const
 {
-	return m_row;
+	CTableCoor result( this->row - right.row, this->column - right.column );
+	return result;
 }
 
-void CTableCoor::Row( CUInt row )
+CUInt CTableCoor::getCol()const
 {
-	m_row = row;
+	return this->column;
 }
 
-void CTableCoor::Col( CUInt col )
+CUInt CTableCoor::getRow()const
 {
-	m_column = col;
+	return this->row;
 }
 
-void CTableCoor::ChangePosition( CUInt row, CUInt col )
+void CTableCoor::setRow( CUInt row )
 {
-	m_row = row;
-	m_column = col;
+	this->row = row;
+}
+
+void CTableCoor::setCol( CUInt col )
+{
+	this->column = col;
+}
+
+void CTableCoor::changePosition( CUInt row, CUInt col )
+{
+	this->row = row;
+	this->column = col;
 }

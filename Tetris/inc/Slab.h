@@ -6,28 +6,26 @@
 
 namespace Tetris
 {
-	class CSlab
-	{
-	public:
-		CSlab( const CSlab& slab );
-		CSlab( CUInt row = 0, CUInt col = 0, const bool partOfSlab = false, const bool empty = true );
-		virtual ~CSlab();
-		CSlab& operator=( const CSlab& slab );
-		CUInt Row()const;
-		CUInt Col()const;
-		void Row( CUInt row );
-		void Col( CUInt col );
-		void SetPosition( CUInt row, CUInt col );
-		const bool Empty()const;
-		void Empty( const bool empty );
-		void SetId( CUInt id );
-		void SetNode( const Moge::ObjectNode& node );
-		Moge::ObjectNode& GetNode();
+class Slab
+{
+public:
+	Slab( const Slab& slab );
+	Slab( CUInt row = 0, CUInt col = 0, const bool empty = true );
+	virtual ~Slab();
+	Slab& operator=( const Slab& slab );
+	CUInt row()const;
+	CUInt col()const;
+	void row( CUInt row );
+	void col( CUInt col );
+	void SetPosition( CUInt row, CUInt col );
+	const bool Empty()const;
+	void Empty( const bool empty );
+	void SetNode( const Moge::ObjectNode& node );
+	const Moge::ObjectNode& GetNode()const;
 
-	private:
-		CTableCoor mPosition;
-		unsigned int mIndex = 0;
-		bool mEmpty;
-		Moge::ObjectNode mNode;
-	};
+private:
+	CTableCoor position;
+	bool empty = true;
+	Moge::ObjectNode node;
+};
 }
