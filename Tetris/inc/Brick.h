@@ -24,7 +24,7 @@ namespace Tetris
 	class Brick
 	{
 	public:
-		Brick( const BrickTypes typeofBrick );
+		explicit Brick( const BrickTypes typeofBrick );
 		Brick( const Brick& brick );
 		virtual ~Brick();
 		const CoordinatestList getBlockPositions()const;

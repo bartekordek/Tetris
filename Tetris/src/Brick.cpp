@@ -5,9 +5,10 @@ using namespace Moge;
 using namespace Math;
 namespace Tetris
 {
-	Brick::Brick( const BrickTypes typeofBrick ): brickType( typeofBrick )
+	Brick::Brick( const BrickTypes typeofBrick ):
+		blockMatrix( CBrickFactory::createBrick( typeofBrick ) ), 
+		brickType( typeofBrick )
 	{
-		this->blockMatrix = CBrickFactory::createBrick( typeofBrick );
 	}
 
 	Brick::Brick( const Brick& brick ):

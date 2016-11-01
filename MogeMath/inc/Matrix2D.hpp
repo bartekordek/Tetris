@@ -316,11 +316,6 @@ private:
 		return this->values[rowIndex][columnIndex];
 	}
 
-	void release()
-	{
-		this->values.resize( 0 );
-	}
-
 	std::vector< std::vector<Type> > values;
 };
 }
