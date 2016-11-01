@@ -5,7 +5,6 @@
 
 #include "Slab.h"
 #include "Brick.h"
-#include "Picture.h"
 
 namespace Tetris
 {
@@ -27,7 +26,6 @@ private:
 	const bool SlabExist( CUInt rowIndex, CUInt colIndex )const;
 	const bool PartOfCurrentBrick( CUInt rowIndex, CUInt colIndex )const;
 	const bool checkIfBlockCanBeMoved( const Moge::Math::Directions direction );
-	const bool checkIfBlockCanBeRotated( const bool clockWise = true );
 	void addCurrentBrickToGrid();
 	void ManageFullLine();
 	CInt GetColOffset( const Moge::Math::Directions direction )const;
@@ -42,8 +40,6 @@ private:
 
 	Brick* activeBrick;
 	std::vector<SlabRow> slabsRows;
-	CPicture slabBackground;
-	CPicture brickBckd;
 	std::mutex slabsMutex;
 	std::mutex currentBrickMutex;
 	Moge::ImageSurface emptySlabImage;
