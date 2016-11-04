@@ -1,7 +1,6 @@
 #pragma once
 
 #include <ObjectNode.h>
-
 #include "TableCoordinates.h"
 
 namespace Tetris
@@ -17,7 +16,6 @@ public:
 	CUInt col()const;
 	void row( CUInt row );
 	void col( CUInt col );
-	void SetPosition( CUInt row, CUInt col );
 	const bool isEmpty()const;
 	void setEmpty( const bool empty );
 	void SetNode( const Moge::ObjectNode& node );

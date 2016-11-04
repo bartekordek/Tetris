@@ -49,11 +49,6 @@ CUInt Slab::col()const
 	return position.getCol();
 }
 
-void Slab::SetPosition( CUInt row, CUInt col )
-{
-	this->position.changePosition( row, col );
-}
-
 const bool Slab::isEmpty()const
 {
 	return this->empty;
