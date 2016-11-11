@@ -55,7 +55,7 @@ void CMainGrid::SetSize( CUInt rowsCount, CUInt columnsCount, CUInt initialX, CU
 			std::shared_ptr<Moge::ObjectNodeContent> slabNode = Moge::NodeCreator::CreateFromImage( emptySlabImage );
 			Moge::Math::IPositionAdapter<int> position( slab.col() * slabNode->getWidth(), slab.row() * slabNode->getHeight(), 0 );
 			slabNode->setXyz( position.getX(), position.getY(), 0 );
-			slab.SetNode( slabNode );
+			slab.setNode( slabNode );
 
 			slabNode->SetVisible();
 			Moge::Engine::Instance().AddObject( slabNode );//TODO: redundant add, should be moved to NodeMgr
@@ -88,7 +88,7 @@ void CMainGrid::MarkSlabAsPartOfMovingBlock( CUInt row, CUInt col )
 
 	Slab& slab = slabsRows.at( row ).at( col );
 	slab.setEmpty( false );
-	auto slabNode = slab.GetNode();
+	auto slabNode = slab.getNode();
 	slabNode->SetSurface( filledSlabImage );
 }
 
@@ -203,7 +203,7 @@ void CMainGrid::addCurrentBrickToGrid()
 		{
 			Slab& slab = slabsRows.at( coord.getRow() ).at( coord.getCol() );
 			slab.setEmpty( false );
-			slab.GetNode().get()->SetSurface( filledSlabImage );
+			slab.getNode().get()->SetSurface( filledSlabImage );
 		}
 	}
 }
@@ -251,7 +251,7 @@ void CMainGrid::m_RemoveActualBlockSlabsFromGrid()
 	{
 		auto& slab = slabsRows.at( coord.getRow() ).at( coord.getCol() );
 		slab.setEmpty( true );
-		auto slabnode = slab.GetNode();
+		auto slabnode = slab.getNode();
 		slabnode->SetSurface( emptySlabImage );
 	}
 }
@@ -313,7 +313,7 @@ void CMainGrid::MoveAllLinesOneLineDown( std::vector<SlabRow>::iterator rowItera
 
 void CMainGrid::SetSlabImagSurface( Slab& slab )
 {
-	auto& slabNode = slab.GetNode();
+	auto& slabNode = slab.getNode();
 	if( slab.isEmpty() )
 	{
 		slabNode->SetSurface( this->emptySlabImage );

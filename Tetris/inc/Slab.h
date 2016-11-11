@@ -18,8 +18,8 @@ public:
 	void col( CUInt col );
 	const bool isEmpty()const;
 	void setEmpty( const bool empty );
-	void SetNode( const Moge::ObjectNode& node );
-	const Moge::ObjectNode& GetNode()const;
+	void setNode( const Moge::ObjectNode& node );
+	const Moge::ObjectNode& getNode()const;
 
 private:
 	CTableCoor position;

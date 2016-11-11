@@ -59,12 +59,12 @@ void Slab::setEmpty( const bool empty )
 	this->empty = empty;
 }
 
-void Slab::SetNode( const Moge::ObjectNode& node )
+void Slab::setNode( const Moge::ObjectNode& node )
 {
 	this->node = node;
 }
 
-const Moge::ObjectNode& Slab::GetNode()const
+const Moge::ObjectNode& Slab::getNode()const
 {
 	return this->node;
 }
