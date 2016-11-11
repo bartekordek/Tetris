@@ -211,6 +211,7 @@
     <ClInclude Include="inc\NodeImageCreator.h" />
     <ClInclude Include="inc\NodeMgr.h" />
     <ClInclude Include="inc\ObjectNode.h" />
+    <ClInclude Include="inc\Scale.h" />
     <ClInclude Include="inc\ScreenNode.h" />
     <ClInclude Include="inc\Singleton.h" />
     <ClInclude Include="inc\Size.h" />
@@ -241,6 +242,7 @@
     <ClCompile Include="src\NodeImageCreator.cpp" />
     <ClCompile Include="src\NodeMgr.cpp" />
     <ClCompile Include="src\ObjectNode.cpp" />
+    <ClCompile Include="src\Scale.cpp" />
     <ClCompile Include="src\ScreenNode.cpp" />
     <ClCompile Include="src\Singleton.cpp" />
     <ClCompile Include="src\Size.cpp" />
