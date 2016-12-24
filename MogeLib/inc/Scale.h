@@ -1,8 +1,10 @@
 #pragma once
 
+#include "MogeLib.h"
+
 namespace Moge
 {
-class Scale
+class MogeLib_API Scale
 {
 public:
 	Scale();
