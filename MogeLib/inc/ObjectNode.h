@@ -7,6 +7,7 @@
 #include "FileSystem.h"
 #include "SurfaceWrapper.h"
 #include "MultiPointFactory.h"
+#include "Scale.h"
 
 namespace Moge
 {
@@ -18,7 +19,7 @@ namespace Moge
 		MAIN_SCREEN
 	};
 
-	class MogeLib_API ObjectNodeContent: public Node, public Visible
+	class MogeLib_API ObjectNodeContent: public Node, public Visible, public Scale
 	{
 	public:
 		ObjectNodeContent();
@@ -52,11 +53,23 @@ namespace Moge
 		const ImageSurface& GetSurface()const;
 		void SetSurface( const ImageSurface& surface );
 
+		void setScale( const double scale );
+		void setXscale( const double scale );
+		void setYscale( const double scale );
+		void setZscale( const double scale );
+
+		const double getScale();
+		const double getXscale();
+		const double getYscale();
+		const double getZscale();
+
 	protected:
-		virtual void UpdateImplementation();
+		double scaleX = 1.0;
+		double scaleY = 1.0;
+		double scaleZ = 1.0;
 
 	private:
-		void FreeContent() override;
+		void updateScale();
 		std::shared_ptr<SurfaceWrapper> surface;
 		Path mFilePath;
 
