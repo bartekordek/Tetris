@@ -71,7 +71,6 @@ namespace Moge
 			Render( *object );
 		}
 		mRenderableObjectsMutex.unlock();
-		//SDL_RenderPresent( mScreenBuffor.GetRenderer() );
 		SDL_UpdateWindowSurface( mScreenBuffor->GetScreen() );
 		++mFrameCount;
 	}
