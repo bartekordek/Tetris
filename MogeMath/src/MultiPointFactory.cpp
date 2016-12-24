@@ -1,5 +1,3 @@
-#pragma once
-
 #include "MultiPointFactory.h"
 
 namespace Moge
