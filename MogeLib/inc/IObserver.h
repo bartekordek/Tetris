@@ -4,7 +4,7 @@
 
 namespace Moge
 {
-	class IObserver
+	class MogeLib_API IObserver
 	{
 	public:
 		IObserver()
