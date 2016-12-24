@@ -1,46 +1,41 @@
 #pragma once
 
-#include "IObserver.h"
-#include <set>
-#include <mutex>
+#include "MogeLib.h"
 
 namespace Moge
 {
-	class IObservable
+	class IObservableImpl;
+	class IObserver;
+	class IObservableData;
+	class MogeLib_API IObservable
 	{
 	public:
-		IObservable()
-		{
-		}
+		IObservable();
+		virtual ~IObservable();
 
-		virtual ~IObservable()
-		{
-		}
-
-		void registerObserver( IObserver* observer )
-		{
-			std::lock_guard<std::mutex> lck( this->observersMutex );
-			this->observers.insert( observer );
-		}
+		void registerObserver( IObserver* observer );
+		//{
+		//	std::lock_guard<std::mutex> lck( this->observersMutex );
+		//	this->observers.insert( observer );
+		//}
 
 		void unregisterObserver( IObserver* observer )
 		{
-			std::lock_guard<std::mutex> lck( this->observersMutex );
-			this->observers.erase( observer );
+	/*		std::lock_guard<std::mutex> lck( this->observersMutex );
+			this->observers.erase( observer );*/
 		}
 
 		void notify( IObservableData* data )
 		{
-			std::lock_guard<std::mutex> lck( this->observersMutex );
-			for( const auto& observer: this->observers )
-			{
-				observer->update( data );
-			}
+			//std::lock_guard<std::mutex> lck( this->observersMutex );
+			//for( const auto& observer: this->observers )
+			//{
+			//	observer->update( data );
+			//}
 		}
 
 	protected:
 	private:
-		std::set<IObserver*> observers;
-		std::mutex observersMutex;
+		IObservableImpl* impl = nullptr;
 	};
 }
