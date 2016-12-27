@@ -12,10 +12,10 @@ OUTPUT_RELEASE = ../Build/$(OS)_RELEASE/$(BINARY_NAME)
 CPP_FILES := $(wildcard src/*.cpp Point/*.cpp)
 
 OBJ_DEBUG_DIR := obj/debug/
-OBJ_DEBUG_FILES := $(addprefix $(OBJ_DEBUG_DIR),$(notdir $(CPP_FILES:.cpp=.o)))
+OBJ_DEBUG_FILES := $(addprefix $(OBJ_DEBUG_DIR),$(CPP_FILES:.cpp=.o))
 
 OBJ_RELEASE_DIR := obj/release/
-OBJ_RELEASE_FILES := $(addprefix $(OBJ_RELEASE_DIR),$(notdir $(CPP_FILES:.cpp=.o)))
+OBJ_RELEASE_FILES := $(addprefix $(OBJ_RELEASE_DIR),$(CPP_FILES:.cpp=.o))
 
 debug: CHECK_DIRS CD_OBJ $(OBJ_DEBUG_FILES) 
 	$(LIB_STATIC_CC) $(OUTPUT_DEBUG) -o $(OBJ_DEBUG_FILES)
@@ -23,16 +23,12 @@ debug: CHECK_DIRS CD_OBJ $(OBJ_DEBUG_FILES)
 release: CHECK_DIRS CD_OBJ $(OBJ_RELEASE_FILES)
 	$(LIB_STATIC_CC) $(OUTPUT_RELEASE) -o $(OBJ_RELEASE_FILES) 
 
-$(OBJ_DEBUG_DIR)%.o: src/%.cpp
+$(OBJ_DEBUG_DIR)%.o: %.cpp
+	mkdir -p $(dir $@)
 	$(CC) $(HEADER_INC) $(COMPILER_FLAGS) $(DEBUG_FLAGS) -c -o $@ $<
 
-$(OBJ_DEBUG_DIR)%.o: Point/%.cpp
-	$(CC) $(HEADER_INC) $(COMPILER_FLAGS) $(DEBUG_FLAGS) -c -o $@ $<
-
-$(OBJ_RELEASE_DIR)%.o: src/%.cpp
-	$(CC) $(HEADER_INC) $(COMPILER_FLAGS) $(RELEASE_FLAGS) -c -o $@ $<
-
-$(OBJ_RELEASE_DIR)%.o: Point/%.cpp
+$(OBJ_RELEASE_DIR)%.o: %.cpp
+	mkdir -p $(dir $@)
 	$(CC) $(HEADER_INC) $(COMPILER_FLAGS) $(RELEASE_FLAGS) -c -o $@ $<
 
 CHECK_DIRS:
