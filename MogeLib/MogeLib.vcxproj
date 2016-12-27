@@ -200,7 +200,11 @@
     <ClInclude Include="inc\Engine.h" />
     <ClInclude Include="inc\FileSystem.h" />
     <ClInclude Include="inc\GeneralUtilities.h" />
+    <ClInclude Include="inc\IObservable.h" />
+    <ClInclude Include="inc\IObservableData.h" />
+    <ClInclude Include="inc\IObserver.h" />
     <ClInclude Include="inc\IVector.h" />
+    <ClInclude Include="inc\KeyboardData.h" />
     <ClInclude Include="inc\KeyboardListener.h" />
     <ClInclude Include="inc\KeyboardObservable.h" />
     <ClInclude Include="inc\MogeLib.h" />
@@ -222,6 +226,7 @@
     <ClInclude Include="RenderableObject\src\RenderableObjectContainerImpl.h" />
     <ClInclude Include="Scene\inc\Scene.h" />
     <ClInclude Include="Scene\inc\SceneImpl.h" />
+    <ClInclude Include="src\IObservableImpl.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="RenderableObject\src\RenderableObjectContainer.cpp" />
@@ -233,6 +238,9 @@
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\FileSystem.cpp" />
     <ClCompile Include="src\GeneralUtilities.cpp" />
+    <ClCompile Include="src\IObservable.cpp" />
+    <ClCompile Include="src\IObservableImpl.cpp" />
+    <ClCompile Include="src\KeyboardData.cpp" />
     <ClCompile Include="src\KeyboardListener.cpp" />
     <ClCompile Include="src\KeyboardObservable.cpp" />
     <ClCompile Include="src\MTime.cpp" />
