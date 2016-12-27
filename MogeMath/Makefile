@@ -9,7 +9,7 @@ HEADER_INC = -I inc/ -I Point/
 OUTPUT_DEBUG = ../Build/$(OS)_DEBUG/$(BINARY_NAME)
 OUTPUT_RELEASE = ../Build/$(OS)_RELEASE/$(BINARY_NAME)
 
-CPP_FILES := $(wildcard src/*.cpp Point/*.cpp)
+CPP_FILES := $(wildcard */*.cpp)
 
 OBJ_DEBUG_DIR := obj/debug/
 OBJ_DEBUG_FILES := $(addprefix $(OBJ_DEBUG_DIR),$(CPP_FILES:.cpp=.o))
@@ -17,10 +17,10 @@ OBJ_DEBUG_FILES := $(addprefix $(OBJ_DEBUG_DIR),$(CPP_FILES:.cpp=.o))
 OBJ_RELEASE_DIR := obj/release/
 OBJ_RELEASE_FILES := $(addprefix $(OBJ_RELEASE_DIR),$(CPP_FILES:.cpp=.o))
 
-debug: CHECK_DIRS CD_OBJ $(OBJ_DEBUG_FILES) 
+debug: CHECK_DIRS CD_OBJ $(OBJ_DEBUG_FILES) $(OUTPUT_DEBUG)
 	$(LIB_STATIC_CC) $(OUTPUT_DEBUG) -o $(OBJ_DEBUG_FILES)
 
-release: CHECK_DIRS CD_OBJ $(OBJ_RELEASE_FILES)
+release: CHECK_DIRS CD_OBJ $(OBJ_RELEASE_FILES) $(OUTPUT_RELEASE)
 	$(LIB_STATIC_CC) $(OUTPUT_RELEASE) -o $(OBJ_RELEASE_FILES) 
 
 $(OBJ_DEBUG_DIR)%.o: %.cpp
@@ -47,4 +47,5 @@ clear:
 	rm -f $(OUTPUT_RELEASE)
 
 test:
-	@echo "OBJ_DEBUG_FILES = $(OBJ_DEBUG_FILES)"
+	@echo "All .o files: $(OBJ_DEBUG_FILES)"
+	@echo "All .cpp files: $(CPP_FILES)" 
