@@ -13,9 +13,9 @@ namespace Moge
 
 	ObjectNodeContent::ObjectNodeContent( const ObjectNodeContent& objectNodeContent ):
 		surface( objectNodeContent.surface ),
+		mFilePath( "" ),
 		position( objectNodeContent.position ),
-		size( objectNodeContent.size ),
-		mFilePath( "" )
+		size( objectNodeContent.size )
 	{
 	}
 
@@ -190,8 +190,8 @@ namespace Moge
 
 	void ObjectNodeContent::updateScale()
 	{
-		this->surface->GetSdlSurface()->w *= this->scaleX;
-		this->surface->GetSdlSurface()->h *= this->scaleY;
+		this->surface->GetSdlSurface()->w *= static_cast<int>( this->scaleX );
+		this->surface->GetSdlSurface()->h *= static_cast<int>( this->scaleY );
 		this->mGeometrics->w = this->surface->GetSdlSurface()->w;
 		this->mGeometrics->w = this->surface->GetSdlSurface()->w;
 	}
