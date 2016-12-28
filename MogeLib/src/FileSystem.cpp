@@ -119,7 +119,8 @@ namespace Moge
 
 	const bool Path::Exist()const
 	{
-		return FileExists( MyString( mFullPath.c_str() ) );
+		std::string error;
+		return FileExists( MyString( mFullPath.c_str() ), error );
 	}
 
 	void Path::SetUpPaths( const MyString& fullPath )
