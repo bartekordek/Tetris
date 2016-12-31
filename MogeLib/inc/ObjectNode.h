@@ -53,15 +53,15 @@ namespace Moge
 		const ImageSurface& GetSurface()const;
 		void SetSurface( const ImageSurface& surface );
 
-		void setScale( const double scale );
-		void setXscale( const double scale );
-		void setYscale( const double scale );
-		void setZscale( const double scale );
+		void setScale( const double scale ) override;
+		void setXscale( const double scale ) override;
+		void setYscale( const double scale ) override;
+		void setZscale( const double scale ) override;
 
-		const double getScale();
-		const double getXscale();
-		const double getYscale();
-		const double getZscale();
+		const double getScale() override;
+		const double getXscale() override;
+		const double getYscale() override;
+		const double getZscale() override;
 
 	protected:
 		double scaleX = 1.0;
