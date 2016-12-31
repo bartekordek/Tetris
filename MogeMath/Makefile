@@ -1,4 +1,4 @@
-CC = clang++
+CC = g++
 OBJ_DIR_NAME = obj
 LIB_STATIC_CC = ar rcs
 COMPILER_FLAGS = -pedantic -Wall -std=c++11
