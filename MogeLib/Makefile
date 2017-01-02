@@ -1,6 +1,6 @@
 CC = g++
 CC_LINK = g++ -shared 
-COMPILER_FLAGS = -pedantic -Wall -std=c++11 -D MogeLib_EXPORT="" -Wno-ignored-attributes
+COMPILER_FLAGS = -pedantic -Wall -std=c++11 -D MogeLib_EXPORT="1" -Wno-ignored-attributes
 DEBUG_FLAGS = -ggdb
 RELEASE_FLAGS = -Ofast
 PROJECT_NAME = MogeLib
@@ -27,10 +27,10 @@ debug: $(OUTPUT_DEBUG)
 release: $(OUTPUT_RELEASE)
 
 $(OUTPUT_DEBUG): $(OBJ_DEBUG_FILES)
-	$(CC_LINK) -shared -o $(OUTPUT_DEBUG) $(OBJ_DEBUG_FILES) $(IMPORT_LIBS_DEBUG) -Wl,--out-implib,$(OUTPUT_DIR_DEBUG)/$(IMP_LIB_NAME)
+	$(CC_LINK) -o $(OUTPUT_DEBUG) $(OBJ_DEBUG_FILES) $(IMPORT_LIBS_DEBUG) -Wl,--out-implib,$(OUTPUT_DIR_DEBUG)/$(IMP_LIB_NAME) -Wl,--export-all-symbols -Wl,--enable-auto-import
 
 $(OUTPUT_RELEASE): $(OBJ_RELEASE_FILES) 
-	$(CC_LINK) 
+	$(CC_LINK) -o $(OUTPUT_RELEASE) $(OBJ_RELEASE_FILES) $(IMPORT_LIBS_RELEASE) -Wl,--out-implib,$(OUTPUT_DIR_RELEASE)/$(IMP_LIB_NAME)
 
 $(OBJ_DEBUG_DIR)%.o: %.cpp
 	mkdir -p $(dir $@)
@@ -46,13 +46,13 @@ first_run:
 	mkdir -p $(dir $(OBJ_RELEASE_FILES)) 
 	mkdir -p $(dir $(OUTPUT_RELEASE))
 
-clear:
+clean:
 	rm -f $(OBJ_DEBUG_FILES)
 	rm -f $(OBJ_RELEASE_FILES)
 	rm -f $(OUTPUT_DEBUG)
 	rm -f $(OUTPUT_RELEASE)
 
-clear_all:
+clean_all:
 	find . -name '*.o' | xargs rm
 
 test:
