@@ -1,7 +1,7 @@
 CC = g++
 OBJ_DIR_NAME = obj
 LIB_STATIC_CC = ar rcs
-COMPILER_FLAGS = -pedantic -Wall -std=c++11 -D MogeLib_EXPORT=""
+COMPILER_FLAGS = -pedantic -Wall -std=c++11 -D MogeLib_EXPORT="1"
 DEBUG_FLAGS = -ggdb
 RELEASE_FLAGS = -Ofast
 BINARY_NAME = String.a
