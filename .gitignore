@@ -29,3 +29,5 @@ Tetris/Debug/Tetris.exe.lastcodeanalysissucceeded
 *.VC.db
 *~ml
 *.a
+*.iobj
+*.ipdb
