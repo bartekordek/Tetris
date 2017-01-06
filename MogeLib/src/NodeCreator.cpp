@@ -54,7 +54,7 @@ namespace Moge
 
 	const unsigned int NodeCreator::Count()
 	{
-		return sObjectNodes.size();
+		return static_cast<unsigned int>( sObjectNodes.size() );
 	}
 
 	std::set< ObjectNodeContent* > NodeCreator::sObjectNodes;

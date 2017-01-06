@@ -107,22 +107,22 @@ public:
 		{
 			return 0;
 		}
-		return this->values[0].size();
+		return static_cast<unsigned int>( this->values[0].size() );
 	}
 
 	const unsigned int getRowsCount()const
 	{
-		return this->values.size();
+		return static_cast<unsigned int>( this->values.size() );
 	}
 
 	void moveElementsUntillNoEmptyLine( const Directions direction )
 	{
-		const unsigned int rowsCount = this->values.size();
+		const unsigned int rowsCount = static_cast<unsigned int>( this->values.size() );
 		if( true == isZero() || 0 == rowsCount )
 		{
 			return;
 		}
-		const unsigned int columnsCount = this->values[0].size();
+		const unsigned int columnsCount = static_cast<unsigned int>( this->values[0].size() );
 
 		if( Directions::U == direction )
 		{
@@ -157,13 +157,13 @@ public:
 	void moveElements( const Directions direction )
 	{
 		std::pair<int, int> offset = direction2RowCol( direction );
-		const unsigned int rowsCount = this->values.size();
+		const unsigned int rowsCount = static_cast<unsigned int>( this->values.size() );
 		if( 0 == rowsCount )
 		{
 			return;
 		}
 
-		const unsigned int columnsCount = this->values[0].size();
+		const unsigned int columnsCount = static_cast<unsigned int>( this->values[0].size() );
 
 		for( 
 			int rowIndex =
@@ -298,7 +298,7 @@ private:
 	{
 		for( std::vector<Type>& row : this->values )
 		{
-			const unsigned int columnsCount = row.size();
+			const unsigned int columnsCount = static_cast<unsigned int>( row.size() );
 			for( unsigned int columnIndex = 0; columnIndex < columnsCount; ++columnIndex )
 			{
 				row[columnIndex] = value;
