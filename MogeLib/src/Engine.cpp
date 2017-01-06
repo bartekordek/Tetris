@@ -71,7 +71,6 @@ namespace Moge
 			Render( *object );
 		}
 		mRenderableObjectsMutex.unlock();
-		//SDL_RenderPresent( mScreenBuffor.GetRenderer() );
 		SDL_UpdateWindowSurface( mScreenBuffor->GetScreen() );
 		++mFrameCount;
 	}
@@ -84,14 +83,6 @@ namespace Moge
 			SDL_Rect* screenRect = node.GetGeometricsInfo();
 			SDL_Rect* imageRect = nullptr;
 			SDL_BlitSurface( node.GetSurface()->GetSdlSurface(), imageRect, mScreenBuffor->GetSdlSurface(), screenRect );
-
-			/*
-			SDL_Surface* screen = mScreenBuffor->GetImage().get();
-			SDL_Rect* screenRect = node.GetGeometricsInfo();
-			SDL_Surface* image = node.GetImage().get();
-			SDL_Rect* imageRect = nullptr;
-			SDL_BlitSurface( image, imageRect, screen, screenRect );*/
-			//TODO
 		}
 	}
 }

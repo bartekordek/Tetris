@@ -20,9 +20,6 @@ namespace Moge
 	protected:
 		virtual void UpdateGeometrics();
 
-	private:
-		virtual void FreeContent() = 0;
-		
-		SDL_Rect* mGeometrics = nullptr;
+		SDL_Rect* mGeometrics = nullptr;		
 	};
 }

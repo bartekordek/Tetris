@@ -49,7 +49,7 @@ namespace Moge
 		virtual void UpdateImplementation();
 
 	private:
-		void FreeContent() override;
+		void FreeContent();
 
 		SDL_Window* mainScreen = nullptr;
 		SDL_Surface* mainScreenSurface = nullptr;

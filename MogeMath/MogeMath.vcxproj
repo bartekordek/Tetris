@@ -171,7 +171,6 @@
     <ClInclude Include="inc\Matrix2D.hpp" />
     <ClInclude Include="inc\MultiPoint.h" />
     <ClInclude Include="inc\MultiPointFactory.h" />
-    <ClInclude Include="inc\PointFactory.h" />
     <ClInclude Include="inc\Quaternion.h" />
     <ClInclude Include="inc\Rectangle.h" />
     <ClInclude Include="inc\Segment.h" />

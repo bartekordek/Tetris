@@ -13,9 +13,9 @@ namespace Moge
 
 	ObjectNodeContent::ObjectNodeContent( const ObjectNodeContent& objectNodeContent ):
 		surface( objectNodeContent.surface ),
+		mFilePath( "" ),
 		position( objectNodeContent.position ),
-		size( objectNodeContent.size ),
-		mFilePath( "" )
+		size( objectNodeContent.size )
 	{
 	}
 
@@ -130,7 +130,6 @@ namespace Moge
 
 	ObjectNodeContent::~ObjectNodeContent()
 	{
-		FreeContent();
 	}
 
 	const ImageSurface& ObjectNodeContent::GetSurface()const
@@ -146,17 +145,54 @@ namespace Moge
 		Node::UpdateGeometrics();
 	}
 
-	void ObjectNodeContent::UpdateImplementation()
+	void ObjectNodeContent::setScale( const double scale )
 	{
-		if( surface && surface->GetSdlSurface() )
-		{
-			setWidth( surface->GetSdlSurface()->w );
-			setHeight( surface->GetSdlSurface()->h );
-			Node::UpdateGeometrics();
-		}
+		this->scaleX = scale;
+		updateScale();
 	}
 
-	void ObjectNodeContent::FreeContent()
+	void ObjectNodeContent::setXscale( const double scale )
 	{
+		this->scaleX = scale;
+		updateScale();
+	}
+
+	void ObjectNodeContent::setYscale( const double scale )
+	{
+		this->scaleY = scale;
+		updateScale();
+	}
+
+	void ObjectNodeContent::setZscale( const double scale )
+	{
+		this->scaleZ = scale;
+	}
+
+	const double ObjectNodeContent::getScale()
+	{
+		return this->scaleX;
+	}
+
+	const double ObjectNodeContent::getXscale()
+	{
+		return this->scaleY;
+	}
+
+	const double ObjectNodeContent::getYscale()
+	{
+		return 1.0;
+	}
+
+	const double ObjectNodeContent::getZscale()
+	{
+		return 1.0;
+	}
+
+	void ObjectNodeContent::updateScale()
+	{
+		this->surface->GetSdlSurface()->w *= static_cast<int>( this->scaleX );
+		this->surface->GetSdlSurface()->h *= static_cast<int>( this->scaleY );
+		this->mGeometrics->w = this->surface->GetSdlSurface()->w;
+		this->mGeometrics->w = this->surface->GetSdlSurface()->w;
 	}
 }

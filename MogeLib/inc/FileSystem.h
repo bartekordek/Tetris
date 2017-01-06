@@ -60,5 +60,5 @@ namespace Moge
 	const MyString GetBaseName( const MyString& path );
 	const MyString GetExtension( const MyString& path );
 	const MyString GetDirectory( const MyString& path );
-	const bool FileExists( const MyString& path, std::string& errorMessage = std::string() );
+	const bool FileExists( const MyString& path, std::string& errorMessage );
 }

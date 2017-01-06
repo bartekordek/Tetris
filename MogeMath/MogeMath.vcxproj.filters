@@ -30,9 +30,6 @@
     <ClInclude Include="inc\Segment.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\PointFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\MultiPoint.h">
       <Filter>Header Files</Filter>
     </ClInclude>

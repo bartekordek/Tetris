@@ -99,7 +99,7 @@
       <SDLCheck>true</SDLCheck>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\inc\;$(ProjectDir)Position\;$(ProjectDir)Scene\inc\;$(ProjectDir)String\inc\;$(ProjectDir)inc\;$(HOME_BOOST);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
@@ -124,7 +124,7 @@
       <SDLCheck>true</SDLCheck>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\inc\;$(ProjectDir)Position\;$(ProjectDir)Scene\inc\;$(ProjectDir)String\inc\;$(ProjectDir)inc\;$(HOME_BOOST);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
@@ -150,7 +150,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\inc\;$(ProjectDir)Position\;$(ProjectDir)Scene\inc\;$(ProjectDir)String\inc\;$(ProjectDir)inc\;$(HOME_BOOST);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
     </ClCompile>
@@ -176,7 +176,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\inc\;$(ProjectDir)Position\;$(ProjectDir)Scene\inc\;$(ProjectDir)String\inc\;$(ProjectDir)inc\;$(HOME_BOOST);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
     </ClCompile>
@@ -200,7 +200,11 @@
     <ClInclude Include="inc\Engine.h" />
     <ClInclude Include="inc\FileSystem.h" />
     <ClInclude Include="inc\GeneralUtilities.h" />
+    <ClInclude Include="inc\IObservable.h" />
+    <ClInclude Include="inc\IObservableData.h" />
+    <ClInclude Include="inc\IObserver.h" />
     <ClInclude Include="inc\IVector.h" />
+    <ClInclude Include="inc\KeyboardData.h" />
     <ClInclude Include="inc\KeyboardListener.h" />
     <ClInclude Include="inc\KeyboardObservable.h" />
     <ClInclude Include="inc\MogeLib.h" />
@@ -211,6 +215,7 @@
     <ClInclude Include="inc\NodeImageCreator.h" />
     <ClInclude Include="inc\NodeMgr.h" />
     <ClInclude Include="inc\ObjectNode.h" />
+    <ClInclude Include="inc\Scale.h" />
     <ClInclude Include="inc\ScreenNode.h" />
     <ClInclude Include="inc\Singleton.h" />
     <ClInclude Include="inc\Size.h" />
@@ -218,20 +223,26 @@
     <ClInclude Include="inc\TypesDeclarations.h" />
     <ClInclude Include="inc\Visible.h" />
     <ClInclude Include="RenderableObject\inc\RenderableObjectContainer.h" />
+    <ClInclude Include="RenderableObject\RenderableObjectContainer.h" />
+    <ClInclude Include="RenderableObject\RenderableObjectContainerImpl.h" />
     <ClInclude Include="RenderableObject\src\RenderableObjectContainerImpl.h" />
-    <ClInclude Include="Scene\inc\Scene.h" />
-    <ClInclude Include="Scene\inc\SceneImpl.h" />
+    <ClInclude Include="Scene\Scene.h" />
+    <ClInclude Include="Scene\SceneImpl.h" />
+    <ClInclude Include="src\IObservableImpl.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="RenderableObject\src\RenderableObjectContainer.cpp" />
-    <ClCompile Include="RenderableObject\src\RenderableObjectContainerImpl.cpp" />
-    <ClCompile Include="Scene\src\Scene.cpp" />
-    <ClCompile Include="Scene\src\SceneImpl.cpp" />
+    <ClCompile Include="RenderableObject\RenderableObjectContainer.cpp" />
+    <ClCompile Include="RenderableObject\RenderableObjectContainerImpl.cpp" />
+    <ClCompile Include="Scene\Scene.cpp" />
+    <ClCompile Include="Scene\SceneImpl.cpp" />
     <ClCompile Include="src\Aliases.cpp" />
     <ClCompile Include="src\ConsoleUtilities.cpp" />
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\FileSystem.cpp" />
     <ClCompile Include="src\GeneralUtilities.cpp" />
+    <ClCompile Include="src\IObservable.cpp" />
+    <ClCompile Include="src\IObservableImpl.cpp" />
+    <ClCompile Include="src\KeyboardData.cpp" />
     <ClCompile Include="src\KeyboardListener.cpp" />
     <ClCompile Include="src\KeyboardObservable.cpp" />
     <ClCompile Include="src\MTime.cpp" />
@@ -241,6 +252,7 @@
     <ClCompile Include="src\NodeImageCreator.cpp" />
     <ClCompile Include="src\NodeMgr.cpp" />
     <ClCompile Include="src\ObjectNode.cpp" />
+    <ClCompile Include="src\Scale.cpp" />
     <ClCompile Include="src\ScreenNode.cpp" />
     <ClCompile Include="src\Singleton.cpp" />
     <ClCompile Include="src\Size.cpp" />

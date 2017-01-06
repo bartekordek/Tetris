@@ -49,27 +49,22 @@ CUInt Slab::col()const
 	return position.getCol();
 }
 
-void Slab::SetPosition( CUInt row, CUInt col )
-{
-	this->position.changePosition( row, col );
-}
-
-const bool Slab::Empty()const
+const bool Slab::isEmpty()const
 {
 	return this->empty;
 }
 
-void Slab::Empty( const bool empty )
+void Slab::setEmpty( const bool empty )
 {
 	this->empty = empty;
 }
 
-void Slab::SetNode( const Moge::ObjectNode& node )
+void Slab::setNode( const Moge::ObjectNode& node )
 {
 	this->node = node;
 }
 
-const Moge::ObjectNode& Slab::GetNode()const
+const Moge::ObjectNode& Slab::getNode()const
 {
 	return this->node;
 }

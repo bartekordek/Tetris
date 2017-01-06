@@ -14,7 +14,7 @@ namespace Moge
 			IPositionAdapter( 
 				const Type x = static_cast<Type>( 0 ), 
 				const Type y = static_cast<Type>( 0 ),
-				const Type z = static_cast<Type>( 0 ) ): IPosition(), MultiPoint( 3 )
+				const Type z = static_cast<Type>( 0 ) ): IPosition<Type>(), MultiPoint<Type>( 3 )
 			{
 				MultiPoint<Type>::setValue( Axes::X, x );
 				MultiPoint<Type>::setValue( Axes::Y, y );
@@ -52,7 +52,7 @@ namespace Moge
 				MultiPoint<Type>::setValue( Axes::Z, z );
 			}
 
-			virtual void setXyz( const IPosition& pos )
+			virtual void setXyz( const IPosition<Type>& pos )
 			{
 				MultiPoint<Type>::setValue( Axes::X, pos.getX() );
 				MultiPoint<Type>::setValue( Axes::Y, pos.getY() );

@@ -18,7 +18,6 @@ namespace Moge
 
 	ScreenNode::~ScreenNode()
 	{
-		FreeContent();
 	}
 
 	const int ScreenNode::getX()const

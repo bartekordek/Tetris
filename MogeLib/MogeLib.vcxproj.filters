@@ -90,14 +90,38 @@
     <ClInclude Include="inc\MogeLib.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\inc\Scene.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene\inc\SceneImpl.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
     <ClInclude Include="inc\IVector.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Scale.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\IObservable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\IObserver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\IObservableData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\KeyboardData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\IObservableImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderableObject\RenderableObjectContainer.h">
+      <Filter>RenderableObject</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderableObject\RenderableObjectContainerImpl.h">
+      <Filter>RenderableObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Scene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\SceneImpl.h">
+      <Filter>Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -161,16 +185,28 @@
     <ClCompile Include="src\MTime.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RenderableObject\src\RenderableObjectContainer.cpp">
+    <ClCompile Include="src\Scale.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\KeyboardData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\IObservable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\IObservableImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderableObject\RenderableObjectContainer.cpp">
       <Filter>RenderableObject</Filter>
     </ClCompile>
-    <ClCompile Include="RenderableObject\src\RenderableObjectContainerImpl.cpp">
+    <ClCompile Include="RenderableObject\RenderableObjectContainerImpl.cpp">
       <Filter>RenderableObject</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\src\Scene.cpp">
+    <ClCompile Include="Scene\Scene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\src\SceneImpl.cpp">
+    <ClCompile Include="Scene\SceneImpl.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
   </ItemGroup>
