@@ -1,4 +1,5 @@
 #include <string>
+#include <codecvt>
 
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/path.hpp>
@@ -9,6 +10,7 @@ using ErrorCode = boost::system::error_code;
 
 namespace Moge
 {
+	std::string ws2s( const std::wstring& wstr );
 	Path::Path(): mFullPath("")
 	{
 	}
@@ -145,36 +147,22 @@ namespace Moge
 
 	const MyString GetBaseName( const MyString& path )
 	{
-		MyString baseName;
-		auto separatorPosition = path.rfind( Path::GetDirectorySeparator() );
-		if( MyString::npos != separatorPosition )
-		{
-			baseName = MyString( path.substr( ++separatorPosition ) );
-			baseName = baseName.Replace( MyString(".") + GetExtension( path ), MyString( "" ) );
-		}
-		return baseName;
+		boost::filesystem::path bPath( path.c_str() );
+		MyString result( ws2s( bPath.stem().c_str() ) );
+		return result;
 	}
 
 	const MyString GetExtension( const MyString& path )
 	{
-		MyString extension;
-		auto mExtensionDotPosition = path.rfind( Path::GetExtensionSeparator() );
-		if( MyString::npos != mExtensionDotPosition )
-		{
-			extension = MyString( path.substr( ++mExtensionDotPosition ) );
-		}
-		return extension;
+		boost::filesystem::path bPath( path.c_str() );
+		return MyString( ws2s(bPath.extension().c_str()) );
 	}
 
 	const MyString GetDirectory( const MyString& path )
 	{
-		MyString directory;
-		auto lastSlashPosition = path.rfind( Path::GetDirectorySeparator() );
-		if( MyString::npos != lastSlashPosition )
-		{
-			directory = MyString( path.substr( 0, lastSlashPosition ) );
-		}
-		return directory;
+		boost::filesystem::path bPath( path.c_str() );
+		MyString result( ws2s( bPath.parent_path().c_str() ) );
+		return result;
 	}
 
 	const bool FileExists( const MyString& path, std::string& errorMessage )
@@ -208,5 +196,13 @@ namespace Moge
 		std::string string = std::string( path.c_str() ) + std::string( inputPath );
 		Path result( string.c_str() );
 		return result;
+	}
+
+	std::string ws2s( const std::wstring& wstr )
+	{
+		using convert_typeX = std::codecvt_utf8<wchar_t>;
+		std::wstring_convert<convert_typeX, wchar_t> converterX;
+
+		return converterX.to_bytes( wstr );
 	}
 }
