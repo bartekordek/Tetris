@@ -98,7 +98,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;MogeLib_EXPORT;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)inc;$(HOME_GTEST)\googletest\include;%(AdditionalIncludeDirectories);$(SolutionDir)MogeMath\inc;$(SolutionDir)String\inc\;$(SolutionDir)MogeLib\inc\;$(SolutionDir)inc\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)inc;$(HOME_GTEST_WINDOWS)\googletest\include;%(AdditionalIncludeDirectories);$(SolutionDir)MogeMath\inc;$(SolutionDir)String\inc\;$(SolutionDir)MogeLib\inc\;$(SolutionDir)inc\</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <TreatWarningAsError>true</TreatWarningAsError>
@@ -110,7 +110,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(HOME_GTEST)\Build\googlemock\gtest\$(Configuration)\;$(HOME_GTEST)\Build\googlemock\$(Configuration)\;$(SolutionDir)Build\$(Platform)_$(Configuration)\;$(BOOST)\stage\lib;$(SolutionDir)MogeLib\$(Configuration);$(HOME_GTEST)\Build\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(HOME_GTEST)\Build\googlemock\gtest\$(Configuration)\;$(HOME_GTEST)\Build\googlemock\$(Configuration)\;$(SolutionDir)Build\$(Platform)_$(Configuration)\;$(BOOST)\stage\lib;$(SolutionDir)MogeLib\$(Configuration);$(HOME_GTEST_WINDOWS)\Build\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>MogeMath.lib;String.lib;gtest.lib;gtest_main.lib;MogeLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
@@ -128,7 +128,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;MogeLib_EXPORT;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)inc;$(HOME_GTEST)\googletest\include;%(AdditionalIncludeDirectories);$(SolutionDir)MogeMath\inc;$(SolutionDir)String\inc\;$(SolutionDir)MogeLib\inc\;$(SolutionDir)inc\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)inc;$(HOME_GTEST_WINDOWS)\googletest\include;%(AdditionalIncludeDirectories);$(SolutionDir)MogeMath\inc;$(SolutionDir)String\inc\;$(SolutionDir)MogeLib\inc\;$(SolutionDir)inc\</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <TreatWarningAsError>true</TreatWarningAsError>
@@ -140,7 +140,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(HOME_GTEST)\Build\googlemock\gtest\$(Configuration)\;$(HOME_GTEST)\Build\googlemock\$(Configuration)\;$(SolutionDir)Build\$(Platform)_$(Configuration)\;$(BOOST)\stage\lib;$(SolutionDir)MogeLib\$(Configuration);$(HOME_GTEST)\Build\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(HOME_GTEST)\Build\googlemock\gtest\$(Configuration)\;$(HOME_GTEST)\Build\googlemock\$(Configuration)\;$(SolutionDir)Build\$(Platform)_$(Configuration)\;$(BOOST)\stage\lib;$(SolutionDir)MogeLib\$(Configuration);$(HOME_GTEST_WINDOWS)\Build\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>MogeMath.lib;String.lib;gtest.lib;gtest_main.lib;MogeLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
@@ -160,7 +160,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;MogeLib_EXPORT;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)inc;$(HOME_GTEST)\googletest\include;%(AdditionalIncludeDirectories);$(SolutionDir)MogeMath\inc;$(SolutionDir)String\inc\;$(SolutionDir)MogeLib\inc\;$(SolutionDir)inc\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)inc;$(HOME_GTEST_WINDOWS)\googletest\include;%(AdditionalIncludeDirectories);$(SolutionDir)MogeMath\inc;$(SolutionDir)String\inc\;$(SolutionDir)MogeLib\inc\;$(SolutionDir)inc\</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
@@ -170,7 +170,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(HOME_GTEST)\Build\googlemock\gtest\$(Configuration)\;$(HOME_GTEST)\Build\googlemock\$(Configuration)\;$(SolutionDir)Build\$(Platform)_$(Configuration)\;$(BOOST)\stage\lib;$(SolutionDir)MogeLib\$(Configuration);$(HOME_GTEST)\Build\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(HOME_GTEST)\Build\googlemock\gtest\$(Configuration)\;$(HOME_GTEST)\Build\googlemock\$(Configuration)\;$(SolutionDir)Build\$(Platform)_$(Configuration)\;$(BOOST)\stage\lib;$(SolutionDir)MogeLib\$(Configuration);$(HOME_GTEST_WINDOWS)\Build\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>MogeMath.lib;String.lib;gtest.lib;gtest_main.lib;MogeLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
@@ -190,7 +190,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;MogeLib_EXPORT;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)inc;$(HOME_GTEST)\googletest\include;%(AdditionalIncludeDirectories);$(SolutionDir)MogeMath\inc;$(SolutionDir)String\inc\;$(SolutionDir)MogeLib\inc\;$(SolutionDir)inc\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)inc;$(HOME_GTEST_WINDOWS)\googletest\include;%(AdditionalIncludeDirectories);$(SolutionDir)MogeMath\inc;$(SolutionDir)String\inc\;$(SolutionDir)MogeLib\inc\;$(SolutionDir)inc\</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
@@ -200,7 +200,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(HOME_GTEST)\Build\googlemock\gtest\$(Configuration)\;$(HOME_GTEST)\Build\googlemock\$(Configuration)\;$(SolutionDir)Build\$(Platform)_$(Configuration)\;$(BOOST)\stage\lib;$(SolutionDir)MogeLib\$(Configuration);$(HOME_GTEST)\Build\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(HOME_GTEST)\Build\googlemock\gtest\$(Configuration)\;$(HOME_GTEST)\Build\googlemock\$(Configuration)\;$(SolutionDir)Build\$(Platform)_$(Configuration)\;$(BOOST)\stage\lib;$(SolutionDir)MogeLib\$(Configuration);$(HOME_GTEST_WINDOWS)\Build\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>MogeMath.lib;String.lib;gtest.lib;gtest_main.lib;MogeLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
