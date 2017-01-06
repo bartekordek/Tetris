@@ -1,17 +1,28 @@
-[/cygdrive/c/Dev/Tetris/MogeLib/src/KeyboardObservable.cpp:16]: (style) The function 'Initialize' is never used.
+[MogeLib/inc/IObservable.h:10]: (style) 'class IObservable' does not have a copy constructor which is recommended since the class contains a pointer to allocated memory.
+[MogeLib/inc/KeyboardData.h:13]: (style) Class 'KeyboardData' has a constructor with 1 argument that is not explicit.
+[MogeLib/inc/KeyboardObservable.h:19]: (style) Unused private function: 'KeyboardObservable::poolThread'
 [/cygdrive/c/Dev/Tetris/MogeLib/src/KeyboardListener.cpp:14]: (style) The function 'KeyEvent' is never used.
-[/cygdrive/c/Dev/Tetris/MogeLib/src/KeyboardObservable.cpp:21]: (style) The function 'Register' is never used.
-[/cygdrive/c/Dev/Tetris/Tetris/src/Picture.cpp:35]: (style) The function 'SetPictureLocation' is never used.
-[/cygdrive/c/Dev/Tetris/Tetris/src/Picture.cpp:47]: (style) The function 'SetPictureSize' is never used.
-[/cygdrive/c/Dev/Tetris/Tetris/src/Slab.cpp:52]: (style) The function 'SetPosition' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/MTime.cpp:6]: (style) The function 'SleepSeconds' is never used.
-[/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:149]: (style) The function 'UpdateImplementation' is never used.
+[/cygdrive/c/Dev/Tetris/MogeLib/src/ScreenNode.cpp:133]: (style) The function 'UpdateImplementation' is never used.
+[/cygdrive/c/Dev/Tetris/Tetris/src/TableCoordinates.cpp:61]: (style) The function 'changePosition' is never used.
 [/cygdrive/c/Dev/Tetris/Tetris/src/Brick.cpp:21]: (style) The function 'getBlockType' is never used.
+[/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:171]: (style) The function 'getScale' is never used.
+[/cygdrive/c/Dev/Tetris/MogeLib/src/KeyboardData.cpp:31]: (style) The function 'getSdlEvent' is never used.
+[/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:176]: (style) The function 'getXscale' is never used.
+[/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:181]: (style) The function 'getYscale' is never used.
+[/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:186]: (style) The function 'getZscale' is never used.
+[/cygdrive/c/Dev/Tetris/MogeLib/src/KeyboardObservable.cpp:27]: (style) The function 'poolThread' is never used.
+[/cygdrive/c/Dev/Tetris/MogeLib/src/IObservable.cpp:15]: (style) The function 'registerObserver' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:98]: (style) The function 'setDepth' is never used.
-[/cygdrive/c/Dev/Tetris/MogeLib/src/ScreenNode.cpp:130]: (style) The function 'setResolution' is never used.
+[/cygdrive/c/Dev/Tetris/MogeLib/src/KeyboardData.cpp:26]: (style) The function 'setEvent' is never used.
+[/cygdrive/c/Dev/Tetris/MogeLib/src/ScreenNode.cpp:129]: (style) The function 'setResolution' is never used.
+[/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:148]: (style) The function 'setScale' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:70]: (style) The function 'setSize' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:52]: (style) The function 'setX' is never used.
+[/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:154]: (style) The function 'setXscale' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:58]: (style) The function 'setY' is never used.
+[/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:160]: (style) The function 'setYscale' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:64]: (style) The function 'setZ' is never used.
+[/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:166]: (style) The function 'setZscale' is never used.
 [/cygdrive/c/Dev/Tetris/Tetris/src/Brick.cpp:37]: (style) The function 'slab2Matrix' is never used.
 (information) Cppcheck cannot find all the include files (use --check-config for details)
