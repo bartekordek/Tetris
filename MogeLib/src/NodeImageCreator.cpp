@@ -23,15 +23,15 @@ namespace Moge
 	{
 		if( false == imagePath.empty() )
 		{
-			if( "bmp" == imagePath.Extension().ToLower() )
+			if( ".bmp" == imagePath.Extension().ToLower() )
 			{
 				return ImageTypes::BMP;
 			}
-			else if( "png" == imagePath.Extension().ToLower() )
+			else if( ".png" == imagePath.Extension().ToLower() )
 			{
 				return ImageTypes::PNG;
 			}
-			else if( "jpg" == imagePath.Extension().ToLower() )
+			else if( ".jpg" == imagePath.Extension().ToLower() )
 			{
 				return ImageTypes::JPG;
 			}
