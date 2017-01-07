@@ -27,11 +27,10 @@ TEST_F( FilesystemTests, GetFullPath )
 
 TEST_F( FilesystemTests, FileExistence )
 {
-#ifdef _WIN32
-	Moge::Path file("C:\\Windows\\System32\\xcopy.exe");
-#else
-	Moge::Path file( "/bin/bash" );
-#endif
+#include <iostream>
+	std::string filePath = "../../Media/Block.bmp";
+	std::cout << "Trying to find: " << filePath << std::endl;
+	Moge::Path file( filePath.c_str() );
 	ASSERT_EQ( file.Exist(), true );
 }
 
