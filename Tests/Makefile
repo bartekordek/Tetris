@@ -22,8 +22,15 @@ OBJ_DEBUG_FILES := $(addprefix $(OBJ_DEBUG_DIR),$(CPP_FILES:.cpp=.o))
 OBJ_RELEASE_DIR := obj/release/
 OBJ_RELEASE_FILES := $(addprefix $(OBJ_RELEASE_DIR),$(CPP_FILES:.cpp=.o))
 
-debug: $(OUTPUT_DEBUG)
-release: $(OUTPUT_RELEASE)
+run_debug: debug
+	cd $(OUTPUT_DIR_DEBUG);./$(BINARY_NAME)
+
+debug: run_debug_deps $(OUTPUT_DEBUG)
+
+release: run_release_deps $(OUTPUT_RELEASE)
+
+run_release: release
+	@cd $(OUTPUT_DIR_RELEASE);./$(BINARY_NAME)
 
 $(OUTPUT_DEBUG): $(OBJ_DEBUG_FILES)
 	$(CC_LINK) -o $(OUTPUT_DEBUG) $(OBJ_DEBUG_FILES) $(IMPORT_LIBS_DEBUG)
@@ -52,6 +59,12 @@ clear:
 	rm -f $(OBJ_RELEASE_FILES)
 	rm -f $(OUTPUT_DEBUG)
 	rm -f $(OUTPUT_RELEASE)
+
+run_debug_deps:
+	make -C ../MogeLib debug
+
+run_release_deps:
+	make -C ../MogeLib release
 
 clear_all:
 	find . -name '*.o' | xargs rm
