@@ -1,5 +1,6 @@
 #include <string>
 #include <codecvt>
+#include <iostream>
 
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/path.hpp>
@@ -122,7 +123,13 @@ namespace Moge
 	const bool Path::Exist()const
 	{
 		std::string error;
-		return FileExists( MyString( mFullPath.c_str() ), error );
+		const bool result = FileExists( MyString( mFullPath.c_str() ), error );
+		if( false == result )
+		{
+
+			std::cerr << "File does not exist: " << error << std::endl;
+		}
+		return result;
 	}
 
 	void Path::SetUpPaths( const MyString& fullPath )
