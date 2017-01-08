@@ -22,7 +22,8 @@ OBJ_DEBUG_FILES := $(addprefix $(OBJ_DEBUG_DIR),$(CPP_FILES:.cpp=.o))
 OBJ_RELEASE_DIR := obj/release/
 OBJ_RELEASE_FILES := $(addprefix $(OBJ_RELEASE_DIR),$(CPP_FILES:.cpp=.o))
 
-run_debug: debug
+run_debug:
+	make debug
 	cd $(OUTPUT_DIR_DEBUG);./$(BINARY_NAME)
 
 debug: run_debug_deps $(OUTPUT_DEBUG)
