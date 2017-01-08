@@ -7,9 +7,10 @@ PROJECT_NAME = MogeLib
 DLL_NAME = $(PROJECT_NAME).dll 
 IMP_LIB_NAME = $(PROJECT_NAME).a
 OUTPUT_DIR_DEBUG = ../Build/$(OS)_DEBUG
-OUTPUT_DIR_RELEASE = /Build/$(OS)_RELEASE
+OUTPUT_DIR_RELEASE = ../Build/$(OS)_RELEASE
 HEADER_INC = -I inc/ -I ../String/inc/ -I ../MogeMath/inc/ -I $(HOME_SDL2_CYGWIN)/include/SDL2/ -I $(HOME_BOOST_CYGWIN)
 IMPORT_LIBS_DEBUG = $(OUTPUT_DIR_DEBUG)/String.a $(HOME_SDL2_CYGWIN)/lib/libSDL2.dll.a $(HOME_BOOST_CYGWIN)/stage/lib/libboost_filesystem.a $(HOME_BOOST_CYGWIN)/stage/lib/libboost_system.a
+IMPORT_LIBS_RELEASE = $(OUTPUT_DIR_RELEASE)/String.a $(HOME_SDL2_CYGWIN)/lib/libSDL2.dll.a $(HOME_BOOST_CYGWIN)/stage/lib/libboost_filesystem.a $(HOME_BOOST_CYGWIN)/stage/lib/libboost_system.a
 OUTPUT_DEBUG = $(OUTPUT_DIR_DEBUG)/$(DLL_NAME)
 OUTPUT_RELEASE = $(OUTPUT_DIR_RELEASE)/$(DLL_NAME)
 IMP_LIB_DEBUG = $(OUTPUT_DIR_DEBUG)/$(IMP_LIB_NAME)
@@ -23,14 +24,14 @@ OBJ_DEBUG_FILES := $(addprefix $(OBJ_DEBUG_DIR),$(CPP_FILES:.cpp=.o))
 OBJ_RELEASE_DIR := obj/release/
 OBJ_RELEASE_FILES := $(addprefix $(OBJ_RELEASE_DIR),$(CPP_FILES:.cpp=.o))
 
-debug: $(OUTPUT_DEBUG)
-release: $(OUTPUT_RELEASE)
+debug: run_debug_deps $(OUTPUT_DEBUG)
+release: run_release_deps $(OUTPUT_RELEASE)
 
 $(OUTPUT_DEBUG): $(OBJ_DEBUG_FILES)
 	$(CC_LINK) -o $(OUTPUT_DEBUG) $(OBJ_DEBUG_FILES) $(IMPORT_LIBS_DEBUG) -Wl,--out-implib,$(OUTPUT_DIR_DEBUG)/$(IMP_LIB_NAME) -Wl,--export-all-symbols -Wl,--enable-auto-import
 
 $(OUTPUT_RELEASE): $(OBJ_RELEASE_FILES) 
-	$(CC_LINK) -o $(OUTPUT_RELEASE) $(OBJ_RELEASE_FILES) $(IMPORT_LIBS_RELEASE) -Wl,--out-implib,$(OUTPUT_DIR_RELEASE)/$(IMP_LIB_NAME)
+	$(CC_LINK) -o $(OUTPUT_RELEASE) $(OBJ_RELEASE_FILES) $(IMPORT_LIBS_RELEASE) -Wl,--out-implib,$(OUTPUT_DIR_RELEASE)/$(IMP_LIB_NAME) -Wl,--export-all-symbols -Wl,--enable-auto-import
 
 $(OBJ_DEBUG_DIR)%.o: %.cpp
 	mkdir -p $(dir $@)
@@ -39,6 +40,14 @@ $(OBJ_DEBUG_DIR)%.o: %.cpp
 $(OBJ_RELEASE_DIR)%.o: %.cpp
 	mkdir -p $(dir $@)
 	$(CC) $(HEADER_INC) $(COMPILER_FLAGS) $(RELEASE_FLAGS) -c -o $@ $<
+
+run_debug_deps:
+	make -C ../String debug
+	make -C ../MogeMath debug
+
+run_release_deps:
+	make -C ../String release
+	make -C ../MogeMath release
 
 first_run:
 	mkdir -p $(dir $(OBJ_DEBUG_FILES)) 
