@@ -22,8 +22,16 @@ OBJ_DEBUG_FILES := $(addprefix $(OBJ_DEBUG_DIR),$(CPP_FILES:.cpp=.o))
 OBJ_RELEASE_DIR := obj/release/
 OBJ_RELEASE_FILES := $(addprefix $(OBJ_RELEASE_DIR),$(CPP_FILES:.cpp=.o))
 
-debug: $(OUTPUT_DEBUG)
-release: $(OUTPUT_RELEASE)
+debug: run_debug_deps $(OUTPUT_DEBUG)
+release: run_release_deps $(OUTPUT_RELEASE)
+
+run_debug:
+	make debug
+	cd $(OUTPUT_DIR_DEBUG);./$(BINARY_NAME)
+
+run_release:
+	make release
+	cd $(OUTPUT_DIR_RELEASE);./$(BINARY_NAME)
 
 $(OUTPUT_DEBUG): $(OBJ_DEBUG_FILES)
 	$(CC_LINK) -o $(OUTPUT_DEBUG) $(OBJ_DEBUG_FILES) $(IMPORT_LIBS_DEBUG)
@@ -40,6 +48,12 @@ $(OBJ_DEBUG_DIR)%.o: %.cpp
 $(OBJ_RELEASE_DIR)%.o: %.cpp
 	mkdir -p $(dir $@)
 	$(CC) $(HEADER_INC) $(COMPILER_FLAGS) $(RELEASE_FLAGS) -c -o $@ $<
+
+run_debug_deps:
+	make -C ../MogeLib debug
+
+run_release_deps:
+	make -C ../MogeLib release
 
 first_run:
 	mkdir -p $(dir $(OBJ_DEBUG_FILES)) 

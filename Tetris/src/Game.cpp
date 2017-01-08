@@ -1,6 +1,5 @@
 #include "Game.h"
 #include "MultiPointFactory.h"
-#include "NodeImageCreator.h"
 
 #include <SDL_keyboard.h>
 #include <SDL_keycode.h>
