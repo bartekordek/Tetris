@@ -99,7 +99,7 @@
       <SDLCheck>true</SDLCheck>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST_WINDOWS);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
@@ -107,7 +107,7 @@
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib;MogeMath.lib;String.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST)\stage\lib;$(HOME_SDL2)\lib\$(Platform)\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST_WINDOWS)\stage\lib;$(HOME_SDL2)\lib\$(Platform)\</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
@@ -124,7 +124,7 @@
       <SDLCheck>true</SDLCheck>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST_WINDOWS);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
@@ -132,7 +132,7 @@
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib;MogeMath.lib;String.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST)\stage\lib;$(HOME_SDL2)\lib\$(Platform)\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST_WINDOWS)\stage\lib;$(HOME_SDL2)\lib\$(Platform)\</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
@@ -150,7 +150,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST_WINDOWS);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
     </ClCompile>
@@ -159,7 +159,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib;MogeMath.lib;String.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST)\stage\lib;$(HOME_SDL2)\lib\$(Platform)\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST_WINDOWS)\stage\lib;$(HOME_SDL2)\lib\$(Platform)\</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
@@ -176,7 +176,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST_WINDOWS);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
     </ClCompile>
@@ -185,7 +185,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib;MogeMath.lib;String.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST)\stage\lib;$(HOME_SDL2)\lib\$(Platform)\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST_WINDOWS)\stage\lib;$(HOME_SDL2)\lib\$(Platform)\</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
