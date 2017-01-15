@@ -3,15 +3,22 @@
 
 namespace Moge
 {
-	IEngine* EngineManager::initializeEngine()
+	Engine* EngineManager::engineInstance = nullptr;
+
+	Engine* EngineManager::initializeEngine()
 	{
-		auto engine = new Engine();
-		engineInstance = std::make_shared<Engine>( *engine );
-		return engineInstance.get();
+		engineInstance = Engine::instancePtr();
+		return engineInstance;
 	}
 
-	IEngine* EngineManager::getEngine()
+	Engine* EngineManager::getEngine()
 	{
-		return engineInstance.get();
+		return engineInstance;
 	}
+
+	void EngineManager::destroyEngine()
+	{
+		Engine::destroy();
+	}
+
 }
