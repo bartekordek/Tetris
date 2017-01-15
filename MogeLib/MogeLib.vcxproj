@@ -107,14 +107,15 @@
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib;MogeMath.lib;String.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST_WINDOWS)\stage\lib;$(HOME_SDL2)\lib\$(Platform)\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST_WINDOWS)\stage\lib;$(HOME_SDL2)\build\$(Platform)_$(Configuration)\</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(HOME_SDL2)\lib\$(Platform)\*.dll" "$(TargetDir)" /y</Command>
+      <Command>xcopy "$(HOME_SDL2)\build\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -132,14 +133,15 @@
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib;MogeMath.lib;String.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST_WINDOWS)\stage\lib;$(HOME_SDL2)\lib\$(Platform)\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST_WINDOWS)\stage\lib;$(HOME_SDL2)\build\$(Platform)_$(Configuration)\</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(HOME_SDL2)\lib\$(Platform)\*.dll" "$(TargetDir)" /y</Command>
+      <Command>xcopy "$(HOME_SDL2)\build\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -159,13 +161,14 @@
       <OptimizeReferences>true</OptimizeReferences>
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib;MogeMath.lib;String.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST_WINDOWS)\stage\lib;$(HOME_SDL2)\lib\$(Platform)\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST_WINDOWS)\stage\lib;$(HOME_SDL2)\build\$(Platform)_$(Configuration)\</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(HOME_SDL2)\lib\$(Platform)\*.dll" "$(TargetDir)" /y</Command>
+      <Command>xcopy "$(HOME_SDL2)\build\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -185,13 +188,14 @@
       <OptimizeReferences>true</OptimizeReferences>
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib;MogeMath.lib;String.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST_WINDOWS)\stage\lib;$(HOME_SDL2)\lib\$(Platform)\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST_WINDOWS)\stage\lib;$(HOME_SDL2)\build\$(Platform)_$(Configuration)\</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(HOME_SDL2)\lib\$(Platform)\*.dll" "$(TargetDir)" /y</Command>
+      <Command>xcopy "$(HOME_SDL2)\build\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -208,6 +212,7 @@
     <ClInclude Include="inc\KeyboardListener.h" />
     <ClInclude Include="inc\KeyboardObservable.h" />
     <ClInclude Include="inc\MogeLib.h" />
+    <ClInclude Include="inc\MogeLibMain.h" />
     <ClInclude Include="inc\MTime.h" />
     <ClInclude Include="inc\Named.h" />
     <ClInclude Include="inc\Node.h" />
@@ -245,6 +250,7 @@
     <ClCompile Include="src\KeyboardData.cpp" />
     <ClCompile Include="src\KeyboardListener.cpp" />
     <ClCompile Include="src\KeyboardObservable.cpp" />
+    <ClCompile Include="src\MogeLibMain.cpp" />
     <ClCompile Include="src\MTime.cpp" />
     <ClCompile Include="src\Named.cpp" />
     <ClCompile Include="src\Node.cpp" />

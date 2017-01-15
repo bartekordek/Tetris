@@ -123,6 +123,9 @@
     <ClInclude Include="Scene\SceneImpl.h">
       <Filter>Scene</Filter>
     </ClInclude>
+    <ClInclude Include="inc\MogeLibMain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Aliases.cpp">
@@ -208,6 +211,9 @@
     </ClCompile>
     <ClCompile Include="Scene\SceneImpl.cpp">
       <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MogeLibMain.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
