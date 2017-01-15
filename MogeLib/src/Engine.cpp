@@ -39,6 +39,11 @@ namespace Moge
 		mRenderableObjectsMutex.unlock();
 	}
 
+	const std::shared_ptr< ScreenNode > Engine::getScreen()const
+	{
+		return this->mScreenBuffor;
+	}
+
 	void Engine::StartMainLoop()
 	{
 		mMainLoopMutex.lock();

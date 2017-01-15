@@ -21,6 +21,7 @@ namespace Moge
 		void AddObject( const Path& filePath, const Math::MultiPoint<int>& position, const MyString& name = MyString( "" ) );
 		void AddObject( const ObjectNode node, const MyString& name = MyString( "" ) );
 		void CreateScreen( const Math::MultiPoint<unsigned int>& resolution = Math::MultiPoint<unsigned int>( 2 ) );
+		const std::shared_ptr<ScreenNode> getScreen()const;
 		void StartMainLoop();
 		void StopMainLoop();
 
