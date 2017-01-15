@@ -24,7 +24,7 @@ namespace Tetris
 		void HandleKeys( SDL_Keycode sdlkey );
 		void MainLoopThread();
 
-		CMainGrid m_mainGrid;
+		CMainGrid* m_mainGrid = nullptr;
 		std::thread m_mainLoopThread;
 		bool m_quit = false;
 	};

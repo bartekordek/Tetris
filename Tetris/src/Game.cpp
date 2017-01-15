@@ -4,27 +4,32 @@
 #include <SDL_keyboard.h>
 #include <SDL_keycode.h>
 #include <SDL_events.h>
+#include "MogeLibMain.h"
 
 namespace Tetris
 {
+	using namespace Moge;
 	CGame::CGame()
 	{
 	}
 
 	CGame::~CGame()
 	{
+		EngineManager::destroyEngine();
 	}
 
 	void CGame::initialize( CUInt rowsCount, CUInt columnsCount, CUInt winWidth, CUInt winHeight )
 	{
-		Moge::Engine::Instance().CreateScreen( Moge::Math::MultiPointFactory::create2d<unsigned int>( winWidth, winHeight ) );
-		Moge::Engine::Instance().StartMainLoop();
-		m_mainGrid.SetSize( rowsCount, columnsCount );
+		EngineManager::initializeEngine();
+		EngineManager::getEngine()->CreateScreen( Math::MultiPointFactory::create2d<unsigned int>( winWidth, winHeight ) );
+		m_mainGrid = new CMainGrid();
+		EngineManager::getEngine()->StartMainLoop();
+		m_mainGrid->SetSize( rowsCount, columnsCount );
 	}
 
 	void CGame::StartGame()
 	{
-		m_mainGrid.ReLeaseBrick();
+		m_mainGrid->ReLeaseBrick();
 	}
 
 	void CGame::MainLoop()
@@ -66,19 +71,19 @@ namespace Tetris
 	{
 		if( SDLK_RIGHT == sdlkey )
 		{
-			m_mainGrid.MoveActualBrick( Moge::Math::Directions::R );
+			m_mainGrid->MoveActualBrick( Moge::Math::Directions::R );
 		}
 		else if( SDLK_LEFT == sdlkey )
 		{
-			m_mainGrid.MoveActualBrick( Moge::Math::Directions::L );
+			m_mainGrid->MoveActualBrick( Moge::Math::Directions::L );
 		}
 		else if( SDLK_DOWN == sdlkey )
 		{
-			m_mainGrid.MoveActualBrick( Moge::Math::Directions::D );
+			m_mainGrid->MoveActualBrick( Moge::Math::Directions::D );
 		}
 		else if( SDLK_SPACE == sdlkey )
 		{
-			m_mainGrid.RotateActualBrick( true );
+			m_mainGrid->RotateActualBrick( true );
 		}
 	}
 
@@ -86,7 +91,7 @@ namespace Tetris
 	{
 		while( false == m_quit )
 		{
-			m_mainGrid.updateGrid();
+			m_mainGrid->updateGrid();
 		}
 	}
 
