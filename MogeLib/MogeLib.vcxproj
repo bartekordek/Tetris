@@ -204,13 +204,20 @@
     <ClInclude Include="inc\Engine.h" />
     <ClInclude Include="inc\FileSystem.h" />
     <ClInclude Include="inc\GeneralUtilities.h" />
+    <ClInclude Include="inc\IEngine.h" />
+    <ClInclude Include="inc\IKeyboardObservable.h" />
+    <ClInclude Include="inc\IKeyboardObserver.h" />
+    <ClInclude Include="inc\IKeyFactory.h" />
+    <ClInclude Include="inc\INodeCreator.h" />
     <ClInclude Include="inc\IObservable.h" />
     <ClInclude Include="inc\IObservableData.h" />
     <ClInclude Include="inc\IObserver.h" />
     <ClInclude Include="inc\IVector.h" />
+    <ClInclude Include="inc\IKey.h" />
     <ClInclude Include="inc\KeyboardData.h" />
     <ClInclude Include="inc\KeyboardListener.h" />
     <ClInclude Include="inc\KeyboardObservable.h" />
+    <ClInclude Include="inc\KeyFactorySDL.h" />
     <ClInclude Include="inc\MogeLib.h" />
     <ClInclude Include="inc\MogeLibMain.h" />
     <ClInclude Include="inc\MTime.h" />
@@ -220,6 +227,7 @@
     <ClInclude Include="inc\NodeImageCreator.h" />
     <ClInclude Include="inc\NodeMgr.h" />
     <ClInclude Include="inc\ObjectNode.h" />
+    <ClInclude Include="inc\PointFactory.h" />
     <ClInclude Include="inc\Scale.h" />
     <ClInclude Include="inc\ScreenNode.h" />
     <ClInclude Include="inc\Singleton.h" />
@@ -234,6 +242,7 @@
     <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="Scene\SceneImpl.h" />
     <ClInclude Include="src\IObservableImpl.h" />
+    <ClInclude Include="src\KeySDL.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="RenderableObject\RenderableObjectContainer.cpp" />
@@ -245,11 +254,19 @@
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\FileSystem.cpp" />
     <ClCompile Include="src\GeneralUtilities.cpp" />
+    <ClCompile Include="src\IKeyboardObservable.cpp" />
+    <ClCompile Include="src\IKeyboardObserver.cpp" />
+    <ClCompile Include="src\IKeyFactory.cpp" />
+    <ClCompile Include="src\INodeCreator.cpp" />
     <ClCompile Include="src\IObservable.cpp" />
+    <ClCompile Include="src\IObservableData.cpp" />
     <ClCompile Include="src\IObservableImpl.cpp" />
+    <ClCompile Include="src\IKey.cpp" />
     <ClCompile Include="src\KeyboardData.cpp" />
     <ClCompile Include="src\KeyboardListener.cpp" />
     <ClCompile Include="src\KeyboardObservable.cpp" />
+    <ClCompile Include="src\KeyFactorySDL.cpp" />
+    <ClCompile Include="src\KeySDL.cpp" />
     <ClCompile Include="src\MogeLibMain.cpp" />
     <ClCompile Include="src\MTime.cpp" />
     <ClCompile Include="src\Named.cpp" />
