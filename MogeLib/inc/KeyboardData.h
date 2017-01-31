@@ -1,24 +1,21 @@
 #pragma once
 
+#include <string>
 #include "IObservableData.h"
-
-union SDL_Event;
 
 namespace Moge
 {
 	class KeyboardData: public IObservableData
 	{
 	public:
-		KeyboardData();
-		KeyboardData( SDL_Event* sdlEvent );
+		KeyboardData( const std::string& data = "" );
+		KeyboardData( const KeyboardData& keyboardData );
 		virtual ~KeyboardData();
-
 		KeyboardData& operator=( const KeyboardData& keyboardData );
-
-		void setEvent( SDL_Event* sdlEvent );
-		SDL_Event* getSdlEvent()const;
+		void setData( const std::string& data );
+		const std::string& getData()const;
 	protected:
 	private:
-		SDL_Event* sdlEvent = nullptr;
+		std::string data;
 	};
 }
