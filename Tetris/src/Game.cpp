@@ -23,6 +23,7 @@ namespace Tetris
 		EngineManager::initializeEngine();
 		EngineManager::getEngine()->CreateScreen( Math::MultiPointFactory::create2d<unsigned int>( winWidth, winHeight ) );
 		m_mainGrid = new CMainGrid();
+		EngineManager::getEngine()->registerKeyboardListener( this );
 		EngineManager::getEngine()->StartMainLoop();
 		m_mainGrid->SetSize( rowsCount, columnsCount );
 	}
@@ -30,6 +31,11 @@ namespace Tetris
 	void CGame::StartGame()
 	{
 		m_mainGrid->ReLeaseBrick();
+	}
+
+	void CGame::keyboardEvent( IObservableData* data )
+	{
+		
 	}
 
 	void CGame::MainLoop()
