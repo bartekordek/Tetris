@@ -3,6 +3,7 @@
 #include <set>
 #include <thread>
 #include <mutex>
+#include <memory>
 
 #include "MultiPoint.h"
 #include "Singleton.h"
@@ -12,6 +13,8 @@
 
 namespace Moge
 {
+	class IKeyboardObservable;
+	class IKeyboardObserver;
 	class MogeLib_API Engine: public Singleton<Engine>
 	{
 	public:
@@ -24,6 +27,7 @@ namespace Moge
 		const std::shared_ptr<ScreenNode> getScreen()const;
 		void StartMainLoop();
 		void StopMainLoop();
+		void registerKeyboardListener( IKeyboardObserver* observer );
 
 	protected:
 
@@ -40,5 +44,6 @@ namespace Moge
 		bool mainLoopIsRuning = false;
 		std::mutex mMainLoopMutex;
 		unsigned int mFrameCount = 0;
+		std::unique_ptr<IKeyboardObservable> keyboardObservable;
 	};
 }
