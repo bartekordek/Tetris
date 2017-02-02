@@ -1,29 +1,31 @@
 #pragma once
 
-#include <vector>
+#include <memory>
+#include <map>
+#include <thread>
+#include <mutex>
 
-#include <SDL_keyboard.h>
-#include <SDL_keycode.h>
-
-#include "KeyboardListener.h"
+#include "IKeyboardObservable.h"
 
 namespace Moge
 {
-	class KeyboardObservable
+	class IKey;
+	class IKeyFactory;
+	class KeyboardObservable: public IKeyboardObservable
 	{
 	public:
 		KeyboardObservable();
-		~KeyboardObservable();
-		void Initialize();
-		void Register( KeyboardObserver* observer );
-
+		virtual ~KeyboardObservable();
+		const bool keyIsDown( const std::string& keyName )const;
+	protected:
 	private:
-		void PoolThreadMethod();
-		void NotifyObservers();
+		void poolLoop();
+		bool runLoop = true;
+		const uint8_t* sdlKey = nullptr;
+		std::map<unsigned int, std::shared_ptr<IKey>> keys;
+		std::unique_ptr<IKeyFactory> keyFactory;
+		std::thread poolThread;
+		std::mutex quitMutex;
 
-		bool mPoolKeyboardEvents = true;
-		std::thread mPoolKeyboardEventsThread;
-
-		std::vector<KeyboardObserver*> mObservers;
 	};
 }

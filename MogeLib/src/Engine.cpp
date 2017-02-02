@@ -1,6 +1,8 @@
 #include "Engine.h"
 #include "NodeCreator.h"
 #include "IPositionAdapter.h"
+#include "KeyboardObservable.h"
+#include "IKeyboardObserver.h"
 #include <SDL.h>
 
 namespace Moge
@@ -8,6 +10,7 @@ namespace Moge
 	Engine::Engine( void )
 	{
 		SDL_Init( SDL_INIT_EVERYTHING );
+		keyboardObservable.reset( new KeyboardObservable() );
 	}
 
 	Engine::~Engine()
@@ -39,6 +42,11 @@ namespace Moge
 		mRenderableObjectsMutex.unlock();
 	}
 
+	const std::shared_ptr< ScreenNode > Engine::getScreen()const
+	{
+		return this->mScreenBuffor;
+	}
+
 	void Engine::StartMainLoop()
 	{
 		mMainLoopMutex.lock();
@@ -53,6 +61,11 @@ namespace Moge
 		mainLoopIsRuning = false;
 		mMainLoopMutex.unlock();
 		mainLoop.join();
+	}
+
+	void Engine::registerKeyboardListener( IKeyboardObserver* observer )
+	{
+		keyboardObservable->registerObserver( observer );
 	}
 
 	void Engine::MainLoop()

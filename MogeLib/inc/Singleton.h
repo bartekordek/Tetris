@@ -14,8 +14,25 @@ public:
 
 	static Type& Instance()
 	{
-		static Type sInstance;
-		return sInstance;
+		if( nullptr == singletonInstance )
+		{
+			singletonInstance = new Type();
+		}
+		return *singletonInstance;
+	}
+
+	static Type* instancePtr()
+	{
+		if( nullptr == singletonInstance )
+		{
+			singletonInstance = new Type();
+		}
+		return singletonInstance;
+	}
+
+	static void destroy()
+	{
+		delete singletonInstance;
 	}
 
 protected:
@@ -23,5 +40,8 @@ protected:
 private:
 	Singleton( const Singleton& singleton ) = delete;
 	void operator=( const Singleton& singleton ) = delete;
-
+	static Type* singletonInstance;
 };
+
+template<typename Type>
+Type* Singleton<Type>::singletonInstance = nullptr;

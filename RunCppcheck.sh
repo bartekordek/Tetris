@@ -1,16 +1,22 @@
-#!/bin/bash -xe
+#!/bin/bash -e
 ROOTDIR=`pwd`
-MOGELIB_ROOT="-I MogeLib/inc -I MogeLib/src"
-MOGELIB_RO="-I MogeLib/RenderableObject/inc -I MogeLib/RenderableObject/src"
-MOGELIB_SCENE="-I MogeLib/Scene/inc -I MogeLib/Scene/src"
-MOGELIB_STRING="-I String/inc -I String/src"
-MOGEMATH_ROOT="-I MogeMath/inc -I MogeMath/src -I MogeMath/Point"
-TESTS="-I Tests/inc/ -I Tests/src/"
-TETRIS_ROOT="-I Tetris/inc -I Tetris/src"
-INCLUDES="$MOGELIB_ROOT $MOGELIB_RO $MOGELIB_SCENE $MOGELIB_STRING $MOGEMATH_ROOT $TETRIS_ROOT $TESTS" 
 PREPROCESOR='-D MogeLib_EXPORT=True'
-SETTINGS="--enable=all --std=c++11 --suppress=missingIncludeSystem"
-#cppcheck "$ROOTDIR" --check-config $SETTINGS $PREPROCESOR $INCLUDES 2> "CppCheckConfig.log"
-cppcheck "$ROOTDIR" $SETTINGS $PREPROCESOR $INCLUDES 2> StaticAnalysis.txt
+SUPRESS="--suppress=information:SDL_surface.h --suppress=information:gtest/gtest.h"
+SETTINGS="--enable=all --std=c++11 --suppress=missingIncludeSystem $SUPRESS"
+CPP_FILES=`find . -name '*.cpp' | tr '\n' ' '`
+HEADERS_LIST=`find . -name '*.h*'`
+HEADERS=$(dirname ${HEADERS_LIST})
+HEADERS=`for i in \`echo $HEADERS\`; do
+	echo $i
+done | sort -u`
+#HEADERS=`echo $HEADERS | tr '\.' "-\I ."`
+HEADERS=`echo $HEADERS | sed 's/\./-I ./g'` 
+echo "Runing cppcheck..."
+if [ "$1" == "--check-config" ];then
+	cppcheck $ROOTDIR $CPP_FILES $SETTINGS $PREPROCESOR $HEADERS --check-config 2> "CppCheckConfig.txt"
+else
+	cppcheck $ROOTDIR $CPP_FILES $SETTINGS $PREPROCESOR $HEADERS 2> StaticAnalysis.txt
+fi
+
 find . -name '*.h' > HeaderList.txt
 find . -name '*.cpp' > SourceList.txt

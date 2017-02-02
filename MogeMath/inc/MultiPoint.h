@@ -94,7 +94,7 @@ namespace Moge
 			{
 				if( this != &right )
 				{
-					const unsigned int pAxisCount = right.axisValue.size();
+					const auto pAxisCount = static_cast<unsigned int>( right.axisValue.size() );
 					this->setAxesCount( pAxisCount );
 
 					for( unsigned int axisIndex = 0; axisIndex < pAxisCount; ++axisIndex )

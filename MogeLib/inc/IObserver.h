@@ -1,21 +1,15 @@
 #pragma once
 
-#include "IObservableData.h"
+#include "MogeLib.h"
 
 namespace Moge
 {
+	class IObservableData;
 	class MogeLib_API IObserver
 	{
 	public:
-		IObserver()
-		{
-		}
-
-		virtual ~IObserver()
-		{
-		}
-
-		virtual void update( IObservableData* data ) = 0;
+		IObserver() = default;
+		virtual ~IObserver() = default;
 	protected:
 	private:
 	};

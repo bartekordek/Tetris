@@ -1,4 +1,6 @@
 #include "NodeImageCreator.h"
+#include "MogeLibMain.h"
+#include "ScreenNode.h"
 
 #include <SDL.h>
 #include <boost/assert.hpp>
@@ -11,7 +13,17 @@ namespace Moge
 		ImageTypes imageType = GetImageType( imagePath );
 		if( ImageTypes::BMP == imageType )
 		{
-			surfaceWrapper->setNewSurface( SDL_LoadBMP( imagePath.c_str() ) );
+			if( EngineManager::getEngine()->getScreen() )
+			{
+				static auto screenFormat = EngineManager::getEngine()->getScreen().get()->GetSdlSurface()->format;
+				auto oldSurface = SDL_LoadBMP( imagePath.c_str() );
+				surfaceWrapper->setNewSurface( SDL_ConvertSurface( oldSurface, screenFormat, 0 ) );
+				SDL_FreeSurface( oldSurface );
+			}
+			else
+			{
+				surfaceWrapper->setNewSurface( SDL_LoadBMP( imagePath.c_str() ) );
+			}
 			BOOST_ASSERT( surfaceWrapper->GetSdlSurface() != nullptr  );
 		}
 		ImageSurface surface;
@@ -23,15 +35,15 @@ namespace Moge
 	{
 		if( false == imagePath.empty() )
 		{
-			if( "bmp" == imagePath.Extension().ToLower() )
+			if( ".bmp" == imagePath.Extension().ToLower() )
 			{
 				return ImageTypes::BMP;
 			}
-			else if( "png" == imagePath.Extension().ToLower() )
+			else if( ".png" == imagePath.Extension().ToLower() )
 			{
 				return ImageTypes::PNG;
 			}
-			else if( "jpg" == imagePath.Extension().ToLower() )
+			else if( ".jpg" == imagePath.Extension().ToLower() )
 			{
 				return ImageTypes::JPG;
 			}

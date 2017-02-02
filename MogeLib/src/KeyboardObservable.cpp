@@ -1,45 +1,52 @@
 #include "KeyboardObservable.h"
+#include "KeyFactorySDL.h"
+#include "IKey.h"
+
 #include <SDL_events.h>
 
 namespace Moge
 {
-	KeyboardObservable::KeyboardObservable()
+	KeyboardObservable::KeyboardObservable(): sdlKey( SDL_GetKeyboardState( nullptr ) )
 	{
+		this->keyFactory.reset( new KeyFactorySDL() );
+		this->keys = this->keyFactory->createKeys();
+		this->poolThread = std::thread( &KeyboardObservable::poolLoop, this );
 	}
-
 
 	KeyboardObservable::~KeyboardObservable()
 	{
-		mPoolKeyboardEventsThread.join();
+		this->quitMutex.lock();
+		this->runLoop = false;
+		this->quitMutex.unlock();
+		this->poolThread.join();
 	}
 
-	void KeyboardObservable::Initialize()
+	const bool KeyboardObservable::keyIsDown( const std::string& keyName ) const
 	{
-		mPoolKeyboardEventsThread = std::thread( &KeyboardObservable::PoolThreadMethod, this );
+		const auto scanCode = static_cast<unsigned int>( SDL_GetScancodeFromName( keyName.c_str() ) );
+		return this->keys.at(scanCode)->keyIsDown();
 	}
 
-	void KeyboardObservable::Register( KeyboardObserver* observer )
-	{
-		mObservers.push_back( observer );
-	}
-
-	void KeyboardObservable::PoolThreadMethod()
+	void KeyboardObservable::poolLoop()
 	{
 		SDL_Event event;
-		while( mPoolKeyboardEvents && SDL_PollEvent( &event ) )
+		this->quitMutex.lock();
+		while( true == this->runLoop )
 		{
-			if( SDL_KEYDOWN == event.type )
+			this->quitMutex.unlock();
+			if( SDL_PollEvent( &event ) )
 			{
-				NotifyObservers();
+				auto scancode = SDL_GetScancodeFromKey( event.key.keysym.sym );
+				if( SDL_SCANCODE_UNKNOWN != scancode )
+				{
+					const bool keyIsDown = ( SDL_KEYDOWN == event.type ) ? true : false;
+					const auto keyIndex = static_cast<unsigned int>( scancode );
+					auto key = this->keys.at( keyIndex ); 
+					key->setKeyState( keyIsDown );
+					this->notifyObservers( nullptr );
+				}
 			}
-		}
-	}
-
-	void KeyboardObservable::NotifyObservers()
-	{
-		for( auto& observer: mObservers )
-		{
-		//	observer->KeyEvent();
+			this->quitMutex.lock();
 		}
 	}
 }

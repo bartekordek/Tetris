@@ -4,6 +4,7 @@
 #include "NodeCreator.h"
 #include "NodeImageCreator.h"
 #include "MTime.h"
+#include "MogeLibMain.h"
 
 namespace Tetris
 {
@@ -59,7 +60,7 @@ void CMainGrid::SetSize( CUInt rowsCount, CUInt columnsCount, CUInt initialX, CU
 
 			slabNode->SetVisible();
 			//slabNode->setScale( 2.0 ); // TODO: uncomment this line after implementing correct scale system - textues.
-			Moge::Engine::Instance().AddObject( slabNode );//TODO: redundant add, should be moved to NodeMgr
+			Moge::EngineManager::getEngine()->AddObject( slabNode );//TODO: redundant add, should be moved to NodeMgr
 		}
 	}
 }

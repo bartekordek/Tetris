@@ -1,20 +1,15 @@
 #include "IObservable.h"
-#include "IObservableImpl.h"
+#include "IObserver.h"
 
 namespace Moge
 {
-	IObservable::IObservable(): impl( new IObservableImpl() )
-	{
-	}
-
-	IObservable::~IObservable()
-	{
-		delete this->impl;
-	}
-
 	void IObservable::registerObserver( IObserver* observer )
 	{
-		
+		this->observers.insert( observer );
 	}
 
+	void IObservable::unregisterObserver( IObserver* observer )
+	{
+		this->observers.erase( observer );
+	}
 }

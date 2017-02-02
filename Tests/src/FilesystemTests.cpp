@@ -3,19 +3,19 @@
 
 TEST_F( FilesystemTests, GetExtension )
 {
-	Moge::Path file("C:\\SomeDirectory\\SomeFile.extension");
-	ASSERT_EQ( file.Extension(), "extension" );
+	Moge::Path file( "SomeDirectory/SomeFile.extension" );
+	ASSERT_EQ( file.Extension(), ".extension" );
 }
 
 TEST_F( FilesystemTests, GetDirectory )
 {
-	Moge::Path file( "C:\\SomeDirectory\\SomeFile.extension" );
-	ASSERT_EQ( file.Directory(), "C:\\SomeDirectory" );
+	Moge::Path file( "SomeDirectory/SomeFile.extension" );
+	ASSERT_EQ( file.Directory(), "SomeDirectory" );
 }
 
 TEST_F( FilesystemTests, GetBaseName )
 {
-	Moge::Path file( "C:\\SomeDirectory\\SomeFile.extension" );
+	Moge::Path file( "SomeDirectory/SomeFile.extension" );
 	ASSERT_EQ( file.BaseName(), "SomeFile" );
 }
 
@@ -27,7 +27,10 @@ TEST_F( FilesystemTests, GetFullPath )
 
 TEST_F( FilesystemTests, FileExistence )
 {
-	Moge::Path file("C:\\Windows\\System32\\xcopy.exe");
+#include <iostream>
+	std::string filePath = "../../Media/Block.bmp";
+	std::cout << "Trying to find: " << filePath << std::endl;
+	Moge::Path file( filePath.c_str() );
 	ASSERT_EQ( file.Exist(), true );
 }
 

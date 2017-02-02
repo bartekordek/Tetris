@@ -99,7 +99,7 @@
       <SDLCheck>true</SDLCheck>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST_WINDOWS);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
@@ -107,14 +107,15 @@
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib;MogeMath.lib;String.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST)\stage\lib;$(HOME_SDL2)\lib\$(Platform)\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST_WINDOWS)\stage\lib;$(HOME_SDL2)\build\$(Platform)_$(Configuration)\</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(HOME_SDL2)\lib\$(Platform)\*.dll" "$(TargetDir)" /y</Command>
+      <Command>xcopy "$(HOME_SDL2)\build\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -124,7 +125,7 @@
       <SDLCheck>true</SDLCheck>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST_WINDOWS);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
@@ -132,14 +133,15 @@
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib;MogeMath.lib;String.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST)\stage\lib;$(HOME_SDL2)\lib\$(Platform)\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST_WINDOWS)\stage\lib;$(HOME_SDL2)\build\$(Platform)_$(Configuration)\</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(HOME_SDL2)\lib\$(Platform)\*.dll" "$(TargetDir)" /y</Command>
+      <Command>xcopy "$(HOME_SDL2)\build\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -150,7 +152,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST_WINDOWS);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
     </ClCompile>
@@ -159,13 +161,14 @@
       <OptimizeReferences>true</OptimizeReferences>
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib;MogeMath.lib;String.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST)\stage\lib;$(HOME_SDL2)\lib\$(Platform)\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST_WINDOWS)\stage\lib;$(HOME_SDL2)\build\$(Platform)_$(Configuration)\</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(HOME_SDL2)\lib\$(Platform)\*.dll" "$(TargetDir)" /y</Command>
+      <Command>xcopy "$(HOME_SDL2)\build\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -176,7 +179,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST_WINDOWS);$(HOME_SDL2)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
     </ClCompile>
@@ -185,13 +188,14 @@
       <OptimizeReferences>true</OptimizeReferences>
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib;MogeMath.lib;String.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST)\stage\lib;$(HOME_SDL2)\lib\$(Platform)\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST_WINDOWS)\stage\lib;$(HOME_SDL2)\build\$(Platform)_$(Configuration)\</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(HOME_SDL2)\lib\$(Platform)\*.dll" "$(TargetDir)" /y</Command>
+      <Command>xcopy "$(HOME_SDL2)\build\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -200,14 +204,22 @@
     <ClInclude Include="inc\Engine.h" />
     <ClInclude Include="inc\FileSystem.h" />
     <ClInclude Include="inc\GeneralUtilities.h" />
+    <ClInclude Include="inc\IEngine.h" />
+    <ClInclude Include="inc\IKeyboardObservable.h" />
+    <ClInclude Include="inc\IKeyboardObserver.h" />
+    <ClInclude Include="inc\IKeyFactory.h" />
+    <ClInclude Include="inc\INodeCreator.h" />
     <ClInclude Include="inc\IObservable.h" />
     <ClInclude Include="inc\IObservableData.h" />
     <ClInclude Include="inc\IObserver.h" />
     <ClInclude Include="inc\IVector.h" />
+    <ClInclude Include="inc\IKey.h" />
     <ClInclude Include="inc\KeyboardData.h" />
     <ClInclude Include="inc\KeyboardListener.h" />
     <ClInclude Include="inc\KeyboardObservable.h" />
+    <ClInclude Include="inc\KeyFactorySDL.h" />
     <ClInclude Include="inc\MogeLib.h" />
+    <ClInclude Include="inc\MogeLibMain.h" />
     <ClInclude Include="inc\MTime.h" />
     <ClInclude Include="inc\Named.h" />
     <ClInclude Include="inc\Node.h" />
@@ -215,6 +227,7 @@
     <ClInclude Include="inc\NodeImageCreator.h" />
     <ClInclude Include="inc\NodeMgr.h" />
     <ClInclude Include="inc\ObjectNode.h" />
+    <ClInclude Include="inc\PointFactory.h" />
     <ClInclude Include="inc\Scale.h" />
     <ClInclude Include="inc\ScreenNode.h" />
     <ClInclude Include="inc\Singleton.h" />
@@ -229,6 +242,7 @@
     <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="Scene\SceneImpl.h" />
     <ClInclude Include="src\IObservableImpl.h" />
+    <ClInclude Include="src\KeySDL.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="RenderableObject\RenderableObjectContainer.cpp" />
@@ -240,11 +254,20 @@
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\FileSystem.cpp" />
     <ClCompile Include="src\GeneralUtilities.cpp" />
+    <ClCompile Include="src\IKeyboardObservable.cpp" />
+    <ClCompile Include="src\IKeyboardObserver.cpp" />
+    <ClCompile Include="src\IKeyFactory.cpp" />
+    <ClCompile Include="src\INodeCreator.cpp" />
     <ClCompile Include="src\IObservable.cpp" />
+    <ClCompile Include="src\IObservableData.cpp" />
     <ClCompile Include="src\IObservableImpl.cpp" />
+    <ClCompile Include="src\IKey.cpp" />
     <ClCompile Include="src\KeyboardData.cpp" />
     <ClCompile Include="src\KeyboardListener.cpp" />
     <ClCompile Include="src\KeyboardObservable.cpp" />
+    <ClCompile Include="src\KeyFactorySDL.cpp" />
+    <ClCompile Include="src\KeySDL.cpp" />
+    <ClCompile Include="src\MogeLibMain.cpp" />
     <ClCompile Include="src\MTime.cpp" />
     <ClCompile Include="src\Named.cpp" />
     <ClCompile Include="src\Node.cpp" />

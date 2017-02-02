@@ -2,34 +2,34 @@
 
 namespace Moge
 {
-KeyboardData::KeyboardData()
-{
-}
-
-KeyboardData::KeyboardData( SDL_Event* sdlEvent ): sdlEvent( sdlEvent )
-{
-}
-
-KeyboardData::~KeyboardData()
-{
-}
-
-KeyboardData& KeyboardData::operator=( const KeyboardData& keyboardData )
-{
-	if( &keyboardData != this )
+	KeyboardData::KeyboardData( const std::string& data ): data( data )
 	{
-		this->sdlEvent = keyboardData.sdlEvent;
 	}
-	return *this;
-}
 
-void KeyboardData::setEvent( SDL_Event* sdlEvent )
-{
-	this->sdlEvent = sdlEvent;
-}
+	KeyboardData::KeyboardData( const KeyboardData& keyboardData ):data( keyboardData.data )
+	{
+	}
 
-SDL_Event* KeyboardData::getSdlEvent() const
-{
-	return this->sdlEvent;
-}
+	KeyboardData::~KeyboardData()
+	{
+	}
+
+	KeyboardData& KeyboardData::operator=( const KeyboardData& keyboardData )
+	{
+		if( &keyboardData != this )
+		{
+			this->data = keyboardData.data;
+		}
+		return *this;
+	}
+
+	void KeyboardData::setData( const std::string& data )
+	{
+		this->data = data;
+	}
+
+	const std::string& KeyboardData::getData() const
+	{
+		return this->data;
+	}
 }
