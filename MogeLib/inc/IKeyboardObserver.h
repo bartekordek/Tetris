@@ -1,6 +1,7 @@
 #pragma once 
 
 #include "IObserver.h"
+#include "KeyboardData.h"
 
 namespace Moge
 {
@@ -9,7 +10,7 @@ namespace Moge
 	public:
 		IKeyboardObserver() = default;
 		virtual ~IKeyboardObserver() = default;
-		virtual void keyboardEvent( IObservableData* data = nullptr ) = 0;
+		virtual void keyboardEvent( KeyboardData* data = nullptr ) = 0;
 	protected:
 	private:
 	};
