@@ -2,11 +2,4 @@
 
 namespace Moge
 {
-	IObservableData::IObservableData()
-	{
-	}
-
-	IObservableData::~IObservableData()
-	{
-	}
 }
