@@ -23,6 +23,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MogeMath", "MogeMath\MogeMa
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "String", "String\String.vcxproj", "{673E3F9A-EA2E-479B-B71C-E9DB74A9F2A0}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Argon", "Argon\Argon.vcxproj", "{CEA4E094-E37F-4C68-9AB5-046899B7960F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -67,6 +69,14 @@ Global
 		{673E3F9A-EA2E-479B-B71C-E9DB74A9F2A0}.Release|Win32.Build.0 = Release|Win32
 		{673E3F9A-EA2E-479B-B71C-E9DB74A9F2A0}.Release|x64.ActiveCfg = Release|x64
 		{673E3F9A-EA2E-479B-B71C-E9DB74A9F2A0}.Release|x64.Build.0 = Release|x64
+		{CEA4E094-E37F-4C68-9AB5-046899B7960F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CEA4E094-E37F-4C68-9AB5-046899B7960F}.Debug|Win32.Build.0 = Debug|Win32
+		{CEA4E094-E37F-4C68-9AB5-046899B7960F}.Debug|x64.ActiveCfg = Debug|x64
+		{CEA4E094-E37F-4C68-9AB5-046899B7960F}.Debug|x64.Build.0 = Debug|x64
+		{CEA4E094-E37F-4C68-9AB5-046899B7960F}.Release|Win32.ActiveCfg = Release|Win32
+		{CEA4E094-E37F-4C68-9AB5-046899B7960F}.Release|Win32.Build.0 = Release|Win32
+		{CEA4E094-E37F-4C68-9AB5-046899B7960F}.Release|x64.ActiveCfg = Release|x64
+		{CEA4E094-E37F-4C68-9AB5-046899B7960F}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
