@@ -3,7 +3,7 @@
 #include "IKey.h"
 
 #include <SDL_events.h>
-
+#include <iostream>
 namespace Moge
 {
 	KeyboardObservable::KeyboardObservable(): sdlKey( SDL_GetKeyboardState( nullptr ) )
@@ -34,7 +34,10 @@ namespace Moge
 		while( true == this->runLoop )
 		{
 			this->quitMutex.unlock();
-			if( SDL_PollEvent( &event ) )
+			//auto waitResult = SDL_WaitEvent( &event )
+			auto waitResult = SDL_PollEvent( &event );
+			std::cout << "WAIT RESULT = " << waitResult << std::endl;
+			if( waitResult > 0 )
 			{
 				auto scancode = SDL_GetScancodeFromKey( event.key.keysym.sym );
 				if( SDL_SCANCODE_UNKNOWN != scancode )

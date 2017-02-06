@@ -5,7 +5,7 @@
 
 namespace Moge
 {
-	class IKeyboardObserver: public IObserver
+	class MogeLib_API IKeyboardObserver: public IObserver
 	{
 	public:
 		IKeyboardObserver() = default;

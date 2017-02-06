@@ -1,9 +1,7 @@
 #include "Game.h"
 #include "MultiPointFactory.h"
 
-#include <SDL_keyboard.h>
-#include <SDL_keycode.h>
-#include <SDL_events.h>
+#include "MainGrid.h"
 #include "MogeLibMain.h"
 
 namespace Tetris
@@ -21,10 +19,10 @@ namespace Tetris
 	void CGame::initialize( CUInt rowsCount, CUInt columnsCount, CUInt winWidth, CUInt winHeight )
 	{
 		EngineManager::initializeEngine();
-		EngineManager::getEngine()->CreateScreen( Math::MultiPointFactory::create2d<unsigned int>( winWidth, winHeight ) );
+		EngineManager::getEngine()->createScreen( Math::MultiPointFactory::create2d<unsigned int>( winWidth, winHeight ) );
 		m_mainGrid = new CMainGrid();
 		EngineManager::getEngine()->registerKeyboardListener( this );
-		EngineManager::getEngine()->StartMainLoop();
+		EngineManager::getEngine()->initialize();
 		m_mainGrid->SetSize( rowsCount, columnsCount );
 	}
 
@@ -33,21 +31,28 @@ namespace Tetris
 		m_mainGrid->ReLeaseBrick();
 	}
 
-	void CGame::keyboardEvent( IObservableData* data )
+	void CGame::keyboardEvent( KeyboardData* data )
 	{
-		
-	}
+		if( "q" == data->getKeyName() && data->getKeyIsDown() )
+		{
+			m_quit = true;
+			return;
+		}
 
-	void CGame::MainLoop()
-	{
-		m_mainLoopThread = std::thread( &CGame::MainLoopThread, this );
-		userInputLoop();
-		m_mainLoopThread.join();
+		if( data->getKeyIsDown() )
+		{
+			std::cout << "Key " << data->getKeyName() << " is down." << std::endl;
+		}
 	}
-
+	/*
 	void CGame::userInputLoop()
 	{
 		SDL_Event event;
+		while( false == m_quit )
+		{
+			SDL_PollEvent( &event );
+		}
+		
 		while( false == m_quit )
 		{
 			while( SDL_PollEvent( &event ) )
@@ -63,37 +68,37 @@ namespace Tetris
 			}
 		}
 	}
+	*/
+	//const bool CGame::IsKeyDown( const SDL_Event event )
+	//{
+	//	if( SDL_KEYDOWN == event.type )
+	//	{
+	//		return true;
+	//	}
+	//	return false;
+	//}
 
-	const bool CGame::IsKeyDown( const SDL_Event event )
-	{
-		if( SDL_KEYDOWN == event.type )
-		{
-			return true;
-		}
-		return false;
-	}
+	//void CGame::HandleKeys( SDL_Keycode sdlkey )
+	//{
+	//	if( SDLK_RIGHT == sdlkey )
+	//	{
+	//		m_mainGrid->MoveActualBrick( Moge::Math::Directions::R );
+	//	}
+	//	else if( SDLK_LEFT == sdlkey )
+	//	{
+	//		m_mainGrid->MoveActualBrick( Moge::Math::Directions::L );
+	//	}
+	//	else if( SDLK_DOWN == sdlkey )
+	//	{
+	//		m_mainGrid->MoveActualBrick( Moge::Math::Directions::D );
+	//	}
+	//	else if( SDLK_SPACE == sdlkey )
+	//	{
+	//		m_mainGrid->RotateActualBrick( true );
+	//	}
+	//}
 
-	void CGame::HandleKeys( SDL_Keycode sdlkey )
-	{
-		if( SDLK_RIGHT == sdlkey )
-		{
-			m_mainGrid->MoveActualBrick( Moge::Math::Directions::R );
-		}
-		else if( SDLK_LEFT == sdlkey )
-		{
-			m_mainGrid->MoveActualBrick( Moge::Math::Directions::L );
-		}
-		else if( SDLK_DOWN == sdlkey )
-		{
-			m_mainGrid->MoveActualBrick( Moge::Math::Directions::D );
-		}
-		else if( SDLK_SPACE == sdlkey )
-		{
-			m_mainGrid->RotateActualBrick( true );
-		}
-	}
-
-	void CGame::MainLoopThread()
+	void CGame::frontEndLoop()
 	{
 		while( false == m_quit )
 		{
@@ -101,15 +106,16 @@ namespace Tetris
 		}
 	}
 
-	const bool CGame::QuitHasBeenHit( const SDL_Event event )
-	{
-		if( 
-			SDL_QUIT == event.type || (
-				SDL_KEYDOWN == event.type &&
-				SDLK_q == event.key.keysym.sym ) )
-		{
-			return true;
-		}
-		return false;
-	}
+
+	//const bool CGame::QuitHasBeenHit( const SDL_Event event )
+	//{
+	//	if( 
+	//		SDL_QUIT == event.type || (
+	//			SDL_KEYDOWN == event.type &&
+	//			SDLK_q == event.key.keysym.sym ) )
+	//	{
+	//		return true;
+	//	}
+	//	return false;
+	//}
 }

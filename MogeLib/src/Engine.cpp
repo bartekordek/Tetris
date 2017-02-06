@@ -15,13 +15,12 @@ namespace Moge
 
 	Engine::~Engine()
 	{
-		StopMainLoop();
 		std::lock_guard<std::mutex> lck( mListMutex );
 		mRenderableObjects.erase( mRenderableObjects.begin(), mRenderableObjects.end() );
 		SDL_Quit();
 	}
 
-	void Engine::CreateScreen( const Math::MultiPoint<unsigned int>& resolution )
+	void Engine::createScreen( const Math::MultiPoint<unsigned int>& resolution )
 	{
 		std::lock_guard<std::mutex> lck( mListMutex );
 		mScreenBuffor = NodeCreator::CreateScreen( resolution );
@@ -37,9 +36,8 @@ namespace Moge
 
 	void Engine::AddObject( const ObjectNode  node, const MyString& name )
 	{
-		mRenderableObjectsMutex.lock();
+		std::lock_guard<std::mutex> renderableObjectLock( mRenderableObjectsMutex );
 		mRenderableObjects.insert( node );
-		mRenderableObjectsMutex.unlock();
 	}
 
 	const std::shared_ptr< ScreenNode > Engine::getScreen()const
@@ -47,20 +45,17 @@ namespace Moge
 		return this->mScreenBuffor;
 	}
 
-	void Engine::StartMainLoop()
+	void Engine::initialize()
 	{
-		mMainLoopMutex.lock();
-		mainLoopIsRuning = true;
-		mMainLoopMutex.unlock();
 		mainLoop = std::thread( &Engine::MainLoop, this );
+		eventPool();
 	}
 
-	void Engine::StopMainLoop()
+	void Engine::stop()
 	{
-		mMainLoopMutex.lock();
-		mainLoopIsRuning = false;
-		mMainLoopMutex.unlock();
-		mainLoop.join();
+		this->mainLoopIsRuning = false;
+		this->mainLoop.join();
+		this->eventLoopActive = false;
 	}
 
 	void Engine::registerKeyboardListener( IKeyboardObserver* observer )
@@ -68,9 +63,18 @@ namespace Moge
 		keyboardObservable->registerObserver( observer );
 	}
 
+	void Engine::eventPool()
+	{
+		SDL_Event event;
+		while( this->eventLoopActive )
+		{
+			SDL_PollEvent( &event );
+		}
+	}
+
 	void Engine::MainLoop()
 	{
-		while( mainLoopIsRuning )
+		while( this->mainLoopIsRuning )
 		{
 			QueueFrame();
 		}
@@ -78,12 +82,11 @@ namespace Moge
 
 	void Engine::QueueFrame()
 	{
-		mRenderableObjectsMutex.lock();
+		std::lock_guard<std::mutex> renderableObjectLock( this->mRenderableObjectsMutex );
 		for( auto& object : mRenderableObjects )
 		{
 			Render( *object );
 		}
-		mRenderableObjectsMutex.unlock();
 		SDL_UpdateWindowSurface( mScreenBuffor->GetScreen() );
 		++mFrameCount;
 	}

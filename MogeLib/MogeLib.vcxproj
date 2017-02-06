@@ -215,9 +215,9 @@
     <ClInclude Include="inc\IVector.h" />
     <ClInclude Include="inc\IKey.h" />
     <ClInclude Include="inc\KeyboardData.h" />
-    <ClInclude Include="inc\KeyboardListener.h" />
     <ClInclude Include="inc\KeyboardObservable.h" />
     <ClInclude Include="inc\KeyFactorySDL.h" />
+    <ClInclude Include="inc\IMogeApp.h" />
     <ClInclude Include="inc\MogeLib.h" />
     <ClInclude Include="inc\MogeLibMain.h" />
     <ClInclude Include="inc\MTime.h" />
@@ -263,10 +263,10 @@
     <ClCompile Include="src\IObservableImpl.cpp" />
     <ClCompile Include="src\IKey.cpp" />
     <ClCompile Include="src\KeyboardData.cpp" />
-    <ClCompile Include="src\KeyboardListener.cpp" />
     <ClCompile Include="src\KeyboardObservable.cpp" />
     <ClCompile Include="src\KeyFactorySDL.cpp" />
     <ClCompile Include="src\KeySDL.cpp" />
+    <ClCompile Include="src\IMogeApp.cpp" />
     <ClCompile Include="src\MogeLibMain.cpp" />
     <ClCompile Include="src\MTime.cpp" />
     <ClCompile Include="src\Named.cpp" />
