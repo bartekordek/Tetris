@@ -1,5 +1,6 @@
 #pragma once
 
+#include <memory>
 #include "IMogeApp.h"
 
 namespace Tetris
@@ -18,7 +19,7 @@ namespace Tetris
 		void userInputLoop();
 		void frontEndLoop() override;
 
-		CMainGrid* m_mainGrid = nullptr;
+		std::unique_ptr<CMainGrid> mainGrid;
 		bool m_quit = false;
 	};
 }

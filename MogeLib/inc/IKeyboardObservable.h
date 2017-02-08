@@ -1,5 +1,6 @@
 #pragma once
 
+#include "MogeLib.h"
 #include "set"
 
 namespace Moge
@@ -13,8 +14,8 @@ namespace Moge
 		virtual ~IKeyboardObservable() = default;
 		void notifyKeyboardObservers( IKey* data = nullptr );
 
-        void registerObserver( IKeyboardObserver* observer );
-        void unregisterObserver( IKeyboardObserver* observer );
+		void MogeLib_API registerObserver( IKeyboardObserver* observer );
+		void MogeLib_API unregisterObserver( IKeyboardObserver* observer );
 
 	protected:
 	private:

@@ -43,18 +43,18 @@ namespace Moge
 		mRenderableObjects.insert( node );
 	}
 
-	const std::shared_ptr< ScreenNode > Engine::getScreen()const
+	const std::shared_ptr<ScreenNode> Engine::getScreen()const
 	{
 		return this->mScreenBuffor;
 	}
 
-	void Engine::initialize()
+	void Engine::startMainLoop()
 	{
-		mainLoop = std::thread( &Engine::MainLoop, this );
+		mainLoop = std::thread( &Engine::renderingLoop, this );
 		eventPool();
 	}
 
-	void Engine::stop()
+	void Engine::stopEventLoop()
 	{
 		this->mainLoopIsRuning = false;
 		this->mainLoop.join();
@@ -82,7 +82,7 @@ namespace Moge
 		}
 	}
 
-	void Engine::MainLoop()
+	void Engine::renderingLoop()
 	{
 		while( this->mainLoopIsRuning )
 		{

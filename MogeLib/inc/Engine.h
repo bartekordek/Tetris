@@ -31,15 +31,14 @@ namespace Moge
 		void AddObject( const ObjectNode node, const MyString& name = MyString( "" ) );
 		void createScreen( const Math::MultiPoint<unsigned int>& resolution = Math::MultiPoint<unsigned int>( 2 ) );
 		const std::shared_ptr<ScreenNode> getScreen()const;
-		void initialize();
-		void stop();
+		void startMainLoop();
+		void stopEventLoop();
 
 	protected:
 
 	private:
 		void eventPool();
-      //  IKeyboardData* g
-		void MainLoop();
+		void renderingLoop();
 		void QueueFrame();
 		void Render( ObjectNodeContent& node );
 
