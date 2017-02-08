@@ -1,8 +1,6 @@
 #include "NodeCreator.h"
 #include "NodeImageCreator.h"
 #include "IPositionAdapter.h"
-#include "GeneralUtilities.h"
-
 #include "ObjectNode.h"
 #include "ScreenNode.h"
 
