@@ -125,7 +125,9 @@ Atom::Atom( const double val ):
 
 Atom::Atom( const double x, const double y, const double z )
 {
-	R = V3D( x, y, z);
+	R.SetX( x );
+	R.SetY( y );
+	R.SetZ( z );
 }
 
 double Atom::operator-( const Atom& atom )const
