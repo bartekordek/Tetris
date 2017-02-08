@@ -3,6 +3,12 @@
 ./MogeLib/inc/Engine.h
 ./MogeLib/inc/FileSystem.h
 ./MogeLib/inc/GeneralUtilities.h
+./MogeLib/inc/IEngine.h
+./MogeLib/inc/IKey.h
+./MogeLib/inc/IKeyboardObservable.h
+./MogeLib/inc/IKeyboardObserver.h
+./MogeLib/inc/IKeyFactory.h
+./MogeLib/inc/INodeCreator.h
 ./MogeLib/inc/IObservable.h
 ./MogeLib/inc/IObservableData.h
 ./MogeLib/inc/IObserver.h
@@ -10,7 +16,10 @@
 ./MogeLib/inc/KeyboardData.h
 ./MogeLib/inc/KeyboardListener.h
 ./MogeLib/inc/KeyboardObservable.h
+./MogeLib/inc/KeyFactorySDL.h
+./MogeLib/inc/MogeApp.h
 ./MogeLib/inc/MogeLib.h
+./MogeLib/inc/MogeLibMain.h
 ./MogeLib/inc/MTime.h
 ./MogeLib/inc/Named.h
 ./MogeLib/inc/Node.h
@@ -31,6 +40,7 @@
 ./MogeLib/Scene/Scene.h
 ./MogeLib/Scene/SceneImpl.h
 ./MogeLib/src/IObservableImpl.h
+./MogeLib/src/KeySDL.h
 ./MogeMath/inc/Frustum.h
 ./MogeMath/inc/IPosition.h
 ./MogeMath/inc/IPositionAdapter.h

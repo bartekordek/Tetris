@@ -1,21 +1,26 @@
 #pragma once
 
-#include <string>
 #include "IObservableData.h"
+#include <string>
 
 namespace Moge
 {
+
 	class KeyboardData: public IObservableData
 	{
 	public:
-		KeyboardData( const std::string& data = "" );
+		KeyboardData() = default;
+		KeyboardData( const std::string& keyName, const bool keyIsDown );
 		KeyboardData( const KeyboardData& keyboardData );
-		virtual ~KeyboardData();
+		virtual ~KeyboardData() = default;
 		KeyboardData& operator=( const KeyboardData& keyboardData );
-		void setData( const std::string& data );
-		const std::string& getData()const;
+		MogeLib_API void setKeyName( const std::string& keyName );
+		MogeLib_API const std::string& getKeyName()const;
+		MogeLib_API void setKeyIsDown( const bool keyIsDown );
+		MogeLib_API const bool getKeyIsDown()const;
 	protected:
 	private:
-		std::string data;
+		std::string keyName;
+		bool keyIsDown = false;
 	};
 }

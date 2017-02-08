@@ -8,7 +8,7 @@ namespace Moge
 		for( IObserver* observer: this->observers )
 		{
 			IKeyboardObserver* keyboardObserver = static_cast<IKeyboardObserver*>( observer );
-			keyboardObserver->keyboardEvent( data );
+			keyboardObserver->keyboardEvent( static_cast<KeyboardData*>( data ) );
 		}
 	}
 }

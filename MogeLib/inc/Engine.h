@@ -1,5 +1,6 @@
 #pragma once
 
+#include <atomic>
 #include <set>
 #include <thread>
 #include <mutex>
@@ -23,15 +24,16 @@ namespace Moge
 
 		void AddObject( const Path& filePath, const Math::MultiPoint<int>& position, const MyString& name = MyString( "" ) );
 		void AddObject( const ObjectNode node, const MyString& name = MyString( "" ) );
-		void CreateScreen( const Math::MultiPoint<unsigned int>& resolution = Math::MultiPoint<unsigned int>( 2 ) );
+		void createScreen( const Math::MultiPoint<unsigned int>& resolution = Math::MultiPoint<unsigned int>( 2 ) );
 		const std::shared_ptr<ScreenNode> getScreen()const;
-		void StartMainLoop();
-		void StopMainLoop();
+		void initialize();
+		void stop();
 		void registerKeyboardListener( IKeyboardObserver* observer );
 
 	protected:
 
 	private:
+		void eventPool();
 		void MainLoop();
 		void QueueFrame();
 		void Render( ObjectNodeContent& node );
@@ -41,8 +43,8 @@ namespace Moge
 		std::mutex mRenderableObjectsMutex;
 		std::mutex mListMutex;
 		std::thread mainLoop;
-		bool mainLoopIsRuning = false;
-		std::mutex mMainLoopMutex;
+		std::atomic<bool> mainLoopIsRuning = true;
+		std::atomic<bool> eventLoopActive = true;
 		unsigned int mFrameCount = 0;
 		std::unique_ptr<IKeyboardObservable> keyboardObservable;
 	};

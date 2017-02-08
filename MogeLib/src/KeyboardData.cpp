@@ -2,15 +2,16 @@
 
 namespace Moge
 {
-	KeyboardData::KeyboardData( const std::string& data ): data( data )
+	KeyboardData::KeyboardData( const std::string& keyName, const bool keyIsDown ):
+		keyName( keyName ), 
+		keyIsDown( keyIsDown )
 	{
 	}
 
-	KeyboardData::KeyboardData( const KeyboardData& keyboardData ):data( keyboardData.data )
-	{
-	}
 
-	KeyboardData::~KeyboardData()
+	KeyboardData::KeyboardData( const KeyboardData& keyboardData ):
+		keyName( keyboardData.keyName ), 
+		keyIsDown( keyboardData.keyIsDown )
 	{
 	}
 
@@ -18,18 +19,29 @@ namespace Moge
 	{
 		if( &keyboardData != this )
 		{
-			this->data = keyboardData.data;
+			this->keyName = keyboardData.keyName;
+			this->keyIsDown = keyboardData.keyIsDown;
 		}
 		return *this;
 	}
 
-	void KeyboardData::setData( const std::string& data )
+	void KeyboardData::setKeyName( const std::string& keyName )
 	{
-		this->data = data;
+		this->keyName = keyName;
 	}
 
-	const std::string& KeyboardData::getData() const
+	const std::string& KeyboardData::getKeyName() const
 	{
-		return this->data;
+		return this->keyName;
+	}
+
+	void KeyboardData::setKeyIsDown( const bool keyIsDown )
+	{
+		this->keyIsDown = keyIsDown;
+	}
+
+	const bool KeyboardData::getKeyIsDown() const
+	{
+		return this->keyIsDown;
 	}
 }

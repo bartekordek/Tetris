@@ -1,0 +1,27 @@
+Size
+6
+Mass
+40.0
+
+1
+Atom - Atom length.
+0.00831
+Elasticity Coeficient
+10000
+Dish Length
+1.2
+Boltzman constant
+0.38
+Temperature at the begining
+500
+Tau constant
+0.0005
+Iterations
+2000
+Loop frame
+100
+
+100
+
+10
+End

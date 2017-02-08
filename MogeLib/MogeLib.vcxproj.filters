@@ -36,9 +36,6 @@
     <ClInclude Include="inc\GeneralUtilities.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\KeyboardListener.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\KeyboardObservable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -153,6 +150,9 @@
     <ClInclude Include="inc\IKeyboardObservable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\IMogeApp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Aliases.cpp">
@@ -168,9 +168,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\GeneralUtilities.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\KeyboardListener.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\KeyboardObservable.cpp">
@@ -264,6 +261,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\IKeyboardObservable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\IMogeApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
