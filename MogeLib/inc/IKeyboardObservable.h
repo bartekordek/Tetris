@@ -1,18 +1,23 @@
 #pragma once
 
-#include "IObservable.h"
+#include "set"
 
 namespace Moge
 {
-	class IKeyboardObservable: public IObservable
+    class IKeyboardObserver;
+    class IKey;
+	class IKeyboardObservable
 	{
 	public:
 		IKeyboardObservable() = default;
 		virtual ~IKeyboardObservable() = default;
-		void notifyObservers( IObservableData* data = nullptr ) override;
+		void notifyKeyboardObservers( IKey* data = nullptr );
+
+        void registerObserver( IKeyboardObserver* observer );
+        void unregisterObserver( IKeyboardObserver* observer );
 
 	protected:
 	private:
-		
+        std::set<IKeyboardObserver*> observers;
 	};
 }

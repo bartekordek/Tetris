@@ -3,6 +3,7 @@
 #include "IPositionAdapter.h"
 #include "KeyboardObservable.h"
 #include "IKeyboardObserver.h"
+#include "KeyFactorySDL.h"
 #include <SDL.h>
 
 namespace Moge
@@ -10,7 +11,9 @@ namespace Moge
 	Engine::Engine( void )
 	{
 		SDL_Init( SDL_INIT_EVERYTHING );
-		keyboardObservable.reset( new KeyboardObservable() );
+        this->sdlKey = SDL_GetKeyboardState( nullptr );
+        this->keyFactory.reset( new KeyFactorySDL() );
+        this->keys = this->keyFactory->createKeys();
 	}
 
 	Engine::~Engine()
@@ -58,17 +61,24 @@ namespace Moge
 		this->eventLoopActive = false;
 	}
 
-	void Engine::registerKeyboardListener( IKeyboardObserver* observer )
-	{
-		keyboardObservable->registerObserver( observer );
-	}
-
 	void Engine::eventPool()
 	{
 		SDL_Event event;
-		while( this->eventLoopActive )
+		while( true == this->eventLoopActive )
 		{
-			SDL_PollEvent( &event );
+            if( ( SDL_PollEvent( &event ) > 0) && 
+                ( event.type == SDL_KEYDOWN || event.type == SDL_KEYUP ) )
+            {
+                auto scancode = SDL_GetScancodeFromKey( event.key.keysym.sym );
+                if( SDL_SCANCODE_UNKNOWN != scancode )
+                {
+                    const bool keyIsDown = ( SDL_KEYDOWN == event.type ) ? true : false;
+                    const auto keyIndex = static_cast<unsigned int>( scancode );
+                    auto key = this->keys.at( keyIndex );
+                    key->setKeyIsDown( keyIsDown );
+                    this->notifyKeyboardObservers( key.get() );
+                }
+            }
 		}
 	}
 

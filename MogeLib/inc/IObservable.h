@@ -13,9 +13,9 @@ namespace Moge
 		virtual ~IObservable() = default;
 		void registerObserver( IObserver* observer );
 		void unregisterObserver( IObserver* observer );
-		virtual void notifyObservers( IObservableData* data = nullptr ) = 0;
+		virtual void notifyKeyboardObservers( IObservableData* data = nullptr ) = 0;
 	protected:
-		std::set< IObserver* > observers;
+		std::set<IObserver*> observers;
 	private:
 		
 	};

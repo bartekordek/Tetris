@@ -2,6 +2,7 @@
 
 #include "IObserver.h"
 #include "KeyboardData.h"
+#include "IKey.h"
 
 namespace Moge
 {
@@ -10,7 +11,7 @@ namespace Moge
 	public:
 		IKeyboardObserver() = default;
 		virtual ~IKeyboardObserver() = default;
-		virtual void keyboardEvent( KeyboardData* data = nullptr ) = 0;
+		virtual void keyboardEvent( IKey* data = nullptr ) = 0;
 	protected:
 	private:
 	};

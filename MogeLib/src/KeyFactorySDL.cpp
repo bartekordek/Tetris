@@ -27,7 +27,7 @@ namespace Moge
 		IKey* result = new KeySDL();
 		SDL_Scancode scanCode = static_cast<SDL_Scancode>( keySignature );
 		result->setKeyName( SDL_GetScancodeName( scanCode ) );
-		result->setKeyState( ( 0 == this->sdlKey[scanCode] ) ? false : true );
+		result->setKeyIsDown( ( 0 == this->sdlKey[scanCode] ) ? false : true );
 		return result;
 	}
 }

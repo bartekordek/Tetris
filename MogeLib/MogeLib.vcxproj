@@ -241,6 +241,7 @@
     <ClInclude Include="RenderableObject\src\RenderableObjectContainerImpl.h" />
     <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="Scene\SceneImpl.h" />
+    <ClInclude Include="src\IKeyboardData.h" />
     <ClInclude Include="src\IObservableImpl.h" />
     <ClInclude Include="src\KeySDL.h" />
   </ItemGroup>

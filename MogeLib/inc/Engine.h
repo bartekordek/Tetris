@@ -2,6 +2,7 @@
 
 #include <atomic>
 #include <set>
+#include <map>
 #include <thread>
 #include <mutex>
 #include <memory>
@@ -11,12 +12,16 @@
 #include "FileSystem.h"
 #include "ObjectNode.h"
 #include "ScreenNode.h"
+#include "IKeyboardObservable.h"
 
 namespace Moge
 {
-	class IKeyboardObservable;
+	class MogeLib_API IKeyboardObservable;
 	class IKeyboardObserver;
-	class MogeLib_API Engine: public Singleton<Engine>
+    class IKeyboardData;
+    class IKey;
+    class IKeyFactory;
+	class MogeLib_API Engine: public Singleton<Engine>, public IKeyboardObservable
 	{
 	public:
 		Engine( void );
@@ -28,12 +33,12 @@ namespace Moge
 		const std::shared_ptr<ScreenNode> getScreen()const;
 		void initialize();
 		void stop();
-		void registerKeyboardListener( IKeyboardObserver* observer );
 
 	protected:
 
 	private:
 		void eventPool();
+      //  IKeyboardData* g
 		void MainLoop();
 		void QueueFrame();
 		void Render( ObjectNodeContent& node );
@@ -46,6 +51,9 @@ namespace Moge
 		std::atomic<bool> mainLoopIsRuning = true;
 		std::atomic<bool> eventLoopActive = true;
 		unsigned int mFrameCount = 0;
-		std::unique_ptr<IKeyboardObservable> keyboardObservable;
+
+        const uint8_t* sdlKey = nullptr;
+        std::map<unsigned int, std::shared_ptr<IKey>> keys;
+        std::unique_ptr<IKeyFactory> keyFactory;
 	};
 }

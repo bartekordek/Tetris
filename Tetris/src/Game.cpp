@@ -21,7 +21,7 @@ namespace Tetris
 		EngineManager::initializeEngine();
 		EngineManager::getEngine()->createScreen( Math::MultiPointFactory::create2d<unsigned int>( winWidth, winHeight ) );
 		m_mainGrid = new CMainGrid();
-		EngineManager::getEngine()->registerKeyboardListener( this );
+        EngineManager::getEngine()->registerObserver( this );
 		EngineManager::getEngine()->initialize();
 		m_mainGrid->SetSize( rowsCount, columnsCount );
 	}
@@ -31,7 +31,7 @@ namespace Tetris
 		m_mainGrid->ReLeaseBrick();
 	}
 
-	void CGame::keyboardEvent( KeyboardData* data )
+	void CGame::keyboardEvent( IKey* data )
 	{
 		if( "q" == data->getKeyName() && data->getKeyIsDown() )
 		{

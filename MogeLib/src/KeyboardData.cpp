@@ -1,4 +1,5 @@
 #include "KeyboardData.h"
+#include "SDL_events.h"
 
 namespace Moge
 {

@@ -25,22 +25,22 @@ namespace Moge
 		return *this;
 	}
 
-	void KeySDL::setKeyName( const char* keyName )
+	void KeySDL::setKeyName( const std::string& keyName )
 	{
 		this->keyName = keyName;
 	}
 
-	const char* KeySDL::getKeyName() const
+    const std::string& KeySDL::getKeyName() const
 	{
-		return this->keyName.c_str();
+		return this->keyName;
 	}
 
-	void KeySDL::setKeyState( const bool keyIsDow )
+	void KeySDL::setKeyIsDown( const bool keyIsDow )
 	{
 		this->m_keyIsDown = keyIsDow;
 	}
 
-	const bool KeySDL::keyIsDown() const
+	const bool KeySDL::getKeyIsDown() const
 	{
 		return this->m_keyIsDown;
 	}
