@@ -1,3 +1,5 @@
+./Argon/FileOperations.h
+./Argon/libArgon.hpp
 ./MogeLib/inc/Aliases.h
 ./MogeLib/inc/ConsoleUtilities.h
 ./MogeLib/inc/Engine.h
@@ -8,16 +10,15 @@
 ./MogeLib/inc/IKeyboardObservable.h
 ./MogeLib/inc/IKeyboardObserver.h
 ./MogeLib/inc/IKeyFactory.h
+./MogeLib/inc/IMogeApp.h
 ./MogeLib/inc/INodeCreator.h
 ./MogeLib/inc/IObservable.h
 ./MogeLib/inc/IObservableData.h
 ./MogeLib/inc/IObserver.h
 ./MogeLib/inc/IVector.h
 ./MogeLib/inc/KeyboardData.h
-./MogeLib/inc/KeyboardListener.h
 ./MogeLib/inc/KeyboardObservable.h
 ./MogeLib/inc/KeyFactorySDL.h
-./MogeLib/inc/MogeApp.h
 ./MogeLib/inc/MogeLib.h
 ./MogeLib/inc/MogeLibMain.h
 ./MogeLib/inc/MTime.h
@@ -39,6 +40,7 @@
 ./MogeLib/RenderableObject/RenderableObjectContainerImpl.h
 ./MogeLib/Scene/Scene.h
 ./MogeLib/Scene/SceneImpl.h
+./MogeLib/src/IKeyboardData.h
 ./MogeLib/src/IObservableImpl.h
 ./MogeLib/src/KeySDL.h
 ./MogeMath/inc/Frustum.h
@@ -46,11 +48,13 @@
 ./MogeMath/inc/IPositionAdapter.h
 ./MogeMath/inc/ISize.h
 ./MogeMath/inc/Line.h
+./MogeMath/inc/Matrix2D.hpp
 ./MogeMath/inc/MultiPoint.h
 ./MogeMath/inc/MultiPointFactory.h
 ./MogeMath/inc/Quaternion.h
 ./MogeMath/inc/Rectangle.h
 ./MogeMath/inc/Segment.h
+./MogeMath/inc/SquareMatrix2D.hpp
 ./String/inc/MyString.h
 ./Tests/inc/FilesystemTests.h
 ./Tests/inc/ImageCreatorTests.h
