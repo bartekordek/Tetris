@@ -24,7 +24,7 @@ const std::vector<std::string>& FileOperations::getLines()const
 	return this->lines;
 }
 
-void FileOperations::write2File( const std::vector< std::string > lines, const std::string& outputFileName )
+void FileOperations::write2File( const std::vector<std::string>& lines, const std::string& outputFileName )
 {
 	std::fstream file;
 	file.open( outputFileName, std::fstream::out );
