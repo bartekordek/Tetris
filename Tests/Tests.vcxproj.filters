@@ -22,20 +22,23 @@
     <Filter Include="Tests\Generic">
       <UniqueIdentifier>{4e3742ae-c784-482f-a685-ea03503fea05}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Tests\Node">
-      <UniqueIdentifier>{39f3cf1a-97b0-402e-b7f9-fbf7b771ed6c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Tests\Name">
       <UniqueIdentifier>{4282f525-5418-48b3-a15a-e3faf8e7e78b}</UniqueIdentifier>
     </Filter>
     <Filter Include="ImageFactory">
       <UniqueIdentifier>{70d109fc-2828-4db0-a1f7-37702921199f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Tests\NodeCreator">
-      <UniqueIdentifier>{d9ccca2f-8a11-45d7-91fb-f509c87d5938}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Tests\Matrix">
       <UniqueIdentifier>{ac755291-68a7-4be2-94a7-a0e281b36683}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\Engine">
+      <UniqueIdentifier>{45382f77-1bd7-4852-8784-cf1c55482e23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\Engine\Node">
+      <UniqueIdentifier>{39f3cf1a-97b0-402e-b7f9-fbf7b771ed6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\Engine\NodeCreator">
+      <UniqueIdentifier>{d9ccca2f-8a11-45d7-91fb-f509c87d5938}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -49,7 +52,7 @@
       <Filter>FileSystem</Filter>
     </ClCompile>
     <ClCompile Include="src\NodeTests.cpp">
-      <Filter>Tests\Node</Filter>
+      <Filter>Tests\Engine\Node</Filter>
     </ClCompile>
     <ClCompile Include="src\NameTests.cpp">
       <Filter>Tests\Name</Filter>
@@ -58,13 +61,16 @@
       <Filter>ImageFactory</Filter>
     </ClCompile>
     <ClCompile Include="src\NodeCreatorTests.cpp">
-      <Filter>Tests\NodeCreator</Filter>
+      <Filter>Tests\Engine\NodeCreator</Filter>
     </ClCompile>
     <ClCompile Include="src\ObjectNodeTests.cpp">
-      <Filter>Tests\Node</Filter>
+      <Filter>Tests\Engine\Node</Filter>
     </ClCompile>
     <ClCompile Include="src\MatrixTests.cpp">
       <Filter>Tests\Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EngineTests.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -75,7 +81,7 @@
       <Filter>FileSystem</Filter>
     </ClInclude>
     <ClInclude Include="inc\NodeTests.h">
-      <Filter>Tests\Node</Filter>
+      <Filter>Tests\Engine\Node</Filter>
     </ClInclude>
     <ClInclude Include="inc\NameTests.h">
       <Filter>Tests\Name</Filter>
@@ -84,13 +90,16 @@
       <Filter>ImageFactory</Filter>
     </ClInclude>
     <ClInclude Include="inc\ObjectNodeTests.h">
-      <Filter>Tests\Node</Filter>
+      <Filter>Tests\Engine\Node</Filter>
     </ClInclude>
     <ClInclude Include="inc\NodeCreatorTests.h">
-      <Filter>Tests\NodeCreator</Filter>
+      <Filter>Tests\Engine\NodeCreator</Filter>
     </ClInclude>
     <ClInclude Include="inc\MatrixTests.h">
       <Filter>Tests\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\EngineTests.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

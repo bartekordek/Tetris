@@ -10,8 +10,8 @@ namespace Moge
 class EngineTests: public ::testing::Test
 {
 protected:
-    EngineTests() = default;
-    virtual ~EngineTests() = default;
+    EngineTests( void );
+    virtual ~EngineTests();
 
     static void SetUpTestCase();
     static void TearDownTestCase();

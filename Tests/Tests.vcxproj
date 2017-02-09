@@ -213,6 +213,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\EngineTests.cpp" />
     <ClCompile Include="src\FilesystemTests.cpp" />
     <ClCompile Include="src\ImageCreatorTests.cpp" />
     <ClCompile Include="src\MatrixTests.cpp" />
@@ -223,6 +224,7 @@
     <ClCompile Include="src\ObjectNodeTests.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="inc\EngineTests.h" />
     <ClInclude Include="inc\FilesystemTests.h" />
     <ClInclude Include="inc\ImageCreatorTests.h" />
     <ClInclude Include="inc\MatrixTests.h" />

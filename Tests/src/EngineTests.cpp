@@ -3,12 +3,22 @@
 
 Moge::Engine* EngineTests::engine = nullptr;
 
-void EngineTests::SetUpTestCase()
+EngineTests::EngineTests( void )
 {
     engine = Moge::EngineManager::initializeEngine();
 }
 
-void EngineTests::TearDownTestCase()
+EngineTests::~EngineTests()
 {
     Moge::EngineManager::destroyEngine();
+}
+
+void EngineTests::SetUpTestCase()
+{
+    
+}
+
+void EngineTests::TearDownTestCase()
+{
+    
 }

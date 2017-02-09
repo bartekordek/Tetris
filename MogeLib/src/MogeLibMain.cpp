@@ -19,6 +19,7 @@ namespace Moge
 	void EngineManager::destroyEngine()
 	{
 		Engine::destroy();
+        engineInstance = nullptr;
 	}
 
 }
