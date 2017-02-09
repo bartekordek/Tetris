@@ -1,13 +1,13 @@
 #include "Game.h"
 #include "MainGrid.h"
 #include "BrickFactory.h"
-#include "NodeCreator.h"
 #include "NodeImageCreator.h"
 #include "MTime.h"
 #include "MogeLibMain.h"
 
 namespace Tetris
 {
+    using namespace Moge;
 CMainGrid::CMainGrid():activeBrick( nullptr )
 {
 	std::lock_guard<std::mutex> slabLock( currentBrickMutex );
@@ -53,7 +53,7 @@ void CMainGrid::SetSize( CUInt rowsCount, CUInt columnsCount, CUInt initialX, CU
 	{
 		for( auto& slab : slabRow )
 		{
-			std::shared_ptr<Moge::ObjectNodeContent> slabNode = Moge::NodeCreator::CreateFromImage( emptySlabImage );
+            auto slabNode = EngineManager::getEngine()->getNodeFactory()->CreateFromImage( emptySlabImage );
 			Moge::Math::IPositionAdapter<int> position( slab.col() * slabNode->getWidth(), slab.row() * slabNode->getHeight(), 0 );
 			slabNode->setXyz( position.getX(), position.getY(), 0 );
 			slab.setNode( slabNode );

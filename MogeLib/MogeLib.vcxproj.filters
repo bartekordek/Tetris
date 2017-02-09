@@ -45,9 +45,6 @@
     <ClInclude Include="inc\Node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\NodeCreator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\NodeImageCreator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -156,6 +153,12 @@
     <ClInclude Include="src\IKeyboardData.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\INodeFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\NodeFactoryRegular.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Aliases.cpp">
@@ -180,9 +183,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Node.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\NodeCreator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\NodeImageCreator.cpp">
@@ -267,6 +267,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\IMogeApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\INodeFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NodeFactoryRegular.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

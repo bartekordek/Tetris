@@ -209,6 +209,7 @@
     <ClInclude Include="inc\IKeyboardObserver.h" />
     <ClInclude Include="inc\IKeyFactory.h" />
     <ClInclude Include="inc\INodeCreator.h" />
+    <ClInclude Include="inc\INodeFactory.h" />
     <ClInclude Include="inc\IObservable.h" />
     <ClInclude Include="inc\IObservableData.h" />
     <ClInclude Include="inc\IObserver.h" />
@@ -223,7 +224,7 @@
     <ClInclude Include="inc\MTime.h" />
     <ClInclude Include="inc\Named.h" />
     <ClInclude Include="inc\Node.h" />
-    <ClInclude Include="inc\NodeCreator.h" />
+    <ClInclude Include="inc\NodeFactoryRegular.h" />
     <ClInclude Include="inc\NodeImageCreator.h" />
     <ClInclude Include="inc\NodeMgr.h" />
     <ClInclude Include="inc\ObjectNode.h" />
@@ -259,6 +260,7 @@
     <ClCompile Include="src\IKeyboardObserver.cpp" />
     <ClCompile Include="src\IKeyFactory.cpp" />
     <ClCompile Include="src\INodeCreator.cpp" />
+    <ClCompile Include="src\INodeFactory.cpp" />
     <ClCompile Include="src\IObservable.cpp" />
     <ClCompile Include="src\IObservableData.cpp" />
     <ClCompile Include="src\IObservableImpl.cpp" />
@@ -272,7 +274,7 @@
     <ClCompile Include="src\MTime.cpp" />
     <ClCompile Include="src\Named.cpp" />
     <ClCompile Include="src\Node.cpp" />
-    <ClCompile Include="src\NodeCreator.cpp" />
+    <ClCompile Include="src\NodeFactoryRegular.cpp" />
     <ClCompile Include="src\NodeImageCreator.cpp" />
     <ClCompile Include="src\NodeMgr.cpp" />
     <ClCompile Include="src\ObjectNode.cpp" />

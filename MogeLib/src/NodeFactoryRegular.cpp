@@ -1,4 +1,4 @@
-#include "NodeCreator.h"
+#include "NodeFactoryRegular.h"
 #include "NodeImageCreator.h"
 #include "IPositionAdapter.h"
 #include "ObjectNode.h"
@@ -7,7 +7,7 @@
 namespace Moge
 {
 	using namespace Math;
-	std::shared_ptr<ScreenNode> NodeCreator::CreateScreen( const MultiPoint<unsigned int>& size )
+	std::shared_ptr<ScreenNode> NodeFactoryRegular::CreateScreen( const MultiPoint<unsigned int>& size )
 	{
 		ScreenNode* screenNode = new ScreenNode();
 		screenNode->setWidth( size.getValue( Axes::X ) );
@@ -16,31 +16,31 @@ namespace Moge
 		return result;
 	}
 
-	ObjectNode NodeCreator::CreateFromImage( const Path& filePath, const IPosition<int>& position, const MyString& name )
+	ObjectNode NodeFactoryRegular::CreateFromImage( const Path& filePath, const IPosition<int>& position, const MyString& name )
 	{
 		ImageSurface imageSurface = ImageCreator::CreateSurfaceFromImage( filePath );
 		return CreateFromImage( imageSurface, position, name );
 	}
 
-	ObjectNode NodeCreator::CreateFromImage( const ImageSurface& imageSurface, const IPosition<int>& position, const MyString& name )
+	ObjectNode NodeFactoryRegular::CreateFromImage( const ImageSurface& imageSurface, const IPosition<int>& position, const MyString& name )
 	{
 		ObjectNodeContent* objectNodeContent = new ObjectNodeContent();
 		objectNodeContent->setXyz( position );
 		objectNodeContent->SetName( name );
 		objectNodeContent->SetSurface( imageSurface );
-		sObjectNodes.insert( objectNodeContent );
+		this->nodes.insert( objectNodeContent );
 		return ObjectNode( objectNodeContent );
 	}
 
-	void NodeCreator::RemoveNode( ObjectNode& node )
+	void NodeFactoryRegular::RemoveNode( ObjectNode& node )
 	{
-		sObjectNodes.erase( node.get() );
+        this->nodes.erase( node.get() );
 		node.reset();
 	}
 
-	const bool NodeCreator::Exist( ObjectNode& node )
+	const bool NodeFactoryRegular::Exist( ObjectNode& node )
 	{
-		for( auto& currentNode : sObjectNodes )
+		for( auto& currentNode : this->nodes )
 		{
 			if( currentNode == node.get() )
 			{
@@ -50,10 +50,8 @@ namespace Moge
 		return false;
 	}
 
-	const unsigned int NodeCreator::Count()
+	const unsigned int NodeFactoryRegular::Count()
 	{
-		return static_cast<unsigned int>( sObjectNodes.size() );
+		return static_cast<unsigned int>( this->nodes.size() );
 	}
-
-	std::set< ObjectNodeContent* > NodeCreator::sObjectNodes;
 }

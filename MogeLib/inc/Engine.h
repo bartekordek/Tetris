@@ -13,6 +13,7 @@
 #include "ObjectNode.h"
 #include "ScreenNode.h"
 #include "IKeyboardObservable.h"
+#include "INodeFactory.h"
 
 namespace Moge
 {
@@ -31,6 +32,7 @@ namespace Moge
 		void AddObject( const ObjectNode node, const MyString& name = MyString( "" ) );
 		void createScreen( const Math::MultiPoint<unsigned int>& resolution = Math::MultiPoint<unsigned int>( 2 ) );
 		const std::shared_ptr<ScreenNode> getScreen()const;
+        INodeFactory* getNodeFactory();
 		void startMainLoop();
 		void stopEventLoop();
 
@@ -54,5 +56,6 @@ namespace Moge
         const uint8_t* sdlKey = nullptr;
         std::map<unsigned int, std::shared_ptr<IKey>> keys;
         std::unique_ptr<IKeyFactory> keyFactory;
+        std::unique_ptr<INodeFactory> nodeFactory;
 	};
 }
