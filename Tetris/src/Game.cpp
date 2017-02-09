@@ -1,3 +1,5 @@
+#include <algorithm>
+
 #include "Game.h"
 #include "MultiPointFactory.h"
 
@@ -13,27 +15,27 @@ namespace Tetris
 
 	CGame::~CGame()
 	{
-		EngineManager::destroyEngine();
 	}
 
 	void CGame::initialize( CUInt rowsCount, CUInt columnsCount, CUInt winWidth, CUInt winHeight )
 	{
-		EngineManager::initializeEngine();
 		EngineManager::getEngine()->createScreen( Math::MultiPointFactory::create2d<unsigned int>( winWidth, winHeight ) );
-		m_mainGrid = new CMainGrid();
-		EngineManager::getEngine()->registerKeyboardListener( this );
-		EngineManager::getEngine()->initialize();
-		m_mainGrid->SetSize( rowsCount, columnsCount );
+		mainGrid.reset( new CMainGrid() );
+        EngineManager::getEngine()->registerObserver( this );
+		mainGrid->SetSize( rowsCount, columnsCount );
+		StartGame();
 	}
 
 	void CGame::StartGame()
 	{
-		m_mainGrid->ReLeaseBrick();
+		mainGrid->ReLeaseBrick();
 	}
 
-	void CGame::keyboardEvent( KeyboardData* data )
+	void CGame::keyboardEvent( IKey* data )
 	{
-		if( "q" == data->getKeyName() && data->getKeyIsDown() )
+		std::string keyName = data->getKeyName();
+		std::transform( keyName.begin(), keyName.end(), keyName.begin(), ::tolower );
+		if( "q" == keyName && data->getKeyIsDown() )
 		{
 			m_quit = true;
 			return;
@@ -42,80 +44,30 @@ namespace Tetris
 		if( data->getKeyIsDown() )
 		{
 			std::cout << "Key " << data->getKeyName() << " is down." << std::endl;
-		}
-	}
-	/*
-	void CGame::userInputLoop()
-	{
-		SDL_Event event;
-		while( false == m_quit )
-		{
-			SDL_PollEvent( &event );
-		}
-		
-		while( false == m_quit )
-		{
-			while( SDL_PollEvent( &event ) )
+
+			if( "left" == keyName )
 			{
-				if( true == QuitHasBeenHit( event ) )
-				{
-					m_quit = true;
-				}
-				else if( IsKeyDown( event ) )
-				{
-					HandleKeys( event.key.keysym.sym );
-				}
+				mainGrid->MoveActualBrick( Math::Directions::L );
+			}
+			else if( "right" == keyName )
+			{
+				mainGrid->MoveActualBrick( Math::Directions::R );
+			}
+			else if( "down" == keyName )
+			{
+				mainGrid->MoveActualBrick( Math::Directions::D );
+			}
+			else if( "space" == keyName )
+			{
+				mainGrid->RotateActualBrick( true );
 			}
 		}
 	}
-	*/
-	//const bool CGame::IsKeyDown( const SDL_Event event )
-	//{
-	//	if( SDL_KEYDOWN == event.type )
-	//	{
-	//		return true;
-	//	}
-	//	return false;
-	//}
-
-	//void CGame::HandleKeys( SDL_Keycode sdlkey )
-	//{
-	//	if( SDLK_RIGHT == sdlkey )
-	//	{
-	//		m_mainGrid->MoveActualBrick( Moge::Math::Directions::R );
-	//	}
-	//	else if( SDLK_LEFT == sdlkey )
-	//	{
-	//		m_mainGrid->MoveActualBrick( Moge::Math::Directions::L );
-	//	}
-	//	else if( SDLK_DOWN == sdlkey )
-	//	{
-	//		m_mainGrid->MoveActualBrick( Moge::Math::Directions::D );
-	//	}
-	//	else if( SDLK_SPACE == sdlkey )
-	//	{
-	//		m_mainGrid->RotateActualBrick( true );
-	//	}
-	//}
-
 	void CGame::frontEndLoop()
 	{
 		while( false == m_quit )
 		{
-			m_mainGrid->updateGrid();
+			mainGrid->updateGrid();
 		}
 	}
-
-
-	//const bool CGame::QuitHasBeenHit( const SDL_Event event )
-	//{
-	//	if( 
-	//		SDL_QUIT == event.type || (
-	//			SDL_KEYDOWN == event.type &&
-	//			SDLK_q == event.key.keysym.sym ) )
-	//	{
-	//		return true;
-	//	}
-	//	return false;
-	//}
 }

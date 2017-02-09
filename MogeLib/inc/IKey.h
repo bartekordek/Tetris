@@ -1,6 +1,6 @@
 #pragma once
 
-#include <cstdint>
+#include <string>
 
 namespace Moge
 {
@@ -10,10 +10,10 @@ namespace Moge
 		IKey() = default;
 		virtual ~IKey() = default;
 
-		virtual void setKeyName( const char* keyName ) = 0;
-		virtual const char* getKeyName()const = 0;
-		virtual const bool keyIsDown()const = 0;
-		virtual void setKeyState( const bool isDown ) = 0;
+		virtual void setKeyName( const std::string& keyName ) = 0;
+		virtual const std::string& getKeyName()const = 0;
+		virtual const bool getKeyIsDown()const = 0;
+		virtual void setKeyIsDown( const bool isDown ) = 0;
 	protected:
 	private:
 		

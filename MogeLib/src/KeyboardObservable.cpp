@@ -24,7 +24,7 @@ namespace Moge
 	const bool KeyboardObservable::keyIsDown( const std::string& keyName ) const
 	{
 		const auto scanCode = static_cast<unsigned int>( SDL_GetScancodeFromName( keyName.c_str() ) );
-		return this->keys.at(scanCode)->keyIsDown();
+		return this->keys.at(scanCode)->getKeyIsDown();
 	}
 
 	void KeyboardObservable::poolLoop()
@@ -34,9 +34,7 @@ namespace Moge
 		while( true == this->runLoop )
 		{
 			this->quitMutex.unlock();
-			//auto waitResult = SDL_WaitEvent( &event )
 			auto waitResult = SDL_PollEvent( &event );
-			std::cout << "WAIT RESULT = " << waitResult << std::endl;
 			if( waitResult > 0 )
 			{
 				auto scancode = SDL_GetScancodeFromKey( event.key.keysym.sym );
@@ -45,8 +43,8 @@ namespace Moge
 					const bool keyIsDown = ( SDL_KEYDOWN == event.type ) ? true : false;
 					const auto keyIndex = static_cast<unsigned int>( scancode );
 					auto key = this->keys.at( keyIndex ); 
-					key->setKeyState( keyIsDown );
-					this->notifyObservers( nullptr );
+					key->setKeyIsDown( keyIsDown );
+					this->notifyKeyboardObservers( nullptr );
 				}
 			}
 			this->quitMutex.lock();

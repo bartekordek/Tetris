@@ -33,6 +33,7 @@ public:
 	static void destroy()
 	{
 		delete singletonInstance;
+		singletonInstance = nullptr;
 	}
 
 protected:

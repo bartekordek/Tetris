@@ -13,10 +13,10 @@ namespace Moge
 		virtual ~KeySDL();
 		KeySDL& operator=( const KeySDL& key );
 
-		void setKeyName( const char* keyName ) override;
-		const char* getKeyName()const override;
-		void setKeyState( const bool keyIsDown ) override;
-		const bool keyIsDown()const override;
+		void setKeyName( const std::string& keyName ) override;
+		const std::string& getKeyName()const override;
+		void setKeyIsDown( const bool keyIsDown ) override;
+		const bool getKeyIsDown()const override;
 	protected:
 	private:
 		std::string keyName;

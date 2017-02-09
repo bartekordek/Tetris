@@ -19,14 +19,26 @@ namespace Moge
 		return this->engine;
 	}
 
-	void IMogeApp::startApp()
+	void IMogeApp::run()
 	{
-		initialize();
+		this->frontEndLoopThread = std::thread( &IMogeApp::frontEndLoopWrapper, this );
+		this->engine->startMainLoop();
+		this->frontEndLoopThread.join();
+	}
+
+	void IMogeApp::frontEndLoopWrapper()
+	{
+		frontEndLoop();
+		this->engine->stopEventLoop();
+	}
+
+	void IMogeApp::stopApp()
+	{
+		
 	}
 
 	void IMogeApp::initialize()
 	{
-		this->engine->initialize();
+		
 	}
-
 }

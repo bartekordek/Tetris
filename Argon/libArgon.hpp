@@ -88,8 +88,16 @@ private:
 	std::vector< V3D > B;
 	std::vector< Atom > atom;
 	std::string outputFilename;
-	unsigned size1x, size3x, dimensions, loops, loopFrame;
-	double mass, elasticCoefficient, length, startTemp, tau;
+	unsigned size1x = 0;
+	unsigned size3x = 0; 
+	unsigned dimensions = 0;
+	unsigned loops = 0;
+	unsigned loopFrame = 0;
+	double mass = 0.0;
+	double elasticCoefficient = 0.0;
+	double length = 0.0;
+	double startTemp = 0.0;
+	double tau = 0.0;
 	static double BoltzmanConst;
 	static double a;
 	static double electronCharge;

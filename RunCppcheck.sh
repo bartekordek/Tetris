@@ -19,4 +19,9 @@ else
 fi
 
 find . -name '*.h' > HeaderList.txt
+find . -name '*.hpp' >> HeaderList.txt
+touch temp.txt
+cat HeaderList.txt | sort > temp.txt
+cat temp.txt > HeaderList.txt
+rm temp.txt
 find . -name '*.cpp' > SourceList.txt

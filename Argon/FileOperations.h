@@ -10,7 +10,7 @@ public:
 	virtual ~FileOperations();
 	void loadFile( const std::string& fileName );
 	const std::vector<std::string>& getLines()const;
-	static void write2File( const std::vector<std::string> lines, const std::string& outputFileName );
+	static void write2File( const std::vector<std::string>& lines, const std::string& outputFileName );
 
 private:
 	std::vector<std::string> lines;
