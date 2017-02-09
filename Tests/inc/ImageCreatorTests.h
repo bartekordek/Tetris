@@ -1,19 +1,13 @@
 #pragma once
 
-#include "gtest/gtest.h"
-
+#include "EngineTests.h"
 #include "FileSystem.h"
 
-class ImageCreatorTests: public ::testing::Test
+class ImageCreatorTests: public EngineTests
 {
 protected:
-	ImageCreatorTests()
-	{
-	}
-
-	virtual ~ImageCreatorTests()
-	{
-	}
+    ImageCreatorTests() = default;
+    virtual ~ImageCreatorTests() = default;
 
 	virtual void SetUp()
 	{
@@ -24,10 +18,7 @@ protected:
 	{
 	}
 
-	static void SetUpTestCase()
-	{
-		testBmpFile = Moge::Path::GetCurrentDirectory() + "\\..\\..\\Media\\BackGroundBlock.bmp";
-	}
-
+    static void SetUpTestCase();
 	static Moge::Path testBmpFile;
+
 };

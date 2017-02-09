@@ -1,6 +1,7 @@
 #include "NodeCreatorTests.h"
 #include "NodeCreator.h"
 
+
 TEST_F( NodeCreatorTests, BmpLoadTest )
 {
 	std::shared_ptr<Moge::ObjectNodeContent> node = Moge::NodeCreator::CreateFromImage( testBmpFile );

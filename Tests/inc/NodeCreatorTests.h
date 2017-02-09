@@ -1,18 +1,13 @@
 #pragma once
 
-#include "gtest/gtest.h"
+#include "EngineTests.h"
 #include <Filesystem.h>
 
-class NodeCreatorTests: public ::testing::Test
+class NodeCreatorTests: public EngineTests
 {
 protected:
-	NodeCreatorTests()
-	{
-	}
-
-	virtual ~NodeCreatorTests()
-	{
-	}
+    NodeCreatorTests() = default;
+	virtual ~NodeCreatorTests() = default;
 
 	virtual void SetUp()
 	{
