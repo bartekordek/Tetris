@@ -2,17 +2,17 @@
 
 #include <vector>
 
-class CTableCoor
+class MatrixPos
 {
 public:
-	CTableCoor() = default;
-	CTableCoor( const CTableCoor& tableCoord );
-	CTableCoor( const unsigned int row, const unsigned int column );
-	virtual ~CTableCoor() = default;
+	MatrixPos() = default;
+	MatrixPos( const MatrixPos& tableCoord );
+	MatrixPos( const unsigned int row, const unsigned int column );
+	virtual ~MatrixPos() = default;
 
-	CTableCoor& operator=( const CTableCoor& right );
-	CTableCoor operator+( const CTableCoor& right )const;
-	CTableCoor operator-( const CTableCoor& right )const;
+	MatrixPos& operator=( const MatrixPos& right );
+	MatrixPos operator+( const MatrixPos& right )const;
+	MatrixPos operator-( const MatrixPos& right )const;
 
     const unsigned int getRow()const;
     const unsigned int getCol()const;
@@ -25,4 +25,4 @@ private:
 	unsigned column = 0;
 };
 
-typedef std::vector<CTableCoor> CoordinatestList;
+typedef std::vector<MatrixPos> CoordinatestList;

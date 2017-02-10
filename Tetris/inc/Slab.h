@@ -22,7 +22,7 @@ public:
 	const Moge::ObjectNode& getNode()const;
 
 private:
-	CTableCoor position;
+	MatrixPos position;
 	bool empty = true;
 	Moge::ObjectNode node;
 };

@@ -3,7 +3,7 @@
 namespace Tetris
 {
 Slab::Slab( const unsigned int row, const unsigned int col, const bool empty ):
-	position( CTableCoor( row, col ) ),
+	position( MatrixPos( row, col ) ),
 	empty( empty )
 {
 }

@@ -39,6 +39,6 @@ namespace Tetris
 
 		Moge::Math::SquareMatrix2D<int> blockMatrix = Moge::Math::SquareMatrix2D<int>( 4 );
 		BrickTypes brickType = BrickTypes::T;
-		CTableCoor position;
+		MatrixPos position;
 	};
 }
