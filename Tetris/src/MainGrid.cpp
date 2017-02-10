@@ -166,19 +166,20 @@ const int CMainGrid::GetColOffset( const Moge::Math::Directions direction )const
 
 const int CMainGrid::GetRowOffset( const Moge::Math::Directions direction )const
 {
-	if( Moge::Math::Directions::U == direction )
+    using namespace Moge::Math;
+	if( Directions::U == direction )
 	{
 		return  0;
 	}
-	else if( Moge::Math::Directions::D == direction )
+	else if( Directions::D == direction )
 	{
 		return  1;
 	}
-	else if( Moge::Math::Directions::R == direction )
+	else if( Directions::R == direction )
 	{
 		return  0;
 	}
-	else if( Moge::Math::Directions::L == direction )
+	else if( Directions::L == direction )
 	{
 		return  0;
 	}
@@ -220,6 +221,7 @@ const bool CMainGrid::m_CheckIfBlockCanBePlaced( const Brick* brick )
 		{
 			return false;
 		}
+
 		if( false == SlabExist( it->getRow(), it->getCol() ) )
 		{
 			return false;
