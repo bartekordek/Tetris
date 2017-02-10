@@ -1,7 +1,6 @@
 #pragma once
 #include <MogeLib.h>
 #include "MyString.h"
-#include <Aliases.h>
 
 namespace Moge
 {

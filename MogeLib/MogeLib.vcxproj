@@ -199,11 +199,9 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="inc\Aliases.h" />
     <ClInclude Include="inc\ConsoleUtilities.h" />
     <ClInclude Include="inc\Engine.h" />
     <ClInclude Include="inc\FileSystem.h" />
-    <ClInclude Include="inc\GeneralUtilities.h" />
     <ClInclude Include="inc\IEngine.h" />
     <ClInclude Include="inc\IKeyboardObservable.h" />
     <ClInclude Include="inc\IKeyboardObserver.h" />
@@ -234,7 +232,6 @@
     <ClInclude Include="inc\Singleton.h" />
     <ClInclude Include="inc\Size.h" />
     <ClInclude Include="inc\SurfaceWrapper.h" />
-    <ClInclude Include="inc\TypesDeclarations.h" />
     <ClInclude Include="inc\Visible.h" />
     <ClInclude Include="RenderableObject\inc\RenderableObjectContainer.h" />
     <ClInclude Include="RenderableObject\RenderableObjectContainer.h" />
@@ -251,11 +248,9 @@
     <ClCompile Include="RenderableObject\RenderableObjectContainerImpl.cpp" />
     <ClCompile Include="Scene\Scene.cpp" />
     <ClCompile Include="Scene\SceneImpl.cpp" />
-    <ClCompile Include="src\Aliases.cpp" />
     <ClCompile Include="src\ConsoleUtilities.cpp" />
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\FileSystem.cpp" />
-    <ClCompile Include="src\GeneralUtilities.cpp" />
     <ClCompile Include="src\IKeyboardObservable.cpp" />
     <ClCompile Include="src\IKeyboardObserver.cpp" />
     <ClCompile Include="src\IKeyFactory.cpp" />
@@ -283,7 +278,6 @@
     <ClCompile Include="src\Singleton.cpp" />
     <ClCompile Include="src\Size.cpp" />
     <ClCompile Include="src\SurfaceWrapper.cpp" />
-    <ClCompile Include="src\TypesDeclarations.cpp" />
     <ClCompile Include="src\Visible.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

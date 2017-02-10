@@ -75,7 +75,7 @@ namespace Moge
             if( ( SDL_PollEvent( &event ) > 0) && 
                 ( event.type == SDL_KEYDOWN || event.type == SDL_KEYUP ) )
             {
-                auto scancode = SDL_GetScancodeFromKey( event.key.keysym.sym );
+                 auto scancode = SDL_GetScancodeFromKey( event.key.keysym.sym );
                 if( SDL_SCANCODE_UNKNOWN != scancode )
                 {
                     const bool keyIsDown = ( SDL_KEYDOWN == event.type ) ? true : false;

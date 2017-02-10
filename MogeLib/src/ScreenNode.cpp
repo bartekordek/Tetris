@@ -126,7 +126,7 @@ namespace Moge
 		FreeContent();
 	}
 
-	void ScreenNode::setResolution( const Math::MultiPoint<CUInt>& resolution )
+	void ScreenNode::setResolution( const Math::MultiPoint<const unsigned int>& resolution )
 	{
 	}
 

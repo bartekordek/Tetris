@@ -3,12 +3,12 @@
 
 namespace Moge
 {
-	void CTimeMod::SleepSeconds( CUInt seconds )
+	void CTimeMod::SleepSeconds( const unsigned int seconds )
 	{
 		SleepMiliSeconds( 1000 * seconds );
 	}
 
-	void CTimeMod::SleepMiliSeconds( CUInt mSeconds )
+	void CTimeMod::SleepMiliSeconds( const unsigned int mSeconds )
 	{
 		SDL_Delay( mSeconds );
 	}

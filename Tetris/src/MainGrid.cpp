@@ -35,13 +35,13 @@ void CMainGrid::updateGrid()
 	MoveActualBrick( Moge::Math::Directions::D );
 }
 
-void CMainGrid::SetSize( CUInt rowsCount, CUInt columnsCount, CUInt initialX, CUInt initialY )
+void CMainGrid::SetSize( const unsigned int rowsCount, const unsigned int columnsCount, const unsigned int initialX, const unsigned int initialY )
 {
 	slabsRows.erase( slabsRows.begin(), slabsRows.end() );
-	for( UInt row = 0; row < rowsCount; ++row )
+	for( unsigned int row = 0; row < rowsCount; ++row )
 	{
 		SlabRow rows;
-		for( UInt col = 0; col < columnsCount; ++col )
+		for( unsigned int col = 0; col < columnsCount; ++col )
 		{
 			Slab slab( row + initialY, col + initialX, true );
 			rows.push_back( slab );
@@ -81,7 +81,7 @@ void CMainGrid::AddBrick( const Brick* brick )
 	}
 }
 
-void CMainGrid::MarkSlabAsPartOfMovingBlock( CUInt row, CUInt col )
+void CMainGrid::MarkSlabAsPartOfMovingBlock( const unsigned int row, const unsigned int col )
 {
 	if( row >= slabsRows.size() || ( slabsRows.size() > 0 && col > slabsRows.at( 0 ).size() ) )
 	{
@@ -94,7 +94,7 @@ void CMainGrid::MarkSlabAsPartOfMovingBlock( CUInt row, CUInt col )
 	slabNode->SetSurface( filledSlabImage );
 }
 
-const bool CMainGrid::PartOfCurrentBrick( CUInt rowIndex, CUInt colIndex )const
+const bool CMainGrid::PartOfCurrentBrick( const unsigned int rowIndex, const unsigned int colIndex )const
 {
 	CoordinatestList coords = activeBrick->getBlockPositions();
 	for( auto it = coords.begin(); it != coords.end(); ++it )
@@ -120,8 +120,8 @@ const bool CMainGrid::checkIfBlockCanBeMoved( const Moge::Math::Directions direc
 {
 	for( auto& coord : activeBrick->getBlockPositions() )
 	{
-		CUInt newRow = coord.getRow() + GetRowOffset( direction );
-		CUInt newCol = coord.getCol() + GetColOffset( direction );
+		const unsigned int newRow = coord.getRow() + GetRowOffset( direction );
+		const unsigned int newCol = coord.getCol() + GetColOffset( direction );
 
 		if( newRow >= slabsRows.size() )
 		{
@@ -146,7 +146,7 @@ const bool CMainGrid::checkIfBlockCanBeMoved( const Moge::Math::Directions direc
 	return true;
 }
 
-CInt CMainGrid::GetColOffset( const Moge::Math::Directions direction )const
+const int CMainGrid::GetColOffset( const Moge::Math::Directions direction )const
 {
 	if( Moge::Math::Directions::U == direction || Moge::Math::Directions::D == direction )
 	{
@@ -164,7 +164,7 @@ CInt CMainGrid::GetColOffset( const Moge::Math::Directions direction )const
 	return -1;
 }
 
-CInt CMainGrid::GetRowOffset( const Moge::Math::Directions direction )const
+const int CMainGrid::GetRowOffset( const Moge::Math::Directions direction )const
 {
 	if( Moge::Math::Directions::U == direction )
 	{
@@ -238,7 +238,7 @@ const bool CMainGrid::m_CheckIfBlockCanBePlaced( const Brick* brick )
 	return true;
 }
 
-const bool CMainGrid::SlabExist( CUInt rowIndex, CUInt colIndex )const
+const bool CMainGrid::SlabExist( const unsigned int rowIndex, const unsigned int colIndex )const
 {
 	if( colIndex >= slabsRows.at( 0 ).size() || rowIndex >= slabsRows.size() )
 	{
@@ -305,7 +305,7 @@ void CMainGrid::MoveAllLinesOneLineDown( std::vector<SlabRow>::iterator rowItera
 		}
 	}
 
-	for( UInt j = 0; j < rowIterator->size(); ++j )
+	for( unsigned int j = 0; j < rowIterator->size(); ++j )
 	{
 		Slab& slab = slabsRows.at( 0 ).at( j );
 		slab.setEmpty( true );

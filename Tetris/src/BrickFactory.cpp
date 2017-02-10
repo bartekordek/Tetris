@@ -6,7 +6,7 @@ namespace Tetris
 {
 Brick* CBrickFactory::GetRandomBrick()
 {
-	srand( static_cast<UInt> ( time( nullptr ) ) );
+	srand( static_cast<unsigned int> ( time( nullptr ) ) );
 	unsigned int enumSize = static_cast<unsigned int>(BrickTypes::ITEMS_COUNT) - 1;
 	int randomNumber = rand() % enumSize;
 	BrickTypes brickType = static_cast<BrickTypes>( randomNumber );

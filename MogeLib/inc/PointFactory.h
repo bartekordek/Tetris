@@ -9,9 +9,9 @@ namespace Moge
 		double1D = 1,
 		double2D,
 		double3D,
-		uInt1D,
-		uInt2D,
-		uInt3D,
+		unsigned int1D,
+		unsigned int2D,
+		unsigned int3D,
 		int1D,
 		int2D,
 		int3D

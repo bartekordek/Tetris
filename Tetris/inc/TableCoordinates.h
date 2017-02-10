@@ -2,25 +2,23 @@
 
 #include <vector>
 
-#include "Aliases.h"
-
 class CTableCoor
 {
 public:
-	CTableCoor();
+	CTableCoor() = default;
 	CTableCoor( const CTableCoor& tableCoord );
-	CTableCoor( CUInt row, CUInt column );
-	virtual ~CTableCoor();
+	CTableCoor( const unsigned int row, const unsigned int column );
+	virtual ~CTableCoor() = default;
 
 	CTableCoor& operator=( const CTableCoor& right );
 	CTableCoor operator+( const CTableCoor& right )const;
 	CTableCoor operator-( const CTableCoor& right )const;
 
-	CUInt getRow()const;
-	CUInt getCol()const;
-	void setRow( CUInt row );
-	void setCol( CUInt col );
-	void changePosition( CUInt row, CUInt col );
+    const unsigned int getRow()const;
+    const unsigned int getCol()const;
+	void setRow( const unsigned int row );
+	void setCol( const unsigned int col );
+	void changePosition( const unsigned int row, const unsigned int col );
 
 private:
 	unsigned row = 0;

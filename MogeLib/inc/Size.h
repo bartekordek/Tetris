@@ -1,7 +1,6 @@
 #pragma once
 
 #include <MogeLib.h>
-#include "Aliases.h"
 
 namespace Moge
 {
@@ -56,7 +55,7 @@ namespace Moge
 			mHeight = height;
 		}
 
-		void SetWH( CUInt width, CUInt height )
+		void SetWH( const unsigned int width, const unsigned int height )
 		{
 			mWidth = width;
 			mHeight = height;
