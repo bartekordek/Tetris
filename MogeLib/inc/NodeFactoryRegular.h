@@ -1,6 +1,7 @@
 #pragma once
 
 #include "INodeFactory.h"
+#include <set>
 
 namespace Moge
 {
