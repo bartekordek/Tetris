@@ -242,6 +242,7 @@
     <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="Scene\SceneImpl.h" />
     <ClInclude Include="src\IKeyboardData.h" />
+    <ClInclude Include="src\IKeyboardObservableImp.h" />
     <ClInclude Include="src\IObservableImpl.h" />
     <ClInclude Include="src\KeySDL.h" />
   </ItemGroup>
@@ -253,6 +254,7 @@
     <ClCompile Include="src\ConsoleUtilities.cpp" />
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\File.cpp" />
+    <ClCompile Include="src\IKeyboardObservableImp.cpp" />
     <ClCompile Include="src\MyString.cpp" />
     <ClCompile Include="src\Path.cpp" />
     <ClCompile Include="src\IKeyboardObservable.cpp" />

@@ -156,6 +156,9 @@
     <ClInclude Include="inc\MyString.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\IKeyboardObservableImp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ConsoleUtilities.cpp">
@@ -267,6 +270,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\MyString.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\IKeyboardObservableImp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
