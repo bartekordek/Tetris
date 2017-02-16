@@ -18,6 +18,13 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="inc\libArgon.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\libArgon.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{CEA4E094-E37F-4C68-9AB5-046899B7960F}</ProjectGuid>
     <RootNamespace>Argon</RootNamespace>
@@ -95,7 +102,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
-      <AdditionalIncludeDirectories>..\MogeLib\inc</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>inc;..\MogeLib\inc</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
     </ClCompile>
     <PostBuildEvent>
@@ -115,7 +122,7 @@ endlocal</Command>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
-      <AdditionalIncludeDirectories>..\MogeLib\inc</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>inc;..\MogeLib\inc</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
     </ClCompile>
     <PostBuildEvent>
@@ -138,7 +145,7 @@ endlocal</Command>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <DebugInformationFormat>None</DebugInformationFormat>
-      <AdditionalIncludeDirectories>..\MogeLib\inc</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>inc;..\MogeLib\inc</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -165,7 +172,7 @@ endlocal</Command>
       <DebugInformationFormat>None</DebugInformationFormat>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <OmitFramePointers>true</OmitFramePointers>
-      <AdditionalIncludeDirectories>..\MogeLib\inc</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>inc;..\MogeLib\inc</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -180,15 +187,6 @@ IF NOT EXIST "$(LocalDebuggerWorkingDirectory)" mkdir  "$(LocalDebuggerWorkingDi
 endlocal</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="FileOperations.cpp" />
-    <ClCompile Include="libArgon.cpp" />
-    <ClCompile Include="main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="FileOperations.h" />
-    <ClInclude Include="libArgon.hpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
