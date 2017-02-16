@@ -4,7 +4,7 @@
 
 #include "Node.h"
 #include "Visible.h"
-#include "FileSystem.h"
+#include "Path.h"
 #include "SurfaceWrapper.h"
 #include "MultiPointFactory.h"
 #include "Scale.h"

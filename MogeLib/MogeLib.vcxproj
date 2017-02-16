@@ -201,7 +201,9 @@
   <ItemGroup>
     <ClInclude Include="inc\ConsoleUtilities.h" />
     <ClInclude Include="inc\Engine.h" />
-    <ClInclude Include="inc\FileSystem.h" />
+    <ClInclude Include="inc\File.h" />
+    <ClInclude Include="inc\MyString.h" />
+    <ClInclude Include="inc\Path.h" />
     <ClInclude Include="inc\IEngine.h" />
     <ClInclude Include="inc\IKeyboardObservable.h" />
     <ClInclude Include="inc\IKeyboardObserver.h" />
@@ -250,7 +252,9 @@
     <ClCompile Include="Scene\SceneImpl.cpp" />
     <ClCompile Include="src\ConsoleUtilities.cpp" />
     <ClCompile Include="src\Engine.cpp" />
-    <ClCompile Include="src\FileSystem.cpp" />
+    <ClCompile Include="src\File.cpp" />
+    <ClCompile Include="src\MyString.cpp" />
+    <ClCompile Include="src\Path.cpp" />
     <ClCompile Include="src\IKeyboardObservable.cpp" />
     <ClCompile Include="src\IKeyboardObserver.cpp" />
     <ClCompile Include="src\IKeyFactory.cpp" />

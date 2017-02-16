@@ -27,9 +27,6 @@
     <ClInclude Include="inc\Engine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\FileSystem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\KeyboardObservable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -150,15 +147,21 @@
     <ClInclude Include="inc\NodeFactoryRegular.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\File.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Path.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\MyString.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ConsoleUtilities.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\FileSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\KeyboardObservable.cpp">
@@ -255,6 +258,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\NodeFactoryRegular.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\File.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Path.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MyString.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -9,7 +9,7 @@
 
 #include "MultiPoint.h"
 #include "Singleton.h"
-#include "FileSystem.h"
+#include "Path.h"
 #include "ObjectNode.h"
 #include "ScreenNode.h"
 #include "IKeyboardObservable.h"
@@ -17,7 +17,7 @@
 
 namespace Moge
 {
-	class MogeLib_API IKeyboardObservable;
+	class IKeyboardObservable;
 	class IKeyboardObserver;
     class IKeyboardData;
     class IKey;
@@ -49,8 +49,8 @@ namespace Moge
 		std::mutex mRenderableObjectsMutex;
 		std::mutex mListMutex;
 		std::thread mainLoop;
-		std::atomic<bool> mainLoopIsRuning = true;
-		std::atomic<bool> eventLoopActive = true;
+		std::atomic<bool> mainLoopIsRuning = {true};
+		std::atomic<bool> eventLoopActive = { true };
 		unsigned int mFrameCount = 0;
 
         const uint8_t* sdlKey = nullptr;
