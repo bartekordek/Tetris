@@ -1,24 +1,31 @@
 #include "IKeyboardObservable.h"
 #include "IKeyboardObserver.h"
+#include "IKeyboardObservableImp.h"
 
 namespace Moge
 {
+	IKeyboardObservable::IKeyboardObservable()
+	{
+		this->impl =  new IKeyboardObservableImp();
+	}
+
+	IKeyboardObservable::~IKeyboardObservable()
+	{
+		delete this->impl;
+	}
+
 	void IKeyboardObservable::notifyKeyboardObservers( IKey* data )
 	{
-		for( IObserver* observer: this->observers )
-		{
-			IKeyboardObserver* keyboardObserver = static_cast<IKeyboardObserver*>( observer );
-			keyboardObserver->keyboardEvent( data );
-		}
+		this->impl->notifyKeyboardObservers( data );
 	}
 
     void IKeyboardObservable::registerObserver( IKeyboardObserver* observer )
     {
-        this->observers.insert( observer );
+		this->impl->registerObserver( observer );
     }
 
     void IKeyboardObservable::unregisterObserver( IKeyboardObserver* observer )
     {
-        this->observers.erase( observer );
+        this->impl->unregisterObserver( observer );
     }
 }
