@@ -68,6 +68,7 @@ clear:
 	rm -f $(OUTPUT_RELEASE)
 
 clear_all:
+	make clear
 	find . -name '*.o' | xargs rm
 
 test:
