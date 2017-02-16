@@ -17,7 +17,6 @@
 
 namespace Moge
 {
-	class IKeyboardObservable;
 	class IKeyboardObserver;
     class IKeyboardData;
     class IKey;
