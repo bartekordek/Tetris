@@ -235,7 +235,6 @@
     <ClInclude Include="inc\Size.h" />
     <ClInclude Include="inc\SurfaceWrapper.h" />
     <ClInclude Include="inc\Visible.h" />
-    <ClInclude Include="RenderableObject\inc\RenderableObjectContainer.h" />
     <ClInclude Include="RenderableObject\RenderableObjectContainer.h" />
     <ClInclude Include="RenderableObject\RenderableObjectContainerImpl.h" />
     <ClInclude Include="RenderableObject\src\RenderableObjectContainerImpl.h" />

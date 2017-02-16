@@ -63,9 +63,6 @@
     <ClInclude Include="inc\MTime.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RenderableObject\inc\RenderableObjectContainer.h">
-      <Filter>RenderableObject</Filter>
-    </ClInclude>
     <ClInclude Include="RenderableObject\src\RenderableObjectContainerImpl.h">
       <Filter>RenderableObject</Filter>
     </ClInclude>
