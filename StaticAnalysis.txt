@@ -1,24 +1,25 @@
-[Argon/libArgon.cpp:164]: (performance) Variable 'outputFilename' is assigned in constructor body. Consider performing initialization in initialization list.
-[Argon/libArgon.hpp:18]: (style) Class 'V3D' has a constructor with 1 argument that is not explicit.
-[Argon/libArgon.hpp:49]: (style) Class 'Atom' has a constructor with 1 argument that is not explicit.
-[Argon/libArgon.hpp:62]: (style) Class 'Argon' has a constructor with 1 argument that is not explicit.
-[/cygdrive/c/Dev/Tetris/Argon/libArgon.cpp:164]: (performance) Variable 'outputFilename' is assigned in constructor body. Consider performing initialization in initialization list.
-[/cygdrive/c/Dev/Tetris/Argon/libArgon.hpp:18]: (style) Class 'V3D' has a constructor with 1 argument that is not explicit.
-[/cygdrive/c/Dev/Tetris/Argon/libArgon.hpp:49]: (style) Class 'Atom' has a constructor with 1 argument that is not explicit.
-[/cygdrive/c/Dev/Tetris/Argon/libArgon.hpp:62]: (style) Class 'Argon' has a constructor with 1 argument that is not explicit.
-[/cygdrive/c/Dev/Tetris/MogeLib/src/FileSystem.cpp:107]: (style) The function 'GetDirectorySeparator' is never used.
-[/cygdrive/c/Dev/Tetris/MogeLib/src/FileSystem.cpp:112]: (style) The function 'GetExtensionSeparator' is never used.
-[/cygdrive/c/Dev/Tetris/String/src/MyString.cpp:58]: (style) The function 'Replace' is never used.
+[Argon/inc/libArgon.hpp:18]: (style) Class 'V3D' has a constructor with 1 argument that is not explicit.
+[Argon/inc/libArgon.hpp:50]: (style) Class 'Atom' has a constructor with 1 argument that is not explicit.
+[Argon/inc/libArgon.hpp:63]: (style) Class 'Argon' has a constructor with 1 argument that is not explicit.
+[Argon/src/libArgon.cpp:158]: (performance) Variable 'outputFilename' is assigned in constructor body. Consider performing initialization in initialization list.
+[MogeLib/inc/IKeyboardObservable.h:10]: (style) class 'IKeyboardObservable' does not have a copy constructor which is recommended since the class contains a pointer to allocated memory.
+[/cygdrive/c/Dev/Tetris/Argon/src/libArgon.cpp:158]: (performance) Variable 'outputFilename' is assigned in constructor body. Consider performing initialization in initialization list.
+[/cygdrive/c/Dev/Tetris/MogeLib/src/Path.cpp:111]: (style) The function 'GetDirectorySeparator' is never used.
+[/cygdrive/c/Dev/Tetris/MogeLib/src/Path.cpp:116]: (style) The function 'GetExtensionSeparator' is never used.
+[/cygdrive/c/Dev/Tetris/MogeLib/src/MyString.cpp:58]: (style) The function 'Replace' is never used.
+[/cygdrive/c/Dev/Tetris/Tests/src/EngineTests.cpp:16]: (style) The function 'SetUpTestCase' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/MTime.cpp:6]: (style) The function 'SleepSeconds' is never used.
+[/cygdrive/c/Dev/Tetris/Tests/src/EngineTests.cpp:21]: (style) The function 'TearDownTestCase' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/ScreenNode.cpp:133]: (style) The function 'UpdateImplementation' is never used.
-[/cygdrive/c/Dev/Tetris/Tetris/src/TableCoordinates.cpp:61]: (style) The function 'changePosition' is never used.
-[/cygdrive/c/Dev/Tetris/Argon/libArgon.cpp:70]: (style) The function 'getAxisValue' is never used.
+[/cygdrive/c/Dev/Tetris/Tetris/src/TableCoordinates.cpp:53]: (style) The function 'changePosition' is never used.
+[/cygdrive/c/Dev/Tetris/Argon/src/libArgon.cpp:72]: (style) The function 'getAxisValue' is never used.
 [/cygdrive/c/Dev/Tetris/Tetris/src/Brick.cpp:21]: (style) The function 'getBlockType' is never used.
+[/cygdrive/c/Dev/Tetris/MogeLib/src/File.cpp:39]: (style) The function 'getContents' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:171]: (style) The function 'getScale' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:176]: (style) The function 'getXscale' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:181]: (style) The function 'getYscale' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:186]: (style) The function 'getZscale' is never used.
-[/cygdrive/c/Dev/Tetris/MogeLib/src/FileSystem.cpp:183]: (style) The function 'operator+' is never used.
+[/cygdrive/c/Dev/Tetris/MogeLib/src/MyString.cpp:80]: (style) The function 'operator+' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:98]: (style) The function 'setDepth' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/ScreenNode.cpp:129]: (style) The function 'setResolution' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:148]: (style) The function 'setScale' is never used.
@@ -31,5 +32,4 @@
 [/cygdrive/c/Dev/Tetris/MogeLib/src/ObjectNode.cpp:166]: (style) The function 'setZscale' is never used.
 [/cygdrive/c/Dev/Tetris/Tetris/src/Brick.cpp:37]: (style) The function 'slab2Matrix' is never used.
 [/cygdrive/c/Dev/Tetris/MogeLib/src/IMogeApp.cpp:35]: (style) The function 'stopApp' is never used.
-[/cygdrive/c/Dev/Tetris/MogeLib/src/IKeyboardObservable.cpp:20]: (style) The function 'unregisterObserver' is never used.
 (information) Cppcheck cannot find all the include files (use --check-config for details)
