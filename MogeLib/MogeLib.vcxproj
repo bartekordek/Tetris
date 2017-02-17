@@ -199,16 +199,17 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="inc\Aliases.h" />
     <ClInclude Include="inc\ConsoleUtilities.h" />
     <ClInclude Include="inc\Engine.h" />
-    <ClInclude Include="inc\FileSystem.h" />
-    <ClInclude Include="inc\GeneralUtilities.h" />
+    <ClInclude Include="inc\File.h" />
+    <ClInclude Include="inc\MyString.h" />
+    <ClInclude Include="inc\Path.h" />
     <ClInclude Include="inc\IEngine.h" />
     <ClInclude Include="inc\IKeyboardObservable.h" />
     <ClInclude Include="inc\IKeyboardObserver.h" />
     <ClInclude Include="inc\IKeyFactory.h" />
     <ClInclude Include="inc\INodeCreator.h" />
+    <ClInclude Include="inc\INodeFactory.h" />
     <ClInclude Include="inc\IObservable.h" />
     <ClInclude Include="inc\IObservableData.h" />
     <ClInclude Include="inc\IObserver.h" />
@@ -223,9 +224,8 @@
     <ClInclude Include="inc\MTime.h" />
     <ClInclude Include="inc\Named.h" />
     <ClInclude Include="inc\Node.h" />
-    <ClInclude Include="inc\NodeCreator.h" />
+    <ClInclude Include="inc\NodeFactoryRegular.h" />
     <ClInclude Include="inc\NodeImageCreator.h" />
-    <ClInclude Include="inc\NodeMgr.h" />
     <ClInclude Include="inc\ObjectNode.h" />
     <ClInclude Include="inc\PointFactory.h" />
     <ClInclude Include="inc\Scale.h" />
@@ -233,15 +233,13 @@
     <ClInclude Include="inc\Singleton.h" />
     <ClInclude Include="inc\Size.h" />
     <ClInclude Include="inc\SurfaceWrapper.h" />
-    <ClInclude Include="inc\TypesDeclarations.h" />
     <ClInclude Include="inc\Visible.h" />
-    <ClInclude Include="RenderableObject\inc\RenderableObjectContainer.h" />
     <ClInclude Include="RenderableObject\RenderableObjectContainer.h" />
     <ClInclude Include="RenderableObject\RenderableObjectContainerImpl.h" />
-    <ClInclude Include="RenderableObject\src\RenderableObjectContainerImpl.h" />
     <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="Scene\SceneImpl.h" />
     <ClInclude Include="src\IKeyboardData.h" />
+    <ClInclude Include="src\IKeyboardObservableImp.h" />
     <ClInclude Include="src\IObservableImpl.h" />
     <ClInclude Include="src\KeySDL.h" />
   </ItemGroup>
@@ -250,15 +248,17 @@
     <ClCompile Include="RenderableObject\RenderableObjectContainerImpl.cpp" />
     <ClCompile Include="Scene\Scene.cpp" />
     <ClCompile Include="Scene\SceneImpl.cpp" />
-    <ClCompile Include="src\Aliases.cpp" />
     <ClCompile Include="src\ConsoleUtilities.cpp" />
     <ClCompile Include="src\Engine.cpp" />
-    <ClCompile Include="src\FileSystem.cpp" />
-    <ClCompile Include="src\GeneralUtilities.cpp" />
+    <ClCompile Include="src\File.cpp" />
+    <ClCompile Include="src\IKeyboardObservableImp.cpp" />
+    <ClCompile Include="src\MyString.cpp" />
+    <ClCompile Include="src\Path.cpp" />
     <ClCompile Include="src\IKeyboardObservable.cpp" />
     <ClCompile Include="src\IKeyboardObserver.cpp" />
     <ClCompile Include="src\IKeyFactory.cpp" />
     <ClCompile Include="src\INodeCreator.cpp" />
+    <ClCompile Include="src\INodeFactory.cpp" />
     <ClCompile Include="src\IObservable.cpp" />
     <ClCompile Include="src\IObservableData.cpp" />
     <ClCompile Include="src\IObservableImpl.cpp" />
@@ -272,16 +272,14 @@
     <ClCompile Include="src\MTime.cpp" />
     <ClCompile Include="src\Named.cpp" />
     <ClCompile Include="src\Node.cpp" />
-    <ClCompile Include="src\NodeCreator.cpp" />
+    <ClCompile Include="src\NodeFactoryRegular.cpp" />
     <ClCompile Include="src\NodeImageCreator.cpp" />
-    <ClCompile Include="src\NodeMgr.cpp" />
     <ClCompile Include="src\ObjectNode.cpp" />
     <ClCompile Include="src\Scale.cpp" />
     <ClCompile Include="src\ScreenNode.cpp" />
     <ClCompile Include="src\Singleton.cpp" />
     <ClCompile Include="src\Size.cpp" />
     <ClCompile Include="src\SurfaceWrapper.cpp" />
-    <ClCompile Include="src\TypesDeclarations.cpp" />
     <ClCompile Include="src\Visible.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -17,16 +17,16 @@ namespace Tetris
 	{
 	}
 
-	void CGame::initialize( CUInt rowsCount, CUInt columnsCount, CUInt winWidth, CUInt winHeight )
+	void CGame::initialize( const unsigned int rowsCount, const unsigned int columnsCount, const unsigned int winWidth, const unsigned int winHeight )
 	{
 		EngineManager::getEngine()->createScreen( Math::MultiPointFactory::create2d<unsigned int>( winWidth, winHeight ) );
 		mainGrid.reset( new CMainGrid() );
         EngineManager::getEngine()->registerObserver( this );
 		mainGrid->SetSize( rowsCount, columnsCount );
-		StartGame();
+		startGame();
 	}
 
-	void CGame::StartGame()
+	void CGame::startGame()const
 	{
 		mainGrid->ReLeaseBrick();
 	}

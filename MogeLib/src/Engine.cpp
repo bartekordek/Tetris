@@ -1,5 +1,5 @@
 #include "Engine.h"
-#include "NodeCreator.h"
+#include "NodeFactoryRegular.h"
 #include "IPositionAdapter.h"
 #include "KeyboardObservable.h"
 #include "IKeyboardObserver.h"
@@ -14,6 +14,7 @@ namespace Moge
         this->sdlKey = SDL_GetKeyboardState( nullptr );
         this->keyFactory.reset( new KeyFactorySDL() );
         this->keys = this->keyFactory->createKeys();
+        this->nodeFactory.reset( new NodeFactoryRegular() );
 	}
 
 	Engine::~Engine()
@@ -26,14 +27,14 @@ namespace Moge
 	void Engine::createScreen( const Math::MultiPoint<unsigned int>& resolution )
 	{
 		std::lock_guard<std::mutex> lck( mListMutex );
-		mScreenBuffor = NodeCreator::CreateScreen( resolution );
+		mScreenBuffor = nodeFactory->CreateScreen( resolution );
 		mScreenBuffor->initialize();
 	}
 
 	void Engine::AddObject( const Path& filePath, const Math::MultiPoint<int>& position, const MyString& name )
 	{
 		Math::IPositionAdapter<int> positionAdapter( position );
-		ObjectNode newNode = NodeCreator::CreateFromImage( filePath, positionAdapter, name );
+		ObjectNode newNode = nodeFactory->CreateFromImage( filePath, positionAdapter, name );
 		AddObject( newNode, name );
 	}
 
@@ -47,6 +48,11 @@ namespace Moge
 	{
 		return this->mScreenBuffor;
 	}
+
+    INodeFactory* Engine::getNodeFactory()
+    {
+        return this->nodeFactory.get();
+    }
 
 	void Engine::startMainLoop()
 	{

@@ -2,8 +2,8 @@
 
 namespace Tetris
 {
-Slab::Slab( CUInt row, CUInt col, const bool empty ):
-	position( CTableCoor( row, col ) ),
+Slab::Slab( const unsigned int row, const unsigned int col, const bool empty ):
+	position( MatrixPos( row, col ) ),
 	empty( empty )
 {
 }
@@ -29,22 +29,22 @@ Slab& Slab::operator=( const Slab& slab )
 	return *this;
 }
 
-CUInt Slab::row()const
+const unsigned int Slab::row()const
 {
 	return position.getRow();
 }
 
-void Slab::row( CUInt row )
+void Slab::row( const unsigned int row )
 {
 	position.setRow( row );
 }
 
-void Slab::col( CUInt col )
+void Slab::col( const unsigned int col )
 {
 	position.setCol( col );
 }
 
-CUInt Slab::col()const
+const unsigned int Slab::col()const
 {
 	return position.getCol();
 }

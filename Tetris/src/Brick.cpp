@@ -64,7 +64,7 @@ namespace Tetris
 			{
 				if( True == this->blockMatrix( rowIndex, colIndex ) )
 				{
-					positions.push_back( CTableCoor( rowIndex, colIndex ) + this->position );
+					positions.push_back( MatrixPos( rowIndex, colIndex ) + this->position );
 				}
 			}
 		}

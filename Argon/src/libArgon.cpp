@@ -1,5 +1,5 @@
 ﻿#include "libArgon.hpp"
-#include "FileOperations.h"
+#include "File.h"
 
 #include <iostream>
 #include <iomanip> 
@@ -8,10 +8,6 @@
 V3D::V3D( const double values ): val{ values, values, values }
 {
 	calcMod();
-}
-
-V3D::V3D()
-{
 }
 
 V3D::V3D( const double x, const double y, const double z ): val{ x, y, z }
@@ -25,10 +21,6 @@ V3D::V3D( const V3D& v3d )
 	this->val[1] = v3d.val[1];
 	this->val[2] = v3d.val[2];
 	m_mod = v3d.m_mod;
-}
-
-V3D::~V3D()
-{
 }
 
 V3D& V3D::operator=( const V3D& v3d )
@@ -49,6 +41,16 @@ double V3D::operator-( const V3D& v3d )const
 	const double dy2 = std::pow( this->val[1] - v3d.val[1], 2 );
 	const double dz2 = std::pow( this->val[2] - v3d.val[2], 2 );
 	return std::sqrt( dx2 + dy2 + dz2 );
+}
+
+V3D& V3D::operator+=( const V3D& v3d )
+{
+	for( unsigned int i = 0; i < 3; ++i )
+	{
+		this->val[i] = this->val[i] + v3d.val[i];
+	}
+	calcMod();
+	return *this;
 }
 
 void V3D::calcMod()
@@ -87,7 +89,7 @@ const double V3D::GetZ()const
 	return this->val[static_cast<const unsigned long>( Axis::Z )];
 }
 
-const double V3D::GetMod()const
+const double V3D::mod()const
 {
 	return m_mod;
 }
@@ -108,10 +110,6 @@ void V3D::SetZ( const double z )
 {
 	this->val[static_cast<const unsigned long>( Axis::Z )] = z;
 	calcMod();
-}
-
-Atom::Atom()
-{
 }
 
 Atom::Atom( const double val ):
@@ -151,20 +149,14 @@ Atom& Atom::operator=( const Atom& atom )
 	return *this;
 }
 
-Atom::~Atom()
-{
-}
-
 double Argon::BoltzmanConst = 0.0;
 double Argon::a = 0.0;
 double Argon::electronCharge = 0.0;
 
-Argon::Argon( const std::string& fileName ): m_fileName( fileName ), P( 0.0 ), KE( 0.0 )
-{
-	outputFilename = "Out.dat";
-}
-
-Argon::~Argon()
+Argon::Argon( const std::string& dataFname, const std::string& outputFname ): 
+	m_fileName( dataFname ), 
+	outputFilename( outputFname ), 
+	P( 0.0 ), KE( 0.0 )
 {
 }
 
@@ -200,28 +192,30 @@ double Argon::RanD()
 	return ( rand())*1.0/( RAND_MAX );
 }
 
+
 const bool Argon::InitializeVariables( const std::string& filename )
 {
-	FileOperations file;
-	file.loadFile( filename );
-    if( file.getLines().size() < 1 )
-    {
-        std::cerr << "Could not open file " << filename << "." << std::endl;
+	Moge::File file;
+	file.loadFile( Moge::Path( filename ) );
+    if( file.isEmpty() )
+	{
+		const std::string errorTxt = "Could not open file " + filename + ".\n";
+        std::cerr << errorTxt;
         return false;
     }
 	std::cout<< "InitializeVariables()"<< std::endl;
 	dimensions = 3;
-	size1x 					= atoi( file.getLines()[1].c_str());
-	mass					= atof( file.getLines()[3].c_str());
-	electronCharge			= atof( file.getLines()[5].c_str());
-	BoltzmanConst			= atof( file.getLines()[7].c_str());
-	elasticCoefficient 		= atoi( file.getLines()[9].c_str());
-	length 					= atof( file.getLines()[11].c_str());
-	a 						= atof( file.getLines()[13].c_str());
-	startTemp 				= atof( file.getLines()[15].c_str());
-	tau 					= atof( file.getLines()[17].c_str());
-	loops 					= atoi( file.getLines()[19].c_str());
-	loopFrame				= atoi( file.getLines()[21].c_str());
+	size1x 					= atoi( file.getLine(1).c_str());
+	mass					= atof( file.getLine(3).c_str());
+	electronCharge			= atof( file.getLine(5).c_str());
+	BoltzmanConst			= atof( file.getLine(7).c_str());
+	elasticCoefficient 		= atoi( file.getLine(9).c_str());
+	length 					= atof( file.getLine(11).c_str());
+	a 						= atof( file.getLine(13).c_str());
+	startTemp 				= atof( file.getLine(15).c_str());
+	tau 					= atof( file.getLine(17).c_str());
+	loops 					= atoi( file.getLine(19).c_str());
+	loopFrame				= atoi( file.getLine(21).c_str());
 	size3x 					= size1x * size1x * size1x;
 	B.resize(dimensions);
 	B[0]=V3D(a, 		0.0, 0.0);
@@ -247,26 +241,26 @@ const bool Argon::InitializeVariables( const std::string& filename )
 void Argon::SetPositions()
 {
 	unsigned i=0;
-	for( unsigned x = 0; x < size1x; ++x )
+	for( unsigned xIndex = 0; xIndex < size1x; ++xIndex )
 	{
-		for( unsigned y = 0; y < size1x; ++y )
+		for( unsigned yIndex = 0; yIndex < size1x; ++yIndex )
 		{
-			for( unsigned z = 0; z < size1x; ++z )
+			for( unsigned zIndex = 0; zIndex < size1x; ++zIndex )
 			{
 				atom[i].R.SetX(
-							(x - 0.5*( size1x - 1 ))*B[0].GetX() +
-							(y - 0.5*( size1x - 1 ))*B[1].GetX() +
-							(z - 0.5*( size1x - 1 ))*B[2].GetX()
+							(xIndex - 0.5*( size1x - 1 ))*B[0].GetX() +
+							(yIndex - 0.5*( size1x - 1 ))*B[1].GetX() +
+							(zIndex - 0.5*( size1x - 1 ))*B[2].GetX()
 						);
 				atom[i].R.SetY(
-							(x - 0.5*( size1x - 1 ))*B[0].GetY() +
-							(y - 0.5*( size1x - 1 ))*B[1].GetY() +
-							(z - 0.5*( size1x - 1 ))*B[2].GetY()
+							(xIndex - 0.5*( size1x - 1 ))*B[0].GetY() +
+							(yIndex - 0.5*( size1x - 1 ))*B[1].GetY() +
+							(zIndex - 0.5*( size1x - 1 ))*B[2].GetY()
 						);
 				atom[i].R.SetZ(
-							(x - 0.5*( size1x - 1 ))*B[0].GetZ() +
-							(y - 0.5*( size1x - 1 ))*B[1].GetZ() +
-							(z - 0.5*( size1x - 1 ))*B[2].GetZ()
+							(xIndex - 0.5*( size1x - 1 ))*B[0].GetZ() +
+							(yIndex - 0.5*( size1x - 1 ))*B[1].GetZ() +
+							(zIndex - 0.5*( size1x - 1 ))*B[2].GetZ()
 						);
 				++i;
 			}		
@@ -298,7 +292,7 @@ void Argon::CalcMomKin()
 			atom[ i ].P.GetX() / ( 2.0*mass ),
 			atom[ i ].P.GetY() / ( 2.0*mass ),
 			atom[ i ].P.GetZ() / ( 2.0*mass ) );
-		startTemp += atom[i].KE.GetMod(); 
+		startTemp += atom[i].KE.mod(); 
 	}
 	CalcForces();
 }
@@ -322,33 +316,10 @@ void Argon::CalcMom()
 {
 	for( unsigned i=0; i<size3x; ++i )
 	{
-		if( RanD() >= 0.5 )
+		for( unsigned int i = 0; i < static_cast<unsigned int>( Axis::SIZE ); ++i )
 		{
-			atom[ i ].P.SetX( -sqrt( 2.0*mass*atom[ i ].KE.GetX() ) );
+			atom[i].P.SetX( ( RanD() >= 0.5 )?(-1):1 * sqrt( 2.0*mass*atom[i].KE.GetX() ) );
 		}
-		else
-		{
-			atom[ i ].P.SetX( sqrt( 2.0*mass*atom[ i ].KE.GetX() ) );
-		}
-
-		if( RanD() >= 0.5 )
-		{
-			atom[ i ].P.SetY( -sqrt( 2.0*mass*atom[ i ].KE.GetY() ) );
-		}
-		else
-		{
-			atom[ i ].P.SetY( sqrt( 2.0*mass*atom[ i ].KE.GetY() ) );
-		}
-
-		if( RanD() >= 0.5 )
-		{
-			atom[ i ].P.SetY( -sqrt( 2.0*mass*atom[ i ].KE.GetY() ) );
-		}
-		else
-		{
-			atom[ i ].P.SetY( sqrt( 2.0*mass*atom[ i ].KE.GetY() ) );
-		}
-
 		P.SetX( P.GetX() + atom[ i ].P.GetX() );
 		P.SetY( P.GetY() + atom[ i ].P.GetY() );
 		P.SetZ( P.GetZ() + atom[ i ].P.GetZ() );
@@ -385,11 +356,12 @@ void Argon::CalcForces()
 {
 	for( unsigned i = 0; i<size3x; ++i )
 	{
-		if( atom[ i ].R.GetMod() > length )
+		Atom& atom = this->atom[i];
+		if( atom.R.mod() > length )
 		{
-			atom[ i ].F.SetX( atom[ i ].F.GetX() + elasticCoefficient*( length - atom[ i ].R.GetMod() )*atom[ i ].R.GetX() / atom[ i ].R.GetMod() );
-			atom[ i ].F.SetY( atom[ i ].F.GetY() + elasticCoefficient*( length - atom[ i ].R.GetMod() )*atom[ i ].R.GetY() / atom[ i ].R.GetMod() );
-			atom[ i ].F.SetZ( atom[ i ].F.GetZ() + elasticCoefficient*( length - atom[ i ].R.GetMod() )*atom[ i ].R.GetZ() / atom[ i ].R.GetMod() );
+			atom.F.SetX( atom.F.GetX() + elasticCoefficient*( length - atom.R.mod() )*atom.R.GetX() / atom.R.mod() );
+			atom.F.SetY( atom.F.GetY() + elasticCoefficient*( length - atom.R.mod() )*atom.R.GetY() / atom.R.mod() );
+			atom.F.SetZ( atom.F.GetZ() + elasticCoefficient*( length - atom.R.mod() )*atom.R.GetZ() / atom.R.mod() );
 		}
 
 		for( unsigned j = 0; j<i; ++j )
@@ -428,12 +400,12 @@ void Argon::MomentumAct()
 
 void Argon::MainLoop()
 {
-	std::vector<std::string> lines;
+	Moge::File result;
 	for( unsigned s = 0; s<loops; ++s )
 	{
 		if(s%loopFrame == 0)
 		{
-			lines.push_back( std::to_string( size3x ) + "\nARGON" );
+			result.addLine( std::to_string( size3x ) + "\nARGON" );
 		}
 		MainLoopIteration();
  
@@ -442,7 +414,7 @@ void Argon::MainLoop()
 			for( auto it = this->atom.begin(); it != this->atom.end(); ++it )
 			{
 				const auto index = it - this->atom.begin();
-				lines.push_back( 
+				result.addLine(
 					"ATOM" + std::to_string( index + 1 ) + 
 					"\t" + std::to_string( atom[index].R.GetX() ) +
 					"\t" + std::to_string( atom[index].R.GetY() ) +
@@ -452,6 +424,6 @@ void Argon::MainLoop()
 			std::cout<<"Wykonano "<<std::setw(4)<<std::noshowpos<<(s*100.0/loops)<<"%\n";
 		}
 	}
-
-	FileOperations::write2File( lines, this->outputFilename );
+	
+	result.writeContents2( Moge::Path( this->outputFilename ) );
 }

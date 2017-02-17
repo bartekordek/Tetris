@@ -1,6 +1,7 @@
 #pragma once
 
 #include "MogeLib.h"
+#include <memory>
 
 namespace Moge
 {

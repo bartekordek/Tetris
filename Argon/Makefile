@@ -1,22 +1,20 @@
 CC = g++
-CC_LINK = g++ -shared 
+CC_LINK = g++
 COMPILER_FLAGS = -pedantic -Wall -std=c++11 -D MogeLib_EXPORT="1" -Wno-ignored-attributes
 DEBUG_FLAGS = -ggdb
 RELEASE_FLAGS = -Ofast
-PROJECT_NAME = MogeLib
-DLL_NAME = $(PROJECT_NAME).dll 
-IMP_LIB_NAME = $(PROJECT_NAME).a
+PROJECT_NAME = Argon
+BINARY_NAME = $(PROJECT_NAME).exe 
 OUTPUT_DIR_DEBUG = ../Build/$(OS)_DEBUG
 OUTPUT_DIR_RELEASE = ../Build/$(OS)_RELEASE
-HEADER_INC = -I inc/ -I ../MogeMath/inc/ -I $(HOME_SDL2_CYGWIN)/include/SDL2/ -I $(HOME_BOOST_CYGWIN)
-IMPORT_LIBS_DEBUG = $(HOME_SDL2_CYGWIN)/lib/libSDL2.dll.a $(HOME_BOOST_CYGWIN)/stage/lib/libboost_filesystem.a $(HOME_BOOST_CYGWIN)/stage/lib/libboost_system.a
-IMPORT_LIBS_RELEASE = $(HOME_SDL2_CYGWIN)/lib/libSDL2.dll.a $(HOME_BOOST_CYGWIN)/stage/lib/libboost_filesystem.a $(HOME_BOOST_CYGWIN)/stage/lib/libboost_system.a
-OUTPUT_DEBUG = $(OUTPUT_DIR_DEBUG)/$(DLL_NAME)
-OUTPUT_RELEASE = $(OUTPUT_DIR_RELEASE)/$(DLL_NAME)
-IMP_LIB_DEBUG = $(OUTPUT_DIR_DEBUG)/$(IMP_LIB_NAME)
-IMP_LIB_RELEASE = $(OUTPUT_DIR_RELEASE)/$(IMP_LIB_NAME)
+HEADER_INC = -I ../MogeLib/inc/ -I ../MogeMath/inc/ -I inc/ 
+IMPORT_LIBS_DEBUG = $(OUTPUT_DIR_DEBUG)/MogeLib.a
+IMPORT_LIBS_RELEASE = $(OUTPUT_DIR_RELEASE)/MogeLib.a
+OUTPUT_DEBUG = $(OUTPUT_DIR_DEBUG)/$(BINARY_NAME)
+OUTPUT_RELEASE = $(OUTPUT_DIR_RELEASE)/$(BINARY_NAME)
 
 CPP_FILES := $(wildcard */*.cpp)
+CPP_FILES += main.cpp
 
 OBJ_DEBUG_DIR := obj/debug/
 OBJ_DEBUG_FILES := $(addprefix $(OBJ_DEBUG_DIR),$(CPP_FILES:.cpp=.o))
@@ -27,11 +25,23 @@ OBJ_RELEASE_FILES := $(addprefix $(OBJ_RELEASE_DIR),$(CPP_FILES:.cpp=.o))
 debug: run_debug_deps $(OUTPUT_DEBUG)
 release: run_release_deps $(OUTPUT_RELEASE)
 
-$(OUTPUT_DEBUG): $(OBJ_DEBUG_FILES)
-	$(CC_LINK) -o $(OUTPUT_DEBUG) $(OBJ_DEBUG_FILES) $(IMPORT_LIBS_DEBUG) -Wl,--out-implib,$(OUTPUT_DIR_DEBUG)/$(IMP_LIB_NAME) -Wl,--export-all-symbols -Wl,--enable-auto-import
+DATA_PATH := ../../Media/Dane.dat
 
-$(OUTPUT_RELEASE): $(OBJ_RELEASE_FILES) 
-	$(CC_LINK) -o $(OUTPUT_RELEASE) $(OBJ_RELEASE_FILES) $(IMPORT_LIBS_RELEASE) -Wl,--out-implib,$(OUTPUT_DIR_RELEASE)/$(IMP_LIB_NAME) -Wl,--export-all-symbols -Wl,--enable-auto-import
+run_debug:
+	make debug
+	cd $(OUTPUT_DIR_DEBUG);./$(BINARY_NAME) $(DATA_PATH) 
+
+run_release:
+	make release
+	cd $(OUTPUT_DIR_RELEASE);./$(BINARY_NAME) $(DATA_PATH)
+
+$(OUTPUT_DEBUG): $(OBJ_DEBUG_FILES)
+	$(CC_LINK) -o $(OUTPUT_DEBUG) $(OBJ_DEBUG_FILES) $(IMPORT_LIBS_DEBUG)
+	cp $(HOME_SDL2_CYGWIN)/bin/*.dll $(dir $(OUTPUT_DEBUG))
+
+$(OUTPUT_RELEASE): $(OBJ_RELEASE_FILES)
+	$(CC_LINK) -o $(OUTPUT_RELEASE) $(OBJ_RELEASE_FILES) $(IMPORT_LIBS_RELEASE) 
+	cp $(HOME_SDL2_CYGWIN)/bin/*.dll $(dir $(OUTPUT_RELEASE))
 
 $(OBJ_DEBUG_DIR)%.o: %.cpp
 	mkdir -p $(dir $@)
@@ -42,10 +52,10 @@ $(OBJ_RELEASE_DIR)%.o: %.cpp
 	$(CC) $(HEADER_INC) $(COMPILER_FLAGS) $(RELEASE_FLAGS) -c -o $@ $<
 
 run_debug_deps:
-	make -C ../MogeMath debug
+	make -C ../MogeLib debug
 
 run_release_deps:
-	make -C ../MogeMath release
+	make -C ../MogeLib release
 
 first_run:
 	mkdir -p $(dir $(OBJ_DEBUG_FILES)) 
@@ -53,19 +63,16 @@ first_run:
 	mkdir -p $(dir $(OBJ_RELEASE_FILES)) 
 	mkdir -p $(dir $(OUTPUT_RELEASE))
 
-clean:
+clear:
 	rm -f $(OBJ_DEBUG_FILES)
 	rm -f $(OBJ_RELEASE_FILES)
 	rm -f $(OUTPUT_DEBUG)
 	rm -f $(OUTPUT_RELEASE)
-
-clean_all:
-	find . -name '*.o' | xargs rm
+	find .. -name '*.o' | xargs rm --verbose
 
 test:
 	@echo "All .o files: $(OBJ_DEBUG_FILES)"
 	@echo "All .cpp files: $(CPP_FILES)" 
-	@echo "SDL2: $(HOME_SDL2_CYGWIN)/"
 
 help:
 	echo "If run first time, please run \"make first_run\" it will create necessary dirs."

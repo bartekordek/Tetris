@@ -43,7 +43,7 @@ namespace Moge
 		SDL_Renderer* GetRenderer()const;
 		SDL_Surface* GetSdlSurface()const;
 		void DestroyScreen();
-		void setResolution( const Math::MultiPoint<CUInt>& resolution );
+		void setResolution( const Math::MultiPoint<const unsigned int>& resolution );
 
 	protected:
 		virtual void UpdateImplementation();

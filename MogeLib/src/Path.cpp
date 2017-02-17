@@ -1,3 +1,5 @@
+#include "Path.h"
+
 #include <string>
 #include <codecvt>
 #include <iostream>
@@ -5,7 +7,7 @@
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/path.hpp>
 
-#include "FileSystem.h"
+
 
 using ErrorCode = boost::system::error_code;
 
@@ -13,10 +15,6 @@ namespace Moge
 {
 	std::string ws2s( const std::wstring& wstr );
 	Path::Path(): mFullPath("")
-	{
-	}
-
-	Path::~Path()
 	{
 	}
 
@@ -29,6 +27,12 @@ namespace Moge
 	{
 		SetUpPaths( inputPath );
 	}
+
+	Path::Path( const std::string& inputPath )
+	{
+		SetUpPaths( MyString( inputPath ) );
+	}
+
 
 	Path::Path( const Path& inputPath ): mFullPath( inputPath.c_str() )
 	{

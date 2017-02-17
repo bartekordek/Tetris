@@ -9,14 +9,14 @@
 
 #include "MultiPoint.h"
 #include "Singleton.h"
-#include "FileSystem.h"
+#include "Path.h"
 #include "ObjectNode.h"
 #include "ScreenNode.h"
 #include "IKeyboardObservable.h"
+#include "INodeFactory.h"
 
 namespace Moge
 {
-	class MogeLib_API IKeyboardObservable;
 	class IKeyboardObserver;
     class IKeyboardData;
     class IKey;
@@ -31,6 +31,7 @@ namespace Moge
 		void AddObject( const ObjectNode node, const MyString& name = MyString( "" ) );
 		void createScreen( const Math::MultiPoint<unsigned int>& resolution = Math::MultiPoint<unsigned int>( 2 ) );
 		const std::shared_ptr<ScreenNode> getScreen()const;
+        INodeFactory* getNodeFactory();
 		void startMainLoop();
 		void stopEventLoop();
 
@@ -47,12 +48,13 @@ namespace Moge
 		std::mutex mRenderableObjectsMutex;
 		std::mutex mListMutex;
 		std::thread mainLoop;
-		std::atomic<bool> mainLoopIsRuning = true;
-		std::atomic<bool> eventLoopActive = true;
+		std::atomic<bool> mainLoopIsRuning = {true};
+		std::atomic<bool> eventLoopActive = { true };
 		unsigned int mFrameCount = 0;
 
         const uint8_t* sdlKey = nullptr;
         std::map<unsigned int, std::shared_ptr<IKey>> keys;
         std::unique_ptr<IKeyFactory> keyFactory;
+        std::unique_ptr<INodeFactory> nodeFactory;
 	};
 }

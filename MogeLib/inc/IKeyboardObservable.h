@@ -1,24 +1,24 @@
 #pragma once
 
 #include "MogeLib.h"
-#include "set"
 
 namespace Moge
 {
     class IKeyboardObserver;
     class IKey;
-	class IKeyboardObservable
+	class IKeyboardObservableImp;
+	class MogeLib_API IKeyboardObservable
 	{
 	public:
-		IKeyboardObservable() = default;
-		virtual ~IKeyboardObservable() = default;
-		void notifyKeyboardObservers( IKey* data = nullptr );
+		IKeyboardObservable();
+		virtual ~IKeyboardObservable();
+		virtual void notifyKeyboardObservers( IKey* data = nullptr );
 
-		void MogeLib_API registerObserver( IKeyboardObserver* observer );
-		void MogeLib_API unregisterObserver( IKeyboardObserver* observer );
+		virtual void registerObserver( IKeyboardObserver* observer );
+		virtual void unregisterObserver( IKeyboardObserver* observer );
 
 	protected:
 	private:
-        std::set<IKeyboardObserver*> observers;
+		IKeyboardObservableImp* impl = nullptr;
 	};
 }

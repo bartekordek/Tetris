@@ -7,9 +7,9 @@ PROJECT_NAME = Tetris
 BINARY_NAME = $(PROJECT_NAME).exe 
 OUTPUT_DIR_DEBUG = ../Build/$(OS)_DEBUG
 OUTPUT_DIR_RELEASE = ../Build/$(OS)_RELEASE
-HEADER_INC = -I ../MogeLib/inc/ -I inc/ -I ../String/inc/ -I ../MogeMath/inc/ -I $(HOME_SDL2_CYGWIN)/include/SDL2/
-IMPORT_LIBS_DEBUG = $(OUTPUT_DIR_DEBUG)/MogeLib.a $(OUTPUT_DIR_DEBUG)/String.a $(HOME_SDL2_CYGWIN)/lib/libSDL2.dll.a 
-IMPORT_LIBS_RELEASE = $(OUTPUT_DIR_RELEASE)/MogeLib.a $(OUTPUT_DIR_RELEASE)/String.a $(HOME_SDL2_CYGWIN)/lib/libSDL2.dll.a 
+HEADER_INC = -I ../MogeLib/inc/ -I inc/ -I ../MogeMath/inc/
+IMPORT_LIBS_DEBUG = $(OUTPUT_DIR_DEBUG)/MogeLib.a
+IMPORT_LIBS_RELEASE = $(OUTPUT_DIR_RELEASE)/MogeLib.a
 OUTPUT_DEBUG = $(OUTPUT_DIR_DEBUG)/$(BINARY_NAME)
 OUTPUT_RELEASE = $(OUTPUT_DIR_RELEASE)/$(BINARY_NAME)
 
@@ -35,11 +35,9 @@ run_release:
 
 $(OUTPUT_DEBUG): $(OBJ_DEBUG_FILES)
 	$(CC_LINK) -o $(OUTPUT_DEBUG) $(OBJ_DEBUG_FILES) $(IMPORT_LIBS_DEBUG)
-	cp $(HOME_SDL2_CYGWIN)/bin/*.dll $(dir $(OUTPUT_DEBUG))
 
 $(OUTPUT_RELEASE): $(OBJ_RELEASE_FILES)
 	$(CC_LINK) -o $(OUTPUT_RELEASE) $(OBJ_RELEASE_FILES) $(IMPORT_LIBS_RELEASE) 
-	cp $(HOME_SDL2_CYGWIN)/bin/*.dll $(dir $(OUTPUT_RELEASE))
 
 $(OBJ_DEBUG_DIR)%.o: %.cpp
 	mkdir -p $(dir $@)
@@ -66,9 +64,7 @@ clear:
 	rm -f $(OBJ_RELEASE_FILES)
 	rm -f $(OUTPUT_DEBUG)
 	rm -f $(OUTPUT_RELEASE)
-
-clear_all:
-	find . -name '*.o' | xargs rm
+	find .. -name '*.o' | xargs rm --verbose
 
 test:
 	@echo "All .o files: $(OBJ_DEBUG_FILES)"

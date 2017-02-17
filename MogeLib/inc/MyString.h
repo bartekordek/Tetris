@@ -1,5 +1,6 @@
 #pragma once
 
+#include <MogeLib.h>
 #include <string>
 
 #if _MSC_VER
@@ -8,7 +9,7 @@
 
 namespace Moge
 {
-class MyString: public std::string
+class MogeLib_API MyString: public std::string
 {
 public:
 	MyString();

@@ -1,7 +1,6 @@
 #pragma once
 #include <MogeLib.h>
 #include "MyString.h"
-#include <Aliases.h>
 
 namespace Moge
 {
@@ -11,8 +10,9 @@ namespace Moge
 		Path();
 		explicit Path( const char* inputPath );
 		explicit Path( const MyString& inputPath );
+		explicit Path( const std::string& inputPath );
 		Path( const Path& inputPath );
-		virtual ~Path();
+		virtual ~Path() = default;
 		
 		const char* c_str()const;
 

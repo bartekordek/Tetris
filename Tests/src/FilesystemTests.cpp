@@ -1,5 +1,5 @@
 #include "FilesystemTests.h"
-#include "FileSystem.h"
+#include "File.h"
 
 TEST_F( FilesystemTests, GetExtension )
 {

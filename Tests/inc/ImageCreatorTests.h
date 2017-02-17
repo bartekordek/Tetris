@@ -1,7 +1,7 @@
 #pragma once
 
 #include "EngineTests.h"
-#include "FileSystem.h"
+#include "File.h"
 
 class ImageCreatorTests: public EngineTests
 {

@@ -2,29 +2,27 @@
 
 #include <vector>
 
-#include "Aliases.h"
-
-class CTableCoor
+class MatrixPos
 {
 public:
-	CTableCoor();
-	CTableCoor( const CTableCoor& tableCoord );
-	CTableCoor( CUInt row, CUInt column );
-	virtual ~CTableCoor();
+	MatrixPos() = default;
+	MatrixPos( const MatrixPos& tableCoord );
+	MatrixPos( const unsigned int row, const unsigned int column );
+	virtual ~MatrixPos() = default;
 
-	CTableCoor& operator=( const CTableCoor& right );
-	CTableCoor operator+( const CTableCoor& right )const;
-	CTableCoor operator-( const CTableCoor& right )const;
+	MatrixPos& operator=( const MatrixPos& right );
+	MatrixPos operator+( const MatrixPos& right )const;
+	MatrixPos operator-( const MatrixPos& right )const;
 
-	CUInt getRow()const;
-	CUInt getCol()const;
-	void setRow( CUInt row );
-	void setCol( CUInt col );
-	void changePosition( CUInt row, CUInt col );
+    const unsigned int getRow()const;
+    const unsigned int getCol()const;
+	void setRow( const unsigned int row );
+	void setCol( const unsigned int col );
+	void changePosition( const unsigned int row, const unsigned int col );
 
 private:
 	unsigned row = 0;
 	unsigned column = 0;
 };
 
-typedef std::vector<CTableCoor> CoordinatestList;
+typedef std::vector<MatrixPos> CoordinatestList;

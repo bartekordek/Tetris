@@ -15,7 +15,7 @@ public:
 	CMainGrid();
 	virtual ~CMainGrid();
 	void updateGrid();
-	void SetSize( CUInt rowsCount, CUInt columnsCount, CUInt initialX = 0, CUInt initialY = 0 );
+	void SetSize( const unsigned int rowsCount, const unsigned int columnsCount, const unsigned int initialX = 0, const unsigned int initialY = 0 );
 		
 	void ReLeaseBrick();
 	void MoveActualBrick( const Moge::Math::Directions direction );
@@ -23,16 +23,16 @@ public:
 
 private:
 	void AddBrick( const Brick* brick );
-	const bool SlabExist( CUInt rowIndex, CUInt colIndex )const;
-	const bool PartOfCurrentBrick( CUInt rowIndex, CUInt colIndex )const;
+	const bool SlabExist( const unsigned int rowIndex, const unsigned int colIndex )const;
+	const bool PartOfCurrentBrick( const unsigned int rowIndex, const unsigned int colIndex )const;
 	const bool checkIfBlockCanBeMoved( const Moge::Math::Directions direction );
 	void addCurrentBrickToGrid();
 	void ManageFullLine();
-	CInt GetColOffset( const Moge::Math::Directions direction )const;
-	CInt GetRowOffset( const Moge::Math::Directions direction )const;
+	const int GetColOffset( const Moge::Math::Directions direction )const;
+	const int GetRowOffset( const Moge::Math::Directions direction )const;
 	void moveCurrentBrick( const Moge::Math::Directions direction );
 	void m_RemoveActualBlockSlabsFromGrid();
-	void MarkSlabAsPartOfMovingBlock( CUInt row, CUInt col );
+	void MarkSlabAsPartOfMovingBlock( const unsigned int row, const unsigned int col );
 	const bool RowIsConnected( const SlabRow& slabRow )const;
 	const bool m_CheckIfBlockCanBePlaced( const Brick* brick );
 	void MoveAllLinesOneLineDown( std::vector<SlabRow>::iterator rowIterator );

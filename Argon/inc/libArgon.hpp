@@ -1,7 +1,7 @@
 #pragma once
 
-#include <string>
 #include <vector>
+#include <string>
 
 enum class Axis: short
 {
@@ -14,20 +14,21 @@ enum class Axis: short
 class V3D
 {
 public:
-	V3D();
+	V3D() = default;
 	V3D( const double values );
 	V3D( const double x, const double y, const double z );
 	V3D( const V3D& v3d );
-	virtual ~V3D();
+	virtual ~V3D() = default;
 	V3D& operator=( const V3D& v3d );
 	double operator-( const V3D& v3d )const;
+	V3D& operator+=( const V3D& v3d );
 	void Set( const double val );
 
 	const double getAxisValue( const Axis axis )const;
 	const double GetX()const;
 	const double GetY()const;
 	const double GetZ()const;
-	const double GetMod()const;
+	const double mod()const;
 
 	void SetX( const double x );
 	void SetY( const double y );
@@ -45,10 +46,10 @@ class Atom
 public:
 	/**Position, forces, elastic forces, momentum and kinetic energy.*/
 	V3D R, F, FS, P, KE;
-	Atom();
+	Atom() = default;
 	Atom( const double val );
 	Atom( const double x, const double y, const double z );
-	virtual ~Atom();
+	virtual ~Atom() = default;
 
 	double operator-( const Atom& atom )const;
 	Atom& operator=( const Atom& atom );
@@ -59,8 +60,8 @@ private:
 class Argon
 {
 public:
-	Argon( const std::string& fileName );
-	virtual ~Argon();
+	Argon( const std::string& dataFname, const std::string& outputFname );
+	virtual ~Argon() = default;
 	const Atom& operator[]( const unsigned index )const;
 	Atom &operator[]( const unsigned index );
 	bool Init();
@@ -83,11 +84,12 @@ private:
 	void CalcForces();
 
 	std::string m_fileName;
+	std::string outputFilename;
 
 	V3D P, KE;
 	std::vector< V3D > B;
 	std::vector< Atom > atom;
-	std::string outputFilename;
+	
 	unsigned size1x = 0;
 	unsigned size3x = 0; 
 	unsigned dimensions = 0;

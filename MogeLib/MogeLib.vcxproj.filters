@@ -21,19 +21,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="inc\Aliases.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\ConsoleUtilities.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\Engine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\FileSystem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GeneralUtilities.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\KeyboardObservable.h">
@@ -45,13 +36,7 @@
     <ClInclude Include="inc\Node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\NodeCreator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\NodeImageCreator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\NodeMgr.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\ObjectNode.h">
@@ -69,20 +54,11 @@
     <ClInclude Include="inc\SurfaceWrapper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\TypesDeclarations.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\Visible.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\MTime.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderableObject\inc\RenderableObjectContainer.h">
-      <Filter>RenderableObject</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderableObject\src\RenderableObjectContainerImpl.h">
-      <Filter>RenderableObject</Filter>
     </ClInclude>
     <ClInclude Include="inc\MogeLib.h">
       <Filter>Header Files</Filter>
@@ -156,21 +132,30 @@
     <ClInclude Include="src\IKeyboardData.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\INodeFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\NodeFactoryRegular.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\File.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Path.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\MyString.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\IKeyboardObservableImp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Aliases.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\ConsoleUtilities.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\FileSystem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GeneralUtilities.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\KeyboardObservable.cpp">
@@ -182,13 +167,7 @@
     <ClCompile Include="src\Node.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\NodeCreator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\NodeImageCreator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\NodeMgr.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\ObjectNode.cpp">
@@ -204,9 +183,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\SurfaceWrapper.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\TypesDeclarations.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Visible.cpp">
@@ -267,6 +243,24 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\IMogeApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\INodeFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NodeFactoryRegular.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\File.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Path.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MyString.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\IKeyboardObservableImp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
