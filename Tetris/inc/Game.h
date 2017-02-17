@@ -11,7 +11,7 @@ namespace Tetris
 	public:
 		CGame();
 		void initialize( const unsigned int rowsCount = 50, const unsigned int columnsCount = 10, const unsigned int winWidth = 640, const unsigned int winHeight = 480 );
-		void StartGame();
+		void startGame()const;
 		void keyboardEvent( Moge::IKey* data = nullptr ) override;
 		virtual ~CGame();
 

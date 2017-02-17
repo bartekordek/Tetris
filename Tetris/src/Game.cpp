@@ -23,10 +23,10 @@ namespace Tetris
 		mainGrid.reset( new CMainGrid() );
         EngineManager::getEngine()->registerObserver( this );
 		mainGrid->SetSize( rowsCount, columnsCount );
-		StartGame();
+		startGame();
 	}
 
-	void CGame::StartGame()
+	void CGame::startGame()const
 	{
 		mainGrid->ReLeaseBrick();
 	}
