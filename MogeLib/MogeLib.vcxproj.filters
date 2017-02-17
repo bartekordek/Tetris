@@ -39,9 +39,6 @@
     <ClInclude Include="inc\NodeImageCreator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\NodeMgr.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\ObjectNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -62,9 +59,6 @@
     </ClInclude>
     <ClInclude Include="inc\MTime.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderableObject\src\RenderableObjectContainerImpl.h">
-      <Filter>RenderableObject</Filter>
     </ClInclude>
     <ClInclude Include="inc\MogeLib.h">
       <Filter>Header Files</Filter>
@@ -174,9 +168,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\NodeImageCreator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\NodeMgr.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\ObjectNode.cpp">

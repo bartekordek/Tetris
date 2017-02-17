@@ -226,7 +226,6 @@
     <ClInclude Include="inc\Node.h" />
     <ClInclude Include="inc\NodeFactoryRegular.h" />
     <ClInclude Include="inc\NodeImageCreator.h" />
-    <ClInclude Include="inc\NodeMgr.h" />
     <ClInclude Include="inc\ObjectNode.h" />
     <ClInclude Include="inc\PointFactory.h" />
     <ClInclude Include="inc\Scale.h" />
@@ -237,7 +236,6 @@
     <ClInclude Include="inc\Visible.h" />
     <ClInclude Include="RenderableObject\RenderableObjectContainer.h" />
     <ClInclude Include="RenderableObject\RenderableObjectContainerImpl.h" />
-    <ClInclude Include="RenderableObject\src\RenderableObjectContainerImpl.h" />
     <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="Scene\SceneImpl.h" />
     <ClInclude Include="src\IKeyboardData.h" />
@@ -276,7 +274,6 @@
     <ClCompile Include="src\Node.cpp" />
     <ClCompile Include="src\NodeFactoryRegular.cpp" />
     <ClCompile Include="src\NodeImageCreator.cpp" />
-    <ClCompile Include="src\NodeMgr.cpp" />
     <ClCompile Include="src\ObjectNode.cpp" />
     <ClCompile Include="src\Scale.cpp" />
     <ClCompile Include="src\ScreenNode.cpp" />
