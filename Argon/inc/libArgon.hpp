@@ -60,7 +60,7 @@ private:
 class Argon
 {
 public:
-	Argon( const std::string& fileName );
+	Argon( const std::string& dataFname, const std::string& outputFname );
 	virtual ~Argon() = default;
 	const Atom& operator[]( const unsigned index )const;
 	Atom &operator[]( const unsigned index );
@@ -84,11 +84,12 @@ private:
 	void CalcForces();
 
 	std::string m_fileName;
+	std::string outputFilename;
 
 	V3D P, KE;
 	std::vector< V3D > B;
 	std::vector< Atom > atom;
-	std::string outputFilename;
+	
 	unsigned size1x = 0;
 	unsigned size3x = 0; 
 	unsigned dimensions = 0;

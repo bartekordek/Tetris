@@ -153,9 +153,11 @@ double Argon::BoltzmanConst = 0.0;
 double Argon::a = 0.0;
 double Argon::electronCharge = 0.0;
 
-Argon::Argon( const std::string& fileName ): m_fileName( fileName ), P( 0.0 ), KE( 0.0 )
+Argon::Argon( const std::string& dataFname, const std::string& outputFname ): 
+	m_fileName( dataFname ), 
+	outputFilename( outputFname ), 
+	P( 0.0 ), KE( 0.0 )
 {
-	outputFilename = "Out.dat";
 }
 
 const Atom& Argon::operator[]( const unsigned index )const
