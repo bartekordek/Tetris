@@ -49,10 +49,10 @@ namespace Moge
 		return this->mScreenBuffor;
 	}
 
-    INodeFactory* Engine::getNodeFactory()
-    {
-        return this->nodeFactory.get();
-    }
+	INodeFactory* Engine::getNodeFactory()
+	{
+		return this->nodeFactory.get();
+	}
 
 	void Engine::startMainLoop()
 	{
