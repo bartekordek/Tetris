@@ -17,26 +17,26 @@ namespace Moge
 		ScreenNode( const ScreenNode& screenNode );
 		virtual ~ScreenNode();
 
-		virtual const int getX()const override;
-		virtual const int getY()const override;
-		virtual const int getZ()const override;
+		const int getX()const override;
+		const int getY()const override;
+		const int getZ()const override;
 
-		virtual void setXyz( const int x, const int y, const int z )override;
-		virtual void setXyz( const IPosition& size )override;
+		void setXyz( const int x, const int y, const int z )override;
+		void setXyz( const IPosition& size )override;
 
-		virtual void setX( const int x )override;
-		virtual void setY( const int y )override;
-		virtual void setZ( const int z )override;
+		void setX( const int x )override;
+		void setY( const int y )override;
+		void setZ( const int z )override;
 
-		virtual void setSize( const unsigned int width, const unsigned int height, const unsigned int depth ) override;
-		virtual void setWidth( const unsigned int width ) override;
-		virtual void setHeight( const unsigned int height ) override;
-		virtual void setDepth( const unsigned int depth ) override;
-		virtual void setSize( const ISize& size )override;
+		void setSize( const unsigned int width, const unsigned int height, const unsigned int depth ) override;
+		void setWidth( const unsigned int width ) override;
+		void setHeight( const unsigned int height ) override;
+		void setDepth( const unsigned int depth ) override;
+		void setSize( const ISize& size )override;
 
-		virtual const unsigned int getWidth()const override;
-		virtual const unsigned int getHeight()const override;
-		virtual const unsigned int getDepth()const override;
+		const unsigned int getWidth()const override;
+		const unsigned int getHeight()const override;
+		const unsigned int getDepth()const override;
 
 		void initialize();
 		SDL_Window* GetScreen()const;
@@ -53,6 +53,7 @@ namespace Moge
 
 		SDL_Window* mainScreen = nullptr;
 		SDL_Surface* mainScreenSurface = nullptr;
+		SDL_Renderer* renderer = nullptr;
 		Math::MultiPoint<int> position = Math::MultiPointFactory::create2d<int>( 100, 100 );
 		Math::MultiPoint<unsigned int> size = Math::MultiPointFactory::create2d<unsigned int>( 640, 480 );
 
