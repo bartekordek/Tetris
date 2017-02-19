@@ -1,6 +1,5 @@
 #pragma once
 
-#include <memory>
 #include "ScreenNode.h"
 #include "ObjectNode.h"
 #include "MultiPoint.h"
