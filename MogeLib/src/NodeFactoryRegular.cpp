@@ -1,5 +1,5 @@
 #include "NodeFactoryRegular.h"
-#include "NodeImageCreator.h"
+#include "SurfaceFactory.h"
 #include "IPositionAdapter.h"
 #include "ObjectNode.h"
 #include "ScreenNode.h"
@@ -18,7 +18,7 @@ namespace Moge
 
 	ObjectNode NodeFactoryRegular::CreateFromImage( const Path& filePath, const IPosition<int>& position, const MyString& name )
 	{
-		ImageSurface imageSurface = ImageCreator::CreateSurfaceFromImage( filePath );
+		ImageSurface imageSurface = SurfaceFactory::CreateSurfaceFromImage( filePath );
 		return CreateFromImage( imageSurface, position, name );
 	}
 
@@ -32,13 +32,13 @@ namespace Moge
 		return ObjectNode( objectNodeContent );
 	}
 
-	void NodeFactoryRegular::RemoveNode( ObjectNode& node )
+	void NodeFactoryRegular::removeNode( ObjectNode& node )
 	{
         this->nodes.erase( node.get() );
 		node.reset();
 	}
 
-	const bool NodeFactoryRegular::Exist( ObjectNode& node )
+	const bool NodeFactoryRegular::exist( ObjectNode& node )
 	{
 		for( auto& currentNode : this->nodes )
 		{

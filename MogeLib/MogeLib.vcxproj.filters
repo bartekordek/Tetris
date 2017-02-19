@@ -36,9 +36,6 @@
     <ClInclude Include="inc\Node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\NodeImageCreator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\ObjectNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -150,6 +147,18 @@
     <ClInclude Include="src\IKeyboardObservableImp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\ITexture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\TextureFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ITextureFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\SurfaceFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ConsoleUtilities.cpp">
@@ -165,9 +174,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Node.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\NodeImageCreator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\ObjectNode.cpp">
@@ -261,6 +267,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\IKeyboardObservableImp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ITexture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TextureFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ITextureFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SurfaceFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,12 +1,11 @@
 #pragma once
 
-#include "File.h"
 #include "Node.h"
 #include "SurfaceWrapper.h"
 
 namespace Moge
 {
-	class MogeLib_API ImageCreator
+	class MogeLib_API SurfaceFactory
 	{
 	public:
 		static ImageSurface CreateSurfaceFromImage( const Path& imagePath );

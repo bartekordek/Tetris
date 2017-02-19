@@ -1,21 +1,21 @@
 #include "Game.h"
 #include "MainGrid.h"
 #include "BrickFactory.h"
-#include "NodeImageCreator.h"
+#include "SurfaceFactory.h"
 #include "MTime.h"
 #include "MogeLibMain.h"
 
 namespace Tetris
 {
-    using namespace Moge;
+using namespace Moge;
 CMainGrid::CMainGrid():activeBrick( nullptr )
 {
 	std::lock_guard<std::mutex> slabLock( currentBrickMutex );
-	Moge::Path blockImagepath = Moge::Path::GetCurrentDirectory() + "\\..\\..\\Media\\Block.bmp";
-	filledSlabImage = Moge::ImageCreator::CreateSurfaceFromImage( blockImagepath );
+	Path blockImagepath = Path::GetCurrentDirectory() + "\\..\\..\\Media\\Block.bmp";
+	filledSlabImage = SurfaceFactory::CreateSurfaceFromImage( blockImagepath );
 
-	Moge::Path bgBlockImagepath = Moge::Path::GetCurrentDirectory() + "\\..\\..\\Media\\BackGroundBlock.bmp";
-	emptySlabImage = Moge::ImageCreator::CreateSurfaceFromImage( bgBlockImagepath );
+	Path bgBlockImagepath = Path::GetCurrentDirectory() + "\\..\\..\\Media\\BackGroundBlock.bmp";
+	emptySlabImage = SurfaceFactory::CreateSurfaceFromImage( bgBlockImagepath );
 }
 
 CMainGrid::~CMainGrid()
@@ -25,14 +25,14 @@ CMainGrid::~CMainGrid()
 
 void CMainGrid::updateGrid()
 {
-	if( false == checkIfBlockCanBeMoved( Moge::Math::Directions::D ) )
+	if( false == checkIfBlockCanBeMoved( Math::Directions::D ) )
 	{
 		addCurrentBrickToGrid();
 		ManageFullLine();
 		ReLeaseBrick();
 	}
-	Moge::CTimeMod::SleepMiliSeconds( 500 );
-	MoveActualBrick( Moge::Math::Directions::D );
+	CTimeMod::SleepMiliSeconds( 500 );
+	MoveActualBrick( Math::Directions::D );
 }
 
 void CMainGrid::SetSize( const unsigned int rowsCount, const unsigned int columnsCount, const unsigned int initialX, const unsigned int initialY )
@@ -54,13 +54,13 @@ void CMainGrid::SetSize( const unsigned int rowsCount, const unsigned int column
 		for( auto& slab : slabRow )
 		{
             auto slabNode = EngineManager::getEngine()->getNodeFactory()->CreateFromImage( emptySlabImage );
-			Moge::Math::IPositionAdapter<int> position( slab.col() * slabNode->getWidth(), slab.row() * slabNode->getHeight(), 0 );
+			Math::IPositionAdapter<int> position( slab.col() * slabNode->getWidth(), slab.row() * slabNode->getHeight(), 0 );
 			slabNode->setXyz( position.getX(), position.getY(), 0 );
 			slab.setNode( slabNode );
 
 			slabNode->SetVisible();
 			//slabNode->setScale( 2.0 ); // TODO: uncomment this line after implementing correct scale system - textues.
-			Moge::EngineManager::getEngine()->AddObject( slabNode );//TODO: redundant add, should be moved to NodeMgr
+			EngineManager::getEngine()->AddObject( slabNode );//TODO: redundant add, should be moved to NodeMgr
 		}
 	}
 }
@@ -107,7 +107,7 @@ const bool CMainGrid::PartOfCurrentBrick( const unsigned int rowIndex, const uns
 	return false;
 }
 
-void CMainGrid::MoveActualBrick( const Moge::Math::Directions direction )
+void CMainGrid::MoveActualBrick( const Math::Directions direction )
 {
 	if( true == checkIfBlockCanBeMoved( direction ) )
 	{
@@ -116,7 +116,7 @@ void CMainGrid::MoveActualBrick( const Moge::Math::Directions direction )
 	}
 }
 
-const bool CMainGrid::checkIfBlockCanBeMoved( const Moge::Math::Directions direction )
+const bool CMainGrid::checkIfBlockCanBeMoved( const Math::Directions direction )
 {
 	for( auto& coord : activeBrick->getBlockPositions() )
 	{
@@ -146,27 +146,27 @@ const bool CMainGrid::checkIfBlockCanBeMoved( const Moge::Math::Directions direc
 	return true;
 }
 
-const int CMainGrid::GetColOffset( const Moge::Math::Directions direction )const
+const int CMainGrid::GetColOffset( const Math::Directions direction )const
 {
-	if( Moge::Math::Directions::U == direction || Moge::Math::Directions::D == direction )
+	if( Math::Directions::U == direction || Math::Directions::D == direction )
 	{
 		return 0;
 	}
 
-	if( Moge::Math::Directions::R == direction )
+	if( Math::Directions::R == direction )
 	{
 		return 1;
 	}
-	if( Moge::Math::Directions::L == direction )
+	if( Math::Directions::L == direction )
 	{
 		return  -1;
 	}
 	return -1;
 }
 
-const int CMainGrid::GetRowOffset( const Moge::Math::Directions direction )const
+const int CMainGrid::GetRowOffset( const Math::Directions direction )const
 {
-    using namespace Moge::Math;
+    using namespace Math;
 	if( Directions::U == direction )
 	{
 		return  0;
@@ -260,7 +260,7 @@ void CMainGrid::m_RemoveActualBlockSlabsFromGrid()
 	}
 }
 
-void CMainGrid::moveCurrentBrick( const Moge::Math::Directions direction )
+void CMainGrid::moveCurrentBrick( const Math::Directions direction )
 {
 	activeBrick->move( direction );
 	AddBrick( activeBrick );

@@ -1,4 +1,4 @@
-#include "NodeImageCreator.h"
+#include "SurfaceFactory.h"
 #include "MogeLibMain.h"
 #include "ScreenNode.h"
 
@@ -7,7 +7,7 @@
 
 namespace Moge
 {
-	ImageSurface ImageCreator::CreateSurfaceFromImage( const Path& imagePath )
+	ImageSurface SurfaceFactory::CreateSurfaceFromImage( const Path& imagePath )
 	{
 		SurfaceWrapper* surfaceWrapper = new SurfaceWrapper( imagePath );
 		ImageTypes imageType = GetImageType( imagePath );
@@ -31,7 +31,7 @@ namespace Moge
 		return surface;
 	}
 
-	ImageCreator::ImageTypes ImageCreator::GetImageType( const Path& imagePath )
+	SurfaceFactory::ImageTypes SurfaceFactory::GetImageType( const Path& imagePath )
 	{
 		if( false == imagePath.empty() )
 		{

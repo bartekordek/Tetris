@@ -202,6 +202,8 @@
     <ClInclude Include="inc\ConsoleUtilities.h" />
     <ClInclude Include="inc\Engine.h" />
     <ClInclude Include="inc\File.h" />
+    <ClInclude Include="inc\ITexture.h" />
+    <ClInclude Include="inc\ITextureFactory.h" />
     <ClInclude Include="inc\MyString.h" />
     <ClInclude Include="inc\Path.h" />
     <ClInclude Include="inc\IEngine.h" />
@@ -225,7 +227,7 @@
     <ClInclude Include="inc\Named.h" />
     <ClInclude Include="inc\Node.h" />
     <ClInclude Include="inc\NodeFactoryRegular.h" />
-    <ClInclude Include="inc\NodeImageCreator.h" />
+    <ClInclude Include="inc\SurfaceFactory.h" />
     <ClInclude Include="inc\ObjectNode.h" />
     <ClInclude Include="inc\PointFactory.h" />
     <ClInclude Include="inc\Scale.h" />
@@ -233,6 +235,7 @@
     <ClInclude Include="inc\Singleton.h" />
     <ClInclude Include="inc\Size.h" />
     <ClInclude Include="inc\SurfaceWrapper.h" />
+    <ClInclude Include="inc\TextureFactory.h" />
     <ClInclude Include="inc\Visible.h" />
     <ClInclude Include="RenderableObject\RenderableObjectContainer.h" />
     <ClInclude Include="RenderableObject\RenderableObjectContainerImpl.h" />
@@ -252,6 +255,8 @@
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\File.cpp" />
     <ClCompile Include="src\IKeyboardObservableImp.cpp" />
+    <ClCompile Include="src\ITexture.cpp" />
+    <ClCompile Include="src\ITextureFactory.cpp" />
     <ClCompile Include="src\MyString.cpp" />
     <ClCompile Include="src\Path.cpp" />
     <ClCompile Include="src\IKeyboardObservable.cpp" />
@@ -273,13 +278,14 @@
     <ClCompile Include="src\Named.cpp" />
     <ClCompile Include="src\Node.cpp" />
     <ClCompile Include="src\NodeFactoryRegular.cpp" />
-    <ClCompile Include="src\NodeImageCreator.cpp" />
+    <ClCompile Include="src\SurfaceFactory.cpp" />
     <ClCompile Include="src\ObjectNode.cpp" />
     <ClCompile Include="src\Scale.cpp" />
     <ClCompile Include="src\ScreenNode.cpp" />
     <ClCompile Include="src\Singleton.cpp" />
     <ClCompile Include="src\Size.cpp" />
     <ClCompile Include="src\SurfaceWrapper.cpp" />
+    <ClCompile Include="src\TextureFactory.cpp" />
     <ClCompile Include="src\Visible.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
