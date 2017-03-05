@@ -4,6 +4,8 @@
 #include "ITexture.h"
 #include "Path.h"
 
+#include <memory>
+
 namespace  Moge 
 {
 	class Engine;
@@ -12,9 +14,9 @@ namespace  Moge
 	public:
 		ITextureFactory( Engine* engine );
 		virtual ~ITextureFactory();
-		virtual ITexture* createTexture( const Path& path ) = 0;
-		virtual ITexture* findTexture( const Path& path ) = 0;
-		virtual void removeTexture( ITexture* texture ) = 0;
+		virtual std::shared_ptr<ITexture>& createTexture( const Path& path ) = 0;
+		virtual std::shared_ptr<ITexture>& findTexture( const Path& path ) = 0;
+		virtual void removeTexture( const std::shared_ptr<ITexture>& texture ) = 0;
 	protected:
 		Engine* getEngine();
 	private:

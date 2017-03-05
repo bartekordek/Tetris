@@ -1,31 +1,27 @@
 #include "NodeFactoryRegular.h"
 #include "SurfaceFactory.h"
-#include "IPositionAdapter.h"
+#include "Math/IPositionAdapter.h"
 #include "ObjectNode.h"
-#include "ScreenNode.h"
 
 namespace Moge
 {
-	using namespace Math;
-	std::shared_ptr<ScreenNode> NodeFactoryRegular::CreateScreen( const MultiPoint<unsigned int>& size )
+	NodeFactoryRegular::NodeFactoryRegular( SurfaceFactory* surfaceFactory ):INodeFactory( surfaceFactory )
 	{
-		ScreenNode* screenNode = new ScreenNode();
-		screenNode->setWidth( size.getValue( Axes::X ) );
-		screenNode->setHeight( size.getValue( Axes::Y ) );
-		std::shared_ptr<ScreenNode> result( screenNode );
-		return result;
 	}
 
-	ObjectNode NodeFactoryRegular::CreateFromImage( const Path& filePath, const IPosition<int>& position, const MyString& name )
+	using namespace Math;
+
+	ObjectNode NodeFactoryRegular::CreateFromImage( 
+		const Path& filePath, const IPosition<int>& position, const MyString& name )
 	{
-		ImageSurface imageSurface = SurfaceFactory::CreateSurfaceFromImage( filePath );
+		ImageSurface imageSurface = getSurfacefactory()->CreateSurfaceFromImage( filePath );
 		return CreateFromImage( imageSurface, position, name );
 	}
 
 	ObjectNode NodeFactoryRegular::CreateFromImage( const ImageSurface& imageSurface, const IPosition<int>& position, const MyString& name )
 	{
 		ObjectNodeContent* objectNodeContent = new ObjectNodeContent();
-		objectNodeContent->setXyz( position );
+		objectNodeContent =  position ;
 		objectNodeContent->SetName( name );
 		objectNodeContent->SetSurface( imageSurface );
 		this->nodes.insert( objectNodeContent );
@@ -34,7 +30,7 @@ namespace Moge
 
 	void NodeFactoryRegular::removeNode( ObjectNode& node )
 	{
-        this->nodes.erase( node.get() );
+		this->nodes.erase( node.get() );
 		node.reset();
 	}
 

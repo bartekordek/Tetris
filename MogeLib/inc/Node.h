@@ -2,24 +2,25 @@
 
 #include <MogeLib.h>
 #include "Named.h"
-#include "ISize.h"
-#include "IPosition.h"
+#include "Math/ISize.h"
+#include "Math/IPosition.h"
+#include "Math/IVector3D.h"
 
 struct SDL_Rect;
 
 namespace Moge
 {
-	class MogeLib_API Node: public Name, public Math::IPosition<int>, public Math::ISize<unsigned int>
+	class MogeLib_API Node: public Name
 	{
 	public:
 		explicit Node( const MyString& name = MyString( "" ) );
 		virtual ~Node();
 		
-		SDL_Rect* GetGeometricsInfo()const;
+		virtual Math::IPosition<double>& getPosition()const = 0;
+		virtual Math::ISize<double>& getSize()const = 0;
+		virtual Math::IVector3D<double>& getScale()const = 0;
 
 	protected:
-		virtual void UpdateGeometrics();
-
-		SDL_Rect* mGeometrics = nullptr;		
+	private:
 	};
 }

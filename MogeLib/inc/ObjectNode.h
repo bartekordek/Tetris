@@ -5,9 +5,8 @@
 #include "Node.h"
 #include "Visible.h"
 #include "Path.h"
-#include "SurfaceWrapper.h"
-#include "MultiPointFactory.h"
 #include "Scale.h"
+#include "ITexture.h"
 
 namespace Moge
 {
@@ -23,58 +22,24 @@ namespace Moge
 	{
 	public:
 		ObjectNodeContent();
-		explicit ObjectNodeContent( const Path& filePath );
 		ObjectNodeContent( const ObjectNodeContent& objectNodeContent );
 		virtual ~ObjectNodeContent();
 
-		const int getX()const override;
-		const int getY()const override;
-		const int getZ()const override;
-
-		void setXyz( const int x, const int y, const int z )override;
-		void setXyz( const IPosition& size )override;
-
-		void setX( const int x )override;
-		void setY( const int y )override;
-		void setZ( const int z )override;
-
-		void setSize( const unsigned int width, const unsigned int height, const unsigned int depth ) override;
-		void setSize( const ISize& size )override;
-		void setWidth( const unsigned int width ) override;
-		void setHeight( const unsigned int height ) override;
-		void setDepth( const unsigned int depth ) override;
-
-		const unsigned int getWidth()const override;
-		const unsigned int getHeight()const override;
-		const unsigned int getDepth()const override;
-
 		ObjectNodeContent& operator=( const ObjectNodeContent& right );
 
-		const ImageSurface& GetSurface()const;
-		void SetSurface( const ImageSurface& surface );
-
-		void setScale( const double scale ) override;
-		void setXscale( const double scale ) override;
-		void setYscale( const double scale ) override;
-		void setZscale( const double scale ) override;
-
-		const double getScale() override;
-		const double getXscale() override;
-		const double getYscale() override;
-		const double getZscale() override;
+		Math::IPosition<double>& getPosition()const override;
+		Math::ISize<double>& getSize()const override;
+		Math::IVector3D<double>& getScale()const override;
+		void setTexture( std::shared_ptr<ITexture>& texture );
+		std::shared_ptr<ITexture>& getTexture();
 
 	protected:
-		double scaleX = 1.0;
-		double scaleY = 1.0;
-		double scaleZ = 1.0;
-
 	private:
-		void updateScale();
-		std::shared_ptr<SurfaceWrapper> surface;
 		Path mFilePath;
-
-		Math::MultiPoint<int> position = Math::MultiPointFactory::create3d<int>( 0, 0, 0 );
-		Math::MultiPoint<unsigned int> size = Math::MultiPointFactory::create3d<unsigned int>( 0, 0, 0 );
+		std::unique_ptr<Math::IPosition<double>> position;
+		std::unique_ptr<Math::ISize<double>> size;
+		std::unique_ptr<Math::IVector3D<double>> scale;
+		std::shared_ptr<ITexture> texture;
 	};
 	
 	using ObjectNode = std::shared_ptr<ObjectNodeContent>;

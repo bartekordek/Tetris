@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Math/Axis.h"
+
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -9,13 +11,6 @@ namespace Moge
 {
 	namespace Math
 	{
-		enum class Axes: unsigned int
-		{
-			X = 0,
-			Y,
-			Z
-		};
-
 		template <typename Type>
 		class MultiPoint
 		{
@@ -25,7 +20,7 @@ namespace Moge
 			{
 				if( 0 != axisRows )
 				{
-					setAxesCount( axisRows );
+					setAxisCount( axisRows );
 				}
 			}
 
@@ -40,9 +35,9 @@ namespace Moge
 
 			const Type distance( const MultiPoint<Type>& p )const
 			{
-				const unsigned axesCount = std::min( this->axisValue.size(), p.axisValue.size() );
+				const unsigned AxisCount = std::min( this->axisValue.size(), p.axisValue.size() );
 				Type distanceSquare = static_cast<Type>( 0.0 );
-				for( unsigned int i = 0; i < axesCount; ++i )
+				for( unsigned int i = 0; i < AxisCount; ++i )
 				{
 					Type leftAxisValue = ( this->axisValue.at( i ) );
 					Type rightAxisValue = ( p.axisValue.at( i ) );
@@ -55,10 +50,10 @@ namespace Moge
 
 			const MultiPoint<Type> operator+( const MultiPoint<Type>& p )const
 			{
-				const unsigned axesCount = std::max( this->axisValue.size(), p.axisValue.size() );
-				const unsigned lowerAxesCount = std::min( this->axisValue.size(), p.axisValue.size() );
-				MultiPoint<Type> result( axesCount );
-				for( unsigned int i = 0; i < lowerAxesCount; ++i )
+				const unsigned AxisCount = std::max( this->axisValue.size(), p.axisValue.size() );
+				const unsigned lowerAxisCount = std::min( this->axisValue.size(), p.axisValue.size() );
+				MultiPoint<Type> result( AxisCount );
+				for( unsigned int i = 0; i < lowerAxisCount; ++i )
 				{
 					result.axisValue[i] = this->axisValue[i] + p.axisValue[i];
 				}
@@ -67,10 +62,10 @@ namespace Moge
 
 			MultiPoint<Type> operator-( const MultiPoint<Type>& p )const
 			{
-				const unsigned axesCount = std::max( this->axisValue.size(), p.axisValue.size() );
-				const unsigned lowerAxesCount = std::min( this->axisValue.size(), p.axisValue.size() );
-				MultiPoint<Type> result( axesCount );
-				for( unsigned int i = 0; i < lowerAxesCount; ++i )
+				const unsigned AxisCount = std::max( this->axisValue.size(), p.axisValue.size() );
+				const unsigned lowerAxisCount = std::min( this->axisValue.size(), p.axisValue.size() );
+				MultiPoint<Type> result( AxisCount );
+				for( unsigned int i = 0; i < lowerAxisCount; ++i )
 				{
 					result.axisValue[i] = this->axisValue[i] - p.axisValue[i];
 				}
@@ -95,7 +90,7 @@ namespace Moge
 				if( this != &right )
 				{
 					const auto pAxisCount = static_cast<unsigned int>( right.axisValue.size() );
-					this->setAxesCount( pAxisCount );
+					this->setAxisCount( pAxisCount );
 
 					for( unsigned int axisIndex = 0; axisIndex < pAxisCount; ++axisIndex )
 					{
@@ -107,10 +102,10 @@ namespace Moge
 
 			MultiPoint<Type> operator*( const MultiPoint<Type>& p )const
 			{
-				const unsigned axesCount = std::max( this->axisValue.size(), p.axisValue.size() );
-				const unsigned lowerAxesCount = std::min( this->axisValue.size(), p.axisValue.size() );
-				MultiPoint<Type> result( axesCount );
-				for( unsigned int i = 0; i < lowerAxesCount; ++i )
+				const unsigned AxisCount = std::max( this->axisValue.size(), p.axisValue.size() );
+				const unsigned lowerAxisCount = std::min( this->axisValue.size(), p.axisValue.size() );
+				MultiPoint<Type> result( AxisCount );
+				for( unsigned int i = 0; i < lowerAxisCount; ++i )
 				{
 					Type& leftAxisValue = *( this->axisValue[i] );
 					Type& rightAxisValue = *( p.axisValue[i] );
@@ -142,17 +137,17 @@ namespace Moge
 				return false;
 			}
 
-			void setAxesCount( const unsigned int count )
+			void setAxisCount( const unsigned int count )
 			{
 				axisValue.resize( count );
 			}
 
-			const unsigned int getAxesCount()const
+			const unsigned int getAxisCount()const
 			{
 				return this->axisValue.size();
 			}
 
-			const Type getValue( const Axes axisIndex )const
+			const Type getValue( const Axis axisIndex )const
 			{
 				return axisValue.at( static_cast<unsigned int>( axisIndex ) );
 			}
@@ -162,7 +157,7 @@ namespace Moge
 				return axisValue.at( static_cast<unsigned int>( axisIndex ) );
 			}
 
-			void setValue( const Axes axisIndex, const Type value )
+			void setValue( const Axis axisIndex, const Type value )
 			{
 				this->axisValue.at( static_cast<unsigned int>( axisIndex ) ) = value;
 			}

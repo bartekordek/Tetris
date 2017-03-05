@@ -2,7 +2,7 @@
 
 #include "MultiPoint.h"
 #include "ObjectNode.h"
-#include "FileSystem.h"
+#include "File.h"
 
 namespace Moge
 {

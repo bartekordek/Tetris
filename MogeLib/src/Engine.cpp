@@ -4,6 +4,7 @@
 #include "KeyboardObservable.h"
 #include "IKeyboardObserver.h"
 #include "KeyFactorySDL.h"
+#include "SurfaceFactory.h"
 #include <SDL.h>
 
 namespace Moge
@@ -11,10 +12,11 @@ namespace Moge
 	Engine::Engine( void )
 	{
 		SDL_Init( SDL_INIT_EVERYTHING );
-        this->sdlKey = SDL_GetKeyboardState( nullptr );
-        this->keyFactory.reset( new KeyFactorySDL() );
-        this->keys = this->keyFactory->createKeys();
-        this->nodeFactory.reset( new NodeFactoryRegular() );
+		this->sdlKey = SDL_GetKeyboardState( nullptr );
+		this->keyFactory.reset( new KeyFactorySDL() );
+		this->keys = this->keyFactory->createKeys();
+		this->surfaceFactory.reset( new SurfaceFactory() );
+		this->nodeFactory.reset( new NodeFactoryRegular( this->surfaceFactory.get() ) );
 	}
 
 	Engine::~Engine()
@@ -52,6 +54,11 @@ namespace Moge
 	INodeFactory* Engine::getNodeFactory()
 	{
 		return this->nodeFactory.get();
+	}
+
+	SurfaceFactory* Engine::getSurfaceFactory()
+	{
+		return this->surfaceFactory.get();
 	}
 
 	void Engine::startMainLoop()

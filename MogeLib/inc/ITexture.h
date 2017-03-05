@@ -9,6 +9,7 @@ namespace Moge
 	public:
 		ITexture();
 		virtual ~ITexture();
+		virtual const char* getPath()const = 0;
 	protected:
 	private:
 	};

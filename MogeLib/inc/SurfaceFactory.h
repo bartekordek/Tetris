@@ -8,7 +8,7 @@ namespace Moge
 	class MogeLib_API SurfaceFactory
 	{
 	public:
-		static ImageSurface CreateSurfaceFromImage( const Path& imagePath );
+		ImageSurface CreateSurfaceFromImage( const Path& imagePath );
 
 	private:
 		enum class ImageTypes: signed char

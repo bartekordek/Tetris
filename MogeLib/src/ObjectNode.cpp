@@ -1,129 +1,30 @@
 #include "ObjectNode.h"
-#include "SDL_surface.h"
-
+#include "Math/IPositionFactory.h"
+#include "Math/SizeDouble3D.h"
+#include "Math/Vector3DFactory.h"
 namespace Moge
 {
-	ObjectNodeContent::ObjectNodeContent(): mFilePath("")
+	using namespace Math;
+	ObjectNodeContent::ObjectNodeContent():
+		position( Math::IPositionFactory::createSimplePositionDouble3D() ),
+		size( new Math::SizeDouble3D() ),
+		scale( Math::Vector3DFactory::createVectorSimpleDouble( 1.0, 1.0, 1.0 ) )
 	{
-	}
-
-	ObjectNodeContent::ObjectNodeContent( const Path& filePath ):mFilePath( filePath )
-	{
+		
 	}
 
 	ObjectNodeContent::ObjectNodeContent( const ObjectNodeContent& objectNodeContent ):
-		surface( objectNodeContent.surface ),
-		mFilePath( "" ),
-		position( objectNodeContent.position ),
-		size( objectNodeContent.size )
+		mFilePath( objectNodeContent.mFilePath )
 	{
-	}
-
-	const int ObjectNodeContent::getX()const
-	{
-		return this->position.getValue( Math::Axes::X );
-	}
-
-	const int ObjectNodeContent::getY()const
-	{
-		return this->position.getValue( Math::Axes::Y );
-	}
-	const int ObjectNodeContent::getZ()const
-	{
-		return this->position.getValue( Math::Axes::Z );
-	}
-
-	void ObjectNodeContent::setXyz( const int x, const int y, const int z )
-	{
-		this->position.setValue( Math::Axes::X, x );
-		this->position.setValue( Math::Axes::Y, y );
-		this->position.setValue( Math::Axes::Z, z );
-		UpdateGeometrics();
-	}
-
-	void ObjectNodeContent::setXyz( const IPosition& size )
-	{
-		this->position.setValue( Math::Axes::X, size.getX() );
-		this->position.setValue( Math::Axes::Y, size.getY() );
-		this->position.setValue( Math::Axes::Z, size.getZ() );
-		UpdateGeometrics();
-	}
-
-	void ObjectNodeContent::setX( const int x )
-	{
-		this->position.setValue( Math::Axes::X, x );
-		UpdateGeometrics();
-	}
-
-	void ObjectNodeContent::setY( const int y )
-	{
-		this->position.setValue( Math::Axes::Y, y );
-		UpdateGeometrics();
-	}
-
-	void ObjectNodeContent::setZ( const int z )
-	{
-		this->position.setValue( Math::Axes::Z, z );
-		UpdateGeometrics();
-	}
-
-	void ObjectNodeContent::setSize( const unsigned int width, const unsigned int height, const unsigned int depth )
-	{
-		this->size.setValue( Math::Axes::X, width );
-		this->size.setValue( Math::Axes::Y, height );
-		this->size.setValue( Math::Axes::Z, depth );
-		UpdateGeometrics();
-	}
-
-	void ObjectNodeContent::setSize( const ISize& size )
-	{
-		this->size.setValue( Math::Axes::X, size.getWidth() );
-		this->size.setValue( Math::Axes::Y, size.getHeight() );
-		this->size.setValue( Math::Axes::Z, size.getDepth() );
-		UpdateGeometrics();
-	}
-
-	void ObjectNodeContent::setWidth( const unsigned int width )
-	{
-		this->size.setValue( Math::Axes::X, width );
-		UpdateGeometrics();
-	}
-
-	void ObjectNodeContent::setHeight( const unsigned int height )
-	{
-		this->size.setValue( Math::Axes::Y, height );
-		UpdateGeometrics();
-	}
-
-	void ObjectNodeContent::setDepth( const unsigned int depth )
-	{
-		this->size.setValue( Math::Axes::Z, depth );
-		UpdateGeometrics();
-	}
-
-	const unsigned int ObjectNodeContent::getWidth()const
-	{
-		return this->size.getValue( Math::Axes::X );
-	}
-
-	const unsigned int ObjectNodeContent::getHeight()const
-	{
-		return this->size.getValue( Math::Axes::Y );
-	}
-
-	const unsigned int ObjectNodeContent::getDepth()const
-	{
-		return this->size.getValue( Math::Axes::Z );
 	}
 
 	ObjectNodeContent& ObjectNodeContent::operator=( const ObjectNodeContent& right )
 	{
 		if( &right != this )
 		{
-			this->surface = right.surface;
-			this->position = right.position;
-			this->size = right.size;
-			UpdateGeometrics();
+			this->position->setXyz( *right.position );
+			this->size->setSize( *right.size );
+			this->scale->setXYZ( *right.scale );
 		}
 		return *this;
 	}
@@ -132,67 +33,28 @@ namespace Moge
 	{
 	}
 
-	const ImageSurface& ObjectNodeContent::GetSurface()const
+	IPosition< double >& ObjectNodeContent::getPosition() const
 	{
-		return surface;
+		return *this->position;
 	}
 
-	void ObjectNodeContent::SetSurface( const ImageSurface& surface )
+	ISize< double >& ObjectNodeContent::getSize() const
 	{
-		this->surface = surface;
-		setWidth( surface->GetSdlSurface()->w );
-		setHeight( surface->GetSdlSurface()->h );
-		Node::UpdateGeometrics();
+		return *this->size;
 	}
 
-	void ObjectNodeContent::setScale( const double scale )
+	IVector3D< double >& ObjectNodeContent::getScale() const
 	{
-		this->scaleX = scale;
-		updateScale();
+		return *this->scale;
 	}
 
-	void ObjectNodeContent::setXscale( const double scale )
+	void ObjectNodeContent::setTexture( std::shared_ptr< ITexture >& texture )
 	{
-		this->scaleX = scale;
-		updateScale();
+		this->texture = texture;
 	}
 
-	void ObjectNodeContent::setYscale( const double scale )
+	std::shared_ptr< ITexture >& ObjectNodeContent::getTexture()
 	{
-		this->scaleY = scale;
-		updateScale();
-	}
-
-	void ObjectNodeContent::setZscale( const double scale )
-	{
-		this->scaleZ = scale;
-	}
-
-	const double ObjectNodeContent::getScale()
-	{
-		return this->scaleX;
-	}
-
-	const double ObjectNodeContent::getXscale()
-	{
-		return this->scaleY;
-	}
-
-	const double ObjectNodeContent::getYscale()
-	{
-		return 1.0;
-	}
-
-	const double ObjectNodeContent::getZscale()
-	{
-		return 1.0;
-	}
-
-	void ObjectNodeContent::updateScale()
-	{
-		this->surface->GetSdlSurface()->w *= static_cast<int>( this->scaleX );
-		this->surface->GetSdlSurface()->h *= static_cast<int>( this->scaleY );
-		this->mGeometrics->w = this->surface->GetSdlSurface()->w;
-		this->mGeometrics->w = this->surface->GetSdlSurface()->w;
+		return this->texture;
 	}
 }

@@ -39,11 +39,11 @@ namespace Moge
 			{
 				return ImageTypes::BMP;
 			}
-			else if( ".png" == imagePath.Extension().ToLower() )
+			if( ".png" == imagePath.Extension().ToLower() )
 			{
 				return ImageTypes::PNG;
 			}
-			else if( ".jpg" == imagePath.Extension().ToLower() )
+			if( ".jpg" == imagePath.Extension().ToLower() )
 			{
 				return ImageTypes::JPG;
 			}

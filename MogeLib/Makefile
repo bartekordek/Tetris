@@ -8,7 +8,7 @@ DLL_NAME = $(PROJECT_NAME).dll
 IMP_LIB_NAME = $(PROJECT_NAME).a
 OUTPUT_DIR_DEBUG = ../Build/$(OS)_DEBUG
 OUTPUT_DIR_RELEASE = ../Build/$(OS)_RELEASE
-HEADER_INC = -I inc/ -I ../MogeMath/inc/ -I $(HOME_SDL2_CYGWIN)/include/SDL2/ -I $(HOME_BOOST_CYGWIN)
+HEADER_INC = -I inc/ -I $(HOME_SDL2_CYGWIN)/include/SDL2/ -I $(HOME_BOOST_CYGWIN)
 IMPORT_LIBS_DEBUG = $(HOME_SDL2_CYGWIN)/lib/libSDL2.dll.a $(HOME_BOOST_CYGWIN)/stage/lib/libboost_filesystem.a $(HOME_BOOST_CYGWIN)/stage/lib/libboost_system.a
 IMPORT_LIBS_RELEASE = $(HOME_SDL2_CYGWIN)/lib/libSDL2.dll.a $(HOME_BOOST_CYGWIN)/stage/lib/libboost_filesystem.a $(HOME_BOOST_CYGWIN)/stage/lib/libboost_system.a
 OUTPUT_DEBUG = $(OUTPUT_DIR_DEBUG)/$(DLL_NAME)
@@ -24,8 +24,8 @@ OBJ_DEBUG_FILES := $(addprefix $(OBJ_DEBUG_DIR),$(CPP_FILES:.cpp=.o))
 OBJ_RELEASE_DIR := obj/release/
 OBJ_RELEASE_FILES := $(addprefix $(OBJ_RELEASE_DIR),$(CPP_FILES:.cpp=.o))
 
-debug: run_debug_deps $(OUTPUT_DEBUG)
-release: run_release_deps $(OUTPUT_RELEASE)
+debug: $(OUTPUT_DEBUG)
+release: $(OUTPUT_RELEASE)
 
 $(OUTPUT_DEBUG): $(OBJ_DEBUG_FILES)
 	$(CC_LINK) -o $(OUTPUT_DEBUG) $(OBJ_DEBUG_FILES) $(IMPORT_LIBS_DEBUG) -Wl,--out-implib,$(OUTPUT_DIR_DEBUG)/$(IMP_LIB_NAME) -Wl,--export-all-symbols -Wl,--enable-auto-import
@@ -40,12 +40,6 @@ $(OBJ_DEBUG_DIR)%.o: %.cpp
 $(OBJ_RELEASE_DIR)%.o: %.cpp
 	mkdir -p $(dir $@)
 	$(CC) $(HEADER_INC) $(COMPILER_FLAGS) $(RELEASE_FLAGS) -c -o $@ $<
-
-run_debug_deps:
-	make -C ../MogeMath debug
-
-run_release_deps:
-	make -C ../MogeMath release
 
 first_run:
 	mkdir -p $(dir $(OBJ_DEBUG_FILES)) 

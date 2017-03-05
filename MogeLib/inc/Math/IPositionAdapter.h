@@ -30,46 +30,50 @@ namespace Moge
 			{
 			}
 
-			virtual const Type getX()const
+			IPosition<Type>& operator=( const IPosition<Type>& position )override
+			{
+				if( this != &position )
+				{
+					MultiPoint<Type>::setValue( Axes::X, position.getX() );
+					MultiPoint<Type>::setValue( Axes::Y, position.getY() );
+					MultiPoint<Type>::setValue( Axes::Z, position.getZ() );
+				}
+				return *this;
+			}
+
+			const Type getX()const override
 			{
 				return MultiPoint<Type>::getValue( Axes::X );
 			}
 
-			virtual const Type getY()const
+			const Type getY()const override
 			{
 				return MultiPoint<Type>::getValue( Axes::Y );
 			}
 
-			virtual const Type getZ()const
+			const Type getZ()const override
 			{
 				return MultiPoint<Type>::getValue( Axes::Z );
 			}
 			
-			virtual void setXyz( const Type x, const Type y, const Type z )
+			void setXyz( const Type x, const Type y, const Type z ) override
 			{
 				MultiPoint<Type>::setValue( Axes::X, x );
 				MultiPoint<Type>::setValue( Axes::Y, y );
 				MultiPoint<Type>::setValue( Axes::Z, z );
 			}
 
-			virtual void setXyz( const IPosition<Type>& pos )
-			{
-				MultiPoint<Type>::setValue( Axes::X, pos.getX() );
-				MultiPoint<Type>::setValue( Axes::Y, pos.getY() );
-				MultiPoint<Type>::setValue( Axes::Z, pos.getZ() );
-			}
-
-			virtual void setX( const Type x )
+			void setX( const Type x ) override
 			{
 				MultiPoint<Type>::setValue( Axes::X, x );
 			}
 
-			virtual void setY( const Type y )
+			void setY( const Type y ) override
 			{
 				MultiPoint<Type>::setValue( Axes::Y, y );
 			}
 
-			virtual void setZ( const Type z )
+			void setZ( const Type z ) override
 			{
 				MultiPoint<Type>::setValue( Axes::Z, z );
 			}

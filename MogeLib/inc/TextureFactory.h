@@ -3,7 +3,6 @@
 #include "ITextureFactory.h"
 
 #include <map>
-#include <memory>
 
 namespace Moge
 {
@@ -14,9 +13,9 @@ namespace Moge
 	public:
 		TextureFactory( Engine* engine );
 		virtual ~TextureFactory();
-		ITexture* createTexture( const Path& path ) override;
-		ITexture* findTexture( const Path& path ) override;
-		void removeTexture( ITexture* texture ) override;
+		std::shared_ptr<ITexture>& createTexture( const Path& path ) override;
+		std::shared_ptr<ITexture>& findTexture( const Path& path ) override;
+		void removeTexture( const std::shared_ptr<ITexture>& texture ) override;
 	protected:
 	private:
 		

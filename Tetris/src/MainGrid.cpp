@@ -10,12 +10,13 @@ namespace Tetris
 using namespace Moge;
 CMainGrid::CMainGrid():activeBrick( nullptr )
 {
+	this->sf = EngineManager::getEngine()->getSurfaceFactory();
 	std::lock_guard<std::mutex> slabLock( currentBrickMutex );
 	Path blockImagepath = Path::GetCurrentDirectory() + "\\..\\..\\Media\\Block.bmp";
-	filledSlabImage = SurfaceFactory::CreateSurfaceFromImage( blockImagepath );
+	filledSlabImage = this->sf->CreateSurfaceFromImage( blockImagepath );
 
 	Path bgBlockImagepath = Path::GetCurrentDirectory() + "\\..\\..\\Media\\BackGroundBlock.bmp";
-	emptySlabImage = SurfaceFactory::CreateSurfaceFromImage( bgBlockImagepath );
+	emptySlabImage = this->sf->CreateSurfaceFromImage( bgBlockImagepath );
 }
 
 CMainGrid::~CMainGrid()

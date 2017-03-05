@@ -1,15 +1,14 @@
-#include "Frustum.h"
+#include "Math/Line.h"
 
 namespace Moge
 {
 	namespace Math
 	{
-		Frustum::Frustum()
+		Line::Line()
 		{
 		}
 
-
-		Frustum::~Frustum()
+		Line::~Line()
 		{
 		}
 	}

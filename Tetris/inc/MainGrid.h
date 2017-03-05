@@ -9,6 +9,7 @@
 namespace Tetris
 {
 using SlabRow = std::vector<Slab>;
+class SurfaceFactory;
 class CMainGrid
 {
 public:
@@ -44,5 +45,6 @@ private:
 	std::mutex currentBrickMutex;
 	Moge::ImageSurface emptySlabImage;
 	Moge::ImageSurface filledSlabImage;
+	Moge::SurfaceFactory* sf = nullptr;
 };
 }
