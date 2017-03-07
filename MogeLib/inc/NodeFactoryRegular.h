@@ -10,8 +10,8 @@ namespace Moge
 	public:
 		NodeFactoryRegular( SurfaceFactory* surfaceFactory );
 		virtual ~NodeFactoryRegular() = default;
-		ObjectNode CreateFromImage( const Path& filePath, const Math::IPosition<int>& position = Math::IPositionAdapter<int>( 0, 0, 0 ), const MyString& name = MyString( "" ) ) override;
-		ObjectNode CreateFromImage( const ImageSurface& imageSurface, const Math::IPosition<int>& position = Math::IPositionAdapter<int>( 0, 0, 0 ), const MyString& name = MyString( "" ) ) override;
+		ObjectNode CreateFromImage( const Path& filePath, const Math::IPosition<double>& position = Math::IPositionAdapter<double>( 0.0, 0.0, 0.0 ), const MyString& name = MyString( "" ) ) override;
+		ObjectNode CreateFromImage( const ImageSurface& imageSurface, const Math::IPosition<double>& position = Math::IPositionAdapter<double>( 0.0, 0.0, 0.0 ), const MyString& name = MyString( "" ) ) override;
 		void removeNode( ObjectNode& node) override;
 		const bool exist( ObjectNode& node ) override;
 		const unsigned int Count() override;

@@ -1,6 +1,5 @@
 #include "SurfaceFactory.h"
 #include "MogeLibMain.h"
-#include "ScreenNode.h"
 
 #include <SDL.h>
 #include <boost/assert.hpp>
@@ -13,12 +12,13 @@ namespace Moge
 		ImageTypes imageType = GetImageType( imagePath );
 		if( ImageTypes::BMP == imageType )
 		{
-			if( EngineManager::getEngine()->getScreen() )
+            IRenderer* renderer = EngineManager::getEngine()->getRenderer();
+			if( renderer )
 			{
-				static auto screenFormat = EngineManager::getEngine()->getScreen().get()->GetSdlSurface()->format;
-				auto oldSurface = SDL_LoadBMP( imagePath.c_str() );
-				surfaceWrapper->setNewSurface( SDL_ConvertSurface( oldSurface, screenFormat, 0 ) );
-				SDL_FreeSurface( oldSurface );
+				//static auto screenFormat = renderer->GetSdlSurface()->format;
+				//auto oldSurface = SDL_LoadBMP( imagePath.c_str() );
+				//surfaceWrapper->setNewSurface( SDL_ConvertSurface( oldSurface, screenFormat, 0 ) );
+				//SDL_FreeSurface( oldSurface );TODO: Create special methods for renderer.
 			}
 			else
 			{

@@ -1,6 +1,6 @@
 #include "Engine.h"
 #include "NodeFactoryRegular.h"
-#include "IPositionAdapter.h"
+#include "Math/IPositionAdapter.h"
 #include "KeyboardObservable.h"
 #include "IKeyboardObserver.h"
 #include "KeyFactorySDL.h"
@@ -26,16 +26,9 @@ namespace Moge
 		SDL_Quit();
 	}
 
-	void Engine::createScreen( const Math::MultiPoint<unsigned int>& resolution )
+	void Engine::AddObject( const Path& filePath, const Math::MultiPoint<double>& position, const MyString& name )
 	{
-		std::lock_guard<std::mutex> lck( mListMutex );
-		mScreenBuffor = nodeFactory->CreateScreen( resolution );
-		mScreenBuffor->initialize();
-	}
-
-	void Engine::AddObject( const Path& filePath, const Math::MultiPoint<int>& position, const MyString& name )
-	{
-		Math::IPositionAdapter<int> positionAdapter( position );
+		Math::IPositionAdapter<double> positionAdapter( position );
 		ObjectNode newNode = nodeFactory->CreateFromImage( filePath, positionAdapter, name );
 		AddObject( newNode, name );
 	}
@@ -44,11 +37,6 @@ namespace Moge
 	{
 		std::lock_guard<std::mutex> renderableObjectLock( mRenderableObjectsMutex );
 		mRenderableObjects.insert( node );
-	}
-
-	const std::shared_ptr<ScreenNode> Engine::getScreen()const
-	{
-		return this->mScreenBuffor;
 	}
 
 	INodeFactory* Engine::getNodeFactory()
@@ -110,7 +98,7 @@ namespace Moge
 		{
 			Render( *object );
 		}
-		SDL_UpdateWindowSurface( mScreenBuffor->GetScreen() );
+//		SDL_UpdateWindowSurface( mScreenBuffor->GetScreen() ); TODO SDL Update frame need to be updated.
 		++mFrameCount;
 	}
 
@@ -118,10 +106,11 @@ namespace Moge
 	{
 		if( node.GetVisible() )
 		{
-			std::lock_guard<std::mutex> lck( mListMutex );
-			SDL_Rect* screenRect = node.GetGeometricsInfo();
-			SDL_Rect* imageRect = nullptr;
-			SDL_BlitSurface( node.GetSurface()->GetSdlSurface(), imageRect, mScreenBuffor->GetSdlSurface(), screenRect );
+			//std::lock_guard<std::mutex> lck( mListMutex );
+			//SDL_Rect* screenRect = node.GetGeometricsInfo();
+			//SDL_Rect* imageRect = nullptr;
+			//SDL_BlitSurface( node.GetSurface()->GetSdlSurface(), imageRect, mScreenBuffor->GetSdlSurface(), screenRect );
+            //TODO: Needs new texture logic.
 		}
 	}
 }

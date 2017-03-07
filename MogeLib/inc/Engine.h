@@ -11,10 +11,10 @@
 #include "Singleton.h"
 #include "Path.h"
 #include "ObjectNode.h"
-#include "ScreenNode.h"
 #include "IKeyboardObservable.h"
 #include "INodeFactory.h"
 #include "SurfaceFactory.h"
+#include "IRenderer.h"
 
 namespace Moge
 {
@@ -28,12 +28,11 @@ namespace Moge
 		Engine( void );
 		virtual ~Engine();
 
-		void AddObject( const Path& filePath, const Math::MultiPoint<int>& position, const MyString& name = MyString( "" ) );
+		void AddObject( const Path& filePath, const Math::MultiPoint<double>& position, const MyString& name = MyString( "" ) );
 		void AddObject( const ObjectNode node, const MyString& name = MyString( "" ) );
-		void createScreen( const Math::MultiPoint<unsigned int>& resolution = Math::MultiPoint<unsigned int>( 2 ) );
-		const std::shared_ptr<ScreenNode> getScreen()const;
 		INodeFactory* getNodeFactory();
 		SurfaceFactory* getSurfaceFactory();
+        IRenderer* getRenderer();
 		void startMainLoop();
 		void stopEventLoop();
 
@@ -44,8 +43,8 @@ namespace Moge
 		void renderingLoop();
 		void QueueFrame();
 		void Render( ObjectNodeContent& node );
+		
 
-		std::shared_ptr<ScreenNode> mScreenBuffor;
 		std::set<ObjectNode> mRenderableObjects;
 		std::mutex mRenderableObjectsMutex;
 		std::mutex mListMutex;

@@ -18,7 +18,7 @@ namespace Moge
 		MAIN_SCREEN
 	};
 
-	class MogeLib_API ObjectNodeContent: public Node, public Visible, public Scale
+	class MogeLib_API ObjectNodeContent: public Node, public Visible
 	{
 	public:
 		ObjectNodeContent();

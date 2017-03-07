@@ -32,9 +32,9 @@ namespace Moge
 
 			void setXyz( const IPosition& object )
 			{
-				setX( object.x );
-				setY( object.y );
-				setZ( object.z );
+				setX( object.getX() );
+				setY( object.getY() );
+				setZ( object.getZ() );
 			}
 
 		protected:

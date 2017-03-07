@@ -18,10 +18,10 @@ namespace Moge
 			{
 			}
 
-			void setAxesCount( const unsigned int axesCount )
+			void setAxisCount( const unsigned int axesCount )
 			{
-				this->start.setAxesCount( axesCount );
-				this->end.setAxesCount( axesCount );
+				this->start.setAxisCount( axesCount );
+				this->end.setAxisCount( axesCount );
 			}
 
 			void setLength( const Type newLength )
@@ -37,7 +37,7 @@ namespace Moge
 				MultiPoint<Type>& start = this->start;
 				const MultiPoint<Type> relativeDistance = end.relativeDistance( start );
 
-				for( unsigned int axisIndex = 0; axisIndex < end.getAxesCount(); ++axisIndex )
+				for( unsigned int axisIndex = 0; axisIndex < end.getAxisCount(); ++axisIndex )
 				{
 					const Type oldStartAxisValue = start.getValue( axisIndex );
 					const Type oldEndAxisValue = end.getValue( axisIndex );
@@ -63,7 +63,7 @@ namespace Moge
 			void setStart( const MultiPoint<Type>& start )
 			{
 				this->start = start;
-				if( startAndEndHasTheSameAxesCount() )
+				if( startAndEndHasTheSameAxisCount() )
 				{
 					sortBeginingAndStart();
 				}
@@ -72,7 +72,7 @@ namespace Moge
 			void setEnd( const MultiPoint<Type>& end )
 			{
 				this->end = end;
-				if( startAndEndHasTheSameAxesCount() )
+				if( startAndEndHasTheSameAxisCount() )
 				{
 					sortBeginingAndStart();
 				}
@@ -81,16 +81,16 @@ namespace Moge
 		private:
 			void setLengthOnlyOnFirstAxis( const Type newLength )
 			{
-				if( start.getAxesCount() > 0 && startAndEndHasTheSameAxesCount() )
+				if( start.getAxesCount() > 0 && startAndEndHasTheSameAxisCount() )
 				{
-					auto startXpos = this->start.getValue( Axes::X );
-					this->end.setValue( Axes::X, newLength );
+					auto startXpos = this->start.getValue( Axis::X );
+					this->end.setValue( Axis::X, newLength );
 				}
 			}
 
-			const bool startAndEndHasTheSameAxesCount()const
+			const bool startAndEndHasTheSameAxisCount()const
 			{
-				if( start.getAxesCount() == end.getAxesCount() )
+				if( start.getAxisCount() == end.getAxisCount() )
 				{
 					return true;
 				}

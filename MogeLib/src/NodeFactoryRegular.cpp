@@ -12,18 +12,20 @@ namespace Moge
 	using namespace Math;
 
 	ObjectNode NodeFactoryRegular::CreateFromImage( 
-		const Path& filePath, const IPosition<int>& position, const MyString& name )
+		const Path& filePath, 
+        const Math::IPosition<double>& position, 
+        const MyString& name )
 	{
 		ImageSurface imageSurface = getSurfacefactory()->CreateSurfaceFromImage( filePath );
 		return CreateFromImage( imageSurface, position, name );
 	}
 
-	ObjectNode NodeFactoryRegular::CreateFromImage( const ImageSurface& imageSurface, const IPosition<int>& position, const MyString& name )
+	ObjectNode NodeFactoryRegular::CreateFromImage( const ImageSurface& imageSurface, const Math::IPosition<double>& position, const MyString& name )
 	{
 		ObjectNodeContent* objectNodeContent = new ObjectNodeContent();
-		objectNodeContent =  position ;
+        objectNodeContent->getPosition().setXyz( position );
 		objectNodeContent->SetName( name );
-		objectNodeContent->SetSurface( imageSurface );
+        //objectNodeContent->SetSurface( imageSurface ); TODO insert texture here.
 		this->nodes.insert( objectNodeContent );
 		return ObjectNode( objectNodeContent );
 	}

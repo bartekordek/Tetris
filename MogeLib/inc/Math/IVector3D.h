@@ -29,9 +29,9 @@ namespace Moge
 
 			void setXYZ( const IVector3D& object )
 			{
-				setX( object.x );
-				setY( object.y );
-				setZ( object.z );
+				setX( object.getX() );
+				setY( object.getY() );
+				setZ( object.getZ() );
 			}
 		};
 	}
