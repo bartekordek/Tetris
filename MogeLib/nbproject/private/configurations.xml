@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="97">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="." name="0">
+      <df name="inc">
+        <df name="Math">
+          <in>Axis.h</in>
+          <in>Frustum.h</in>
+          <in>IPosition.h</in>
+          <in>IPositionAdapter.h</in>
+          <in>IPositionFactory.h</in>
+          <in>ISize.h</in>
+          <in>IVector3D.h</in>
+          <in>Line.h</in>
+          <in>Matrix2D.hpp</in>
+          <in>MultiPoint.h</in>
+          <in>MultiPointFactory.h</in>
+          <in>PositionDouble3D.h</in>
+          <in>Quaternion.h</in>
+          <in>Rectangle.h</in>
+          <in>Segment.h</in>
+          <in>SizeDouble3D.h</in>
+          <in>SquareMatrix2D.hpp</in>
+          <in>Vector3DFactory.h</in>
+        </df>
+        <in>ConsoleUtilities.h</in>
+        <in>Engine.h</in>
+        <in>File.h</in>
+        <in>IEngine.h</in>
+        <in>IKey.h</in>
+        <in>IKeyFactory.h</in>
+        <in>IKeyboardObservable.h</in>
+        <in>IKeyboardObserver.h</in>
+        <in>IMogeApp.h</in>
+        <in>INodeCreator.h</in>
+        <in>INodeFactory.h</in>
+        <in>IObservable.h</in>
+        <in>IObservableData.h</in>
+        <in>IObserver.h</in>
+        <in>IRenderable.h</in>
+        <in>IRenderer.h</in>
+        <in>ITexture.h</in>
+        <in>ITextureFactory.h</in>
+        <in>IVector.h</in>
+        <in>KeyFactorySDL.h</in>
+        <in>KeyboardData.h</in>
+        <in>KeyboardObservable.h</in>
+        <in>MTime.h</in>
+        <in>MogeLib.h</in>
+        <in>MogeLibMain.h</in>
+        <in>MyString.h</in>
+        <in>Named.h</in>
+        <in>Node.h</in>
+        <in>NodeFactoryRegular.h</in>
+        <in>ObjectNode.h</in>
+        <in>Path.h</in>
+        <in>SDLRenderer.h</in>
+        <in>Scale.h</in>
+        <in>Singleton.h</in>
+        <in>Size.h</in>
+        <in>SurfaceFactory.h</in>
+        <in>SurfaceWrapper.h</in>
+        <in>TextureFactory.h</in>
+        <in>Visible.h</in>
+      </df>
+      <df name="Intermediate">
+        <df name="Win32_Debug">
+          <df name="MogeLib.tlog">
+          </df>
+        </df>
+        <df name="x64_Debug">
+          <df name="MogeLib.tlog">
+          </df>
+        </df>
+      </df>
+      <df name="obj">
+        <df name="debug">
+          <df name="RenderableObject">
+          </df>
+          <df name="Scene">
+          </df>
+          <df name="src">
+          </df>
+        </df>
+        <df name="release">
+          <df name="RenderableObject">
+          </df>
+          <df name="Scene">
+          </df>
+          <df name="src">
+          </df>
+        </df>
+      </df>
+      <df name="RenderableObject">
+        <in>RenderableObjectContainer.cpp</in>
+        <in>RenderableObjectContainer.h</in>
+        <in>RenderableObjectContainerImpl.cpp</in>
+        <in>RenderableObjectContainerImpl.h</in>
+      </df>
+      <df name="Scene">
+        <in>Scene.cpp</in>
+        <in>Scene.h</in>
+        <in>SceneImpl.cpp</in>
+        <in>SceneImpl.h</in>
+      </df>
+      <df name="src">
+        <in>ConsoleUtilities.cpp</in>
+        <in>Engine.cpp</in>
+        <in>File.cpp</in>
+        <in>Frustum.cpp</in>
+        <in>IKey.cpp</in>
+        <in>IKeyFactory.cpp</in>
+        <in>IKeyboardData.h</in>
+        <in>IKeyboardObservable.cpp</in>
+        <in>IKeyboardObservableImp.cpp</in>
+        <in>IKeyboardObservableImp.h</in>
+        <in>IKeyboardObserver.cpp</in>
+        <in>IMogeApp.cpp</in>
+        <in>INodeCreator.cpp</in>
+        <in>INodeFactory.cpp</in>
+        <in>IObservable.cpp</in>
+        <in>IObservableData.cpp</in>
+        <in>IObservableImpl.cpp</in>
+        <in>IObservableImpl.h</in>
+        <in>IPositionFactory.cpp</in>
+        <in>IRenderable.cpp</in>
+        <in>IRenderer.cpp</in>
+        <in>ITexture.cpp</in>
+        <in>ITextureFactory.cpp</in>
+        <in>IVector3D.cpp</in>
+        <in>KeyFactorySDL.cpp</in>
+        <in>KeySDL.cpp</in>
+        <in>KeySDL.h</in>
+        <in>KeyboardData.cpp</in>
+        <in>KeyboardObservable.cpp</in>
+        <in>Line.cpp</in>
+        <in>MTime.cpp</in>
+        <in>MogeLibMain.cpp</in>
+        <in>MultiPointFactory.cpp</in>
+        <in>MyString.cpp</in>
+        <in>Named.cpp</in>
+        <in>Node.cpp</in>
+        <in>NodeFactoryRegular.cpp</in>
+        <in>ObjectNode.cpp</in>
+        <in>Path.cpp</in>
+        <in>PositionDouble3D.cpp</in>
+        <in>Quaternion.cpp</in>
+        <in>Rectangle.cpp</in>
+        <in>SDLRenderer.cpp</in>
+        <in>Scale.cpp</in>
+        <in>Singleton.cpp</in>
+        <in>Size.cpp</in>
+        <in>SizeDouble3D.cpp</in>
+        <in>SurfaceFactory.cpp</in>
+        <in>SurfaceWrapper.cpp</in>
+        <in>TextureFactory.cpp</in>
+        <in>Vector3DFactory.cpp</in>
+        <in>Vector3DSimple.h</in>
+        <in>Visible.cpp</in>
+      </df>
+    </df>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <platform>3</platform>
+      </toolsSet>
+      <compile>
+        <compiledirpicklist>
+          <compiledirpicklistitem>.</compiledirpicklistitem>
+          <compiledirpicklistitem>${AUTO_FOLDER}</compiledirpicklistitem>
+        </compiledirpicklist>
+        <compiledir>${AUTO_FOLDER}</compiledir>
+        <compilecommandpicklist>
+          <compilecommandpicklistitem>${MAKE} ${ITEM_NAME}.o</compilecommandpicklistitem>
+          <compilecommandpicklistitem>${AUTO_COMPILE}</compilecommandpicklistitem>
+        </compilecommandpicklist>
+        <compilecommand>${AUTO_COMPILE}</compilecommand>
+      </compile>
+      <dbx_gdbdebugger version="1">
+        <gdb_pathmaps>
+        </gdb_pathmaps>
+        <gdb_interceptlist>
+          <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
+        </gdb_interceptlist>
+        <gdb_options>
+          <DebugOptions>
+          </DebugOptions>
+        </gdb_options>
+        <gdb_buildfirst gdb_buildfirst_overriden="false" gdb_buildfirst_old="false"/>
+      </dbx_gdbdebugger>
+      <nativedebugger version="1">
+        <engine>gdb</engine>
+      </nativedebugger>
+      <runprofile version="9">
+        <runcommandpicklist>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
+        </runcommandpicklist>
+        <runcommand>"${OUTPUT_PATH}"</runcommand>
+        <rundir>.</rundir>
+        <buildfirst>false</buildfirst>
+        <terminal-type>0</terminal-type>
+        <remove-instrumentation>0</remove-instrumentation>
+        <environment>
+        </environment>
+      </runprofile>
+    </conf>
+  </confs>
+</configurationDescriptor>
