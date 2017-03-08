@@ -12,18 +12,7 @@ namespace Moge
 		ImageTypes imageType = GetImageType( imagePath );
 		if( ImageTypes::BMP == imageType )
 		{
-            IRenderer* renderer = EngineManager::getEngine()->getRenderer();
-			if( renderer )
-			{
-				//static auto screenFormat = renderer->GetSdlSurface()->format;
-				//auto oldSurface = SDL_LoadBMP( imagePath.c_str() );
-				//surfaceWrapper->setNewSurface( SDL_ConvertSurface( oldSurface, screenFormat, 0 ) );
-				//SDL_FreeSurface( oldSurface );TODO: Create special methods for renderer.
-			}
-			else
-			{
-				surfaceWrapper->setNewSurface( SDL_LoadBMP( imagePath.c_str() ) );
-			}
+			surfaceWrapper->setNewSurface( SDL_LoadBMP( imagePath.c_str() ) );
 			BOOST_ASSERT( surfaceWrapper->GetSdlSurface() != nullptr  );
 		}
 		ImageSurface surface;
