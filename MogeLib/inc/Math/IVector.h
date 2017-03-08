@@ -4,6 +4,8 @@
 
 namespace Moge
 {
+    namespace Math
+    {
 	template <typename Type>
 	class MogeLib_API IVector
 	{
@@ -37,4 +39,5 @@ namespace Moge
 	protected:
 	private:
 	};
+    }
 }
