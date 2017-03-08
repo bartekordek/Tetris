@@ -61,6 +61,7 @@
         <in>SurfaceFactory.h</in>
         <in>SurfaceWrapper.h</in>
         <in>TextureFactory.h</in>
+        <in>TextureSDL.h</in>
         <in>Visible.h</in>
       </df>
       <df name="Intermediate">
@@ -151,9 +152,11 @@
         <in>Singleton.cpp</in>
         <in>Size.cpp</in>
         <in>SizeDouble3D.cpp</in>
+        <in>SupportedRenderersList.h</in>
         <in>SurfaceFactory.cpp</in>
         <in>SurfaceWrapper.cpp</in>
         <in>TextureFactory.cpp</in>
+        <in>TextureSDL.cpp</in>
         <in>Vector3DFactory.cpp</in>
         <in>Vector3DSimple.h</in>
         <in>Visible.cpp</in>
