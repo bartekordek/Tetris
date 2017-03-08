@@ -9,7 +9,7 @@
 
 namespace Moge
 {
-	Engine::Engine( void )
+        Engine::Engine( void )
 	{
 		SDL_Init( SDL_INIT_EVERYTHING );
 		this->sdlKey = SDL_GetKeyboardState( nullptr );
@@ -38,6 +38,11 @@ namespace Moge
 		std::lock_guard<std::mutex> renderableObjectLock( mRenderableObjectsMutex );
 		mRenderableObjects.insert( node );
 	}
+        
+        IRenderer* Engine::getRenderer()
+        {
+            return nullptr;
+        }
 
 	INodeFactory* Engine::getNodeFactory()
 	{
