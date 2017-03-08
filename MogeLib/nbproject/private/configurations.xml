@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configurationDescriptor version="97">
+<configurationDescriptor version="100">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <df root="." name="0">
       <df name="inc">
@@ -10,6 +10,7 @@
           <in>IPositionAdapter.h</in>
           <in>IPositionFactory.h</in>
           <in>ISize.h</in>
+          <in>IVector.h</in>
           <in>IVector3D.h</in>
           <in>Line.h</in>
           <in>Matrix2D.hpp</in>
@@ -19,6 +20,7 @@
           <in>Quaternion.h</in>
           <in>Rectangle.h</in>
           <in>Segment.h</in>
+          <in>Size.h</in>
           <in>SizeDouble3D.h</in>
           <in>SquareMatrix2D.hpp</in>
           <in>Vector3DFactory.h</in>
@@ -41,7 +43,6 @@
         <in>IRenderer.h</in>
         <in>ITexture.h</in>
         <in>ITextureFactory.h</in>
-        <in>IVector.h</in>
         <in>KeyFactorySDL.h</in>
         <in>KeyboardData.h</in>
         <in>KeyboardObservable.h</in>
@@ -57,7 +58,6 @@
         <in>SDLRenderer.h</in>
         <in>Scale.h</in>
         <in>Singleton.h</in>
-        <in>Size.h</in>
         <in>SurfaceFactory.h</in>
         <in>SurfaceWrapper.h</in>
         <in>TextureFactory.h</in>
