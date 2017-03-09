@@ -13,7 +13,7 @@ namespace Moge
 	public:
 		TextureFactory( Engine* engine );
 		virtual ~TextureFactory();
-		std::shared_ptr<ITexture>& createTexture( const Path& path ) override;
+		std::shared_ptr<ITexture>& createTexture(const Path& path, const SupportedRenderers renderer) override;
 		std::shared_ptr<ITexture>& findTexture( const Path& path ) override;
 		void removeTexture( const std::shared_ptr<ITexture>& texture ) override;
 	protected:
