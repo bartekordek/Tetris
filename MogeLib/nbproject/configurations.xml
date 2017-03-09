@@ -3,22 +3,135 @@
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <df root="." name="0">
       <df name="inc">
+        <df name="Math">
+          <in>Axis.h</in>
+          <in>Frustum.h</in>
+          <in>IPosition.h</in>
+          <in>IPositionAdapter.h</in>
+          <in>IPositionFactory.h</in>
+          <in>ISize.h</in>
+          <in>IVector.h</in>
+          <in>IVector3D.h</in>
+          <in>Line.h</in>
+          <in>Matrix2D.hpp</in>
+          <in>MultiPoint.h</in>
+          <in>MultiPointFactory.h</in>
+          <in>PositionDouble3D.h</in>
+          <in>Quaternion.h</in>
+          <in>Rectangle.h</in>
+          <in>Segment.h</in>
+          <in>Size.h</in>
+          <in>SizeDouble3D.h</in>
+          <in>SquareMatrix2D.hpp</in>
+          <in>Vector3DFactory.h</in>
+        </df>
+        <in>ConsoleUtilities.h</in>
+        <in>Engine.h</in>
+        <in>File.h</in>
+        <in>IEngine.h</in>
+        <in>IKey.h</in>
+        <in>IKeyFactory.h</in>
+        <in>IKeyboardObservable.h</in>
+        <in>IKeyboardObserver.h</in>
+        <in>IMogeApp.h</in>
+        <in>INodeCreator.h</in>
+        <in>INodeFactory.h</in>
+        <in>IObservable.h</in>
+        <in>IObservableData.h</in>
+        <in>IObserver.h</in>
+        <in>IRenderable.h</in>
+        <in>IRenderer.h</in>
+        <in>ITexture.h</in>
+        <in>ITextureFactory.h</in>
+        <in>KeyFactorySDL.h</in>
+        <in>KeyboardData.h</in>
+        <in>KeyboardObservable.h</in>
+        <in>MTime.h</in>
+        <in>MogeLib.h</in>
+        <in>MogeLibMain.h</in>
+        <in>MyString.h</in>
+        <in>Named.h</in>
+        <in>Node.h</in>
+        <in>NodeFactoryRegular.h</in>
+        <in>ObjectNode.h</in>
+        <in>Path.h</in>
+        <in>SDLRenderer.h</in>
+        <in>Scale.h</in>
+        <in>Singleton.h</in>
+        <in>SupportedRenderersList.h</in>
+        <in>SurfaceFactory.h</in>
+        <in>SurfaceWrapper.h</in>
+        <in>TextureFactory.h</in>
         <in>TextureSDL.h</in>
+        <in>Visible.h</in>
       </df>
       <df name="RenderableObject">
         <in>RenderableObjectContainer.cpp</in>
+        <in>RenderableObjectContainer.h</in>
         <in>RenderableObjectContainerImpl.cpp</in>
+        <in>RenderableObjectContainerImpl.h</in>
       </df>
       <df name="Scene">
         <in>Scene.cpp</in>
+        <in>Scene.h</in>
         <in>SceneImpl.cpp</in>
+        <in>SceneImpl.h</in>
       </df>
       <df name="src">
+        <in>ConsoleUtilities.cpp</in>
+        <in>Engine.cpp</in>
+        <in>File.cpp</in>
+        <in>Frustum.cpp</in>
+        <in>IKey.cpp</in>
+        <in>IKeyFactory.cpp</in>
+        <in>IKeyboardData.h</in>
+        <in>IKeyboardObservable.cpp</in>
+        <in>IKeyboardObservableImp.cpp</in>
+        <in>IKeyboardObservableImp.h</in>
+        <in>IKeyboardObserver.cpp</in>
+        <in>IMogeApp.cpp</in>
+        <in>INodeCreator.cpp</in>
+        <in>INodeFactory.cpp</in>
+        <in>IObservable.cpp</in>
+        <in>IObservableData.cpp</in>
+        <in>IObservableImpl.cpp</in>
+        <in>IObservableImpl.h</in>
+        <in>IPositionFactory.cpp</in>
+        <in>IRenderable.cpp</in>
+        <in>IRenderer.cpp</in>
+        <in>ITexture.cpp</in>
+        <in>ITextureFactory.cpp</in>
+        <in>IVector3D.cpp</in>
+        <in>KeyFactorySDL.cpp</in>
+        <in>KeySDL.cpp</in>
+        <in>KeySDL.h</in>
+        <in>KeyboardData.cpp</in>
+        <in>KeyboardObservable.cpp</in>
+        <in>Line.cpp</in>
+        <in>MTime.cpp</in>
+        <in>MogeLibMain.cpp</in>
+        <in>MultiPointFactory.cpp</in>
+        <in>MyString.cpp</in>
+        <in>Named.cpp</in>
+        <in>Node.cpp</in>
+        <in>NodeFactoryRegular.cpp</in>
+        <in>ObjectNode.cpp</in>
+        <in>Path.cpp</in>
+        <in>PositionDouble3D.cpp</in>
+        <in>Quaternion.cpp</in>
+        <in>Rectangle.cpp</in>
+        <in>SDLRenderer.cpp</in>
+        <in>Scale.cpp</in>
+        <in>Singleton.cpp</in>
         <in>Size.cpp</in>
-        <in>SupportedRenderersList.h</in>
+        <in>SizeDouble3D.cpp</in>
         <in>SurfaceFactory.cpp</in>
         <in>SurfaceWrapper.cpp</in>
+        <in>TextureFactory.cpp</in>
         <in>TextureSDL.cpp</in>
+        <in>Vector3DFactory.cpp</in>
+        <in>Vector3DSimple.h</in>
+        <in>Visible.cpp</in>
       </df>
     </df>
     <logicalFolder name="ExternalFiles"
@@ -35,27 +148,304 @@
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
-    <conf name="Default" type="0">
+    <conf name="Debug" type="0">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>false</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <codeAssistance>
+      </codeAssistance>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>${MAKE}</buildCommand>
+          <cleanCommand>${MAKE} clean</cleanCommand>
+          <executablePath></executablePath>
+        </makeTool>
+        <preBuild>
+          <preBuildCommandWorkingDir>.</preBuildCommandWorkingDir>
+          <preBuildCommand></preBuildCommand>
+        </preBuild>
+      </makefileType>
+      <item path="RenderableObject/RenderableObjectContainer.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="RenderableObject/RenderableObjectContainer.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="RenderableObject/RenderableObjectContainerImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="RenderableObject/RenderableObjectContainerImpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="Scene/Scene.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Scene/Scene.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Scene/SceneImpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Scene/SceneImpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/ConsoleUtilities.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/Engine.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/File.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/IEngine.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/IKey.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/IKeyFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/IKeyboardObservable.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/IKeyboardObserver.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/IMogeApp.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/INodeCreator.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/INodeFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/IObservable.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/IObservableData.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/IObserver.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/IRenderable.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/IRenderer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/ITexture.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/ITextureFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/KeyFactorySDL.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/KeyboardData.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/KeyboardObservable.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/MTime.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/Math/Axis.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/Math/Frustum.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/Math/IPosition.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/Math/IPositionAdapter.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/Math/IPositionFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/Math/ISize.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/Math/IVector.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/Math/IVector3D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/Math/Line.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/Math/Matrix2D.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/Math/MultiPoint.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/Math/MultiPointFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/Math/PositionDouble3D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/Math/Quaternion.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/Math/Rectangle.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/Math/Segment.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/Math/Size.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/Math/SizeDouble3D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/Math/SquareMatrix2D.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/Math/Vector3DFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/MogeLib.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/MogeLibMain.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/MyString.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/Named.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/Node.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/NodeFactoryRegular.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/ObjectNode.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/Path.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/SDLRenderer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/Scale.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/Singleton.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/SupportedRenderersList.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/SurfaceFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/SurfaceWrapper.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/TextureFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/TextureSDL.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/Visible.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ConsoleUtilities.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Engine.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/File.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Frustum.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/IKey.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/IKeyFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/IKeyboardData.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/IKeyboardObservable.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/IKeyboardObservableImp.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/IKeyboardObservableImp.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/IKeyboardObserver.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/IMogeApp.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/INodeCreator.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/INodeFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/IObservable.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/IObservableData.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/IObservableImpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/IObservableImpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/IPositionFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/IRenderable.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/IRenderer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ITexture.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ITextureFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/IVector3D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/KeyFactorySDL.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/KeySDL.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/KeySDL.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/KeyboardData.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/KeyboardObservable.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Line.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/MTime.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/MogeLibMain.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/MultiPointFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/MyString.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Named.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Node.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/NodeFactoryRegular.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ObjectNode.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Path.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/PositionDouble3D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Quaternion.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Rectangle.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/SDLRenderer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Scale.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Singleton.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Size.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/SizeDouble3D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/SurfaceFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/SurfaceWrapper.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/TextureFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/TextureSDL.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Vector3DFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Vector3DSimple.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Visible.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="0">
       <toolsSet>
         <compilerSet>default</compilerSet>
         <dependencyChecking>false</dependencyChecking>
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <flagsDictionary>
-        <element flagsID="0" commonFlags="-pedantic -std=c++11"/>
-        <element flagsID="1" commonFlags="-std=c++11"/>
+        <element flagsID="0" commonFlags="-pedantic -std=c++11 -Ofast"/>
       </flagsDictionary>
       <codeAssistance>
       </codeAssistance>
       <makefileType>
         <makeTool>
           <buildCommandWorkingDir>.</buildCommandWorkingDir>
-          <buildCommand>${MAKE} -f Makefile</buildCommand>
+          <buildCommand>${MAKE} -f Makefile release</buildCommand>
           <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
           <executablePath></executablePath>
           <ccTool>
             <incDir>
               <pElem>inc</pElem>
+              <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+              <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+              <pElem></pElem>
             </incDir>
             <preprocessorList>
               <Elem>MogeLib_EXPORT=1</Elem>
@@ -71,77 +461,219 @@
             ex="false"
             tool="1"
             flavor2="8">
-        <ccTool flags="1">
+        <ccTool flags="0">
         </ccTool>
       </item>
       <item path="RenderableObject/RenderableObjectContainerImpl.cpp"
             ex="false"
             tool="1"
             flavor2="8">
-        <ccTool flags="1">
+        <ccTool flags="0">
         </ccTool>
       </item>
       <item path="Scene/Scene.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="1">
+        <ccTool flags="0">
         </ccTool>
       </item>
       <item path="Scene/SceneImpl.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="1">
+        <ccTool flags="0">
         </ccTool>
       </item>
-      <folder path="0/RenderableObject">
-        <ccTool>
-          <incDir>
-            <pElem>../../../include</pElem>
-            <pElem>-pedantic</pElem>
-            <pElem></pElem>
-            <pElem>RenderableObject</pElem>
-          </incDir>
+      <item path="src/ConsoleUtilities.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
         </ccTool>
-      </folder>
-      <folder path="0/Scene">
-        <ccTool>
-          <incDir>
-            <pElem>../../../include</pElem>
-            <pElem>-pedantic</pElem>
-            <pElem></pElem>
-            <pElem>Scene</pElem>
-          </incDir>
+      </item>
+      <item path="src/Engine.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
         </ccTool>
-      </folder>
-      <item path="inc/TextureSDL.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/File.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/Frustum.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/IKey.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/IKeyFactory.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/IKeyboardObservable.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/IKeyboardObservableImp.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/IKeyboardObserver.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/IMogeApp.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/INodeCreator.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/INodeFactory.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/IObservable.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/IObservableData.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/IObservableImpl.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/IPositionFactory.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/IRenderable.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/IRenderer.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/ITexture.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/ITextureFactory.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/IVector3D.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/KeyFactorySDL.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/KeySDL.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/KeyboardData.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/KeyboardObservable.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/Line.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/MTime.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/MogeLibMain.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/MultiPointFactory.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/MyString.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/Named.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/Node.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/NodeFactoryRegular.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/ObjectNode.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/Path.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/PositionDouble3D.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/Quaternion.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/Rectangle.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/SDLRenderer.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/Scale.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/Singleton.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
       </item>
       <item path="src/Size.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
-          <incDir>
-            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
-            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
-            <pElem></pElem>
-          </incDir>
         </ccTool>
       </item>
-      <item path="src/SupportedRenderersList.h" ex="false" tool="3" flavor2="0">
+      <item path="src/SizeDouble3D.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
       </item>
       <item path="src/SurfaceFactory.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
-          <incDir>
-            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
-            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
-            <pElem></pElem>
-          </incDir>
         </ccTool>
       </item>
       <item path="src/SurfaceWrapper.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="1">
-          <incDir>
-            <pElem>../../../include</pElem>
-            <pElem>-pedantic</pElem>
-            <pElem></pElem>
-            <pElem>src</pElem>
-          </incDir>
+        <ccTool flags="0">
         </ccTool>
       </item>
-      <item path="src/TextureSDL.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/TextureFactory.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/TextureSDL.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/Vector3DFactory.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/Visible.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
       </item>
     </conf>
   </confs>
