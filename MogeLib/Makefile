@@ -1,5 +1,5 @@
 CC = g++
-CC_LINK = g++ -shared 
+CC_LINK = g++ -shared
 COMPILER_FLAGS = -pedantic -Wall -std=c++11 -D MogeLib_EXPORT="1" -Wno-ignored-attributes
 DEBUG_FLAGS = -ggdb
 RELEASE_FLAGS = -Ofast
