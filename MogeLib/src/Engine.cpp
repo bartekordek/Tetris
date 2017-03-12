@@ -9,7 +9,7 @@
 
 namespace Moge
 {
-        Engine::Engine( void )
+	Engine::Engine( void )
 	{
 		SDL_Init( SDL_INIT_EVERYTHING );
 		this->sdlKey = SDL_GetKeyboardState( nullptr );
@@ -38,11 +38,11 @@ namespace Moge
 		std::lock_guard<std::mutex> renderableObjectLock( mRenderableObjectsMutex );
 		mRenderableObjects.insert( node );
 	}
-        
-        IRenderer* Engine::getRenderer()
-        {
-            return nullptr;
-        }
+
+	IRenderer* Engine::getRenderer()
+	{
+		return nullptr;
+	}
 
 	INodeFactory* Engine::getNodeFactory()
 	{
@@ -72,19 +72,22 @@ namespace Moge
 		SDL_Event event;
 		while( true == this->eventLoopActive )
 		{
-            if( ( SDL_PollEvent( &event ) > 0) && 
-                ( event.type == SDL_KEYDOWN || event.type == SDL_KEYUP ) )
-            {
-                auto scancode = SDL_GetScancodeFromKey( event.key.keysym.sym );
-                if( SDL_SCANCODE_UNKNOWN != scancode )
-                {
-                    const bool keyIsDown = ( SDL_KEYDOWN == event.type ) ? true : false;
-                    const auto keyIndex = static_cast<unsigned int>( scancode );
-                    auto key = this->keys.at( keyIndex );
-                    key->setKeyIsDown( keyIsDown );
-                    this->notifyKeyboardObservers( key.get() );
-                }
-            }
+			if (SDL_PollEvent(&event) > 0)
+			{
+				if((event.type == SDL_KEYDOWN || event.type == SDL_KEYUP))
+				{
+					auto scancode = SDL_GetScancodeFromKey(event.key.keysym.sym);
+					if (SDL_SCANCODE_UNKNOWN != scancode)
+					{
+						const bool keyIsDown = (SDL_KEYDOWN == event.type) ? true : false;
+						const auto keyIndex = static_cast<unsigned int>(scancode);
+						auto key = this->keys.at(keyIndex);
+						key->setKeyIsDown(keyIsDown);
+						this->notifyKeyboardObservers(key.get());
+					}
+				}
+			}
+
 		}
 	}
 
