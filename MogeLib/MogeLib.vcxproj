@@ -115,7 +115,7 @@
       <SuppressStartupBanner>false</SuppressStartupBanner>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(HOME_SDL2)\build\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
+      <Command>xcopy "$(HOME_SDL2_WINDOWS)\Build-Windows\$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -141,7 +141,7 @@
       <SuppressStartupBanner>false</SuppressStartupBanner>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(HOME_SDL2)\build\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
+      <Command>xcopy "$(HOME_SDL2_WINDOWS)\Build-Windows\$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -168,7 +168,7 @@
       <SuppressStartupBanner>false</SuppressStartupBanner>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(HOME_SDL2)\build\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
+      <Command>xcopy "$(HOME_SDL2_WINDOWS)\Build-Windows\$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -195,7 +195,7 @@
       <SuppressStartupBanner>false</SuppressStartupBanner>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(HOME_SDL2)\build\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
+      <Command>xcopy "$(HOME_SDL2_WINDOWS)\Build-Windows\$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
