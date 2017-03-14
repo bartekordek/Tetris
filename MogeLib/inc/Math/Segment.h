@@ -1,7 +1,5 @@
 #pragma once
-
-#include "MultiPointFactory.h"
-
+#include "Math/MultiPointFactory.h"
 namespace Moge
 {
 	namespace Math

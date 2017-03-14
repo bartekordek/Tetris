@@ -44,6 +44,11 @@ namespace Moge
 		return nullptr;
 	}
 
+    void Engine::setScreenSize( Math::ISize<int>& size, Math::IPosition<int>& position )
+    {
+
+    }
+
 	INodeFactory* Engine::getNodeFactory()
 	{
 		return this->nodeFactory.get();

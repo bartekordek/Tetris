@@ -55,7 +55,8 @@ void CMainGrid::SetSize( const unsigned int rowsCount, const unsigned int column
 		for( auto& slab : slabRow )
 		{
             auto slabNode = EngineManager::getEngine()->getNodeFactory()->CreateFromImage( emptySlabImage );
-			Math::IPositionAdapter<int> position( slab.col() * slabNode->getWidth(), slab.row() * slabNode->getHeight(), 0 );
+            auto slabSize = slabNode->getSize();
+			Math::IPositionAdapter<int> position( slab.col() * slabSize->getWidth(), slab.row() * slabNode->getHeight(), 0 );
 			slabNode->setXyz( position.getX(), position.getY(), 0 );
 			slab.setNode( slabNode );
 

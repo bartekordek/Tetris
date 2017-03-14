@@ -238,6 +238,7 @@
     <ClInclude Include="inc\Math\Segment.h" />
     <ClInclude Include="inc\Math\Size.h" />
     <ClInclude Include="inc\Math\SizeDouble3D.h" />
+    <ClInclude Include="inc\Math\SizeInt2D.h" />
     <ClInclude Include="inc\Math\SquareMatrix2D.hpp" />
     <ClInclude Include="inc\Math\Vector3DFactory.h" />
     <ClInclude Include="inc\IVector.h" />

@@ -15,6 +15,7 @@
 #include "INodeFactory.h"
 #include "SurfaceFactory.h"
 #include "IRenderer.h"
+#include "Math/ISize.h"
 
 namespace Moge
 {
@@ -33,6 +34,7 @@ namespace Moge
 		INodeFactory* getNodeFactory();
 		SurfaceFactory* getSurfaceFactory();
         IRenderer* getRenderer();
+        void setScreenSize( Math::ISize<int>& size, Math::IPosition<int>& position );
 		void startMainLoop();
 		void stopEventLoop();
 

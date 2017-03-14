@@ -35,10 +35,12 @@ namespace Moge
 			return result;
 		}
 
-		IPosition<int>* IPositionFactory::createPositionInt2D()
+		IPosition<int>* IPositionFactory::createPositionInt2D( const int v1d, const int v2d )
 		{
 			MultiPoint<int> mp( 2 );
 			auto result = new IPositionAdapter<int>( mp );
+            result->setX( v1d );
+            result->setY( v2d );
 			return result;
 		}
 

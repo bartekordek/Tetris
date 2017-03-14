@@ -1,6 +1,6 @@
 #pragma once
 
-#include "SquareMatrix2D.hpp"
+#include "Math/SquareMatrix2D.hpp"
 #include "gtest/gtest.h"
 
 class MatrixTests: public ::testing::Test
