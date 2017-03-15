@@ -13,6 +13,7 @@
 #include "ObjectNode.h"
 #include "IKeyboardObservable.h"
 #include "INodeFactory.h"
+#include "ITextureFactory.h"
 #include "SurfaceFactory.h"
 #include "IRenderer.h"
 #include "Math/ISize.h"
@@ -34,6 +35,7 @@ namespace Moge
 		INodeFactory* getNodeFactory();
 		SurfaceFactory* getSurfaceFactory();
         IRenderer* getRenderer();
+        ITextureFactory* getTextureFactory();
         void setScreenSize( Math::ISize<int>& size, Math::IPosition<int>& position );
 		void startMainLoop();
 		void stopEventLoop();
@@ -60,5 +62,6 @@ namespace Moge
 		std::unique_ptr<IKeyFactory> keyFactory;
 		std::unique_ptr<INodeFactory> nodeFactory;
 		std::unique_ptr<SurfaceFactory> surfaceFactory;
+        std::unique_ptr<ITextureFactory> textureFactory;
 	};
 }

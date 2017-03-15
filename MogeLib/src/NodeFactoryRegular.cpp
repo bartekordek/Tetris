@@ -20,7 +20,10 @@ namespace Moge
 		return CreateFromImage( imageSurface, position, name );
 	}
 
-	ObjectNode NodeFactoryRegular::CreateFromImage( const ImageSurface& imageSurface, const Math::IPosition<double>& position, const MyString& name )
+	ObjectNode NodeFactoryRegular::CreateFromImage( 
+		const ImageSurface& imageSurface, 
+		const Math::IPosition<double>& position, 
+		const MyString& name )
 	{
 		ObjectNodeContent* objectNodeContent = new ObjectNodeContent();
         objectNodeContent->getPosition().setXyz( position );
@@ -29,6 +32,14 @@ namespace Moge
 		this->nodes.insert( objectNodeContent );
 		return ObjectNode( objectNodeContent );
 	}
+
+    ObjectNode createFromTexture( const std::shared_ptr<ITexture>& texture, const Math::IPosition<double>& position )
+    {
+        ObjectNodeContent* objectNodeContent = new ObjectNodeContent();
+        objectNodeContent->getPosition().setXyz( position );
+        objectNodeContent->SetName( name );
+        return ObjectNode( objectNodeContent );
+    }
 
 	void NodeFactoryRegular::removeNode( ObjectNode& node )
 	{

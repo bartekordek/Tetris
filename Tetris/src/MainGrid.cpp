@@ -10,18 +10,20 @@ namespace Tetris
 using namespace Moge;
 CMainGrid::CMainGrid():activeBrick( nullptr )
 {
-	this->sf = EngineManager::getEngine()->getSurfaceFactory();
+    this->tF = EngineManager::getEngine()->getTextureFactory();
 	std::lock_guard<std::mutex> slabLock( currentBrickMutex );
 	Path blockImagepath = Path::GetCurrentDirectory() + "\\..\\..\\Media\\Block.bmp";
-	filledSlabImage = this->sf->CreateSurfaceFromImage( blockImagepath );
+    this->filledSlabTex = this->tF->createTexture( blockImagepath, Moge::SupportedRenderers::R_SDL );
+	//filledSlabImage = this->sf->CreateSurfaceFromImage( blockImagepath );
 
 	Path bgBlockImagepath = Path::GetCurrentDirectory() + "\\..\\..\\Media\\BackGroundBlock.bmp";
-	emptySlabImage = this->sf->CreateSurfaceFromImage( bgBlockImagepath );
+    this->emptySlabTex = this->tF->createTexture( bgBlockImagepath, Moge::SupportedRenderers::R_SDL );
+	//emptySlabImage = this->sf->CreateSurfaceFromImage( bgBlockImagepath );
 }
 
 CMainGrid::~CMainGrid()
 {
-	slabsRows.erase( slabsRows.begin(), slabsRows.end() );
+	//slabsRows.erase( slabsRows.begin(), slabsRows.end() );
 }
 
 void CMainGrid::updateGrid()
@@ -55,11 +57,11 @@ void CMainGrid::SetSize( const unsigned int rowsCount, const unsigned int column
 		for( auto& slab : slabRow )
 		{
             auto slabNode = EngineManager::getEngine()->getNodeFactory()->CreateFromImage( emptySlabImage );
-            auto slabSize = slabNode->getSize();
-			Math::IPositionAdapter<int> position( slab.col() * slabSize->getWidth(), slab.row() * slabNode->getHeight(), 0 );
-			slabNode->setXyz( position.getX(), position.getY(), 0 );
+            auto& slabSize = slabNode->getSize();
+            auto& slabPos = slabNode->getPosition();
+            slabPos.setX( slab.col() * slabSize.getWidth() );
+            slabPos.setY( slab.row() * slabSize.getHeight() );
 			slab.setNode( slabNode );
-
 			slabNode->SetVisible();
 			//slabNode->setScale( 2.0 ); // TODO: uncomment this line after implementing correct scale system - textues.
 			EngineManager::getEngine()->AddObject( slabNode );//TODO: redundant add, should be moved to NodeMgr

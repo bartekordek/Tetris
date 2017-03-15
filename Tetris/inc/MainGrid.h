@@ -1,5 +1,7 @@
 #pragma once 
 
+#include "ITextureFactory.h"
+
 #include <vector>
 #include <mutex>
 
@@ -43,8 +45,10 @@ private:
 	std::vector<SlabRow> slabsRows;
 	std::mutex slabsMutex;
 	std::mutex currentBrickMutex;
-	Moge::ImageSurface emptySlabImage;
-	Moge::ImageSurface filledSlabImage;
-	Moge::SurfaceFactory* sf = nullptr;
+	/*Moge::ImageSurface emptySlabImage;
+	Moge::ImageSurface filledSlabImage;*/
+    std::shared_ptr<Moge::ITexture> emptySlabTex;
+    std::shared_ptr<Moge::ITexture> filledSlabTex;
+	Moge::ITextureFactory* tF = nullptr;
 };
 }

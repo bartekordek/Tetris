@@ -5,6 +5,7 @@
 #include "IKeyboardObserver.h"
 #include "KeyFactorySDL.h"
 #include "SurfaceFactory.h"
+#include "TextureFactory.h"
 #include <SDL.h>
 
 namespace Moge
@@ -16,6 +17,7 @@ namespace Moge
 		this->keyFactory.reset( new KeyFactorySDL() );
 		this->keys = this->keyFactory->createKeys();
 		this->surfaceFactory.reset( new SurfaceFactory() );
+        this->textureFactory.reset( new TextureFactory( this ) );
 		this->nodeFactory.reset( new NodeFactoryRegular( this->surfaceFactory.get() ) );
 	}
 
@@ -43,6 +45,11 @@ namespace Moge
 	{
 		return nullptr;
 	}
+
+    ITextureFactory* Engine::getTextureFactory()
+    {
+        return this->textureFactory.get();
+    }
 
     void Engine::setScreenSize( Math::ISize<int>& size, Math::IPosition<int>& position )
     {
