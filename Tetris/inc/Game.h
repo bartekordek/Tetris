@@ -9,14 +9,13 @@ namespace Tetris
 	class CGame: public Moge::IMogeApp
 	{
 	public:
-		CGame();
+		CGame() = default;
+        virtual ~CGame() = default;
 		void initialize( const unsigned int rowsCount = 50, const unsigned int columnsCount = 10, const unsigned int winWidth = 640, const unsigned int winHeight = 480 );
 		void startGame()const;
 		void keyboardEvent( Moge::IKey* data = nullptr ) override;
-		virtual ~CGame();
 
 	private:
-		void userInputLoop();
 		void frontEndLoop() override;
 
 		std::unique_ptr<CMainGrid> mainGrid;

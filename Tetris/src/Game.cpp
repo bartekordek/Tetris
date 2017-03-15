@@ -12,14 +12,6 @@
 namespace Tetris
 {
 	using namespace Moge;
-	CGame::CGame()
-	{
-	}
-
-	CGame::~CGame()
-	{
-	}
-
 	void CGame::initialize( const unsigned int rowsCount, const unsigned int columnsCount, const unsigned int winWidth, const unsigned int winHeight )
 	{
         auto winSize = Math::SizeInt2D( winWidth, winHeight );
