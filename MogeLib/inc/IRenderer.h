@@ -11,16 +11,16 @@ namespace Moge
 		BLUE
 	};
 	
-	ColorS convertE2S( const ColorE c );
-	
 	struct ColorS
 	{
 		uint8_t r = 0;
 		uint8_t g = 0;
 		uint8_t b = 0;
 		uint8_t alpha = 255;
-	};
+	};	
 	
+	ColorS convertE2S( const ColorE c );
+
 	class IRenderable;
 	class MogeLib_API IRenderer
 	{
