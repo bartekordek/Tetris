@@ -11,6 +11,8 @@ namespace Moge
 		BLUE
 	};
 	
+	ColorS convertE2S( const ColorE c );
+	
 	struct ColorS
 	{
 		uint8_t r = 0;
