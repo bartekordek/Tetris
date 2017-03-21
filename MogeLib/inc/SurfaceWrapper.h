@@ -23,6 +23,7 @@ namespace Moge
 		SDL_Surface* GetSdlSurface()const;
 		void setNewSurface( SDL_Surface* surface );
 		void setPath( const Path& path );
+		const char* getPath()const;
 
 	private:
 		void ReleseSurface();

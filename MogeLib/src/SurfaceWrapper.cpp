@@ -53,6 +53,11 @@ namespace Moge
 	{
 		this->path = path;
 	}
+	
+	const char* SurfaceWrapper::getPath()const
+	{
+		return this->path.c_str();
+	}
 
 	void SurfaceWrapper::ReleseSurface()
 	{
