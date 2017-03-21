@@ -8,10 +8,13 @@ namespace Moge
 
 	TextureSDL::TextureSDL(const TextureSDL& orig) 
 	{
+		
 	}
 
 	TextureSDL::~TextureSDL() 
 	{
+		SDL_DestroyTexture( this->texture );
+		this->texture = nullptr;
 	}
 	
 	const Supported2DRenderers TextureSDL::getRendererId()const

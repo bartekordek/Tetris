@@ -1,5 +1,7 @@
 #pragma once
 #include "IRenderer.h"
+#include "Math/IPosition.h"
+#include "Math/ISize.h"
 namespace Moge
 {
 	class Renderer;
@@ -8,7 +10,10 @@ namespace Moge
 	public:
 		IRenderer2D() = default;
 		virtual ~IRenderer2D() = default;
-		virtual Renderer* getRenderer() = 0;
+		virtual void createWindow( 
+			const Math::IPosition<int>& winPos, 
+			const Math::ISize<unsigned int>& winSize, 
+			const std::string& winName = "Unnamed window." ) = 0;
 	protected:
 	private:
 	};

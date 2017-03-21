@@ -5,19 +5,22 @@
 #include "IKeyboardObserver.h"
 #include "KeyFactorySDL.h"
 #include "SurfaceFactory.h"
-#include "TextureFactory.h"
+#include "TextureFactorySDL.h"
+#include "SDLRenderer.h"
 #include <SDL.h>
+
+#include <memory>
 
 namespace Moge
 {
 	Engine::Engine( void )
 	{
-		SDL_Init( SDL_INIT_EVERYTHING );
+		this->renderer2D.reset( new SDLRenderer( this ) );
 		this->sdlKey = SDL_GetKeyboardState( nullptr );
 		this->keyFactory.reset( new KeyFactorySDL() );
 		this->keys = this->keyFactory->createKeys();
 		this->surfaceFactory.reset( new SurfaceFactory() );
-        this->textureFactory.reset( new TextureFactory( this ) );
+        this->textureFactory2D.reset( new TextureFactorySDL( this ) );
 		this->nodeFactory.reset( new NodeFactoryRegular( this->surfaceFactory.get() ) );
 	}
 
@@ -46,14 +49,12 @@ namespace Moge
 		return nullptr;
 	}
 
-    ITextureFactory* Engine::getTextureFactory()
+    void Engine::createScreen( 
+		Math::ISize<unsigned int>& size, 
+		Math::IPosition<int>& position, 
+		const std::string& label )
     {
-        return this->textureFactory.get();
-    }
-
-    void Engine::setScreenSize( Math::ISize<int>& size, Math::IPosition<int>& position )
-    {
-
+		this->renderer2D->createWindow( position, size, label );
     }
 
 	INodeFactory* Engine::getNodeFactory()
@@ -77,6 +78,16 @@ namespace Moge
 		this->mainLoopIsRuning = false;
 		this->mainLoop.join();
 		this->eventLoopActive = false;
+	}
+	
+	ITextureFactory* Engine::get2DTextureFactory() const
+	{
+		return this->textureFactory2D.get();
+	}
+	
+	ITextureFactory* Engine::get3DTextureFactory() const
+	{
+		return this->textureFactory3D.get();
 	}
 
 	void Engine::eventPool()

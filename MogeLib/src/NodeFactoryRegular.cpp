@@ -37,7 +37,6 @@ namespace Moge
     {
         ObjectNodeContent* objectNodeContent = new ObjectNodeContent();
         objectNodeContent->getPosition().setXyz( position );
-        objectNodeContent->SetName( name );
         return ObjectNode( objectNodeContent );
     }
 
