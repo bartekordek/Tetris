@@ -12,7 +12,7 @@ namespace Moge
 		ITexture();
 		virtual ~ITexture();
 		virtual const char* getPath()const = 0;
-		virtual const SupportedRenderers getRendererId()const = 0;
+		virtual const Supported2DRenderers getRendererId()const = 0;
 		SDL_Renderer* getSDLrenderer();
 	protected:
 	private:

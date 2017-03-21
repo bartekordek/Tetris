@@ -14,9 +14,9 @@ namespace Moge
 	{
 	}
 	
-	const SupportedRenderers TextureSDL::getRendererId()const
+	const Supported2DRenderers TextureSDL::getRendererId()const
 	{
-		return SupportedRenderers::R_SDL;
+		return Supported2DRenderers::R_SDL;
 	}
 	
 	void TextureSDL::set(SDL_Texture* texture)

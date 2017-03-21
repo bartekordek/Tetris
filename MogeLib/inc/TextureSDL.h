@@ -13,7 +13,7 @@ namespace Moge
 		TextureSDL(const TextureSDL& orig);
 		virtual ~TextureSDL();
 		
-		const SupportedRenderers getRendererId()const override;
+		const Supported2DRenderers getRendererId()const override;
 		void set( SDL_Texture* texture );
 		SDL_Texture* get()const;
 		void setPath( const std::string& path );
