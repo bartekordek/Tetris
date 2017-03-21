@@ -1,5 +1,6 @@
 #pragma once
 #include "MogeLib.h"
+#include <cstdint>
 namespace Moge
 {
 	enum class ColorE: short
