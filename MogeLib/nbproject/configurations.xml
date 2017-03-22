@@ -58,8 +58,6 @@
         <in>Singleton.cpp</in>
         <in>Size.cpp</in>
         <in>SizeDouble3D.cpp</in>
-        <in>SurfaceFactory.cpp</in>
-        <in>SurfaceWrapper.cpp</in>
         <in>TextureFactorySDL.cpp</in>
         <in>TextureSDL.cpp</in>
         <in>Vector3DFactory.cpp</in>
@@ -549,26 +547,6 @@
           </incDir>
         </ccTool>
       </item>
-      <item path="src/SurfaceFactory.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="1">
-          <incDir>
-            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
-            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
-            <pElem>src</pElem>
-          </incDir>
-        </ccTool>
-      </item>
-      <item path="src/SurfaceWrapper.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>inc</pElem>
-            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
-            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
-            <pElem></pElem>
-            <pElem>src</pElem>
-          </incDir>
-        </ccTool>
-      </item>
       <item path="src/TextureFactorySDL.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
@@ -837,14 +815,6 @@
         </ccTool>
       </item>
       <item path="src/SizeDouble3D.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-        </ccTool>
-      </item>
-      <item path="src/SurfaceFactory.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-        </ccTool>
-      </item>
-      <item path="src/SurfaceWrapper.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
         </ccTool>
       </item>
