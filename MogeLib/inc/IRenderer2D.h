@@ -2,6 +2,7 @@
 #include "IRenderer.h"
 #include "Math/IPosition.h"
 #include "Math/ISize.h"
+#include <string>
 namespace Moge
 {
 	class Renderer;

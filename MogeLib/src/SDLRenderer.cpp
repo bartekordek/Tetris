@@ -1,11 +1,12 @@
 #include "SDLRenderer.h"
+#include "TextureSDL.h"
 #include <SDL.h>
+#include <boost/assert.hpp>
+#include <map>
 
 namespace Moge
 {
-	SDLRenderer::SDLRenderer( Engine* engine ): 
-		IRenderer2D(),
-		ITextureFactory( engine )
+	SDLRenderer::SDLRenderer()
 	{
 		SDL_Init( SDL_INIT_EVERYTHING );
 	}
@@ -56,5 +57,28 @@ namespace Moge
 	void SDLRenderer::render( IRenderable* renderable )
 	{
 
+	}
+	
+	std::shared_ptr<ITexture>& SDLRenderer::createTexture( const Path& path )
+	{
+		SDL_Surface* surface = CreateSurfaceFromImage( path );
+		SDL_Texture* newTexture = SDL_CreateTextureFromSurface( this->renderer, surface );
+		TextureSDL* texture = new TextureSDL();
+		texture->set( newTexture );
+		texture->setPath( path );
+		char* key = const_cast<char*>( path.c_str() );
+		this->textures[  key ] = std::shared_ptr<ITexture>( texture );
+		return this->textures.at( key );
+	}
+	
+	SDL_Surface* SDLRenderer::CreateSurfaceFromImage( const Path& imagePath )
+	{
+		SDL_Surface* result = nullptr;
+		if( ".bmp" == imagePath.Extension().ToLower() )
+		{
+			result = SDL_LoadBMP( imagePath.c_str() );
+			BOOST_ASSERT( result != nullptr  );
+		}
+		return result;
 	}
 }

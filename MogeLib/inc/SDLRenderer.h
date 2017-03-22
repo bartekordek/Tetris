@@ -1,16 +1,18 @@
 #pragma once
 
 #include "IRenderer2D.h"
-#include "ITextureFactory.h"
+#include "ITextureFactory2D.h"
+#include <map>
 
 struct SDL_Renderer;
 struct SDL_Window;
+struct SDL_Surface;
 namespace Moge
 {
-	class SDLRenderer: public IRenderer2D, public ITextureFactory
+	class SDLRenderer: public IRenderer2D, public ITextureFactory2D
 	{
 	public:
-		SDLRenderer( Engine* engine );
+		SDLRenderer();
 		virtual ~SDLRenderer();
 		void createWindow( 
 			const Math::IPosition<int>& winPos, 
@@ -21,17 +23,18 @@ namespace Moge
 		void forceDestroy();
 		
 		void render( IRenderable* renderable );
-		std::shared_ptr<ITexture>& createTexture( const Path& path, const Supported2DRenderers renderer ) override;
-		std::shared_ptr<ITexture>& createTexture( const ImageSurface& is ) override;
+		std::shared_ptr<ITexture>& createTexture( const Path& path ) override;
 		std::shared_ptr<ITexture>& findTexture( const Path& path ) override;
 		void removeTexture( const std::shared_ptr<ITexture>& texture ) override;
 		
 
 	protected:
 	private:
+		SDL_Surface* CreateSurfaceFromImage( const Path& imagePath );
 		
 		SDL_Renderer* renderer = nullptr;
 		SDL_Window* window = nullptr;
 		bool rendererWasDestroyed = false;
+		std::map<char*,std::shared_ptr<ITexture>> textures;
 	};
 }

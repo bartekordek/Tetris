@@ -4,11 +4,11 @@ COMPILER_FLAGS = -pedantic -Wall -std=c++11 -D MogeLib_EXPORT="1" -Wno-ignored-a
 DEBUG_FLAGS = -ggdb
 RELEASE_FLAGS = -Ofast
 PROJECT_NAME = MogeLib
-DLL_NAME = $(PROJECT_NAME).dll 
+DLL_NAME = $(PROJECT_NAME).dll
 IMP_LIB_NAME = $(PROJECT_NAME).a
 OUTPUT_DIR_DEBUG = ../Build/$(OS)_DEBUG
 OUTPUT_DIR_RELEASE = ../Build/$(OS)_RELEASE
-HEADER_INC = -I inc/ -I $(HOME_SDL2_LINUX)/include/ -I $(HOME_BOOST_LINUX)
+HEADER_INC = -I inc/ -I $(HOME_SDL2_LINUX)/include/ -I $(HOME_SDL2_IMAGE_LINUX)/include/ -I $(HOME_BOOST_LINUX)
 IMPORT_LIBS_DEBUG = $(HOME_SDL2_LINUX)/Build-Linux/build/.libs/libSDL2.dll.a $(HOME_BOOST_LINUX)/stage/lib/libboost_filesystem.a $(HOME_BOOST_LINUX)/stage/lib/libboost_system.a
 IMPORT_LIBS_RELEASE = $(HOME_SDL2_LINUX)/Build-Linux/build/.libs/libSDL2.dll.a $(HOME_BOOST_LINUX)/stage/lib/libboost_filesystem.a $(HOME_BOOST_LINUX)/stage/lib/libboost_system.a
 OUTPUT_DEBUG = $(OUTPUT_DIR_DEBUG)/$(DLL_NAME)
@@ -30,7 +30,7 @@ release: $(OUTPUT_RELEASE)
 $(OUTPUT_DEBUG): $(OBJ_DEBUG_FILES)
 	$(CC_LINK) -o $(OUTPUT_DEBUG) $(OBJ_DEBUG_FILES) $(IMPORT_LIBS_DEBUG) -Wl,--out-implib,$(OUTPUT_DIR_DEBUG)/$(IMP_LIB_NAME) -Wl,--export-all-symbols -Wl,--enable-auto-import
 
-$(OUTPUT_RELEASE): $(OBJ_RELEASE_FILES) 
+$(OUTPUT_RELEASE): $(OBJ_RELEASE_FILES)
 	$(CC_LINK) -o $(OUTPUT_RELEASE) $(OBJ_RELEASE_FILES) $(IMPORT_LIBS_RELEASE) -Wl,--out-implib,$(OUTPUT_DIR_RELEASE)/$(IMP_LIB_NAME) -Wl,--export-all-symbols -Wl,--enable-auto-import
 
 $(OBJ_DEBUG_DIR)%.o: %.cpp
@@ -42,9 +42,9 @@ $(OBJ_RELEASE_DIR)%.o: %.cpp
 	$(CC) $(HEADER_INC) $(COMPILER_FLAGS) $(RELEASE_FLAGS) -c -o $@ $<
 
 first_run:
-	mkdir -p $(dir $(OBJ_DEBUG_FILES)) 
+	mkdir -p $(dir $(OBJ_DEBUG_FILES))
 	mkdir -p $(dir $(OUTPUT_DEBUG))
-	mkdir -p $(dir $(OBJ_RELEASE_FILES)) 
+	mkdir -p $(dir $(OBJ_RELEASE_FILES))
 	mkdir -p $(dir $(OUTPUT_RELEASE))
 
 clean:
@@ -58,7 +58,7 @@ clean_all:
 
 test:
 	@echo "All .o files: $(OBJ_DEBUG_FILES)"
-	@echo "All .cpp files: $(CPP_FILES)" 
+	@echo "All .cpp files: $(CPP_FILES)"
 	@echo "SDL2: $(HOME_SDL2_LINUX)/"
 
 help:

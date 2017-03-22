@@ -14,7 +14,6 @@
 #include "IKeyboardObservable.h"
 #include "INodeFactory.h"
 #include "ITextureFactory.h"
-#include "SurfaceFactory.h"
 #include "IRenderer.h"
 #include "Math/ISize.h"
 #include "IRenderer2D.h"
@@ -35,7 +34,6 @@ namespace Moge
 		void AddObject( const Path& filePath, const Math::MultiPoint<double>& position, const MyString& name = MyString( "" ) );
 		void AddObject( const ObjectNode node, const MyString& name = MyString( "" ) );
 		INodeFactory* getNodeFactory();
-		SurfaceFactory* getSurfaceFactory();
         IRenderer* getRenderer();
         void createScreen( Math::ISize<unsigned int>& size, Math::IPosition<int>& position, const std::string& label = "Window label." );
 		void startMainLoop();
@@ -50,7 +48,6 @@ namespace Moge
 		void renderingLoop();
 		void QueueFrame();
 		void Render( ObjectNodeContent& node );
-		
 
 		std::set<ObjectNode> mRenderableObjects;
 		std::mutex mRenderableObjectsMutex;
@@ -64,12 +61,10 @@ namespace Moge
 		std::map<unsigned int, std::shared_ptr<IKey>> keys;
 		std::unique_ptr<IKeyFactory> keyFactory;
 		std::unique_ptr<INodeFactory> nodeFactory;
-		std::unique_ptr<SurfaceFactory> surfaceFactory;
 		
 		std::unique_ptr<IRenderer2D> renderer2D;
 		std::unique_ptr<IRenderer3D> renderer3D;
 		
-		std::unique_ptr<ITextureFactory> textureFactory2D;
 		std::unique_ptr<ITextureFactory> textureFactory3D;
 	};
 }

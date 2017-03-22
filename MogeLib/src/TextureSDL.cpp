@@ -32,7 +32,7 @@ namespace Moge
 		return this->texture;
 	}
 	
-	void TextureSDL::setPath(const std::string& path)
+	void TextureSDL::setPath(const Path& path)
 	{
 		this->texturePath = path;
 	}

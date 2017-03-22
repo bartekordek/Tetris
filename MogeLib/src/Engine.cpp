@@ -4,8 +4,6 @@
 #include "KeyboardObservable.h"
 #include "IKeyboardObserver.h"
 #include "KeyFactorySDL.h"
-#include "SurfaceFactory.h"
-#include "TextureFactorySDL.h"
 #include "SDLRenderer.h"
 #include <SDL.h>
 
@@ -15,13 +13,14 @@ namespace Moge
 {
 	Engine::Engine( void )
 	{
-		this->renderer2D.reset( new SDLRenderer( this ) );
+		this->renderer2D.reset( new SDLRenderer() );
+		//this->renderer3D.reset( TODO: Add when OpenGL is ready. );
 		this->sdlKey = SDL_GetKeyboardState( nullptr );
 		this->keyFactory.reset( new KeyFactorySDL() );
 		this->keys = this->keyFactory->createKeys();
-		this->surfaceFactory.reset( new SurfaceFactory() );
-        this->textureFactory2D.reset( new TextureFactorySDL( this ) );
-		this->nodeFactory.reset( new NodeFactoryRegular( this->surfaceFactory.get() ) );
+		auto tf2D = this->renderer2D.get();
+		auto tf3D = static_cast<ITextureFactory*>( this->renderer3D.get() );
+		this->nodeFactory.reset( new NodeFactoryRegular( tf2D, tf3D ) );
 	}
 
 	Engine::~Engine()
@@ -61,12 +60,7 @@ namespace Moge
 	{
 		return this->nodeFactory.get();
 	}
-
-	SurfaceFactory* Engine::getSurfaceFactory()
-	{
-		return this->surfaceFactory.get();
-	}
-
+	
 	void Engine::startMainLoop()
 	{
 		mainLoop = std::thread( &Engine::renderingLoop, this );
@@ -82,7 +76,7 @@ namespace Moge
 	
 	ITextureFactory* Engine::get2DTextureFactory() const
 	{
-		return this->textureFactory2D.get();
+		return this->renderer2D;
 	}
 	
 	ITextureFactory* Engine::get3DTextureFactory() const
