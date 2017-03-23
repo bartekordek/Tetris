@@ -18,9 +18,9 @@ namespace Moge
 			const Math::IPosition<int>& winPos, 
 			const Math::ISize<unsigned int>& winSize, 
 			const std::string& winName = "Unnamed window." ) override;
-		void setBackgroundColor( const ColorE color );
-		void setBackgroundColor( const ColorS& color );
-		void forceDestroy();
+		void setBackgroundColor( const ColorE color ) override;
+		void setBackgroundColor( const ColorS& color ) override;
+		void forceDestroy() override;
 		
 		void render( IRenderable* renderable );
 		std::shared_ptr<ITexture>& createTexture( const Path& path ) override;
