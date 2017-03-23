@@ -38,8 +38,8 @@ namespace Moge
         void createScreen( Math::ISize<unsigned int>& size, Math::IPosition<int>& position, const std::string& label = "Window label." );
 		void startMainLoop();
 		void stopEventLoop();
-		ITextureFactory* get2DTextureFactory()const;
-		ITextureFactory* get3DTextureFactory()const;
+		ITextureFactory2D* get2DTextureFactory()const;
+		ITextureFactory3D* get3DTextureFactory()const;
 
 	protected:
 
@@ -65,6 +65,6 @@ namespace Moge
 		std::unique_ptr<IRenderer2D> renderer2D;
 		std::unique_ptr<IRenderer3D> renderer3D;
 		
-		std::unique_ptr<ITextureFactory> textureFactory3D;
+		std::unique_ptr<ITextureFactory3D> textureFactory3D;
 	};
 }

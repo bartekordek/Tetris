@@ -18,8 +18,9 @@ namespace Moge
 		this->sdlKey = SDL_GetKeyboardState( nullptr );
 		this->keyFactory.reset( new KeyFactorySDL() );
 		this->keys = this->keyFactory->createKeys();
-		auto tf2D = this->renderer2D.get();
-		auto tf3D = static_cast<ITextureFactory*>( this->renderer3D.get() );
+		auto txtFactory2D = static_cast<SDLRenderer*>( this->renderer2D.get() );
+		ITextureFactory2D* tf2D = static_cast<ITextureFactory2D*>( txtFactory2D );
+		auto tf3D = static_cast<ITextureFactory3D*>( this->textureFactory3D.get() );
 		this->nodeFactory.reset( new NodeFactoryRegular( tf2D, tf3D ) );
 	}
 
@@ -74,12 +75,13 @@ namespace Moge
 		this->eventLoopActive = false;
 	}
 	
-	ITextureFactory* Engine::get2DTextureFactory() const
+	ITextureFactory2D* Engine::get2DTextureFactory() const
 	{
-		return this->renderer2D;
+		auto ptr = static_cast<SDLRenderer*>( this->renderer2D.get() );
+		return ptr;
 	}
 	
-	ITextureFactory* Engine::get3DTextureFactory() const
+	ITextureFactory3D* Engine::get3DTextureFactory() const
 	{
 		return this->textureFactory3D.get();
 	}
