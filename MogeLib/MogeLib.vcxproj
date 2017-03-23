@@ -215,8 +215,12 @@
     <ClInclude Include="inc\IObserver.h" />
     <ClInclude Include="inc\IRenderable.h" />
     <ClInclude Include="inc\IRenderer.h" />
+    <ClInclude Include="inc\IRenderer2D.h" />
+    <ClInclude Include="inc\IRenderer3D.h" />
     <ClInclude Include="inc\ITexture.h" />
     <ClInclude Include="inc\ITextureFactory.h" />
+    <ClInclude Include="inc\ITextureFactory2D.h" />
+    <ClInclude Include="inc\ITextureFactory3D.h" />
     <ClInclude Include="inc\KeyboardData.h" />
     <ClInclude Include="inc\KeyboardObservable.h" />
     <ClInclude Include="inc\KeyFactorySDL.h" />
@@ -239,6 +243,7 @@
     <ClInclude Include="inc\Math\Size.h" />
     <ClInclude Include="inc\Math\SizeDouble3D.h" />
     <ClInclude Include="inc\Math\SizeInt2D.h" />
+    <ClInclude Include="inc\Math\SizeUInt2D.h" />
     <ClInclude Include="inc\Math\SquareMatrix2D.hpp" />
     <ClInclude Include="inc\Math\Vector3DFactory.h" />
     <ClInclude Include="inc\IVector.h" />
@@ -254,9 +259,9 @@
     <ClInclude Include="inc\Scale.h" />
     <ClInclude Include="inc\SDLRenderer.h" />
     <ClInclude Include="inc\Singleton.h" />
-    <ClInclude Include="inc\SurfaceFactory.h" />
-    <ClInclude Include="inc\SurfaceWrapper.h" />
+    <ClInclude Include="inc\SupportedRenderersList.h" />
     <ClInclude Include="inc\TextureFactory.h" />
+    <ClInclude Include="inc\TextureSDL.h" />
     <ClInclude Include="inc\Visible.h" />
     <ClInclude Include="src\IKeyboardData.h" />
     <ClInclude Include="src\IKeyboardObservableImp.h" />
@@ -276,7 +281,6 @@
     <ClCompile Include="src\IKeyFactory.cpp" />
     <ClCompile Include="src\IMogeApp.cpp" />
     <ClCompile Include="src\INodeCreator.cpp" />
-    <ClCompile Include="src\INodeFactory.cpp" />
     <ClCompile Include="src\IObservable.cpp" />
     <ClCompile Include="src\IObservableData.cpp" />
     <ClCompile Include="src\IObservableImpl.cpp" />
@@ -284,7 +288,6 @@
     <ClCompile Include="src\IRenderable.cpp" />
     <ClCompile Include="src\IRenderer.cpp" />
     <ClCompile Include="src\ITexture.cpp" />
-    <ClCompile Include="src\ITextureFactory.cpp" />
     <ClCompile Include="src\IVector3D.cpp" />
     <ClCompile Include="src\KeyboardData.cpp" />
     <ClCompile Include="src\KeyboardObservable.cpp" />
@@ -308,9 +311,7 @@
     <ClCompile Include="src\Singleton.cpp" />
     <ClCompile Include="src\Size.cpp" />
     <ClCompile Include="src\SizeDouble3D.cpp" />
-    <ClCompile Include="src\SurfaceFactory.cpp" />
-    <ClCompile Include="src\SurfaceWrapper.cpp" />
-    <ClCompile Include="src\TextureFactory.cpp" />
+    <ClCompile Include="src\TextureSDL.cpp" />
     <ClCompile Include="src\Vector3DFactory.cpp" />
     <ClCompile Include="src\Visible.cpp" />
   </ItemGroup>

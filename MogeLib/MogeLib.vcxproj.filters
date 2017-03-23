@@ -189,12 +189,6 @@
     <ClInclude Include="inc\Singleton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\SurfaceFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\SurfaceWrapper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\TextureFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -213,8 +207,29 @@
     <ClInclude Include="src\Vector3DSimple.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Math\SizeInt2D.h">
+    <ClInclude Include="inc\IRenderer2D.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\IRenderer3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ITextureFactory2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ITextureFactory3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\SupportedRenderersList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\TextureSDL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Math\SizeInt2D.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Math\SizeUInt2D.h">
+      <Filter>Header Files\Math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -263,9 +278,6 @@
     <ClCompile Include="src\INodeCreator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\INodeFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\IObservable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -285,9 +297,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\ITexture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ITextureFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\IVector3D.cpp">
@@ -350,16 +359,10 @@
     <ClCompile Include="src\SizeDouble3D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\SurfaceFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SurfaceWrapper.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\TextureFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Vector3DFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TextureSDL.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
