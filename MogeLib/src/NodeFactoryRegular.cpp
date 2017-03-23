@@ -12,7 +12,7 @@ namespace Moge
 
 	using namespace Math;
 
-	ObjectNode CreateFromImage( 
+	ObjectNode NodeFactoryRegular::CreateFromImage(
 		const Path& filePath, 
 		const Math::IPosition<double>& position, 
 		const MyString& name )
@@ -21,12 +21,12 @@ namespace Moge
 		return result;
 	}
 
-    ObjectNode createFromTexture( const std::shared_ptr<ITexture>& texture, const Math::IPosition<double>& position )
-    {
-        ObjectNodeContent* objectNodeContent = new ObjectNodeContent();
-        objectNodeContent->getPosition().setXyz( position );
-        return ObjectNode( objectNodeContent );
-    }
+	ObjectNode NodeFactoryRegular::createFromTexture( const std::shared_ptr<ITexture>& texture, const Math::IPosition<double>& position )
+	{
+		ObjectNodeContent* objectNodeContent = new ObjectNodeContent();
+		objectNodeContent->getPosition().setXyz( position );
+		return ObjectNode( objectNodeContent );
+	}
 
 	void NodeFactoryRegular::removeNode( ObjectNode& node )
 	{

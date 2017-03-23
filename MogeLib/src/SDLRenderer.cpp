@@ -3,6 +3,7 @@
 #include <SDL.h>
 #include <boost/assert.hpp>
 #include <map>
+#include <iostream>
 
 namespace Moge
 {
@@ -33,7 +34,7 @@ namespace Moge
 				SDL_WINDOW_SHOWN );
 		this->renderer = SDL_CreateRenderer( this->window, -1, SDL_RENDERER_ACCELERATED );
 	}
-	
+
 	void SDLRenderer::setBackgroundColor( const ColorE color )
 	{
 		setBackgroundColor( convertE2S( color ) );
@@ -56,7 +57,6 @@ namespace Moge
 	
 	void SDLRenderer::render( IRenderable* renderable )
 	{
-
 	}
 	
 	std::shared_ptr<ITexture>& SDLRenderer::createTexture( const Path& path )
@@ -81,4 +81,34 @@ namespace Moge
 		}
 		return result;
 	}
+
+	std::shared_ptr<ITexture>& SDLRenderer::findTexture( const Path& path )
+	{
+		char* pathStr = const_cast<char*>( path.c_str() );
+		auto it = this->textures.find( pathStr );
+		if( textures.end() == it )
+		{
+			static std::shared_ptr<ITexture> nullResult;
+			return nullResult;
+		}
+		return it->second;
+	}
+
+	void SDLRenderer::removeTexture( const std::shared_ptr< ITexture >& texture )
+	{
+		char* pathStr = const_cast<char*>( texture->getPath() );
+		auto it = this->textures.find( pathStr );
+		if( textures.end() != it )
+		{
+			this->textures.erase( it );
+		}
+		else
+		{
+			ITexture* txtPtr = texture.get();
+			const std::string message = "Texture: " + std::string( texture->getPath()) + ", address: " + std::to_string( reinterpret_cast<int>( txtPtr ) )
+				+ " has not been found!\n";
+			BOOST_ASSERT_MSG( false, message.c_str() );
+		}
+	}
+
 }
