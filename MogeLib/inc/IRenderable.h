@@ -3,6 +3,7 @@
 #include "MogeLib.h"
 #include "Math/IPosition.h"
 #include "ITexture.h"
+#include "Math/ISize.h"
 
 namespace Moge
 {
@@ -12,8 +13,9 @@ namespace Moge
 		IRenderable();
 		virtual ~IRenderable();
 		virtual const Math::IPosition<double>& getPosition()const = 0;
-		virtual const ITexture* getTexture()const = 0;
+		virtual const Math::ISize<double>& getSize()const = 0;
+		virtual void render() = 0;
 	protected:
-	private:
+	private://TODO Write texture render method.
 	};
 }

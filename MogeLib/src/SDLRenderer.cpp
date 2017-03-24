@@ -1,9 +1,11 @@
 #include "SDLRenderer.h"
 #include "TextureSDL.h"
+#include "IRenderable.h"
 #include <SDL.h>
 #include <boost/assert.hpp>
 #include <map>
 #include <iostream>
+#include <sstream>
 
 namespace Moge
 {
@@ -57,6 +59,14 @@ namespace Moge
 	
 	void SDLRenderer::render( IRenderable* renderable )
 	{
+		SDL_Texture* sdlTex = renderable->getTexture();
+		SDL_Rect renderQuad;
+		auto position = renderable->getPosition();
+		auto size = renderable->getPosition();
+		renderQuad.x = static_cast<int>( position.getX() );
+		renderQuad.y = static_cast<int>( position.getY() );
+		renderQuad.w = static_cast<int>( size.
+		SDL_RenderCopy( this->renderer, sdlTex, nullptr, nullptr );
 	}
 	
 	std::shared_ptr<ITexture>& SDLRenderer::createTexture( const Path& path )
@@ -104,8 +114,11 @@ namespace Moge
 		}
 		else
 		{
-			ITexture* txtPtr = texture.get();
-			const std::string message = "Texture: " + std::string( texture->getPath()) + ", address: " + std::to_string( reinterpret_cast<int>( txtPtr ) )
+			const void * address = static_cast<const void*>(texture.get());
+			std::stringstream ss;
+			ss << address;  
+			std::string addressS = ss.str(); 
+			const std::string message = "Texture: " + std::string( texture->getPath()) + ", address: " + addressS
 				+ " has not been found!\n";
 			BOOST_ASSERT_MSG( false, message.c_str() );
 		}
