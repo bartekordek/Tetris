@@ -1,25 +1,21 @@
 #include "TextureSDL.h"
-#include "SDL_render.h"
+#include "Math/SizeInt2D.h"
+
 namespace Moge
 {
-	TextureSDL::TextureSDL() 
+	TextureSDL::TextureSDL()
 	{
+		this->size.reset( new Math::SizeInt2D() );
 	}
 
 	TextureSDL::TextureSDL(const TextureSDL& orig) 
 	{
-		
 	}
 
 	TextureSDL::~TextureSDL() 
 	{
 		SDL_DestroyTexture( this->texture );
 		this->texture = nullptr;
-	}
-	
-	const Supported2DRenderers TextureSDL::getRendererId()const
-	{
-		return Supported2DRenderers::R_SDL;
 	}
 	
 	void TextureSDL::set(SDL_Texture* texture)
@@ -40,5 +36,21 @@ namespace Moge
 	const char* TextureSDL::getPath()const
 	{
 		return this->texturePath.c_str();
+	}
+
+	SDL_Texture* TextureSDL::getTexture() const
+	{
+		return nullptr;
+//		return this->texture.get();
+	}
+
+	Math::ISize<int>& TextureSDL::getSize()
+	{
+		return *this->size.get();
+	}
+
+	const Math::ISize<int>& TextureSDL::getSize()const
+	{
+		return *this->size.get();
 	}
 }
