@@ -21,8 +21,12 @@ namespace Moge
 		void setBackgroundColor( const ColorE color ) override;
 		void setBackgroundColor( const ColorS& color ) override;
 		void forceDestroy() override;
+
+		void render( const IRenderable& renderable ) override;
+		void render( const ITexture& texture, Math::IPosition<double>& position ) override;
+		void render( const IPrimitive& primitive, Math::IPosition<double>& position ) override;
 		
-		void render( IRenderable* renderable );
+
 		std::shared_ptr<ITexture>& createTexture( const Path& path ) override;
 		std::shared_ptr<ITexture>& findTexture( const Path& path ) override;
 		void removeTexture( const std::shared_ptr<ITexture>& texture ) override;

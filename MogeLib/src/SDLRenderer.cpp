@@ -6,6 +6,7 @@
 #include <map>
 #include <iostream>
 #include <sstream>
+#include "RenderableSDLTexture.h"
 
 namespace Moge
 {
@@ -56,18 +57,51 @@ namespace Moge
 		SDL_Quit();
 		rendererWasDestroyed = true;
 	}
-	
-	void SDLRenderer::render( IRenderable* renderable )
+
+	void SDLRenderer::render( const IRenderable& renderable )
 	{
-		SDL_Texture* sdlTex = renderable->getTexture();
+		const auto position = renderable.getPosition();
+		switch( renderable.getRenderableType() )
+		{
+		case RenderableType::TEXTURED:
+		{
+			const RenderableSDLTexture* rTex = static_cast<const RenderableSDLTexture*>( &renderable );
+			break;
+		}
+		case RenderableType::PRIMITIVE:
+		{
+			break;
+		}
+		}
+	}
+
+	void SDLRenderer::render( const ITexture& texture, Math::IPosition<double>& position )
+	{
+		auto sdlTexture = static_cast<const TextureSDL*>( &texture );
 		SDL_Rect renderQuad;
-		auto position = renderable->getPosition();
-		auto size = renderable->getPosition();
 		renderQuad.x = static_cast<int>( position.getX() );
 		renderQuad.y = static_cast<int>( position.getY() );
-		renderQuad.w = static_cast<int>( size.
-		SDL_RenderCopy( this->renderer, sdlTex, nullptr, nullptr );
+		renderQuad.w = texture.getSize().getWidth();
+		renderQuad.h = texture.getSize().getHeight();
+		std::unique_ptr<SDL_Rect> srcRect;
+		SDL_RenderCopy( this->renderer, sdlTexture->getTexture(), srcRect.get(), &renderQuad );
 	}
+
+	void SDLRenderer::render( const IPrimitive& primitive, Math::IPosition<double>& position )
+	{
+	}
+	
+	//void SDLRenderer::render( IRenderable* renderable )
+	//{
+	//	SDL_Texture* sdlTex = renderable->getTexture();
+	//	SDL_Rect renderQuad;
+	//	auto& position = renderable->getPosition();
+	//	auto& size = renderable->getPosition();
+	//	renderQuad.x = static_cast<int>( position.getX() );
+	//	renderQuad.y = static_cast<int>( position.getY() );
+	//	renderQuad.w = static_cast<int>( size.
+	//	SDL_RenderCopy( this->renderer, sdlTex, nullptr, nullptr );
+	//}
 	
 	std::shared_ptr<ITexture>& SDLRenderer::createTexture( const Path& path )
 	{
@@ -75,6 +109,7 @@ namespace Moge
 		SDL_Texture* newTexture = SDL_CreateTextureFromSurface( this->renderer, surface );
 		TextureSDL* texture = new TextureSDL();
 		texture->set( newTexture );
+		texture->getSize().setWidth( 0 );
 		texture->setPath( path );
 		char* key = const_cast<char*>( path.c_str() );
 		this->textures[  key ] = std::shared_ptr<ITexture>( texture );
