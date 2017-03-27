@@ -231,6 +231,18 @@
     <ClInclude Include="inc\Math\SizeUInt2D.h">
       <Filter>Header Files\Math</Filter>
     </ClInclude>
+    <ClInclude Include="src\RenderableSDLTexture.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\RenderableTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Math\PositionDouble2D.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Math\SizeDouble2D.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ConsoleUtilities.cpp">
@@ -363,6 +375,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\TextureSDL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderableSDLTexture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PositionDouble2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SizeDouble2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

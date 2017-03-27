@@ -236,11 +236,13 @@
     <ClInclude Include="inc\Math\Matrix2D.hpp" />
     <ClInclude Include="inc\Math\MultiPoint.h" />
     <ClInclude Include="inc\Math\MultiPointFactory.h" />
+    <ClInclude Include="inc\Math\PositionDouble2D.h" />
     <ClInclude Include="inc\Math\PositionDouble3D.h" />
     <ClInclude Include="inc\Math\Quaternion.h" />
     <ClInclude Include="inc\Math\Rectangle.h" />
     <ClInclude Include="inc\Math\Segment.h" />
     <ClInclude Include="inc\Math\Size.h" />
+    <ClInclude Include="inc\Math\SizeDouble2D.h" />
     <ClInclude Include="inc\Math\SizeDouble3D.h" />
     <ClInclude Include="inc\Math\SizeInt2D.h" />
     <ClInclude Include="inc\Math\SizeUInt2D.h" />
@@ -256,6 +258,7 @@
     <ClInclude Include="inc\NodeFactoryRegular.h" />
     <ClInclude Include="inc\ObjectNode.h" />
     <ClInclude Include="inc\Path.h" />
+    <ClInclude Include="inc\RenderableTypes.h" />
     <ClInclude Include="inc\Scale.h" />
     <ClInclude Include="inc\SDLRenderer.h" />
     <ClInclude Include="inc\Singleton.h" />
@@ -267,6 +270,7 @@
     <ClInclude Include="src\IKeyboardObservableImp.h" />
     <ClInclude Include="src\IObservableImpl.h" />
     <ClInclude Include="src\KeySDL.h" />
+    <ClInclude Include="src\RenderableSDLTexture.h" />
     <ClInclude Include="src\Vector3DSimple.h" />
   </ItemGroup>
   <ItemGroup>
@@ -303,13 +307,16 @@
     <ClCompile Include="src\NodeFactoryRegular.cpp" />
     <ClCompile Include="src\ObjectNode.cpp" />
     <ClCompile Include="src\Path.cpp" />
+    <ClCompile Include="src\PositionDouble2D.cpp" />
     <ClCompile Include="src\PositionDouble3D.cpp" />
     <ClCompile Include="src\Quaternion.cpp" />
     <ClCompile Include="src\Rectangle.cpp" />
+    <ClCompile Include="src\RenderableSDLTexture.cpp" />
     <ClCompile Include="src\Scale.cpp" />
     <ClCompile Include="src\SDLRenderer.cpp" />
     <ClCompile Include="src\Singleton.cpp" />
     <ClCompile Include="src\Size.cpp" />
+    <ClCompile Include="src\SizeDouble2D.cpp" />
     <ClCompile Include="src\SizeDouble3D.cpp" />
     <ClCompile Include="src\TextureSDL.cpp" />
     <ClCompile Include="src\Vector3DFactory.cpp" />
