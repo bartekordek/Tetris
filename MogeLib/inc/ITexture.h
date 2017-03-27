@@ -1,7 +1,7 @@
 #pragma once
 
 #include "MogeLib.h"
-#include "SupportedRenderersList.h"
+#include "Math/ISize.h"
 
 struct SDL_Renderer;
 namespace Moge
@@ -12,8 +12,8 @@ namespace Moge
 		ITexture();
 		virtual ~ITexture();
 		virtual const char* getPath()const = 0;
-		virtual const Supported2DRenderers getRendererId()const = 0;
-		SDL_Renderer* getSDLrenderer();
+		virtual Math::ISize<int>& getSize() = 0;
+		virtual const Math::ISize<int>& getSize()const = 0;
 	protected:
 	private:
 	};
