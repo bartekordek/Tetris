@@ -30,12 +30,4 @@ namespace Moge
 		result.alpha = 255;
 		return result;
 	}
-	
-	IRenderer::IRenderer()
-	{
-	}
-
-	IRenderer::~IRenderer()
-	{
-	}
 }

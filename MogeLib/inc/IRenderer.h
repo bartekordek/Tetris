@@ -1,6 +1,9 @@
 #pragma once
 #include "MogeLib.h"
 #include <cstdint>
+#include "ITexture.h"
+#include "Math/IPosition.h"
+
 namespace Moge
 {
 	enum class ColorE: short
@@ -23,13 +26,16 @@ namespace Moge
 	ColorS convertE2S( const ColorE c );
 
 	class IRenderable;
+	class IPrimitive;
 	class MogeLib_API IRenderer
 	{
 	public:
-		IRenderer();
-		virtual ~IRenderer();
+		IRenderer() = default;
+		virtual ~IRenderer() = default;
 		virtual void forceDestroy() = 0;
-		virtual void render( IRenderable* renderable ) = 0;
+		virtual void render( const IRenderable& renderable ) = 0;
+		virtual void render( const ITexture& texture, Math::IPosition<double>& position ) = 0;
+		virtual void render( const IPrimitive& primitive, Math::IPosition<double>& position ) = 0;
 		virtual void setBackgroundColor( const ColorE color ) = 0;
 		virtual void setBackgroundColor( const ColorS& color ) = 0;
 	protected:
