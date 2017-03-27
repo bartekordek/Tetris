@@ -2,13 +2,8 @@
 
 namespace Moge
 {
-	enum class Supported2DRenderers: short
+	enum class SupportedRenderer: short
 	{
 		R_SDL = 0
-	};
-	
-	enum class Supported3DRenderers: short
-	{
-		NONE = 0
 	};
 }
