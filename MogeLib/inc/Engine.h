@@ -34,8 +34,8 @@ namespace Moge
 		void AddObject( const Path& filePath, const Math::MultiPoint<double>& position, const MyString& name = MyString( "" ) );
 		void AddObject( const ObjectNode node, const MyString& name = MyString( "" ) );
 		INodeFactory* getNodeFactory();
-        IRenderer* getRenderer();
-        void createScreen( Math::ISize<unsigned int>& size, Math::IPosition<int>& position, const std::string& label = "Window label." );
+		IRenderer* getRenderer();
+		void createScreen( Math::ISize<unsigned int>& size, Math::IPosition<int>& position, const std::string& label = "Window label." );
 		void startMainLoop();
 		void stopEventLoop();
 		ITextureFactory2D* get2DTextureFactory()const;
