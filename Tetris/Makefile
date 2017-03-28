@@ -21,6 +21,12 @@ OBJ_DEBUG_FILES := $(addprefix $(OBJ_DEBUG_DIR),$(CPP_FILES:.cpp=.o))
 
 OBJ_RELEASE_DIR := obj/release/
 OBJ_RELEASE_FILES := $(addprefix $(OBJ_RELEASE_DIR),$(CPP_FILES:.cpp=.o))
+	
+ifeq ($(OS),Windows_NT)
+    DYN_LIB_EXT = .dll
+else
+    DYN_LIB_EXT = .so
+endif
 
 debug: run_debug_deps $(OUTPUT_DEBUG)
 release: run_release_deps $(OUTPUT_RELEASE)
@@ -34,10 +40,10 @@ run_release:
 	cd $(OUTPUT_DIR_RELEASE);./$(BINARY_NAME)
 
 $(OUTPUT_DEBUG): $(OBJ_DEBUG_FILES)
-	$(CC_LINK) -o $(OUTPUT_DEBUG) $(OBJ_DEBUG_FILES) $(IMPORT_LIBS_DEBUG)
+	$(CC_LINK) -o $(OUTPUT_DEBUG) $(DEBUG_FLAGS) $(OBJ_DEBUG_FILES) $(IMPORT_LIBS_DEBUG)
 
 $(OUTPUT_RELEASE): $(OBJ_RELEASE_FILES)
-	$(CC_LINK) -o $(OUTPUT_RELEASE) $(OBJ_RELEASE_FILES) $(IMPORT_LIBS_RELEASE) 
+	$(CC_LINK) -o $(OUTPUT_RELEASE) $(RELEASE_FLAGS) $(OBJ_RELEASE_FILES) $(IMPORT_LIBS_RELEASE) 
 
 $(OBJ_DEBUG_DIR)%.o: %.cpp
 	mkdir -p $(dir $@)
@@ -59,12 +65,13 @@ first_run:
 	mkdir -p $(dir $(OBJ_RELEASE_FILES)) 
 	mkdir -p $(dir $(OUTPUT_RELEASE))
 
-clear:
+clean:
+	make -C ../MogeLib clean
 	rm -f $(OBJ_DEBUG_FILES)
 	rm -f $(OBJ_RELEASE_FILES)
 	rm -f $(OUTPUT_DEBUG)
 	rm -f $(OUTPUT_RELEASE)
-	find .. -name '*.o' | xargs rm --verbose
+	find .. -name '*.o' | xargs rm -fv
 
 test:
 	@echo "All .o files: $(OBJ_DEBUG_FILES)"
