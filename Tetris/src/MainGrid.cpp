@@ -1,334 +1,336 @@
 #include "Game.h"
 #include "MainGrid.h"
 #include "BrickFactory.h"
-#include "SurfaceFactory.h"
 #include "MTime.h"
 #include "MogeLibMain.h"
 
 namespace Tetris
 {
-using namespace Moge;
-CMainGrid::CMainGrid():activeBrick( nullptr )
-{
-    this->tF = EngineManager::getEngine()->getTextureFactory();
-	std::lock_guard<std::mutex> slabLock( currentBrickMutex );
-	Path blockImagepath = Path::GetCurrentDirectory() + "\\..\\..\\Media\\Block.bmp";
-    this->filledSlabTex = this->tF->createTexture( blockImagepath, Moge::SupportedRenderers::R_SDL );
-	//filledSlabImage = this->sf->CreateSurfaceFromImage( blockImagepath );
-
-	Path bgBlockImagepath = Path::GetCurrentDirectory() + "\\..\\..\\Media\\BackGroundBlock.bmp";
-    this->emptySlabTex = this->tF->createTexture( bgBlockImagepath, Moge::SupportedRenderers::R_SDL );
-	//emptySlabImage = this->sf->CreateSurfaceFromImage( bgBlockImagepath );
-}
-
-CMainGrid::~CMainGrid()
-{
-	//slabsRows.erase( slabsRows.begin(), slabsRows.end() );
-}
-
-void CMainGrid::updateGrid()
-{
-	if( false == checkIfBlockCanBeMoved( Math::Directions::D ) )
+	using namespace Moge;
+	CMainGrid::CMainGrid()
 	{
-		addCurrentBrickToGrid();
-		ManageFullLine();
-		ReLeaseBrick();
+		// TODO: Rewrite this method.
+	 //   this->tF = EngineManager::getEngine()->getTextureFactory();
+		//std::lock_guard<std::mutex> slabLock( currentBrickMutex );
+		//Path blockImagepath = Path::GetCurrentDirectory() + "\\..\\..\\Media\\Block.bmp";
+	 //   this->filledSlabTex = this->tF->createTexture( blockImagepath, Moge::SupportedRenderers::R_SDL );
+		////filledSlabImage = this->sf->CreateSurfaceFromImage( blockImagepath );
+
+		//Path bgBlockImagepath = Path::GetCurrentDirectory() + "\\..\\..\\Media\\BackGroundBlock.bmp";
+	 //   this->emptySlabTex = this->tF->createTexture( bgBlockImagepath, Moge::SupportedRenderers::R_SDL );
+		////emptySlabImage = this->sf->CreateSurfaceFromImage( bgBlockImagepath );
+
+
 	}
-	CTimeMod::SleepMiliSeconds( 500 );
-	MoveActualBrick( Math::Directions::D );
-}
 
-void CMainGrid::SetSize( const unsigned int rowsCount, const unsigned int columnsCount, const unsigned int initialX, const unsigned int initialY )
-{
-	slabsRows.erase( slabsRows.begin(), slabsRows.end() );
-	for( unsigned int row = 0; row < rowsCount; ++row )
+	CMainGrid::~CMainGrid()
 	{
-		SlabRow rows;
-		for( unsigned int col = 0; col < columnsCount; ++col )
+		//slabsRows.erase( slabsRows.begin(), slabsRows.end() );
+	}
+
+	void CMainGrid::updateGrid()
+	{
+		if( false == checkIfBlockCanBeMoved( Math::Directions::D ) )
 		{
-			Slab slab( row + initialY, col + initialX, true );
-			rows.push_back( slab );
+			addCurrentBrickToGrid();
+			ManageFullLine();
+			ReLeaseBrick();
 		}
-		slabsRows.push_back( rows );
+		CTimeMod::SleepMiliSeconds( 500 );
+		MoveActualBrick( Math::Directions::D );
 	}
 
-	for( auto& slabRow : slabsRows )
+	void CMainGrid::SetSize( const unsigned int rowsCount, const unsigned int columnsCount, const unsigned int initialX, const unsigned int initialY )
 	{
-		for( auto& slab : slabRow )
+		//slabsRows.erase( slabsRows.begin(), slabsRows.end() );
+		//for( unsigned int row = 0; row < rowsCount; ++row )
+		//{
+		//	SlabRow rows;
+		//	for( unsigned int col = 0; col < columnsCount; ++col )
+		//	{
+		//		Slab slab( row + initialY, col + initialX, true );
+		//		rows.push_back( slab );
+		//	}
+		//	slabsRows.push_back( rows );
+		//}
+
+		//for( auto& slabRow : slabsRows )
+		//{
+		//	for( auto& slab : slabRow )
+		//	{
+	 //           auto slabNode = EngineManager::getEngine()->getNodeFactory()->CreateFromImage( emptySlabImage );
+	 //           auto& slabSize = slabNode->getSize();
+	 //           auto& slabPos = slabNode->getPosition();
+	 //           slabPos.setX( slab.col() * slabSize.getWidth() );
+	 //           slabPos.setY( slab.row() * slabSize.getHeight() );
+		//		slab.setNode( slabNode );
+		//		slabNode->SetVisible();
+		//		//slabNode->setScale( 2.0 ); // TODO: uncomment this line after implementing correct scale system - textues.
+		//		EngineManager::getEngine()->AddObject( slabNode );//TODO: redundant add, should be moved to NodeMgr
+		//	}
+		//}
+	}
+
+	void CMainGrid::ReLeaseBrick()
+	{
+		//delete activeBrick;
+		//activeBrick = CBrickFactory::GetRandomBrick();
+		//AddBrick( activeBrick );
+	}
+
+	void CMainGrid::AddBrick( const Brick* brick )
+	{
+		const CoordinatestList coords = brick->getBlockPositions();
+		for( auto it = coords.begin(); it != coords.end(); ++it )
 		{
-            auto slabNode = EngineManager::getEngine()->getNodeFactory()->CreateFromImage( emptySlabImage );
-            auto& slabSize = slabNode->getSize();
-            auto& slabPos = slabNode->getPosition();
-            slabPos.setX( slab.col() * slabSize.getWidth() );
-            slabPos.setY( slab.row() * slabSize.getHeight() );
-			slab.setNode( slabNode );
-			slabNode->SetVisible();
-			//slabNode->setScale( 2.0 ); // TODO: uncomment this line after implementing correct scale system - textues.
-			EngineManager::getEngine()->AddObject( slabNode );//TODO: redundant add, should be moved to NodeMgr
-		}
-	}
-}
-
-void CMainGrid::ReLeaseBrick()
-{
-	delete activeBrick;
-	activeBrick = CBrickFactory::GetRandomBrick();
-	AddBrick( activeBrick );
-}
-
-void CMainGrid::AddBrick( const Brick* brick )
-{
-	const CoordinatestList coords = brick->getBlockPositions();
-	for( auto it = coords.begin(); it != coords.end(); ++it )
-	{
-		MarkSlabAsPartOfMovingBlock( it->getRow(), it->getCol() );
-	}
-}
-
-void CMainGrid::MarkSlabAsPartOfMovingBlock( const unsigned int row, const unsigned int col )
-{
-	if( row >= slabsRows.size() || ( slabsRows.size() > 0 && col > slabsRows.at( 0 ).size() ) )
-	{
-		return;
-	}
-
-	Slab& slab = slabsRows.at( row ).at( col );
-	slab.setEmpty( false );
-	auto slabNode = slab.getNode();
-	slabNode->SetSurface( filledSlabImage );
-}
-
-const bool CMainGrid::PartOfCurrentBrick( const unsigned int rowIndex, const unsigned int colIndex )const
-{
-	CoordinatestList coords = activeBrick->getBlockPositions();
-	for( auto it = coords.begin(); it != coords.end(); ++it )
-	{
-		if( it->getRow() == rowIndex && it->getCol() == colIndex )
-		{
-			return true;
+			MarkSlabAsPartOfMovingBlock( it->getRow(), it->getCol() );
 		}
 	}
-	return false;
-}
 
-void CMainGrid::MoveActualBrick( const Math::Directions direction )
-{
-	if( true == checkIfBlockCanBeMoved( direction ) )
+	void CMainGrid::MarkSlabAsPartOfMovingBlock( const unsigned int row, const unsigned int col )
 	{
-		m_RemoveActualBlockSlabsFromGrid();
-		moveCurrentBrick( direction );
+		//if( row >= slabsRows.size() || ( slabsRows.size() > 0 && col > slabsRows.at( 0 ).size() ) )
+		//{
+		//	return;
+		//}
+
+		//Slab& slab = slabsRows.at( row ).at( col );
+		//slab.setEmpty( false );
+		//auto slabNode = slab.getNode();
+		//slabNode->SetSurface( filledSlabImage );
 	}
-}
 
-const bool CMainGrid::checkIfBlockCanBeMoved( const Math::Directions direction )
-{
-	for( auto& coord : activeBrick->getBlockPositions() )
+	const bool CMainGrid::PartOfCurrentBrick( const unsigned int rowIndex, const unsigned int colIndex )const
 	{
-		const unsigned int newRow = coord.getRow() + GetRowOffset( direction );
-		const unsigned int newCol = coord.getCol() + GetColOffset( direction );
-
-		if( newRow >= slabsRows.size() )
+		CoordinatestList coords = activeBrick->getBlockPositions();
+		for( auto it = coords.begin(); it != coords.end(); ++it )
 		{
-			return false;
+			if( it->getRow() == rowIndex && it->getCol() == colIndex )
+			{
+				return true;
+			}
 		}
+		return false;
+	}
 
-		if( false == SlabExist( newRow, newCol) ) 
+	void CMainGrid::MoveActualBrick( const Math::Directions direction )
+	{
+		if( true == checkIfBlockCanBeMoved( direction ) )
 		{
-			return false;
-		}
-
-		if( true == PartOfCurrentBrick( newRow, newCol ) )
-		{
-			continue;
-		}
-
-		if( false == slabsRows.at( newRow ).at( newCol ).isEmpty() )
-		{
-			return false;
+			m_RemoveActualBlockSlabsFromGrid();
+			moveCurrentBrick( direction );
 		}
 	}
-	return true;
-}
 
-const int CMainGrid::GetColOffset( const Math::Directions direction )const
-{
-	if( Math::Directions::U == direction || Math::Directions::D == direction )
-	{
-		return 0;
-	}
-
-	if( Math::Directions::R == direction )
-	{
-		return 1;
-	}
-	if( Math::Directions::L == direction )
-	{
-		return  -1;
-	}
-	return -1;
-}
-
-const int CMainGrid::GetRowOffset( const Math::Directions direction )const
-{
-    using namespace Math;
-	if( Directions::U == direction )
-	{
-		return  0;
-	}
-	else if( Directions::D == direction )
-	{
-		return  1;
-	}
-	else if( Directions::R == direction )
-	{
-		return  0;
-	}
-	else if( Directions::L == direction )
-	{
-		return  0;
-	}
-	return -1;
-}
-
-void CMainGrid::RotateActualBrick( const bool clockWise )
-{
-	Brick* tempBrick = new Brick( *activeBrick );
-	tempBrick->rotate( clockWise );
-	if( true == m_CheckIfBlockCanBePlaced( tempBrick ) )
-	{
-		m_RemoveActualBlockSlabsFromGrid();
-		activeBrick->rotate( clockWise );
-	}
-	delete tempBrick;
-}
-
-void CMainGrid::addCurrentBrickToGrid()
-{
-	if( activeBrick )
+	const bool CMainGrid::checkIfBlockCanBeMoved( const Math::Directions direction )
 	{
 		for( auto& coord : activeBrick->getBlockPositions() )
 		{
-			Slab& slab = slabsRows.at( coord.getRow() ).at( coord.getCol() );
-			slab.setEmpty( false );
-			slab.getNode().get()->SetSurface( filledSlabImage );
+			const unsigned int newRow = coord.getRow() + GetRowOffset( direction );
+			const unsigned int newCol = coord.getCol() + GetColOffset( direction );
+
+			if( newRow >= slabsRows.size() )
+			{
+				return false;
+			}
+
+			if( false == SlabExist( newRow, newCol) ) 
+			{
+				return false;
+			}
+
+			if( true == PartOfCurrentBrick( newRow, newCol ) )
+			{
+				continue;
+			}
+
+			if( false == slabsRows.at( newRow ).at( newCol ).isEmpty() )
+			{
+				return false;
+			}
 		}
+		return true;
 	}
-}
 
-const bool CMainGrid::m_CheckIfBlockCanBePlaced( const Brick* brick )
-{
-	CoordinatestList coords = brick->getBlockPositions();
-	for( auto it = coords.begin(); it != coords.end(); ++it )
+	const int CMainGrid::GetColOffset( const Math::Directions direction )const
 	{
+		if( Math::Directions::U == direction || Math::Directions::D == direction )
+		{
+			return 0;
+		}
 
-		if( it->getRow() >= slabsRows.size() )
+		if( Math::Directions::R == direction )
+		{
+			return 1;
+		}
+		if( Math::Directions::L == direction )
+		{
+			return  -1;
+		}
+		return -1;
+	}
+
+	const int CMainGrid::GetRowOffset( const Math::Directions direction )const
+	{
+		using namespace Math;
+		if( Directions::U == direction )
+		{
+			return  0;
+		}
+		else if( Directions::D == direction )
+		{
+			return  1;
+		}
+		else if( Directions::R == direction )
+		{
+			return  0;
+		}
+		else if( Directions::L == direction )
+		{
+			return  0;
+		}
+		return -1;
+	}
+
+	void CMainGrid::RotateActualBrick( const bool clockWise )
+	{
+		Brick* tempBrick = new Brick( *activeBrick );
+		tempBrick->rotate( clockWise );
+		if( true == m_CheckIfBlockCanBePlaced( tempBrick ) )
+		{
+			m_RemoveActualBlockSlabsFromGrid();
+			activeBrick->rotate( clockWise );
+		}
+		delete tempBrick;
+	}
+
+	void CMainGrid::addCurrentBrickToGrid()
+	{
+		//if( activeBrick )
+		//{
+		//	for( auto& coord : activeBrick->getBlockPositions() )
+		//	{
+		//		Slab& slab = slabsRows.at( coord.getRow() ).at( coord.getCol() );
+		//		slab.setEmpty( false );
+		//		slab.getNode().get()->SetSurface( filledSlabImage );
+		//	}
+		//}
+	}
+
+	const bool CMainGrid::m_CheckIfBlockCanBePlaced( const Brick* brick )
+	{
+		CoordinatestList coords = brick->getBlockPositions();
+		for( auto it = coords.begin(); it != coords.end(); ++it )
+		{
+
+			if( it->getRow() >= slabsRows.size() )
+			{
+				return false;
+			}
+
+			if( false == SlabExist( it->getRow(), it->getCol() ) )
+			{
+				return false;
+			}
+
+			if( true == PartOfCurrentBrick( it->getRow(), it->getCol() ) )
+			{
+				continue;
+			}
+
+			if( false == slabsRows.at( it->getRow() ).at( it->getCol() ).isEmpty() )
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+
+	const bool CMainGrid::SlabExist( const unsigned int rowIndex, const unsigned int colIndex )const
+	{
+		if( colIndex >= slabsRows.at( 0 ).size() || rowIndex >= slabsRows.size() )
 		{
 			return false;
 		}
-
-		if( false == SlabExist( it->getRow(), it->getCol() ) )
-		{
-			return false;
-		}
-
-		if( true == PartOfCurrentBrick( it->getRow(), it->getCol() ) )
-		{
-			continue;
-		}
-
-		if( false == slabsRows.at( it->getRow() ).at( it->getCol() ).isEmpty() )
-		{
-			return false;
-		}
+		return true;
 	}
-	return true;
-}
 
-const bool CMainGrid::SlabExist( const unsigned int rowIndex, const unsigned int colIndex )const
-{
-	if( colIndex >= slabsRows.at( 0 ).size() || rowIndex >= slabsRows.size() )
+	void CMainGrid::m_RemoveActualBlockSlabsFromGrid()
 	{
-		return false;
+		//for( auto& coord : activeBrick->getBlockPositions() )
+		//{
+		//	auto& slab = slabsRows.at( coord.getRow() ).at( coord.getCol() );
+		//	slab.setEmpty( true );
+		//	auto slabnode = slab.getNode();
+		//	slabnode->SetSurface( emptySlabImage );
+		//}
 	}
-	return true;
-}
 
-void CMainGrid::m_RemoveActualBlockSlabsFromGrid()
-{
-	for( auto& coord : activeBrick->getBlockPositions() )
+	void CMainGrid::moveCurrentBrick( const Math::Directions direction )
 	{
-		auto& slab = slabsRows.at( coord.getRow() ).at( coord.getCol() );
-		slab.setEmpty( true );
-		auto slabnode = slab.getNode();
-		slabnode->SetSurface( emptySlabImage );
+		//activeBrick->move( direction );
+		//AddBrick( activeBrick );
 	}
-}
 
-void CMainGrid::moveCurrentBrick( const Math::Directions direction )
-{
-	activeBrick->move( direction );
-	AddBrick( activeBrick );
-}
-
-void CMainGrid::ManageFullLine()
-{
-	for( std::vector<SlabRow>::iterator rowsIterator = slabsRows.begin(); rowsIterator != slabsRows.end(); ++rowsIterator )
+	void CMainGrid::ManageFullLine()
 	{
-		SlabRow& slabRow = *rowsIterator;
-		if( RowIsConnected( slabRow ) )
+		for( std::vector<SlabRow>::iterator rowsIterator = slabsRows.begin(); rowsIterator != slabsRows.end(); ++rowsIterator )
 		{
-			MoveAllLinesOneLineDown( rowsIterator );
-		}
-	}
-}
-
-const bool CMainGrid::RowIsConnected( const SlabRow& slabRow )const
-{
-	for( auto& slab : slabRow )
-	{
-		if( slab.isEmpty() )
-		{
-			return false;
-		}
-	}
-	return true;
-}
-
-void CMainGrid::MoveAllLinesOneLineDown( std::vector<SlabRow>::iterator rowIterator )
-{
-	for( ; rowIterator != slabsRows.begin() + 1; --rowIterator )
-	{
-		auto& currentRow = *rowIterator;
-		auto& oneRowHigher = *(rowIterator - 1);
-
-		for( unsigned columnIterator = 0; columnIterator < currentRow.size(); ++columnIterator )
-		{
-			Slab& slabHigher = oneRowHigher.at( columnIterator );
-			Slab& slabLower = currentRow.at( columnIterator );
-			bool emptiness = slabHigher.isEmpty();
-			slabLower.setEmpty( emptiness );
-			SetSlabImagSurface( slabLower );
+			SlabRow& slabRow = *rowsIterator;
+			if( RowIsConnected( slabRow ) )
+			{
+				MoveAllLinesOneLineDown( rowsIterator );
+			}
 		}
 	}
 
-	for( unsigned int j = 0; j < rowIterator->size(); ++j )
+	const bool CMainGrid::RowIsConnected( const SlabRow& slabRow )const
 	{
-		Slab& slab = slabsRows.at( 0 ).at( j );
-		slab.setEmpty( true );
-		SetSlabImagSurface( slab );
+		for( auto& slab : slabRow )
+		{
+			if( slab.isEmpty() )
+			{
+				return false;
+			}
+		}
+		return true;
 	}
-}
 
-void CMainGrid::SetSlabImagSurface( Slab& slab )
-{
-	auto& slabNode = slab.getNode();
-	if( slab.isEmpty() )
+	void CMainGrid::MoveAllLinesOneLineDown( std::vector<SlabRow>::iterator rowIterator )
 	{
-		slabNode->SetSurface( this->emptySlabImage );
+		for( ; rowIterator != slabsRows.begin() + 1; --rowIterator )
+		{
+			auto& currentRow = *rowIterator;
+			auto& oneRowHigher = *(rowIterator - 1);
+
+			for( unsigned columnIterator = 0; columnIterator < currentRow.size(); ++columnIterator )
+			{
+				Slab& slabHigher = oneRowHigher.at( columnIterator );
+				Slab& slabLower = currentRow.at( columnIterator );
+				bool emptiness = slabHigher.isEmpty();
+				slabLower.setEmpty( emptiness );
+				SetSlabImagSurface( slabLower );
+			}
+		}
+
+		for( unsigned int j = 0; j < rowIterator->size(); ++j )
+		{
+			Slab& slab = slabsRows.at( 0 ).at( j );
+			slab.setEmpty( true );
+			SetSlabImagSurface( slab );
+		}
 	}
-	else
+
+	void CMainGrid::SetSlabImagSurface( Slab& slab )
 	{
-		slabNode->SetSurface( this->filledSlabImage );
+		//auto& slabNode = slab.getNode();
+		//if( slab.isEmpty() )
+		//{
+		//	slabNode->SetSurface( this->emptySlabImage );
+		//}
+		//else
+		//{
+		//	slabNode->SetSurface( this->filledSlabImage );
+		//}
 	}
-}
 }
