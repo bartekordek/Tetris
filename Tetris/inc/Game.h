@@ -2,7 +2,7 @@
 
 #include <memory>
 #include "IMogeApp.h"
-
+#include "MainGrid.h"
 namespace Tetris
 {
 	class CMainGrid;

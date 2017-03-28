@@ -5,7 +5,6 @@
 #include "Math/IPositionFactory.h"
 #include "Math/SizeUInt2D.h"
 
-#include "MainGrid.h"
 #include "MogeLibMain.h"
 
 namespace Tetris
