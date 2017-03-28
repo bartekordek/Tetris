@@ -11,7 +11,6 @@
 namespace Tetris
 {
 using SlabRow = std::vector<Slab>;
-class SurfaceFactory;
 class CMainGrid
 {
 public:
