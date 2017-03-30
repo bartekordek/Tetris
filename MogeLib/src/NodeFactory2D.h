@@ -1,5 +1,6 @@
 #pragma once
 #include "INodeFactory.h"
+#include <set>
 namespace Moge
 {
 	class NodeFactory2D: public INodeFactory
