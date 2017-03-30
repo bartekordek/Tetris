@@ -1,13 +1,13 @@
-#include "INodeFactory3D.h"
+#include "NodeFactory3D.h"
 namespace Moge
 {
-	NodeFactoryRegular::NodeFactoryRegular(  ITextureFactory3D* factory3D ): factory3D( factory3D )
+	NodeFactory3D::NodeFactory3D(  ITextureFactory3D* factory3D ): factory3D( factory3D )
 	{
 	}
 
 	using namespace Math;
 
-	ObjectNode NodeFactoryRegular::CreateFromImage(
+	ObjectNode NodeFactory3D::CreateFromImage(
 		const Path& filePath, 
 		const Math::IPosition<double>& position, 
 		const MyString& name )
@@ -17,7 +17,7 @@ namespace Moge
 		return result;
 	}
 
-	ObjectNode NodeFactoryRegular::createFromTexture( const std::shared_ptr<ITexture>& texture, const Math::IPosition<double>& position )
+	ObjectNode NodeFactory3D::createFromTexture( const std::shared_ptr<ITexture>& texture, const Math::IPosition<double>& position )
 	{
 		ObjectNodeContent* objectNodeContent = new ObjectNodeContent();
 		objectNodeContent->getPosition().setXyz( position );
