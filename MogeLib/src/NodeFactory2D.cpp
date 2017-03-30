@@ -1,4 +1,4 @@
-#include "INodeFactory2D.h"
+#include "NodeFactory2D.h"
 namespace Moge
 {
 	NodeFactory2D::NodeFactory2D( ITextureFactory2D* factory2D ): factory2D( factory2D )
@@ -12,7 +12,8 @@ namespace Moge
 		const MyString& name )
 	{
 		ObjectNode result;
-		std::shared_ptr<ITexture>& texture = this->factory2D
+		const auto& texture = this->factory2D->createTexture( filePath );
+		result->setTexture( texture );//TODO: Fixme.
 		return result;
 	}
 
