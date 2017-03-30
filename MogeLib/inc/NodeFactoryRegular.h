@@ -15,8 +15,8 @@ namespace Moge
 				const Math::IPosition<double>& position, 
 				const MyString& name = MyString( "" ) ) override;
         ObjectNode createFromTexture( const std::shared_ptr<ITexture>& texture, const Math::IPosition<double>& position = Math::IPositionAdapter<double>( 0.0, 0.0, 0.0 )) override;
-		void removeNode( ObjectNode& node) override;
-		const bool exist( ObjectNode& node ) override;
+		void removeNode(const ObjectNode& node) override;
+		const bool exist(const ObjectNode& node ) override;
 		const unsigned int Count() override;
 	protected:
 	private:

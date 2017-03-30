@@ -18,6 +18,7 @@ namespace Moge
 		const MyString& name )
 	{
 		ObjectNode result;
+		//std::shared_ptr<ITexture>& texture = this->
 		return result;
 	}
 
@@ -28,13 +29,12 @@ namespace Moge
 		return ObjectNode( objectNodeContent );
 	}
 
-	void NodeFactoryRegular::removeNode( ObjectNode& node )
+	void NodeFactoryRegular::removeNode(const ObjectNode& node)
 	{
 		this->nodes.erase( node.get() );
-		node.reset();
 	}
 
-	const bool NodeFactoryRegular::exist( ObjectNode& node )
+	const bool NodeFactoryRegular::exist(const ObjectNode& node)
 	{
 		for( auto& currentNode : this->nodes )
 		{
