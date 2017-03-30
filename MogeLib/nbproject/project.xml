@@ -10,6 +10,10 @@
             <sourceEncoding>UTF-8</sourceEncoding>
             <make-dep-projects/>
             <sourceRootList>
+                <sourceRootElem>inc</sourceRootElem>
+                <sourceRootElem>src</sourceRootElem>
+                <sourceRootElem>RenderableObject</sourceRootElem>
+                <sourceRootElem>Scene</sourceRootElem>
                 <sourceRootElem>.</sourceRootElem>
             </sourceRootList>
             <confList>
