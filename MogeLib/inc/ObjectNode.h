@@ -30,7 +30,7 @@ namespace Moge
 		Math::IPosition<double>& getPosition()const override;
 		Math::ISize<double>& getSize()const override;
 		Math::IVector3D<double>& getScale()const override;
-		void setTexture( std::shared_ptr<ITexture>& texture );
+		void setTexture(const std::shared_ptr<ITexture>& texture);
 		std::shared_ptr<ITexture>& getTexture();
 
 	protected:

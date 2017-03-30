@@ -48,7 +48,7 @@ namespace Moge
 		return *this->scale;
 	}
 
-	void ObjectNodeContent::setTexture( std::shared_ptr< ITexture >& texture )
+	void ObjectNodeContent::setTexture(const std::shared_ptr<ITexture>& texture)
 	{
 		this->texture = texture;
 	}
