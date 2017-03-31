@@ -23,8 +23,8 @@ namespace Moge
 		void forceDestroy() override;
 
 		void render( const IRenderable& renderable ) override;
-		void render( const ITexture& texture, Math::IPosition<double>& position ) override;
-		void render( const IPrimitive& primitive, Math::IPosition<double>& position ) override;
+		void render( const ITexture& texture, const Math::IPosition<double>& position ) override;
+		void render( const IPrimitive& primitive, const Math::IPosition<double>& position ) override;
 		
 
 		std::shared_ptr<ITexture>& createTexture( const Path& path ) override;

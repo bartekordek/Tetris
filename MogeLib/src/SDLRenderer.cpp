@@ -60,22 +60,23 @@ namespace Moge
 
 	void SDLRenderer::render( const IRenderable& renderable )
 	{
-		const auto position = renderable.getPosition();
+		const auto& position = *renderable.getPosition();
 		switch( renderable.getRenderableType() )
 		{
-		case RenderableType::TEXTURED:
-		{
-			const RenderableSDLTexture* rTex = static_cast<const RenderableSDLTexture*>( &renderable );
-			break;
-		}
-		case RenderableType::PRIMITIVE:
-		{
-			break;
-		}
+			case RenderableType::TEXTURED:
+			{
+				const auto sdlRend = static_cast<const RenderableSDLTexture*>( &renderable );
+				render( *sdlRend->getTexture(), position );
+				break;
+			}
+			case RenderableType::PRIMITIVE:
+			{
+				break;
+			}
 		}
 	}
 
-	void SDLRenderer::render( const ITexture& texture, Math::IPosition<double>& position )
+	void SDLRenderer::render( const ITexture& texture, const Math::IPosition<double>& position )
 	{
 		auto sdlTexture = static_cast<const TextureSDL*>( &texture );
 		SDL_Rect renderQuad;
@@ -87,21 +88,9 @@ namespace Moge
 		SDL_RenderCopy( this->renderer, sdlTexture->getTexture(), srcRect.get(), &renderQuad );
 	}
 
-	void SDLRenderer::render( const IPrimitive& primitive, Math::IPosition<double>& position )
+	void SDLRenderer::render( const IPrimitive& primitive, const Math::IPosition<double>& position )
 	{
 	}
-	
-	//void SDLRenderer::render( IRenderable* renderable )
-	//{
-	//	SDL_Texture* sdlTex = renderable->getTexture();
-	//	SDL_Rect renderQuad;
-	//	auto& position = renderable->getPosition();
-	//	auto& size = renderable->getPosition();
-	//	renderQuad.x = static_cast<int>( position.getX() );
-	//	renderQuad.y = static_cast<int>( position.getY() );
-	//	renderQuad.w = static_cast<int>( size.
-	//	SDL_RenderCopy( this->renderer, sdlTex, nullptr, nullptr );
-	//}
 	
 	std::shared_ptr<ITexture>& SDLRenderer::createTexture( const Path& path )
 	{
