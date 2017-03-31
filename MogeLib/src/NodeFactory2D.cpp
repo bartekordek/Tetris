@@ -13,7 +13,9 @@ namespace Moge
 	{
 		ObjectNode result;
 		const auto& texture = this->factory2D->createTexture( filePath );
-		result->setTexture( texture );//TODO: Fixme.
+		result->setTexture( texture );
+		result->SetName( name );
+		//TODO: Fixme.
 		return result;
 	}
 
