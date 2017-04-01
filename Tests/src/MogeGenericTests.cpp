@@ -1,7 +1,6 @@
 #include "MogeGenericTests.h"
 
 #include "Named.h"
-#include "Size.h"
 #include "MyString.h"
 
 TEST_F( MogeGenericTests, NamedSetGetName )
