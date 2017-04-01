@@ -38,10 +38,10 @@ namespace Tetris
 	void CMainGrid::SetSize( const unsigned int rowsCount, const unsigned int columnsCount, const unsigned int initialX, const unsigned int initialY )
 	{
 		clearSlabs();
-		for( auto row = 0; row < rowsCount; ++row )
+		for( unsigned row = 0; row < rowsCount; ++row )
 		{
 			SlabRow rows;
-			for( auto col = 0; col < columnsCount; ++col )
+			for( unsigned col = 0; col < columnsCount; ++col )
 			{
 				Slab slab( row + initialY, col + initialX, true );
 				rows.push_back( slab );
