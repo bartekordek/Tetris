@@ -13,7 +13,7 @@ namespace Tetris
 	using namespace Math;
 	void CGame::initialize( const unsigned int rowsCount, const unsigned int columnsCount, const unsigned int winWidth, const unsigned int winHeight )
 	{
-		auto winSize = SizeUint2D( 640, 480 );
+		auto winSize = SizeUint2D( winWidth, winHeight );
 		std::unique_ptr<IPosition<int>> winPos( IPositionFactory::createPositionInt2D( 100, 100 ) );
 		EngineManager::getEngine()->createScreen( winSize, *winPos );
 		mainGrid.reset( new CMainGrid() );
