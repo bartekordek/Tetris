@@ -2,7 +2,7 @@
 
 #include <memory>
 
-#include "Node.h"
+#include "INode.h"
 #include "Visible.h"
 #include "Path.h"
 #include "Scale.h"
@@ -18,7 +18,7 @@ namespace Moge
 		MAIN_SCREEN
 	};
 
-	class MogeLib_API ObjectNodeContent: public Node, public Visible
+	class MogeLib_API ObjectNodeContent: public INode, public Visible
 	{
 	public:
 		ObjectNodeContent();

@@ -10,11 +10,11 @@ struct SDL_Rect;
 
 namespace Moge
 {
-	class MogeLib_API Node: public Name
+	class MogeLib_API INode: public Name
 	{
 	public:
-		explicit Node( const MyString& name = MyString( "" ) );
-		virtual ~Node();
+		explicit INode( const MyString& name = MyString( "" ) );
+		virtual ~INode() = default;
 		
 		virtual Math::IPosition<double>& getPosition()const = 0;
 		virtual Math::ISize<double>& getSize()const = 0;

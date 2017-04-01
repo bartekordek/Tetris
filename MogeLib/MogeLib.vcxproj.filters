@@ -171,9 +171,6 @@
     <ClInclude Include="inc\Named.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Node.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\NodeFactoryRegular.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -248,6 +245,9 @@
     </ClInclude>
     <ClInclude Include="src\NodeFactory3D.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\INode.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -347,9 +347,6 @@
     <ClCompile Include="src\Named.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Node.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\NodeFactoryRegular.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -396,6 +393,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\NodeFactory3D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\INode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
