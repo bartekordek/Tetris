@@ -18,12 +18,12 @@ public:
 	void col( const unsigned int col );
 	const bool isEmpty()const;
 	void setEmpty( const bool empty );
-	void setNode( const Moge::ObjectNode& node );
-	const Moge::ObjectNode& getNode()const;
+	void setNode( const std::shared_ptr<Moge::ObjectNodeContent>& node );
+	const std::shared_ptr<Moge::ObjectNodeContent>& getNode()const;
 
 private:
 	MatrixPos position;
 	bool empty = true;
-	Moge::ObjectNode node;
+	std::shared_ptr<Moge::ObjectNodeContent> node;
 };
 }

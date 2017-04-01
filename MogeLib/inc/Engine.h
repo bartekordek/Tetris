@@ -32,7 +32,7 @@ namespace Moge
 		virtual ~Engine();
 
 		void AddObject( const Path& filePath, const Math::MultiPoint<double>& position, const MyString& name = MyString( "" ) );
-		void AddObject( const ObjectNode node, const MyString& name = MyString( "" ) );
+		void AddObject( const std::shared_ptr<ObjectNodeContent> node, const MyString& name = MyString( "" ) );
 		INodeFactory* getNodeFactory();
 		IRenderer* getRenderer();
 		void createScreen( Math::ISize<unsigned int>& size, Math::IPosition<int>& position, const std::string& label = "Window label." );
@@ -49,7 +49,7 @@ namespace Moge
 		void QueueFrame();
 		void Render( ObjectNodeContent& node );
 
-		std::set<ObjectNode> mRenderableObjects;
+		std::set<std::shared_ptr<ObjectNodeContent>> mRenderableObjects;
 		std::mutex mRenderableObjectsMutex;
 		std::mutex mListMutex;
 		std::thread mainLoop;

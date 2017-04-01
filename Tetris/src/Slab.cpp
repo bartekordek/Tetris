@@ -59,12 +59,12 @@ void Slab::setEmpty( const bool empty )
 	this->empty = empty;
 }
 
-void Slab::setNode( const Moge::ObjectNode& node )
+void Slab::setNode( const std::shared_ptr<Moge::ObjectNodeContent>& node )
 {
 	this->node = node;
 }
 
-const Moge::ObjectNode& Slab::getNode()const
+const std::shared_ptr<Moge::ObjectNodeContent>& Slab::getNode()const
 {
 	return this->node;
 }

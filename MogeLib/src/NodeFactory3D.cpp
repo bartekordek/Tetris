@@ -7,29 +7,29 @@ namespace Moge
 
 	using namespace Math;
 
-	ObjectNode NodeFactory3D::CreateFromImage(
+	std::shared_ptr<ObjectNodeContent> NodeFactory3D::CreateFromImage(
 		const Path& filePath, 
 		const Math::IPosition<double>& position, 
 		const MyString& name )
 	{
-		ObjectNode result;
+		std::shared_ptr<ObjectNodeContent> result;
 		//std::shared_ptr<ITexture>& texture = this->
 		return result;
 	}
 
-	ObjectNode NodeFactory3D::createFromTexture( const std::shared_ptr<ITexture>& texture, const Math::IPosition<double>& position )
+	std::shared_ptr<ObjectNodeContent> NodeFactory3D::createFromTexture( const std::shared_ptr<ITexture>& texture, const Math::IPosition<double>& position )
 	{
 		ObjectNodeContent* objectNodeContent = new ObjectNodeContent();
 		objectNodeContent->getPosition().setXyz( position );
-		return ObjectNode( objectNodeContent );
+		return std::shared_ptr<ObjectNodeContent>( objectNodeContent );
 	}
 	
-	void NodeFactory3D::removeNode(const ObjectNode& node)
+	void NodeFactory3D::removeNode(const std::shared_ptr<ObjectNodeContent>& node)
 	{
 		this->nodes.erase( node.get() );
 	}
 	
-	const bool NodeFactory3D::exist(const ObjectNode& node)
+	const bool NodeFactory3D::exist(const std::shared_ptr<ObjectNodeContent>& node)
 	{
 		for( auto& currentNode : this->nodes )
 		{

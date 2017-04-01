@@ -41,6 +41,4 @@ namespace Moge
 		std::unique_ptr<Math::IVector3D<double>> scale;
 		std::shared_ptr<ITexture> texture;
 	};
-	
-	using ObjectNode = std::shared_ptr<ObjectNodeContent>;
 }

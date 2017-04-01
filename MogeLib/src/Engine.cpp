@@ -34,11 +34,11 @@ namespace Moge
 	void Engine::AddObject( const Path& filePath, const Math::MultiPoint<double>& position, const MyString& name )
 	{
 		Math::IPositionAdapter<double> positionAdapter( position );
-		ObjectNode newNode = nodeFactory->CreateFromImage( filePath, positionAdapter, name );
+		std::shared_ptr<ObjectNodeContent> newNode = nodeFactory->CreateFromImage( filePath, positionAdapter, name );
 		AddObject( newNode, name );
 	}
 
-	void Engine::AddObject( const ObjectNode  node, const MyString& name )
+	void Engine::AddObject( const std::shared_ptr<ObjectNodeContent> node, const MyString& name )
 	{
 		std::lock_guard<std::mutex> renderableObjectLock( mRenderableObjectsMutex );
 		mRenderableObjects.insert( node );
