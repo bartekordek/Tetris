@@ -41,7 +41,7 @@ private:
 	void SetSlabImagSurface( Slab& slab );
 	void clearSlabs();
 
-	Brick* activeBrick;
+	std::unique_ptr<Brick> activeBrick;
 	std::vector<SlabRow> slabsRows;
 	std::mutex slabsMutex;
 	std::mutex currentBrickMutex;

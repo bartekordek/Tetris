@@ -73,9 +73,9 @@ namespace Tetris
 
 	void CMainGrid::ReLeaseBrick()
 	{
-		//delete activeBrick;
-		//activeBrick = CBrickFactory::GetRandomBrick();
-		//AddBrick( activeBrick );
+		this->activeBrick.reset(); //TODO: Check if reset can be used once (if deletes previous ptr).
+		this->activeBrick.reset( CBrickFactory::GetRandomBrick() );
+		AddBrick( this->activeBrick.get() );
 	}
 
 	void CMainGrid::AddBrick( const Brick* brick )
@@ -89,15 +89,13 @@ namespace Tetris
 
 	void CMainGrid::MarkSlabAsPartOfMovingBlock( const unsigned int row, const unsigned int col )
 	{
-		//if( row >= slabsRows.size() || ( slabsRows.size() > 0 && col > slabsRows.at( 0 ).size() ) )
-		//{
-		//	return;
-		//}
-
-		//Slab& slab = slabsRows.at( row ).at( col );
-		//slab.setEmpty( false );
-		//auto slabNode = slab.getNode();
-		//slabNode->SetSurface( filledSlabImage );
+		if( row >= slabsRows.size() || ( slabsRows.size() > 0 && col > slabsRows.at( 0 ).size() ) )
+		{
+			return;
+		}
+		Slab& slab = slabsRows.at( row ).at( col );
+		slab.setEmpty( false );
+		slab.getNode()->setTexture( this->filledSlabTex );
 	}
 
 	const bool CMainGrid::PartOfCurrentBrick( const unsigned int rowIndex, const unsigned int colIndex )const
