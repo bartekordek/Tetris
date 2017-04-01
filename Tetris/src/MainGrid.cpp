@@ -9,23 +9,18 @@ namespace Tetris
 	using namespace Moge;
 	CMainGrid::CMainGrid()
 	{
-		// TODO: Rewrite this method.
-	 //   this->tF = EngineManager::getEngine()->getTextureFactory();
-		//std::lock_guard<std::mutex> slabLock( currentBrickMutex );
-		//Path blockImagepath = Path::GetCurrentDirectory() + "\\..\\..\\Media\\Block.bmp";
-	 //   this->filledSlabTex = this->tF->createTexture( blockImagepath, Moge::SupportedRenderers::R_SDL );
-		////filledSlabImage = this->sf->CreateSurfaceFromImage( blockImagepath );
+		this->tF = EngineManager::getEngine()->get2DTextureFactory();
+		std::lock_guard<std::mutex> slabLock( currentBrickMutex );
 
-		//Path bgBlockImagepath = Path::GetCurrentDirectory() + "\\..\\..\\Media\\BackGroundBlock.bmp";
-	 //   this->emptySlabTex = this->tF->createTexture( bgBlockImagepath, Moge::SupportedRenderers::R_SDL );
-		////emptySlabImage = this->sf->CreateSurfaceFromImage( bgBlockImagepath );
+		Path blockImagepath = Path::GetCurrentDirectory() + "\\..\\..\\Media\\Block.bmp";
+		this->filledSlabTex = tF->createTexture( blockImagepath );
 
-
+		Path bgBlockImagepath = Path::GetCurrentDirectory() + "\\..\\..\\Media\\BackGroundBlock.bmp";
+		this->emptySlabTex = tF->createTexture( bgBlockImagepath );
 	}
 
 	CMainGrid::~CMainGrid()
 	{
-		//slabsRows.erase( slabsRows.begin(), slabsRows.end() );
 	}
 
 	void CMainGrid::updateGrid()
@@ -42,33 +37,38 @@ namespace Tetris
 
 	void CMainGrid::SetSize( const unsigned int rowsCount, const unsigned int columnsCount, const unsigned int initialX, const unsigned int initialY )
 	{
-		//slabsRows.erase( slabsRows.begin(), slabsRows.end() );
-		//for( unsigned int row = 0; row < rowsCount; ++row )
-		//{
-		//	SlabRow rows;
-		//	for( unsigned int col = 0; col < columnsCount; ++col )
-		//	{
-		//		Slab slab( row + initialY, col + initialX, true );
-		//		rows.push_back( slab );
-		//	}
-		//	slabsRows.push_back( rows );
-		//}
+		clearSlabs();
+		for( auto row = 0; row < rowsCount; ++row )
+		{
+			SlabRow rows;
+			for( auto col = 0; col < columnsCount; ++col )
+			{
+				Slab slab( row + initialY, col + initialX, true );
+				rows.push_back( slab );
+			}
+			slabsRows.push_back( rows );
+		}
 
-		//for( auto& slabRow : slabsRows )
-		//{
-		//	for( auto& slab : slabRow )
-		//	{
-	 //           auto slabNode = EngineManager::getEngine()->getNodeFactory()->CreateFromImage( emptySlabImage );
-	 //           auto& slabSize = slabNode->getSize();
-	 //           auto& slabPos = slabNode->getPosition();
-	 //           slabPos.setX( slab.col() * slabSize.getWidth() );
-	 //           slabPos.setY( slab.row() * slabSize.getHeight() );
-		//		slab.setNode( slabNode );
-		//		slabNode->SetVisible();
-		//		//slabNode->setScale( 2.0 ); // TODO: uncomment this line after implementing correct scale system - textues.
-		//		EngineManager::getEngine()->AddObject( slabNode );//TODO: redundant add, should be moved to NodeMgr
-		//	}
-		//}
+		for( auto& slabRow : slabsRows )
+		{
+			for( auto& slab : slabRow )
+			{
+				auto slabNode = EngineManager::getEngine()->getNodeFactory()->createFromTexture( this->emptySlabTex );
+				auto& slabSize = slabNode->getSize();
+				auto& slabPos = slabNode->getPosition();
+				slabPos.setX( slab.col() * slabSize.getWidth() );
+				slabPos.setY( slab.row() * slabSize.getHeight() );
+
+				slab.setNode( slabNode );
+				slabNode->SetVisible( true );
+			}
+		}
+		//slabNode->setScale( 2.0 ); // TODO: uncomment this line after implementing correct scale system - textues.
+	}
+
+	void CMainGrid::clearSlabs()
+	{
+		this->slabsRows.erase( this->slabsRows.begin(), this->slabsRows.end() );
 	}
 
 	void CMainGrid::ReLeaseBrick()

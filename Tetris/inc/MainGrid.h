@@ -39,15 +39,14 @@ private:
 	const bool m_CheckIfBlockCanBePlaced( const Brick* brick );
 	void MoveAllLinesOneLineDown( std::vector<SlabRow>::iterator rowIterator );
 	void SetSlabImagSurface( Slab& slab );
+	void clearSlabs();
 
 	Brick* activeBrick;
 	std::vector<SlabRow> slabsRows;
 	std::mutex slabsMutex;
 	std::mutex currentBrickMutex;
-	/*Moge::ImageSurface emptySlabImage;
-	Moge::ImageSurface filledSlabImage;*/
-    std::shared_ptr<Moge::ITexture> emptySlabTex;
-    std::shared_ptr<Moge::ITexture> filledSlabTex;
+	std::shared_ptr<Moge::ITexture> emptySlabTex;
+	std::shared_ptr<Moge::ITexture> filledSlabTex;
 	Moge::ITextureFactory* tF = nullptr;
 };
 }
