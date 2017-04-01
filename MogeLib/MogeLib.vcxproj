@@ -270,6 +270,8 @@
     <ClInclude Include="src\IKeyboardObservableImp.h" />
     <ClInclude Include="src\IObservableImpl.h" />
     <ClInclude Include="src\KeySDL.h" />
+    <ClInclude Include="src\NodeFactory2D.h" />
+    <ClInclude Include="src\NodeFactory3D.h" />
     <ClInclude Include="src\RenderableSDLTexture.h" />
     <ClInclude Include="src\Vector3DSimple.h" />
   </ItemGroup>
@@ -304,6 +306,8 @@
     <ClCompile Include="src\MyString.cpp" />
     <ClCompile Include="src\Named.cpp" />
     <ClCompile Include="src\Node.cpp" />
+    <ClCompile Include="src\NodeFactory2D.cpp" />
+    <ClCompile Include="src\NodeFactory3D.cpp" />
     <ClCompile Include="src\NodeFactoryRegular.cpp" />
     <ClCompile Include="src\ObjectNode.cpp" />
     <ClCompile Include="src\Path.cpp" />
