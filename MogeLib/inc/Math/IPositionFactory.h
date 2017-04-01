@@ -4,7 +4,7 @@ namespace Moge
 {
 	namespace Math
 	{
-		class IPositionFactory
+		class MogeLib_API IPositionFactory
 		{
 		public:
 			static IPosition<double>* createPositionDouble1D();

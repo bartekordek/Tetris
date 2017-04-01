@@ -1,11 +1,11 @@
 #pragma once
-
+#include "MogeLib.h"
 namespace Moge
 {
 	namespace Math
 	{
 		template <typename Type>
-		class IPosition
+		class MogeLib_API IPosition
 		{
 		public:
 			IPosition()
