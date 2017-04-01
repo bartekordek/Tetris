@@ -5,7 +5,7 @@
 namespace Moge
 {
 	using namespace Math;
-	ObjectNodeContent::ObjectNodeContent():
+	Node::Node():
 		position( Math::IPositionFactory::createSimplePositionDouble3D() ),
 		size( new Math::SizeDouble3D() ),
 		scale( Math::Vector3DFactory::createVectorSimpleDouble( 1.0, 1.0, 1.0 ) )
@@ -13,12 +13,12 @@ namespace Moge
 		
 	}
 
-	ObjectNodeContent::ObjectNodeContent( const ObjectNodeContent& objectNodeContent ):
+	Node::Node( const Node& objectNodeContent ):
 		mFilePath( objectNodeContent.mFilePath )
 	{
 	}
 
-	ObjectNodeContent& ObjectNodeContent::operator=( const ObjectNodeContent& right )
+	Node& Node::operator=( const Node& right )
 	{
 		if( &right != this )
 		{
@@ -29,31 +29,31 @@ namespace Moge
 		return *this;
 	}
 
-	ObjectNodeContent::~ObjectNodeContent()
+	Node::~Node()
 	{
 	}
 
-	IPosition< double >& ObjectNodeContent::getPosition() const
+	IPosition< double >& Node::getPosition() const
 	{
 		return *this->position;
 	}
 
-	ISize< double >& ObjectNodeContent::getSize() const
+	ISize< double >& Node::getSize() const
 	{
 		return *this->size;
 	}
 
-	IVector3D< double >& ObjectNodeContent::getScale() const
+	IVector3D< double >& Node::getScale() const
 	{
 		return *this->scale;
 	}
 
-	void ObjectNodeContent::setTexture(const std::shared_ptr<ITexture>& texture)
+	void Node::setTexture(const std::shared_ptr<ITexture>& texture)
 	{
 		this->texture = texture;
 	}
 
-	std::shared_ptr< ITexture >& ObjectNodeContent::getTexture()
+	std::shared_ptr< ITexture >& Node::getTexture()
 	{
 		return this->texture;
 	}

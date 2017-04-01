@@ -6,12 +6,12 @@ namespace Moge
 	}
 
 	using namespace Math;
-	std::shared_ptr<ObjectNodeContent> NodeFactory2D::CreateFromImage(
+	std::shared_ptr<Node> NodeFactory2D::CreateFromImage(
 		const Path& filePath, 
 		const Math::IPosition<double>& position, 
 		const MyString& name )
 	{
-		std::shared_ptr<ObjectNodeContent> result;
+		std::shared_ptr<Node> result;
 		const auto& texture = this->factory2D->createTexture( filePath );
 		result->setTexture( texture );
 		result->SetName( name );
@@ -19,19 +19,19 @@ namespace Moge
 		return result;
 	}
 
-	std::shared_ptr<ObjectNodeContent> NodeFactory2D::createFromTexture( const std::shared_ptr<ITexture>& texture, const Math::IPosition<double>& position )
+	std::shared_ptr<Node> NodeFactory2D::createFromTexture( const std::shared_ptr<ITexture>& texture, const Math::IPosition<double>& position )
 	{
-		ObjectNodeContent* objectNodeContent = new ObjectNodeContent();
+		Node* objectNodeContent = new Node();
 		objectNodeContent->getPosition().setXyz( position );
-		return std::shared_ptr<ObjectNodeContent>( objectNodeContent );
+		return std::shared_ptr<Node>( objectNodeContent );
 	}
 	
-	void NodeFactory2D::removeNode(const std::shared_ptr<ObjectNodeContent>& node)
+	void NodeFactory2D::removeNode(const std::shared_ptr<Node>& node)
 	{
 		this->nodes.erase( node.get() );
 	}
 	
-	const bool NodeFactory2D::exist(const std::shared_ptr<ObjectNodeContent>& node)
+	const bool NodeFactory2D::exist(const std::shared_ptr<Node>& node)
 	{
 		for( auto& currentNode : this->nodes )
 		{

@@ -10,22 +10,14 @@
 
 namespace Moge
 {
-	enum IMAGETYPE
-	{
-		UNKOWN = -1,
-		BMP,
-		PNG,
-		MAIN_SCREEN
-	};
-
-	class MogeLib_API ObjectNodeContent: public INode, public Visible
+	class MogeLib_API Node: public INode, public Visible
 	{
 	public:
-		ObjectNodeContent();
-		ObjectNodeContent( const ObjectNodeContent& objectNodeContent );
-		virtual ~ObjectNodeContent();
+		Node();
+		Node( const Node& objectNodeContent );
+		virtual ~Node();
 
-		ObjectNodeContent& operator=( const ObjectNodeContent& right );
+		Node& operator=( const Node& right );
 
 		Math::IPosition<double>& getPosition()const override;
 		Math::ISize<double>& getSize()const override;
