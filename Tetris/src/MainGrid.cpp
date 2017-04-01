@@ -204,15 +204,15 @@ namespace Tetris
 
 	void CMainGrid::addCurrentBrickToGrid()
 	{
-		//if( activeBrick )
-		//{
-		//	for( auto& coord : activeBrick->getBlockPositions() )
-		//	{
-		//		Slab& slab = slabsRows.at( coord.getRow() ).at( coord.getCol() );
-		//		slab.setEmpty( false );
-		//		slab.getNode().get()->SetSurface( filledSlabImage );
-		//	}
-		//}
+		if( nullptr != this->activeBrick.get() )
+		{
+			for( auto& coord : this->activeBrick->getBlockPositions() )
+			{
+				Slab& slab = slabsRows.at( coord.getRow() ).at( coord.getCol() );
+				slab.setEmpty( false );
+				slab.getNode()->setTexture( this->filledSlabTex );
+			}
+		}
 	}
 
 	const bool CMainGrid::m_CheckIfBlockCanBePlaced( const Brick* brick )
@@ -220,7 +220,6 @@ namespace Tetris
 		CoordinatestList coords = brick->getBlockPositions();
 		for( auto it = coords.begin(); it != coords.end(); ++it )
 		{
-
 			if( it->getRow() >= slabsRows.size() )
 			{
 				return false;
