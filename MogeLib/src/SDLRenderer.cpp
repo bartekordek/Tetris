@@ -85,21 +85,31 @@ namespace Moge
 		renderQuad.w = texture.getSize().getWidth();
 		renderQuad.h = texture.getSize().getHeight();
 		std::unique_ptr<SDL_Rect> srcRect;
-		SDL_RenderCopy( this->renderer, sdlTexture->getTexture(), srcRect.get(), &renderQuad );
+		SDL_RenderCopy( this->renderer, sdlTexture->get(), srcRect.get(), &renderQuad );
 	}
 
 	void SDLRenderer::render( const IPrimitive& primitive, const Math::IPosition<double>& position )
 	{
 	}
-	
+
+	void SDLRenderer::updateScreen()
+	{
+		SDL_RenderPresent( this->renderer );
+	}
+
 	std::shared_ptr<ITexture>& SDLRenderer::createTexture( const Path& path )
 	{
 		SDL_Surface* surface = CreateSurfaceFromImage( path );
 		SDL_Texture* newTexture = SDL_CreateTextureFromSurface( this->renderer, surface );
 		TextureSDL* texture = new TextureSDL();
 		texture->set( newTexture );
-		texture->getSize().setWidth( 0 );
+		texture->getSize().setWidth( surface->w );
+		texture->getSize().setHeight( surface->h );
 		texture->setPath( path );
+
+		SDL_FreeSurface( surface );
+		surface = nullptr;
+
 		char* key = const_cast<char*>( path.c_str() );
 		this->textures[  key ] = std::shared_ptr<ITexture>( texture );
 		return this->textures.at( key );

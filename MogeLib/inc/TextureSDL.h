@@ -18,14 +18,13 @@ namespace Moge
 		SDL_Texture* get()const;
 		void setPath( const Path& path );
 		const char* getPath()const override;
-		SDL_Texture* getTexture()const;
 
-		Math::ISize<int>& getSize() override;
-		const Math::ISize<int>& getSize()const override;
+		Math::ISize<double>& getSize() override;
+		const Math::ISize<double>& getSize()const override;
 		
 	private:
 		SDL_Texture* texture = nullptr;
 		Path texturePath;
-		std::unique_ptr<Math::ISize<int>> size;
+		std::unique_ptr<Math::ISize<double>> size;
 	};
 }

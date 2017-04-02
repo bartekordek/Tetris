@@ -19,11 +19,12 @@ namespace Moge
 		return result;
 	}
 
-	std::shared_ptr<Node> NodeFactory2D::createFromTexture( const std::shared_ptr<ITexture>& texture, const Math::IPosition<double>& position )
+	std::shared_ptr<Node> NodeFactory2D::createFromTexture( const std::shared_ptr<ITexture>& texture, const IPosition<double>& position )
 	{
-		Node* objectNodeContent = new Node();
-		objectNodeContent->getPosition().setXyz( position );
-		return std::shared_ptr<Node>( objectNodeContent );
+		Node* node = new Node();
+		node->getPosition().setXyz( position );
+		node->setTexture( texture );
+		return std::shared_ptr<Node>( node );
 	}
 	
 	void NodeFactory2D::removeNode(const std::shared_ptr<Node>& node)

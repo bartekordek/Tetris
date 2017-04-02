@@ -12,8 +12,8 @@ namespace Moge
 		ITexture();
 		virtual ~ITexture();
 		virtual const char* getPath()const = 0;
-		virtual Math::ISize<int>& getSize() = 0;
-		virtual const Math::ISize<int>& getSize()const = 0;
+		virtual Math::ISize<double>& getSize() = 0;
+		virtual const Math::ISize<double>& getSize()const = 0;
 	protected:
 	private:
 	};

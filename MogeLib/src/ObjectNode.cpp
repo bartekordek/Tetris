@@ -6,9 +6,8 @@ namespace Moge
 {
 	using namespace Math;
 	Node::Node():
-		position( Math::IPositionFactory::createSimplePositionDouble3D() ),
-		size( new Math::SizeDouble3D() ),
-		scale( Math::Vector3DFactory::createVectorSimpleDouble( 1.0, 1.0, 1.0 ) )
+		position(IPositionFactory::createSimplePositionDouble3D() ),
+		scale( Vector3DFactory::createVectorSimpleDouble( 1.0, 1.0, 1.0 ) )
 	{
 		
 	}
@@ -23,7 +22,6 @@ namespace Moge
 		if( &right != this )
 		{
 			this->position->setXyz( *right.position );
-			this->size->setSize( *right.size );
 			this->scale->setXYZ( *right.scale );
 		}
 		return *this;
@@ -40,7 +38,7 @@ namespace Moge
 
 	ISize< double >& Node::getSize() const
 	{
-		return *this->size;
+		return this->texture->getSize();
 	}
 
 	IVector3D< double >& Node::getScale() const
@@ -48,7 +46,7 @@ namespace Moge
 		return *this->scale;
 	}
 
-	void Node::setTexture(const std::shared_ptr<ITexture>& texture)
+	void Node::setTexture( const std::shared_ptr<ITexture>& texture )
 	{
 		this->texture = texture;
 	}

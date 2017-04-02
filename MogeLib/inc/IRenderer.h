@@ -38,6 +38,7 @@ namespace Moge
 		virtual void render( const IPrimitive& primitive, const Math::IPosition<double>& position ) = 0;
 		virtual void setBackgroundColor( const ColorE color ) = 0;
 		virtual void setBackgroundColor( const ColorS& color ) = 0;
+		virtual void updateScreen() = 0;
 	protected:
 	private:
 	};

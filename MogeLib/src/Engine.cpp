@@ -1,10 +1,11 @@
 #include "Engine.h"
-#include "NodeFactoryRegular.h"
 #include "Math/IPositionAdapter.h"
 #include "KeyboardObservable.h"
 #include "IKeyboardObserver.h"
 #include "KeyFactorySDL.h"
 #include "SDLRenderer.h"
+#include "NodeFactory2D.h"
+
 #include <SDL.h>
 
 #include <memory>
@@ -21,7 +22,8 @@ namespace Moge
 		auto txtFactory2D = static_cast<SDLRenderer*>( this->renderer2D.get() );
 		ITextureFactory2D* tf2D = static_cast<ITextureFactory2D*>( txtFactory2D );
 		auto tf3D = static_cast<ITextureFactory3D*>( this->textureFactory3D.get() );
-		this->nodeFactory.reset( new NodeFactoryRegular( tf2D, tf3D ) );
+		this->nodeFactory.reset( new NodeFactory2D( txtFactory2D ) );
+		this->renderer2D->setBackgroundColor( ColorE::BLACK );
 	}
 
 	Engine::~Engine()
@@ -64,7 +66,7 @@ namespace Moge
 	
 	void Engine::startMainLoop()
 	{
-		mainLoop = std::thread( &Engine::renderingLoop, this );
+		mainLoop = std::thread( &Engine::renderingLoop2D, this );
 		eventPool();
 	}
 
@@ -110,7 +112,7 @@ namespace Moge
 		}
 	}
 
-	void Engine::renderingLoop()
+	void Engine::renderingLoop2D()
 	{
 		while( this->mainLoopIsRuning )
 		{
@@ -121,10 +123,11 @@ namespace Moge
 	void Engine::QueueFrame()
 	{
 		std::lock_guard<std::mutex> renderableObjectLock( this->mRenderableObjectsMutex );
-		for( auto& object : mRenderableObjects )
+		for( auto& object : this->nodeFactory-> )
 		{
 			Render( *object );
 		}
+		this->renderer2D->updateScreen();
 //		SDL_UpdateWindowSurface( mScreenBuffor->GetScreen() ); TODO SDL Update frame need to be updated.
 		++mFrameCount;
 	}

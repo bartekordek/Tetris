@@ -29,7 +29,6 @@ namespace Moge
 	private:
 		Path mFilePath;
 		std::unique_ptr<Math::IPosition<double>> position;
-		std::unique_ptr<Math::ISize<double>> size;
 		std::unique_ptr<Math::IVector3D<double>> scale;
 		std::shared_ptr<ITexture> texture;
 	};
