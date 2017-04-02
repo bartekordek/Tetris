@@ -203,6 +203,7 @@
     <ClInclude Include="inc\Engine.h" />
     <ClInclude Include="inc\File.h" />
     <ClInclude Include="inc\IEngine.h" />
+    <ClInclude Include="inc\IIterator.h" />
     <ClInclude Include="inc\IKey.h" />
     <ClInclude Include="inc\IKeyboardObservable.h" />
     <ClInclude Include="inc\IKeyboardObserver.h" />
@@ -217,6 +218,7 @@
     <ClInclude Include="inc\IRenderer.h" />
     <ClInclude Include="inc\IRenderer2D.h" />
     <ClInclude Include="inc\IRenderer3D.h" />
+    <ClInclude Include="inc\List.h" />
     <ClInclude Include="inc\ITexture.h" />
     <ClInclude Include="inc\ITextureFactory.h" />
     <ClInclude Include="inc\ITextureFactory2D.h" />
@@ -255,7 +257,6 @@
     <ClInclude Include="inc\MyString.h" />
     <ClInclude Include="inc\Named.h" />
     <ClInclude Include="inc\INode.h" />
-    <ClInclude Include="inc\NodeFactoryRegular.h" />
     <ClInclude Include="inc\ObjectNode.h" />
     <ClInclude Include="inc\Path.h" />
     <ClInclude Include="inc\RenderableTypes.h" />
@@ -269,7 +270,9 @@
     <ClInclude Include="src\IKeyboardData.h" />
     <ClInclude Include="src\IKeyboardObservableImp.h" />
     <ClInclude Include="src\IObservableImpl.h" />
+    <ClInclude Include="src\IteratorListVector.h" />
     <ClInclude Include="src\KeySDL.h" />
+    <ClInclude Include="src\ListVector.h" />
     <ClInclude Include="src\NodeFactory2D.h" />
     <ClInclude Include="src\NodeFactory3D.h" />
     <ClInclude Include="src\RenderableSDLTexture.h" />
@@ -308,7 +311,6 @@
     <ClCompile Include="src\INode.cpp" />
     <ClCompile Include="src\NodeFactory2D.cpp" />
     <ClCompile Include="src\NodeFactory3D.cpp" />
-    <ClCompile Include="src\NodeFactoryRegular.cpp" />
     <ClCompile Include="src\ObjectNode.cpp" />
     <ClCompile Include="src\Path.cpp" />
     <ClCompile Include="src\PositionDouble2D.cpp" />

@@ -171,9 +171,6 @@
     <ClInclude Include="inc\Named.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\NodeFactoryRegular.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\ObjectNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -248,6 +245,18 @@
     </ClInclude>
     <ClInclude Include="inc\INode.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\List.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\IIterator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ListVector.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\IteratorListVector.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -345,9 +354,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Named.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\NodeFactoryRegular.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\ObjectNode.cpp">
