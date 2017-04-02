@@ -24,14 +24,13 @@ namespace Moge
 	class IKeyboardData;
 	class IKey;
 	class IKeyFactory;
+	class ITextureFactory3D;
 	class MogeLib_API Engine: public Singleton<Engine>, public IKeyboardObservable
 	{
 	public:
 		Engine( void );
 		virtual ~Engine();
 
-		void AddObject( const Path& filePath, const Math::MultiPoint<double>& position, const MyString& name = MyString( "" ) );
-		void AddObject( const std::shared_ptr<Node> node, const MyString& name = MyString( "" ) );
 		INodeFactory* getNodeFactory();
 		IRenderer* getRenderer();
 		void createScreen( Math::ISize<unsigned int>& size, Math::IPosition<int>& position, const std::string& label = "Window label." );

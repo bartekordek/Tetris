@@ -5,6 +5,7 @@
 #include "KeyFactorySDL.h"
 #include "SDLRenderer.h"
 #include "NodeFactory2D.h"
+#include "ITextureFactory3D.h"
 
 #include <SDL.h>
 
@@ -29,21 +30,8 @@ namespace Moge
 	Engine::~Engine()
 	{
 		std::lock_guard<std::mutex> lck( mListMutex );
-		mRenderableObjects.erase( mRenderableObjects.begin(), mRenderableObjects.end() );
+		//mRenderableObjects.erase( mRenderableObjects.begin(), mRenderableObjects.end() ); //TODO Here ends SDL. And it Quits. It should be moved to renderer side.
 		SDL_Quit();
-	}
-
-	void Engine::AddObject( const Path& filePath, const Math::MultiPoint<double>& position, const MyString& name )
-	{
-		Math::IPositionAdapter<double> positionAdapter( position );
-		std::shared_ptr<Node> newNode = nodeFactory->CreateFromImage( filePath, positionAdapter, name );
-		AddObject( newNode, name );
-	}
-
-	void Engine::AddObject( const std::shared_ptr<Node> node, const MyString& name )
-	{
-		std::lock_guard<std::mutex> renderableObjectLock( mRenderableObjectsMutex );
-		mRenderableObjects.insert( node );
 	}
 
 	IRenderer* Engine::getRenderer()
@@ -51,13 +39,13 @@ namespace Moge
 		return nullptr;
 	}
 
-    void Engine::createScreen( 
+	void Engine::createScreen( 
 		Math::ISize<unsigned int>& size, 
 		Math::IPosition<int>& position, 
 		const std::string& label )
-    {
+	{
 		this->renderer2D->createWindow( position, size, label );
-    }
+	}
 
 	INodeFactory* Engine::getNodeFactory()
 	{
@@ -77,13 +65,13 @@ namespace Moge
 		this->eventLoopActive = false;
 	}
 	
-	ITextureFactory2D* Engine::get2DTextureFactory() const
+	ITextureFactory* Engine::get2DTextureFactory() const
 	{
 		auto ptr = static_cast<SDLRenderer*>( this->renderer2D.get() );
 		return ptr;
 	}
 	
-	ITextureFactory3D* Engine::get3DTextureFactory() const
+	ITextureFactory* Engine::get3DTextureFactory() const
 	{
 		return this->textureFactory3D.get();
 	}
@@ -122,14 +110,15 @@ namespace Moge
 
 	void Engine::QueueFrame()
 	{
-		std::lock_guard<std::mutex> renderableObjectLock( this->mRenderableObjectsMutex );
-		for( auto& object : this->nodeFactory-> )
-		{
-			Render( *object );
-		}
-		this->renderer2D->updateScreen();
-//		SDL_UpdateWindowSurface( mScreenBuffor->GetScreen() ); TODO SDL Update frame need to be updated.
-		++mFrameCount;
+		// Need to have a Iterator. TODO: CREATE ITERATOR AND PUT IT HERE.
+//		std::lock_guard<std::mutex> renderableObjectLock( this->mRenderableObjectsMutex );
+//		for( auto& object : this->nodeFactory-> )
+//		{
+//			Render( *object );
+//		}
+//		this->renderer2D->updateScreen();
+////		SDL_UpdateWindowSurface( mScreenBuffor->GetScreen() ); TODO SDL Update frame need to be updated.
+//		++mFrameCount;
 	}
 
 	void Engine::Render( Node& node )
