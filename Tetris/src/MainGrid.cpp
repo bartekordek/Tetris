@@ -48,7 +48,7 @@ namespace Tetris
 			}
 			slabsRows.push_back( rows );
 		}
-
+		auto w = this->slabsRows.begin();
 		for( auto& slabRow : slabsRows )
 		{
 			for( auto& slab : slabRow )
@@ -175,15 +175,15 @@ namespace Tetris
 		{
 			return  0;
 		}
-		else if( Directions::D == direction )
+		if( Directions::D == direction )
 		{
 			return  1;
 		}
-		else if( Directions::R == direction )
+		if( Directions::R == direction )
 		{
 			return  0;
 		}
-		else if( Directions::L == direction )
+		if( Directions::L == direction )
 		{
 			return  0;
 		}
@@ -254,19 +254,18 @@ namespace Tetris
 
 	void CMainGrid::m_RemoveActualBlockSlabsFromGrid()
 	{
-		//for( auto& coord : activeBrick->getBlockPositions() )
-		//{
-		//	auto& slab = slabsRows.at( coord.getRow() ).at( coord.getCol() );
-		//	slab.setEmpty( true );
-		//	auto slabnode = slab.getNode();
-		//	slabnode->SetSurface( emptySlabImage );
-		//}
+		for( auto& coord : this->activeBrick->getBlockPositions() )
+		{
+			auto& slab = slabsRows.at( coord.getRow() ).at( coord.getCol() );
+			slab.setEmpty( true );
+			slab.getNode()->setTexture( emptySlabTex );
+		}
 	}
 
 	void CMainGrid::moveCurrentBrick( const Math::Directions direction )
 	{
-		//activeBrick->move( direction );
-		//AddBrick( activeBrick );
+		this->activeBrick->move( direction );
+		AddBrick( this->activeBrick.get() );
 	}
 
 	void CMainGrid::ManageFullLine()
@@ -320,14 +319,14 @@ namespace Tetris
 
 	void CMainGrid::SetSlabImagSurface( Slab& slab )
 	{
-		//auto& slabNode = slab.getNode();
-		//if( slab.isEmpty() )
-		//{
-		//	slabNode->SetSurface( this->emptySlabImage );
-		//}
-		//else
-		//{
-		//	slabNode->SetSurface( this->filledSlabImage );
-		//}
+		auto& slabNode = slab.getNode();
+		if( slab.isEmpty() )
+		{
+			slabNode->setTexture( this->emptySlabTex );
+		}
+		else
+		{
+			slabNode->setTexture( this->filledSlabTex );
+		}
 	}
 }
