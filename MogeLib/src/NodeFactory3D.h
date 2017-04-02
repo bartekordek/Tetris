@@ -3,6 +3,7 @@
 #include <set>
 namespace Moge
 {
+	class ITextureFactory3D;
 	class NodeFactory3D: public INodeFactory
 	{
 	public:
