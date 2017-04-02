@@ -8,12 +8,12 @@ namespace Moge
 	class ListVector: public IList<Type>
 	{
 	public:
-		IIterator<Type>* begin() override
+		IIterator<Type>& begin() override
 		{
 			return this->first;
 		}
 
-		IIterator<Type>* end() override
+		IIterator<Type>& end() override
 		{
 			return this->last;
 		}
@@ -37,7 +37,6 @@ namespace Moge
 	protected:
 	private:
 		std::vector<Type> values;
-		std::unique_ptr<IIterator<Type>> first;
-		std::unique_ptr<IIterator<Type>> last;
+		std::unique_ptr<IIterator<Type>> iterator;
 	};
 }
