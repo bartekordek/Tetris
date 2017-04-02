@@ -48,7 +48,7 @@ namespace Tetris
 			}
 			slabsRows.push_back( rows );
 		}
-		auto w = this->slabsRows.begin();
+
 		for( auto& slabRow : slabsRows )
 		{
 			for( auto& slab : slabRow )
