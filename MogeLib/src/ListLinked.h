@@ -1,6 +1,6 @@
 #pragma once
 #include "List.h"
-#include "IteratorListVector.h"
+#include "IteratorListLinked.h"
 #include <memory>
 namespace Moge
 {
@@ -10,9 +10,9 @@ namespace Moge
 	public:
 		ListVector<Type>()
 		{
-			iterator.reset( new IteratorListVector<Type>( this->values ) );
+			iterator.reset( new IteratorListLinked<Type>( this->values ) );
 		}
-		
+
 		IIterator<Type>& begin() override
 		{
 			return this->first;
@@ -40,7 +40,9 @@ namespace Moge
 
 	protected:
 	private:
-		std::vector<Type> values;
+		std::list<Type> values;
 		std::unique_ptr<IIterator<Type>> iterator;
+		std::unique_ptr<IIterator<Type>> first;
+		std::unique_ptr<IIterator<Type>> last;
 	};
 }

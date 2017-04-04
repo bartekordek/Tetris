@@ -270,8 +270,10 @@
     <ClInclude Include="src\IKeyboardData.h" />
     <ClInclude Include="src\IKeyboardObservableImp.h" />
     <ClInclude Include="src\IObservableImpl.h" />
+    <ClInclude Include="src\IteratorListLinked.h" />
     <ClInclude Include="src\IteratorListVector.h" />
     <ClInclude Include="src\KeySDL.h" />
+    <ClInclude Include="src\ListLinked.h" />
     <ClInclude Include="src\ListVector.h" />
     <ClInclude Include="src\NodeFactory2D.h" />
     <ClInclude Include="src\NodeFactory3D.h" />
@@ -296,6 +298,7 @@
     <ClCompile Include="src\IPositionFactory.cpp" />
     <ClCompile Include="src\IRenderable.cpp" />
     <ClCompile Include="src\IRenderer.cpp" />
+    <ClCompile Include="src\Iterator.cpp" />
     <ClCompile Include="src\ITexture.cpp" />
     <ClCompile Include="src\IVector3D.cpp" />
     <ClCompile Include="src\KeyboardData.cpp" />
