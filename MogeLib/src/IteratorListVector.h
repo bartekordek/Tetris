@@ -13,12 +13,12 @@ namespace Moge
 
 		Type& operator*() override
 		{
-			return this->elements[index];
+			return this->elements[this->index];
 		}
 
 		const bool hasNext() override
 		{
-			if( index + 1 < this->elements.size() )
+			if( this->index + 1 < this->elements.size() )
 			{
 				return true;
 			}
@@ -27,13 +27,13 @@ namespace Moge
 
 		Type& next() override
 		{
-			++index;
-			return this->elements[index];
+			++this->index;
+			return this->elements[this->index];
 		}
 
 		const bool hasPrevious() override
 		{
-			if( index - 1 >= 0 )
+			if( this->index - 1 >= 0 )
 			{
 				return true;
 			}
@@ -42,8 +42,8 @@ namespace Moge
 
 		IIterator<Type>& previous() override
 		{
-			--index;
-			return this->elements[index];
+			--this->index;
+			return this->elements[this->index];
 		}
 
 		const bool isEmpty()override
@@ -61,12 +61,9 @@ namespace Moge
 			return this->elements.end();
 		}
 
-
-
 	protected:
 	private:
 		std::vector<Type>& elements;
 		unsigned int index = 0;
-
 	};
 }
