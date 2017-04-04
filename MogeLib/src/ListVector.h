@@ -1,6 +1,6 @@
 #pragma once
 #include "List.h"
-#include <vector>
+#include "IteratorListVector.h"
 #include <memory>
 namespace Moge
 {
@@ -8,6 +8,11 @@ namespace Moge
 	class ListVector: public IList<Type>
 	{
 	public:
+		ListVector<Type>()
+		{
+			iterator.reset( new IteratorListVector( this->values ) );
+		}
+		
 		IIterator<Type>& begin() override
 		{
 			return this->first;
