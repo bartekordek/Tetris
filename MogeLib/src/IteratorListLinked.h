@@ -1,41 +1,43 @@
 #pragma once
 #include "IIterator.h"
-#include <vector>
+#include <list>
 namespace Moge
 {
 	template<typename Type>
-	class IteratorListVector: public IIterator<Type>
+	class IteratorListLinked: public IIterator<Type>
 	{
 	public:
-		IteratorListVector( const std::vector<Type>& elements ): elements( elements )
+		IteratorListLinked( const std::list<Type>& elements ): 
+			elements( elements ), 
+			it( elements.begin() )
 		{
 		}
 
 		Type* operator->() override
 		{
-			return this->elements[this->index];
+			return *this->it;
 		}
 
 		const bool hasNext() override
 		{
-			return this->index + 1 < this->elements.size();
+			return this->elements.end() != this->it;
 		}
 
 		Type& next() override
 		{
-			++this->index;
-			return this->elements[this->index];
+			++this->it;
+			return *this->it;
 		}
 
 		const bool hasPrevious() override
 		{
-			return this->index - 1 >= 0;
+			return this->elements.begin() != this->it;
 		}
 
 		IIterator<Type>& previous() override
 		{
-			--this->index;
-			return this->elements[this->index];
+			--this->it;
+			return *this->it;
 		}
 
 		const bool isEmpty()override
@@ -55,7 +57,7 @@ namespace Moge
 
 	protected:
 	private:
-		std::vector<Type>& elements;
-		unsigned int index = 0;
+		std::list<Type>& elements;
+		typename std::list<Type>::iterator it;
 	};
 }

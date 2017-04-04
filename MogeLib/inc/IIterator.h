@@ -6,7 +6,9 @@ namespace Moge
 	class MogeLib_API IIterator
 	{
 	public:
-		virtual Type& operator*() = 0;
+		IIterator() = default;
+		virtual ~IIterator() = default;
+		virtual Type* operator->() = 0;
 
 		virtual const bool hasNext() = 0;
 		virtual Type& next() = 0;
