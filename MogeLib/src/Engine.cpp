@@ -21,8 +21,6 @@ namespace Moge
 		this->keyFactory.reset( new KeyFactorySDL() );
 		this->keys = this->keyFactory->createKeys();
 		auto txtFactory2D = static_cast<SDLRenderer*>( this->renderer2D.get() );
-		ITextureFactory2D* tf2D = static_cast<ITextureFactory2D*>( txtFactory2D );
-		auto tf3D = static_cast<ITextureFactory3D*>( this->textureFactory3D.get() );
 		this->nodeFactory.reset( new NodeFactory2D( txtFactory2D ) );
 		this->renderer2D->setBackgroundColor( ColorE::BLACK );
 	}
