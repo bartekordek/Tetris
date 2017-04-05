@@ -13,7 +13,7 @@ namespace Moge
 
 		Type* operator->() override
 		{
-			return this->elements[this->index];
+			return &this->elements[this->index];
 		}
 
 		const bool hasNext() override

@@ -25,6 +25,7 @@ namespace Moge
 		this->nodeFactory.reset( new NodeFactory2D( txtFactory2D ) );
 		this->renderer2D->setBackgroundColor( ColorE::BLACK );
 		this->someList.reset( new ListVector<double> );
+		this->someList->pushBack( 4 );
 	}
 
 	Engine::~Engine()
