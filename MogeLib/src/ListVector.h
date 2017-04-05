@@ -10,15 +10,17 @@ namespace Moge
 	public:
 		ListVector<Type>()
 		{
-			iterator.reset( new IteratorListVector<Type>( this->values ) );
+			this->iterator.reset( new IteratorListVector<Type>( this->values ) );
+			this->first.reset( new IteratorListVector<Type>( this->values ) );
+			this->last.reset( new IteratorListVector<Type>( this->values ) );
 		}
 		
-		IIterator<Type>& begin() override
+		const IIterator<Type>& begin() const override
 		{
 			return this->first;
 		}
 
-		IIterator<Type>& end() override
+		const IIterator<Type>& end() const override
 		{
 			return this->last;
 		}
@@ -31,16 +33,20 @@ namespace Moge
 		void pushBack( const Type& element ) override
 		{
 			this->values.push_back( element );
+			++this->last;
 		}
 
 		void remove( const IIterator<Type>& it ) override
 		{
 			this->values.erase( *it );
+			--this->last;
 		}
 
 	protected:
 	private:
 		std::vector<Type> values;
 		std::unique_ptr<IIterator<Type>> iterator;
+		std::unique_ptr<IIterator<Type>> first;
+		std::unique_ptr<IIterator<Type>> last;
 	};
 }

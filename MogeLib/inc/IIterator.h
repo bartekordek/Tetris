@@ -8,7 +8,7 @@ namespace Moge
 	public:
 		IIterator() = default;
 		virtual ~IIterator() = default;
-		virtual Type& operator*() = 0;
+		virtual Type* operator->() = 0;
 
 		virtual const bool hasNext() = 0;
 		virtual Type& next() = 0;

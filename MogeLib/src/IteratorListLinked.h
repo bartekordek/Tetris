@@ -7,11 +7,13 @@ namespace Moge
 	class IteratorListLinked: public IIterator<Type>
 	{
 	public:
-		IteratorListLinked( const std::list<Type>& elements ): elements( elements ), it( elements.begin() )
+		IteratorListLinked( const std::list<Type>& elements ): 
+			elements( elements ), 
+			it( elements.begin() )
 		{
 		}
 
-		Type& operator*() override
+		Type* operator->() override
 		{
 			return *this->it;
 		}
@@ -56,6 +58,6 @@ namespace Moge
 	protected:
 	private:
 		std::list<Type>& elements;
-		std::list<Type>::iterator it;
+		typename std::list<Type>::iterator it;
 	};
 }

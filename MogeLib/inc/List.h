@@ -9,8 +9,8 @@ namespace Moge
 		IList() = default;
 		virtual ~IList() = default;
 
-		virtual IIterator<Type>& begin() = 0;
-		virtual IIterator<Type>& end() = 0;
+		virtual const IIterator<Type>& begin() const = 0;
+		virtual const IIterator<Type>& end() const = 0;
 
 		virtual const unsigned int size()const = 0;
 

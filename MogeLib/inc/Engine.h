@@ -17,6 +17,7 @@
 #include "IRenderer2D.h"
 #include "IRenderer3D.h"
 #include "ITextureFactory.h"
+#include "List.h"
 
 namespace Moge
 {
@@ -64,5 +65,6 @@ namespace Moge
 		std::unique_ptr<IRenderer3D> renderer3D;
 		
 		std::unique_ptr<ITextureFactory3D> textureFactory3D;
+		std::unique_ptr<IList<double>> someList;
 	};
 }

@@ -11,7 +11,7 @@ namespace Moge
 		{
 		}
 
-		Type& operator*() override
+		Type* operator->() override
 		{
 			return this->elements[this->index];
 		}

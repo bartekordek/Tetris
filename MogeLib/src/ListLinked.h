@@ -11,14 +11,16 @@ namespace Moge
 		ListVector<Type>()
 		{
 			iterator.reset( new IteratorListLinked<Type>( this->values ) );
+			this->first.reset( new IteratorListLinked<Type>( this->values ) );
+			this->last.reset( new IteratorListLinked<Type>( this->values ) );
 		}
 
-		IIterator<Type>& begin() override
+		const IIterator<Type>& begin() const override
 		{
 			return this->first;
 		}
 
-		IIterator<Type>& end() override
+		const IIterator<Type>& end() const override
 		{
 			return this->last;
 		}
@@ -35,7 +37,9 @@ namespace Moge
 
 		void remove( const IIterator<Type>& it ) override
 		{
-			this->values.erase( *it );
+            Type& wut = *it;
+           /* auto ptr = std::find( this->values.begin(), this->values.end(), *it );
+			this->values.erase( ptr );*/
 		}
 
 	protected:
