@@ -2,13 +2,14 @@
 #include "List.h"
 #include "IteratorListLinked.h"
 #include <memory>
+#include <algorithm>
 namespace Moge
 {
 	template<typename Type>
-	class ListVector: public IList<Type>
+	class ListLinked: public IList<Type>
 	{
 	public:
-		ListVector<Type>()
+		ListLinked<Type>()
 		{
 			this->iterator.reset( new IteratorListLinked<Type>( this->values ) );
 			this->first.reset( new IteratorListLinked<Type>( this->values ) );

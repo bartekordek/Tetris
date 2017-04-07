@@ -53,6 +53,11 @@ namespace Moge
 			return this->elements.end();
 		}
 
+		Type& operator++()
+		Type& ++operator()
+		Type& operator--()
+		Type& --operator()
+
 	protected:
 	private:
 		std::vector<Type>& elements;

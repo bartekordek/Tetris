@@ -6,6 +6,7 @@
         <in>EngineTests.h</in>
         <in>FilesystemTests.h</in>
         <in>ImageCreatorTests.h</in>
+        <in>ListTests.h</in>
         <in>MatrixTests.h</in>
         <in>MogeGenericTests.h</in>
         <in>NameTests.h</in>
@@ -37,6 +38,7 @@
         <in>EngineTests.cpp</in>
         <in>FilesystemTests.cpp</in>
         <in>ImageCreatorTests.cpp</in>
+        <in>ListsTests.cpp</in>
         <in>MatrixTests.cpp</in>
         <in>MogeGenericTests.cpp</in>
         <in>NameTests.cpp</in>

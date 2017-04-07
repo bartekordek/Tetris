@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configurationDescriptor version="100">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="src"
+                   displayName="src"
+                   projectFiles="true"
+                   root="../MogeLib/src">
+      <itemPath>../MogeLib/src/ListFactory.cpp</itemPath>
+    </logicalFolder>
     <df root="." name="0">
       <df name="src">
         <in>EngineTests.cpp</in>
         <in>FilesystemTests.cpp</in>
         <in>ImageCreatorTests.cpp</in>
+        <in>ListsTests.cpp</in>
         <in>MatrixTests.cpp</in>
         <in>MogeGenericTests.cpp</in>
         <in>NameTests.cpp</in>
@@ -36,7 +43,8 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <flagsDictionary>
-        <element flagsID="0" commonFlags="-pedantic -std=gnu++11"/>
+        <element flagsID="0" commonFlags="-pedantic -std=c++11"/>
+        <element flagsID="1" commonFlags="-pedantic -std=gnu++11"/>
       </flagsDictionary>
       <codeAssistance>
       </codeAssistance>
@@ -49,9 +57,6 @@
           <ccTool>
             <incDir>
               <pElem>../MogeLib/inc</pElem>
-              <pElem>inc</pElem>
-              <pElem>../../../Libraries/googletest/googletest/include</pElem>
-              <pElem></pElem>
             </incDir>
             <preprocessorList>
               <Elem>MogeLib_EXPORT=1</Elem>
@@ -75,44 +80,97 @@
           </makeArtifact>
         </requiredProjects>
       </makefileType>
-      <item path="main.cpp" ex="false" tool="1" flavor2="8">
+      <item path="../MogeLib/src/ListFactory.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+        </ccTool>
+      </item>
+      <folder path="0">
+        <ccTool>
+          <incDir>
+            <pElem>inc</pElem>
+            <pElem>../../../Libraries/googletest/googletest/include</pElem>
+            <pElem></pElem>
+          </incDir>
+        </ccTool>
+      </folder>
+      <folder path="src">
+        <ccTool>
+          <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem>../MogeLib</pElem>
+          </incDir>
+        </ccTool>
+      </folder>
+      <item path="main.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src/EngineTests.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/FilesystemTests.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/ImageCreatorTests.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
+        </ccTool>
+      </item>
+      <item path="src/ListsTests.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src/MatrixTests.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/MogeGenericTests.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/NameTests.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/NodeCreatorTests.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/NodeTests.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/ObjectNodeTests.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
     </conf>

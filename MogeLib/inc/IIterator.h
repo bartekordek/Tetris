@@ -25,6 +25,11 @@ namespace Moge
 		virtual Type& last() = 0;
 		virtual const Type& last()const = 0;
 
+		virtual Type& operator++() = 0;
+		virtual Type& ++operator() = 0;
+		virtual Type& operator--() = 0;
+		virtual Type& --operator() = 0;
+
 	protected:
 	private:
 	};
