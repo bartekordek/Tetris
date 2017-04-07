@@ -29,6 +29,5 @@
 *cache
 *~ml
 CMakeFiles/
-MogeLib/nbproject/private/*
-Tetris/nbproject/private/*
-MogeLib/nbproject/private/*
+Tetris/nbproject/private/
+MogeLib/nbproject/private/
