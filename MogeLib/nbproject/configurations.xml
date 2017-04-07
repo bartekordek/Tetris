@@ -91,6 +91,9 @@
         <element flagsID="0" commonFlags="-pedantic -std=c++11"/>
       </flagsDictionary>
       <codeAssistance>
+        <envVariables>
+          <Elem>MogeLib_EXPORT</Elem>
+        </envVariables>
       </codeAssistance>
       <makefileType>
         <makeTool>
@@ -337,6 +340,9 @@
         <element flagsID="0" commonFlags="-pedantic -std=c++11 -Ofast"/>
       </flagsDictionary>
       <codeAssistance>
+        <envVariables>
+          <Elem>MogeLib_EXPORT</Elem>
+        </envVariables>
       </codeAssistance>
       <makefileType>
         <makeTool>
