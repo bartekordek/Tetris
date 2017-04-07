@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="100">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="." name="0">
+      <df name="src">
+        <in>EngineTests.cpp</in>
+        <in>FilesystemTests.cpp</in>
+        <in>ImageCreatorTests.cpp</in>
+        <in>MatrixTests.cpp</in>
+        <in>MogeGenericTests.cpp</in>
+        <in>NameTests.cpp</in>
+        <in>NodeCreatorTests.cpp</in>
+        <in>NodeTests.cpp</in>
+        <in>ObjectNodeTests.cpp</in>
+      </df>
+      <in>main.cpp</in>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+      <itemPath>nbproject/private/launcher.properties</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="debug" type="0">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>false</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <flagsDictionary>
+        <element flagsID="0" commonFlags="-pedantic -std=gnu++11"/>
+      </flagsDictionary>
+      <codeAssistance>
+      </codeAssistance>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>${MAKE} debug -j8</buildCommand>
+          <cleanCommand>${MAKE} clean</cleanCommand>
+          <executablePath>Tests.exe</executablePath>
+          <ccTool>
+            <incDir>
+              <pElem>../MogeLib/inc</pElem>
+              <pElem>inc</pElem>
+              <pElem>../../../Libraries/googletest/googletest/include</pElem>
+              <pElem></pElem>
+            </incDir>
+            <preprocessorList>
+              <Elem>MogeLib_EXPORT=1</Elem>
+            </preprocessorList>
+          </ccTool>
+        </makeTool>
+        <preBuild>
+          <preBuildCommandWorkingDir>.</preBuildCommandWorkingDir>
+          <preBuildCommand></preBuildCommand>
+        </preBuild>
+        <requiredProjects>
+          <makeArtifact PL="../MogeLib"
+                        CT="0"
+                        CN="Debug"
+                        AC="true"
+                        BL="false"
+                        WD="../MogeLib"
+                        BC="${MAKE} -j12"
+                        CC="${MAKE} clean"
+                        OP="">
+          </makeArtifact>
+        </requiredProjects>
+      </makefileType>
+      <item path="main.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/EngineTests.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/FilesystemTests.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/ImageCreatorTests.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/MatrixTests.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/MogeGenericTests.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/NameTests.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/NodeCreatorTests.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/NodeTests.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/ObjectNodeTests.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+    </conf>
+    <conf name="release" type="0">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>false</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <flagsDictionary>
+        <element flagsID="0" commonFlags="-pedantic -std=gnu++11"/>
+      </flagsDictionary>
+      <codeAssistance>
+      </codeAssistance>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>${MAKE} release -j8</buildCommand>
+          <cleanCommand>${MAKE} clean</cleanCommand>
+          <executablePath>Tests.exe</executablePath>
+          <ccTool>
+            <incDir>
+              <pElem>../MogeLib/inc</pElem>
+              <pElem>inc</pElem>
+              <pElem>C:/googletest/include</pElem>
+              <pElem></pElem>
+            </incDir>
+            <preprocessorList>
+              <Elem>MogeLib_EXPORT=1</Elem>
+            </preprocessorList>
+          </ccTool>
+        </makeTool>
+        <preBuild>
+          <preBuildCommandWorkingDir>.</preBuildCommandWorkingDir>
+          <preBuildCommand></preBuildCommand>
+        </preBuild>
+        <requiredProjects>
+          <makeArtifact PL="../MogeLib"
+                        CT="0"
+                        CN="Debug"
+                        AC="true"
+                        BL="false"
+                        WD="../MogeLib"
+                        BC="${MAKE} -j12"
+                        CC="${MAKE} clean"
+                        OP="">
+          </makeArtifact>
+        </requiredProjects>
+      </makefileType>
+      <item path="src/ImageCreatorTests.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
