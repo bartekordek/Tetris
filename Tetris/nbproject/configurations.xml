@@ -1,6 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configurationDescriptor version="100">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="../MogeLib/inc" name="1">
+      <df name="Math">
+        <in>Axis.h</in>
+        <in>Frustum.h</in>
+        <in>IPosition.h</in>
+        <in>IPositionAdapter.h</in>
+        <in>IPositionFactory.h</in>
+        <in>ISize.h</in>
+        <in>IVector.h</in>
+        <in>IVector3D.h</in>
+        <in>Line.h</in>
+        <in>Matrix2D.hpp</in>
+        <in>MultiPoint.h</in>
+        <in>MultiPointFactory.h</in>
+        <in>PositionDouble2D.h</in>
+        <in>PositionDouble3D.h</in>
+        <in>Quaternion.h</in>
+        <in>Rectangle.h</in>
+        <in>Segment.h</in>
+        <in>Size.h</in>
+        <in>SizeDouble2D.h</in>
+        <in>SizeDouble3D.h</in>
+        <in>SizeInt2D.h</in>
+        <in>SizeUInt2D.h</in>
+        <in>SquareMatrix2D.hpp</in>
+        <in>Vector3DFactory.h</in>
+      </df>
+      <in>ConsoleUtilities.h</in>
+      <in>Engine.h</in>
+      <in>File.h</in>
+      <in>IEngine.h</in>
+      <in>IIterator.h</in>
+      <in>IKey.h</in>
+      <in>IKeyFactory.h</in>
+      <in>IKeyboardObservable.h</in>
+      <in>IKeyboardObserver.h</in>
+      <in>IMogeApp.h</in>
+      <in>INode.h</in>
+      <in>INodeCreator.h</in>
+      <in>INodeFactory.h</in>
+      <in>IObservable.h</in>
+      <in>IObservableData.h</in>
+      <in>IObserver.h</in>
+      <in>IRenderable.h</in>
+      <in>IRenderer.h</in>
+      <in>IRenderer2D.h</in>
+      <in>IRenderer3D.h</in>
+      <in>ITexture.h</in>
+      <in>ITextureFactory.h</in>
+      <in>ITextureFactory2D.h</in>
+      <in>ITextureFactory3D.h</in>
+      <in>KeyFactorySDL.h</in>
+      <in>KeyboardData.h</in>
+      <in>KeyboardObservable.h</in>
+      <in>List.h</in>
+      <in>MTime.h</in>
+      <in>MogeLib.h</in>
+      <in>MogeLibMain.h</in>
+      <in>MyString.h</in>
+      <in>Named.h</in>
+      <in>ObjectNode.h</in>
+      <in>Path.h</in>
+      <in>RenderableTypes.h</in>
+      <in>SDLRenderer.h</in>
+      <in>Scale.h</in>
+      <in>Singleton.h</in>
+      <in>SupportedRenderersList.h</in>
+      <in>TextureSDL.h</in>
+      <in>Visible.h</in>
+    </df>
     <logicalFolder name="MogeLib"
                    displayName="MogeLib"
                    projectFiles="true"
@@ -30,11 +100,13 @@
       <itemPath>../MogeLib/src/Frustum.cpp</itemPath>
       <itemPath>../MogeLib/src/IKey.cpp</itemPath>
       <itemPath>../MogeLib/src/IKeyFactory.cpp</itemPath>
+      <itemPath>../MogeLib/src/IKeyboardData.h</itemPath>
       <itemPath>../MogeLib/src/IKeyboardObservable.cpp</itemPath>
       <itemPath>../MogeLib/src/IKeyboardObservableImp.cpp</itemPath>
       <itemPath>../MogeLib/src/IKeyboardObservableImp.h</itemPath>
       <itemPath>../MogeLib/src/IKeyboardObserver.cpp</itemPath>
       <itemPath>../MogeLib/src/IMogeApp.cpp</itemPath>
+      <itemPath>../MogeLib/src/INode.cpp</itemPath>
       <itemPath>../MogeLib/src/INodeCreator.cpp</itemPath>
       <itemPath>../MogeLib/src/IObservable.cpp</itemPath>
       <itemPath>../MogeLib/src/IObservableData.cpp</itemPath>
@@ -45,18 +117,27 @@
       <itemPath>../MogeLib/src/IRenderer.cpp</itemPath>
       <itemPath>../MogeLib/src/ITexture.cpp</itemPath>
       <itemPath>../MogeLib/src/IVector3D.cpp</itemPath>
+      <itemPath>../MogeLib/src/Iterator.cpp</itemPath>
+      <itemPath>../MogeLib/src/IteratorListLinked.h</itemPath>
+      <itemPath>../MogeLib/src/IteratorListVector.h</itemPath>
       <itemPath>../MogeLib/src/KeyFactorySDL.cpp</itemPath>
       <itemPath>../MogeLib/src/KeySDL.cpp</itemPath>
       <itemPath>../MogeLib/src/KeySDL.h</itemPath>
       <itemPath>../MogeLib/src/KeyboardData.cpp</itemPath>
       <itemPath>../MogeLib/src/KeyboardObservable.cpp</itemPath>
       <itemPath>../MogeLib/src/Line.cpp</itemPath>
+      <itemPath>../MogeLib/src/ListLinked.h</itemPath>
+      <itemPath>../MogeLib/src/ListVector.h</itemPath>
       <itemPath>../MogeLib/src/MTime.cpp</itemPath>
       <itemPath>../MogeLib/src/MogeLibMain.cpp</itemPath>
       <itemPath>../MogeLib/src/MultiPointFactory.cpp</itemPath>
       <itemPath>../MogeLib/src/MyString.cpp</itemPath>
       <itemPath>../MogeLib/src/Named.cpp</itemPath>
       <itemPath>../MogeLib/src/Node.cpp</itemPath>
+      <itemPath>../MogeLib/src/NodeFactory2D.cpp</itemPath>
+      <itemPath>../MogeLib/src/NodeFactory2D.h</itemPath>
+      <itemPath>../MogeLib/src/NodeFactory3D.cpp</itemPath>
+      <itemPath>../MogeLib/src/NodeFactory3D.h</itemPath>
       <itemPath>../MogeLib/src/NodeFactoryRegular.cpp</itemPath>
       <itemPath>../MogeLib/src/ObjectNode.cpp</itemPath>
       <itemPath>../MogeLib/src/Path.cpp</itemPath>
@@ -107,6 +188,8 @@
   <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
   <sourceRootList>
     <Elem>.</Elem>
+    <Elem>../MogeLib/inc</Elem>
+    <Elem>../MogeLib/src</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -120,11 +203,14 @@
         <element flagsID="0" commonFlags="-pedantic -std=c++11"/>
       </flagsDictionary>
       <codeAssistance>
+        <envVariables>
+          <Elem>MogeLib_EXPORT</Elem>
+        </envVariables>
       </codeAssistance>
       <makefileType>
         <makeTool>
           <buildCommandWorkingDir>.</buildCommandWorkingDir>
-          <buildCommand>${MAKE}</buildCommand>
+          <buildCommand>${MAKE} debug -j8</buildCommand>
           <cleanCommand>${MAKE} clean</cleanCommand>
           <executablePath></executablePath>
           <ccTool>
@@ -175,6 +261,168 @@
         <ccTool flags="0">
         </ccTool>
       </item>
+      <item path="../MogeLib/inc/ConsoleUtilities.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Engine.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/File.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/IEngine.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/IIterator.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/IKey.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/IKeyFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/IKeyboardObservable.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/IKeyboardObserver.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/IMogeApp.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/INode.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/INodeCreator.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/INodeFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/IObservable.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/IObservableData.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/IObserver.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/IRenderable.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/IRenderer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/IRenderer2D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/IRenderer3D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/ITexture.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/ITextureFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/ITextureFactory2D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/ITextureFactory3D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/KeyFactorySDL.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/KeyboardData.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/KeyboardObservable.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/List.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/MTime.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/Axis.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/Frustum.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/IPosition.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/IPositionAdapter.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/IPositionFactory.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/ISize.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/IVector.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/IVector3D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/Line.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/Matrix2D.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/MultiPoint.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/MultiPointFactory.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/PositionDouble2D.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/PositionDouble3D.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/Quaternion.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/Rectangle.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/Segment.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/Size.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/SizeDouble2D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/SizeDouble3D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/SizeInt2D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/SizeUInt2D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/SquareMatrix2D.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/Vector3DFactory.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/MogeLib.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/MogeLibMain.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/MyString.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Named.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/ObjectNode.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Path.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/RenderableTypes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/SDLRenderer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Scale.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Singleton.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/SupportedRenderersList.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/TextureSDL.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Visible.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../MogeLib/src/ConsoleUtilities.cpp"
             ex="false"
             tool="1"
@@ -202,6 +450,8 @@
         <ccTool flags="0">
         </ccTool>
       </item>
+      <item path="../MogeLib/src/IKeyboardData.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../MogeLib/src/IKeyboardObservable.cpp"
             ex="false"
             tool="1"
@@ -226,6 +476,8 @@
       <item path="../MogeLib/src/IMogeApp.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
         </ccTool>
+      </item>
+      <item path="../MogeLib/src/INode.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../MogeLib/src/INodeCreator.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
@@ -266,6 +518,18 @@
         <ccTool flags="0">
         </ccTool>
       </item>
+      <item path="../MogeLib/src/Iterator.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../MogeLib/src/IteratorListLinked.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../MogeLib/src/IteratorListVector.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="../MogeLib/src/KeyFactorySDL.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
         </ccTool>
@@ -288,6 +552,10 @@
       <item path="../MogeLib/src/Line.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
         </ccTool>
+      </item>
+      <item path="../MogeLib/src/ListLinked.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/src/ListVector.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../MogeLib/src/MTime.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
@@ -315,6 +583,14 @@
       <item path="../MogeLib/src/Node.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
         </ccTool>
+      </item>
+      <item path="../MogeLib/src/NodeFactory2D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../MogeLib/src/NodeFactory2D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/src/NodeFactory3D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../MogeLib/src/NodeFactory3D.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../MogeLib/src/NodeFactoryRegular.cpp"
             ex="false"
@@ -459,11 +735,14 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <codeAssistance>
+        <envVariables>
+          <Elem>MogeLib_EXPORT</Elem>
+        </envVariables>
       </codeAssistance>
       <makefileType>
         <makeTool>
           <buildCommandWorkingDir>.</buildCommandWorkingDir>
-          <buildCommand>${MAKE} release</buildCommand>
+          <buildCommand>${MAKE} release -j8</buildCommand>
           <cleanCommand>${MAKE} clean</cleanCommand>
           <executablePath></executablePath>
         </makeTool>
@@ -472,6 +751,196 @@
           <preBuildCommand></preBuildCommand>
         </preBuild>
       </makefileType>
+      <item path="../MogeLib/inc/ConsoleUtilities.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Engine.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/File.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/IEngine.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/IIterator.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/IKey.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/IKeyFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/IKeyboardObservable.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/IKeyboardObserver.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/IMogeApp.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/INode.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/INodeCreator.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/INodeFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/IObservable.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/IObservableData.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/IObserver.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/IRenderable.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/IRenderer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/IRenderer2D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/IRenderer3D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/ITexture.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/ITextureFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/ITextureFactory2D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/ITextureFactory3D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/KeyFactorySDL.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/KeyboardData.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/KeyboardObservable.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/List.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/MTime.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/Axis.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/Frustum.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/IPosition.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/IPositionAdapter.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/IPositionFactory.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/ISize.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/IVector.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/IVector3D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/Line.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/Matrix2D.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/MultiPoint.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/MultiPointFactory.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/PositionDouble2D.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/PositionDouble3D.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/Quaternion.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/Rectangle.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/Segment.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/Size.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/SizeDouble2D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/SizeDouble3D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/SizeInt2D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/SizeUInt2D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/SquareMatrix2D.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Math/Vector3DFactory.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/MogeLib.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/MogeLibMain.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/MyString.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Named.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/ObjectNode.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Path.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/RenderableTypes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/SDLRenderer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Scale.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Singleton.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/SupportedRenderersList.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/TextureSDL.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/inc/Visible.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/src/IKeyboardData.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/src/INode.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../MogeLib/src/Iterator.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../MogeLib/src/IteratorListLinked.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../MogeLib/src/IteratorListVector.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../MogeLib/src/ListLinked.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/src/ListVector.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/src/NodeFactory2D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../MogeLib/src/NodeFactory2D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib/src/NodeFactory3D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../MogeLib/src/NodeFactory3D.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../MogeLib/src/RenderableSDLTexture.h"
             ex="false"
             tool="3"
