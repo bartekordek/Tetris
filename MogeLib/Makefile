@@ -3,11 +3,11 @@ CC_LINK = g++ -shared
 COMPILER_FLAGS = -pedantic -Wall -std=c++11 -D MogeLib_EXPORT="1" -Wno-ignored-attributes
 DEBUG_FLAGS = -ggdb
 RELEASE_FLAGS = -Ofast
-PROJECT_NAME = MogeLib
+PROJECT_NAME = libmoge
 DLL_NAME = $(PROJECT_NAME).dll
 IMP_LIB_NAME = $(PROJECT_NAME).a
-OUTPUT_DIR_DEBUG = ../Build/$(OS)_DEBUG
-OUTPUT_DIR_RELEASE = ../Build/$(OS)_RELEASE
+OUTPUT_DIR_DEBUG = ../Build/Debug
+OUTPUT_DIR_RELEASE = ../Build/Release
 HEADER_INC = -I inc/ -I $(HOME_SDL2_LINUX)/include/ -I $(HOME_BOOST_LINUX)
 IMPORT_LIBS_DEBUG = $(HOME_SDL2_LINUX)/Build-Linux/build/.libs/libSDL2.dll.a $(HOME_BOOST_LINUX)/stage/lib/libboost_filesystem.a $(HOME_BOOST_LINUX)/stage/lib/libboost_system.a
 IMPORT_LIBS_RELEASE = $(HOME_SDL2_LINUX)/Build-Linux/build/.libs/libSDL2.dll.a $(HOME_BOOST_LINUX)/stage/lib/libboost_filesystem.a $(HOME_BOOST_LINUX)/stage/lib/libboost_system.a
@@ -39,7 +39,7 @@ $(OUTPUT_DEBUG): $(OBJ_DEBUG_FILES)
 
 $(OUTPUT_RELEASE): $(OBJ_RELEASE_FILES)
 	$(CC_LINK) -o $(OUTPUT_RELEASE) $(OBJ_RELEASE_FILES) $(RELEASE_FLAGS) $(IMPORT_LIBS_RELEASE) -Wl,--out-implib,$(OUTPUT_DIR_RELEASE)/$(IMP_LIB_NAME) -Wl,--export-all-symbols -Wl,--enable-auto-import
-	cp -fv $(HOME_SDL2_LINUX)/Build-Linux/build/.libs/*$(DYN_LIB_EXT $(OUTPUT_DIR_DEBUG)
+	cp -fv $(HOME_SDL2_LINUX)/Build-Linux/build/.libs/*$(DYN_LIB_EXT) $(OUTPUT_DIR_RELEASE)
 
 $(OBJ_DEBUG_DIR)%.o: %.cpp
 	mkdir -p $(dir $@)
