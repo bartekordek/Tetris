@@ -26,9 +26,9 @@ namespace Moge
 		virtual const Type& last()const = 0;
 
 		virtual Type& operator++() = 0;
-		virtual Type& ++operator() = 0;
-		virtual Type& operator--() = 0;
-		virtual Type& --operator() = 0;
+		virtual Type operator++( int ) = 0;
+
+		virtual IIterator<Type>& operator=( const IIterator<Type>& right ) = 0;
 
 	protected:
 	private:

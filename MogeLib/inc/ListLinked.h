@@ -26,6 +26,16 @@ namespace Moge
 			return *this->last.get();
 		}
 
+		IIterator<Type>* getRandomIteratorPtr()override
+		{
+			return this->iterator.get();
+		}
+
+		IIterator<Type>& getRandomIterator()override
+		{
+			return *this->iterator.get();
+		}
+
 		const unsigned int size()const override
 		{
 			return static_cast<unsigned int>( this->values.size() );

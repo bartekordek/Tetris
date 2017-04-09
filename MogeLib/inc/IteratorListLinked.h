@@ -8,23 +8,15 @@ namespace Moge
 	{
 	public:
 		IteratorListLinked<Type>( std::list<Type>& elements ): 
-			elements( elements )
+			elements( elements ), 
+			it( elements.begin() )
 		{
 		}
 
 		virtual ~IteratorListLinked()
 		{
 		}
-		
-		IteratorListLinked<Type>& operator=( const typename std::list<Type>::iterator& inIt )
-		{
-			if( this->it != inIt )
-			{
-				this->it = inIt;
-			}
-			return *this;
-		}
-			
+
 		Type& getVal()override
 		{
 			return *this->it;
@@ -80,6 +72,49 @@ namespace Moge
 		const Type& last()const override
 		{
 			return *this->it;
+		}
+
+		IIterator<Type>& operator=( const typename std::list<Type>::iterator& inIt )
+		{
+			if( this->it != inIt )
+			{
+				this->it = inIt;
+			}
+			return *this;
+		}
+
+		IteratorListLinked<Type>& operator=( const IteratorListLinked<Type>& right )
+		{
+			if( this != &right )
+			{
+				this->elements = right.elements;
+				this->it = right.it;
+			}
+			return *this;
+		}
+
+		Type& operator++() override
+		{
+			++this->it;
+			return *this->it;
+		}
+
+		Type operator++( int ) override
+		{
+			Type temp = *this->it;
+			++this->it;
+			return temp;
+		}
+
+		IIterator<Type>& operator=( const IIterator<Type>& right ) override
+		{
+			auto ptr = static_cast<const IteratorListLinked<Type>*>( &right );
+			if( this != ptr )
+			{
+				this->elements = ptr->elements;
+				this->it = ptr->it;
+			}
+			return *this;
 		}
 
 	protected:

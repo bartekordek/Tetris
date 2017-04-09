@@ -11,12 +11,7 @@ namespace Moge
 		{
 		}
 
-		Type* operator->() override
-		{
-			return &this->elements[this->index];
-		}
-
-		const bool hasNext() override
+		const bool hasNext() const override
 		{
 			return this->index + 1 < this->elements.size();
 		}
@@ -27,7 +22,7 @@ namespace Moge
 			return this->elements[this->index];
 		}
 
-		const bool hasPrevious() override
+		const bool hasPrevious()const override
 		{
 			return this->index - 1 >= 0;
 		}
@@ -38,25 +33,55 @@ namespace Moge
 			return this->elements[this->index];
 		}
 
-		const bool isEmpty()override
+		const bool isEmpty() const override
 		{
 			return this->elements.empty();
 		}
 
-		Type& first() override
+		IteratorListVector<Type>& first() override
 		{
 			return this->elements.begin();
 		}
 
-		Type& last() override
+		IteratorListVector<Type>& last() override
 		{
 			return this->elements.end();
 		}
 
-		Type& operator++()
-		Type& ++operator()
-		Type& operator--()
-		Type& --operator()
+		IteratorListVector<Type>& operator++()
+		{
+			++this->index;
+			return *this;
+		}
+
+		IteratorListVector<Type> operator++( int )
+		{
+			IteratorListVector<Type> temp = *this;
+			++index;
+			return temp;
+		}
+
+		IteratorListVector<Type>& operator--()
+		{
+			--this->index;
+		}
+
+		IteratorListVector<Type> operator--( int )
+		{
+			IteratorListVector<Type> temp = *this;
+			--index;
+			return temp;
+		}
+
+		IteratorListVector<Type>& operator=( const IteratorListVector<Type>& right )
+		{
+			if( this != &right )
+			{
+				this->elements = right.elements;
+				this->index = right.index;
+			}
+			return *this;
+		}
 
 	protected:
 	private:

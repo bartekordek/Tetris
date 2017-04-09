@@ -11,6 +11,8 @@ namespace Moge
 
 		virtual const IIterator<Type>& begin() const = 0;
 		virtual const IIterator<Type>& end() const = 0;
+		virtual IIterator<Type>* getRandomIteratorPtr() = 0;
+		virtual IIterator<Type>&  getRandomIterator() = 0;
 
 		virtual const unsigned int size()const = 0;
 
