@@ -6,7 +6,7 @@
 #include "SDLRenderer.h"
 #include "NodeFactory2D.h"
 #include "ITextureFactory3D.h"
-#include "ListLinked.h"
+#include "ListFactory.h"
 
 #include <SDL.h>
 
@@ -24,7 +24,7 @@ namespace Moge
 		auto txtFactory2D = static_cast<SDLRenderer*>( this->renderer2D.get() );
 		this->nodeFactory.reset( new NodeFactory2D( txtFactory2D ) );
 		this->renderer2D->setBackgroundColor( ColorE::BLACK );
-		this->someList.reset( new ListVector<double> );
+		this->someList.reset( ListFactory<double>::createLinkedListPtr() );
 		this->someList->pushBack( 4 );
 	}
 
