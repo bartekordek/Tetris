@@ -255,14 +255,23 @@
     <ClInclude Include="src\ListVector.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\IteratorListVector.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\ListLinked.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\IteratorListLinked.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="inc\IteratorListLinked.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\IteratorListVector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ListFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ListLinked.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ListVector.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

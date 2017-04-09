@@ -111,7 +111,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\gtest\$(Configuration)\;$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\$(Configuration)\;$(SolutionDir)Build\$(Platform)_$(Configuration)\;$(BOOST)\stage\lib;$(SolutionDir)MogeLib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>MogeMath.lib;String.lib;gtest.lib;gtest_main.lib;MogeLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>gtest.lib;gtest_main.lib;MogeLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
@@ -141,7 +141,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\gtest\$(Configuration)\;$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\$(Configuration)\;$(SolutionDir)Build\$(Platform)_$(Configuration)\;$(BOOST)\stage\lib;$(SolutionDir)MogeLib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>MogeMath.lib;String.lib;gtest.lib;gtest_main.lib;MogeLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>gtest.lib;gtest_main.lib;MogeLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
@@ -171,7 +171,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\gtest\$(Configuration)\;$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\$(Configuration)\;$(SolutionDir)Build\$(Platform)_$(Configuration)\;$(BOOST)\stage\lib;$(SolutionDir)MogeLib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>MogeMath.lib;String.lib;gtest.lib;gtest_main.lib;MogeLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>gtest.lib;gtest_main.lib;MogeLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
@@ -201,7 +201,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\gtest\$(Configuration)\;$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\$(Configuration)\;$(SolutionDir)Build\$(Platform)_$(Configuration)\;$(BOOST)\stage\lib;$(SolutionDir)MogeLib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>MogeMath.lib;String.lib;gtest.lib;gtest_main.lib;MogeLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>gtest.lib;gtest_main.lib;MogeLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
@@ -216,6 +216,7 @@
     <ClCompile Include="src\EngineTests.cpp" />
     <ClCompile Include="src\FilesystemTests.cpp" />
     <ClCompile Include="src\ImageCreatorTests.cpp" />
+    <ClCompile Include="src\ListsTests.cpp" />
     <ClCompile Include="src\MatrixTests.cpp" />
     <ClCompile Include="src\MogeGenericTests.cpp" />
     <ClCompile Include="src\NameTests.cpp" />
@@ -227,6 +228,7 @@
     <ClInclude Include="inc\EngineTests.h" />
     <ClInclude Include="inc\FilesystemTests.h" />
     <ClInclude Include="inc\ImageCreatorTests.h" />
+    <ClInclude Include="inc\ListTests.h" />
     <ClInclude Include="inc\MatrixTests.h" />
     <ClInclude Include="inc\MogeGenericTests.h" />
     <ClInclude Include="inc\NameTests.h" />
