@@ -41,7 +41,7 @@ namespace Moge
 		return false;
 	}
 	
-	const unsigned int NodeFactory3D::Count()
+	const unsigned int NodeFactory3D::count()
 	{
 		return static_cast<unsigned int>( this->nodes.size() );
 	}

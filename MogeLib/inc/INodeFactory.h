@@ -2,6 +2,7 @@
 
 #include "ObjectNode.h"
 #include "Math/IPositionAdapter.h"
+#include "IIterator.h"
 
 namespace Moge
 {
@@ -17,7 +18,7 @@ namespace Moge
 		virtual std::shared_ptr<Node> createFromTexture( const std::shared_ptr<ITexture>& texture, const Math::IPosition<double>& position = Math::IPositionAdapter<double>( 0.0, 0.0, 0.0 ) ) = 0;
 		virtual void removeNode(const std::shared_ptr<Node>& node) = 0;
 		virtual const bool exist(const std::shared_ptr<Node>& node ) = 0;
-		virtual const unsigned int Count() = 0;
+		virtual const unsigned int count() = 0;
 	protected:
 	private:
 	};

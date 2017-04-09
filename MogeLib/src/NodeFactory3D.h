@@ -16,7 +16,7 @@ namespace Moge
 		std::shared_ptr<Node> createFromTexture( const std::shared_ptr<ITexture>& texture, const Math::IPosition<double>& position = Math::IPositionAdapter<double>( 0.0, 0.0, 0.0 )) override;
 		void removeNode(const std::shared_ptr<Node>& node) override;
 		const bool exist(const std::shared_ptr<Node>& node ) override;
-		const unsigned int Count() override;
+		const unsigned int count() override;
 	protected:
 	private:
 		ITextureFactory3D* factory3D = nullptr;
