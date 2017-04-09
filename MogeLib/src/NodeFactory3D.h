@@ -17,6 +17,7 @@ namespace Moge
 		void removeNode(const std::shared_ptr<Node>& node) override;
 		const bool exist(const std::shared_ptr<Node>& node ) override;
 		const unsigned int count() override;
+		IIterator<std::shared_ptr<Node>>& getNodes()override;
 	protected:
 	private:
 		ITextureFactory3D* factory3D = nullptr;

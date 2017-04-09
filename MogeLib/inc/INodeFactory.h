@@ -19,6 +19,7 @@ namespace Moge
 		virtual void removeNode(const std::shared_ptr<Node>& node) = 0;
 		virtual const bool exist(const std::shared_ptr<Node>& node ) = 0;
 		virtual const unsigned int count() = 0;
+		virtual IIterator<std::shared_ptr<Node>>& getNodes() = 0;
 	protected:
 	private:
 	};
