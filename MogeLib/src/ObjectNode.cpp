@@ -27,6 +27,18 @@ namespace Moge
 		return *this;
 	}
 
+	const bool Node::operator==( const Node& right )const
+	{
+		if( this != &right )
+		{
+			if( true )
+			{
+				
+			}
+		}
+		return true;
+	}
+
 	Node::~Node()
 	{
 	}

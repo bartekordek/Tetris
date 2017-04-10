@@ -1,5 +1,5 @@
 #pragma once
-#include "List.h"
+#include "IList.h"
 #include "IteratorListLinked.h"
 #include <memory>
 #include <algorithm>
@@ -44,18 +44,36 @@ namespace Moge
 		void pushBack( const Type& element ) override
 		{
 			this->values.push_back( element );
-			*this->first.get() = this->values.begin();
-			*this->last.get() = this->values.end();
 		}
 
 		void remove( const IIterator<Type>& it ) override
 		{
 			const Type& val = it.getVal();
-			auto newIt = std::find( this->values.begin(), this->values.end(), val );
+			remove( val );
+		}
+		
+		void remove( const Type& element ) override
+		{
+			auto newIt = std::find( this->values.begin(), this->values.end(), element );
 			if( newIt != this->values.end() )
 			{
 				this->values.erase( newIt );
+				--this->last;
 			}
+		}
+
+		const std::shared_ptr<IIterator<Type>> find( const Type& type ) const override
+		{
+			std::shared_ptr<IIterator<Type>> result( new IteratorListLinked<Type>( *this->first ) );
+			while( result->hasNext() )
+			{
+				if( result.get()->getVal() == type )
+				{
+					return result;
+				}
+				++*result;
+			}
+			return result;
 		}
 
 	protected:

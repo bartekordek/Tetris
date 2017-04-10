@@ -13,11 +13,14 @@ namespace Moge
 				const Path& filePath,
 				const Math::IPosition<double>& position, 
 				const MyString& name = MyString( "" ) ) override;
-		std::shared_ptr<Node> createFromTexture( const std::shared_ptr<ITexture>& texture, const Math::IPosition<double>& position = Math::IPositionAdapter<double>( 0.0, 0.0, 0.0 )) override;
-		void removeNode(const std::shared_ptr<Node>& node) override;
-		const bool exist(const std::shared_ptr<Node>& node ) override;
-		const unsigned int count() override;
-		IIterator<std::shared_ptr<Node>>& getNodes()override;
+		std::shared_ptr<Node> createFromTexture(
+				const std::shared_ptr<ITexture>& texture, 
+				const Math::IPosition<double>& position = Math::IPositionAdapter<double>( 0.0, 0.0, 0.0 ),
+				const MyString& name = MyString( "" ) ) override;
+		void remove(const std::shared_ptr<Node>& node) override;
+		const bool exist(const std::shared_ptr<Node>& node )const override;
+		const unsigned int count()const override;
+		IIterator<Node>& getNodes()override;
 	protected:
 	private:
 		ITextureFactory3D* factory3D = nullptr;

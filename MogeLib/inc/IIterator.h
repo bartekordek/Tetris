@@ -29,6 +29,7 @@ namespace Moge
 		virtual Type operator++( int ) = 0;
 
 		virtual IIterator<Type>& operator=( const IIterator<Type>& right ) = 0;
+		virtual const bool operator==( const IIterator<Type>& right )const = 0;
 
 	protected:
 	private:

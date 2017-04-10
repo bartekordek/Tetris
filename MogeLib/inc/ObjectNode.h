@@ -18,6 +18,7 @@ namespace Moge
 		virtual ~Node();
 
 		Node& operator=( const Node& right );
+		const bool operator==( const Node& right )const;
 
 		Math::IPosition<double>& getPosition()const override;
 		Math::ISize<double>& getSize()const override;

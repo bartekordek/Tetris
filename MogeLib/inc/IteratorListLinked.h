@@ -13,6 +13,12 @@ namespace Moge
 		{
 		}
 
+		IteratorListLinked<Type>( IteratorListLinked<Type>& arg ) :
+			elements( arg.elements ),
+			it( arg.elements.begin() )
+		{
+		}
+
 		virtual ~IteratorListLinked()
 		{
 		}
@@ -115,6 +121,19 @@ namespace Moge
 				this->it = ptr->it;
 			}
 			return *this;
+		}
+
+		const bool operator==( const IIterator<Type>& right )const override
+		{
+			const IteratorListLinked<Type>* rightPtr = static_cast<IteratorListLinked<Type>*>( &right );
+			if( this != rightPtr )
+			{
+				if( this->elements != rightPtr->elements || this->it != rightPtr->it )
+				{
+					return false;
+				}
+			}
+			return true;
 		}
 
 	protected:

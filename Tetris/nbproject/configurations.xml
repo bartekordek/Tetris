@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configurationDescriptor version="100">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
-    <df root="../MogeLib/inc" name="1">
+    <df root="../MogeLib/inc" name="0">
       <df name="Math">
         <in>Axis.h</in>
         <in>Frustum.h</in>
@@ -37,6 +37,7 @@
       <in>IKeyFactory.h</in>
       <in>IKeyboardObservable.h</in>
       <in>IKeyboardObserver.h</in>
+      <in>IList.h</in>
       <in>IMogeApp.h</in>
       <in>INode.h</in>
       <in>INodeCreator.h</in>
@@ -55,7 +56,6 @@
       <in>KeyFactorySDL.h</in>
       <in>KeyboardData.h</in>
       <in>KeyboardObservable.h</in>
-      <in>List.h</in>
       <in>MTime.h</in>
       <in>MogeLib.h</in>
       <in>MogeLibMain.h</in>
@@ -158,7 +158,7 @@
       <itemPath>../MogeLib/src/Vector3DSimple.h</itemPath>
       <itemPath>../MogeLib/src/Visible.cpp</itemPath>
     </logicalFolder>
-    <df root="." name="0">
+    <df root="." name="1">
       <df name="inc">
         <in>Brick.h</in>
         <in>BrickFactory.h</in>
@@ -261,173 +261,14 @@
         <ccTool flags="0">
         </ccTool>
       </item>
-      <item path="../MogeLib/inc/ConsoleUtilities.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Engine.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/File.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/IEngine.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/IIterator.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/IKey.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/IKeyFactory.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/IKeyboardObservable.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/IKeyboardObserver.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/IMogeApp.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/INode.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/INodeCreator.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/INodeFactory.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/IObservable.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/IObservableData.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/IObserver.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/IRenderable.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/IRenderer.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/IRenderer2D.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/IRenderer3D.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/ITexture.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/ITextureFactory.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/ITextureFactory2D.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/ITextureFactory3D.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/KeyFactorySDL.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/KeyboardData.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/KeyboardObservable.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/List.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/MTime.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Math/Axis.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Math/Frustum.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Math/IPosition.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Math/IPositionAdapter.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Math/IPositionFactory.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Math/ISize.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Math/IVector.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Math/IVector3D.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Math/Line.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Math/Matrix2D.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Math/MultiPoint.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Math/MultiPointFactory.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Math/PositionDouble2D.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Math/PositionDouble3D.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Math/Quaternion.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Math/Rectangle.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Math/Segment.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Math/Size.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Math/SizeDouble2D.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Math/SizeDouble3D.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Math/SizeInt2D.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Math/SizeUInt2D.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Math/SquareMatrix2D.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Math/Vector3DFactory.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/MogeLib.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/MogeLibMain.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/MyString.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Named.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/ObjectNode.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Path.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/RenderableTypes.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/SDLRenderer.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Scale.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Singleton.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/SupportedRenderersList.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/TextureSDL.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/Visible.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="../MogeLib/src/ConsoleUtilities.cpp"
             ex="false"
             tool="1"
             flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/Engine.cpp" ex="false" tool="1" flavor2="8">
@@ -436,27 +277,40 @@
       </item>
       <item path="../MogeLib/src/File.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/Frustum.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/IKey.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/IKeyFactory.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
-      </item>
-      <item path="../MogeLib/src/IKeyboardData.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../MogeLib/src/IKeyboardObservable.cpp"
             ex="false"
             tool="1"
             flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/IKeyboardObservableImp.cpp"
@@ -464,6 +318,9 @@
             tool="1"
             flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/IKeyboardObserver.cpp"
@@ -471,28 +328,51 @@
             tool="1"
             flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/IMogeApp.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
-      <item path="../MogeLib/src/INode.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../MogeLib/src/INode.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
+        </ccTool>
       </item>
       <item path="../MogeLib/src/INodeCreator.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/IObservable.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/IObservableData.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/IObservableImpl.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/IPositionFactory.cpp"
@@ -500,46 +380,65 @@
             tool="1"
             flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/IRenderable.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/IRenderer.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/ITexture.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/IVector3D.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
-      <item path="../MogeLib/src/Iterator.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../MogeLib/src/IteratorListLinked.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../MogeLib/src/IteratorListVector.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="../MogeLib/src/Iterator.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
+        </ccTool>
       </item>
       <item path="../MogeLib/src/KeyFactorySDL.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/KeySDL.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/KeyboardData.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/KeyboardObservable.cpp"
@@ -547,22 +446,30 @@
             tool="1"
             flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/Line.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
-      </item>
-      <item path="../MogeLib/src/ListLinked.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/src/ListVector.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../MogeLib/src/MTime.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/MogeLibMain.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/MultiPointFactory.cpp"
@@ -570,41 +477,62 @@
             tool="1"
             flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/MyString.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/Named.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/Node.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
-      <item path="../MogeLib/src/NodeFactory2D.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../MogeLib/src/NodeFactory2D.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
       </item>
-      <item path="../MogeLib/src/NodeFactory2D.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../MogeLib/src/NodeFactory3D.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../MogeLib/src/NodeFactory3D.h" ex="false" tool="3" flavor2="0">
+      <item path="../MogeLib/src/NodeFactory3D.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
       </item>
       <item path="../MogeLib/src/NodeFactoryRegular.cpp"
             ex="false"
             tool="1"
             flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/ObjectNode.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/Path.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/PositionDouble2D.cpp"
@@ -612,6 +540,9 @@
             tool="1"
             flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/PositionDouble3D.cpp"
@@ -619,14 +550,23 @@
             tool="1"
             flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/Quaternion.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/Rectangle.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/RenderableSDLTexture.cpp"
@@ -634,42 +574,72 @@
             tool="1"
             flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/SDLRenderer.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/Scale.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/Singleton.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/Size.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/SizeDouble2D.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/SizeDouble3D.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/TextureSDL.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/Vector3DFactory.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="../MogeLib/src/Visible.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../MogeLib/src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <folder path="0">
@@ -681,12 +651,42 @@
           </incDir>
         </ccTool>
       </folder>
+      <folder path="1">
+        <ccTool>
+          <incDir>
+            <pElem>inc</pElem>
+            <pElem>../MogeMath/inc</pElem>
+            <pElem></pElem>
+          </incDir>
+        </ccTool>
+      </folder>
+      <folder path="1/src">
+        <ccTool>
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
+        </ccTool>
+      </folder>
       <folder path="MogeLib">
         <ccTool>
           <incDir>
             <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
             <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
             <pElem>../MogeLib</pElem>
+          </incDir>
+        </ccTool>
+      </folder>
+      <folder path="MogeLib/RenderableObject">
+        <ccTool>
+          <incDir>
+            <pElem>../MogeLib/RenderableObject</pElem>
+          </incDir>
+        </ccTool>
+      </folder>
+      <folder path="MogeLib/Scene">
+        <ccTool>
+          <incDir>
+            <pElem>../MogeLib/Scene</pElem>
           </incDir>
         </ccTool>
       </folder>
@@ -772,6 +772,8 @@
       </item>
       <item path="../MogeLib/inc/IKeyboardObserver.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="../MogeLib/inc/IList.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../MogeLib/inc/IMogeApp.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../MogeLib/inc/INode.h" ex="false" tool="3" flavor2="0">
@@ -810,8 +812,6 @@
             ex="false"
             tool="3"
             flavor2="0">
-      </item>
-      <item path="../MogeLib/inc/List.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../MogeLib/inc/MTime.h" ex="false" tool="3" flavor2="0">
       </item>

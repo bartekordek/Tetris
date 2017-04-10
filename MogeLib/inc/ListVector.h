@@ -1,5 +1,5 @@
 #pragma once
-#include "List.h"
+#include "IList.h"
 #include "IteratorListVector.h"
 #include <memory>
 namespace Moge
@@ -13,8 +13,7 @@ namespace Moge
 			this->iterator.reset( new IteratorListVector<Type>( this->values ) );
 			this->first.reset( new IteratorListVector<Type>( this->values ) );
 			this->last.reset( new IteratorListVector<Type>( this->values ) );
-		}
-		
+		}		
 		const IIterator<Type>& begin() const override
 		{
 			return this->first;
@@ -23,6 +22,16 @@ namespace Moge
 		const IIterator<Type>& end() const override
 		{
 			return this->last;
+		}
+		
+				IIterator<Type>* getRandomIteratorPtr()override
+		{
+			return this->iterator.get();
+		}
+
+		IIterator<Type>& getRandomIterator()override
+		{
+			return *this->iterator.get();
 		}
 
 		const unsigned int size()const override
@@ -33,13 +42,38 @@ namespace Moge
 		void pushBack( const Type& element ) override
 		{
 			this->values.push_back( element );
-			++this->last;
 		}
 
 		void remove( const IIterator<Type>& it ) override
 		{
-			this->values.erase( *it );
-			--this->last;
+			const Type& val = it.getVal();
+			remove( val );
+		}
+		
+		void remove( const Type& element ) override
+		{
+			auto newIt = std::find( this->values.begin(), this->values.end(), element );
+			if( newIt != this->values.end() )
+			{
+				this->values.erase( newIt );
+				--this->last;
+			}
+		}
+
+		const std::shared_ptr<IIterator<Type>> find( const Type& type ) const override
+		{
+			auto ptr = static_cast<IteratorListVector<Type>*>( this->first.get() );
+			std::shared_ptr<IIterator<Type>> result( new IteratorListVector<Type>( *ptr ) );
+			while( result->hasNext() )
+			{
+				if( result.get()->getVal() == type  )
+				{
+					return result;
+				}
+				++*result;
+
+			}
+			return result;
 		}
 
 	protected:

@@ -18,7 +18,9 @@ namespace Moge
 
 		virtual void pushBack( const Type& element ) = 0;
 		virtual void remove( const IIterator<Type>& it ) = 0;
+		virtual void remove( const Type& elements ) = 0;
 
+		virtual const std::shared_ptr<IIterator<Type>> find( const Type& type ) const = 0;
 
 	protected:
 	private:

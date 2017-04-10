@@ -53,7 +53,7 @@ namespace Tetris
 		{
 			for( auto& slab : slabRow )
 			{
-				auto slabNode = EngineManager::getEngine()->getNodeFactory()->createFromTexture( this->emptySlabTex );
+				auto slabNode = EngineManager::getEngine()->getNodeFactory()->createFromTexture(this->emptySlabTex );
 				auto& slabSize = slabNode->getSize();
 				auto& slabPos = slabNode->getPosition();
 				slabPos.setX( slab.col() * slabSize.getWidth() );

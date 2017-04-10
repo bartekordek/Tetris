@@ -49,6 +49,7 @@
         <in>MyString.cpp</in>
         <in>Named.cpp</in>
         <in>Node.cpp</in>
+        <in>NodeFactory2D.cpp</in>
         <in>NodeFactoryRegular.cpp</in>
         <in>ObjectNode.cpp</in>
         <in>Path.cpp</in>
@@ -91,6 +92,7 @@
       </toolsSet>
       <flagsDictionary>
         <element flagsID="0" commonFlags="-pedantic -std=c++11"/>
+        <element flagsID="1" commonFlags="-std=c++11"/>
       </flagsDictionary>
       <codeAssistance>
         <envVariables>
@@ -143,196 +145,358 @@
         <ccTool flags="0">
         </ccTool>
       </item>
-      <item path="inc/ListFactory.h" ex="false" tool="3" flavor2="0">
-      </item>
+      <folder path="0/RenderableObject">
+        <ccTool>
+          <incDir>
+            <pElem>RenderableObject</pElem>
+          </incDir>
+        </ccTool>
+      </folder>
+      <folder path="0/Scene">
+        <ccTool>
+          <incDir>
+            <pElem>Scene</pElem>
+          </incDir>
+        </ccTool>
+      </folder>
       <item path="src/ConsoleUtilities.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/Engine.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/File.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/Frustum.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/IKey.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/IKeyFactory.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/IKeyboardObservable.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/IKeyboardObservableImp.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/IKeyboardObserver.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/IMogeApp.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/INodeCreator.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/IObservable.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/IObservableData.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/IObservableImpl.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/IPositionFactory.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/IRenderable.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/IRenderer.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/ITexture.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/IVector3D.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/KeyFactorySDL.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/KeySDL.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/KeyboardData.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/KeyboardObservable.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/Line.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
-      <item path="src/ListFactory.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/ListFactory.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
+        </ccTool>
       </item>
       <item path="src/MTime.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/MogeLibMain.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/MultiPointFactory.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/MyString.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/Named.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/Node.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
+        </ccTool>
+      </item>
+      <item path="src/NodeFactory2D.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
         </ccTool>
       </item>
       <item path="src/NodeFactoryRegular.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/ObjectNode.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/Path.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/PositionDouble2D.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/PositionDouble3D.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/Quaternion.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/Rectangle.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/RenderableSDLTexture.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/SDLRenderer.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/Scale.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/Singleton.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/Size.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/SizeDouble2D.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/SizeDouble3D.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/TextureSDL.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/Vector3DFactory.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/Visible.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>src</pElem>
+          </incDir>
         </ccTool>
       </item>
     </conf>

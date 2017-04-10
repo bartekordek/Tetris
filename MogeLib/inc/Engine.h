@@ -17,7 +17,7 @@
 #include "IRenderer2D.h"
 #include "IRenderer3D.h"
 #include "ITextureFactory.h"
-#include "List.h"
+#include "IList.h"
 
 namespace Moge
 {

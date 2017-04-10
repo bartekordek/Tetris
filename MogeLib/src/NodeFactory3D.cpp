@@ -17,19 +17,22 @@ namespace Moge
 		return result;
 	}
 
-	std::shared_ptr<Node> NodeFactory3D::createFromTexture( const std::shared_ptr<ITexture>& texture, const Math::IPosition<double>& position )
+	std::shared_ptr<Node> NodeFactory3D::createFromTexture(
+		const std::shared_ptr<ITexture>& texture, 
+		const Math::IPosition<double>& position , 
+		const MyString& name )
 	{
 		Node* objectNodeContent = new Node();
 		objectNodeContent->getPosition().setXyz( position );
 		return std::shared_ptr<Node>( objectNodeContent );
 	}
 	
-	void NodeFactory3D::removeNode(const std::shared_ptr<Node>& node)
+	void NodeFactory3D::remove(const std::shared_ptr<Node>& node)
 	{
 		this->nodes.erase( node.get() );
 	}
 	
-	const bool NodeFactory3D::exist(const std::shared_ptr<Node>& node)
+	const bool NodeFactory3D::exist(const std::shared_ptr<Node>& node)const
 	{
 		for( auto& currentNode : this->nodes )
 		{
@@ -41,7 +44,7 @@ namespace Moge
 		return false;
 	}
 	
-	const unsigned int NodeFactory3D::count()
+	const unsigned int NodeFactory3D::count()const
 	{
 		return static_cast<unsigned int>( this->nodes.size() );
 	}

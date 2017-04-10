@@ -1,6 +1,6 @@
 #pragma once
 #include "MogeLib.h"
-#include "List.h"
+#include "IList.h"
 #include "ListLinked.h"
 #include "ListVector.h"
 
