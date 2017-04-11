@@ -58,7 +58,7 @@ namespace Moge
 			if( newIt != this->values.end() )
 			{
 				this->values.erase( newIt );
-				--this->last;
+				--*this->last.get();
 			}
 		}
 

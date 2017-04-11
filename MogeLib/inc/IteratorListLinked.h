@@ -112,6 +112,19 @@ namespace Moge
 			return temp;
 		}
 
+		Type& operator--() override
+		{
+			--this->it;
+			return *this->it;
+		}
+
+		Type operator--( int ) override
+		{
+			Type temp = *this->it;
+			--this->it;
+			return temp;
+		}
+
 		IIterator<Type>& operator=( const IIterator<Type>& right ) override
 		{
 			auto ptr = static_cast<const IteratorListLinked<Type>*>( &right );
@@ -125,7 +138,7 @@ namespace Moge
 
 		const bool operator==( const IIterator<Type>& right )const override
 		{
-			const IteratorListLinked<Type>* rightPtr = static_cast<IteratorListLinked<Type>*>( &right );
+			const IteratorListLinked<Type>* rightPtr = static_cast<const IteratorListLinked<Type>*>( &right );
 			if( this != rightPtr )
 			{
 				if( this->elements != rightPtr->elements || this->it != rightPtr->it )

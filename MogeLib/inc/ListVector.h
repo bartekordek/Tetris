@@ -16,12 +16,12 @@ namespace Moge
 		}		
 		const IIterator<Type>& begin() const override
 		{
-			return this->first;
+			return *this->first.get();
 		}
 
 		const IIterator<Type>& end() const override
 		{
-			return this->last;
+			return *this->last.get();
 		}
 		
 				IIterator<Type>* getRandomIteratorPtr()override
@@ -56,7 +56,7 @@ namespace Moge
 			if( newIt != this->values.end() )
 			{
 				this->values.erase( newIt );
-				--this->last;
+				--*this->last.get();
 			}
 		}
 
@@ -70,7 +70,7 @@ namespace Moge
 				{
 					return result;
 				}
-				++*result;
+				++*result.get();
 
 			}
 			return result;
