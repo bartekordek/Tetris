@@ -1,5 +1,6 @@
 #pragma once
 #include "IIterator.h"
+#include <memory>
 namespace Moge
 {
 	template<typename Type>
