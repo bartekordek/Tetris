@@ -54,9 +54,9 @@ namespace Moge
 		return static_cast<unsigned int>( this->nodes->size() );
 	}
 	
-	 IIterator<Node>& NodeFactory2D::getNodes()
-	 {
-		 return this->nodes->getRandomIterator();
-	 }
+	IIterator<Node>& NodeFactory2D::getNodes()
+	{
+		return this->nodes->getRandomIterator();
+	}
 	
 }
