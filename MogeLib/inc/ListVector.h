@@ -10,9 +10,9 @@ namespace Moge
 	public:
 		ListVector<Type>()
 		{
-			this->iterator.reset( new IteratorListVector<Type>( this->values ) );
-			this->first.reset( new IteratorListVector<Type>( this->values ) );
-			this->last.reset( new IteratorListVector<Type>( this->values ) );
+			this->iterator.reset( new IteratorListVector<Type>( this->values, IteratorListVector<Type>::ItType::RANDOM ) );
+			this->first.reset( new IteratorListVector<Type>( this->values, IteratorListVector<Type>::ItType::FIRST ) );
+			this->last.reset( new IteratorListVector<Type>( this->values, IteratorListVector<Type>::ItType::LAST ) );
 		}		
 		const IIterator<Type>& begin() const override
 		{
@@ -24,13 +24,15 @@ namespace Moge
 			return *this->last.get();
 		}
 		
-				IIterator<Type>* getRandomIteratorPtr()override
+		IIterator<Type>* getRandomIteratorPtr()override
 		{
+			*this->iterator.get() = *this->first.get();
 			return this->iterator.get();
 		}
 
 		IIterator<Type>& getRandomIterator()override
 		{
+			*this->iterator.get() = *this->first.get();
 			return *this->iterator.get();
 		}
 
@@ -42,6 +44,8 @@ namespace Moge
 		void pushBack( const Type& element ) override
 		{
 			this->values.push_back( element );
+			this->first->setIterator( this->values.begin() );
+			this->last->setIterator( this->values.end() );
 		}
 
 		void remove( const IIterator<Type>& it ) override
@@ -56,7 +60,8 @@ namespace Moge
 			if( newIt != this->values.end() )
 			{
 				this->values.erase( newIt );
-				--*this->last.get();
+				this->first->setIterator( this->values.begin() );
+				this->last->setIterator( this->values.end() );
 			}
 		}
 
@@ -78,9 +83,10 @@ namespace Moge
 
 	protected:
 	private:
+
 		std::vector<Type> values;
-		std::unique_ptr<IIterator<Type>> iterator;
-		std::unique_ptr<IIterator<Type>> first;
-		std::unique_ptr<IIterator<Type>> last;
+		std::unique_ptr<IteratorListVector<Type>> iterator;
+		std::unique_ptr<IteratorListVector<Type>> first;
+		std::unique_ptr<IteratorListVector<Type>> last;
 	};
 }

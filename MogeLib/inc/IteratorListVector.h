@@ -7,15 +7,20 @@ namespace Moge
 	class IteratorListVector: public IIterator<Type>
 	{
 	public:
-		IteratorListVector<Type>( std::vector<Type>& elements ): 
-			elements( elements ), 
-			it( elements.begin() )
+		enum class ItType: short
+		{
+			FIRST = 0,
+			RANDOM,
+			LAST
+		};
+		IteratorListVector<Type>( std::vector<Type>& elements, const ItType type ): 
+			elements( elements ),
+			type( type )
 		{
 		}
 
 		IteratorListVector<Type>( IteratorListVector<Type>& arg ) :
-			elements( arg.elements ),
-			it( arg.elements.begin() )
+			elements( arg.elements )
 		{
 		}
 
@@ -35,13 +40,30 @@ namespace Moge
 
 		const bool hasNext()const override
 		{
-			return this->elements.end() != this->it;
+			if( this->it == this->elements.end() )
+			{
+				return false;
+			}
+
+			if( this->elements.size() == 1 && this->it == this->elements.begin() )
+			{
+				return true;
+			}
+			auto tempIt = this->it;
+			++tempIt;
+			const bool result = this->elements.end() != tempIt;
+			return result;
 		}
 
 		Type& next() override
 		{
-			++this->it;
-			return *this->it;
+			// Fix for std:: the first element always contains first value, but last does not.
+			return *( this->it++ );
+			//if( this->it == this->elements.begin() )
+			//{
+			//	return * (this->it++);
+			//}
+			//return *(++this->it);
 		}
 
 		const bool hasPrevious()const override
@@ -99,6 +121,11 @@ namespace Moge
 			return *this;
 		}
 
+		void setIterator( const typename std::vector<Type>::iterator& inIt )
+		{
+			this->it = inIt;
+		}
+
 		Type& operator++() override
 		{
 			++this->it;
@@ -153,5 +180,6 @@ namespace Moge
 	private:
 		std::vector<Type>& elements;
 		typename std::vector<Type>::iterator it;
+		ItType type;
 	};
 }

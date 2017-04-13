@@ -112,7 +112,15 @@ namespace Moge
 	void Engine::QueueFrame()
 	{
 		// Need to have a Iterator. TODO: CREATE ITERATOR AND PUT IT HERE.
-//		std::lock_guard<std::mutex> renderableObjectLock( this->mRenderableObjectsMutex );
+		std::lock_guard<std::mutex> renderableObjectLock( this->mRenderableObjectsMutex );
+		auto& nodeIt = getNodeFactory()->getNodes();
+		if( false == nodeIt.isEmpty() )
+		{
+			//while( nodeIt. )
+			//{
+
+			//}
+		}
 //		for( auto& object : this->nodeFactory-> )
 //		{
 //			Render( *object );

@@ -99,6 +99,11 @@ namespace Moge
 			return *this;
 		}
 
+		void setIterator( const typename std::list<Type>::iterator& inIt )
+		{
+			this->it = inIt;
+		}
+
 		Type& operator++() override
 		{
 			++this->it;

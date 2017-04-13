@@ -28,11 +28,13 @@ namespace Moge
 
 		IIterator<Type>* getRandomIteratorPtr()override
 		{
+			*this->iterator.get() = *this->first.get();
 			return this->iterator.get();
 		}
 
 		IIterator<Type>& getRandomIterator()override
 		{
+			*this->iterator.get() = *this->first.get();
 			return *this->iterator.get();
 		}
 
@@ -44,6 +46,8 @@ namespace Moge
 		void pushBack( const Type& element ) override
 		{
 			this->values.push_back( element );
+			this->first->setIterator( this->values.begin() );
+			this->last->setIterator( this->values.end() );
 		}
 
 		void remove( const IIterator<Type>& it ) override
@@ -58,7 +62,8 @@ namespace Moge
 			if( newIt != this->values.end() )
 			{
 				this->values.erase( newIt );
-				--*this->last.get();
+				this->first->setIterator( this->values.begin() );
+				this->last->setIterator( this->values.end() );
 			}
 		}
 
