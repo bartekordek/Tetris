@@ -1,13 +1,11 @@
 #pragma once
-
-#include <MogeLib.h>
-
+#include "Math/Epsilon.h"
 namespace Moge
 {
 	namespace Math
 	{
 		template <typename Type>
-		class MogeLib_API IVector3D
+		class MogeLib_API IVector3D: public Epsilon
 		{
 		public:
 			IVector3D() = default;
@@ -33,6 +31,8 @@ namespace Moge
 				setY( object.getY() );
 				setZ( object.getZ() );
 			}
+
+			virtual const bool operator==( const IVector3D& ivector )const = 0;
 		};
 	}
 }

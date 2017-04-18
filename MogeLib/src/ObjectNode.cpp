@@ -9,12 +9,15 @@ namespace Moge
 		position(IPositionFactory::createSimplePositionDouble3D() ),
 		scale( Vector3DFactory::createVectorSimpleDouble( 1.0, 1.0, 1.0 ) )
 	{
-		
 	}
 
 	Node::Node( const Node& objectNodeContent ):
-		mFilePath( objectNodeContent.mFilePath )
+		position( IPositionFactory::createSimplePositionDouble3D() ),
+		scale( Vector3DFactory::createVectorSimpleDouble( 1.0, 1.0, 1.0 ) )
 	{
+		*this->position.get() = *objectNodeContent.position.get();
+		*this->scale.get() = *objectNodeContent.scale.get();
+		this->texture = objectNodeContent.texture;
 	}
 
 	Node& Node::operator=( const Node& right )
@@ -23,6 +26,7 @@ namespace Moge
 		{
 			this->position->setXyz( *right.position );
 			this->scale->setXYZ( *right.scale );
+			this->texture = right.texture;
 		}
 		return *this;
 	}
@@ -31,29 +35,51 @@ namespace Moge
 	{
 		if( this != &right )
 		{
-			if( true )
+			if( *this->position == *right.position && *this->scale == *right.scale )
 			{
-				
+				if( this->texture.get() == right.texture.get() )
+				{
+					return true;
+				}
 			}
 		}
-		return true;
+		else
+		{
+			return true;
+		}
+		return false;
 	}
 
 	Node::~Node()
 	{
 	}
 
-	IPosition< double >& Node::getPosition() const
+	const IPosition< double >& Node::getPosition() const
 	{
 		return *this->position;
 	}
 
-	ISize< double >& Node::getSize() const
+	void Node::setX( const double x )
+	{
+		this->position->setX( x );
+	}
+
+	void Node::setY( const double y )
+	{
+		this->position->setY( y );
+	}
+
+	void Node::setZ( const double z )
+	{
+		this->position->setZ( z );
+	}
+
+	const ISize< double >& Node::getSize()const
 	{
 		return this->texture->getSize();
 	}
 
-	IVector3D< double >& Node::getScale() const
+	const IVector3D< double >& Node::getScale() const
 	{
 		return *this->scale;
 	}
@@ -63,8 +89,18 @@ namespace Moge
 		this->texture = texture;
 	}
 
-	std::shared_ptr< ITexture >& Node::getTexture()
+	const std::shared_ptr< ITexture >& Node::getTexture()const
 	{
 		return this->texture;
+	}
+
+	void Node::setPosition( const IPosition< double >& pos )
+	{
+		*this->position = pos;
+	}
+
+	const RenderableType Node::getRenderableType() const
+	{
+		return RenderableType::TEXTURED;
 	}
 }

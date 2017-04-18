@@ -2,6 +2,7 @@
 
 #include "IPosition.h"
 #include "MultiPoint.h"
+#include "Math/Math.h"
 
 namespace Moge
 {
@@ -24,6 +25,14 @@ namespace Moge
 			explicit IPositionAdapter( const MultiPoint<Type>& mp )
 			{
 				MultiPoint<Type>::operator=( mp );
+			}
+
+			explicit IPositionAdapter( const IPosition<Type>& mp )
+			{
+				this->setX( mp.getX() );
+				this->setY( mp.getY() );
+				this->setZ( mp.getZ() );
+				this->setEpsilon( mp.getEpsilon() );
 			}
 
 			virtual ~IPositionAdapter()
@@ -69,6 +78,18 @@ namespace Moge
 			void setZ( const Type z ) override
 			{
 				MultiPoint<Type>::setValue( Axis::Z, z );
+			}
+
+			const bool operator==( const IPosition<Type>& position )const override
+			{
+				if( 
+					Util::abs( this->getX() - position.getX() ) < getEpsilon() && 
+					Util::abs( this->getY() - position.getY() ) < getEpsilon() &&
+					Util::abs( this->getZ() - position.getZ() ) < getEpsilon() )
+				{
+					return true;
+				}
+				return false;
 			}
 
 		protected:

@@ -232,6 +232,7 @@
     <ClInclude Include="inc\ListLinked.h" />
     <ClInclude Include="inc\ListVector.h" />
     <ClInclude Include="inc\Math\Axis.h" />
+    <ClInclude Include="inc\Math\Epsilon.h" />
     <ClInclude Include="inc\Math\Frustum.h" />
     <ClInclude Include="inc\Math\IPosition.h" />
     <ClInclude Include="inc\Math\IPositionAdapter.h" />
@@ -240,6 +241,7 @@
     <ClInclude Include="inc\Math\IVector.h" />
     <ClInclude Include="inc\Math\IVector3D.h" />
     <ClInclude Include="inc\Math\Line.h" />
+    <ClInclude Include="inc\Math\Math.h" />
     <ClInclude Include="inc\Math\Matrix2D.hpp" />
     <ClInclude Include="inc\Math\MultiPoint.h" />
     <ClInclude Include="inc\Math\MultiPointFactory.h" />

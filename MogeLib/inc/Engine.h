@@ -32,13 +32,14 @@ namespace Moge
 		Engine( void );
 		virtual ~Engine();
 
-		INodeFactory* getNodeFactory();
 		IRenderer* getRenderer();
 		void createScreen( Math::ISize<unsigned int>& size, Math::IPosition<int>& position, const std::string& label = "Window label." );
 		void startMainLoop();
 		void stopEventLoop();
 		ITextureFactory* get2DTextureFactory()const;
 		ITextureFactory* get3DTextureFactory()const;
+		INodeFactory* get2DNodeFactory()const;
+		INodeFactory* get3DNodeFactory()const;
 
 	protected:
 

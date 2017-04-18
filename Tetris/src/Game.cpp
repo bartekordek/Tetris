@@ -9,6 +9,11 @@
 
 namespace Tetris
 {
+	CGame::~CGame()
+	{
+		this->mainGrid.reset();
+	}
+
 	using namespace Moge;
 	using namespace Math;
 	void CGame::initialize( const unsigned int rowsCount, const unsigned int columnsCount, const unsigned int winWidth, const unsigned int winHeight )
@@ -18,7 +23,7 @@ namespace Tetris
 		EngineManager::getEngine()->createScreen( winSize, *winPos );
 		mainGrid.reset( new CMainGrid() );
 		EngineManager::getEngine()->registerObserver( this );
-		mainGrid->SetSize( rowsCount, columnsCount );
+		mainGrid->SetSize( rowsCount, columnsCount, 50 );
 		startGame();
 	}
 

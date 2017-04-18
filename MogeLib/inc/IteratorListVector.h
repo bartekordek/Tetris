@@ -7,15 +7,8 @@ namespace Moge
 	class IteratorListVector: public IIterator<Type>
 	{
 	public:
-		enum class ItType: short
-		{
-			FIRST = 0,
-			RANDOM,
-			LAST
-		};
-		IteratorListVector<Type>( std::vector<Type>& elements, const ItType type ): 
-			elements( elements ),
-			type( type )
+		IteratorListVector<Type>( std::vector<Type>& elements ): 
+			elements( elements )
 		{
 		}
 
@@ -40,6 +33,11 @@ namespace Moge
 
 		const bool hasNext()const override
 		{
+			//if( nullptr == this->it )
+			//{
+			//	return false;
+			//}
+
 			if( this->it == this->elements.end() )
 			{
 				return false;
@@ -49,10 +47,12 @@ namespace Moge
 			{
 				return true;
 			}
-			auto tempIt = this->it;
-			++tempIt;
-			const bool result = this->elements.end() != tempIt;
-			return result;
+
+			if( this->it == this->elements.end() )
+			{
+				return false;
+			}
+			return true;
 		}
 
 		Type& next() override
@@ -180,6 +180,5 @@ namespace Moge
 	private:
 		std::vector<Type>& elements;
 		typename std::vector<Type>::iterator it;
-		ItType type;
 	};
 }

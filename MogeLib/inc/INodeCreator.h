@@ -2,6 +2,7 @@
 
 #include "ObjectNode.h"
 #include "Math/IPositionAdapter.h"
+#include "Path.h"
 
 namespace Moge
 {

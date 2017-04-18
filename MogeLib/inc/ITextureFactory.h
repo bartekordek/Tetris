@@ -2,7 +2,9 @@
 
 #include "MogeLib.h"
 #include "ITexture.h"
+#include "IIterator.h"
 #include "Path.h"
+#include "ObjectNode.h"
 #include <memory>
 
 namespace  Moge 

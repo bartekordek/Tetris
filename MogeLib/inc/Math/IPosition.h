@@ -1,11 +1,11 @@
 #pragma once
-#include "MogeLib.h"
+#include "Epsilon.h"
 namespace Moge
 {
 	namespace Math
 	{
 		template <typename Type>
-		class MogeLib_API IPosition
+		class MogeLib_API IPosition: public Epsilon
 		{
 		public:
 			IPosition()
@@ -30,15 +30,28 @@ namespace Moge
 				setZ( z );
 			}
 
-			void setXyz( const IPosition& object )
+			void setXyz( const IPosition<Type>& object )
 			{
 				setX( object.getX() );
 				setY( object.getY() );
 				setZ( object.getZ() );
 			}
 
+			virtual const bool operator==( const IPosition<Type>& position )const = 0;
+			IPosition<Type>& operator=( const IPosition<Type>& right )
+			{
+				if( &right != this )
+				{
+					setX( right.getX() );
+					setY( right.getY() );
+					setZ( right.getZ() );
+				}
+				return *this;
+			}
+
 		protected:
 		private:
+			
 		};
 	}
 }

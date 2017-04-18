@@ -10,16 +10,20 @@ namespace Moge
 	public:
 		RenderableSDLTexture();
 		virtual ~RenderableSDLTexture() = default;
-		Math::IPosition<double>* getPosition()override;
-		const Math::IPosition<double>* getPosition()const override;
-		Math::ISize<double>* getSize() override;
-		const Math::ISize<double>* getSize()const override;
-		const ITexture* getTexture()const;
+
+		const Math::IPosition<double>& getPosition()const override;
+		void setPosition( const Math::IPosition<double>& pos ) override;
+		const Math::ISize<double>& getSize()const override;
+		const Math::IVector3D<double>& getScale()const override;
+		const RenderableType getRenderableType()const override;
+
+		const std::shared_ptr<ITexture>& getTexture()const override;
 		void setTexture( const std::shared_ptr<ITexture>& texture );
 	protected:
 	private:
 		std::shared_ptr<ITexture> texture;
 		std::unique_ptr<Math::IPosition<double>> position;
 		std::unique_ptr<Math::ISize<double>> size;
+		std::unique_ptr<Math::IVector3D<double>> scale;
 	};
 }

@@ -273,6 +273,12 @@
     <ClInclude Include="inc\ListVector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\Math\Math.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Math\Epsilon.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ConsoleUtilities.cpp">

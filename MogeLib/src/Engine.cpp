@@ -23,7 +23,7 @@ namespace Moge
 		this->keys = this->keyFactory->createKeys();
 		auto txtFactory2D = static_cast<SDLRenderer*>( this->renderer2D.get() );
 		this->nodeFactory.reset( new NodeFactory2D( txtFactory2D ) );
-		this->renderer2D->setBackgroundColor( ColorE::BLACK );
+		this->renderer2D->setBackgroundColor( ColorE::RED );
 		this->someList.reset( ListFactory<double>::createLinkedListPtr() );
 		this->someList->pushBack( 4 );
 	}
@@ -31,7 +31,10 @@ namespace Moge
 	Engine::~Engine()
 	{
 		std::lock_guard<std::mutex> lck( mListMutex );
-		//mRenderableObjects.erase( mRenderableObjects.begin(), mRenderableObjects.end() ); //TODO Here ends SDL. And it Quits. It should be moved to renderer side.
+		this->renderer2D.reset();
+		this->nodeFactory.reset();
+		//auto rndrPtr = this->renderer2D.release();
+		//delete rndrPtr;
 		SDL_Quit();
 	}
 
@@ -46,11 +49,6 @@ namespace Moge
 		const std::string& label )
 	{
 		this->renderer2D->createWindow( position, size, label );
-	}
-
-	INodeFactory* Engine::getNodeFactory()
-	{
-		return this->nodeFactory.get();
 	}
 	
 	void Engine::startMainLoop()
@@ -75,6 +73,16 @@ namespace Moge
 	ITextureFactory* Engine::get3DTextureFactory() const
 	{
 		return this->textureFactory3D.get();
+	}
+
+	INodeFactory* Engine::get2DNodeFactory() const
+	{
+		return this->nodeFactory.get();
+	}
+
+	INodeFactory* Engine::get3DNodeFactory() const
+	{
+		return nullptr;//TODO
 	}
 
 	void Engine::eventPool()
@@ -113,21 +121,30 @@ namespace Moge
 	{
 		// Need to have a Iterator. TODO: CREATE ITERATOR AND PUT IT HERE.
 		std::lock_guard<std::mutex> renderableObjectLock( this->mRenderableObjectsMutex );
-		auto& nodeIt = getNodeFactory()->getNodes();
+		auto& nodeIt = this->get2DNodeFactory()->getNodes();
 		if( false == nodeIt.isEmpty() )
 		{
-			//while( nodeIt. )
-			//{
-
-			//}
+			unsigned int i = 0;
+			while( nodeIt.hasNext() )
+			{
+				if( i == 218 )
+				{
+					auto dupa = 23;
+				}
+				this->renderer2D->render( *nodeIt.next().get() );
+				++i;
+			}
 		}
+		this->renderer2D->updateScreen();
+		++mFrameCount;
+
 //		for( auto& object : this->nodeFactory-> )
 //		{
 //			Render( *object );
 //		}
 //		this->renderer2D->updateScreen();
-////		SDL_UpdateWindowSurface( mScreenBuffor->GetScreen() ); TODO SDL Update frame need to be updated.
-//		++mFrameCount;
+////		
+//		
 	}
 
 	void Engine::Render( Node& node )

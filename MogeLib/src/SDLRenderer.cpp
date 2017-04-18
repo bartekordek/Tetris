@@ -60,17 +60,17 @@ namespace Moge
 
 	void SDLRenderer::render( const IRenderable& renderable )
 	{
-		const auto& position = *renderable.getPosition();
+		const auto& position = renderable.getPosition();
 		switch( renderable.getRenderableType() )
 		{
 			case RenderableType::TEXTURED:
 			{
-				const auto sdlRend = static_cast<const RenderableSDLTexture*>( &renderable );
-				render( *sdlRend->getTexture(), position );
+				render( *renderable.getTexture().get(), position );
 				break;
 			}
 			case RenderableType::PRIMITIVE:
 			{
+
 				break;
 			}
 		}
@@ -82,8 +82,8 @@ namespace Moge
 		SDL_Rect renderQuad;
 		renderQuad.x = static_cast<int>( position.getX() );
 		renderQuad.y = static_cast<int>( position.getY() );
-		renderQuad.w = texture.getSize().getWidth();
-		renderQuad.h = texture.getSize().getHeight();
+		renderQuad.w = static_cast<int>( texture.getSize().getWidth() );
+		renderQuad.h = static_cast<int>( texture.getSize().getHeight() );
 		std::unique_ptr<SDL_Rect> srcRect;
 		SDL_RenderCopy( this->renderer, sdlTexture->get(), srcRect.get(), &renderQuad );
 	}

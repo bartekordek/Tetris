@@ -4,8 +4,6 @@
 
 #include "INode.h"
 #include "Visible.h"
-#include "Path.h"
-#include "Scale.h"
 #include "ITexture.h"
 
 namespace Moge
@@ -20,15 +18,20 @@ namespace Moge
 		Node& operator=( const Node& right );
 		const bool operator==( const Node& right )const;
 
-		Math::IPosition<double>& getPosition()const override;
-		Math::ISize<double>& getSize()const override;
-		Math::IVector3D<double>& getScale()const override;
-		void setTexture(const std::shared_ptr<ITexture>& texture);
-		std::shared_ptr<ITexture>& getTexture();
+		const Math::IPosition<double>& getPosition()const override;
+		void setX( const double x ) override;
+		void setY( const double y ) override;
+		void setZ( const double z ) override;
+		const Math::ISize<double>& getSize()const override;
+		const Math::IVector3D<double>& getScale()const override;
+		void setPosition( const Math::IPosition<double>& pos ) override;
+		const RenderableType getRenderableType()const override;
+
+		void setTexture( const std::shared_ptr<ITexture>& texture );
+		const std::shared_ptr<ITexture>& getTexture()const override;
 
 	protected:
 	private:
-		Path mFilePath;
 		std::unique_ptr<Math::IPosition<double>> position;
 		std::unique_ptr<Math::IVector3D<double>> scale;
 		std::shared_ptr<ITexture> texture;

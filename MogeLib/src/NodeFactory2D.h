@@ -9,7 +9,7 @@ namespace Moge
 	{
 	public:
 		NodeFactory2D( ITextureFactory2D* factory2D );
-		virtual ~NodeFactory2D() = default;
+		virtual ~NodeFactory2D();
 		
 		std::shared_ptr<Node> CreateFromImage(
 				const Path& filePath,
@@ -25,10 +25,10 @@ namespace Moge
 		void remove( const Node* node ) override;
 		const bool exist(const std::shared_ptr<Node>& node ) const override;
 		const unsigned int count() const override;
-		IIterator<Node>& getNodes() override;
+		IIterator<std::shared_ptr<Node>>& getNodes() override;
 	protected:
 	private:
 		ITextureFactory2D* factory2D = nullptr;
-		std::unique_ptr< IList<Node>> nodes;
+		std::unique_ptr< IList<std::shared_ptr<Node>>> nodes;
 	};
 }

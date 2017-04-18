@@ -48,16 +48,15 @@ namespace Tetris
 			}
 			slabsRows.push_back( rows );
 		}
-
 		for( auto& slabRow : slabsRows )
 		{
 			for( auto& slab : slabRow )
 			{
-				auto slabNode = EngineManager::getEngine()->getNodeFactory()->createFromTexture(this->emptySlabTex );
+				auto slabNode = EngineManager::getEngine()->get2DNodeFactory()->createFromTexture(this->emptySlabTex );
 				auto& slabSize = slabNode->getSize();
 				auto& slabPos = slabNode->getPosition();
-				slabPos.setX( slab.col() * slabSize.getWidth() );
-				slabPos.setY( slab.row() * slabSize.getHeight() );
+				slabNode->setX( slab.col() * slabSize.getWidth() );
+				slabNode->setY( slab.row() * slabSize.getHeight() );
 
 				slab.setNode( slabNode );
 				slabNode->SetVisible( true );

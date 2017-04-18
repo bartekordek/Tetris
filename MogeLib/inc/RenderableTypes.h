@@ -6,6 +6,7 @@ namespace Moge
 	{
 		PRIMITIVE = 0,
 		TEXTURED,
+		COMPOSITE,
 		UNKOWN
 	};
 }

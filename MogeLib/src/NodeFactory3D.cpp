@@ -5,7 +5,7 @@ namespace Moge
 {
 	NodeFactory3D::NodeFactory3D( ITextureFactory3D* factory3D ): 
 		factory3D( factory3D ),
-		nodes( new ListVector<Node>() )
+		nodes( new ListVector<std::shared_ptr<Node>>() )
 	{
 	}
 
@@ -26,7 +26,8 @@ namespace Moge
 	std::shared_ptr<Node> NodeFactory3D::createFromTexture(const std::shared_ptr<ITexture>& texture, const IPosition<double>& position , const MyString& name)
 	{
 		Node* node = new Node();
-		node->getPosition().setXyz( position );
+		//node->getPosition().setXyz( position );
+		node->setPosition( position );
 		node->setTexture( texture );
 		return std::shared_ptr<Node>( node );
 	}
@@ -39,15 +40,28 @@ namespace Moge
 
 	void NodeFactory3D::remove( const Node* node )
 	{
-		this->nodes->remove( *node );
+		auto& it = this->nodes->getRandomIterator();
+		while( it.hasNext() )
+		{
+			if( it.next().get() == node )
+			{
+				nodes->remove( it );
+				break;
+			}
+		}
 	}
 	
 	const bool NodeFactory3D::exist( const std::shared_ptr<Node>& node )const
 	{
-		const std::shared_ptr<IIterator<Node>> ret = this->nodes->find( *node.get() );
-		const IIterator<Node>& it1 = *ret.get();
-		const IIterator<Node>& it2 = this->nodes->end();
-		return !(it1 == it2);
+		auto& it = this->nodes->getRandomIterator();
+		while( it.hasNext() )
+		{
+			if( it.next().get() == node.get() )
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 		
 	const unsigned int NodeFactory3D::count()const
@@ -55,7 +69,7 @@ namespace Moge
 		return static_cast<unsigned int>( this->nodes->size() );
 	}
 	
-	IIterator<Node>& NodeFactory3D::getNodes()
+	IIterator<std::shared_ptr<Node>>& NodeFactory3D::getNodes()
 	{
 		return this->nodes->getRandomIterator();
 	}

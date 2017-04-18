@@ -10,4 +10,8 @@ namespace Moge
 			SetName( MyString( ( "Node:" + std::to_string( index++ ) ).c_str() ) );
 		}
 	}
+
+	INode::~INode()
+	{
+	}
 }

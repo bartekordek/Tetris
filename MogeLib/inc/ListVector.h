@@ -10,9 +10,9 @@ namespace Moge
 	public:
 		ListVector<Type>()
 		{
-			this->iterator.reset( new IteratorListVector<Type>( this->values, IteratorListVector<Type>::ItType::RANDOM ) );
-			this->first.reset( new IteratorListVector<Type>( this->values, IteratorListVector<Type>::ItType::FIRST ) );
-			this->last.reset( new IteratorListVector<Type>( this->values, IteratorListVector<Type>::ItType::LAST ) );
+			this->iterator.reset( new IteratorListVector<Type>( this->values ) );
+			this->first.reset( new IteratorListVector<Type>( this->values ) );
+			this->last.reset( new IteratorListVector<Type>( this->values ) );
 		}		
 		const IIterator<Type>& begin() const override
 		{
