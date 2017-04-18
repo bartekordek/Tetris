@@ -1,0 +1,52 @@
+[Tetris/Argon/inc/libArgon.hpp:18]: (style) Class 'V3D' has a constructor with 1 argument that is not explicit.
+[Tetris/Argon/inc/libArgon.hpp:50]: (style) Class 'Atom' has a constructor with 1 argument that is not explicit.
+[Tetris/Argon/inc/libArgon.hpp:44]: (warning) The class 'Atom' has 'operator=' but lack of 'copy constructor'.
+[Tetris/MogeLib/RenderableObject/RenderableObjectContainer.h:10]: (warning) The class 'RenderableObjectContainer' has 'copy constructor' but lack of 'operator='.
+[Tetris/MogeLib/RenderableObject/RenderableObjectContainerImpl.h:10]: (warning) The class 'RenderableObjectContainerImpl' has 'copy constructor' but lack of 'operator='.
+[Tetris/MogeLib/Scene/Scene.h:9]: (warning) The class 'Scene' has 'copy constructor' but lack of 'operator='.
+[Tetris/MogeLib/Scene/SceneImpl.h:9]: (warning) The class 'SceneImpl' has 'copy constructor' but lack of 'operator='.
+[Tetris/MogeLib/src/NodeFactory2D.h:11]: (style) Class 'NodeFactory2D' has a constructor with 1 argument that is not explicit.
+[Tetris/MogeLib/inc/IteratorListLinked.h:10]: (style) Class 'IteratorListLinked' has a constructor with 1 argument that is not explicit.
+[Tetris/MogeLib/inc/IteratorListLinked.h:15]: (style) Class 'IteratorListLinked' has a constructor with 1 argument that is not explicit.
+[Tetris/MogeLib/inc/IteratorListVector.h:10]: (style) Class 'IteratorListVector' has a constructor with 1 argument that is not explicit.
+[Tetris/MogeLib/inc/IteratorListVector.h:15]: (style) Class 'IteratorListVector' has a constructor with 1 argument that is not explicit.
+[Tetris/MogeLib/inc/Math/MultiPoint.h:15]: (warning) The class 'MultiPoint' has 'operator=' but lack of 'copy constructor'.
+[Tetris/MogeLib/inc/IteratorListLinked.h:7]: (warning) The class 'IteratorListLinked' has 'operator=' but lack of 'copy constructor'.
+[Tetris/MogeLib/inc/IteratorListVector.h:7]: (warning) The class 'IteratorListVector' has 'operator=' but lack of 'copy constructor'.
+[Tetris/MogeLib/inc/IKeyboardObservable.h:10]: (style) class 'IKeyboardObservable' does not have a copy constructor which is recommended since the class contains a pointer to allocated memory.
+[Tetris/MogeLib/src/NodeFactory3D.h:11]: (style) Class 'NodeFactory3D' has a constructor with 1 argument that is not explicit.
+[../MogeLib/src/TextureSDL.cpp:11]: (warning) Member variable 'TextureSDL::texturePath' is not initialized in the constructor.
+[Tetris/MogeLib/inc/TextureSDL.h:10]: (warning) The class 'TextureSDL' has 'copy constructor' but lack of 'operator='.
+[../MogeLib/src/NodeFactory2D.cpp:19]: (style) The function 'CreateFromImage' is never used.
+[../MogeLib/src/Path.cpp:109]: (style) The function 'GetDirectorySeparator' is never used.
+[../MogeLib/src/Path.cpp:114]: (style) The function 'GetExtensionSeparator' is never used.
+[../MogeLib/src/MyString.cpp:58]: (style) The function 'Replace' is never used.
+[../Tests/src/EngineTests.cpp:16]: (style) The function 'SetUpTestCase' is never used.
+[../MogeLib/src/MTime.cpp:6]: (style) The function 'SleepSeconds' is never used.
+[../Tests/src/EngineTests.cpp:21]: (style) The function 'TearDownTestCase' is never used.
+[../Tests/src/MogeGenericTests.cpp:11]: (style) The function 'UpdateImplementation' is never used.
+[../Tetris/src/TableCoordinates.cpp:53]: (style) The function 'changePosition' is never used.
+[../MogeLib/src/IPositionFactory.cpp:10]: (style) The function 'createPositionDouble1D' is never used.
+[../MogeLib/src/IPositionFactory.cpp:17]: (style) The function 'createPositionDouble2D' is never used.
+[../MogeLib/src/IPositionFactory.cpp:24]: (style) The function 'createPositionDouble3D' is never used.
+[../MogeLib/src/IPositionFactory.cpp:31]: (style) The function 'createPositionInt1D' is never used.
+[../MogeLib/src/IPositionFactory.cpp:47]: (style) The function 'createPositionInt3D' is never used.
+[../MogeLib/src/IPositionFactory.cpp:54]: (style) The function 'createPositionUInt1D' is never used.
+[../MogeLib/src/IPositionFactory.cpp:61]: (style) The function 'createPositionUInt2D' is never used.
+[../MogeLib/src/IPositionFactory.cpp:68]: (style) The function 'createPositionUInt3D' is never used.
+[../MogeLib/src/Vector3DFactory.cpp:14]: (style) The function 'createVectorSimpleInt' is never used.
+[../MogeLib/src/Vector3DFactory.cpp:20]: (style) The function 'createVectorSimpleUInt' is never used.
+[../MogeLib/src/NodeFactory2D.cpp:59]: (style) The function 'exist' is never used.
+[../MogeLib/src/SDLRenderer.cpp:129]: (style) The function 'findTexture' is never used.
+[../MogeLib/src/Engine.cpp:77]: (style) The function 'get3DTextureFactory' is never used.
+[../Argon/src/libArgon.cpp:72]: (style) The function 'getAxisValue' is never used.
+[../Tetris/src/Brick.cpp:21]: (style) The function 'getBlockType' is never used.
+[../MogeLib/src/File.cpp:39]: (style) The function 'getContents' is never used.
+[../MogeLib/src/NodeFactory2D.cpp:77]: (style) The function 'getNodes' is never used.
+[../MogeLib/src/Engine.cpp:40]: (style) The function 'getRenderer' is never used.
+[../MogeLib/src/ObjectNode.cpp:67]: (style) The function 'getScale' is never used.
+[../MogeLib/src/MyString.cpp:80]: (style) The function 'operator+' is never used.
+[../MogeLib/src/SDLRenderer.cpp:141]: (style) The function 'removeTexture' is never used.
+[../Tetris/src/Brick.cpp:37]: (style) The function 'slab2Matrix' is never used.
+[../MogeLib/src/IMogeApp.cpp:35]: (style) The function 'stopApp' is never used.
+(information) Cppcheck cannot find all the include files (use --check-config for details)
