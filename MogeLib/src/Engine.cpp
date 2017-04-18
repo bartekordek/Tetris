@@ -33,14 +33,7 @@ namespace Moge
 		std::lock_guard<std::mutex> lck( mListMutex );
 		this->renderer2D.reset();
 		this->nodeFactory.reset();
-		//auto rndrPtr = this->renderer2D.release();
-		//delete rndrPtr;
 		SDL_Quit();
-	}
-
-	IRenderer* Engine::getRenderer()
-	{
-		return nullptr;
 	}
 
 	void Engine::createScreen( 
@@ -119,43 +112,16 @@ namespace Moge
 
 	void Engine::QueueFrame()
 	{
-		// Need to have a Iterator. TODO: CREATE ITERATOR AND PUT IT HERE.
 		std::lock_guard<std::mutex> renderableObjectLock( this->mRenderableObjectsMutex );
 		auto& nodeIt = this->get2DNodeFactory()->getNodes();
 		if( false == nodeIt.isEmpty() )
 		{
-			unsigned int i = 0;
 			while( nodeIt.hasNext() )
 			{
-				if( i == 218 )
-				{
-					auto dupa = 23;
-				}
 				this->renderer2D->render( *nodeIt.next().get() );
-				++i;
 			}
 		}
 		this->renderer2D->updateScreen();
 		++mFrameCount;
-
-//		for( auto& object : this->nodeFactory-> )
-//		{
-//			Render( *object );
-//		}
-//		this->renderer2D->updateScreen();
-////		
-//		
-	}
-
-	void Engine::Render( Node& node )
-	{
-		if( node.GetVisible() )
-		{
-			//std::lock_guard<std::mutex> lck( mListMutex );
-			//SDL_Rect* screenRect = node.GetGeometricsInfo();
-			//SDL_Rect* imageRect = nullptr;
-			//SDL_BlitSurface( node.GetSurface()->GetSdlSurface(), imageRect, mScreenBuffor->GetSdlSurface(), screenRect );
-            //TODO: Needs new texture logic.
-		}
 	}
 }

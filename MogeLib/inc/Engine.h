@@ -32,7 +32,6 @@ namespace Moge
 		Engine( void );
 		virtual ~Engine();
 
-		IRenderer* getRenderer();
 		void createScreen( Math::ISize<unsigned int>& size, Math::IPosition<int>& position, const std::string& label = "Window label." );
 		void startMainLoop();
 		void stopEventLoop();
@@ -47,7 +46,6 @@ namespace Moge
 		void eventPool();
 		void renderingLoop2D();
 		void QueueFrame();
-		void Render( Node& node );
 
 		std::mutex mRenderableObjectsMutex;
 		std::mutex mListMutex;

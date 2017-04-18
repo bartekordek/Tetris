@@ -27,6 +27,6 @@ namespace Moge
 		virtual const RenderableType getRenderableType()const = 0;
 		virtual const std::shared_ptr<ITexture>& getTexture()const  = 0;
 	protected:
-	private://TODO Write texture render method.	
+	private:
 	};
 }

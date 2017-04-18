@@ -72,7 +72,6 @@ namespace Tetris
 
 	void CMainGrid::ReLeaseBrick()
 	{
-		this->activeBrick.reset(); //TODO: Check if reset can be used once (if deletes previous ptr).
 		this->activeBrick.reset( CBrickFactory::GetRandomBrick() );
 		AddBrick( this->activeBrick.get() );
 	}
