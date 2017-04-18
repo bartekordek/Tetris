@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="MogeLib" />
+		<Option makefile_is_custom="1" />
+		<Option pch_mode="2" />
+		<Option compiler="cygwin" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/MogeLib" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="cygwin" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<MakeCommands>
+					<Build command="$make -f $makefile debug -j8" />
+					<CompileFile command="" />
+					<Clean command="$make -f $makefile clean" />
+					<DistClean command="$make -f $makefile distclean$target" />
+					<AskRebuildNeeded command="" />
+					<SilentBuild command="$make -f $makefile debug -j8 &gt; $(CMD_NULL)" />
+				</MakeCommands>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/MogeLib" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="cygwin" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<MakeCommands>
+					<Build command="$make -f $makefile release -j8" />
+					<CompileFile command="" />
+					<Clean command="$make -f $makefile clean" />
+					<DistClean command="$make -f $makefile distclean$target" />
+					<AskRebuildNeeded command="" />
+					<SilentBuild command="$make -f $makefile release -j8 &gt; $(CMD_NULL)" />
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="RenderableObject/RenderableObjectContainer.cpp" />
+		<Unit filename="RenderableObject/RenderableObjectContainer.h" />
+		<Unit filename="RenderableObject/RenderableObjectContainerImpl.cpp" />
+		<Unit filename="RenderableObject/RenderableObjectContainerImpl.h" />
+		<Unit filename="Scene/Scene.cpp" />
+		<Unit filename="Scene/Scene.h" />
+		<Unit filename="Scene/SceneImpl.cpp" />
+		<Unit filename="Scene/SceneImpl.h" />
+		<Unit filename="inc/ConsoleUtilities.h" />
+		<Unit filename="inc/Engine.h" />
+		<Unit filename="inc/File.h" />
+		<Unit filename="inc/IEngine.h" />
+		<Unit filename="inc/IKey.h" />
+		<Unit filename="inc/IKeyFactory.h" />
+		<Unit filename="inc/IKeyboardObservable.h" />
+		<Unit filename="inc/IKeyboardObserver.h" />
+		<Unit filename="inc/IMogeApp.h" />
+		<Unit filename="inc/INodeCreator.h" />
+		<Unit filename="inc/INodeFactory.h" />
+		<Unit filename="inc/IObservable.h" />
+		<Unit filename="inc/IObservableData.h" />
+		<Unit filename="inc/IObserver.h" />
+		<Unit filename="inc/IRenderable.h" />
+		<Unit filename="inc/IRenderer.h" />
+		<Unit filename="inc/ITexture.h" />
+		<Unit filename="inc/ITextureFactory.h" />
+		<Unit filename="inc/KeyFactorySDL.h" />
+		<Unit filename="inc/KeyboardData.h" />
+		<Unit filename="inc/KeyboardObservable.h" />
+		<Unit filename="inc/MTime.h" />
+		<Unit filename="inc/Math/Axis.h" />
+		<Unit filename="inc/Math/Frustum.h" />
+		<Unit filename="inc/Math/IPosition.h" />
+		<Unit filename="inc/Math/IPositionAdapter.h" />
+		<Unit filename="inc/Math/IPositionFactory.h" />
+		<Unit filename="inc/Math/ISize.h" />
+		<Unit filename="inc/Math/IVector.h" />
+		<Unit filename="inc/Math/IVector3D.h" />
+		<Unit filename="inc/Math/Line.h" />
+		<Unit filename="inc/Math/Matrix2D.hpp" />
+		<Unit filename="inc/Math/MultiPoint.h" />
+		<Unit filename="inc/Math/MultiPointFactory.h" />
+		<Unit filename="inc/Math/PositionDouble3D.h" />
+		<Unit filename="inc/Math/Quaternion.h" />
+		<Unit filename="inc/Math/Rectangle.h" />
+		<Unit filename="inc/Math/Segment.h" />
+		<Unit filename="inc/Math/Size.h" />
+		<Unit filename="inc/Math/SizeDouble3D.h" />
+		<Unit filename="inc/Math/SquareMatrix2D.hpp" />
+		<Unit filename="inc/Math/Vector3DFactory.h" />
+		<Unit filename="inc/MogeLib.h" />
+		<Unit filename="inc/MogeLibMain.h" />
+		<Unit filename="inc/MyString.h" />
+		<Unit filename="inc/Named.h" />
+		<Unit filename="inc/Node.h" />
+		<Unit filename="inc/NodeFactoryRegular.h" />
+		<Unit filename="inc/ObjectNode.h" />
+		<Unit filename="inc/Path.h" />
+		<Unit filename="inc/SDLRenderer.h" />
+		<Unit filename="inc/Scale.h" />
+		<Unit filename="inc/Singleton.h" />
+		<Unit filename="inc/SupportedRenderersList.h" />
+		<Unit filename="inc/SurfaceFactory.h" />
+		<Unit filename="inc/SurfaceWrapper.h" />
+		<Unit filename="inc/TextureFactory.h" />
+		<Unit filename="inc/TextureSDL.h" />
+		<Unit filename="inc/Visible.h" />
+		<Unit filename="nbproject/private/c_standard_headers_indexer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="nbproject/private/cpp_standard_headers_indexer.cpp" />
+		<Unit filename="src/ConsoleUtilities.cpp" />
+		<Unit filename="src/Engine.cpp" />
+		<Unit filename="src/File.cpp" />
+		<Unit filename="src/Frustum.cpp" />
+		<Unit filename="src/IKey.cpp" />
+		<Unit filename="src/IKeyFactory.cpp" />
+		<Unit filename="src/IKeyboardData.h" />
+		<Unit filename="src/IKeyboardObservable.cpp" />
+		<Unit filename="src/IKeyboardObservableImp.cpp" />
+		<Unit filename="src/IKeyboardObservableImp.h" />
+		<Unit filename="src/IKeyboardObserver.cpp" />
+		<Unit filename="src/IMogeApp.cpp" />
+		<Unit filename="src/INodeCreator.cpp" />
+		<Unit filename="src/INodeFactory.cpp" />
+		<Unit filename="src/IObservable.cpp" />
+		<Unit filename="src/IObservableData.cpp" />
+		<Unit filename="src/IObservableImpl.cpp" />
+		<Unit filename="src/IObservableImpl.h" />
+		<Unit filename="src/IPositionFactory.cpp" />
+		<Unit filename="src/IRenderable.cpp" />
+		<Unit filename="src/IRenderer.cpp" />
+		<Unit filename="src/ITexture.cpp" />
+		<Unit filename="src/ITextureFactory.cpp" />
+		<Unit filename="src/IVector3D.cpp" />
+		<Unit filename="src/KeyFactorySDL.cpp" />
+		<Unit filename="src/KeySDL.cpp" />
+		<Unit filename="src/KeySDL.h" />
+		<Unit filename="src/KeyboardData.cpp" />
+		<Unit filename="src/KeyboardObservable.cpp" />
+		<Unit filename="src/Line.cpp" />
+		<Unit filename="src/MTime.cpp" />
+		<Unit filename="src/MogeLibMain.cpp" />
+		<Unit filename="src/MultiPointFactory.cpp" />
+		<Unit filename="src/MyString.cpp" />
+		<Unit filename="src/Named.cpp" />
+		<Unit filename="src/Node.cpp" />
+		<Unit filename="src/NodeFactoryRegular.cpp" />
+		<Unit filename="src/ObjectNode.cpp" />
+		<Unit filename="src/Path.cpp" />
+		<Unit filename="src/PositionDouble3D.cpp" />
+		<Unit filename="src/Quaternion.cpp" />
+		<Unit filename="src/Rectangle.cpp" />
+		<Unit filename="src/SDLRenderer.cpp" />
+		<Unit filename="src/Scale.cpp" />
+		<Unit filename="src/Singleton.cpp" />
+		<Unit filename="src/Size.cpp" />
+		<Unit filename="src/SizeDouble3D.cpp" />
+		<Unit filename="src/SurfaceFactory.cpp" />
+		<Unit filename="src/SurfaceWrapper.cpp" />
+		<Unit filename="src/TextureFactory.cpp" />
+		<Unit filename="src/TextureSDL.cpp" />
+		<Unit filename="src/Vector3DFactory.cpp" />
+		<Unit filename="src/Vector3DSimple.h" />
+		<Unit filename="src/Visible.cpp" />
+		<Extensions>
+			<code_completion>
+				<search_path add="..\..\..\Libraries\boost\boost_1_63_0" />
+				<search_path add="..\..\..\Libraries\SDL2\SDL2-2.0.5\include" />
+			</code_completion>
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

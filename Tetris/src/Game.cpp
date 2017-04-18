@@ -1,28 +1,29 @@
 #include <algorithm>
+#include <memory>
 
 #include "Game.h"
-#include "MultiPointFactory.h"
+#include "Math/IPositionFactory.h"
+#include "Math/SizeUInt2D.h"
 
-#include "MainGrid.h"
 #include "MogeLibMain.h"
 
 namespace Tetris
 {
-	using namespace Moge;
-	CGame::CGame()
-	{
-	}
-
 	CGame::~CGame()
 	{
+		this->mainGrid.reset();
 	}
 
+	using namespace Moge;
+	using namespace Math;
 	void CGame::initialize( const unsigned int rowsCount, const unsigned int columnsCount, const unsigned int winWidth, const unsigned int winHeight )
 	{
-		EngineManager::getEngine()->createScreen( Math::MultiPointFactory::create2d<unsigned int>( winWidth, winHeight ) );
+		auto winSize = SizeUint2D( winWidth, winHeight );
+		std::unique_ptr<IPosition<int>> winPos( IPositionFactory::createPositionInt2D( 100, 100 ) );
+		EngineManager::getEngine()->createScreen( winSize, *winPos );
 		mainGrid.reset( new CMainGrid() );
-        EngineManager::getEngine()->registerObserver( this );
-		mainGrid->SetSize( rowsCount, columnsCount );
+		EngineManager::getEngine()->registerObserver( this );
+		mainGrid->SetSize( rowsCount, columnsCount, 50 );
 		startGame();
 	}
 

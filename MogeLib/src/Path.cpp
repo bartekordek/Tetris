@@ -7,8 +7,6 @@
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/path.hpp>
 
-
-
 using ErrorCode = boost::system::error_code;
 
 namespace Moge

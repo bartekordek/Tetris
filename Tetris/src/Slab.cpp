@@ -16,6 +16,7 @@ Slab::Slab( const Slab& slab ):
 
 Slab::~Slab()
 {
+	auto ptrUseCount = this->node.use_count();
 }
 
 Slab& Slab::operator=( const Slab& slab )
@@ -59,12 +60,13 @@ void Slab::setEmpty( const bool empty )
 	this->empty = empty;
 }
 
-void Slab::setNode( const Moge::ObjectNode& node )
+void Slab::setNode( const std::shared_ptr<Moge::Node>& node )
 {
 	this->node = node;
+	auto ptrUseCount = this->node.use_count();
 }
 
-const Moge::ObjectNode& Slab::getNode()const
+const std::shared_ptr<Moge::Node>& Slab::getNode()const
 {
 	return this->node;
 }

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Brick.h"
-#include "SquareMatrix2D.hpp"
+#include "Math/SquareMatrix2D.hpp"
 
 namespace Tetris
 {

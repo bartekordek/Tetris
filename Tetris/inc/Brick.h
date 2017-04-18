@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Slab.h"
-#include "SquareMatrix2D.hpp"
+#include "Math/SquareMatrix2D.hpp"
 #include <vector>
 
 namespace Tetris

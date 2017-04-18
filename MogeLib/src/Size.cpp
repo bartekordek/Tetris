@@ -1,4 +1,4 @@
-#include "Size.h"
+#include "Math/Size.h"
 
 namespace Moge
 {
