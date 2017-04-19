@@ -264,7 +264,7 @@
     <ClInclude Include="inc\MyString.h" />
     <ClInclude Include="inc\Named.h" />
     <ClInclude Include="inc\INode.h" />
-    <ClInclude Include="inc\ObjectNode.h" />
+    <ClInclude Include="inc\Node.h" />
     <ClInclude Include="inc\Path.h" />
     <ClInclude Include="inc\RenderableTypes.h" />
     <ClInclude Include="inc\Scale.h" />
@@ -319,7 +319,7 @@
     <ClCompile Include="src\INode.cpp" />
     <ClCompile Include="src\NodeFactory2D.cpp" />
     <ClCompile Include="src\NodeFactory3D.cpp" />
-    <ClCompile Include="src\ObjectNode.cpp" />
+    <ClCompile Include="src\Node.cpp" />
     <ClCompile Include="src\Path.cpp" />
     <ClCompile Include="src\PositionDouble2D.cpp" />
     <ClCompile Include="src\PositionDouble3D.cpp" />

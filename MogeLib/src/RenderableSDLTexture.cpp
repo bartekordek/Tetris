@@ -1,6 +1,5 @@
 #include "RenderableSDLTexture.h"
 #include "Math/PositionDouble2D.h"
-#include "Math/SizeDouble2D.h"
 #include "Vector3DSimple.h"
 
 namespace Moge
@@ -8,7 +7,7 @@ namespace Moge
 	RenderableSDLTexture::RenderableSDLTexture()
 	{
 		this->position.reset( new Math::PositionDouble2D() );
-		this->size.reset( new Math::SizeDouble2D() );
+		this->size.reset( new Math::Vector3DSimple<double>() );
 		this->scale.reset( new Math::Vector3DSimple<double>() );
 	}
 	
@@ -32,7 +31,7 @@ namespace Moge
 		*this->position = pos;
 	}
 
-	const Math::ISize<double>& RenderableSDLTexture::getSize()const
+	const Math::IVector3D<double>& RenderableSDLTexture::getSize()const
 	{
 		return *this->size.get();
 	}
@@ -40,6 +39,11 @@ namespace Moge
 	const Math::IVector3D< double >& RenderableSDLTexture::getScale() const
 	{
 		return *this->scale;
+	}
+
+	void RenderableSDLTexture::setScale( const Math::IVector3D< double >& scale )
+	{
+		
 	}
 
 	const  std::shared_ptr<ITexture>& RenderableSDLTexture::getTexture() const

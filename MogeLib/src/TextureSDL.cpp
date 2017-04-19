@@ -1,11 +1,14 @@
 #include "TextureSDL.h"
-#include "Math/SizeDouble2D.h"
+#include "Vector3DSimple.h"
+#include <SDL.h>
 
 namespace Moge
 {
 	TextureSDL::TextureSDL()
 	{
-		this->size.reset( new Math::SizeDouble2D() );
+		this->size.reset( new Math::Vector3DSimple<double>() );
+		this->realSize.reset( new Math::Vector3DSimple<double>() );
+		this->scale.reset( new Math::Vector3DSimple<double>( 1.0, 1.0, 1.0 ) );
 	}
 
 	TextureSDL::TextureSDL(const TextureSDL& orig) 
@@ -21,6 +24,10 @@ namespace Moge
 	void TextureSDL::set( SDL_Texture* texture )
 	{
 		this->texture = texture;
+		int w, h;
+		SDL_QueryTexture( this->texture, nullptr, nullptr, &w, &h );
+		this->size->setXYZ( w, h, 0 );
+		*this->realSize = *this->size * *( this->scale );
 	}
 	
 	SDL_Texture* TextureSDL::get() const
@@ -38,13 +45,24 @@ namespace Moge
 		return this->texturePath.c_str();
 	}
 
-	Math::ISize<double>& TextureSDL::getSize()
+	const Math::IVector3D<double>& TextureSDL::getSize()const
 	{
-		return *this->size.get();
+		return *this->realSize;
 	}
 
-	const Math::ISize<double>& TextureSDL::getSize()const
+	void TextureSDL::setSize( const Math::IVector3D< double >& size )
 	{
-		return *this->size.get();
+		
+	}
+
+	const Math::IVector3D< double >& TextureSDL::getScale() const
+	{
+		return *this->scale.get();
+	}
+
+	void TextureSDL::setScale( const Math::IVector3D< double >& scale )
+	{
+		*this->scale = scale;
+		*this->realSize = *this->size * *( this->scale );
 	}
 }

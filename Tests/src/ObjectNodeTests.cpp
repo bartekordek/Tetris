@@ -1,5 +1,5 @@
 #include "ObjectNodeTests.h"
-#include "ObjectNode.h"
+#include "Node.h"
 
 TEST_F( ObjectNodeTests, CheckIfIsNullptrAfterConstructorCall )
 {

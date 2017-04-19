@@ -1,9 +1,7 @@
 # pragma once
-
-#include "ObjectNode.h"
+#include "Node.h"
 #include "Math/IPositionAdapter.h"
 #include "Path.h"
-
 namespace Moge
 {
 	class MogeLib_API INodeCreator

@@ -1,7 +1,7 @@
 #include "NodeFactory2D.h"
 #include "ITextureFactory2D.h"
 #include "ListVector.h"
-#include "ObjectNode.h"
+#include "Node.h"
 namespace Moge
 {
 	NodeFactory2D::NodeFactory2D( ITextureFactory2D* factory2D ): 

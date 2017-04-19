@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ObjectNode.h"
+#include "Node.h"
 #include "Math/IPositionAdapter.h"
 #include "IIterator.h"
 #include "Path.h"

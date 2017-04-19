@@ -1,4 +1,4 @@
-#include "ObjectNode.h"
+#include "Node.h"
 #include "Math/IPositionFactory.h"
 #include "Math/SizeDouble3D.h"
 #include "Math/Vector3DFactory.h"
@@ -74,7 +74,7 @@ namespace Moge
 		this->position->setZ( z );
 	}
 
-	const ISize< double >& Node::getSize()const
+	const IVector3D< double >& Node::getSize()const
 	{
 		return this->texture->getSize();
 	}
@@ -83,6 +83,15 @@ namespace Moge
 	{
 		return *this->scale;
 	}
+
+	void Node::setScale( const IVector3D< double >& scale )
+	{
+		if( this->texture )
+		{
+			//this->texture->setScale();
+		}
+	}
+
 
 	void Node::setTexture( const std::shared_ptr<ITexture>& texture )
 	{

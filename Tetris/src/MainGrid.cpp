@@ -55,8 +55,8 @@ namespace Tetris
 				auto slabNode = EngineManager::getEngine()->get2DNodeFactory()->createFromTexture(this->emptySlabTex );
 				auto& slabSize = slabNode->getSize();
 				auto& slabPos = slabNode->getPosition();
-				slabNode->setX( slab.col() * slabSize.getWidth() );
-				slabNode->setY( slab.row() * slabSize.getHeight() );
+				slabNode->setX( slab.col() * slabSize.getX() );
+				slabNode->setY( slab.row() * slabSize.getY() );
 
 				slab.setNode( slabNode );
 				slabNode->SetVisible( true );

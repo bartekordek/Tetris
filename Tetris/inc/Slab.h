@@ -1,6 +1,6 @@
 #pragma once
 
-#include <ObjectNode.h>
+#include <Node.h>
 #include "TableCoordinates.h"
 
 namespace Tetris

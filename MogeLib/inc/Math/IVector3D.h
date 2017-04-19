@@ -33,6 +33,7 @@ namespace Moge
 			}
 
 			virtual const bool operator==( const IVector3D& ivector )const = 0;
+			virtual IVector3D<Type>& operator*( const IVector3D<Type>& right ) = 0;
 		};
 	}
 }

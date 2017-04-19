@@ -57,6 +57,14 @@ namespace Moge
 				}
 				return false;
 			}
+
+			IVector3D<Type>& operator*( const IVector3D<Type>& right ) override
+			{
+				this->x *= right.getX();
+				this->y *= right.getY();
+				this->z *= right.getZ();
+				return *this;
+			}
 		protected:
 		private:
 			Type x = static_cast<Type>( 0 );

@@ -6,7 +6,6 @@
 #include <map>
 #include <iostream>
 #include <sstream>
-#include "RenderableSDLTexture.h"
 
 namespace Moge
 {
@@ -82,8 +81,8 @@ namespace Moge
 		SDL_Rect renderQuad;
 		renderQuad.x = static_cast<int>( position.getX() );
 		renderQuad.y = static_cast<int>( position.getY() );
-		renderQuad.w = static_cast<int>( texture.getSize().getWidth() );
-		renderQuad.h = static_cast<int>( texture.getSize().getHeight() );
+		renderQuad.w = static_cast<int>( texture.getSize().getX() );
+		renderQuad.h = static_cast<int>( texture.getSize().getY() );
 		std::unique_ptr<SDL_Rect> srcRect;
 		SDL_RenderCopy( this->renderer, sdlTexture->get(), srcRect.get(), &renderQuad );
 	}
@@ -103,8 +102,6 @@ namespace Moge
 		SDL_Texture* newTexture = SDL_CreateTextureFromSurface( this->renderer, surface );
 		TextureSDL* texture = new TextureSDL();
 		texture->set( newTexture );
-		texture->getSize().setWidth( surface->w );
-		texture->getSize().setHeight( surface->h );
 		texture->setPath( path );
 
 		SDL_FreeSurface( surface );

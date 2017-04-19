@@ -8,8 +8,6 @@
 
 #include "Math/MultiPoint.h"
 #include "Singleton.h"
-#include "Path.h"
-#include "ObjectNode.h"
 #include "IKeyboardObservable.h"
 #include "INodeFactory.h"
 #include "IRenderer.h"
