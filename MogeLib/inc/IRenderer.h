@@ -34,8 +34,14 @@ namespace Moge
 		virtual ~IRenderer() = default;
 		virtual void forceDestroy() = 0;
 		virtual void render( const IRenderable& renderable ) = 0;
-		virtual void render( const ITexture& texture, const Math::IPosition<double>& position ) = 0;
-		virtual void render( const IPrimitive& primitive, const Math::IPosition<double>& position ) = 0;
+		virtual void render(
+			const ITexture& texture, 
+			const Math::IPosition<double>& position,
+			const Math::Vector3D<double>& targetSize ) = 0;
+		virtual void render( 
+			const IPrimitive& primitive, 
+			const Math::IPosition<double>& position,
+			const Math::Vector3D<double>& targetSize ) = 0;
 		virtual void setBackgroundColor( const ColorE color ) = 0;
 		virtual void setBackgroundColor( const ColorS& color ) = 0;
 		virtual void updateScreen() = 0;

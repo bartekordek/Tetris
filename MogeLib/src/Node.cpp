@@ -6,17 +6,14 @@ namespace Moge
 {
 	using namespace Math;
 	Node::Node():
-		position(IPositionFactory::createSimplePositionDouble3D() ),
-		scale( Vector3DFactory::createVectorSimpleDouble( 1.0, 1.0, 1.0 ) )
+		position(IPositionFactory::createSimplePositionDouble3D() )
 	{
 	}
 
 	Node::Node( const Node& objectNodeContent ):
-		position( IPositionFactory::createSimplePositionDouble3D() ),
-		scale( Vector3DFactory::createVectorSimpleDouble( 1.0, 1.0, 1.0 ) )
+		position( IPositionFactory::createSimplePositionDouble3D() )
 	{
 		*this->position.get() = *objectNodeContent.position.get();
-		*this->scale.get() = *objectNodeContent.scale.get();
 		this->texture = objectNodeContent.texture;
 	}
 
@@ -25,7 +22,7 @@ namespace Moge
 		if( &right != this )
 		{
 			this->position->setXyz( *right.position );
-			this->scale->setXYZ( *right.scale );
+			this->scale = right.scale;
 			this->texture = right.texture;
 		}
 		return *this;
@@ -35,7 +32,7 @@ namespace Moge
 	{
 		if( this != &right )
 		{
-			if( *this->position == *right.position && *this->scale == *right.scale )
+			if( *this->position == *right.position && this->scale == right.scale )
 			{
 				if( this->texture.get() == right.texture.get() )
 				{
@@ -74,22 +71,25 @@ namespace Moge
 		this->position->setZ( z );
 	}
 
-	const IVector3D< double >& Node::getSize()const
+	const Vector3D< double >& Node::getSize()const
 	{
 		return this->texture->getSize();
 	}
 
-	const IVector3D< double >& Node::getScale() const
+	const Math::Vector3D< double >& Node::getAbsSize() const
 	{
-		return *this->scale;
+		return this->absSize;
 	}
 
-	void Node::setScale( const IVector3D< double >& scale )
+	const Vector3D< double >& Node::getScale() const
 	{
-		if( this->texture )
-		{
-			//this->texture->setScale();
-		}
+		return this->scale;
+	}
+
+	void Node::setScale( const Vector3D< double >& scale )
+	{
+		this->scale = scale;
+		this->absSize = scale * this->texture->getSize();
 	}
 
 

@@ -22,9 +22,10 @@ namespace Moge
 		void setX( const double x ) override;
 		void setY( const double y ) override;
 		void setZ( const double z ) override;
-		const Math::IVector3D<double>& getSize()const override;
-		const Math::IVector3D<double>& getScale()const override;
-		void setScale( const Math::IVector3D<double>& scale )override;
+		const Math::Vector3D<double>& getSize()const override;
+		const Math::Vector3D<double>& getAbsSize()const override;
+		const Math::Vector3D<double>& getScale()const override;
+		void setScale( const Math::Vector3D<double>& scale )override;
 		void setPosition( const Math::IPosition<double>& pos ) override;
 		const RenderableType getRenderableType()const override;
 
@@ -34,7 +35,8 @@ namespace Moge
 	protected:
 	private:
 		std::unique_ptr<Math::IPosition<double>> position;
-		std::unique_ptr<Math::IVector3D<double>> scale;
+		Math::Vector3D<double> scale{ 1.0, 1.0, 1.0 };
+		Math::Vector3D<double> absSize;
 		std::shared_ptr<ITexture> texture;
 	};
 }

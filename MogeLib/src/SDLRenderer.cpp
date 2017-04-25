@@ -64,30 +64,30 @@ namespace Moge
 		{
 			case RenderableType::TEXTURED:
 			{
-				render( *renderable.getTexture().get(), position );
+				render( *renderable.getTexture().get(), position, renderable.getAbsSize() );
 				break;
 			}
 			case RenderableType::PRIMITIVE:
 			{
-
+				//TODO
 				break;
 			}
 		}
 	}
 
-	void SDLRenderer::render( const ITexture& texture, const Math::IPosition<double>& position )
+	void SDLRenderer::render( const ITexture& texture, const Math::IPosition<double>& position, const Math::Vector3D<double>& targetSize )
 	{
 		auto sdlTexture = static_cast<const TextureSDL*>( &texture );
 		SDL_Rect renderQuad;
 		renderQuad.x = static_cast<int>( position.getX() );
 		renderQuad.y = static_cast<int>( position.getY() );
-		renderQuad.w = static_cast<int>( texture.getSize().getX() );
-		renderQuad.h = static_cast<int>( texture.getSize().getY() );
+		renderQuad.w = static_cast<int>( targetSize.getX() );
+		renderQuad.h = static_cast<int>( targetSize.getY() );
 		std::unique_ptr<SDL_Rect> srcRect;
 		SDL_RenderCopy( this->renderer, sdlTexture->get(), srcRect.get(), &renderQuad );
 	}
 
-	void SDLRenderer::render( const IPrimitive& primitive, const Math::IPosition<double>& position )
+	void SDLRenderer::render( const IPrimitive& primitive, const Math::IPosition<double>& position, const Math::Vector3D<double>& targetSize )
 	{
 	}
 
@@ -154,5 +154,4 @@ namespace Moge
 			BOOST_ASSERT_MSG( false, message.c_str() );
 		}
 	}
-
 }

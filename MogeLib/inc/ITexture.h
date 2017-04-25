@@ -1,7 +1,7 @@
 #pragma once
 
 #include "MogeLib.h"
-#include "Math/IVector3D.h"
+#include "Math/Vector3D.h"
 
 struct SDL_Renderer;
 namespace Moge
@@ -13,11 +13,8 @@ namespace Moge
 		virtual ~ITexture();
 		virtual const char* getPath()const = 0;
 
-		virtual const Math::IVector3D<double>& getSize()const = 0;
-		virtual void setSize( const Math::IVector3D<double>& size ) = 0;
-
-		virtual const Math::IVector3D<double>& getScale()const  = 0;
-		virtual void setScale( const Math::IVector3D<double>& scale ) = 0;
+		virtual const Math::Vector3D<double>& getSize()const = 0;
+		virtual void setSize( const Math::Vector3D<double>& size ) = 0;
 	protected:
 	private:
 	};
