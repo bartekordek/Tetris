@@ -23,8 +23,11 @@ namespace Moge
 		void forceDestroy() override;
 
 		void render( const IRenderable& renderable ) override;
-		void render( const ITexture& texture, const Math::IPosition<double>& position ) override;
-		void render( const IPrimitive& primitive, const Math::IPosition<double>& position ) override;
+		void render( 
+			const ITexture& texture, 
+			const Math::IPosition<double>& position, 
+			const Math::Vector3D<double>& targetSize ) override;
+		void render( const IPrimitive& primitive, const Math::IPosition<double>& position, const Math::Vector3D<double>& targetSize ) override;
 		void updateScreen()override;
 		
 

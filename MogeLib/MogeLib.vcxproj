@@ -239,7 +239,7 @@
     <ClInclude Include="inc\Math\IPositionFactory.h" />
     <ClInclude Include="inc\Math\ISize.h" />
     <ClInclude Include="inc\Math\IVector.h" />
-    <ClInclude Include="inc\Math\IVector3D.h" />
+    <ClInclude Include="inc\Math\Vector3D.h" />
     <ClInclude Include="inc\Math\Line.h" />
     <ClInclude Include="inc\Math\Math.h" />
     <ClInclude Include="inc\Math\Matrix2D.hpp" />
@@ -264,7 +264,7 @@
     <ClInclude Include="inc\MyString.h" />
     <ClInclude Include="inc\Named.h" />
     <ClInclude Include="inc\INode.h" />
-    <ClInclude Include="inc\ObjectNode.h" />
+    <ClInclude Include="inc\Node.h" />
     <ClInclude Include="inc\Path.h" />
     <ClInclude Include="inc\RenderableTypes.h" />
     <ClInclude Include="inc\Scale.h" />
@@ -283,7 +283,6 @@
     <ClInclude Include="src\NodeFactory2D.h" />
     <ClInclude Include="src\NodeFactory3D.h" />
     <ClInclude Include="src\RenderableSDLTexture.h" />
-    <ClInclude Include="src\Vector3DSimple.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ConsoleUtilities.cpp" />
@@ -319,7 +318,7 @@
     <ClCompile Include="src\INode.cpp" />
     <ClCompile Include="src\NodeFactory2D.cpp" />
     <ClCompile Include="src\NodeFactory3D.cpp" />
-    <ClCompile Include="src\ObjectNode.cpp" />
+    <ClCompile Include="src\Node.cpp" />
     <ClCompile Include="src\Path.cpp" />
     <ClCompile Include="src\PositionDouble2D.cpp" />
     <ClCompile Include="src\PositionDouble3D.cpp" />

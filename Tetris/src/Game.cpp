@@ -23,7 +23,7 @@ namespace Tetris
 		EngineManager::getEngine()->createScreen( winSize, *winPos );
 		mainGrid.reset( new CMainGrid() );
 		EngineManager::getEngine()->registerObserver( this );
-		mainGrid->SetSize( rowsCount, columnsCount, 50 );
+		mainGrid->SetSize( rowsCount, columnsCount );
 		startGame();
 	}
 

@@ -2,9 +2,8 @@
 
 #include "Path.h"
 #include "ITexture.h"
-#include <memory>
-#include <SDL.h>
 
+struct SDL_Texture;
 namespace Moge
 {
 	class TextureSDL: public ITexture
@@ -19,12 +18,12 @@ namespace Moge
 		void setPath( const Path& path );
 		const char* getPath()const override;
 
-		Math::ISize<double>& getSize() override;
-		const Math::ISize<double>& getSize()const override;
+		const Math::Vector3D<double>& getSize()const override;
+		void setSize( const Math::Vector3D<double>& size ) override;
 		
 	private:
 		SDL_Texture* texture = nullptr;
 		Path texturePath;
-		std::unique_ptr<Math::ISize<double>> size;
+		Math::Vector3D<double> size;
 	};
 }

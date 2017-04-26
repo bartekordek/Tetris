@@ -6,7 +6,6 @@
 #include <map>
 #include <iostream>
 #include <sstream>
-#include "RenderableSDLTexture.h"
 
 namespace Moge
 {
@@ -65,30 +64,37 @@ namespace Moge
 		{
 			case RenderableType::TEXTURED:
 			{
-				render( *renderable.getTexture().get(), position );
+				render( *renderable.getTexture().get(), position, renderable.getAbsSize() );
 				break;
 			}
 			case RenderableType::PRIMITIVE:
 			{
-
+				BOOST_ASSERT_MSG( false, "NOT IMPLEMENTED YET!" );
+				//TODO
+				break;
+			}
+			default:
+			{
+				BOOST_ASSERT_MSG( false, "NOT IMPLEMENTED YET!" );
+				//TODO
 				break;
 			}
 		}
 	}
 
-	void SDLRenderer::render( const ITexture& texture, const Math::IPosition<double>& position )
+	void SDLRenderer::render( const ITexture& texture, const Math::IPosition<double>& position, const Math::Vector3D<double>& targetSize )
 	{
 		auto sdlTexture = static_cast<const TextureSDL*>( &texture );
 		SDL_Rect renderQuad;
 		renderQuad.x = static_cast<int>( position.getX() );
 		renderQuad.y = static_cast<int>( position.getY() );
-		renderQuad.w = static_cast<int>( texture.getSize().getWidth() );
-		renderQuad.h = static_cast<int>( texture.getSize().getHeight() );
+		renderQuad.w = static_cast<int>( targetSize.getX() );
+		renderQuad.h = static_cast<int>( targetSize.getY() );
 		std::unique_ptr<SDL_Rect> srcRect;
 		SDL_RenderCopy( this->renderer, sdlTexture->get(), srcRect.get(), &renderQuad );
 	}
 
-	void SDLRenderer::render( const IPrimitive& primitive, const Math::IPosition<double>& position )
+	void SDLRenderer::render( const IPrimitive& primitive, const Math::IPosition<double>& position, const Math::Vector3D<double>& targetSize )
 	{
 	}
 
@@ -103,8 +109,6 @@ namespace Moge
 		SDL_Texture* newTexture = SDL_CreateTextureFromSurface( this->renderer, surface );
 		TextureSDL* texture = new TextureSDL();
 		texture->set( newTexture );
-		texture->getSize().setWidth( surface->w );
-		texture->getSize().setHeight( surface->h );
 		texture->setPath( path );
 
 		SDL_FreeSurface( surface );
@@ -157,5 +161,4 @@ namespace Moge
 			BOOST_ASSERT_MSG( false, message.c_str() );
 		}
 	}
-
 }

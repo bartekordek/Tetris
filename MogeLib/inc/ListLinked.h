@@ -2,6 +2,7 @@
 #include "IList.h"
 #include "IteratorListLinked.h"
 #include <memory>
+#include <algorithm>
 namespace Moge
 {
 	template<typename Type>

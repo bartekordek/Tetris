@@ -3,6 +3,7 @@
 #include "BrickFactory.h"
 #include "MTime.h"
 #include "MogeLibMain.h"
+#include "Math/Vector3D.h"
 
 namespace Tetris
 {
@@ -52,11 +53,12 @@ namespace Tetris
 		{
 			for( auto& slab : slabRow )
 			{
-				auto slabNode = EngineManager::getEngine()->get2DNodeFactory()->createFromTexture(this->emptySlabTex );
-				auto& slabSize = slabNode->getSize();
+				auto slabNode = EngineManager::getEngine()->get2DNodeFactory()->createFromTexture( this->emptySlabTex );
+				slabNode->setScale( Math::Vector3D<double>( 2.0, 1.0, 0.0 ) );
+				auto& slabSize = slabNode->getAbsSize();
 				auto& slabPos = slabNode->getPosition();
-				slabNode->setX( slab.col() * slabSize.getWidth() );
-				slabNode->setY( slab.row() * slabSize.getHeight() );
+				slabNode->setX( slab.col() * slabSize.getX() );
+				slabNode->setY( slab.row() * slabSize.getY() );
 
 				slab.setNode( slabNode );
 				slabNode->SetVisible( true );
@@ -72,7 +74,6 @@ namespace Tetris
 
 	void CMainGrid::ReLeaseBrick()
 	{
-		this->activeBrick.reset(); //TODO: Check if reset can be used once (if deletes previous ptr).
 		this->activeBrick.reset( CBrickFactory::GetRandomBrick() );
 		AddBrick( this->activeBrick.get() );
 	}
