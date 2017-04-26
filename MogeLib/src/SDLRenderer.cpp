@@ -69,6 +69,13 @@ namespace Moge
 			}
 			case RenderableType::PRIMITIVE:
 			{
+				BOOST_ASSERT_MSG( false, "NOT IMPLEMENTED YET!" );
+				//TODO
+				break;
+			}
+			default:
+			{
+				BOOST_ASSERT_MSG( false, "NOT IMPLEMENTED YET!" );
 				//TODO
 				break;
 			}

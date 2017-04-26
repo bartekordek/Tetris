@@ -1,5 +1,6 @@
 #pragma once
 #include <MogeLib.h>
+#include <type_traits>
 namespace Moge
 {
 	namespace Math
@@ -8,6 +9,16 @@ namespace Moge
 		class MogeLib_API Epsilon
 		{
 		public:
+			Epsilon()
+			{
+				if( std::is_same<Type, float>::value || std::is_same<Type, double>::value )
+				{
+					this->epsilon = static_cast<Type>( 0.0000000001 );
+				}
+			}
+
+			virtual ~Epsilon() = default;
+
 			void setEpsilon( const double epislon )
 			{
 				this->epsilon = epislon;
@@ -24,7 +35,7 @@ namespace Moge
 				return abs( val1 - val2 ) <= epsilonAsType;
 			}
 		private:
-			double epsilon = 0.00000001; //TODO: Think about default value;
+			Type epsilon = static_cast<Type>( 0 );
 		};
 	}
 }

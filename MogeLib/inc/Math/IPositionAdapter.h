@@ -83,9 +83,9 @@ namespace Moge
 			const bool operator==( const IPosition<Type>& position )const override
 			{
 				if( 
-					Util::abs( this->getX() - position.getX() ) < getEpsilon() && 
-					Util::abs( this->getY() - position.getY() ) < getEpsilon() &&
-					Util::abs( this->getZ() - position.getZ() ) < getEpsilon() )
+					Util::abs( this->getX() - position.getX() ) < Epsilon<Type>::getEpsilon() &&
+					Util::abs( this->getY() - position.getY() ) < Epsilon<Type>::getEpsilon() &&
+					Util::abs( this->getZ() - position.getZ() ) < Epsilon<Type>::getEpsilon() )
 				{
 					return true;
 				}

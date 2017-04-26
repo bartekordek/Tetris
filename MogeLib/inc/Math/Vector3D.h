@@ -65,9 +65,9 @@ namespace Moge
 			const bool operator==( const Vector3D& ivector )const
 			{
 				if( 
-					equals( this->x, ivector.x ) &&
-					equals( this->y, ivector.y ) &&
-					equals( this->z, ivector.z ) )
+					Epsilon<Type>::equals( this->x, ivector.x ) &&
+					Epsilon<Type>::equals( this->y, ivector.y ) &&
+					Epsilon<Type>::equals( this->z, ivector.z ) )
 				{
 					return true;
 				}
