@@ -104,7 +104,7 @@
           <buildCommandWorkingDir>.</buildCommandWorkingDir>
           <buildCommand>${MAKE} -j12</buildCommand>
           <cleanCommand>${MAKE} clean</cleanCommand>
-          <executablePath></executablePath>
+          <executablePath>..\Build\Debug\Tetris.exe</executablePath>
           <ccTool>
             <standard>8</standard>
             <incDir>

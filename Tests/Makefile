@@ -14,6 +14,7 @@ IMPORT_LIBS_RELEASE = -L$(OUTPUT_DIR_RELEASE) -L$(LINUX_BUILD_PREF)
 IMPORT_LIBS_FILES=-lmoge -lgtest -lgtest_main
 OUTPUT_DEBUG = $(OUTPUT_DIR_DEBUG)/$(BINARY_NAME)
 OUTPUT_RELEASE = $(OUTPUT_DIR_RELEASE)/$(BINARY_NAME)
+LINUX_BIN_SUBPATH=build/.libs
 
 CPP_FILES := $(wildcard */*.cpp)
 CPP_FILES += main.cpp
@@ -36,11 +37,11 @@ run_release: release
 
 $(OUTPUT_DEBUG): $(OBJ_DEBUG_FILES)
 	$(CC_LINK) -o $(OUTPUT_DEBUG) $(OBJ_DEBUG_FILES) $(IMPORT_LIBS_DEBUG) $(IMPORT_LIBS_FILES)
-	cp $(HOME_SDL2_CYGWIN)/bin/*.dll $(dir $(OUTPUT_DEBUG))
+	cp $(HOME_SDL2_LINUX)/$(LINUX_BIN_SUBPATH)/*.dll $(dir $(OUTPUT_DEBUG))
 
 $(OUTPUT_RELEASE): $(OBJ_RELEASE_FILES)
 	$(CC_LINK) -o $(OUTPUT_RELEASE) $(OBJ_RELEASE_FILES) $(IMPORT_LIBS_RELEASE) $(IMPORT_LIBS_FILES)
-	cp $(HOME_SDL2_CYGWIN)/bin/*.dll $(dir $(OUTPUT_RELEASE))
+	cp $(HOME_SDL2_LINUX)/$(LINUX_BIN_SUBPATH)/*.dll $(dir $(OUTPUT_RELEASE))
 
 $(OBJ_DEBUG_DIR)%.o: %.cpp
 	mkdir -p $(dir $@)
@@ -74,7 +75,7 @@ clear_all:
 test:
 	@echo "All .o files: $(OBJ_DEBUG_FILES)"
 	@echo "All .cpp files: $(CPP_FILES)" 
-	@echo "SDL2: $(HOME_SDL2_CYGWIN)/"
+	@echo "SDL2: $(HOME_SDL2_LINUX)/"
 
 help:
 	echo "If run first time, please run \"make first_run\" it will create necessary dirs."

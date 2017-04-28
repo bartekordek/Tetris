@@ -3,6 +3,8 @@
 #include "IIterator.h"
 #include <memory>
 
+unsigned manyElementsCount = 10000 * 1000;
+
 ListTests::ListTests( void )
 {
 }
@@ -67,7 +69,7 @@ TEST_F( ListTests, VectorIntIterateTwoElements )
 TEST_F( ListTests, VectorIntIterateManyElements )
 {
 	std::unique_ptr<Moge::IList<unsigned>> result( Moge::ListFactory<unsigned>::createVectorListPtr() );
-	unsigned limit = 1000 * 1000;
+	unsigned limit = manyElementsCount;
 	for( unsigned i = 0; i < limit; ++i )
 	{
 		result->pushBack( i );
@@ -131,7 +133,7 @@ TEST_F( ListTests, LinkedIntIterateTwoElements )
 TEST_F( ListTests, LinkedIntIterateManyElements )
 {
 	std::unique_ptr<Moge::IList<unsigned>> result( Moge::ListFactory<unsigned>::createVectorListPtr() );
-	unsigned limit = 1000 * 1000;
+	unsigned limit = manyElementsCount;
 	for( unsigned i = 0; i < limit; ++i )
 	{
 		result->pushBack( i );
