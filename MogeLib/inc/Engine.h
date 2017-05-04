@@ -6,7 +6,6 @@
 #include <mutex>
 #include <memory>
 
-#include "Math/MultiPoint.h"
 #include "Singleton.h"
 #include "IKeyboardObservable.h"
 #include "INodeFactory.h"
@@ -16,6 +15,7 @@
 #include "IRenderer3D.h"
 #include "ITextureFactory.h"
 #include "IList.h"
+#include "IFPSCounter.h"
 
 namespace Moge
 {
@@ -44,11 +44,13 @@ namespace Moge
 		void eventPool();
 		void renderingLoop2D();
 		void QueueFrame();
+		void infoLoop();
 
 		std::mutex mRenderableObjectsMutex;
 		std::mutex mListMutex;
 		std::thread mainLoop;
-		std::atomic<bool> mainLoopIsRuning = {true};
+		std::thread infoLoopThread;
+		std::atomic<bool> mainLoopIsRuning = { true };
 		std::atomic<bool> eventLoopActive = { true };
 		unsigned int mFrameCount = 0;
 
@@ -62,6 +64,7 @@ namespace Moge
 		std::unique_ptr<IRenderer3D> renderer3D;
 		
 		std::unique_ptr<ITextureFactory3D> textureFactory3D;
-		std::unique_ptr<IList<double>> someList;
+
+		std::unique_ptr<IFPSCounter> fpsCounter;
 	};
 }

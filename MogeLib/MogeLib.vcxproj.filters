@@ -162,9 +162,6 @@
     <ClInclude Include="inc\MogeLibMain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\MTime.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\Named.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -276,6 +273,24 @@
     <ClInclude Include="inc\Math\Vector3D.h">
       <Filter>Header Files\Math</Filter>
     </ClInclude>
+    <ClInclude Include="inc\ITimer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ITime.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TimerChrono.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TimeConcrete.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\IFPSCounter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FPSCounterConcrete.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ConsoleUtilities.cpp">
@@ -365,9 +380,6 @@
     <ClCompile Include="src\MogeLibMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\MTime.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\MultiPointFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -423,6 +435,27 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Node.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ITimer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ITime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TimerChrono.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ListFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TimeConcrete.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\IFPSCounter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FPSCounterConcrete.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

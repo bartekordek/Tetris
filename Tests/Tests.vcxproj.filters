@@ -78,6 +78,9 @@
     <ClCompile Include="src\EngineTests.cpp">
       <Filter>Tests\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="src\TimeTests.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\MogeGenericTests.h">
@@ -109,6 +112,9 @@
     </ClInclude>
     <ClInclude Include="inc\ListTests.h">
       <Filter>Tests\List</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\TimeTests.h">
+      <Filter>Tests</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,16 +1,15 @@
 #include "Engine.h"
-#include "Math/IPositionAdapter.h"
 #include "KeyboardObservable.h"
 #include "IKeyboardObserver.h"
 #include "KeyFactorySDL.h"
 #include "SDLRenderer.h"
 #include "NodeFactory2D.h"
 #include "ITextureFactory3D.h"
-#include "ListFactory.h"
 
 #include <SDL.h>
-
+#include <iostream>
 #include <memory>
+#include "ITimer.h"
 
 namespace Moge
 {
@@ -24,8 +23,8 @@ namespace Moge
 		auto txtFactory2D = static_cast<SDLRenderer*>( this->renderer2D.get() );
 		this->nodeFactory.reset( new NodeFactory2D( txtFactory2D ) );
 		this->renderer2D->setBackgroundColor( ColorE::RED );
-		this->someList.reset( ListFactory<double>::createLinkedListPtr() );
-		this->someList->pushBack( 4 );
+		this->fpsCounter.reset( FPSCounterFactory::getConcreteFPSCounter() );
+		this->infoLoopThread = std::thread( &Engine::infoLoop, this );
 	}
 
 	Engine::~Engine()
@@ -34,6 +33,7 @@ namespace Moge
 		this->renderer2D.reset();
 		this->nodeFactory.reset();
 		SDL_Quit();
+		this->infoLoopThread.join();
 	}
 
 	void Engine::createScreen( 
@@ -98,7 +98,6 @@ namespace Moge
 					}
 				}
 			}
-
 		}
 	}
 
@@ -123,5 +122,15 @@ namespace Moge
 		}
 		this->renderer2D->updateScreen();
 		++mFrameCount;
+		this->fpsCounter->increase();
+	}
+
+	void Engine::infoLoop()
+	{
+		while( this->mainLoopIsRuning )
+		{
+			std::cout << "FPS: " << this->fpsCounter->getFps() << "\n";
+			ITimer::SleepSeconds( 2 );
+		}
 	}
 }
