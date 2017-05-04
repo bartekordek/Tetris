@@ -24,6 +24,7 @@ namespace Moge
 		this->nodeFactory.reset( new NodeFactory2D( txtFactory2D ) );
 		this->renderer2D->setBackgroundColor( ColorE::RED );
 		this->fpsCounter.reset( FPSCounterFactory::getConcreteFPSCounter() );
+		this->fpsCounter->setAverageFpsSample( 80 );
 		this->infoLoopThread = std::thread( &Engine::infoLoop, this );
 	}
 
@@ -121,16 +122,34 @@ namespace Moge
 			}
 		}
 		this->renderer2D->updateScreen();
-		++mFrameCount;
-		this->fpsCounter->increase();
+		this->fpsCounter->increase();		
+		ITimer::SleepMiliSeconds( this->frameSleepTimeMs );
 	}
 
 	void Engine::infoLoop()
 	{
 		while( this->mainLoopIsRuning )
 		{
-			std::cout << "FPS: " << this->fpsCounter->getFps() << "\n";
-			ITimer::SleepSeconds( 2 );
+			int averageFpsCount4 = static_cast<int>( this->fpsCounter->getAverageFps() );
+			if( averageFpsCount4 > fpsConst + framesDelta )
+			{
+				std::cout << "Render sleep time increase: " << this->frameSleepTimeMs << "\n";
+				++this->frameSleepTimeMs;
+			}
+			else if( averageFpsCount4 < fpsConst - framesDelta )
+			{
+				if( this->frameSleepTimeMs > 0 )
+				{
+					std::cout << "Render sleep time decrease: " << this->frameSleepTimeMs << "\n";
+					--this->frameSleepTimeMs;
+				}
+			}
+			else
+			{
+				std::cout << "Render sleep time is const.\n";
+			}
+			ITimer::SleepSeconds( 16 );
+			std::cout << "FPS AVG: " << this->fpsCounter->getAverageFps() << "\n";
 		}
 	}
 }
