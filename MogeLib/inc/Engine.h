@@ -70,4 +70,4 @@ namespace Moge
 		int fpsConst = 60;
 		unsigned framesSampleSize = 8;
 	};
-}  
+}
