@@ -1,7 +1,7 @@
 #include "Game.h"
 #include "MainGrid.h"
 #include "BrickFactory.h"
-#include "MTime.h"
+#include "ITimer.h"
 #include "MogeLibMain.h"
 #include "Math/Vector3D.h"
 
@@ -32,7 +32,7 @@ namespace Tetris
 			ManageFullLine();
 			ReLeaseBrick();
 		}
-		CTimeMod::SleepMiliSeconds( 500 );
+		ITimer::SleepMiliSeconds( 500 );
 		MoveActualBrick( Math::Directions::D );
 	}
 

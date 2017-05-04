@@ -98,7 +98,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;MogeLib_EXPORT;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)inc;$(HOME_GTEST_WINDOWS)\googletest\include;%(AdditionalIncludeDirectories);$(SolutionDir)MogeMath\inc;$(SolutionDir)String\inc\;$(SolutionDir)MogeLib\inc\;$(SolutionDir)inc\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)inc;$(HOME_GTEST_WINDOWS)\googletest\include;%(AdditionalIncludeDirectories);$(SolutionDir)MogeMath\inc;$(SolutionDir)String\inc\;$(SolutionDir)MogeLib\inc\</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <TreatWarningAsError>true</TreatWarningAsError>
@@ -128,7 +128,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;MogeLib_EXPORT;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)inc;$(HOME_GTEST_WINDOWS)\googletest\include;%(AdditionalIncludeDirectories);$(SolutionDir)MogeMath\inc;$(SolutionDir)String\inc\;$(SolutionDir)MogeLib\inc\;$(SolutionDir)inc\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)inc;$(HOME_GTEST_WINDOWS)\googletest\include;%(AdditionalIncludeDirectories);$(SolutionDir)MogeMath\inc;$(SolutionDir)String\inc\;$(SolutionDir)MogeLib\inc\</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <TreatWarningAsError>true</TreatWarningAsError>
@@ -160,7 +160,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;MogeLib_EXPORT;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)inc;$(HOME_GTEST_WINDOWS)\googletest\include;%(AdditionalIncludeDirectories);$(SolutionDir)MogeMath\inc;$(SolutionDir)String\inc\;$(SolutionDir)MogeLib\inc\;$(SolutionDir)inc\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)inc;$(HOME_GTEST_WINDOWS)\googletest\include;%(AdditionalIncludeDirectories);$(SolutionDir)MogeMath\inc;$(SolutionDir)String\inc\;$(SolutionDir)MogeLib\inc\</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
@@ -190,7 +190,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;MogeLib_EXPORT;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)inc;$(HOME_GTEST_WINDOWS)\googletest\include;%(AdditionalIncludeDirectories);$(SolutionDir)MogeMath\inc;$(SolutionDir)String\inc\;$(SolutionDir)MogeLib\inc\;$(SolutionDir)inc\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)inc;$(HOME_GTEST_WINDOWS)\googletest\include;%(AdditionalIncludeDirectories);$(SolutionDir)MogeMath\inc;$(SolutionDir)String\inc\;$(SolutionDir)MogeLib\inc\</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
@@ -223,6 +223,7 @@
     <ClCompile Include="src\NodeCreatorTests.cpp" />
     <ClCompile Include="src\NodeTests.cpp" />
     <ClCompile Include="src\ObjectNodeTests.cpp" />
+    <ClCompile Include="src\TimeTests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\EngineTests.h" />
@@ -235,6 +236,7 @@
     <ClInclude Include="inc\NodeCreatorTests.h" />
     <ClInclude Include="inc\NodeTests.h" />
     <ClInclude Include="inc\ObjectNodeTests.h" />
+    <ClInclude Include="inc\TimeTests.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
