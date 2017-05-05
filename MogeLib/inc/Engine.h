@@ -52,7 +52,6 @@ namespace Moge
 		std::thread infoLoopThread;
 		std::atomic<bool> mainLoopIsRuning = { true };
 		std::atomic<bool> eventLoopActive = { true };
-		unsigned int mFrameCount = 0;
 
 		const uint8_t* sdlKey = nullptr;
 		std::map<unsigned int, std::shared_ptr<IKey>> keys;
@@ -66,5 +65,9 @@ namespace Moge
 		std::unique_ptr<ITextureFactory3D> textureFactory3D;
 
 		std::unique_ptr<IFPSCounter> fpsCounter;
+		std::atomic<int> frameSleepTimeMs = 0;
+		int framesDelta = 2;
+		int fpsConst = 60;
+		unsigned framesSampleSize = 8;
 	};
 }

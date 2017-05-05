@@ -54,7 +54,7 @@ namespace Tetris
 			for( auto& slab : slabRow )
 			{
 				auto slabNode = EngineManager::getEngine()->get2DNodeFactory()->createFromTexture( this->emptySlabTex );
-				slabNode->setScale( Math::Vector3D<double>( 2.0, 1.0, 0.0 ) );
+				slabNode->setScale( Math::Vector3D<double>( 2.0, 2.0, 0.0 ) );
 				auto& slabSize = slabNode->getAbsSize();
 				auto& slabPos = slabNode->getPosition();
 				slabNode->setX( slab.col() * slabSize.getX() );
@@ -64,7 +64,6 @@ namespace Tetris
 				slabNode->SetVisible( true );
 			}
 		}
-		//slabNode->setScale( 2.0 ); // TODO: uncomment this line after implementing correct scale system - textues.
 	}
 
 	void CMainGrid::clearSlabs()
