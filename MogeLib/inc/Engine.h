@@ -65,7 +65,7 @@ namespace Moge
 		std::unique_ptr<ITextureFactory3D> textureFactory3D;
 
 		std::unique_ptr<IFPSCounter> fpsCounter;
-		std::atomic<int> frameSleepTimeMs = 0;
+		std::atomic<int> frameSleepTimeMs = { 0 };
 		int framesDelta = 2;
 		int fpsConst = 60;
 		unsigned framesSampleSize = 8;

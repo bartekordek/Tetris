@@ -28,11 +28,11 @@ namespace Moge
 
 		std::thread mainThread;
 		std::unique_ptr<ITimer> timer;
-		std::atomic<bool> run = true;
-		std::atomic<short> framesCount = 0;
-		std::atomic<short> lastFrameValue = 0;
+		std::atomic<bool> run = { true };
+		std::atomic<short> framesCount = { 0 };
+		std::atomic<short> lastFrameValue = { 0 };
 		boost::circular_buffer<short> samples;
 		unsigned int sampleSize = 10;
-		std::atomic<short> averageFps = 0;
+		std::atomic<short> averageFps = { 0 };
 	};
 }
