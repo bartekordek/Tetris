@@ -16,6 +16,8 @@ namespace Moge
 			{
 			}
 
+			Vector3D( const Vector3D<Type>& vector ) = default;
+
 			virtual ~Vector3D() = default;
 
 			const Type getX()const

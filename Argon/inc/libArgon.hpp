@@ -15,7 +15,7 @@ class V3D
 {
 public:
 	V3D() = default;
-	V3D( const double values );
+	explicit V3D( const double values );
 	V3D( const double x, const double y, const double z );
 	V3D( const V3D& v3d );
 	virtual ~V3D() = default;
@@ -47,8 +47,9 @@ public:
 	/**Position, forces, elastic forces, momentum and kinetic energy.*/
 	V3D R, F, FS, P, KE;
 	Atom() = default;
-	Atom( const double val );
+	explicit Atom( const double val );
 	Atom( const double x, const double y, const double z );
+	Atom( const Atom& atom ) = default;
 	virtual ~Atom() = default;
 
 	double operator-( const Atom& atom )const;

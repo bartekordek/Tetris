@@ -8,7 +8,7 @@ namespace Moge
 	class NodeFactory3D: public INodeFactory
 	{
 	public:
-		NodeFactory3D( ITextureFactory3D* factory3D );
+		explicit NodeFactory3D( ITextureFactory3D* factory3D );
 		virtual ~NodeFactory3D() = default;
 		std::shared_ptr<Node> CreateFromImage(
 				const Path& filePath,

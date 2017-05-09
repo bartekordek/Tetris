@@ -23,6 +23,8 @@ namespace Moge
 				}
 			}
 
+			MultiPoint( const MultiPoint<Type>& mp ) = default;
+
 			virtual ~MultiPoint()
 			{
 			}
