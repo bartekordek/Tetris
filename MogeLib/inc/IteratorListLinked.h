@@ -7,12 +7,12 @@ namespace Moge
 	class IteratorListLinked: public IIterator<Type>
 	{
 	public:
-		IteratorListLinked<Type>( std::list<Type>& elements ) :
+		explicit IteratorListLinked<Type>( std::list<Type>& elements ) :
 			elements( elements )
 		{
 		}
 
-		IteratorListLinked<Type>( IteratorListLinked<Type>& arg ) :
+		explicit IteratorListLinked<Type>( IteratorListLinked<Type>& arg ) :
 			elements( arg.elements )
 		{
 		}

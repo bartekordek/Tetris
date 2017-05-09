@@ -7,12 +7,12 @@ namespace Moge
 	class IteratorListVector: public IIterator<Type>
 	{
 	public:
-		IteratorListVector<Type>( std::vector<Type>& elements ): 
+		explicit IteratorListVector<Type>( std::vector<Type>& elements ): 
 			elements( elements )
 		{
 		}
 
-		IteratorListVector<Type>( IteratorListVector<Type>& arg ) :
+		explicit IteratorListVector<Type>( IteratorListVector<Type>& arg ) :
 			elements( arg.elements )
 		{
 		}
