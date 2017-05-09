@@ -7,7 +7,7 @@ PROJECT_NAME = Tetris
 BINARY_NAME = $(PROJECT_NAME).exe 
 OUTPUT_DIR_DEBUG = ../Build/Debug
 OUTPUT_DIR_RELEASE = ../Build/Release
-HEADER_INC = -I ../MogeLib/inc/ -I inc/ -I ../MogeMath/inc/
+HEADER_INC = -I ../MogeLib/inc/ -I inc/
 OUTPUT_DEBUG = $(OUTPUT_DIR_DEBUG)/$(BINARY_NAME)
 OUTPUT_RELEASE = $(OUTPUT_DIR_RELEASE)/$(BINARY_NAME)
 
