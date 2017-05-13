@@ -4,6 +4,7 @@
 #include "ITimer.h"
 #include "MogeLibMain.h"
 #include "Math/Vector3D.h"
+#include <cmath>
 
 namespace Tetris
 {
@@ -61,7 +62,6 @@ namespace Tetris
 				auto slabNode = EngineManager::getEngine()->get2DNodeFactory()->createFromTexture( this->emptySlabTex );
 				slabNode->setScale( Math::Vector3D<double>( 2.0, 2.0, 0.0 ) );
 				auto& slabSize = slabNode->getAbsSize();
-				auto& slabPos = slabNode->getPosition();
 				slabNode->setX( slab.col() * slabSize.getX() );
 				slabNode->setY( slab.row() * slabSize.getY() );
 
@@ -86,8 +86,8 @@ namespace Tetris
 		float y0 = 350;
 		while( this->runFunThread )
 		{
-			pos.setX( x0 + 100 * std::cos( t ) );
-			pos.setY( y0 + 100 * std::sin( t ) );
+			pos.setX( x0 + 100 * cos( t ) );
+			pos.setY( y0 + 100 * sin( t ) );
 			slabNode->setPosition( pos );
 			t += 0.01f;
 			ITimer::SleepMiliSeconds( 1 );
