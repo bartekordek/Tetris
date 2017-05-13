@@ -1,11 +1,13 @@
 #pragma once
 #include "Math/Epsilon.h"
+#include "IPosition.h"
+
 namespace Moge
 {
 	namespace Math
 	{
 		template <typename Type>
-		class MogeLib_API Vector3D: public Epsilon<Type>
+		class MogeLib_API Vector3D: public IPosition<Type>
 		{
 		public:
 			Vector3D() = default;
@@ -70,6 +72,18 @@ namespace Moge
 					Epsilon<Type>::equals( this->x, ivector.x ) &&
 					Epsilon<Type>::equals( this->y, ivector.y ) &&
 					Epsilon<Type>::equals( this->z, ivector.z ) )
+				{
+					return true;
+				}
+				return false;
+			}
+
+			const bool operator==( const IPosition<Type>& position )const override
+			{
+				if(
+					Epsilon<Type>::equals( this->x, position.getX() ) &&
+					Epsilon<Type>::equals( this->y, position.getY() ) &&
+					Epsilon<Type>::equals( this->z, position.getZ() ) )
 				{
 					return true;
 				}
