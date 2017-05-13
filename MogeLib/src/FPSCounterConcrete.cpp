@@ -60,10 +60,11 @@ const unsigned int FPSCounterConcrete::calculateAverageFps()const
 	}
 	unsigned int sampleSizeRealVal = static_cast<unsigned int>( this->samples.size() );
 	unsigned int sampleSizeReal = this->sampleSize < sampleSizeRealVal ? this->sampleSize : sampleSizeRealVal;
-	short sum = 0;
+	unsigned sum = 0;
 	for( unsigned int i = 0; i < sampleSizeReal; ++i )
 	{
 		sum += this->samples[i];
 	}
-	return static_cast<unsigned int>( sum ) / sampleSizeReal;
+	auto result = sum / sampleSizeReal;
+	return result;
 }
