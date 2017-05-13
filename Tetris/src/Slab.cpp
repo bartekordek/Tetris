@@ -1,7 +1,6 @@
 #include "Slab.h"
 
-namespace Tetris
-{
+using namespace Tetris;
 Slab::Slab( const unsigned int row, const unsigned int col, const bool empty ):
 	position( MatrixPos( row, col ) ),
 	empty( empty )
@@ -16,7 +15,6 @@ Slab::Slab( const Slab& slab ):
 
 Slab::~Slab()
 {
-	auto ptrUseCount = this->node.use_count();
 }
 
 Slab& Slab::operator=( const Slab& slab )
@@ -63,11 +61,9 @@ void Slab::setEmpty( const bool empty )
 void Slab::setNode( const std::shared_ptr<Moge::Node>& node )
 {
 	this->node = node;
-	auto ptrUseCount = this->node.use_count();
 }
 
 const std::shared_ptr<Moge::Node>& Slab::getNode()const
 {
 	return this->node;
-}
 }
