@@ -8,7 +8,7 @@ namespace Moge
 	class TimerChrono: public ITimer
 	{
 	public:
-		TimerChrono( const bool run = false );
+		explicit TimerChrono( const bool run = false );
 		virtual ~TimerChrono();
 
 		void start() override;
