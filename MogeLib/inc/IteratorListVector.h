@@ -12,7 +12,7 @@ namespace Moge
 		{
 		}
 
-		explicit IteratorListVector<Type>( IteratorListVector<Type>& arg ) :
+		explicit IteratorListVector<Type>( const IteratorListVector<Type>& arg ) :
 			elements( arg.elements )
 		{
 		}
@@ -33,11 +33,6 @@ namespace Moge
 
 		const bool hasNext()const override
 		{
-			//if( nullptr == this->it )
-			//{
-			//	return false;
-			//}
-
 			if( this->it == this->elements.end() )
 			{
 				return false;
@@ -57,13 +52,7 @@ namespace Moge
 
 		Type& next() override
 		{
-			// Fix for std:: the first element always contains first value, but last does not.
 			return *( this->it++ );
-			//if( this->it == this->elements.begin() )
-			//{
-			//	return * (this->it++);
-			//}
-			//return *(++this->it);
 		}
 
 		const bool hasPrevious()const override
