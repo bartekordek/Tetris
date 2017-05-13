@@ -1,4 +1,3 @@
-[Tetris/MogeLib/src/TimerChrono.h:11]: (style) Class 'TimerChrono' has a constructor with 1 argument that is not explicit.
 [Tetris/MogeLib/inc/IteratorListLinked.h:7]: (warning) The class 'IteratorListLinked' has 'operator=' but lack of 'copy constructor'.
 [Tetris/MogeLib/inc/IteratorListVector.h:7]: (warning) The class 'IteratorListVector' has 'operator=' but lack of 'copy constructor'.
 [../MogeLib/src/Node.cpp:16]: (performance) Variable 'texture' is assigned in constructor body. Consider performing initialization in initialization list.
@@ -6,7 +5,6 @@
 [../MogeLib/src/TextureSDL.cpp:10]: (warning) Member variable 'TextureSDL::texturePath' is not initialized in the constructor.
 [../MogeLib/src/TextureSDL.cpp:10]: (warning) Member variable 'TextureSDL::size' is not initialized in the constructor.
 [Tetris/MogeLib/inc/TextureSDL.h:9]: (warning) The class 'TextureSDL' has 'copy constructor' but lack of 'operator='.
-[../Tetris/src/MainGrid.cpp:64]: (style) Variable 'slabPos' is assigned a value that is never used.
 [../MogeLib/src/NodeFactory3D.cpp:13]: (style) The function 'CreateFromImage' is never used.
 [../MogeLib/src/Path.cpp:109]: (style) The function 'GetDirectorySeparator' is never used.
 [../MogeLib/src/Path.cpp:114]: (style) The function 'GetExtensionSeparator' is never used.
