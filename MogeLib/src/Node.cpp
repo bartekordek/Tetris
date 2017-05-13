@@ -13,17 +13,20 @@ namespace Moge
 	Node::Node( const Node& objectNodeContent ):
 		position( IPositionFactory::createSimplePositionDouble3D() )
 	{
-		*this->position.get() = *objectNodeContent.position.get();
 		this->texture = objectNodeContent.texture;
+		this->scale = objectNodeContent.scale;
+		this->position->setXyz( *objectNodeContent.position );
+		this->absSize = this->scale * this->texture->getSize();
 	}
 
 	Node& Node::operator=( const Node& right )
 	{
 		if( &right != this )
 		{
-			this->position->setXyz( *right.position );
-			this->scale = right.scale;
 			this->texture = right.texture;
+			this->scale = right.scale;
+			this->position->setXyz( *right.position );
+			this->absSize = this->scale * this->texture->getSize();
 		}
 		return *this;
 	}
@@ -76,7 +79,7 @@ namespace Moge
 		return this->texture->getSize();
 	}
 
-	const Math::Vector3D< double >& Node::getAbsSize() const
+	const Vector3D< double >& Node::getAbsSize() const
 	{
 		return this->absSize;
 	}
@@ -92,10 +95,10 @@ namespace Moge
 		this->absSize = scale * this->texture->getSize();
 	}
 
-
 	void Node::setTexture( const std::shared_ptr<ITexture>& texture )
 	{
 		this->texture = texture;
+		this->absSize = this->scale * this->texture->getSize();
 	}
 
 	const std::shared_ptr< ITexture >& Node::getTexture()const
