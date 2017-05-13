@@ -1,5 +1,4 @@
 #include "Engine.h"
-#include "KeyboardObservable.h"
 #include "IKeyboardObserver.h"
 #include "KeyFactorySDL.h"
 #include "SDLRenderer.h"
@@ -24,7 +23,7 @@ namespace Moge
 		this->nodeFactory.reset( new NodeFactory2D( txtFactory2D ) );
 		this->renderer2D->setBackgroundColor( ColorE::RED );
 		this->fpsCounter.reset( FPSCounterFactory::getConcreteFPSCounter() );
-		this->fpsCounter->setAverageFpsSample( 80 );
+		this->fpsCounter->setAverageFpsSample( 4 );
 		this->infoLoopThread = std::thread( &Engine::infoLoop, this );
 	}
 
@@ -40,7 +39,7 @@ namespace Moge
 	void Engine::createScreen( 
 		Math::ISize<unsigned int>& size, 
 		Math::IPosition<int>& position, 
-		const std::string& label )
+		const std::string& label )const
 	{
 		this->renderer2D->createWindow( position, size, label );
 	}
@@ -84,7 +83,7 @@ namespace Moge
 		SDL_Event event;
 		while( true == this->eventLoopActive )
 		{
-			if (SDL_PollEvent(&event) > 0)
+			if( SDL_WaitEvent(&event) > 0)
 			{
 				if((event.type == SDL_KEYDOWN || event.type == SDL_KEYUP))
 				{
@@ -106,12 +105,14 @@ namespace Moge
 	{
 		while( this->mainLoopIsRuning )
 		{
+			this->renderer2D->clear();
 			QueueFrame();
 		}
 	}
 
 	void Engine::QueueFrame()
 	{
+		
 		std::lock_guard<std::mutex> renderableObjectLock( this->mRenderableObjectsMutex );
 		auto& nodeIt = this->get2DNodeFactory()->getNodes();
 		if( false == nodeIt.isEmpty() )
@@ -131,25 +132,26 @@ namespace Moge
 		while( this->mainLoopIsRuning )
 		{
 			int averageFpsCount4 = static_cast<int>( this->fpsCounter->getAverageFps() );
+			std::cout << "FPS AVG: " << averageFpsCount4 << "\n";
 			if( averageFpsCount4 > fpsConst + framesDelta )
 			{
-				std::cout << "Render sleep time increase: " << this->frameSleepTimeMs << "\n";
 				++this->frameSleepTimeMs;
+				std::cout << "Render sleep time increase: " << this->frameSleepTimeMs << "\n";
+				
 			}
 			else if( averageFpsCount4 < fpsConst - framesDelta )
 			{
 				if( this->frameSleepTimeMs > 0 )
 				{
-					std::cout << "Render sleep time decrease: " << this->frameSleepTimeMs << "\n";
 					--this->frameSleepTimeMs;
+					std::cout << "Render sleep time decrease: " << this->frameSleepTimeMs << "\n";
 				}
 			}
 			else
 			{
 				std::cout << "Render sleep time is const.\n";
 			}
-			ITimer::SleepSeconds( 16 );
-			std::cout << "FPS AVG: " << this->fpsCounter->getAverageFps() << "\n";
+			ITimer::SleepSeconds( this->fpsCalcSampleTimeSpan );
 		}
 	}
 }

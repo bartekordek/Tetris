@@ -29,12 +29,11 @@ namespace Moge
 			const Math::Vector3D<double>& targetSize ) override;
 		void render( const IPrimitive& primitive, const Math::IPosition<double>& position, const Math::Vector3D<double>& targetSize ) override;
 		void updateScreen()override;
-		
+		void clear() override;
 
 		std::shared_ptr<ITexture>& createTexture( const Path& path ) override;
 		std::shared_ptr<ITexture>& findTexture( const Path& path ) override;
 		void removeTexture( const std::shared_ptr<ITexture>& texture ) override;
-		
 
 	protected:
 	private:

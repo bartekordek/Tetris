@@ -1,6 +1,5 @@
 #pragma once
 
-#include <atomic>
 #include <map>
 #include <thread>
 #include <mutex>
@@ -14,8 +13,8 @@
 #include "IRenderer2D.h"
 #include "IRenderer3D.h"
 #include "ITextureFactory.h"
-#include "IList.h"
 #include "IFPSCounter.h"
+#include "LckPrim.h"
 
 namespace Moge
 {
@@ -30,7 +29,7 @@ namespace Moge
 		Engine( void );
 		virtual ~Engine();
 
-		void createScreen( Math::ISize<unsigned int>& size, Math::IPosition<int>& position, const std::string& label = "Window label." );
+		void createScreen( Math::ISize<unsigned int>& size, Math::IPosition<int>& position, const std::string& label = "Window label." )const;
 		void startMainLoop();
 		void stopEventLoop();
 		ITextureFactory* get2DTextureFactory()const;
@@ -50,8 +49,8 @@ namespace Moge
 		std::mutex mListMutex;
 		std::thread mainLoop;
 		std::thread infoLoopThread;
-		std::atomic<bool> mainLoopIsRuning = { true };
-		std::atomic<bool> eventLoopActive = { true };
+		LckPrim<bool> mainLoopIsRuning = true;
+		LckPrim<bool> eventLoopActive = true;
 
 		const uint8_t* sdlKey = nullptr;
 		std::map<unsigned int, std::shared_ptr<IKey>> keys;
@@ -65,9 +64,10 @@ namespace Moge
 		std::unique_ptr<ITextureFactory3D> textureFactory3D;
 
 		std::unique_ptr<IFPSCounter> fpsCounter;
-		std::atomic<int> frameSleepTimeMs = { 0 };
+		LckPrim<int> frameSleepTimeMs = 0;
 		int framesDelta = 2;
 		int fpsConst = 60;
 		unsigned framesSampleSize = 8;
+		LckPrim<unsigned> fpsCalcSampleTimeSpan = 6;
 	};
 }

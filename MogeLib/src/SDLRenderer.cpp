@@ -103,6 +103,12 @@ namespace Moge
 		SDL_RenderPresent( this->renderer );
 	}
 
+	void SDLRenderer::clear()
+	{
+		SDL_RenderClear( this->renderer );
+	}
+
+
 	std::shared_ptr<ITexture>& SDLRenderer::createTexture( const Path& path )
 	{
 		SDL_Surface* surface = CreateSurfaceFromImage( path );
