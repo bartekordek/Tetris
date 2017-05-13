@@ -223,13 +223,13 @@
     <ClInclude Include="inc\IteratorListVector.h" />
     <ClInclude Include="inc\ITime.h" />
     <ClInclude Include="inc\ITimer.h" />
+    <ClInclude Include="inc\LckPrim.h" />
     <ClInclude Include="inc\List.h" />
     <ClInclude Include="inc\ITexture.h" />
     <ClInclude Include="inc\ITextureFactory.h" />
     <ClInclude Include="inc\ITextureFactory2D.h" />
     <ClInclude Include="inc\ITextureFactory3D.h" />
     <ClInclude Include="inc\KeyboardData.h" />
-    <ClInclude Include="inc\KeyboardObservable.h" />
     <ClInclude Include="inc\KeyFactorySDL.h" />
     <ClInclude Include="inc\ListFactory.h" />
     <ClInclude Include="inc\ListLinked.h" />
@@ -315,7 +315,6 @@
     <ClCompile Include="src\ITimer.cpp" />
     <ClCompile Include="src\IVector3D.cpp" />
     <ClCompile Include="src\KeyboardData.cpp" />
-    <ClCompile Include="src\KeyboardObservable.cpp" />
     <ClCompile Include="src\KeyFactorySDL.cpp" />
     <ClCompile Include="src\KeySDL.cpp" />
     <ClCompile Include="src\Line.cpp" />
