@@ -4,9 +4,9 @@
 
 namespace Moge
 {
-	IKeyboardObservable::IKeyboardObservable()
+	IKeyboardObservable::IKeyboardObservable():
+		impl( new IKeyboardObservableImp() )
 	{
-		this->impl =  new IKeyboardObservableImp();
 	}
 
 	IKeyboardObservable::~IKeyboardObservable()
@@ -19,13 +19,13 @@ namespace Moge
 		this->impl->notifyKeyboardObservers( data );
 	}
 
-    void IKeyboardObservable::registerObserver( IKeyboardObserver* observer )
-    {
+	void IKeyboardObservable::registerObserver( IKeyboardObserver* observer )
+	{
 		this->impl->registerObserver( observer );
-    }
+	}
 
-    void IKeyboardObservable::unregisterObserver( IKeyboardObserver* observer )
-    {
-        this->impl->unregisterObserver( observer );
-    }
+	void IKeyboardObservable::unregisterObserver( IKeyboardObserver* observer )
+	{
+		this->impl->unregisterObserver( observer );
+	}
 }
