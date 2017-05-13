@@ -1,5 +1,6 @@
 #pragma once
 #include <MogeLib.h>
+#include "Math.h"
 #include <type_traits>
 namespace Moge
 {
@@ -32,7 +33,7 @@ namespace Moge
 			const bool equals( const Type val1, const Type val2 )const
 			{
 				const Type epsilonAsType = static_cast<Type>( epsilon );
-				return abs( val1 - val2 ) <= epsilonAsType;
+				return Util::abs( val1 - val2 ) <= epsilonAsType;
 			}
 		private:
 			Type epsilon = static_cast<Type>( 0 );
