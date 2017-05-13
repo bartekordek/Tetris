@@ -18,10 +18,15 @@ namespace Tetris
 
 		Path bgBlockImagepath = Path::GetCurrentDirectory() + "\\..\\..\\Media\\BackGroundBlock.bmp";
 		this->emptySlabTex = tF->createTexture( bgBlockImagepath );
+
+		this->funThread = std::thread( &CMainGrid::funLoop, this );
 	}
 
 	CMainGrid::~CMainGrid()
 	{
+		this->runFunThread = false;
+		this->funThread.join();
+		auto x = 1;
 	}
 
 	void CMainGrid::updateGrid()
@@ -69,6 +74,24 @@ namespace Tetris
 	void CMainGrid::clearSlabs()
 	{
 		this->slabsRows.erase( this->slabsRows.begin(), this->slabsRows.end() );
+	}
+
+	void CMainGrid::funLoop()
+	{
+		auto pos = Math::Vector3D<double>( 400.0, 20.0, 0.0 );
+		auto slabNode = EngineManager::getEngine()->get2DNodeFactory()->createFromTexture( this->emptySlabTex, pos );
+		slabNode->SetVisible( true );
+		float t = 0.0;
+		float x0 = 350;
+		float y0 = 350;
+		while( this->runFunThread )
+		{
+			pos.setX( x0 + 100 * std::cos( t ) );
+			pos.setY( y0 + 100 * std::sin( t ) );
+			slabNode->setPosition( pos );
+			t += 0.01f;
+			ITimer::SleepMiliSeconds( 1 );
+		}	
 	}
 
 	void CMainGrid::ReLeaseBrick()

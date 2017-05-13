@@ -1,12 +1,12 @@
 #pragma once 
 
 #include "ITextureFactory.h"
+#include "Slab.h"
+#include "Brick.h"
+#include "LckPrim.h"
 
 #include <vector>
 #include <mutex>
-
-#include "Slab.h"
-#include "Brick.h"
 
 namespace Tetris
 {
@@ -40,6 +40,9 @@ private:
 	void MoveAllLinesOneLineDown( std::vector<SlabRow>::iterator rowIterator );
 	void SetSlabImagSurface( Slab& slab );
 	void clearSlabs();
+	void funLoop();
+	std::thread funThread;
+	Moge::LckPrim<bool> runFunThread = true;
 
 	std::unique_ptr<Brick> activeBrick;
 	std::vector<SlabRow> slabsRows;
