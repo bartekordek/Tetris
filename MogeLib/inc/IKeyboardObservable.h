@@ -9,6 +9,7 @@ namespace Moge
 	{
 	public:
 		IKeyboardObservable();
+		IKeyboardObservable( const IKeyboardObservable& r ) = delete;
 		virtual ~IKeyboardObservable();
 		virtual void notifyKeyboardObservers( IKey* data = nullptr );
 
