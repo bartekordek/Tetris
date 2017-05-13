@@ -30,8 +30,8 @@
 ../MogeLib/inc/ITime.h
 ../MogeLib/inc/ITimer.h
 ../MogeLib/inc/KeyboardData.h
-../MogeLib/inc/KeyboardObservable.h
 ../MogeLib/inc/KeyFactorySDL.h
+../MogeLib/inc/LckPrim.h
 ../MogeLib/inc/ListFactory.h
 ../MogeLib/inc/ListLinked.h
 ../MogeLib/inc/ListVector.h

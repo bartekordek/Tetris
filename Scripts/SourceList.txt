@@ -26,7 +26,6 @@
 ../MogeLib/src/ITimer.cpp
 ../MogeLib/src/IVector3D.cpp
 ../MogeLib/src/KeyboardData.cpp
-../MogeLib/src/KeyboardObservable.cpp
 ../MogeLib/src/KeyFactorySDL.cpp
 ../MogeLib/src/KeySDL.cpp
 ../MogeLib/src/Line.cpp
