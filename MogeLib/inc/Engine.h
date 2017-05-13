@@ -49,8 +49,8 @@ namespace Moge
 		std::mutex mListMutex;
 		std::thread mainLoop;
 		std::thread infoLoopThread;
-		LckPrim<bool> mainLoopIsRuning = true;
-		LckPrim<bool> eventLoopActive = true;
+		LckPrim<bool> mainLoopIsRuning;
+		LckPrim<bool> eventLoopActive;
 
 		const uint8_t* sdlKey = nullptr;
 		std::map<unsigned int, std::shared_ptr<IKey>> keys;
@@ -64,10 +64,10 @@ namespace Moge
 		std::unique_ptr<ITextureFactory3D> textureFactory3D;
 
 		std::unique_ptr<IFPSCounter> fpsCounter;
-		LckPrim<int> frameSleepTimeMs = 0;
+		LckPrim<int> frameSleepTimeMs;
 		int framesDelta = 2;
 		int fpsConst = 60;
 		unsigned framesSampleSize = 8;
-		LckPrim<unsigned> fpsCalcSampleTimeSpan = 6;
+		LckPrim<unsigned> fpsCalcSampleTimeSpan;
 	};
 }

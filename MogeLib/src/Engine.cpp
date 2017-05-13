@@ -12,7 +12,11 @@
 
 namespace Moge
 {
-	Engine::Engine( void )
+	Engine::Engine( void ):
+		mainLoopIsRuning( true ),
+		eventLoopActive( true ),
+		frameSleepTimeMs( 0 ),
+		fpsCalcSampleTimeSpan( 6 )
 	{
 		this->renderer2D.reset( new SDLRenderer() );
 		//this->renderer3D.reset( TODO: Add when OpenGL is ready. );

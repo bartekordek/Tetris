@@ -8,7 +8,8 @@
 namespace Tetris
 {
 	using namespace Moge;
-	CMainGrid::CMainGrid()
+	CMainGrid::CMainGrid():
+		runFunThread( true )
 	{
 		this->tF = EngineManager::getEngine()->get2DTextureFactory();
 		std::lock_guard<std::mutex> slabLock( currentBrickMutex );
@@ -26,7 +27,6 @@ namespace Tetris
 	{
 		this->runFunThread = false;
 		this->funThread.join();
-		auto x = 1;
 	}
 
 	void CMainGrid::updateGrid()

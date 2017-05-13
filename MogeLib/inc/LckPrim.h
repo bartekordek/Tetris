@@ -7,7 +7,7 @@ namespace Moge
 	class MogeLib_API LckPrim
 	{
 	public:
-		LckPrim( const Type& val )
+		explicit LckPrim( const Type& val )
 		{
 			std::lock_guard<std::mutex> lock( this->mtx );
 			this->value = val;
@@ -34,23 +34,6 @@ namespace Moge
 		{
 			std::lock_guard<std::mutex> lock( this->mtx );
 			this->value = val;
-		}
-
-		LckPrim<Type>& operator=( const LckPrim<Type>& rvalue )
-		{
-			if( this != &rvalue )
-			{
-				std::lock_guard<std::mutex> lock( this->mtx );
-				this->value = rvalue.value;
-			}
-			return *this;
-		}
-
-		LckPrim<Type>& operator=( const Type& value )
-		{
-			std::lock_guard<std::mutex> lock( this->mtx );
-			this->value = value;
-			return *this;
 		}
 
 		Type& operator++()
@@ -98,6 +81,24 @@ namespace Moge
 		operator Type()
 		{
 			return this->value;
+		}
+
+
+		LckPrim<Type>& operator=( const LckPrim<Type>& rvalue )
+		{
+			if( this != &rvalue )
+			{
+				std::lock_guard<std::mutex> lock( this->mtx );
+				this->value = rvalue.value;
+			}
+			return *this;
+		}
+
+		LckPrim<Type>& operator=( const Type& value )
+		{
+			std::lock_guard<std::mutex> lock( this->mtx );
+			this->value = value;
+			return *this;
 		}
 
 	protected:

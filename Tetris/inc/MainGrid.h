@@ -42,7 +42,7 @@ private:
 	void clearSlabs();
 	void funLoop();
 	std::thread funThread;
-	Moge::LckPrim<bool> runFunThread = true;
+	Moge::LckPrim<bool> runFunThread;
 
 	std::unique_ptr<Brick> activeBrick;
 	std::vector<SlabRow> slabsRows;
