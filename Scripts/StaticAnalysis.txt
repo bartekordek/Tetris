@@ -8,7 +8,6 @@
 [../MogeLib/src/NodeFactory3D.cpp:13]: (style) The function 'CreateFromImage' is never used.
 [../MogeLib/src/Path.cpp:109]: (style) The function 'GetDirectorySeparator' is never used.
 [../MogeLib/src/Path.cpp:114]: (style) The function 'GetExtensionSeparator' is never used.
-[../MogeLib/src/Visible.cpp:14]: (style) The function 'GetVisible' is never used.
 [../MogeLib/src/MyString.cpp:58]: (style) The function 'Replace' is never used.
 [../Tests/src/EngineTests.cpp:16]: (style) The function 'SetUpTestCase' is never used.
 [../Tests/src/EngineTests.cpp:21]: (style) The function 'TearDownTestCase' is never used.

@@ -123,7 +123,11 @@ namespace Moge
 		{
 			while( nodeIt.hasNext() )
 			{
-				this->renderer2D->render( *nodeIt.next().get() );
+				auto& node = *nodeIt.next().get();
+				if( node.GetVisible() )
+				{
+					this->renderer2D->render( node );
+				}
 			}
 		}
 		this->renderer2D->updateScreen();
