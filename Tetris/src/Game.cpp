@@ -22,7 +22,7 @@ namespace Tetris
 		std::unique_ptr<IPosition<int>> winPos( IPositionFactory::createPositionInt2D( 100, 100 ) );
 		EngineManager::getEngine()->createScreen( winSize, *winPos );
 		mainGrid.reset( new CMainGrid() );
-		EngineManager::getEngine()->registerObserver( this );
+		EngineManager::getEngine()->getKeyboardObservable()->registerObserver( this );
 		mainGrid->SetSize( rowsCount, columnsCount );
 		startGame();
 	}

@@ -34,9 +34,9 @@ namespace Moge
 
 	protected:
 	private:
-		std::unique_ptr<Math::IPosition<double>> position;
-		Math::Vector3D<double> scale{ 1.0, 1.0, 1.0 };
-		Math::Vector3D<double> absSize;
 		std::shared_ptr<ITexture> texture;
+		Math::Vector3D<double> scale{ 1.0, 1.0, 1.0 };
+		std::unique_ptr<Math::IPosition<double>> position;
+		Math::Vector3D<double> absSize;
 	};
 }

@@ -25,7 +25,7 @@ TEST_F( TimeTests, MeasureTime )
 	unsigned ms2Sleep = 1000;
 	ITimer::SleepMiliSeconds( ms2Sleep );
 	auto& el = timer->getElapsed();
-	GTEST_ASSERT_GE( el.getMs(), ms2Sleep );
+	GTEST_ASSERT_GE( el.getMs(), ms2Sleep ); 
 }
 
 TEST_F( TimeTests, Reset )

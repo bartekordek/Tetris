@@ -1,4 +1,8 @@
 #pragma once
+#if _MSC_VER
+#pragma warning( push )
+#pragma warning( disable : 4251 )
+#endif
 #include "MogeLib.h"
 #include <mutex>
 namespace Moge
@@ -83,7 +87,6 @@ namespace Moge
 			return this->value;
 		}
 
-
 		LckPrim<Type>& operator=( const LckPrim<Type>& rvalue )
 		{
 			if( this != &rvalue )
@@ -113,3 +116,6 @@ namespace Moge
 		return l == r;
 	}
 }
+#if _MSC_VER
+#pragma warning( pop )
+#endif

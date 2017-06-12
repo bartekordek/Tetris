@@ -1,12 +1,9 @@
 #include "Engine.h"
-#include "IKeyboardObserver.h"
-#include "KeyFactorySDL.h"
-#include "SDLRenderer.h"
+#include "RendererSDL.h"
 #include "NodeFactory2D.h"
 #include "ITextureFactory3D.h"
+#include "KeyboardObservableSDL.h"
 
-#include <SDL.h>
-#include <iostream>
 #include <memory>
 #include "ITimer.h"
 
@@ -18,26 +15,33 @@ namespace Moge
 		frameSleepTimeMs( 0 ),
 		fpsCalcSampleTimeSpan( 6 )
 	{
+		this->logUtil.reset( LogFactory::getConcrete() );
+		this->logUtil->showMessage( "Log utility initialized" );
+		this->logUtil->showMessage( "Creating renderer 2D..." );
 		this->renderer2D.reset( new SDLRenderer() );
+		this->logUtil->showMessage( "Creating renderer 2D...Done" );
 		//this->renderer3D.reset( TODO: Add when OpenGL is ready. );
-		this->sdlKey = SDL_GetKeyboardState( nullptr );
-		this->keyFactory.reset( new KeyFactorySDL() );
-		this->keys = this->keyFactory->createKeys();
 		auto txtFactory2D = static_cast<SDLRenderer*>( this->renderer2D.get() );
 		this->nodeFactory.reset( new NodeFactory2D( txtFactory2D ) );
 		this->renderer2D->setBackgroundColor( ColorE::RED );
 		this->fpsCounter.reset( FPSCounterFactory::getConcreteFPSCounter() );
 		this->fpsCounter->setAverageFpsSample( 4 );
+		this->logUtil->showMessage( "Creating info loop thread...Done" );
 		this->infoLoopThread = std::thread( &Engine::infoLoop, this );
+		this->logUtil->showMessage( "Creating info loop thread...Done" );
+		this->keyboardObservable.reset( new KeyboardObservableSDL() );
+		this->keyboardEventObservable = dynamic_cast<IEventLoop*>( keyboardObservable.get() );
 	}
 
 	Engine::~Engine()
 	{
+		this->logUtil->showMessage( "Stoping loops..." );
+		this->mainLoopIsRuning = false;
 		std::lock_guard<std::mutex> lck( mListMutex );
 		this->renderer2D.reset();
 		this->nodeFactory.reset();
-		SDL_Quit();
 		this->infoLoopThread.join();
+		this->logUtil->showMessage( "Stoping loops... Done." );
 	}
 
 	void Engine::createScreen( 
@@ -48,16 +52,19 @@ namespace Moge
 		this->renderer2D->createWindow( position, size, label );
 	}
 	
-	void Engine::startMainLoop()
+	void Engine::start()
 	{
 		mainLoop = std::thread( &Engine::renderingLoop2D, this );
 		eventPool();
 	}
 
-	void Engine::stopEventLoop()
+	void Engine::close()
 	{
+		this->keyboardEventObservable->stopEventLoop();
+		this->logUtil->showMessage( "Turning of main loop..." );
 		this->mainLoopIsRuning = false;
 		this->mainLoop.join();
+		this->logUtil->showMessage( "Turning of main loop... Done." );
 		this->eventLoopActive = false;
 	}
 	
@@ -82,27 +89,15 @@ namespace Moge
 		return nullptr;//TODO
 	}
 
+	IKeyboardObservable* Engine::getKeyboardObservable() const
+	{
+		return this->keyboardObservable.get();
+	}
+
 	void Engine::eventPool()
 	{
-		SDL_Event event;
-		while( true == this->eventLoopActive )
-		{
-			if( SDL_WaitEvent(&event) > 0)
-			{
-				if((event.type == SDL_KEYDOWN || event.type == SDL_KEYUP))
-				{
-					auto scancode = SDL_GetScancodeFromKey(event.key.keysym.sym);
-					if (SDL_SCANCODE_UNKNOWN != scancode)
-					{
-						const bool keyIsDown = (SDL_KEYDOWN == event.type) ? true : false;
-						const auto keyIndex = static_cast<unsigned int>(scancode);
-						auto key = this->keys.at(keyIndex);
-						key->setKeyIsDown(keyIsDown);
-						this->notifyKeyboardObservers(key.get());
-					}
-				}
-			}
-		}
+		this->keyboardEventObservable->runEventLoop();
+		this->logUtil->showMessage( "Quiting event loop... Done." );
 	}
 
 	void Engine::renderingLoop2D()
@@ -112,11 +107,11 @@ namespace Moge
 			this->renderer2D->clear();
 			QueueFrame();
 		}
+		this->logUtil->showMessage( "Quiting 2D render loop... Done." );
 	}
 
 	void Engine::QueueFrame()
 	{
-		
 		std::lock_guard<std::mutex> renderableObjectLock( this->mRenderableObjectsMutex );
 		auto& nodeIt = this->get2DNodeFactory()->getNodes();
 		if( false == nodeIt.isEmpty() )
@@ -140,11 +135,12 @@ namespace Moge
 		while( this->mainLoopIsRuning )
 		{
 			int averageFpsCount4 = static_cast<int>( this->fpsCounter->getAverageFps() );
-			std::cout << "FPS AVG: " << averageFpsCount4 << "\n";
+			std::string info = "FPS AVG: " + std::to_string( averageFpsCount4 );
+			this->logUtil->showMessage( info.c_str() );
 			if( averageFpsCount4 > fpsConst + framesDelta )
 			{
 				++this->frameSleepTimeMs;
-				std::cout << "Render sleep time increase: " << this->frameSleepTimeMs << "\n";
+				info = "Render sleep time increase: " + std::to_string( this->frameSleepTimeMs );
 				
 			}
 			else if( averageFpsCount4 < fpsConst - framesDelta )
@@ -152,14 +148,16 @@ namespace Moge
 				if( this->frameSleepTimeMs > 0 )
 				{
 					--this->frameSleepTimeMs;
-					std::cout << "Render sleep time decrease: " << this->frameSleepTimeMs << "\n";
+					info = "Render sleep time decrease: " + std::to_string( this->frameSleepTimeMs );
 				}
 			}
 			else
 			{
-				std::cout << "Render sleep time is const.\n";
+				info = "Render sleep time is const.";
 			}
+			this->logUtil->showMessage( info.c_str() );
 			ITimer::SleepSeconds( this->fpsCalcSampleTimeSpan );
 		}
+		this->logUtil->showMessage( "Quiting info loop... Done." );
 	}
 }

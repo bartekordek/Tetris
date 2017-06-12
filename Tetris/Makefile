@@ -1,7 +1,12 @@
+ifeq ($(OS),Windows_NT)
+    DYN_LIB_EXT = .dll
+else
+    DYN_LIB_EXT = .so
+endif
 CC = g++
 CC_LINK = g++
 COMPILER_FLAGS = -pedantic -Wall -std=c++11 -D MogeLib_EXPORT="1" -Wno-ignored-attributes
-DEBUG_FLAGS = -ggdb
+DEBUG_FLAGS = -ggdb -Og
 RELEASE_FLAGS = -Ofast
 PROJECT_NAME = Tetris
 BINARY_NAME = $(PROJECT_NAME).exe 
@@ -25,11 +30,7 @@ OBJ_DEBUG_FILES := $(addprefix $(OBJ_DEBUG_DIR),$(CPP_FILES:.cpp=.o))
 OBJ_RELEASE_DIR := obj/release/
 OBJ_RELEASE_FILES := $(addprefix $(OBJ_RELEASE_DIR),$(CPP_FILES:.cpp=.o))
 	
-ifeq ($(OS),Windows_NT)
-    DYN_LIB_EXT = .dll
-else
-    DYN_LIB_EXT = .so
-endif
+
 
 debug: run_debug_deps $(OUTPUT_DEBUG)
 release: run_release_deps $(OUTPUT_RELEASE)

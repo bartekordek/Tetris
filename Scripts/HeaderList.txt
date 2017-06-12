@@ -2,7 +2,9 @@
 ../MogeLib/inc/ConsoleUtilities.h
 ../MogeLib/inc/Engine.h
 ../MogeLib/inc/File.h
+../MogeLib/inc/Format.h
 ../MogeLib/inc/IEngine.h
+../MogeLib/inc/IEventLoop.h
 ../MogeLib/inc/IFPSCounter.h
 ../MogeLib/inc/IIterator.h
 ../MogeLib/inc/IKey.h
@@ -10,6 +12,7 @@
 ../MogeLib/inc/IKeyboardObserver.h
 ../MogeLib/inc/IKeyFactory.h
 ../MogeLib/inc/IList.h
+../MogeLib/inc/ILogUtil.h
 ../MogeLib/inc/IMogeApp.h
 ../MogeLib/inc/INode.h
 ../MogeLib/inc/INodeCreator.h
@@ -69,7 +72,6 @@
 ../MogeLib/inc/Path.h
 ../MogeLib/inc/RenderableTypes.h
 ../MogeLib/inc/Scale.h
-../MogeLib/inc/SDLRenderer.h
 ../MogeLib/inc/Singleton.h
 ../MogeLib/inc/SupportedRenderersList.h
 ../MogeLib/inc/TextureSDL.h
@@ -78,10 +80,13 @@
 ../MogeLib/src/IKeyboardData.h
 ../MogeLib/src/IKeyboardObservableImp.h
 ../MogeLib/src/IObservableImpl.h
+../MogeLib/src/KeyboardObservableSDL.h
 ../MogeLib/src/KeySDL.h
+../MogeLib/src/LOgUtilConcrete.h
 ../MogeLib/src/NodeFactory2D.h
 ../MogeLib/src/NodeFactory3D.h
 ../MogeLib/src/RenderableSDLTexture.h
+../MogeLib/src/RendererSDL.h
 ../MogeLib/src/TimeConcrete.h
 ../MogeLib/src/TimerChrono.h
 ../Tests/inc/EngineTests.h
@@ -94,6 +99,7 @@
 ../Tests/inc/NodeCreatorTests.h
 ../Tests/inc/NodeTests.h
 ../Tests/inc/ObjectNodeTests.h
+../Tests/inc/StringTests.h
 ../Tests/inc/TimeTests.h
 ../Tetris/inc/Brick.h
 ../Tetris/inc/BrickFactory.h

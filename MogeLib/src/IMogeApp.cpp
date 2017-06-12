@@ -22,14 +22,14 @@ namespace Moge
 	void IMogeApp::run()
 	{
 		this->frontEndLoopThread = std::thread( &IMogeApp::frontEndLoopWrapper, this );
-		this->engine->startMainLoop();
+		this->engine->start();
 		this->frontEndLoopThread.join();
 	}
 
 	void IMogeApp::frontEndLoopWrapper()
 	{
 		frontEndLoop();
-		this->engine->stopEventLoop();
+		this->engine->close();
 	}
 
 	void IMogeApp::stopApp()

@@ -1,6 +1,5 @@
 #pragma once
 
-#include <map>
 #include <thread>
 #include <mutex>
 #include <memory>
@@ -15,27 +14,28 @@
 #include "ITextureFactory.h"
 #include "IFPSCounter.h"
 #include "LckPrim.h"
+#include "ILogUtil.h"
 
 namespace Moge
 {
-	class IKeyboardObserver;
-	class IKeyboardData;
 	class IKey;
 	class IKeyFactory;
 	class ITextureFactory3D;
-	class MogeLib_API Engine: public Singleton<Engine>, public IKeyboardObservable
+	class IEventLoop;
+	class MogeLib_API Engine: public Singleton<Engine>
 	{
 	public:
 		Engine( void );
 		virtual ~Engine();
 
 		void createScreen( Math::ISize<unsigned int>& size, Math::IPosition<int>& position, const std::string& label = "Window label." )const;
-		void startMainLoop();
-		void stopEventLoop();
+		void start();
+		void close();
 		ITextureFactory* get2DTextureFactory()const;
 		ITextureFactory* get3DTextureFactory()const;
 		INodeFactory* get2DNodeFactory()const;
 		INodeFactory* get3DNodeFactory()const;
+		IKeyboardObservable* getKeyboardObservable()const;
 
 	protected:
 
@@ -52,10 +52,6 @@ namespace Moge
 		LckPrim<bool> mainLoopIsRuning;
 		LckPrim<bool> eventLoopActive;
 
-		const uint8_t* sdlKey = nullptr;
-		std::map<unsigned int, std::shared_ptr<IKey>> keys;
-		std::unique_ptr<IKeyFactory> keyFactory;
-
 		std::unique_ptr<INodeFactory> nodeFactory;
 		
 		std::unique_ptr<IRenderer2D> renderer2D;
@@ -64,6 +60,9 @@ namespace Moge
 		std::unique_ptr<ITextureFactory3D> textureFactory3D;
 
 		std::unique_ptr<IFPSCounter> fpsCounter;
+		std::unique_ptr<ILogUtil> logUtil;
+		std::unique_ptr<IKeyboardObservable> keyboardObservable;
+		IEventLoop* keyboardEventObservable = nullptr;
 		LckPrim<int> frameSleepTimeMs;
 		int framesDelta = 2;
 		int fpsConst = 60;

@@ -223,6 +223,7 @@
     <ClCompile Include="src\NodeCreatorTests.cpp" />
     <ClCompile Include="src\NodeTests.cpp" />
     <ClCompile Include="src\ObjectNodeTests.cpp" />
+    <ClCompile Include="src\StringTests.cpp" />
     <ClCompile Include="src\TimeTests.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -236,6 +237,7 @@
     <ClInclude Include="inc\NodeCreatorTests.h" />
     <ClInclude Include="inc\NodeTests.h" />
     <ClInclude Include="inc\ObjectNodeTests.h" />
+    <ClInclude Include="inc\StringTests.h" />
     <ClInclude Include="inc\TimeTests.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

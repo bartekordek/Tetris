@@ -6,16 +6,21 @@ endif
 CC = g++
 CC_LINK = g++ -shared
 COMPILER_FLAGS = -pedantic -Wall -std=c++11 -D MogeLib_EXPORT="1" -Wno-ignored-attributes
-DEBUG_FLAGS = -ggdb
-RELEASE_FLAGS = -Ofast
+DEBUG_FLAGS = -ggdb -Og -DBOOST_WINDOWS
+RELEASE_FLAGS = -Ofast -DBOOST_WINDOWS
 PROJECT_NAME = libmoge
 IMP_LIB_NAME = $(PROJECT_NAME).a
 OUTPUT_DIR_DEBUG = ../Build/Debug
 OUTPUT_DIR_RELEASE = ../Build/Release
 HEADER_INC = -I inc/ `pkg-config --cflags-only-I sdl2` -I $(HOME_BOOST_LINUX)
 SDL2_BINARY_FILE = /usr/local/bin/SDL2$(DYN_LIB_EXT)
-IMPORT_LIBS_DEBUG = `pkg-config --libs sdl2` $(HOME_BOOST_LINUX)/stage/lib/libboost_filesystem.a $(HOME_BOOST_LINUX)/stage/lib/libboost_system.a
-IMPORT_LIBS_RELEASE = `pkg-config --libs sdl2` $(HOME_BOOST_LINUX)/stage/lib/libboost_filesystem.a $(HOME_BOOST_LINUX)/stage/lib/libboost_system.a
+BOOST_LIB_PATH := $(HOME_BOOST_LINUX)/Build-Linux/lib
+BOOST_LINK := $(BOOST_LIB_PATH)/libboost_filesystem-mt.a \
+			  $(BOOST_LIB_PATH)/libboost_system-mt.a \
+			  $(BOOST_LIB_PATH)/libboost_log-mt.a \
+			  $(BOOST_LIB_PATH)/libboost_log_setup-mt.a
+IMPORT_LIBS_DEBUG = `pkg-config --libs sdl2` $(BOOST_LINK)
+IMPORT_LIBS_RELEASE = `pkg-config --libs sdl2` $(BOOST_LINK)
 
 OUTPUT_DEBUG = $(OUTPUT_DIR_DEBUG)/$(DLL_NAME)
 OUTPUT_RELEASE = $(OUTPUT_DIR_RELEASE)/$(DLL_NAME)

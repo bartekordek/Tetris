@@ -115,7 +115,7 @@
       <SuppressStartupBanner>false</SuppressStartupBanner>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(HOME_SDL2_WINDOWS)\Build-Windows\$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
+      <Command>xcopy "$(HOME_SDL2_WINDOWS)\Build-Windows\$(Configuration)\*.dll" "$(TargetDir)" /y /f</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -141,7 +141,7 @@
       <SuppressStartupBanner>false</SuppressStartupBanner>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(HOME_SDL2_WINDOWS)\Build-Windows\$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
+      <Command>xcopy "$(HOME_SDL2_WINDOWS)\Build-Windows\$(Configuration)\*.dll" "$(TargetDir)" /y /f</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -168,7 +168,7 @@
       <SuppressStartupBanner>false</SuppressStartupBanner>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(HOME_SDL2_WINDOWS)\Build-Windows\$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
+      <Command>xcopy "$(HOME_SDL2_WINDOWS)\Build-Windows\$(Configuration)\*.dll" "$(TargetDir)" /y /f</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -195,20 +195,23 @@
       <SuppressStartupBanner>false</SuppressStartupBanner>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(HOME_SDL2_WINDOWS)\Build-Windows\$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
+      <Command>xcopy "$(HOME_SDL2_WINDOWS)\Build-Windows\$(Configuration)\*.dll" "$(TargetDir)" /y /f</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="inc\ConsoleUtilities.h" />
     <ClInclude Include="inc\Engine.h" />
     <ClInclude Include="inc\File.h" />
+    <ClInclude Include="inc\Format.h" />
     <ClInclude Include="inc\IEngine.h" />
+    <ClInclude Include="inc\IEventLoop.h" />
     <ClInclude Include="inc\IFPSCounter.h" />
     <ClInclude Include="inc\IIterator.h" />
     <ClInclude Include="inc\IKey.h" />
     <ClInclude Include="inc\IKeyboardObservable.h" />
     <ClInclude Include="inc\IKeyboardObserver.h" />
     <ClInclude Include="inc\IKeyFactory.h" />
+    <ClInclude Include="inc\ILogUtil.h" />
     <ClInclude Include="inc\IMogeApp.h" />
     <ClInclude Include="inc\INodeCreator.h" />
     <ClInclude Include="inc\INodeFactory.h" />
@@ -270,7 +273,6 @@
     <ClInclude Include="inc\Path.h" />
     <ClInclude Include="inc\RenderableTypes.h" />
     <ClInclude Include="inc\Scale.h" />
-    <ClInclude Include="inc\SDLRenderer.h" />
     <ClInclude Include="inc\Singleton.h" />
     <ClInclude Include="inc\SupportedRenderersList.h" />
     <ClInclude Include="inc\TextureFactory.h" />
@@ -280,12 +282,15 @@
     <ClInclude Include="src\IKeyboardData.h" />
     <ClInclude Include="src\IKeyboardObservableImp.h" />
     <ClInclude Include="src\IObservableImpl.h" />
+    <ClInclude Include="src\KeyboardObservableSDL.h" />
     <ClInclude Include="src\KeySDL.h" />
     <ClInclude Include="src\ListLinked.h" />
     <ClInclude Include="src\ListVector.h" />
+    <ClInclude Include="src\LOgUtilConcrete.h" />
     <ClInclude Include="src\NodeFactory2D.h" />
     <ClInclude Include="src\NodeFactory3D.h" />
     <ClInclude Include="src\RenderableSDLTexture.h" />
+    <ClInclude Include="src\RendererSDL.h" />
     <ClInclude Include="src\TimeConcrete.h" />
     <ClInclude Include="src\TimerChrono.h" />
   </ItemGroup>
@@ -293,6 +298,7 @@
     <ClCompile Include="src\ConsoleUtilities.cpp" />
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\File.cpp" />
+    <ClCompile Include="src\Format.cpp" />
     <ClCompile Include="src\FPSCounterConcrete.cpp" />
     <ClCompile Include="src\Frustum.cpp" />
     <ClCompile Include="src\IFPSCounter.cpp" />
@@ -301,6 +307,7 @@
     <ClCompile Include="src\IKeyboardObservableImp.cpp" />
     <ClCompile Include="src\IKeyboardObserver.cpp" />
     <ClCompile Include="src\IKeyFactory.cpp" />
+    <ClCompile Include="src\ILogUtil.cpp" />
     <ClCompile Include="src\IMogeApp.cpp" />
     <ClCompile Include="src\INodeCreator.cpp" />
     <ClCompile Include="src\IObservable.cpp" />
@@ -315,10 +322,12 @@
     <ClCompile Include="src\ITimer.cpp" />
     <ClCompile Include="src\IVector3D.cpp" />
     <ClCompile Include="src\KeyboardData.cpp" />
+    <ClCompile Include="src\KeyboardObservableSDL.cpp" />
     <ClCompile Include="src\KeyFactorySDL.cpp" />
     <ClCompile Include="src\KeySDL.cpp" />
     <ClCompile Include="src\Line.cpp" />
     <ClCompile Include="src\ListFactory.cpp" />
+    <ClCompile Include="src\LOgUtilConcrete.cpp" />
     <ClCompile Include="src\MogeLibMain.cpp" />
     <ClCompile Include="src\MultiPointFactory.cpp" />
     <ClCompile Include="src\MyString.cpp" />
@@ -334,7 +343,7 @@
     <ClCompile Include="src\Rectangle.cpp" />
     <ClCompile Include="src\RenderableSDLTexture.cpp" />
     <ClCompile Include="src\Scale.cpp" />
-    <ClCompile Include="src\SDLRenderer.cpp" />
+    <ClCompile Include="src\RendererSDL.cpp" />
     <ClCompile Include="src\Singleton.cpp" />
     <ClCompile Include="src\Size.cpp" />
     <ClCompile Include="src\SizeDouble2D.cpp" />

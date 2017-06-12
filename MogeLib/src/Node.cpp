@@ -1,6 +1,5 @@
 #include "Node.h"
 #include "Math/IPositionFactory.h"
-#include "Math/SizeDouble3D.h"
 #include "Math/Vector3DFactory.h"
 namespace Moge
 {
@@ -11,10 +10,10 @@ namespace Moge
 	}
 
 	Node::Node( const Node& objectNodeContent ):
-		position( IPositionFactory::createSimplePositionDouble3D() )
+		position( IPositionFactory::createSimplePositionDouble3D() ),
+		texture( objectNodeContent.texture ),
+		scale( objectNodeContent.scale )
 	{
-		this->texture = objectNodeContent.texture;
-		this->scale = objectNodeContent.scale;
 		this->position->setXyz( *objectNodeContent.position );
 		this->absSize = this->scale * this->texture->getSize();
 	}

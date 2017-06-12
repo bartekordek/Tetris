@@ -3,7 +3,7 @@
 #include "IIterator.h"
 #include <memory>
 
-unsigned manyElementsCount = 10000 * 1000;
+unsigned manyElementsCount = 1000 * 1000;
 
 ListTests::ListTests( void )
 {
@@ -14,7 +14,7 @@ ListTests::~ListTests()
 }
 
 void ListTests::SetUpTestCase()
-{   
+{
 }
 
 void ListTests::TearDownTestCase()

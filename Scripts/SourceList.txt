@@ -3,6 +3,7 @@
 ../MogeLib/src/ConsoleUtilities.cpp
 ../MogeLib/src/Engine.cpp
 ../MogeLib/src/File.cpp
+../MogeLib/src/Format.cpp
 ../MogeLib/src/FPSCounterConcrete.cpp
 ../MogeLib/src/Frustum.cpp
 ../MogeLib/src/IFPSCounter.cpp
@@ -11,6 +12,7 @@
 ../MogeLib/src/IKeyboardObservableImp.cpp
 ../MogeLib/src/IKeyboardObserver.cpp
 ../MogeLib/src/IKeyFactory.cpp
+../MogeLib/src/ILogUtil.cpp
 ../MogeLib/src/IMogeApp.cpp
 ../MogeLib/src/INode.cpp
 ../MogeLib/src/INodeCreator.cpp
@@ -26,10 +28,12 @@
 ../MogeLib/src/ITimer.cpp
 ../MogeLib/src/IVector3D.cpp
 ../MogeLib/src/KeyboardData.cpp
+../MogeLib/src/KeyboardObservableSDL.cpp
 ../MogeLib/src/KeyFactorySDL.cpp
 ../MogeLib/src/KeySDL.cpp
 ../MogeLib/src/Line.cpp
 ../MogeLib/src/ListFactory.cpp
+../MogeLib/src/LOgUtilConcrete.cpp
 ../MogeLib/src/MogeLibMain.cpp
 ../MogeLib/src/MultiPointFactory.cpp
 ../MogeLib/src/MyString.cpp
@@ -43,8 +47,8 @@
 ../MogeLib/src/Quaternion.cpp
 ../MogeLib/src/Rectangle.cpp
 ../MogeLib/src/RenderableSDLTexture.cpp
+../MogeLib/src/RendererSDL.cpp
 ../MogeLib/src/Scale.cpp
-../MogeLib/src/SDLRenderer.cpp
 ../MogeLib/src/Singleton.cpp
 ../MogeLib/src/Size.cpp
 ../MogeLib/src/SizeDouble2D.cpp
@@ -66,6 +70,7 @@
 ../Tests/src/NodeCreatorTests.cpp
 ../Tests/src/NodeTests.cpp
 ../Tests/src/ObjectNodeTests.cpp
+../Tests/src/StringTests.cpp
 ../Tests/src/TimeTests.cpp
 ../Tetris/main.cpp
 ../Tetris/src/Brick.cpp

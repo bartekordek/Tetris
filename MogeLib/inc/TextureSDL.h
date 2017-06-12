@@ -23,7 +23,7 @@ namespace Moge
 		
 	private:
 		SDL_Texture* texture = nullptr;
-		Path texturePath;
-		Math::Vector3D<double> size;
+		Path texturePath = Path( "" );
+		Math::Vector3D<double> size = Math::Vector3D<double>();
 	};
 }

@@ -165,9 +165,6 @@
     <ClInclude Include="inc\Scale.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\SDLRenderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\Singleton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -291,6 +288,24 @@
     <ClInclude Include="inc\LckPrim.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\ILogUtil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LOgUtilConcrete.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Format.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RendererSDL.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\KeyboardObservableSDL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\IEventLoop.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ConsoleUtilities.cpp">
@@ -395,9 +410,6 @@
     <ClCompile Include="src\Scale.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\SDLRenderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Singleton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -453,6 +465,21 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\FPSCounterConcrete.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LOgUtilConcrete.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ILogUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Format.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RendererSDL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\KeyboardObservableSDL.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
