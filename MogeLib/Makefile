@@ -1,13 +1,15 @@
 ifeq ($(OS),Windows_NT)
     DYN_LIB_EXT = .dll
+	DEBUG_FLAGS = -DBOOST_WINDOWS
+	RELEASE_FLAGS = -DBOOST_WINDOWS
 else
     DYN_LIB_EXT = .so
 endif
 CC = g++
 CC_LINK = g++ -shared
 COMPILER_FLAGS = -pedantic -Wall -std=c++11 -D MogeLib_EXPORT="1" -Wno-ignored-attributes
-DEBUG_FLAGS = -ggdb -Og -DBOOST_WINDOWS
-RELEASE_FLAGS = -Ofast -DBOOST_WINDOWS
+DEBUG_FLAGS += -ggdb -Og
+RELEASE_FLAGS += -Ofast
 PROJECT_NAME = libmoge
 IMP_LIB_NAME = $(PROJECT_NAME).a
 OUTPUT_DIR_DEBUG = ../Build/Debug
