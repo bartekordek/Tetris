@@ -37,11 +37,9 @@ run_release: release
 
 $(OUTPUT_DEBUG): $(OBJ_DEBUG_FILES)
 	$(CC_LINK) -o $(OUTPUT_DEBUG) $(OBJ_DEBUG_FILES) $(IMPORT_LIBS_DEBUG) $(IMPORT_LIBS_FILES)
-	cp $(HOME_SDL2_LINUX)/$(LINUX_BIN_SUBPATH)/*.dll $(dir $(OUTPUT_DEBUG))
 
 $(OUTPUT_RELEASE): $(OBJ_RELEASE_FILES)
 	$(CC_LINK) -o $(OUTPUT_RELEASE) $(OBJ_RELEASE_FILES) $(IMPORT_LIBS_RELEASE) $(IMPORT_LIBS_FILES)
-	cp $(HOME_SDL2_LINUX)/$(LINUX_BIN_SUBPATH)/*.dll $(dir $(OUTPUT_RELEASE))
 
 $(OBJ_DEBUG_DIR)%.o: %.cpp
 	mkdir -p $(dir $@)
@@ -56,6 +54,10 @@ first_run:
 	mkdir -p $(dir $(OUTPUT_DEBUG))
 	mkdir -p $(dir $(OBJ_RELEASE_FILES)) 
 	mkdir -p $(dir $(OUTPUT_RELEASE))
+ifeq ($(OS),Windows_NT)
+	find /usr -name 'SDL2.dll' | xargs -i cp {} -fv $(OUTPUT_DIR_DEBUG)
+	find /usr -name 'SDL2.dll' | xargs -i cp {} -fv $(OUTPUT_DIR_RELEASE)
+endif
 
 clean:
 	rm -f $(OBJ_DEBUG_FILES)

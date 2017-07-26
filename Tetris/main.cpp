@@ -8,5 +8,6 @@ int main( int argc, char *argv[] )
 	Tetris::CGame game;
 	game.initialize( 22, 10 );
 	game.run();
+	std::getchar();
 	return 0;
 }

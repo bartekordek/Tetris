@@ -12,6 +12,7 @@ namespace Moge
 		TextureSDL();
 		TextureSDL(const TextureSDL& orig);
 		virtual ~TextureSDL();
+		TextureSDL& operator=( const TextureSDL& right );
 		
 		void set( SDL_Texture* texture );
 		SDL_Texture* get()const;

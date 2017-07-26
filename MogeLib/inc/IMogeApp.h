@@ -11,15 +11,21 @@ namespace Moge
 	public:
 		MogeLib_API IMogeApp( void );
 		MogeLib_API virtual ~IMogeApp();
-		Engine* getEngine();
+		const Engine* getEngine()const;
 		MogeLib_API void run();
 		
 	protected:
 	private:
+		/* Override this method to set some initialization.*/
 		MogeLib_API virtual void initialize();
+		/* Override this method to set some additional cleaning.*/
+		MogeLib_API virtual void clean();
 		void frontEndLoopWrapper();
+		/*
+		 * Front End loop needs to have implementation.
+		 * Engine will run as long as front end loop runs.
+		 */
 		virtual void frontEndLoop() = 0;
-		void stopApp();
 
 		Engine* engine = nullptr;
 		bool runMainLoop = true;

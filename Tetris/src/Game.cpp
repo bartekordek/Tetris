@@ -38,7 +38,7 @@ namespace Tetris
 		std::transform( keyName.begin(), keyName.end(), keyName.begin(), ::tolower );
 		if( "q" == keyName && data->getKeyIsDown() )
 		{
-			m_quit = true;
+			this->quit = true;
 			return;
 		}
 
@@ -66,7 +66,7 @@ namespace Tetris
 	}
 	void CGame::frontEndLoop()
 	{
-		while( false == m_quit )
+		while( false == this->quit )
 		{
 			mainGrid->updateGrid();
 		}

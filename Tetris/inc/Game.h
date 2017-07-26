@@ -1,8 +1,8 @@
 #pragma once
-
 #include <memory>
 #include "IMogeApp.h"
 #include "MainGrid.h"
+#include "LckPrim.h"
 namespace Tetris
 {
 	class CMainGrid;
@@ -19,6 +19,6 @@ namespace Tetris
 		void frontEndLoop() override;
 
 		std::unique_ptr<CMainGrid> mainGrid;
-		bool m_quit = false;
+		Moge::LckPrim<bool> quit = Moge::LckPrim<bool>(false);
 	};
 }

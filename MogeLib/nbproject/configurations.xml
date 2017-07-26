@@ -93,6 +93,7 @@
       <flagsDictionary>
         <element flagsID="0" commonFlags="-pedantic -std=c++11"/>
         <element flagsID="1" commonFlags="-std=c++11"/>
+        <element flagsID="2" commonFlags="-std=c++11 -Og"/>
       </flagsDictionary>
       <codeAssistance>
         <envVariables>
@@ -109,9 +110,6 @@
             <standard>8</standard>
             <incDir>
               <pElem>inc</pElem>
-              <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
-              <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
-              <pElem></pElem>
             </incDir>
             <preprocessorList>
               <Elem>MogeLib_EXPORT=1</Elem>
@@ -145,9 +143,17 @@
         <ccTool flags="0">
         </ccTool>
       </item>
+      <folder path="0">
+        <ccTool>
+          <standard>8</standard>
+        </ccTool>
+      </folder>
       <folder path="0/RenderableObject">
         <ccTool>
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>RenderableObject</pElem>
           </incDir>
         </ccTool>
@@ -155,6 +161,9 @@
       <folder path="0/Scene">
         <ccTool>
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>Scene</pElem>
           </incDir>
         </ccTool>
@@ -162,6 +171,9 @@
       <item path="src/ConsoleUtilities.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -169,6 +181,9 @@
       <item path="src/Engine.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -176,6 +191,9 @@
       <item path="src/File.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -183,6 +201,9 @@
       <item path="src/Frustum.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -190,6 +211,9 @@
       <item path="src/IKey.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -197,6 +221,9 @@
       <item path="src/IKeyFactory.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -204,6 +231,9 @@
       <item path="src/IKeyboardObservable.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -211,6 +241,9 @@
       <item path="src/IKeyboardObservableImp.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -218,6 +251,9 @@
       <item path="src/IKeyboardObserver.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -225,6 +261,9 @@
       <item path="src/IMogeApp.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -232,6 +271,9 @@
       <item path="src/INodeCreator.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -239,6 +281,9 @@
       <item path="src/IObservable.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -246,6 +291,9 @@
       <item path="src/IObservableData.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -253,6 +301,9 @@
       <item path="src/IObservableImpl.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -260,6 +311,9 @@
       <item path="src/IPositionFactory.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -267,6 +321,9 @@
       <item path="src/IRenderable.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -274,6 +331,9 @@
       <item path="src/IRenderer.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -281,6 +341,9 @@
       <item path="src/ITexture.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -288,6 +351,9 @@
       <item path="src/IVector3D.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -295,6 +361,9 @@
       <item path="src/KeyFactorySDL.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -302,6 +371,9 @@
       <item path="src/KeySDL.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -309,6 +381,9 @@
       <item path="src/KeyboardData.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -316,6 +391,9 @@
       <item path="src/KeyboardObservable.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -323,6 +401,9 @@
       <item path="src/Line.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -330,6 +411,9 @@
       <item path="src/ListFactory.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="1">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -337,6 +421,9 @@
       <item path="src/MTime.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -344,6 +431,9 @@
       <item path="src/MogeLibMain.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -351,6 +441,9 @@
       <item path="src/MultiPointFactory.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -358,6 +451,9 @@
       <item path="src/MyString.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -365,6 +461,9 @@
       <item path="src/Named.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -372,17 +471,28 @@
       <item path="src/Node.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/NodeFactory2D.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
+          <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/NodeFactoryRegular.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -390,20 +500,27 @@
       <item path="src/ObjectNode.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/Path.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
+        <ccTool flags="2">
           <incDir>
-            <pElem>src</pElem>
+            <pElem>-pedantic</pElem>
+            <pElem></pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/PositionDouble2D.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -411,6 +528,9 @@
       <item path="src/PositionDouble3D.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -418,6 +538,9 @@
       <item path="src/Quaternion.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -425,6 +548,9 @@
       <item path="src/Rectangle.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -432,6 +558,9 @@
       <item path="src/RenderableSDLTexture.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -439,6 +568,9 @@
       <item path="src/SDLRenderer.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -446,6 +578,9 @@
       <item path="src/Scale.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -453,6 +588,9 @@
       <item path="src/Singleton.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -460,6 +598,9 @@
       <item path="src/Size.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -467,6 +608,9 @@
       <item path="src/SizeDouble2D.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -474,6 +618,9 @@
       <item path="src/SizeDouble3D.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -481,6 +628,9 @@
       <item path="src/TextureSDL.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -488,6 +638,9 @@
       <item path="src/Vector3DFactory.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>
@@ -495,6 +648,9 @@
       <item path="src/Visible.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>../../../Libraries/SDL2/SDL2-2.0.5/include</pElem>
+            <pElem>../../../Libraries/boost/boost_1_63_0</pElem>
+            <pElem></pElem>
             <pElem>src</pElem>
           </incDir>
         </ccTool>

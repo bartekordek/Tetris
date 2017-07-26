@@ -1,6 +1,5 @@
 [Tetris/MogeLib/inc/IteratorListLinked.h:7]: (warning) The class 'IteratorListLinked' has 'operator=' but lack of 'copy constructor'.
 [Tetris/MogeLib/inc/IteratorListVector.h:7]: (warning) The class 'IteratorListVector' has 'operator=' but lack of 'copy constructor'.
-[Tetris/MogeLib/inc/TextureSDL.h:9]: (warning) The class 'TextureSDL' has 'copy constructor' but lack of 'operator='.
 [../MogeLib/src/NodeFactory3D.cpp:13]: (style) The function 'CreateFromImage' is never used.
 [../MogeLib/src/Path.cpp:109]: (style) The function 'GetDirectorySeparator' is never used.
 [../MogeLib/src/Path.cpp:114]: (style) The function 'GetExtensionSeparator' is never used.
@@ -36,7 +35,7 @@
 [../MogeLib/src/Format.cpp:40]: (style) The function 'moveCharacters' is never used.
 [../MogeLib/src/MyString.cpp:80]: (style) The function 'operator+' is never used.
 [../MogeLib/src/RendererSDL.cpp:151]: (style) The function 'removeTexture' is never used.
-[../MogeLib/src/TextureSDL.cpp:48]: (style) The function 'setSize' is never used.
+[../MogeLib/src/TextureSDL.cpp:62]: (style) The function 'setSize' is never used.
 [../Tetris/src/Brick.cpp:37]: (style) The function 'slab2Matrix' is never used.
 [../MogeLib/src/TimerChrono.cpp:25]: (style) The function 'stop' is never used.
 [../MogeLib/src/IMogeApp.cpp:35]: (style) The function 'stopApp' is never used.

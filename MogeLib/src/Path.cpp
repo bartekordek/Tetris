@@ -157,20 +157,23 @@ namespace Moge
 	const MyString GetBaseName( const MyString& path )
 	{
 		boost::filesystem::path bPath( path.c_str() );
-		MyString result( ws2s( bPath.stem().c_str() ) );
+		auto stem = bPath.stem();
+		std::string pathAsString = stem.string(); 
+		MyString result( pathAsString );
 		return result;
 	}
 
 	const MyString GetExtension( const MyString& path )
 	{
 		boost::filesystem::path bPath( path.c_str() );
-		return MyString( ws2s(bPath.extension().c_str()) );
+		return MyString( bPath.extension().string() );
 	}
 
 	const MyString GetDirectory( const MyString& path )
 	{
 		boost::filesystem::path bPath( path.c_str() );
-		MyString result( ws2s( bPath.parent_path().c_str() ) );
+		std::string pathAsString = ws2s( bPath.parent_path().c_str() );
+		MyString result( pathAsString );
 		return result;
 	}
 

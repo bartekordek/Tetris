@@ -40,7 +40,6 @@ namespace Moge
 		std::lock_guard<std::mutex> lck( mListMutex );
 		this->renderer2D.reset();
 		this->nodeFactory.reset();
-		this->infoLoopThread.join();
 		this->logUtil->showMessage( "Stoping loops... Done." );
 	}
 
@@ -61,10 +60,11 @@ namespace Moge
 	void Engine::close()
 	{
 		this->keyboardEventObservable->stopEventLoop();
-		this->logUtil->showMessage( "Turning of main loop..." );
+		this->logUtil->showMessage( "Turning off main loop..." );
 		this->mainLoopIsRuning = false;
 		this->mainLoop.join();
-		this->logUtil->showMessage( "Turning of main loop... Done." );
+		this->infoLoopThread.join();
+		this->logUtil->showMessage( "Turning off main loop... Done." );
 		this->eventLoopActive = false;
 	}
 	

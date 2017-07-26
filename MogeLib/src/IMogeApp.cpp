@@ -7,14 +7,16 @@ namespace Moge
 	IMogeApp::IMogeApp( void )
 	{
 		this->engine = EngineManager::initializeEngine();
+		initialize();
 	}
 
 	IMogeApp::~IMogeApp()
 	{
+		clean();
 		EngineManager::destroyEngine();
 	}
 
-	Engine* IMogeApp::getEngine()
+	const Engine* IMogeApp::getEngine()const
 	{
 		return this->engine;
 	}
@@ -32,13 +34,11 @@ namespace Moge
 		this->engine->close();
 	}
 
-	void IMogeApp::stopApp()
-	{
-		
-	}
-
 	void IMogeApp::initialize()
 	{
-		
+	}
+
+	void IMogeApp::clean()
+	{
 	}
 }

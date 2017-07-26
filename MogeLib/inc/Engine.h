@@ -47,8 +47,10 @@ namespace Moge
 
 		std::mutex mRenderableObjectsMutex;
 		std::mutex mListMutex;
+
 		std::thread mainLoop;
 		std::thread infoLoopThread;
+
 		LckPrim<bool> mainLoopIsRuning;
 		LckPrim<bool> eventLoopActive;
 

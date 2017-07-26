@@ -7,7 +7,10 @@ namespace Moge
 	{
 	}
 
-	TextureSDL::TextureSDL(const TextureSDL& orig) 
+	TextureSDL::TextureSDL( const TextureSDL& right ):
+		texture( right.texture ),
+		texturePath( right.texturePath ),
+		size( right.size )
 	{
 	}
 
@@ -16,7 +19,18 @@ namespace Moge
 		SDL_DestroyTexture( this->texture );
 		this->texture = nullptr;
 	}
-	
+
+	TextureSDL& TextureSDL::operator=( const TextureSDL& right )
+	{
+		if( this != & right )
+		{
+			this->texture = right.texture;
+			this->texturePath = right.texturePath;
+			this->size = right.size;
+		}
+		return *this;
+	}
+
 	void TextureSDL::set( SDL_Texture* texture )
 	{
 		this->texture = texture;
