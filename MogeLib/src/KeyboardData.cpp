@@ -26,9 +26,9 @@ namespace Moge
 		return *this;
 	}
 
-	void KeyboardData::setKeyName( const std::string& keyName )
+	void KeyboardData::setKeyName( const std::string& name )
 	{
-		this->keyName = keyName;
+		this->keyName = name;
 	}
 
 	const std::string& KeyboardData::getKeyName() const
@@ -36,9 +36,9 @@ namespace Moge
 		return this->keyName;
 	}
 
-	void KeyboardData::setKeyIsDown( const bool keyIsDown )
+	void KeyboardData::setKeyIsDown( const bool isKeyIsDown )
 	{
-		this->keyIsDown = keyIsDown;
+		this->keyIsDown = isKeyIsDown;
 	}
 
 	const bool KeyboardData::getKeyIsDown() const

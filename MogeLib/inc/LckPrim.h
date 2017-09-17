@@ -94,10 +94,10 @@ namespace Moge
 			return *this;
 		}
 
-		LckPrim<Type>& operator=( const Type& value )
+		LckPrim<Type>& operator=( const Type& right )
 		{
 			std::lock_guard<std::mutex> lock( this->mtx );
-			this->value = value;
+			this->value = right;
 			return *this;
 		}
 

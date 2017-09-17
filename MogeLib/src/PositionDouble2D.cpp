@@ -19,18 +19,20 @@ namespace Moge
 			return 0.0;
 		}
 
-		void PositionDouble2D::setX( const double x )
+		void PositionDouble2D::setX( const double xVal )
 		{
-			this->x = x;
+			this->x = xVal;
 		}
 
-		void PositionDouble2D::setY( const double y )
+		void PositionDouble2D::setY( const double yVal )
 		{
-			this->y = y;
+			this->y = yVal;
 		}
-
-		void PositionDouble2D::setZ( const double z )
+		__pragma( warning( push ) ) \
+		__pragma( warning( disable:4100 ) )
+		void PositionDouble2D::setZ( const double zVal )
 		{
 		}
+		__pragma( warning( pop ) )
 	}
 }

@@ -16,8 +16,8 @@ namespace Moge
 		return this->visible;
 	}
 
-	void Visible::SetVisible( const bool visible )
+	void Visible::SetVisible( const bool isVisible )
 	{
-		this->visible = visible;
+		this->visible = isVisible;
 	}
 }

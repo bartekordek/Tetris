@@ -6,20 +6,21 @@ namespace Moge
 	TextureSDL::TextureSDL()
 	{
 	}
-
+	__pragma( warning( push ) ) \
+	__pragma( warning( disable:4100 ) )
 	TextureSDL::TextureSDL(const TextureSDL& orig) 
 	{
 	}
-
+	__pragma( warning( pop ) )
 	TextureSDL::~TextureSDL() 
 	{
 		SDL_DestroyTexture( this->texture );
 		this->texture = nullptr;
 	}
 	
-	void TextureSDL::set( SDL_Texture* texture )
+	void TextureSDL::set( SDL_Texture* tex )
 	{
-		this->texture = texture;
+		this->texture = tex;
 		int w, h;
 		SDL_QueryTexture( this->texture, nullptr, nullptr, &w, &h );
 		this->size.setXYZ( w, h, 0 );
@@ -44,9 +45,11 @@ namespace Moge
 	{
 		return this->size;
 	}
-
-	void TextureSDL::setSize( const Math::Vector3D< double >& size )
+	__pragma( warning( push ) ) \
+	__pragma( warning( disable:4100 ) )
+	void TextureSDL::setSize( const Math::Vector3D< double >& inSize )
 	{
 		
 	}
+	__pragma( warning( pop ) )
 }

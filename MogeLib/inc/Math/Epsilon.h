@@ -2,6 +2,7 @@
 #include <MogeLib.h>
 #include "Math.h"
 #include <type_traits>
+
 namespace Moge
 {
 	namespace Math
@@ -12,10 +13,16 @@ namespace Moge
 		public:
 			Epsilon()
 			{
-				if( std::is_same<Type, float>::value || std::is_same<Type, double>::value )
+				__pragma( warning( push ) ) \
+					__pragma( warning( disable:4127 ) )
+				if(
+					static_cast<const bool>( std::is_same<Type, float>::value ) || 
+					static_cast<const bool>( std::is_same<Type, double>::value ) )
 				{
 					this->epsilon = static_cast<Type>( 0.0000000001 );
 				}
+				__pragma( warning( pop ) )
+
 			}
 
 			virtual ~Epsilon() = default;

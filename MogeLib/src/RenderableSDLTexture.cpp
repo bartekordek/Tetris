@@ -40,20 +40,21 @@ namespace Moge
 	{
 		return *this->scale;
 	}
-
-	void RenderableSDLTexture::setScale( const Math::Vector3D< double >& scale )
+	__pragma( warning( push ) ) \
+	__pragma( warning( disable:4100 ) )
+	void RenderableSDLTexture::setScale( const Math::Vector3D< double >& newScale )
 	{
 		
 	}
-
+	__pragma( warning( pop ) )
 	const  std::shared_ptr<ITexture>& RenderableSDLTexture::getTexture() const
 	{
 		return this->texture;
 	}
 
-	void RenderableSDLTexture::setTexture( const std::shared_ptr< ITexture >& texture )
+	void RenderableSDLTexture::setTexture( const std::shared_ptr< ITexture >& tex )
 	{
-		this->texture = texture;
+		this->texture = tex;
 	}
 
 	const RenderableType RenderableSDLTexture::getRenderableType() const

@@ -35,9 +35,9 @@ const unsigned FPSCounterConcrete::getAverageFps() const
 	return this->averageFps;
 }
 
-void FPSCounterConcrete::setAverageFpsSample( const unsigned sampleSize )
+void FPSCounterConcrete::setAverageFpsSample( const unsigned size )
 {
-	this->sampleSize = sampleSize;
+	this->sampleSize = size;
 }
 
 void FPSCounterConcrete::counterLoop()

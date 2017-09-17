@@ -25,9 +25,9 @@ namespace Moge
 		return *this;
 	}
 
-	void KeySDL::setKeyName( const std::string& keyName )
+	void KeySDL::setKeyName( const std::string& name )
 	{
-		this->keyName = keyName;
+		this->keyName = name;
 	}
 
     const std::string& KeySDL::getKeyName() const

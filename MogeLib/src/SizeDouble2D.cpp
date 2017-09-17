@@ -3,20 +3,21 @@ namespace Moge
 {
 	namespace Math
 	{
-		void SizeDouble2D::setWidth( const double width )
+		void SizeDouble2D::setWidth( const double widthVal )
 		{
-			this->width = width;
+			this->width = widthVal;
 		}
 
-		void SizeDouble2D::setHeight( const double height )
+		void SizeDouble2D::setHeight( const double heightVal )
 		{
-			this->height = height;
+			this->height = heightVal;
 		}
-
-		void SizeDouble2D::setDepth( const double depth )
+		__pragma( warning( push ) ) \
+		__pragma( warning( disable:4100 ) )
+		void SizeDouble2D::setDepth( const double depthVal )
 		{
 		}
-
+		__pragma( warning( pop ) )
 		const double SizeDouble2D::getWidth()const
 		{
 			return this->width;

@@ -89,15 +89,15 @@ namespace Moge
 		return this->scale;
 	}
 
-	void Node::setScale( const Vector3D< double >& scale )
+	void Node::setScale( const Vector3D< double >& inputScale )
 	{
-		this->scale = scale;
+		this->scale = inputScale;
 		this->absSize = scale * this->texture->getSize();
 	}
 
-	void Node::setTexture( const std::shared_ptr<ITexture>& texture )
+	void Node::setTexture( const std::shared_ptr<ITexture>& inputTexture )
 	{
-		this->texture = texture;
+		this->texture = inputTexture;
 		this->absSize = this->scale * this->texture->getSize();
 	}
 

@@ -19,19 +19,19 @@ namespace Moge
 			return this->z;
 		}
 
-		void PositionDouble3D::setX( const double x )
+		void PositionDouble3D::setX( const double xVal )
 		{
-			this->x = x;
+			this->x = xVal;
 		}
 
-		void PositionDouble3D::setY( const double y )
+		void PositionDouble3D::setY( const double yVal )
 		{
-			this->y = y;
+			this->y = yVal;
 		}
 
-		void PositionDouble3D::setZ( const double z )
+		void PositionDouble3D::setZ( const double zVal )
 		{
-			this->z = z;
+			this->z = zVal;
 		}
 	}
 }

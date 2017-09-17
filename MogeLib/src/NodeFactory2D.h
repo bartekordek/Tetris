@@ -13,12 +13,10 @@ namespace Moge
 		
 		std::shared_ptr<Node> CreateFromImage(
 				const Path& filePath,
-				const Math::IPosition<double>& position, 
 				const MyString& name = MyString( "" ) ) override;
 		
 		std::shared_ptr<Node> createFromTexture(
 				const std::shared_ptr<ITexture>& texture, 
-				const Math::IPosition<double>& position = Math::IPositionAdapter<double>( 0.0, 0.0, 0.0 ),
 				const MyString& name = MyString() ) override;
 		
 		void remove( const std::shared_ptr<Node>& node ) override;

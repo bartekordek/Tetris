@@ -37,26 +37,26 @@ namespace Moge
 				return this->z;
 			}
 
-			void setX( const Type x )
+			void setX( const Type xVal )
 			{
-				this->x = x;
+				this->x = xVal;
 			}
 
-			void setY( const Type y )
+			void setY( const Type yVal )
 			{
-				this->y = y;
+				this->y = yVal;
 			}
 
-			void setZ( const Type z )
+			void setZ( const Type zVal )
 			{
-				this->z = z;
+				this->z = zVal;
 			}
 
-			void setXYZ( const Type x, const Type y, const Type z )
+			void setXYZ( const Type xVal, const Type yVal, const Type zVal )
 			{
-				this->x = x;
-				this->y = y;
-				this->z = z;
+				this->x = xVal;
+				this->y = yVal;
+				this->z = zVal;
 			}
 
 			void setXYZ( const Vector3D& object )

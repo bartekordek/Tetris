@@ -96,6 +96,12 @@ namespace Moge
 
 	void SDLRenderer::render( const IPrimitive& primitive, const Math::IPosition<double>& position, const Math::Vector3D<double>& targetSize )
 	{
+		__pragma( warning( push ) ) \
+		__pragma( warning( disable:4189 ) )
+		auto dupa1 = &primitive;
+		auto dupa2 = &position;
+		auto dupa3 = &targetSize; 
+		__pragma( warning( pop ) )
 	}
 
 	void SDLRenderer::updateScreen()
