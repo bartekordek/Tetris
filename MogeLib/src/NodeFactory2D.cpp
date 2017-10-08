@@ -28,7 +28,9 @@ namespace Moge
 		return result;
 	}
 
-	std::shared_ptr<Node> NodeFactory2D::createFromTexture(const std::shared_ptr<ITexture>& texture, const MyString& name)
+	std::shared_ptr<Node> NodeFactory2D::createFromTexture(
+		const std::shared_ptr<ITexture>& texture, 
+		const MyString& name)
 	{
 		std::shared_ptr<Node> result = std::make_shared<Node>();
 		result->setTexture( texture );

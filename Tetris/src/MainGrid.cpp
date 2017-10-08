@@ -79,7 +79,8 @@ namespace Tetris
 	void CMainGrid::funLoop()
 	{
 		auto pos = Math::Vector3D<double>( 400.0, 20.0, 0.0 );
-		auto slabNode = EngineManager::getEngine()->get2DNodeFactory()->createFromTexture( this->emptySlabTex, pos );
+		auto slabNode = EngineManager::getEngine()->get2DNodeFactory()->createFromTexture( 
+			this->emptySlabTex );
 		slabNode->SetVisible( true );
 		float t = 0.0;
 		float x0 = 350;
