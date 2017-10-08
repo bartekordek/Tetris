@@ -124,6 +124,7 @@ endlocal</Command>
       <MinimalRebuild>false</MinimalRebuild>
       <AdditionalIncludeDirectories>inc;..\MogeLib\inc</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
+      <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <PostBuildEvent>
       <Command>setlocal enableextensions
@@ -134,6 +135,9 @@ endlocal</Command>
       <AdditionalLibraryDirectories>$(SolutionDir)Build\$(Platform)_$(Configuration)\</AdditionalLibraryDirectories>
       <AdditionalDependencies>MogeLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>

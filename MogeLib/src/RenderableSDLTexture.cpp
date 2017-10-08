@@ -44,7 +44,7 @@ namespace Moge
 	__pragma( warning( disable:4100 ) )
 	void RenderableSDLTexture::setScale( const Math::Vector3D< double >& newScale )
 	{
-		
+		//todo
 	}
 	__pragma( warning( pop ) )
 	const  std::shared_ptr<ITexture>& RenderableSDLTexture::getTexture() const

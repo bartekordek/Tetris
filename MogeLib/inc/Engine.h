@@ -52,7 +52,6 @@ namespace Moge
 		LckPrim<bool> mainLoopIsRuning;
 		LckPrim<bool> eventLoopActive;
 
-		const uint8_t* sdlKey = nullptr;
 		std::map<unsigned int, std::shared_ptr<IKey>> keys;
 		std::unique_ptr<IKeyFactory> keyFactory;
 

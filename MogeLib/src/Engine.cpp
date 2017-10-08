@@ -5,7 +5,6 @@
 #include "NodeFactory2D.h"
 #include "ITextureFactory3D.h"
 
-#include <SDL.h>
 #include <iostream>
 #include <memory>
 #include "ITimer.h"
@@ -20,7 +19,6 @@ namespace Moge
 	{
 		this->renderer2D.reset( new SDLRenderer() );
 		//this->renderer3D.reset( TODO: Add when OpenGL is ready. );
-		this->sdlKey = SDL_GetKeyboardState( nullptr );
 		this->keyFactory.reset( new KeyFactorySDL() );
 		this->keys = this->keyFactory->createKeys();
 		auto txtFactory2D = static_cast<SDLRenderer*>( this->renderer2D.get() );
@@ -36,7 +34,6 @@ namespace Moge
 		std::lock_guard<std::mutex> lck( mListMutex );
 		this->renderer2D.reset();
 		this->nodeFactory.reset();
-		SDL_Quit();
 		this->infoLoopThread.join();
 	}
 

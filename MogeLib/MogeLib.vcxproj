@@ -99,7 +99,7 @@
       <SDLCheck>true</SDLCheck>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST_WINDOWS);$(HOME_SDL2_WINDOWS)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(HOME_SDL2WRAPPER_WINDOWS)\SDL2Wrapper\inc;$(HOME_CUL_WINDOWS);$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST_WINDOWS);$(HOME_SDL2_WINDOWS)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
@@ -126,11 +126,12 @@
       <SDLCheck>true</SDLCheck>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST_WINDOWS);$(HOME_SDL2_WINDOWS)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(HOME_SDL2WRAPPER_WINDOWS)\SDL2Wrapper\inc;$(HOME_CUL_WINDOWS);$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST_WINDOWS);$(HOME_SDL2_WINDOWS)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <TreatWarningAsError>true</TreatWarningAsError>
+      <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
@@ -145,18 +146,22 @@
     <PostBuildEvent>
       <Command>xcopy "$(HOME_SDL2_WINDOWS)\Build-Windows\$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
     </PostBuildEvent>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST_WINDOWS);$(HOME_SDL2_WINDOWS)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(HOME_SDL2WRAPPER_WINDOWS)\SDL2Wrapper\inc;$(HOME_CUL_WINDOWS);$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST_WINDOWS);$(HOME_SDL2_WINDOWS)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
+      <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -175,15 +180,16 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST_WINDOWS);$(HOME_SDL2_WINDOWS)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(HOME_SDL2WRAPPER_WINDOWS)\SDL2Wrapper\inc;$(HOME_CUL_WINDOWS);$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST_WINDOWS);$(HOME_SDL2_WINDOWS)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
+      <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
