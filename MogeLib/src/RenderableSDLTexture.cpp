@@ -10,16 +10,6 @@ namespace Moge
 		this->size.reset( new Math::Vector3D<double>() );
 		this->scale.reset( new Math::Vector3D<double>() );
 	}
-	
-	//Math::IPosition<double>& RenderableSDLTexture::getPosition()
-	//{
-	//	return *this->position.get();
-	//}
-	//
-	//Math::ISize<double>& RenderableSDLTexture::getSize()
-	//{
-	//	return *this->size.get();
-	//}
 
 	const Math::IPosition<double>& RenderableSDLTexture::getPosition()const
 	{
@@ -40,13 +30,20 @@ namespace Moge
 	{
 		return *this->scale;
 	}
+
+#if _MSC_VER
 	__pragma( warning( push ) ) \
 	__pragma( warning( disable:4100 ) )
+#endif
+
 	void RenderableSDLTexture::setScale( const Math::Vector3D< double >& newScale )
 	{
 		//todo
 	}
+
+#if _MSC_VER
 	__pragma( warning( pop ) )
+#endif
 	const  std::shared_ptr<ITexture>& RenderableSDLTexture::getTexture() const
 	{
 		return this->texture;

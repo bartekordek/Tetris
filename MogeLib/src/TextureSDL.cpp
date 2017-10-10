@@ -6,12 +6,17 @@ namespace Moge
 	TextureSDL::TextureSDL()
 	{
 	}
+#if _MSC_VER
 	__pragma( warning( push ) ) \
 	__pragma( warning( disable:4100 ) )
+#endif
 	TextureSDL::TextureSDL(const TextureSDL& orig) 
 	{
 	}
+
+#if _MSC_VER
 	__pragma( warning( pop ) )
+#endif
 	TextureSDL::~TextureSDL() 
 	{
 		SDL_DestroyTexture( this->texture );
@@ -45,11 +50,15 @@ namespace Moge
 	{
 		return this->size;
 	}
+#if _MSC_VER
 	__pragma( warning( push ) ) \
 	__pragma( warning( disable:4100 ) )
+#endif
 	void TextureSDL::setSize( const Math::Vector3D< double >& inSize )
 	{
 		
 	}
+#if _MSC_VER
 	__pragma( warning( pop ) )
+#endif
 }

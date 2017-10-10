@@ -28,11 +28,16 @@ namespace Moge
 		{
 			this->y = yVal;
 		}
+
+#if _MSC_VER
 		__pragma( warning( push ) ) \
 		__pragma( warning( disable:4100 ) )
+#endif
 		void PositionDouble2D::setZ( const double zVal )
 		{
 		}
+#if _MSC_VER
 		__pragma( warning( pop ) )
+#endif
 	}
 }

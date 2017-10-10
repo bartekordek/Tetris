@@ -114,9 +114,6 @@
     <ClInclude Include="inc\IKeyboardObserver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\IKeyFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\IMogeApp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -150,9 +147,6 @@
     <ClInclude Include="inc\KeyboardData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\KeyFactorySDL.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\MogeLib.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -163,9 +157,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\Scale.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\SDLRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\Singleton.h">
@@ -291,6 +282,12 @@
     <ClInclude Include="inc\LckPrim.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\SDLRenderer.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\IMainGameLoop.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ConsoleUtilities.cpp">
@@ -329,9 +326,6 @@
     <ClCompile Include="src\IKeyboardObserver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\IKeyFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\IMogeApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -363,9 +357,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\KeyboardData.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\KeyFactorySDL.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\KeySDL.cpp">

@@ -1,6 +1,8 @@
-#include "SDLRenderer.h"
+#include "SDLRenderer.hpp"
 #include "TextureSDL.h"
 #include "IRenderable.h"
+#include "KeySDL.h"
+
 #include <SDL.h>
 #include <boost/assert.hpp>
 #include <map>
@@ -9,9 +11,12 @@
 
 namespace Moge
 {
-	SDLRenderer::SDLRenderer()
+	SDLRenderer::SDLRenderer():
+		eventLoopActive( true ),
+		sdlKey( SDL_GetKeyboardState( nullptr ) )
 	{
 		SDL_Init( SDL_INIT_EVERYTHING );
+		this->keys = this->createKeys();
 	}
 
 	SDLRenderer::~SDLRenderer()
@@ -97,12 +102,15 @@ namespace Moge
 
 	void SDLRenderer::render( const IPrimitive& primitive, const Math::IPosition<double>& position, const Math::Vector3D<double>& targetSize )
 	{
+#if _MSC_VER
 		__pragma( warning( push ) ) \
 		__pragma( warning( disable:4189 ) )
+
 		auto dupa1 = &primitive;
 		auto dupa2 = &position;
 		auto dupa3 = &targetSize; 
 		__pragma( warning( pop ) )
+#endif
 	}
 
 	void SDLRenderer::updateScreen()
@@ -173,5 +181,56 @@ namespace Moge
 				+ " has not been found!\n";
 			BOOST_ASSERT_MSG( false, message.c_str() );
 		}
+	}
+
+	void SDLRenderer::runMainLoop()
+	{
+		SDL_Event event;
+		while( true == this->eventLoopActive )
+		{
+			if( SDL_WaitEvent( &event ) > 0 )
+			{
+				if( ( event.type == SDL_KEYDOWN || event.type == SDL_KEYUP ) )
+				{
+					auto scancode = SDL_GetScancodeFromKey( event.key.keysym.sym );
+					if( SDL_SCANCODE_UNKNOWN != scancode )
+					{
+						const bool keyIsDown = ( SDL_KEYDOWN == event.type ) ? true : false;
+						const auto keyIndex = static_cast<unsigned int>( scancode );
+						auto key = this->keys->at( keyIndex );
+						key->setKeyIsDown( keyIsDown );
+						this->notifyKeyboardObservers( key.get() );
+					}
+				} 
+			}
+		}
+	}
+
+	void SDLRenderer::stopMainLoop()
+	{
+		this->eventLoopActive = false;
+	}
+
+	const std::shared_ptr<std::map<unsigned int, std::shared_ptr<IKey>>> SDLRenderer::createKeys() const
+	{
+		std::shared_ptr<std::map<unsigned int, std::shared_ptr<IKey>>> resultPtr( new std::map<unsigned int, std::shared_ptr<IKey>>() );
+		for(
+			unsigned int i = static_cast<unsigned int>( SDL_SCANCODE_A );
+			i < static_cast<unsigned int>( SDL_NUM_SCANCODES );
+			++i )
+		{
+			const auto key = createKey( i );
+			resultPtr->insert( std::pair<unsigned int, std::shared_ptr<IKey>>( i, std::unique_ptr<IKey>( key ) ) );
+		}
+		return resultPtr;
+	}
+
+	IKey* SDLRenderer::createKey( const int keySignature ) const
+	{
+		IKey* result = new KeySDL();
+		SDL_Scancode scanCode = static_cast<SDL_Scancode>( keySignature );
+		result->setKeyName( SDL_GetScancodeName( scanCode ) );
+		result->setKeyIsDown( ( 0 == this->sdlKey[ scanCode ] ) ? false : true );
+		return result;
 	}
 }

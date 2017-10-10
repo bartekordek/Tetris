@@ -1,7 +1,6 @@
 #include "Engine.h"
 #include "IKeyboardObserver.h"
-#include "KeyFactorySDL.h"
-#include "SDLRenderer.h"
+#include "SDLRenderer.hpp"
 #include "NodeFactory2D.h"
 #include "ITextureFactory3D.h"
 
@@ -13,14 +12,14 @@ namespace Moge
 {
 	Engine::Engine( void ):
 		mainLoopIsRuning( true ),
-		eventLoopActive( true ),
 		frameSleepTimeMs( 0 ),
 		fpsCalcSampleTimeSpan( 6 )
 	{
-		this->renderer2D.reset( new SDLRenderer() );
+		auto sdlRenderer = new SDLRenderer();
+		this->renderer2D.reset( sdlRenderer );
+		this->m_mainGameLoop = static_cast<IMainGameLoop*>( sdlRenderer );
+		this->m_keyboardObservable = static_cast<IKeyboardObservable*>( sdlRenderer );
 		//this->renderer3D.reset( TODO: Add when OpenGL is ready. );
-		this->keyFactory.reset( new KeyFactorySDL() );
-		this->keys = this->keyFactory->createKeys();
 		auto txtFactory2D = static_cast<SDLRenderer*>( this->renderer2D.get() );
 		this->nodeFactory.reset( new NodeFactory2D( txtFactory2D ) );
 		this->renderer2D->setBackgroundColor( ColorE::RED );
@@ -47,15 +46,15 @@ namespace Moge
 	
 	void Engine::startMainLoop()
 	{
-		mainLoop = std::thread( &Engine::renderingLoop2D, this );
-		eventPool();
+		m_mainLoop = std::thread( &Engine::renderingLoop2D, this );
+		mainLoop();
 	}
 
 	void Engine::stopEventLoop()
 	{
 		this->mainLoopIsRuning = false;
-		this->mainLoop.join();
-		this->eventLoopActive = false;
+		this->m_mainLoop.join();
+		this->m_mainGameLoop->stopMainLoop();
 	}
 	
 	ITextureFactory* Engine::get2DTextureFactory() const
@@ -79,27 +78,9 @@ namespace Moge
 		return nullptr;//TODO
 	}
 
-	void Engine::eventPool()
+	void Engine::mainLoop()
 	{
-		SDL_Event event;
-		while( true == this->eventLoopActive )
-		{
-			if( SDL_WaitEvent(&event) > 0)
-			{
-				if((event.type == SDL_KEYDOWN || event.type == SDL_KEYUP))
-				{
-					auto scancode = SDL_GetScancodeFromKey(event.key.keysym.sym);
-					if (SDL_SCANCODE_UNKNOWN != scancode)
-					{
-						const bool keyIsDown = (SDL_KEYDOWN == event.type) ? true : false;
-						const auto keyIndex = static_cast<unsigned int>(scancode);
-						auto key = this->keys.at(keyIndex);
-						key->setKeyIsDown(keyIsDown);
-						this->notifyKeyboardObservers(key.get());
-					}
-				}
-			}
-		}
+		this->m_mainGameLoop->runMainLoop();
 	}
 
 	void Engine::renderingLoop2D()
@@ -158,5 +139,15 @@ namespace Moge
 			}
 			ITimer::SleepSeconds( this->fpsCalcSampleTimeSpan );
 		}
+	}
+
+	void Engine::registerObserver( IKeyboardObserver* observer )
+	{
+		this->m_keyboardObservable->registerObserver( observer );
+	}
+
+	void Engine::unregisterObserver( IKeyboardObserver* observer )
+	{
+		this->m_keyboardObservable->unregisterObserver( observer );
 	}
 }

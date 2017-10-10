@@ -15,6 +15,7 @@
 #include "ITextureFactory.h"
 #include "IFPSCounter.h"
 #include "LckPrim.h"
+#include "IMainGameLoop.hpp"
 
 namespace Moge
 {
@@ -23,7 +24,9 @@ namespace Moge
 	class IKey;
 	class IKeyFactory;
 	class ITextureFactory3D;
-	class MogeLib_API Engine: public Singleton<Engine>, public IKeyboardObservable
+	class MogeLib_API Engine: 
+		public Singleton<Engine>, 
+		public IKeyboardObservable
 	{
 	public:
 		Engine( void );
@@ -37,23 +40,22 @@ namespace Moge
 		INodeFactory* get2DNodeFactory()const;
 		INodeFactory* get3DNodeFactory()const;
 
+		void registerObserver( IKeyboardObserver* observer ) override;
+		void unregisterObserver( IKeyboardObserver* observer ) override;
+
 	protected:
 
 	private:
-		void eventPool();
+		void mainLoop();
 		void renderingLoop2D();
 		void QueueFrame();
 		void infoLoop();
 
 		std::mutex mRenderableObjectsMutex;
 		std::mutex mListMutex;
-		std::thread mainLoop;
+		std::thread m_mainLoop;
 		std::thread infoLoopThread;
 		LckPrim<bool> mainLoopIsRuning;
-		LckPrim<bool> eventLoopActive;
-
-		std::map<unsigned int, std::shared_ptr<IKey>> keys;
-		std::unique_ptr<IKeyFactory> keyFactory;
 
 		std::unique_ptr<INodeFactory> nodeFactory;
 		
@@ -61,6 +63,8 @@ namespace Moge
 		std::unique_ptr<IRenderer3D> renderer3D;
 		
 		std::unique_ptr<ITextureFactory3D> textureFactory3D;
+		IMainGameLoop* m_mainGameLoop = nullptr;
+		IKeyboardObservable* m_keyboardObservable;
 
 		std::unique_ptr<IFPSCounter> fpsCounter;
 		LckPrim<int> frameSleepTimeMs;

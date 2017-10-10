@@ -7,9 +7,10 @@ PROJECT_NAME = libmoge
 IMP_LIB_NAME = $(PROJECT_NAME).a
 OUTPUT_DIR_DEBUG = ../Build/Debug
 OUTPUT_DIR_RELEASE = ../Build/Release
+
 HEADER_INC = -I inc/ -I $(HOME_SDL2_LINUX)/include/ -I $(HOME_BOOST_LINUX)
-IMPORT_LIBS_DEBUG = $(HOME_SDL2_LINUX)/Build-Linux/build/.libs/libSDL2.dll.a $(HOME_BOOST_LINUX)/stage/lib/libboost_filesystem.a $(HOME_BOOST_LINUX)/stage/lib/libboost_system.a
-IMPORT_LIBS_RELEASE = $(HOME_SDL2_LINUX)/Build-Linux/build/.libs/libSDL2.dll.a $(HOME_BOOST_LINUX)/stage/lib/libboost_filesystem.a $(HOME_BOOST_LINUX)/stage/lib/libboost_system.a
+IMPORT_LIBS_DEBUG = $(HOME_SDL2_LINUX)/Build-Linux/build/.libs/libSDL2.dll.a $(HOME_BOOST_LINUX)/Build-Linux/lib/libboost_filesystem-mt.a $(HOME_BOOST_LINUX)/Build-Linux/lib/libboost_system-mt.a
+IMPORT_LIBS_RELEASE = $(HOME_SDL2_LINUX)/Build-Linux/build/.libs/libSDL2.dll.a $(HOME_BOOST_LINUX)/Build-Linux/lib/libboost_filesystem-mt.a $(HOME_BOOST_LINUX)/Build-Linux/lib/libboost_system-mt.a
 OUTPUT_DEBUG = $(OUTPUT_DIR_DEBUG)/$(DLL_NAME)
 OUTPUT_RELEASE = $(OUTPUT_DIR_RELEASE)/$(DLL_NAME)
 IMP_LIB_DEBUG = $(OUTPUT_DIR_DEBUG)/$(IMP_LIB_NAME)

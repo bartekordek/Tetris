@@ -12,12 +12,18 @@ namespace Moge
 		{
 			this->height = heightVal;
 		}
+
+#if _MSC_VER
 		__pragma( warning( push ) ) \
 		__pragma( warning( disable:4100 ) )
+#endif
 		void SizeDouble2D::setDepth( const double depthVal )
 		{
 		}
+
+#if _MSC_VER
 		__pragma( warning( pop ) )
+#endif
 		const double SizeDouble2D::getWidth()const
 		{
 			return this->width;

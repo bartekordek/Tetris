@@ -1,6 +1,7 @@
 *.VC.db
 *.a
 *.bin
+*.bsc
 *.check_cache
 *.cmake
 *.dll
@@ -22,6 +23,7 @@
 *.opendb
 *.opensdf
 *.pdb
+*.sbr
 *.sdf
 *.suo
 *.tlog
