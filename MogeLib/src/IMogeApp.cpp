@@ -4,9 +4,10 @@
 
 namespace Moge
 {
-	IMogeApp::IMogeApp( void )
+	IMogeApp::IMogeApp( void ):
+		engine( EngineManager::initializeEngine() )
 	{
-		this->engine = EngineManager::initializeEngine();
+
 	}
 
 	IMogeApp::~IMogeApp()
