@@ -8,8 +8,8 @@
 ../MogeLib/inc/IKey.h
 ../MogeLib/inc/IKeyboardObservable.h
 ../MogeLib/inc/IKeyboardObserver.h
-../MogeLib/inc/IKeyFactory.h
 ../MogeLib/inc/IList.h
+../MogeLib/inc/IMainGameLoop.hpp
 ../MogeLib/inc/IMogeApp.h
 ../MogeLib/inc/INode.h
 ../MogeLib/inc/INodeCreator.h
@@ -30,7 +30,6 @@
 ../MogeLib/inc/ITime.h
 ../MogeLib/inc/ITimer.h
 ../MogeLib/inc/KeyboardData.h
-../MogeLib/inc/KeyFactorySDL.h
 ../MogeLib/inc/LckPrim.h
 ../MogeLib/inc/ListFactory.h
 ../MogeLib/inc/ListLinked.h
@@ -69,7 +68,6 @@
 ../MogeLib/inc/Path.h
 ../MogeLib/inc/RenderableTypes.h
 ../MogeLib/inc/Scale.h
-../MogeLib/inc/SDLRenderer.h
 ../MogeLib/inc/Singleton.h
 ../MogeLib/inc/SupportedRenderersList.h
 ../MogeLib/inc/TextureSDL.h
@@ -82,6 +80,7 @@
 ../MogeLib/src/NodeFactory2D.h
 ../MogeLib/src/NodeFactory3D.h
 ../MogeLib/src/RenderableSDLTexture.h
+../MogeLib/src/SDLRenderer.hpp
 ../MogeLib/src/TimeConcrete.h
 ../MogeLib/src/TimerChrono.h
 ../Tests/inc/EngineTests.h

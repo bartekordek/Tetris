@@ -10,7 +10,6 @@
 ../MogeLib/src/IKeyboardObservable.cpp
 ../MogeLib/src/IKeyboardObservableImp.cpp
 ../MogeLib/src/IKeyboardObserver.cpp
-../MogeLib/src/IKeyFactory.cpp
 ../MogeLib/src/IMogeApp.cpp
 ../MogeLib/src/INode.cpp
 ../MogeLib/src/INodeCreator.cpp
@@ -26,7 +25,6 @@
 ../MogeLib/src/ITimer.cpp
 ../MogeLib/src/IVector3D.cpp
 ../MogeLib/src/KeyboardData.cpp
-../MogeLib/src/KeyFactorySDL.cpp
 ../MogeLib/src/KeySDL.cpp
 ../MogeLib/src/Line.cpp
 ../MogeLib/src/ListFactory.cpp
