@@ -25,7 +25,6 @@ namespace Moge
 		{
 			forceDestroy();
 		}
-		SDL_Quit();
 	}
 	
 	void SDLRenderer::createWindow( 
