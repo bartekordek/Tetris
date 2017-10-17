@@ -18,10 +18,11 @@ namespace Moge
 		auto sdlRenderer = new SDLRenderer();
 		this->renderer2D.reset( sdlRenderer );
 		this->m_mainGameLoop = static_cast<IMainGameLoop*>( sdlRenderer );
+		
+		
 		this->m_keyboardObservable = static_cast<IKeyboardObservable*>( sdlRenderer );
 		//this->renderer3D.reset( TODO: Add when OpenGL is ready. );
-		auto txtFactory2D = static_cast<SDLRenderer*>( this->renderer2D.get() );
-		this->nodeFactory.reset( new NodeFactory2D( txtFactory2D ) );
+		this->nodeFactory.reset( new NodeFactory2D( sdlRenderer ) );
 		this->renderer2D->setBackgroundColor( ColorE::RED );
 		this->fpsCounter.reset( FPSCounterFactory::getConcreteFPSCounter() );
 		this->fpsCounter->setAverageFpsSample( 4 );
