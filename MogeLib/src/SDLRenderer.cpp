@@ -15,7 +15,8 @@ namespace Moge
 		eventLoopActive( true ),
 		sdlKey( SDL_GetKeyboardState( nullptr ) )
 	{
-		SDL_Init( SDL_INIT_EVERYTHING );
+		auto sdlInitSuccess = SDL_Init( SDL_INIT_EVERYTHING );
+		BOOST_ASSERT_MSG( 0 == sdlInitSuccess, "Cannot initialize SDL subsystem" );
 		this->keys = this->createKeys();
 	}
 
@@ -49,7 +50,12 @@ namespace Moge
 	
 	void SDLRenderer::setBackgroundColor( const ColorS& color )
 	{
-		SDL_SetRenderDrawColor( this->renderer, color.r, color.g, color.b, color.alpha );
+		SDL_SetRenderDrawColor( 
+			this->renderer, 
+			color.r, 
+			color.g, 
+			color.b, 
+			color.alpha );
 	}
 	
 	void SDLRenderer::forceDestroy()
