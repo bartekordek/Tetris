@@ -1,10 +1,8 @@
 *.VC.db
-*.a
 *.bin
 *.bsc
 *.check_cache
 *.cmake
-*.dll
 *.exe
 *.exp
 *.idb
@@ -14,7 +12,6 @@
 *.ipch
 *.ipdb
 *.lastcodeanalysisissucceded
-*.lib
 *.log
 *.make
 *.marks
@@ -30,6 +27,7 @@
 *.user
 *cache
 *~ml
+build
 CMakeFiles/
 Tetris/nbproject/private/
 MogeLib/nbproject/private/
