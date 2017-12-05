@@ -69,26 +69,26 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
-    <IntDir>$(ProjectDir)Intermediate\$(Platform)_$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)build\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\intermediate\$(ProjectName)\$(Platform)_$(Configuration)\</IntDir>
     <TargetExt>.dll</TargetExt>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
-    <IntDir>$(ProjectDir)Intermediate\$(Platform)_$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)build\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\intermediate\$(ProjectName)\$(Platform)_$(Configuration)\</IntDir>
     <TargetExt>.dll</TargetExt>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
-    <IntDir>$(ProjectDir)Intermediate\$(Platform)_$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)build\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\intermediate\$(ProjectName)\$(Platform)_$(Configuration)\</IntDir>
     <TargetExt>.dll</TargetExt>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
-    <IntDir>$(ProjectDir)Intermediate\$(Platform)_$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)build\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\intermediate\$(ProjectName)\$(Platform)_$(Configuration)\</IntDir>
     <TargetExt>.dll</TargetExt>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
@@ -99,7 +99,7 @@
       <SDLCheck>true</SDLCheck>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(HOME_SDL2WRAPPER_WINDOWS)\SDL2Wrapper\inc;$(HOME_CUL_WINDOWS);$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST_WINDOWS);$(HOME_SDL2_WINDOWS)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST_WINDOWS);$(SolutionDir)deps\SDL2-2.0.7\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
@@ -108,7 +108,7 @@
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST_WINDOWS)\Build-Windows\lib;$(HOME_SDL2_WINDOWS)\Build-Windows-$(PlatformToolset)\Build\$(Platform)_$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST_WINDOWS)\Build-Windows\lib;$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
@@ -116,7 +116,7 @@
       <SuppressStartupBanner>false</SuppressStartupBanner>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(HOME_SDL2_WINDOWS)\Build-Windows\$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
+      <Command>xcopy "$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -126,7 +126,7 @@
       <SDLCheck>true</SDLCheck>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(HOME_SDL2WRAPPER_WINDOWS)\SDL2Wrapper\inc;$(HOME_CUL_WINDOWS);$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST_WINDOWS);$(HOME_SDL2_WINDOWS)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST_WINDOWS);$(SolutionDir)deps\SDL2-2.0.7\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
@@ -136,7 +136,7 @@
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST_WINDOWS)\Build-Windows\lib;$(HOME_SDL2_WINDOWS)\Build-Windows-$(PlatformToolset)\Build\$(Platform)_$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST_WINDOWS)\Build-Windows\lib;$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
@@ -144,7 +144,7 @@
       <SuppressStartupBanner>false</SuppressStartupBanner>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(HOME_SDL2_WINDOWS)\Build-Windows\$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
+      <Command>xcopy "$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
     </PostBuildEvent>
     <Bscmake>
       <PreserveSbr>true</PreserveSbr>
@@ -158,7 +158,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(HOME_SDL2WRAPPER_WINDOWS)\SDL2Wrapper\inc;$(HOME_CUL_WINDOWS);$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST_WINDOWS);$(HOME_SDL2_WINDOWS)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST_WINDOWS);$(SolutionDir)deps\SDL2-2.0.7\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
       <TreatWarningAsError>true</TreatWarningAsError>
@@ -168,14 +168,14 @@
       <OptimizeReferences>true</OptimizeReferences>
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST_WINDOWS)\Build-Windows\lib;$(HOME_SDL2_WINDOWS)\Build-Windows-$(PlatformToolset)\Build\$(Platform)_$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST_WINDOWS)\Build-Windows\lib;$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
       <SuppressStartupBanner>false</SuppressStartupBanner>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(HOME_SDL2_WINDOWS)\Build-Windows\$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
+      <Command>xcopy "$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -186,7 +186,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(HOME_SDL2WRAPPER_WINDOWS)\SDL2Wrapper\inc;$(HOME_CUL_WINDOWS);$(SolutionDir)String\inc;$(SolutionDir)MogeMath\inc;$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST_WINDOWS);$(HOME_SDL2_WINDOWS)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)RenderableObject\;$(ProjectDir)Scene\;$(ProjectDir)inc\;$(HOME_BOOST_WINDOWS);$(SolutionDir)deps\SDL2-2.0.7\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
       <TreatWarningAsError>true</TreatWarningAsError>
@@ -196,14 +196,14 @@
       <OptimizeReferences>true</OptimizeReferences>
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST_WINDOWS)\Build-Windows\lib;$(HOME_SDL2_WINDOWS)\Build-Windows-$(PlatformToolset)\Build\$(Platform)_$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(TargetDir);$(HOME_BOOST_WINDOWS)\Build-Windows\lib;$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
       <SuppressStartupBanner>false</SuppressStartupBanner>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(HOME_SDL2_WINDOWS)\Build-Windows\$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
+      <Command>xcopy "$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

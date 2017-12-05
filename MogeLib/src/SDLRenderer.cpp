@@ -15,7 +15,7 @@ namespace Moge
 		eventLoopActive( true ),
 		sdlKey( SDL_GetKeyboardState( nullptr ) )
 	{
-		auto sdlInitSuccess = SDL_Init( SDL_INIT_EVERYTHING );
+		const auto sdlInitSuccess = SDL_Init( SDL_INIT_EVERYTHING );
 		BOOST_ASSERT_MSG( 0 == sdlInitSuccess, "Cannot initialize SDL subsystem" );
 		this->keys = this->createKeys();
 	}

@@ -73,23 +73,23 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IntDir>$(ProjectDir)Intermediate\$(Platform)_$(Configuration)\</IntDir>
-    <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\intermediate\$(ProjectName)\$(Platform)_$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)build\$(Platform)_$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
-    <IntDir>$(ProjectDir)Intermediate\$(Platform)_$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)build\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\intermediate\$(ProjectName)\$(Platform)_$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IntDir>$(ProjectDir)Intermediate\$(Platform)_$(Configuration)\</IntDir>
-    <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\intermediate\$(ProjectName)\$(Platform)_$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)build\$(Platform)_$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
-    <IntDir>$(ProjectDir)Intermediate\$(Platform)_$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)build\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\intermediate\$(ProjectName)\$(Platform)_$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -110,7 +110,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\gtest\$(Configuration)\;$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\$(Configuration)\;$(SolutionDir)Build\$(Platform)_$(Configuration)\;$(BOOST)\stage\lib;$(SolutionDir)MogeLib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\gtest\$(Configuration)\;$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\$(Configuration)\;$(SolutionDir)build\$(Platform)_$(Configuration)\;$(BOOST)\stage\lib;$(SolutionDir)MogeLib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>gtest.lib;gtest_main.lib;MogeLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
@@ -141,7 +141,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\gtest\$(Configuration)\;$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\$(Configuration)\;$(SolutionDir)Build\$(Platform)_$(Configuration)\;$(BOOST)\stage\lib;$(SolutionDir)MogeLib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\gtest\$(Configuration)\;$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\$(Configuration)\;$(SolutionDir)build\$(Platform)_$(Configuration)\;$(BOOST)\stage\lib;$(SolutionDir)MogeLib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>gtest.lib;gtest_main.lib;MogeLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
@@ -174,7 +174,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\gtest\$(Configuration)\;$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\$(Configuration)\;$(SolutionDir)Build\$(Platform)_$(Configuration)\;$(BOOST)\stage\lib;$(SolutionDir)MogeLib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\gtest\$(Configuration)\;$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\$(Configuration)\;$(SolutionDir)build\$(Platform)_$(Configuration)\;$(BOOST)\stage\lib;$(SolutionDir)MogeLib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>gtest.lib;gtest_main.lib;MogeLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
@@ -204,7 +204,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\gtest\$(Configuration)\;$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\$(Configuration)\;$(SolutionDir)Build\$(Platform)_$(Configuration)\;$(BOOST)\stage\lib;$(SolutionDir)MogeLib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\gtest\$(Configuration)\;$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\$(Configuration)\;$(SolutionDir)build\$(Platform)_$(Configuration)\;$(BOOST)\stage\lib;$(SolutionDir)MogeLib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>gtest.lib;gtest_main.lib;MogeLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
