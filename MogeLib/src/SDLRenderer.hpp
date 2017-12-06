@@ -39,7 +39,7 @@ namespace Moge
         void updateScreen()override;
         void clear() override;
 
-        std::shared_ptr<ITexture>& createTexture( const Path& path ) override;
+        std::shared_ptr<ITexture> createTexture( const Path& path ) override;
         std::shared_ptr<ITexture>& findTexture( const Path& path ) override;
         void removeTexture( const std::shared_ptr<ITexture>& texture ) override;
         void runMainLoop() override;

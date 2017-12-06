@@ -24,6 +24,7 @@ namespace Moge
     {
         if( false == this->rendererWasDestroyed )
         {
+            textures.clear();
             forceDestroy();
         }
     }
@@ -129,7 +130,7 @@ namespace Moge
     }
 
 
-    std::shared_ptr<ITexture>& SDLRenderer::createTexture( const Path& path )
+    std::shared_ptr<ITexture> SDLRenderer::createTexture( const Path& path )
     {
         SDL_Surface* surface = CreateSurfaceFromImage( path );
         SDL_Texture* newTexture = SDL_CreateTextureFromSurface( this->renderer, surface );
@@ -141,7 +142,7 @@ namespace Moge
         surface = nullptr;
 
         char* key = const_cast<char*>( path.c_str() );
-        this->textures[  key ] = std::shared_ptr<ITexture>( texture );
+        this->textures[ key ] = std::shared_ptr<ITexture>( texture );
         return this->textures.at( key );
     }
     

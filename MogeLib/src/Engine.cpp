@@ -30,8 +30,8 @@ namespace Moge
     Engine::~Engine()
     {
         std::lock_guard<std::mutex> lck( mListMutex );
-        this->renderer2D.reset();
         this->nodeFactory.reset();
+        this->renderer2D.reset();
         this->infoLoopThread.join();
     }
 
