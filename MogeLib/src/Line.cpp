@@ -2,14 +2,14 @@
 
 namespace Moge
 {
-	namespace Math
-	{
-		Line::Line()
-		{
-		}
+    namespace Math
+    {
+        Line::Line()
+        {
+        }
 
-		Line::~Line()
-		{
-		}
-	}
+        Line::~Line()
+        {
+        }
+    }
 }

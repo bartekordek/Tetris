@@ -8,7 +8,7 @@ TEST_F( ImageCreatorTests, BmpLoadTest )
 
 void ImageCreatorTests::SetUpTestCase()
 {
-	testBmpFile = Moge::Path::GetCurrentDirectory() + "\\..\\..\\Media\\BackGroundBlock.bmp";
+    testBmpFile = Moge::Path::GetCurrentDirectory() + "\\..\\..\\Media\\BackGroundBlock.bmp";
 }
 
 Moge::Path ImageCreatorTests::testBmpFile;

@@ -4,10 +4,10 @@
 
 namespace Moge
 {
-	class MogeLib_API ConsoleUtilities
-	{
-	public:
-		static void PrintInputParameters( int argc, char *argv[] );
-	};
+    class MogeLib_API ConsoleUtilities
+    {
+    public:
+        static void PrintInputParameters( int argc, char *argv[] );
+    };
 
 }

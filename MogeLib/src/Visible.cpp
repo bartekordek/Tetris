@@ -2,22 +2,22 @@
 
 namespace Moge
 {
-	Visible::Visible()
-	{
-	}
+    Visible::Visible()
+    {
+    }
 
 
-	Visible::~Visible()
-	{
-	}
+    Visible::~Visible()
+    {
+    }
 
-	const bool Visible::GetVisible()const
-	{
-		return this->visible;
-	}
+    const bool Visible::GetVisible()const
+    {
+        return this->visible;
+    }
 
-	void Visible::SetVisible( const bool isVisible )
-	{
-		this->visible = isVisible;
-	}
+    void Visible::SetVisible( const bool isVisible )
+    {
+        this->visible = isVisible;
+    }
 }

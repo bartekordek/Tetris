@@ -3,23 +3,23 @@
 
 namespace Moge
 {
-	Engine* EngineManager::engineInstance = nullptr;
+    Engine* EngineManager::engineInstance = nullptr;
 
-	Engine* EngineManager::initializeEngine()
-	{
-		engineInstance = Engine::instancePtr();
-		return engineInstance;
-	}
+    Engine* EngineManager::initializeEngine()
+    {
+        engineInstance = Engine::instancePtr();
+        return engineInstance;
+    }
 
-	Engine* EngineManager::getEngine()
-	{
-		return engineInstance;
-	}
+    Engine* EngineManager::getEngine()
+    {
+        return engineInstance;
+    }
 
-	void EngineManager::destroyEngine()
-	{
-		Engine::destroy();
-		engineInstance = nullptr;
-	}
+    void EngineManager::destroyEngine()
+    {
+        Engine::destroy();
+        engineInstance = nullptr;
+    }
 
 }

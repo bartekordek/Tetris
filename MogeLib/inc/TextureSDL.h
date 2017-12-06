@@ -6,24 +6,24 @@
 struct SDL_Texture;
 namespace Moge
 {
-	class TextureSDL: public ITexture
-	{
-	public:
-		TextureSDL();
-		TextureSDL(const TextureSDL& orig);
-		virtual ~TextureSDL();
-		
-		void set( SDL_Texture* texture );
-		SDL_Texture* get()const;
-		void setPath( const Path& path );
-		const char* getPath()const override;
+    class TextureSDL: public ITexture
+    {
+    public:
+        TextureSDL();
+        TextureSDL(const TextureSDL& orig);
+        virtual ~TextureSDL();
+        
+        void set( SDL_Texture* texture );
+        SDL_Texture* get()const;
+        void setPath( const Path& path );
+        const char* getPath()const override;
 
-		const Math::Vector3D<double>& getSize()const override;
-		void setSize( const Math::Vector3D<double>& size ) override;
-		
-	private:
-		SDL_Texture* texture = nullptr;
-		Path texturePath;
-		Math::Vector3D<double> size;
-	};
+        const Math::Vector3D<double>& getSize()const override;
+        void setSize( const Math::Vector3D<double>& size ) override;
+        
+    private:
+        SDL_Texture* texture = nullptr;
+        Path texturePath;
+        Math::Vector3D<double> size;
+    };
 }

@@ -4,16 +4,16 @@
 
 namespace Moge
 {
-	class MogeLib_API Visible
-	{
-	public:
-		Visible();
-		virtual ~Visible();
-		const bool GetVisible()const;
-		void SetVisible( const bool visible = true );
+    class MogeLib_API Visible
+    {
+    public:
+        Visible();
+        virtual ~Visible();
+        const bool GetVisible()const;
+        void SetVisible( const bool visible = true );
 
-	protected:
-	private:
-		bool visible = false;
-	};
+    protected:
+    private:
+        bool visible = false;
+    };
 }

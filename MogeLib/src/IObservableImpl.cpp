@@ -2,14 +2,14 @@
 
 namespace Moge
 {
-	IObservableImpl::IObservableImpl()
-	{
-		
-	}
+    IObservableImpl::IObservableImpl()
+    {
+        
+    }
 
-	IObservableImpl::~IObservableImpl()
-	{
-		
-	}
+    IObservableImpl::~IObservableImpl()
+    {
+        
+    }
 
 }

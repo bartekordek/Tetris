@@ -2,11 +2,11 @@
 
 namespace Moge
 {
-	INodeCreator::INodeCreator()
-	{
-	}
+    INodeCreator::INodeCreator()
+    {
+    }
 
-	INodeCreator::~INodeCreator()
-	{
-	}
+    INodeCreator::~INodeCreator()
+    {
+    }
 }

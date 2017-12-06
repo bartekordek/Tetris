@@ -6,16 +6,16 @@
 struct SDL_Renderer;
 namespace Moge
 {
-	class MogeLib_API ITexture
-	{
-	public:
-		ITexture();
-		virtual ~ITexture();
-		virtual const char* getPath()const = 0;
+    class MogeLib_API ITexture
+    {
+    public:
+        ITexture();
+        virtual ~ITexture();
+        virtual const char* getPath()const = 0;
 
-		virtual const Math::Vector3D<double>& getSize()const = 0;
-		virtual void setSize( const Math::Vector3D<double>& size ) = 0;
-	protected:
-	private:
-	};
+        virtual const Math::Vector3D<double>& getSize()const = 0;
+        virtual void setSize( const Math::Vector3D<double>& size ) = 0;
+    protected:
+    private:
+    };
 }

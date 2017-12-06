@@ -5,19 +5,19 @@
 class NodeTests: public ::testing::Test
 {
 protected:
-	NodeTests()
-	{
-	}
+    NodeTests()
+    {
+    }
 
-	virtual ~NodeTests()
-	{
-	}
+    virtual ~NodeTests()
+    {
+    }
 
-	virtual void SetUp()
-	{
-	}
+    virtual void SetUp()
+    {
+    }
 
-	virtual void TearDown()
-	{
-	}
+    virtual void TearDown()
+    {
+    }
 };

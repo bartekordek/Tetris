@@ -12,5 +12,5 @@ IFPSCounter::~IFPSCounter()
 
 IFPSCounter* FPSCounterFactory::getConcreteFPSCounter()
 {
-	return new FPSCounterConcrete();
+    return new FPSCounterConcrete();
 }

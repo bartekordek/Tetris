@@ -3,13 +3,13 @@
 
 namespace Moge
 {
-	void IObservable::registerObserver( IObserver* observer )
-	{
-		this->observers.insert( observer );
-	}
+    void IObservable::registerObserver( IObserver* observer )
+    {
+        this->observers.insert( observer );
+    }
 
-	void IObservable::unregisterObserver( IObserver* observer )
-	{
-		this->observers.erase( observer );
-	}
+    void IObservable::unregisterObserver( IObserver* observer )
+    {
+        this->observers.erase( observer );
+    }
 }

@@ -7,13 +7,13 @@ namespace Moge
         class SizeUint2D: public ISize<unsigned int>
         {
         public:
-			SizeUint2D() = default;
-			SizeUint2D( const SizeUint2D &right ) = default;
-			SizeUint2D( const unsigned int width, const unsigned int height ): width( width ), height( height )
+            SizeUint2D() = default;
+            SizeUint2D( const SizeUint2D &right ) = default;
+            SizeUint2D( const unsigned int width, const unsigned int height ): width( width ), height( height )
             {
             }
             virtual ~SizeUint2D() = default;
-			SizeUint2D& operator=( const SizeUint2D& right ) = default;
+            SizeUint2D& operator=( const SizeUint2D& right ) = default;
             const unsigned int getWidth()const override
             {
                 return this->width;

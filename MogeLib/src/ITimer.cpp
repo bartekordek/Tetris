@@ -13,15 +13,15 @@ ITimer::~ITimer()
 
 void ITimer::SleepSeconds( const unsigned int seconds )
 {
-	SleepMiliSeconds( 1000 * seconds );
+    SleepMiliSeconds( 1000 * seconds );
 }
 
 void ITimer::SleepMiliSeconds( const unsigned int mSeconds )
 {
-	SDL_Delay( mSeconds );
+    SDL_Delay( mSeconds );
 }
 
 ITimer* TimerFactory::getChronoTimer()
 {
-	return new TimerChrono();
+    return new TimerChrono();
 }

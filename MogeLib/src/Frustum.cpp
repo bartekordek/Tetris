@@ -2,14 +2,14 @@
 
 namespace Moge
 {
-	namespace Math
-	{
-		Frustum::Frustum()
-		{
-		}
+    namespace Math
+    {
+        Frustum::Frustum()
+        {
+        }
 
-		Frustum::~Frustum()
-		{
-		}
-	}
+        Frustum::~Frustum()
+        {
+        }
+    }
 }

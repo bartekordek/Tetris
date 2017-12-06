@@ -6,20 +6,20 @@
 class NameTests: public ::testing::Test
 {
 protected:
-	NameTests()
-	{
-	}
+    NameTests()
+    {
+    }
 
-	virtual ~NameTests()
-	{
-	}
+    virtual ~NameTests()
+    {
+    }
 
-	virtual void SetUp()
-	{
-	}
+    virtual void SetUp()
+    {
+    }
 
-	virtual void TearDown()
-	{
-	}
-	Moge::MyString genericName = Moge::MyString( "Generic name." );
+    virtual void TearDown()
+    {
+    }
+    Moge::MyString genericName = Moge::MyString( "Generic name." );
 };

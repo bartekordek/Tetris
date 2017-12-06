@@ -9,16 +9,16 @@ protected:
     ImageCreatorTests() = default;
     virtual ~ImageCreatorTests() = default;
 
-	virtual void SetUp()
-	{
-		ASSERT_EQ( testBmpFile.Exist(), true );
-	}
+    virtual void SetUp()
+    {
+        ASSERT_EQ( testBmpFile.Exist(), true );
+    }
 
-	virtual void TearDown()
-	{
-	}
+    virtual void TearDown()
+    {
+    }
 
     static void SetUpTestCase();
-	static Moge::Path testBmpFile;
+    static Moge::Path testBmpFile;
 
 };

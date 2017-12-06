@@ -2,12 +2,12 @@
 
 namespace Moge
 {
-	IRenderable::IRenderable()
-	{
-	}
+    IRenderable::IRenderable()
+    {
+    }
 
 
-	IRenderable::~IRenderable()
-	{
-	}
+    IRenderable::~IRenderable()
+    {
+    }
 }

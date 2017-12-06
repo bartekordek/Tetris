@@ -3,9 +3,9 @@
 class TimeTests: public ::testing::Test
 {
 protected:
-	TimeTests( void );
-	virtual ~TimeTests();
+    TimeTests( void );
+    virtual ~TimeTests();
 
-	static void SetUpTestCase();
-	static void TearDownTestCase();
+    static void SetUpTestCase();
+    static void TearDownTestCase();
 };

@@ -2,11 +2,11 @@
 
 namespace Moge
 {
-	ITexture::ITexture()
-	{
-	}
+    ITexture::ITexture()
+    {
+    }
 
-	ITexture::~ITexture()
-	{
-	}
+    ITexture::~ITexture()
+    {
+    }
 }

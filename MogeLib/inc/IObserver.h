@@ -4,13 +4,13 @@
 
 namespace Moge
 {
-	class IObservableData;
-	class MogeLib_API IObserver
-	{
-	public:
-		IObserver() = default;
-		virtual ~IObserver() = default;
-	protected:
-	private:
-	};
+    class IObservableData;
+    class MogeLib_API IObserver
+    {
+    public:
+        IObserver() = default;
+        virtual ~IObserver() = default;
+    protected:
+    private:
+    };
 }

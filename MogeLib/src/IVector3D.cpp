@@ -2,7 +2,7 @@
 
 namespace Moge
 {
-	namespace Math
-	{
-	}
+    namespace Math
+    {
+    }
 }

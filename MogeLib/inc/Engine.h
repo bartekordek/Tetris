@@ -19,58 +19,58 @@
 
 namespace Moge
 {
-	class IKeyboardObserver;
-	class IKeyboardData;
-	class IKey;
-	class IKeyFactory;
-	class ITextureFactory3D;
-	class MogeLib_API Engine: 
-		public Singleton<Engine>, 
-		public IKeyboardObservable
-	{
-	public:
-		Engine( void );
-		virtual ~Engine();
+    class IKeyboardObserver;
+    class IKeyboardData;
+    class IKey;
+    class IKeyFactory;
+    class ITextureFactory3D;
+    class MogeLib_API Engine: 
+        public Singleton<Engine>, 
+        public IKeyboardObservable
+    {
+    public:
+        Engine( void );
+        virtual ~Engine();
 
-		void createScreen( Math::ISize<unsigned int>& size, Math::IPosition<int>& position, const std::string& label = "Window label." )const;
-		void startMainLoop();
-		void stopEventLoop();
-		ITextureFactory* get2DTextureFactory()const;
-		ITextureFactory* get3DTextureFactory()const;
-		INodeFactory* get2DNodeFactory()const;
-		INodeFactory* get3DNodeFactory()const;
+        void createScreen( Math::ISize<unsigned int>& size, Math::IPosition<int>& position, const std::string& label = "Window label." )const;
+        void startMainLoop();
+        void stopEventLoop();
+        ITextureFactory* get2DTextureFactory()const;
+        ITextureFactory* get3DTextureFactory()const;
+        INodeFactory* get2DNodeFactory()const;
+        INodeFactory* get3DNodeFactory()const;
 
-		void registerObserver( IKeyboardObserver* observer ) override;
-		void unregisterObserver( IKeyboardObserver* observer ) override;
+        void registerObserver( IKeyboardObserver* observer ) override;
+        void unregisterObserver( IKeyboardObserver* observer ) override;
 
-	protected:
+    protected:
 
-	private:
-		void mainLoop();
-		void renderingLoop2D();
-		void QueueFrame();
-		void infoLoop();
+    private:
+        void mainLoop();
+        void renderingLoop2D();
+        void QueueFrame();
+        void infoLoop();
 
-		std::mutex mRenderableObjectsMutex;
-		std::mutex mListMutex;
-		std::thread m_mainLoop;
-		std::thread infoLoopThread;
-		LckPrim<bool> mainLoopIsRuning;
+        std::mutex mRenderableObjectsMutex;
+        std::mutex mListMutex;
+        std::thread m_mainLoop;
+        std::thread infoLoopThread;
+        LckPrim<bool> mainLoopIsRuning;
 
-		std::unique_ptr<INodeFactory> nodeFactory;
-		
-		std::unique_ptr<IRenderer2D> renderer2D;
-		std::unique_ptr<IRenderer3D> renderer3D;
-		
-		std::unique_ptr<ITextureFactory3D> textureFactory3D;
-		IMainGameLoop* m_mainGameLoop = nullptr;
-		IKeyboardObservable* m_keyboardObservable;
+        std::unique_ptr<INodeFactory> nodeFactory;
+        
+        std::unique_ptr<IRenderer2D> renderer2D;
+        std::unique_ptr<IRenderer3D> renderer3D;
+        
+        std::unique_ptr<ITextureFactory3D> textureFactory3D;
+        IMainGameLoop* m_mainGameLoop = nullptr;
+        IKeyboardObservable* m_keyboardObservable;
 
-		std::unique_ptr<IFPSCounter> fpsCounter;
-		LckPrim<int> frameSleepTimeMs;
-		int framesDelta = 2;
-		int fpsConst = 60;
-		unsigned framesSampleSize = 8;
-		LckPrim<unsigned> fpsCalcSampleTimeSpan;
-	};
+        std::unique_ptr<IFPSCounter> fpsCounter;
+        LckPrim<int> frameSleepTimeMs;
+        int framesDelta = 2;
+        int fpsConst = 60;
+        unsigned framesSampleSize = 8;
+        LckPrim<unsigned> fpsCalcSampleTimeSpan;
+    };
 }

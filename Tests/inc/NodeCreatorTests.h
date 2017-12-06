@@ -7,24 +7,24 @@ class NodeCreatorTests: public EngineTests
 {
 protected:
     NodeCreatorTests() = default;
-	virtual ~NodeCreatorTests() = default;
+    virtual ~NodeCreatorTests() = default;
 
-	virtual void SetUp()
-	{
-	}
+    virtual void SetUp()
+    {
+    }
 
-	virtual void TearDown()
-	{
-	}
-	
-	static void SetUpTestCase()
-	{
-		testBmpFile = Moge::Path::GetCurrentDirectory() + "\\..\\..\\Media\\BackGroundBlock.bmp";
-	}
+    virtual void TearDown()
+    {
+    }
+    
+    static void SetUpTestCase()
+    {
+        testBmpFile = Moge::Path::GetCurrentDirectory() + "\\..\\..\\Media\\BackGroundBlock.bmp";
+    }
 
-	static void TearDownTestCase()
-	{
-	}
+    static void TearDownTestCase()
+    {
+    }
 
-	static Moge::Path testBmpFile;
+    static Moge::Path testBmpFile;
 };

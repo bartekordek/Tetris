@@ -4,8 +4,8 @@
 
 namespace Moge
 {
-	class MogeLib_API ITextureFactory3D: public ITextureFactory
-	{
-		
-	};
+    class MogeLib_API ITextureFactory3D: public ITextureFactory
+    {
+        
+    };
 }

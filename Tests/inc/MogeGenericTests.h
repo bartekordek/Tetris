@@ -6,20 +6,20 @@ class MogeGenericTests: public ::testing::Test
 {
 public:
 protected:
-	MogeGenericTests()
-	{
-	}
+    MogeGenericTests()
+    {
+    }
 
-	virtual ~MogeGenericTests()
-	{
-	}
+    virtual ~MogeGenericTests()
+    {
+    }
 
-	virtual void SetUp()
-	{
-	}
+    virtual void SetUp()
+    {
+    }
 
-	virtual void TearDown()
-	{
-	}
+    virtual void TearDown()
+    {
+    }
 };
 

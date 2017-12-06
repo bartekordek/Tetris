@@ -5,19 +5,19 @@
 class FilesystemTests: public ::testing::Test
 {
 protected:
-	FilesystemTests()
-	{
-	}
+    FilesystemTests()
+    {
+    }
 
-	virtual ~FilesystemTests()
-	{
-	}
+    virtual ~FilesystemTests()
+    {
+    }
 
-	virtual void SetUp()
-	{
-	}
+    virtual void SetUp()
+    {
+    }
 
-	virtual void TearDown()
-	{
-	}
+    virtual void TearDown()
+    {
+    }
 };

@@ -2,13 +2,13 @@
 
 namespace Moge
 {
-	namespace Math
-	{
-		class Frustum
-		{
-		public:
-			Frustum();
-			virtual ~Frustum();
-		};
-	}
+    namespace Math
+    {
+        class Frustum
+        {
+        public:
+            Frustum();
+            virtual ~Frustum();
+        };
+    }
 }

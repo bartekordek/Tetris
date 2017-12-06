@@ -6,19 +6,19 @@
 class MatrixTests: public ::testing::Test
 {
 protected:
-	MatrixTests()
-	{
-	}
+    MatrixTests()
+    {
+    }
 
-	virtual ~MatrixTests()
-	{
-	}
+    virtual ~MatrixTests()
+    {
+    }
 
-	virtual void SetUp()
-	{
-	}
+    virtual void SetUp()
+    {
+    }
 
-	virtual void TearDown()
-	{
-	}
+    virtual void TearDown()
+    {
+    }
 };

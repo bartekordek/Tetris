@@ -4,9 +4,9 @@
 
 int main( int argc, char *argv[] )
 {
-	Moge::ConsoleUtilities::PrintInputParameters( argc, argv );
-	Tetris::CGame game;
-	game.initialize( 22, 10 );
-	game.run();
-	return 0;
+    Moge::ConsoleUtilities::PrintInputParameters( argc, argv );
+    Tetris::CGame game;
+    game.initialize( 22, 10 );
+    game.run();
+    return 0;
 }
