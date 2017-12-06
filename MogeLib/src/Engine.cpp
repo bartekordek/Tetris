@@ -52,7 +52,9 @@ namespace Moge
     void Engine::stopEventLoop()
     {
         this->mainLoopIsRuning = false;
+        std::cout << "Waiting for main loop to stop...\n";
         this->m_mainLoop.join();
+        std::cout << "Waiting for game loop to stop...\n";
         this->m_mainGameLoop->stopMainLoop();
     }
     
@@ -89,11 +91,11 @@ namespace Moge
             this->renderer2D->clear();
             QueueFrame();
         }
+        std::cout << "Renderering loop ended.\n";
     }
 
     void Engine::QueueFrame()
     {
-        
         std::lock_guard<std::mutex> renderableObjectLock( this->mRenderableObjectsMutex );
         auto& nodeIt = this->get2DNodeFactory()->getNodes();
         if( false == nodeIt.isEmpty() )

@@ -209,6 +209,7 @@ namespace Moge
                 } 
             }
         }
+        std::cout << "Renderer loop ended.\n";
     }
 
     void SDLRenderer::stopMainLoop()

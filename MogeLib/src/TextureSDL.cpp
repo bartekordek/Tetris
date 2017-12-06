@@ -10,7 +10,10 @@ namespace Moge
     __pragma( warning( push ) ) \
     __pragma( warning( disable:4100 ) )
 #endif
-    TextureSDL::TextureSDL(const TextureSDL& orig) 
+    TextureSDL::TextureSDL(const TextureSDL& orig):
+        texture( texture ),
+        texturePath( texturePath ),
+        size( size )
     {
     }
 

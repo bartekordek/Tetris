@@ -2,6 +2,8 @@
 
 #include "MogeLibMain.h"
 
+#include <iostream>
+
 namespace Moge
 {
     IMogeApp::IMogeApp( void ):
@@ -30,7 +32,9 @@ namespace Moge
     void IMogeApp::frontEndLoopWrapper()
     {
         frontEndLoop();
+        std::cout << "Stoping event loop...\n";
         this->engine->stopEventLoop();
+        std::cout << "Stoping event loop... Done\n";
     }
 
     void IMogeApp::stopApp()
