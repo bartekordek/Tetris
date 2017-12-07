@@ -5,10 +5,9 @@ namespace Moge
 {
     void IKeyboardObservableImp::notifyKeyboardObservers( IKey* data )
     {
-        for( IObserver* observer : this->observers )
+        for( IKeyboardObserver* observer : this->observers )
         {
-            IKeyboardObserver* keyboardObserver = static_cast<IKeyboardObserver*>( observer );
-            keyboardObserver->keyboardEvent( data );
+            observer->keyboardEvent( data );
         }
     }
 

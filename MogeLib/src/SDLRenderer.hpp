@@ -48,17 +48,15 @@ namespace Moge
     protected:
     private:
         SDL_Surface* CreateSurfaceFromImage( const Path& imagePath );
-        IKey* createKey( const int keySignature )const;
+        IKey* createKey( const int keySignature, const unsigned char* sdlKey )const;
         const std::shared_ptr<std::map<unsigned int, std::shared_ptr<IKey>>> createKeys()const;
         
         SDL_Renderer* renderer = nullptr;
         SDL_Window* window = nullptr;
         bool rendererWasDestroyed = false;
         std::map<char*,std::shared_ptr<ITexture>> textures;
-        LckPrim<bool> eventLoopActive;
+        LckPrim<bool> eventLoopActive = true;
 
         std::shared_ptr<std::map<unsigned int, std::shared_ptr<IKey>>> keys;
-
-        const unsigned char* sdlKey = nullptr;
     };
 }

@@ -11,9 +11,7 @@
 
 namespace Moge
 {
-    SDLRenderer::SDLRenderer():
-        eventLoopActive( true ),
-        sdlKey( SDL_GetKeyboardState( nullptr ) )
+    SDLRenderer::SDLRenderer()
     {
         const auto sdlInitSuccess = SDL_Init( SDL_INIT_EVERYTHING );
         BOOST_ASSERT_MSG( 0 == sdlInitSuccess, "Cannot initialize SDL subsystem" );
@@ -58,7 +56,7 @@ namespace Moge
             color.b, 
             color.alpha );
     }
-    
+
     void SDLRenderer::forceDestroy()
     {
         SDL_DestroyRenderer( this->renderer );
@@ -210,7 +208,7 @@ namespace Moge
                 } 
             }
         }
-        std::cout << "Renderer loop ended.\n";
+        std::cout << "Main loop ended.\n";
     }
 
     void SDLRenderer::stopMainLoop()
@@ -220,24 +218,31 @@ namespace Moge
 
     const std::shared_ptr<std::map<unsigned int, std::shared_ptr<IKey>>> SDLRenderer::createKeys() const
     {
+        auto kbrdState = SDL_GetKeyboardState(nullptr);
         std::shared_ptr<std::map<unsigned int, std::shared_ptr<IKey>>> resultPtr( new std::map<unsigned int, std::shared_ptr<IKey>>() );
-        for(
-            unsigned int i = static_cast<unsigned int>( SDL_SCANCODE_A );
-            i < static_cast<unsigned int>( SDL_NUM_SCANCODES );
-            ++i )
+        for( int i = SDL_SCANCODE_A; i < SDL_NUM_SCANCODES; ++i )
         {
-            const auto key = createKey( i );
-            resultPtr->insert( std::pair<unsigned int, std::shared_ptr<IKey>>( i, std::unique_ptr<IKey>( key ) ) );
+            const auto key = createKey( i, kbrdState );
+            if( "" == key->getKeyName() )
+            {
+                delete key;
+            }
+            else
+            {
+                resultPtr->insert( 
+                    std::pair<unsigned int, 
+                    std::shared_ptr<IKey>>( i, std::unique_ptr<IKey>( key ) ) );
+            }
         }
         return resultPtr;
     }
 
-    IKey* SDLRenderer::createKey( const int keySignature ) const
+    IKey* SDLRenderer::createKey( const int keySignature, const unsigned char* sdlKey) const
     {
         IKey* result = new KeySDL();
         SDL_Scancode scanCode = static_cast<SDL_Scancode>( keySignature );
         result->setKeyName( SDL_GetScancodeName( scanCode ) );
-        result->setKeyIsDown( ( 0 == this->sdlKey[ scanCode ] ) ? false : true );
+        result->setKeyIsDown( ( 0 == sdlKey[ scanCode ] ) ? false : true );
         return result;
     }
 }
