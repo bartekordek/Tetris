@@ -447,4 +447,8 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="StaticAnalysis.txt" />
+    <Text Include="CppCheckConfig.txt" />
+  </ItemGroup>
 </Project>
