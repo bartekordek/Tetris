@@ -1,5 +1,9 @@
 ../Argon/main.cpp
 ../Argon/src/libArgon.cpp
+../deps/boost_1_64_0/boost/asio/impl/src.cpp
+../deps/boost_1_64_0/boost/fusion/include/adapt_adt_named.cpp
+../deps/boost_1_64_0/boost/spirit/home/support/char_encoding/unicode/create_tables.cpp
+../MogeLib/nbproject/private/cpp_standard_headers_indexer.cpp
 ../MogeLib/src/ConsoleUtilities.cpp
 ../MogeLib/src/Engine.cpp
 ../MogeLib/src/File.cpp
@@ -66,6 +70,7 @@
 ../Tests/src/ObjectNodeTests.cpp
 ../Tests/src/TimeTests.cpp
 ../Tetris/main.cpp
+../Tetris/nbproject/private/cpp_standard_headers_indexer.cpp
 ../Tetris/src/Brick.cpp
 ../Tetris/src/BrickFactory.cpp
 ../Tetris/src/Game.cpp

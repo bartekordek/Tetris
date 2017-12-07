@@ -1,0 +1,60 @@
+[inc/IteratorListLinked.h:7]: (warning) The class 'IteratorListLinked' has 'operator=' but lack of 'copy constructor'.
+[inc/IteratorListVector.h:7]: (warning) The class 'IteratorListVector' has 'operator=' but lack of 'copy constructor'.
+[src/Node.cpp:16]: (performance) Variable 'texture' is assigned in constructor body. Consider performing initialization in initialization list.
+[src/Node.cpp:17]: (performance) Variable 'scale' is assigned in constructor body. Consider performing initialization in initialization list.
+[src/TextureSDL.cpp:13]: (error) Member variable 'texture' is initialized by itself.
+[src/TextureSDL.cpp:14]: (error) Member variable 'texturePath' is initialized by itself.
+[src/TextureSDL.cpp:15]: (error) Member variable 'size' is initialized by itself.
+[inc/TextureSDL.h:9]: (warning) The class 'TextureSDL' has 'copy constructor' but lack of 'operator='.
+[src/Path.cpp:99]: (style) The function 'BaseName' is never used.
+[src/NodeFactory2D.cpp:19]: (style) The function 'CreateFromImage' is never used.
+[src/Path.cpp:104]: (style) The function 'Directory' is never used.
+[src/Path.cpp:125]: (style) The function 'Exist' is never used.
+[src/Path.cpp:119]: (style) The function 'GetCurrentDirectory' is never used.
+[src/Path.cpp:109]: (style) The function 'GetDirectorySeparator' is never used.
+[src/Path.cpp:114]: (style) The function 'GetExtensionSeparator' is never used.
+[src/ConsoleUtilities.cpp:7]: (style) The function 'PrintInputParameters' is never used.
+[src/MyString.cpp:58]: (style) The function 'Replace' is never used.
+[src/Visible.cpp:19]: (style) The function 'SetVisible' is never used.
+[src/File.cpp:44]: (style) The function 'addLine' is never used.
+[src/NodeFactory2D.cpp:31]: (style) The function 'createFromTexture' is never used.
+[src/IPositionFactory.cpp:10]: (style) The function 'createPositionDouble1D' is never used.
+[src/IPositionFactory.cpp:17]: (style) The function 'createPositionDouble2D' is never used.
+[src/IPositionFactory.cpp:24]: (style) The function 'createPositionDouble3D' is never used.
+[src/IPositionFactory.cpp:31]: (style) The function 'createPositionInt1D' is never used.
+[src/IPositionFactory.cpp:38]: (style) The function 'createPositionInt2D' is never used.
+[src/IPositionFactory.cpp:47]: (style) The function 'createPositionInt3D' is never used.
+[src/IPositionFactory.cpp:54]: (style) The function 'createPositionUInt1D' is never used.
+[src/IPositionFactory.cpp:61]: (style) The function 'createPositionUInt2D' is never used.
+[src/IPositionFactory.cpp:68]: (style) The function 'createPositionUInt3D' is never used.
+[src/Engine.cpp:38]: (style) The function 'createScreen' is never used.
+[src/Vector3DFactory.cpp:7]: (style) The function 'createVectorSimpleDouble' is never used.
+[src/Vector3DFactory.cpp:13]: (style) The function 'createVectorSimpleInt' is never used.
+[src/Vector3DFactory.cpp:19]: (style) The function 'createVectorSimpleUInt' is never used.
+[src/NodeFactory2D.cpp:60]: (style) The function 'exist' is never used.
+[src/SDLRenderer.cpp:158]: (style) The function 'findTexture' is never used.
+[src/Engine.cpp:61]: (style) The function 'get2DTextureFactory' is never used.
+[src/Engine.cpp:77]: (style) The function 'get3DNodeFactory' is never used.
+[src/Engine.cpp:67]: (style) The function 'get3DTextureFactory' is never used.
+[src/File.cpp:39]: (style) The function 'getContents' is never used.
+[src/FPSCounterConcrete.cpp:28]: (style) The function 'getCurrentFps' is never used.
+[src/TimerChrono.cpp:35]: (style) The function 'getElapsed' is never used.
+[src/IMogeApp.cpp:20]: (style) The function 'getEngine' is never used.
+[src/TimeConcrete.cpp:32]: (style) The function 'getH' is never used.
+[src/KeySDL.cpp:43]: (style) The function 'getKeyIsDown' is never used.
+[src/File.cpp:16]: (style) The function 'getLine' is never used.
+[src/TimeConcrete.cpp:27]: (style) The function 'getM' is never used.
+[src/TimeConcrete.cpp:17]: (style) The function 'getMs' is never used.
+[src/TimeConcrete.cpp:22]: (style) The function 'getS' is never used.
+[src/Node.cpp:87]: (style) The function 'getScale' is never used.
+[src/IMogeApp.cpp:45]: (style) The function 'initialize' is never used.
+[src/File.cpp:6]: (style) The function 'loadFile' is never used.
+[src/MyString.cpp:80]: (style) The function 'operator+' is never used.
+[src/SDLRenderer.cpp:170]: (style) The function 'removeTexture' is never used.
+[src/RenderableSDLTexture.cpp:19]: (style) The function 'setPosition' is never used.
+[src/RenderableSDLTexture.cpp:39]: (style) The function 'setScale' is never used.
+[src/TextureSDL.cpp:60]: (style) The function 'setSize' is never used.
+[src/TimerChrono.cpp:25]: (style) The function 'stop' is never used.
+[src/IMogeApp.cpp:40]: (style) The function 'stopApp' is never used.
+[src/File.cpp:49]: (style) The function 'writeContents2' is never used.
+(information) Cppcheck cannot find all the include files (use --check-config for details)

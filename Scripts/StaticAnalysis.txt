@@ -2,9 +2,12 @@
 [../MogeLib/inc/IteratorListVector.h:7]: (warning) The class 'IteratorListVector' has 'operator=' but lack of 'copy constructor'.
 [../MogeLib/src/Node.cpp:16]: (performance) Variable 'texture' is assigned in constructor body. Consider performing initialization in initialization list.
 [../MogeLib/src/Node.cpp:17]: (performance) Variable 'scale' is assigned in constructor body. Consider performing initialization in initialization list.
-[../MogeLib/src/TextureSDL.cpp:13]: (warning) Member variable 'TextureSDL::texturePath' is not initialized in the constructor.
-[../MogeLib/src/TextureSDL.cpp:13]: (warning) Member variable 'TextureSDL::size' is not initialized in the constructor.
+[../MogeLib/src/TextureSDL.cpp:13]: (error) Member variable 'texture' is initialized by itself.
+[../MogeLib/src/TextureSDL.cpp:14]: (error) Member variable 'texturePath' is initialized by itself.
+[../MogeLib/src/TextureSDL.cpp:15]: (error) Member variable 'size' is initialized by itself.
 [../MogeLib/inc/TextureSDL.h:9]: (warning) The class 'TextureSDL' has 'copy constructor' but lack of 'operator='.
+[../deps/boost_1_64_0/boost/spirit/home/support/char_encoding/unicode/create_tables.cpp:68]: (style) Class 'ucd_info' has a constructor with 1 argument that is not explicit.
+[../deps/boost_1_64_0/boost/spirit/home/support/char_encoding/unicode/create_tables.cpp:401]: (style) Struct 'block_ptr' has a constructor with 1 argument that is not explicit.
 [../MogeLib/src/NodeFactory2D.cpp:19]: (style) The function 'CreateFromImage' is never used.
 [../MogeLib/src/Path.cpp:109]: (style) The function 'GetDirectorySeparator' is never used.
 [../MogeLib/src/Path.cpp:114]: (style) The function 'GetExtensionSeparator' is never used.
@@ -25,9 +28,9 @@
 [../MogeLib/src/Vector3DFactory.cpp:13]: (style) The function 'createVectorSimpleInt' is never used.
 [../MogeLib/src/Vector3DFactory.cpp:19]: (style) The function 'createVectorSimpleUInt' is never used.
 [../MogeLib/src/NodeFactory2D.cpp:60]: (style) The function 'exist' is never used.
-[../MogeLib/src/SDLRenderer.cpp:154]: (style) The function 'findTexture' is never used.
-[../MogeLib/src/Engine.cpp:76]: (style) The function 'get3DNodeFactory' is never used.
-[../MogeLib/src/Engine.cpp:66]: (style) The function 'get3DTextureFactory' is never used.
+[../MogeLib/src/SDLRenderer.cpp:158]: (style) The function 'findTexture' is never used.
+[../MogeLib/src/Engine.cpp:77]: (style) The function 'get3DNodeFactory' is never used.
+[../MogeLib/src/Engine.cpp:67]: (style) The function 'get3DTextureFactory' is never used.
 [../Argon/src/libArgon.cpp:72]: (style) The function 'getAxisValue' is never used.
 [../Tetris/src/Brick.cpp:21]: (style) The function 'getBlockType' is never used.
 [../MogeLib/src/File.cpp:39]: (style) The function 'getContents' is never used.
@@ -37,9 +40,9 @@
 [../MogeLib/src/TimeConcrete.cpp:22]: (style) The function 'getS' is never used.
 [../MogeLib/src/Node.cpp:87]: (style) The function 'getScale' is never used.
 [../MogeLib/src/MyString.cpp:80]: (style) The function 'operator+' is never used.
-[../MogeLib/src/SDLRenderer.cpp:166]: (style) The function 'removeTexture' is never used.
-[../MogeLib/src/TextureSDL.cpp:57]: (style) The function 'setSize' is never used.
+[../MogeLib/src/SDLRenderer.cpp:170]: (style) The function 'removeTexture' is never used.
+[../MogeLib/src/TextureSDL.cpp:60]: (style) The function 'setSize' is never used.
 [../Tetris/src/Brick.cpp:37]: (style) The function 'slab2Matrix' is never used.
 [../MogeLib/src/TimerChrono.cpp:25]: (style) The function 'stop' is never used.
-[../MogeLib/src/IMogeApp.cpp:35]: (style) The function 'stopApp' is never used.
+[../MogeLib/src/IMogeApp.cpp:40]: (style) The function 'stopApp' is never used.
 (information) Cppcheck cannot find all the include files (use --check-config for details)
