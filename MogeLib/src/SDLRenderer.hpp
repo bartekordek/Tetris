@@ -55,7 +55,7 @@ namespace Moge
         SDL_Window* window = nullptr;
         bool rendererWasDestroyed = false;
         std::map<char*,std::shared_ptr<ITexture>> textures;
-        LckPrim<bool> eventLoopActive = true;
+        LckPrim<bool> eventLoopActive{ true };
 
         std::shared_ptr<std::map<unsigned int, std::shared_ptr<IKey>>> keys;
     };
