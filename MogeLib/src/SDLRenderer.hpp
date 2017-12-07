@@ -59,7 +59,6 @@ namespace Moge
 
         std::shared_ptr<std::map<unsigned int, std::shared_ptr<IKey>>> keys;
 
-        
         const unsigned char* sdlKey = nullptr;
     };
 }
