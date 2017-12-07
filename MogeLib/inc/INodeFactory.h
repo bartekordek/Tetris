@@ -2,7 +2,7 @@
 
 #include "Node.h"
 #include "Math/IPositionAdapter.h"
-#include "IIterator.h"
+#include "CUL/IIterator.hpp"
 #include "Path.h"
 
 namespace Moge
@@ -30,7 +30,7 @@ namespace Moge
         virtual void remove( const Node* node ) = 0;
         virtual const bool exist(const std::shared_ptr<Node>& node ) const = 0;
         virtual const unsigned int count() const = 0;
-        virtual IIterator<std::shared_ptr<Node>>& getNodes() = 0;
+        virtual CUL::IIterator<std::shared_ptr<Node>>& getNodes() = 0;
     protected:
     private:
     };

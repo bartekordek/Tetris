@@ -327,7 +327,6 @@
     <ClCompile Include="src\MogeLibMain.cpp" />
     <ClCompile Include="src\MultiPointFactory.cpp" />
     <ClCompile Include="src\MyString.cpp" />
-    <ClCompile Include="src\Named.cpp" />
     <ClCompile Include="src\INode.cpp" />
     <ClCompile Include="src\NodeFactory2D.cpp" />
     <ClCompile Include="src\NodeFactory3D.cpp" />

@@ -1,6 +1,6 @@
 #pragma once
 #include "INodeFactory.h"
-#include "IList.h"
+#include "CUL/IList.hpp"
 #include <memory>
 namespace Moge
 {
@@ -20,10 +20,10 @@ namespace Moge
         void remove( const Node* node ) override;
         const bool exist(const std::shared_ptr<Node>& node )const override;
         const unsigned int count()const override;
-        IIterator<std::shared_ptr<Node>>& getNodes()override;
+        CUL::IIterator<std::shared_ptr<Node>>& getNodes()override;
     protected:
     private:
         ITextureFactory3D* factory3D = nullptr;
-        std::unique_ptr< IList<std::shared_ptr<Node>>> nodes;
+        std::unique_ptr< CUL::IList<std::shared_ptr<Node>>> nodes;
     };
 }

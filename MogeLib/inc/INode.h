@@ -1,17 +1,17 @@
 #pragma once
 
 #include <MogeLib.h>
-#include "Named.h"
+#include "CUL/Named.hpp"
 #include "IRenderable.h"
 
 struct SDL_Rect;
 
 namespace Moge
 {
-    class MogeLib_API INode: public IRenderable, public Name
+    class MogeLib_API INode: public IRenderable, public CUL::Name
     {
     public:
-        explicit INode( const MyString& name = MyString( "" ) );
+        explicit INode( const CUL::MyString& name = CUL::MyString( "" ) );
         virtual ~INode();
     protected:
     private:

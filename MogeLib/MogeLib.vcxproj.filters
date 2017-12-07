@@ -371,9 +371,6 @@
     <ClCompile Include="src\MultiPointFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Named.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\PositionDouble3D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
