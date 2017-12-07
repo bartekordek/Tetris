@@ -12,7 +12,7 @@ namespace Moge
         {
         }
 
-        explicit IteratorListLinked<Type>( const IteratorListLinked<Type>& arg ) :
+        IteratorListLinked<Type>( const IteratorListLinked<Type>& arg ) :
             elements( arg.elements )
         {
         }

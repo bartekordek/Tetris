@@ -10,7 +10,6 @@ namespace Moge
     {
     public:
         TextureSDL();
-        TextureSDL(const TextureSDL& orig);
         virtual ~TextureSDL();
         
         void set( SDL_Texture* texture );

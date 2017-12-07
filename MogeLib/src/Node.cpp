@@ -11,10 +11,10 @@ namespace Moge
     }
 
     Node::Node( const Node& objectNodeContent ):
-        position( IPositionFactory::createSimplePositionDouble3D() )
+        position( IPositionFactory::createSimplePositionDouble3D() ),
+        scale( objectNodeContent.scale ),
+        texture( objectNodeContent.texture )
     {
-        this->texture = objectNodeContent.texture;
-        this->scale = objectNodeContent.scale;
         this->position->setXyz( *objectNodeContent.position );
         this->absSize = this->scale * this->texture->getSize();
     }

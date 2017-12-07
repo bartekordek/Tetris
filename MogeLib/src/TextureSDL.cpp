@@ -6,20 +6,7 @@ namespace Moge
     TextureSDL::TextureSDL()
     {
     }
-#if _MSC_VER
-    __pragma( warning( push ) ) \
-    __pragma( warning( disable:4100 ) )
-#endif
-    TextureSDL::TextureSDL(const TextureSDL& orig):
-        texture( texture ),
-        texturePath( texturePath ),
-        size( size )
-    {
-    }
 
-#if _MSC_VER
-    __pragma( warning( pop ) )
-#endif
     TextureSDL::~TextureSDL() 
     {
         SDL_DestroyTexture( this->texture );

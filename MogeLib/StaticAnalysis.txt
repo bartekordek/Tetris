@@ -1,11 +1,6 @@
+[inc/IteratorListLinked.h:15]: (style) Class 'IteratorListLinked' has a constructor with 1 argument that is not explicit.
 [inc/IteratorListLinked.h:7]: (warning) The class 'IteratorListLinked' has 'operator=' but lack of 'copy constructor'.
 [inc/IteratorListVector.h:7]: (warning) The class 'IteratorListVector' has 'operator=' but lack of 'copy constructor'.
-[src/Node.cpp:16]: (performance) Variable 'texture' is assigned in constructor body. Consider performing initialization in initialization list.
-[src/Node.cpp:17]: (performance) Variable 'scale' is assigned in constructor body. Consider performing initialization in initialization list.
-[src/TextureSDL.cpp:13]: (error) Member variable 'texture' is initialized by itself.
-[src/TextureSDL.cpp:14]: (error) Member variable 'texturePath' is initialized by itself.
-[src/TextureSDL.cpp:15]: (error) Member variable 'size' is initialized by itself.
-[inc/TextureSDL.h:9]: (warning) The class 'TextureSDL' has 'copy constructor' but lack of 'operator='.
 [src/Path.cpp:99]: (style) The function 'BaseName' is never used.
 [src/NodeFactory2D.cpp:19]: (style) The function 'CreateFromImage' is never used.
 [src/Path.cpp:104]: (style) The function 'Directory' is never used.
@@ -53,7 +48,7 @@
 [src/SDLRenderer.cpp:170]: (style) The function 'removeTexture' is never used.
 [src/RenderableSDLTexture.cpp:19]: (style) The function 'setPosition' is never used.
 [src/RenderableSDLTexture.cpp:39]: (style) The function 'setScale' is never used.
-[src/TextureSDL.cpp:60]: (style) The function 'setSize' is never used.
+[src/TextureSDL.cpp:47]: (style) The function 'setSize' is never used.
 [src/TimerChrono.cpp:25]: (style) The function 'stop' is never used.
 [src/IMogeApp.cpp:40]: (style) The function 'stopApp' is never used.
 [src/File.cpp:49]: (style) The function 'writeContents2' is never used.
