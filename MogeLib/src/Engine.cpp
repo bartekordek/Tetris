@@ -120,25 +120,28 @@ namespace Moge
         {
             int averageFpsCount4 = static_cast<int>( this->fpsCounter->getAverageFps() );
             std::cout << "FPS AVG: " << averageFpsCount4 << "\n";
-            if( averageFpsCount4 > fpsConst + framesDelta )
+            if (-1 != this->fpsConst)
             {
-                ++this->frameSleepTimeMs;
-                std::cout << "Render sleep time increase: " << this->frameSleepTimeMs << "\n";
-                
-            }
-            else if( averageFpsCount4 < fpsConst - framesDelta )
-            {
-                if( this->frameSleepTimeMs > 0 )
+                if (averageFpsCount4 > fpsConst + framesDelta)
                 {
-                    --this->frameSleepTimeMs;
-                    std::cout << "Render sleep time decrease: " << this->frameSleepTimeMs << "\n";
+                    ++this->frameSleepTimeMs;
+                    std::cout << "Render sleep time increase: " << this->frameSleepTimeMs << "\n";
+
                 }
+                else if (averageFpsCount4 < fpsConst - framesDelta)
+                {
+                    if (this->frameSleepTimeMs > 0)
+                    {
+                        --this->frameSleepTimeMs;
+                        std::cout << "Render sleep time decrease: " << this->frameSleepTimeMs << "\n";
+                    }
+                }
+                else
+                {
+                    std::cout << "Render sleep time is const.\n";
+                }
+                ITimer::SleepSeconds(this->fpsCalcSampleTimeSpan);
             }
-            else
-            {
-                std::cout << "Render sleep time is const.\n";
-            }
-            ITimer::SleepSeconds( this->fpsCalcSampleTimeSpan );
         }
     }
 
