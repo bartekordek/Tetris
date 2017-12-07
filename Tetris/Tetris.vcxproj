@@ -242,6 +242,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\MogeLib\src\SDL2WrapperAdapter.hpp" />
     <ClInclude Include="inc\Brick.h" />
     <ClInclude Include="inc\BrickFactory.h" />
     <ClInclude Include="inc\Game.h" />
@@ -250,6 +251,7 @@
     <ClInclude Include="inc\TableCoordinates.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\MogeLib\src\SDL2WrapperAdapter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\Brick.cpp" />
     <ClCompile Include="src\BrickFactory.cpp" />
