@@ -100,20 +100,20 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(SolutionDir)deps\boost_1_64_0;$(SolutionDir)deps\CUL;$(SolutionDir)deps\SDL2-2.0.7\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT;CULLib_EXPORT;CUL_DYNAMIC;SDL2Wrapper_DYNAMIC</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)deps\boost_1_64_0\Build-Windows;$(TargetDir);$(SolutionDir)deps\SDL2Wrapper\inc;$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib;CULdynamic.lib;SDL2WrapperDynamic.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)deps\CUL\build\$(Platform)_$(Configuration);$(SolutionDir)deps\boost_1_64_0\Build-Windows;$(TargetDir);$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration);$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
-      <SuppressStartupBanner>false</SuppressStartupBanner>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
@@ -127,7 +127,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(SolutionDir)deps\boost_1_64_0;$(SolutionDir)deps\CUL;$(SolutionDir)deps\SDL2-2.0.7\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT;CULLib_EXPORT;CUL_DYNAMIC;SDL2Wrapper_DYNAMIC</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <TreatWarningAsError>true</TreatWarningAsError>
@@ -135,13 +135,13 @@
     </ClCompile>
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)deps\boost_1_64_0\Build-Windows;$(TargetDir);$(SolutionDir)deps\SDL2Wrapper\inc;$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib;CULdynamic.lib;SDL2WrapperDynamic.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)deps\CUL\build\$(Platform)_$(Configuration);$(SolutionDir)deps\boost_1_64_0\Build-Windows;$(TargetDir);$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration);$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
-      <SuppressStartupBanner>false</SuppressStartupBanner>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
@@ -159,7 +159,7 @@
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(SolutionDir)deps\boost_1_64_0;$(SolutionDir)deps\CUL;$(SolutionDir)deps\SDL2-2.0.7\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT;CULLib_EXPORT;CUL_DYNAMIC;SDL2Wrapper_DYNAMIC</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
       <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
@@ -167,12 +167,12 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <OutputFile>$(TargetPath)</OutputFile>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)deps\boost_1_64_0\Build-Windows;$(TargetDir);$(SolutionDir)deps\SDL2Wrapper\inc;$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib;CULdynamic.lib;SDL2WrapperDynamic.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)deps\CUL\build\$(Platform)_$(Configuration);$(SolutionDir)deps\boost_1_64_0\Build-Windows;$(TargetDir);$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration);$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
-      <SuppressStartupBanner>false</SuppressStartupBanner>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
@@ -187,7 +187,7 @@
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(SolutionDir)deps\boost_1_64_0;$(SolutionDir)deps\CUL;$(SolutionDir)deps\SDL2-2.0.7\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT;CULLib_EXPORT;CUL_DYNAMIC;SDL2Wrapper_DYNAMIC</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
       <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
@@ -195,12 +195,12 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <OutputFile>$(TargetPath)</OutputFile>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)deps\boost_1_64_0\Build-Windows;$(TargetDir);$(SolutionDir)deps\SDL2Wrapper\inc;$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib;CULdynamic.lib;SDL2WrapperDynamic.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)deps\CUL\build\$(Platform)_$(Configuration);$(SolutionDir)deps\boost_1_64_0\Build-Windows;$(TargetDir);$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration);$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
-      <SuppressStartupBanner>false</SuppressStartupBanner>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y</Command>

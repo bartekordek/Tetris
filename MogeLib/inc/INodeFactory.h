@@ -20,11 +20,11 @@ namespace Moge
         
         virtual std::shared_ptr<Node> CreateFromImage(
             const Path& filePath, 
-            const MyString& name = MyString( "" ) ) = 0;
+            const CUL::MyString& name = CUL::MyString( "" ) ) = 0;
         
         virtual std::shared_ptr<Node> createFromTexture(
             const std::shared_ptr<ITexture>& texture, 
-            const MyString& name = MyString( "" ) ) = 0;
+            const CUL::MyString& name = CUL::MyString( "" ) ) = 0;
         
         virtual void remove( const std::shared_ptr<Node>& node) = 0;
         virtual void remove( const Node* node ) = 0;

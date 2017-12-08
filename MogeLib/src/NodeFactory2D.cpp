@@ -18,23 +18,23 @@ namespace Moge
     using namespace Math;
     std::shared_ptr<Node> NodeFactory2D::CreateFromImage(
         const Path& filePath, 
-        const MyString& name )
+        const CUL::MyString& name )
     {
         std::shared_ptr<Node> result = std::make_shared<Node>();
         const auto& texture = this->factory2D->createTexture( filePath );
         result->setTexture( texture );
-        result->SetName( name );
+        result->setName( name );
         nodes->pushBack( result );
         return result;
     }
 
     std::shared_ptr<Node> NodeFactory2D::createFromTexture(
         const std::shared_ptr<ITexture>& texture, 
-        const MyString& name)
+        const CUL::MyString& name)
     {
         std::shared_ptr<Node> result = std::make_shared<Node>();
         result->setTexture( texture );
-        result->SetName( name );
+        result->setName( name );
         nodes->pushBack( result );
         return result;
     }

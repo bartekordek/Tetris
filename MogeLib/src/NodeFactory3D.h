@@ -12,10 +12,10 @@ namespace Moge
         virtual ~NodeFactory3D() = default;
         std::shared_ptr<Node> CreateFromImage(
                 const Path& filePath,
-                const MyString& name = MyString( "" ) ) override;
+                const CUL::MyString& name = CUL::MyString( "" ) ) override;
         std::shared_ptr<Node> createFromTexture(
                 const std::shared_ptr<ITexture>& texture, 
-                const MyString& name = MyString( "" ) ) override;
+                const CUL::MyString& name = CUL::MyString( "" ) ) override;
         void remove(const std::shared_ptr<Node>& node) override;
         void remove( const Node* node ) override;
         const bool exist(const std::shared_ptr<Node>& node )const override;
