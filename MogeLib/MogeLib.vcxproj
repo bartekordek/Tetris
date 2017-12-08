@@ -282,7 +282,6 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration)\*.dll" 
     <ClInclude Include="inc\Named.h" />
     <ClInclude Include="inc\INode.h" />
     <ClInclude Include="inc\Node.h" />
-    <ClInclude Include="inc\Path.h" />
     <ClInclude Include="inc\RenderableTypes.h" />
     <ClInclude Include="inc\Scale.h" />
     <ClInclude Include="inc\Singleton.h" />
@@ -340,7 +339,6 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration)\*.dll" 
     <ClCompile Include="src\NodeFactory2D.cpp" />
     <ClCompile Include="src\NodeFactory3D.cpp" />
     <ClCompile Include="src\Node.cpp" />
-    <ClCompile Include="src\Path.cpp" />
     <ClCompile Include="src\PositionDouble2D.cpp" />
     <ClCompile Include="src\PositionDouble3D.cpp" />
     <ClCompile Include="src\Quaternion.cpp" />

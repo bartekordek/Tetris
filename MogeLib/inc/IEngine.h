@@ -18,7 +18,7 @@ namespace Moge
         {
         }
 
-        virtual void addObject( const Path& filePath, const Math::MultiPoint<int>& position, const MyString& name = MyString( "" ) ) = 0;
+        virtual void addObject( const CUL::FS::Path& filePath, const Math::MultiPoint<int>& position, const MyString& name = MyString( "" ) ) = 0;
         virtual void addObject( const ObjectNode node, const MyString& name = MyString( "" ) );
         virtual const std::shared_ptr<ScreenNode> getScreen()const;
         virtual void CreateScreen( const Math::MultiPoint<unsigned int>& resolution = Math::MultiPoint<unsigned int>( 2 ) ) = 0;
