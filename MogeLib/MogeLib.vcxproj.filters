@@ -288,6 +288,9 @@
     <ClInclude Include="inc\IMainGameLoop.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\SDL2WrapperAdapter.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ConsoleUtilities.cpp">
@@ -441,6 +444,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\FPSCounterConcrete.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SDL2WrapperAdapter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

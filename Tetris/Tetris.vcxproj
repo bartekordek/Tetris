@@ -109,8 +109,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)build\$(Platform)_$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>MogeLib.lib;SDL2WrapperDynamic.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)deps\CUL\build\$(Platform)_$(Configuration);$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration);$(SolutionDir)build\$(Platform)_$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>MogeLib.lib;SDL2WrapperDynamic.lib;CULdynamic.lib</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
       <EntryPointSymbol>mainCRTStartup </EntryPointSymbol>
@@ -148,8 +148,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)build\$(Platform)_$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>MogeLib.lib;SDL2WrapperDynamic.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)deps\CUL\build\$(Platform)_$(Configuration);$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration);$(SolutionDir)build\$(Platform)_$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>MogeLib.lib;SDL2WrapperDynamic.lib;CULdynamic.lib</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
       <EntryPointSymbol>mainCRTStartup </EntryPointSymbol>
@@ -189,8 +189,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>MogeLib.lib;SDL2WrapperDynamic.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)build\$(Platform)_$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>MogeLib.lib;SDL2WrapperDynamic.lib;CULdynamic.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)deps\CUL\build\$(Platform)_$(Configuration);$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration);$(SolutionDir)build\$(Platform)_$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
@@ -223,8 +223,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>MogeLib.lib;SDL2WrapperDynamic.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)build\$(Platform)_$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>MogeLib.lib;SDL2WrapperDynamic.lib;CULdynamic.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)deps\CUL\build\$(Platform)_$(Configuration);$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration);$(SolutionDir)build\$(Platform)_$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>

@@ -15,7 +15,7 @@ namespace Moge
             {
 #if _MSC_VER
                 __pragma( warning( push ) ) \
-                    __pragma( warning( disable:4127 ) )
+                 __pragma( warning( disable:4127 ) )
 #endif
                 if(
                     static_cast<const bool>( std::is_same<Type, float>::value ) || 
