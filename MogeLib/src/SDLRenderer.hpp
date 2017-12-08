@@ -39,15 +39,15 @@ namespace Moge
         void updateScreen()override;
         void clear() override;
 
-        std::shared_ptr<ITexture> createTexture( const Path& path ) override;
-        std::shared_ptr<ITexture>& findTexture( const Path& path ) override;
+        std::shared_ptr<ITexture> createTexture( const CUL::FS::Path& path ) override;
+        std::shared_ptr<ITexture>& findTexture( const CUL::FS::Path& path ) override;
         void removeTexture( const std::shared_ptr<ITexture>& texture ) override;
         void runMainLoop() override;
         void stopMainLoop() override;
 
     protected:
     private:
-        SDL_Surface* CreateSurfaceFromImage( const Path& imagePath );
+        SDL_Surface* CreateSurfaceFromImage( const CUL::FS::Path& imagePath );
         IKey* createKey( const int keySignature, const unsigned char* sdlKey )const;
         const std::shared_ptr<std::map<unsigned int, std::shared_ptr<IKey>>> createKeys()const;
         

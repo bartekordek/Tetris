@@ -1,13 +1,13 @@
 [inc/IteratorListLinked.h:15]: (style) Class 'IteratorListLinked' has a constructor with 1 argument that is not explicit.
 [inc/IteratorListLinked.h:7]: (warning) The class 'IteratorListLinked' has 'operator=' but lack of 'copy constructor'.
 [inc/IteratorListVector.h:7]: (warning) The class 'IteratorListVector' has 'operator=' but lack of 'copy constructor'.
-[src/Path.cpp:99]: (style) The function 'BaseName' is never used.
+[src/CUL::FS::Path.cpp:99]: (style) The function 'BaseName' is never used.
 [src/NodeFactory2D.cpp:19]: (style) The function 'CreateFromImage' is never used.
-[src/Path.cpp:104]: (style) The function 'Directory' is never used.
-[src/Path.cpp:125]: (style) The function 'Exist' is never used.
-[src/Path.cpp:119]: (style) The function 'GetCurrentDirectory' is never used.
-[src/Path.cpp:109]: (style) The function 'GetDirectorySeparator' is never used.
-[src/Path.cpp:114]: (style) The function 'GetExtensionSeparator' is never used.
+[src/CUL::FS::Path.cpp:104]: (style) The function 'Directory' is never used.
+[src/CUL::FS::Path.cpp:125]: (style) The function 'Exist' is never used.
+[src/CUL::FS::Path.cpp:119]: (style) The function 'GetCurrentDirectory' is never used.
+[src/CUL::FS::Path.cpp:109]: (style) The function 'GetDirectorySeparator' is never used.
+[src/CUL::FS::Path.cpp:114]: (style) The function 'GetExtensionSeparator' is never used.
 [src/ConsoleUtilities.cpp:7]: (style) The function 'PrintInputParameters' is never used.
 [src/MyString.cpp:58]: (style) The function 'Replace' is never used.
 [src/Visible.cpp:19]: (style) The function 'SetVisible' is never used.

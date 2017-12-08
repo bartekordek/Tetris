@@ -12,7 +12,7 @@ namespace Moge
         virtual ~NodeFactory2D();
         
         std::shared_ptr<Node> CreateFromImage(
-                const Path& filePath,
+                const CUL::FS::Path& filePath,
                 const CUL::MyString& name = CUL::MyString( "" ) ) override;
         
         std::shared_ptr<Node> createFromTexture(

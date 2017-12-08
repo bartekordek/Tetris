@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Path.h"
+#include "CUL::FS::Path.h"
 #include "ITexture.h"
 
 struct SDL_Texture;
@@ -14,7 +14,7 @@ namespace Moge
         
         void set( SDL_Texture* texture );
         SDL_Texture* get()const;
-        void setPath( const Path& path );
+        void setPath( const CUL::FS::Path& path );
         const char* getPath()const override;
 
         const Math::Vector3D<double>& getSize()const override;
@@ -22,7 +22,7 @@ namespace Moge
         
     private:
         SDL_Texture* texture = nullptr;
-        Path texturePath;
+        CUL::FS::Path texturePath;
         Math::Vector3D<double> size;
     };
 }

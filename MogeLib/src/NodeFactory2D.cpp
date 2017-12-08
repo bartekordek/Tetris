@@ -17,7 +17,7 @@ namespace Moge
 
     using namespace Math;
     std::shared_ptr<Node> NodeFactory2D::CreateFromImage(
-        const Path& filePath, 
+        const CUL::FS::Path& filePath, 
         const CUL::MyString& name )
     {
         std::shared_ptr<Node> result = std::make_shared<Node>();

@@ -11,7 +11,7 @@ namespace Moge
         explicit NodeFactory3D( ITextureFactory3D* factory3D );
         virtual ~NodeFactory3D() = default;
         std::shared_ptr<Node> CreateFromImage(
-                const Path& filePath,
+                const CUL::FS::Path& filePath,
                 const CUL::MyString& name = CUL::MyString( "" ) ) override;
         std::shared_ptr<Node> createFromTexture(
                 const std::shared_ptr<ITexture>& texture, 

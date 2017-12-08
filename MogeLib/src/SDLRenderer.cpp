@@ -128,7 +128,7 @@ namespace Moge
     }
 
 
-    std::shared_ptr<ITexture> SDLRenderer::createTexture( const Path& path )
+    std::shared_ptr<ITexture> SDLRenderer::createTexture( const CUL::FS::Path& path )
     {
         SDL_Surface* surface = CreateSurfaceFromImage( path );
         SDL_Texture* newTexture = SDL_CreateTextureFromSurface( this->renderer, surface );
@@ -144,7 +144,7 @@ namespace Moge
         return this->textures.at( key );
     }
     
-    SDL_Surface* SDLRenderer::CreateSurfaceFromImage( const Path& imagePath )
+    SDL_Surface* SDLRenderer::CreateSurfaceFromImage( const CUL::FS::Path& imagePath )
     {
         SDL_Surface* result = nullptr;
         if( ".bmp" == imagePath.Extension().ToLower() )
@@ -155,7 +155,7 @@ namespace Moge
         return result;
     }
 
-    std::shared_ptr<ITexture>& SDLRenderer::findTexture( const Path& path )
+    std::shared_ptr<ITexture>& SDLRenderer::findTexture( const CUL::FS::Path& path )
     {
         char* pathStr = const_cast<char*>( path.c_str() );
         auto it = this->textures.find( pathStr );

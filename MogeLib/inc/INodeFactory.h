@@ -3,7 +3,7 @@
 #include "Node.h"
 #include "Math/IPositionAdapter.h"
 #include "CUL/IIterator.hpp"
-#include "Path.h"
+#include "CUL::FS::Path.h"
 
 namespace Moge
 {
@@ -19,7 +19,7 @@ namespace Moge
         }
         
         virtual std::shared_ptr<Node> CreateFromImage(
-            const Path& filePath, 
+            const CUL::FS::Path& filePath, 
             const CUL::MyString& name = CUL::MyString( "" ) ) = 0;
         
         virtual std::shared_ptr<Node> createFromTexture(

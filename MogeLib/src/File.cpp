@@ -3,7 +3,7 @@
 
 namespace Moge
 {
-    void File::loadFile( const Path& filePath )
+    void File::loadFile( const CUL::FS::Path& filePath )
     {
         std::ifstream infile( filePath.c_str() );
         std::string line;
@@ -46,7 +46,7 @@ namespace Moge
         this->contents.push_back( line );
     }
 
-    void File::writeContents2( const Path& filePath )
+    void File::writeContents2( const CUL::FS::Path& filePath )
     {
         std::fstream file;
         file.open( filePath.c_str(), std::fstream::out );

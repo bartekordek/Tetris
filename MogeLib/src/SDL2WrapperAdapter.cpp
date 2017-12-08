@@ -67,13 +67,13 @@ void SDL2WrapperAdapter::clear()
 
 }
 
-std::shared_ptr<ITexture> SDL2WrapperAdapter::createTexture( const Path& path )
+std::shared_ptr<ITexture> SDL2WrapperAdapter::createTexture( const CUL::FS::Path& path )
 {
     std::shared_ptr<ITexture> result;
     return result;
 }
 
-std::shared_ptr<ITexture>& SDL2WrapperAdapter::findTexture( const Path& path )
+std::shared_ptr<ITexture>& SDL2WrapperAdapter::findTexture( const CUL::FS::Path& path )
 {
     static std::shared_ptr<ITexture> result;
     return result;
