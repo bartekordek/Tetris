@@ -1,7 +1,7 @@
 #pragma once
 
 #include "MogeLib.h"
-#include "CUL::FS::Path.h"
+#include "CUL/Path.hpp"
 #include "Node.h"
 #include <memory>
 

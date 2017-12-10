@@ -4,21 +4,26 @@
 #include "ITimer.h"
 #include "MogeLibMain.h"
 #include "Math/Vector3D.h"
+#include "CUL/Path.hpp"
 #include <cmath>
+
 
 namespace Tetris
 {
+    using Path = CUL::FS::Path;
     using namespace Moge;
     CMainGrid::CMainGrid():
         runFunThread( true )
     {
+        this->timer.reset( Moge::TimerFactory::getChronoTimer() );
+
         this->tF = EngineManager::getEngine()->get2DTextureFactory();
         std::lock_guard<std::mutex> slabLock( currentBrickMutex );
 
-        Path blockImagepath = Path::GetCurrentDirectory() + "\\..\\..\\Media\\Block.bmp";
+        Path blockImagepath = "..\\..\\Media\\Block.bmp";
         this->filledSlabTex = tF->createTexture( blockImagepath );
 
-        Path bgBlockImagepath = Path::GetCurrentDirectory() + "\\..\\..\\Media\\BackGroundBlock.bmp";
+        Path bgBlockImagepath = "..\\..\\Media\\BackGroundBlock.bmp";
         this->emptySlabTex = tF->createTexture( bgBlockImagepath );
 
         this->funThread = std::thread( &CMainGrid::funLoop, this );
@@ -38,7 +43,7 @@ namespace Tetris
             ManageFullLine();
             ReLeaseBrick();
         }
-        ITimer::SleepMiliSeconds( 500 );
+        this->timer->sleepMiliSeconds( 500 );
         MoveActualBrick( Math::Directions::D );
     }
 
@@ -90,8 +95,8 @@ namespace Tetris
             pos.setX( x0 + 100 * cos( t ) );
             pos.setY( y0 + 100 * sin( t ) );
             slabNode->setPosition( pos );
-            t += 0.01f;
-            ITimer::SleepMiliSeconds( 1 );
+            t += 0.1f;
+            this->timer->sleepMiliSeconds( 16 );
         }    
     }
 

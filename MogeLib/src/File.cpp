@@ -5,7 +5,7 @@ namespace Moge
 {
     void File::loadFile( const CUL::FS::Path& filePath )
     {
-        std::ifstream infile( filePath.c_str() );
+        std::ifstream infile( filePath.getPath() );
         std::string line;
         while( std::getline( infile, line ) )
         {
@@ -49,7 +49,7 @@ namespace Moge
     void File::writeContents2( const CUL::FS::Path& filePath )
     {
         std::fstream file;
-        file.open( filePath.c_str(), std::fstream::out );
+        file.open( filePath.getPath(), std::fstream::out );
         for( const std::string& line : this->contents )
         {
             file << line << std::endl;

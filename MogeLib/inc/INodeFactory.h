@@ -3,7 +3,7 @@
 #include "Node.h"
 #include "Math/IPositionAdapter.h"
 #include "CUL/IIterator.hpp"
-#include "CUL::FS::Path.h"
+#include "CUL/Path.hpp"
 
 namespace Moge
 {

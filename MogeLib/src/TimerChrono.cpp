@@ -1,5 +1,7 @@
 #include "TimerChrono.h"
 #include "TimeConcrete.h"
+#include <chrono>
+#include <thread>
 #include <memory>
 using namespace Moge;
 
@@ -39,4 +41,19 @@ const ITime& TimerChrono::getElapsed() const
     auto msUInt = static_cast<unsigned int>( ms );
     this->time->setTimeMs( msUInt );
     return *this->time;
+}
+
+void TimerChrono::sleepSeconds( const unsigned int seconds )const
+{
+    std::this_thread::sleep_for( std::chrono::seconds( seconds ) );
+}
+
+void TimerChrono::sleepMiliSeconds( const unsigned int mSeconds )const
+{
+    std::this_thread::sleep_for( std::chrono::milliseconds( mSeconds ) );
+}
+
+void TimerChrono::sleepMicroSeconds( const unsigned int uSeconds )const
+{
+    std::this_thread::sleep_for( std::chrono::microseconds( uSeconds ) );
 }

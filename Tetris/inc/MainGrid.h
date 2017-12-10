@@ -4,9 +4,11 @@
 #include "Slab.h"
 #include "Brick.h"
 #include "LckPrim.h"
+#include "ITimer.h"
 
 #include <vector>
 #include <mutex>
+#include <memory>
 
 namespace Tetris
 {
@@ -51,5 +53,6 @@ private:
     std::shared_ptr<Moge::ITexture> emptySlabTex;
     std::shared_ptr<Moge::ITexture> filledSlabTex;
     Moge::ITextureFactory* tF = nullptr;
+    std::unique_ptr<Moge::ITimer> timer;
 };
 }

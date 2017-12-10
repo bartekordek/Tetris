@@ -25,17 +25,17 @@ void FPSCounterConcrete::increase()
     ++this->framesCount;
 }
 
-const unsigned FPSCounterConcrete::getCurrentFps() const
+const double FPSCounterConcrete::getCurrentFps() const
 {
     return this->lastFrameValue;
 }
 
-const unsigned FPSCounterConcrete::getAverageFps() const
+const double FPSCounterConcrete::getAverageFps() const
 {
     return this->averageFps;
 }
 
-void FPSCounterConcrete::setAverageFpsSample( const unsigned size )
+void FPSCounterConcrete::setAverageFpsSampleMs( const unsigned size )
 {
     this->sampleSize = size;
 }
@@ -44,7 +44,7 @@ void FPSCounterConcrete::counterLoop()
 {
     while( this->run )
     {
-        ITimer::SleepSeconds( 1 );
+        this->timer->sleepSeconds( 1 );
         this->lastFrameValue.store( this->framesCount );
         this->samples.push_front( this->lastFrameValue );
         this->averageFps = calculateAverageFps();
@@ -52,19 +52,21 @@ void FPSCounterConcrete::counterLoop()
     }
 }
 
-const unsigned int FPSCounterConcrete::calculateAverageFps()const
+const double FPSCounterConcrete::calculateAverageFps()const
 {
     if( 0 == this->samples.size() )
     {
-        return 0;
+        return 0.0;
     }
-    unsigned int sampleSizeRealVal = static_cast<unsigned int>( this->samples.size() );
-    unsigned int sampleSizeReal = this->sampleSize < sampleSizeRealVal ? this->sampleSize : sampleSizeRealVal;
-    unsigned sum = 0;
+    auto sampleSizeRealVal = static_cast<unsigned int>( this->samples.size() );
+    double sampleSizeReal = this->sampleSize < sampleSizeRealVal ? this->sampleSize : sampleSizeRealVal;
+
+    double sum = 0.0;
     for( unsigned int i = 0; i < sampleSizeReal; ++i )
     {
         sum += this->samples[i];
     }
+
     auto result = sum / sampleSizeReal;
     return result;
 }

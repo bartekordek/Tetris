@@ -16,6 +16,10 @@ namespace Moge
         void reset() override;
         const ITime& getElapsed()const override;
 
+        void sleepSeconds( const unsigned int seconds )const override;
+        void sleepMiliSeconds( const unsigned int mSeconds )const override;
+        void sleepMicroSeconds( const unsigned int uSeconds )const override;
+
     protected:
     private:
         std::chrono::high_resolution_clock clock;

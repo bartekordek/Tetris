@@ -24,6 +24,7 @@ namespace Moge
     class IKey;
     class IKeyFactory;
     class ITextureFactory3D;
+    class ITimer;
     class MogeLib_API Engine: 
         public Singleton<Engine>, 
         public IKeyboardObservable
@@ -42,6 +43,9 @@ namespace Moge
 
         void registerObserver( IKeyboardObserver* observer ) override;
         void unregisterObserver( IKeyboardObserver* observer ) override;
+
+        void lockFps( unsigned fpsCount );
+        void unlockFps();
 
     protected:
 
@@ -70,7 +74,13 @@ namespace Moge
         LckPrim<int> frameSleepTimeMs;
         int framesDelta = 2;
         int fpsConst = 60;
-        unsigned framesSampleSize = 8;
-        LckPrim<unsigned> fpsCalcSampleTimeSpan;
+        LckPrim<unsigned> infoLoopPrintDelayMs { 2000 };
+
+
+        LckPrim<double> targetFrameTime{ 1000.0 / 60.0 };
+        LckPrim<int> m_fpsCount{ 60 };
+        std::unique_ptr<ITimer> timer;
+        unsigned lastFrameTimeMs = static_cast<unsigned>( 1000.0 / 60.0 );
+        double frameSleepMs = 10;
     };
 }

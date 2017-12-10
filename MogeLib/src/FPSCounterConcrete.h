@@ -16,15 +16,15 @@ namespace Moge
 
         void start() override;
         void increase() override;
-        const unsigned int getCurrentFps()const override;
-        const unsigned int getAverageFps()const override;
-        void setAverageFpsSample( const unsigned int sampleSize ) override;
+        const double getCurrentFps()const override;
+        const double getAverageFps()const override;
+        void setAverageFpsSampleMs( const unsigned int sampleSize ) override;
         
     protected:
     private:
         void counterLoop();
-        const unsigned int calculateAverageFps()const;
-        unsigned int bufferSize = 100;
+        const double calculateAverageFps()const;
+        unsigned int bufferSize = 4;
 
         std::thread mainThread;
         std::unique_ptr<ITimer> timer;
@@ -33,6 +33,6 @@ namespace Moge
         std::atomic<unsigned> lastFrameValue = { 0 };
         boost::circular_buffer<unsigned> samples;
         unsigned int sampleSize = 10;
-        std::atomic<unsigned> averageFps = { 0 };
+        std::atomic<double> averageFps = { 0.0 };
     };
 }

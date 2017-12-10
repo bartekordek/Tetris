@@ -13,8 +13,9 @@ namespace Moge
         virtual void reset() = 0;
         virtual const ITime& getElapsed()const = 0;
 
-        static void SleepSeconds( const unsigned int seconds );
-        static void SleepMiliSeconds( const unsigned int mSeconds );
+        virtual void sleepSeconds( const unsigned int seconds )const = 0;
+        virtual void sleepMiliSeconds( const unsigned int mSeconds )const = 0;
+        virtual void sleepMicroSeconds( const unsigned int uSeconds )const = 0;
 
     };
 

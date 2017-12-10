@@ -46,6 +46,7 @@ namespace Moge
         virtual void setBackgroundColor( const ColorS& color ) = 0;
         virtual void updateScreen() = 0;
         virtual void clear() = 0;
+
     protected:
     private:
     };

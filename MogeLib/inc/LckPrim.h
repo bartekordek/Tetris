@@ -18,7 +18,7 @@ namespace Moge
             this->value = val;
         }
 
-        explicit LckPrim( const LckPrim<Type>& rvalue )
+        LckPrim( const LckPrim<Type>& rvalue )
         {
             std::lock_guard<std::mutex> lock( this->mtx );
             this->value = rvalue.value;

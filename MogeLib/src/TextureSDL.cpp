@@ -33,7 +33,7 @@ namespace Moge
     
     const char* TextureSDL::getPath()const
     {
-        return this->texturePath.c_str();
+        return this->texturePath.getPath().c_str();
     }
 
     const Math::Vector3D<double>& TextureSDL::getSize()const

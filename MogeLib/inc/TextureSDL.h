@@ -1,6 +1,6 @@
 #pragma once
 
-#include "CUL::FS::Path.h"
+#include "CUL/Path.hpp"
 #include "ITexture.h"
 
 struct SDL_Texture;
