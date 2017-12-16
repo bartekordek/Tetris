@@ -1,0 +1,764 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="100">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <itemPath>../inc/ConsoleUtilities.h</itemPath>
+      <itemPath>../inc/Engine.h</itemPath>
+      <itemPath>../inc/File.h</itemPath>
+      <itemPath>../inc/IEngine.h</itemPath>
+      <itemPath>../inc/IFPSCounter.h</itemPath>
+      <itemPath>../inc/IKey.h</itemPath>
+      <itemPath>../inc/IKeyboardObservable.h</itemPath>
+      <itemPath>../inc/IKeyboardObserver.h</itemPath>
+      <itemPath>../inc/IMainGameLoop.hpp</itemPath>
+      <itemPath>../inc/IMogeApp.h</itemPath>
+      <itemPath>../inc/INode.h</itemPath>
+      <itemPath>../inc/INodeCreator.h</itemPath>
+      <itemPath>../inc/INodeFactory.h</itemPath>
+      <itemPath>../inc/IObservable.h</itemPath>
+      <itemPath>../inc/IObservableData.h</itemPath>
+      <itemPath>../inc/IObserver.h</itemPath>
+      <itemPath>../inc/IRenderable.h</itemPath>
+      <itemPath>../inc/IRenderer.h</itemPath>
+      <itemPath>../inc/IRenderer2D.h</itemPath>
+      <itemPath>../inc/IRenderer3D.h</itemPath>
+      <itemPath>../inc/ITexture.h</itemPath>
+      <itemPath>../inc/ITextureFactory.h</itemPath>
+      <itemPath>../inc/ITextureFactory2D.h</itemPath>
+      <itemPath>../inc/ITextureFactory3D.h</itemPath>
+      <itemPath>../inc/ITime.h</itemPath>
+      <itemPath>../inc/ITimer.h</itemPath>
+      <itemPath>../inc/KeyboardData.h</itemPath>
+      <itemPath>../inc/LckPrim.h</itemPath>
+      <itemPath>../inc/Math</itemPath>
+      <itemPath>../inc/MogeLib.h</itemPath>
+      <itemPath>../inc/MogeLibMain.h</itemPath>
+      <itemPath>../inc/MyString.h</itemPath>
+      <itemPath>../inc/Node.h</itemPath>
+      <itemPath>../inc/RenderableTypes.h</itemPath>
+      <itemPath>../inc/Scale.h</itemPath>
+      <itemPath>../inc/Singleton.h</itemPath>
+      <itemPath>../inc/SupportedRenderersList.h</itemPath>
+      <itemPath>../inc/TextureSDL.h</itemPath>
+      <itemPath>../inc/Visible.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="f1"
+                   displayName="Other important files"
+                   projectFiles="true"
+                   kind="ROOT">
+      <itemPath>../CppCheckConfig.txt</itemPath>
+      <itemPath>../HeaderList.txt</itemPath>
+      <itemPath>../Makefile</itemPath>
+      <itemPath>../MogeLib.cbp</itemPath>
+      <itemPath>../MogeLib.layout</itemPath>
+      <itemPath>../MogeLib.vcxproj</itemPath>
+      <itemPath>../MogeLib.vcxproj.filters</itemPath>
+      <itemPath>../MogeLib.vcxproj.user</itemPath>
+      <itemPath>../RunCppcheck.sh</itemPath>
+      <itemPath>../copyError.txt</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>../src/ConsoleUtilities.cpp</itemPath>
+      <itemPath>../src/Engine.cpp</itemPath>
+      <itemPath>../src/FPSCounterConcrete.cpp</itemPath>
+      <itemPath>../src/FPSCounterConcrete.h</itemPath>
+      <itemPath>../src/File.cpp</itemPath>
+      <itemPath>../src/Frustum.cpp</itemPath>
+      <itemPath>../src/IFPSCounter.cpp</itemPath>
+      <itemPath>../src/IKey.cpp</itemPath>
+      <itemPath>../src/IKeyboardData.h</itemPath>
+      <itemPath>../src/IKeyboardObservable.cpp</itemPath>
+      <itemPath>../src/IKeyboardObservableImp.cpp</itemPath>
+      <itemPath>../src/IKeyboardObservableImp.h</itemPath>
+      <itemPath>../src/IKeyboardObserver.cpp</itemPath>
+      <itemPath>../src/IMogeApp.cpp</itemPath>
+      <itemPath>../src/INode.cpp</itemPath>
+      <itemPath>../src/INodeCreator.cpp</itemPath>
+      <itemPath>../src/IObservable.cpp</itemPath>
+      <itemPath>../src/IObservableData.cpp</itemPath>
+      <itemPath>../src/IObservableImpl.cpp</itemPath>
+      <itemPath>../src/IObservableImpl.h</itemPath>
+      <itemPath>../src/IPositionFactory.cpp</itemPath>
+      <itemPath>../src/IRenderable.cpp</itemPath>
+      <itemPath>../src/IRenderer.cpp</itemPath>
+      <itemPath>../src/ITexture.cpp</itemPath>
+      <itemPath>../src/ITime.cpp</itemPath>
+      <itemPath>../src/ITimer.cpp</itemPath>
+      <itemPath>../src/IVector3D.cpp</itemPath>
+      <itemPath>../src/Iterator.cpp</itemPath>
+      <itemPath>../src/KeySDL.cpp</itemPath>
+      <itemPath>../src/KeySDL.h</itemPath>
+      <itemPath>../src/KeyboardData.cpp</itemPath>
+      <itemPath>../src/Line.cpp</itemPath>
+      <itemPath>../src/ListFactory.cpp</itemPath>
+      <itemPath>../src/MogeLibMain.cpp</itemPath>
+      <itemPath>../src/MultiPointFactory.cpp</itemPath>
+      <itemPath>../src/MyString.cpp</itemPath>
+      <itemPath>../src/Node.cpp</itemPath>
+      <itemPath>../src/NodeFactory2D.cpp</itemPath>
+      <itemPath>../src/NodeFactory2D.h</itemPath>
+      <itemPath>../src/NodeFactory3D.cpp</itemPath>
+      <itemPath>../src/NodeFactory3D.h</itemPath>
+      <itemPath>../src/PositionDouble2D.cpp</itemPath>
+      <itemPath>../src/PositionDouble3D.cpp</itemPath>
+      <itemPath>../src/Quaternion.cpp</itemPath>
+      <itemPath>../src/Rectangle.cpp</itemPath>
+      <itemPath>../src/RenderableSDLTexture.cpp</itemPath>
+      <itemPath>../src/RenderableSDLTexture.h</itemPath>
+      <itemPath>../src/SDL2WrapperAdapter.cpp</itemPath>
+      <itemPath>../src/SDL2WrapperAdapter.hpp</itemPath>
+      <itemPath>../src/SDLRenderer.cpp</itemPath>
+      <itemPath>../src/SDLRenderer.hpp</itemPath>
+      <itemPath>../src/Scale.cpp</itemPath>
+      <itemPath>../src/Singleton.cpp</itemPath>
+      <itemPath>../src/Size.cpp</itemPath>
+      <itemPath>../src/SizeDouble2D.cpp</itemPath>
+      <itemPath>../src/SizeDouble3D.cpp</itemPath>
+      <itemPath>../src/TextureSDL.cpp</itemPath>
+      <itemPath>../src/TimeConcrete.cpp</itemPath>
+      <itemPath>../src/TimeConcrete.h</itemPath>
+      <itemPath>../src/TimerChrono.cpp</itemPath>
+      <itemPath>../src/TimerChrono.h</itemPath>
+      <itemPath>../src/Vector3DFactory.cpp</itemPath>
+      <itemPath>../src/Visible.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="2">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>true</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <standard>11</standard>
+          <incDir>
+            <pElem>../inc</pElem>
+            <pElem>../../deps/SDL2Wrapper/deps/CUL/CUL</pElem>
+            <pElem>../../deps/SDL2Wrapper/SDL2Wrapper/inc</pElem>
+            <pElem>../../deps/SDL2Wrapper/deps/SDL2-2.0.7/include</pElem>
+            <pElem>../../deps/SDL2Wrapper/deps/CUL/deps/boost_1_64_0</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>MogeLib_EXPORT</Elem>
+          </preprocessorList>
+          <warningLevel>3</warningLevel>
+        </ccTool>
+        <linkerTool>
+          <output>../../build/${CND_PLATFORM}-${CND_CONF}/mogelib.${CND_DLIB_EXT}</output>
+          <linkerCopySharedLibs>true</linkerCopySharedLibs>
+          <commandlineTool>g++</commandlineTool>
+          <linkerLibItems>
+            <linkerLibProjectItem>
+              <makeArtifact PL="../../deps/SDL2Wrapper/deps/CUL/CUL/libcul"
+                            CT="2"
+                            CN="Debug"
+                            AC="true"
+                            BL="true"
+                            WD="../../deps/SDL2Wrapper/deps/CUL/CUL/libcul"
+                            BC="${MAKE} -j -f Makefile CONF=Debug"
+                            CC="${MAKE} -j -f Makefile CONF=Debug clean"
+                            OP="../../build/${CND_PLATFORM}-${CND_CONF}/libcul.${CND_DLIB_EXT}">
+              </makeArtifact>
+            </linkerLibProjectItem>
+            <linkerLibProjectItem>
+              <makeArtifact PL="../../deps/SDL2Wrapper/deps/CUL/CUL/libcul"
+                            CT="2"
+                            CN="Release"
+                            AC="false"
+                            BL="true"
+                            WD="../../deps/SDL2Wrapper/deps/CUL/CUL/libcul"
+                            BC="${MAKE} -j -f Makefile CONF=Release"
+                            CC="${MAKE} -j -f Makefile CONF=Release clean"
+                            OP="../../build/${CND_PLATFORM}-${CND_CONF}/libcul.${CND_DLIB_EXT}">
+              </makeArtifact>
+            </linkerLibProjectItem>
+            <linkerLibFileItem>../../deps/SDL2Wrapper/deps/SDL2-2.0.7/Build-Cygwin/libSDL2.dll.a</linkerLibFileItem>
+          </linkerLibItems>
+          <commandLine>-Wl,--out-implib,../../build/${CND_PLATFORM}-${CND_CONF}/libmoge.a</commandLine>
+        </linkerTool>
+      </compileType>
+      <packaging>
+        <packType>Tar</packType>
+        <packFileList>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}lib/libcul.dll"
+                            from="../../build/${CND_PLATFORM}-${CND_CONF}/libcul.dll"
+                            perm="644"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}lib/libcul.dll"
+                            from="../../build/${CND_PLATFORM}-${CND_CONF}/libcul.dll"
+                            perm="644"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}lib/${OUTPUT_BASENAME}"
+                            from="${OUTPUT_PATH}"
+                            perm="644"
+                            owner="root"
+                            group="bin"/>
+        </packFileList>
+      </packaging>
+      <item path="../CppCheckConfig.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../HeaderList.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib.cbp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib.layout" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib.vcxproj" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib.vcxproj.filters" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib.vcxproj.user" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../RunCppcheck.sh" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../copyError.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/ConsoleUtilities.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/Engine.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/File.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/IEngine.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/IFPSCounter.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/IKey.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/IKeyboardObservable.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/IKeyboardObserver.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/IMainGameLoop.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/IMogeApp.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/INode.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/INodeCreator.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/INodeFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/IObservable.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/IObservableData.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/IObserver.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/IRenderable.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/IRenderer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/IRenderer2D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/IRenderer3D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/ITexture.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/ITextureFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/ITextureFactory2D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/ITextureFactory3D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/ITime.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/ITimer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/KeyboardData.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/LckPrim.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/Math" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/MogeLib.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/MogeLibMain.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/MyString.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/Node.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/RenderableTypes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/Scale.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/Singleton.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/SupportedRenderersList.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/TextureSDL.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/Visible.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/ConsoleUtilities.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/Engine.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/FPSCounterConcrete.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/FPSCounterConcrete.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/File.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/Frustum.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/IFPSCounter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/IKey.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/IKeyboardData.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/IKeyboardObservable.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/IKeyboardObservableImp.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/IKeyboardObservableImp.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/IKeyboardObserver.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/IMogeApp.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/INode.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/INodeCreator.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/IObservable.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/IObservableData.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/IObservableImpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/IObservableImpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/IPositionFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/IRenderable.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/IRenderer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/ITexture.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/ITime.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/ITimer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/IVector3D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/Iterator.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/KeySDL.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/KeySDL.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/KeyboardData.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/Line.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/ListFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/MogeLibMain.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/MultiPointFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/MyString.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/Node.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/NodeFactory2D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/NodeFactory2D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/NodeFactory3D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/NodeFactory3D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/PositionDouble2D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/PositionDouble3D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/Quaternion.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/Rectangle.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/RenderableSDLTexture.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/RenderableSDLTexture.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/SDL2WrapperAdapter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/SDL2WrapperAdapter.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/SDLRenderer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/SDLRenderer.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/Scale.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/Singleton.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/Size.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/SizeDouble2D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/SizeDouble3D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/TextureSDL.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/TimeConcrete.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/TimeConcrete.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/TimerChrono.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/TimerChrono.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/Vector3DFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/Visible.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="2">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <standard>11</standard>
+          <incDir>
+            <pElem>../inc</pElem>
+            <pElem>../../deps/SDL2Wrapper/deps/CUL/CUL</pElem>
+            <pElem>../../deps/SDL2Wrapper/SDL2Wrapper/inc</pElem>
+            <pElem>../../deps/SDL2Wrapper/deps/SDL2-2.0.7/include</pElem>
+            <pElem>../../deps/SDL2Wrapper/deps/CUL/deps/boost_1_64_0</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>MogeLib_EXPORT</Elem>
+          </preprocessorList>
+          <warningLevel>3</warningLevel>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+        <linkerTool>
+          <output>../../build/${CND_PLATFORM}-${CND_CONF}/mogelib.${CND_DLIB_EXT}</output>
+          <linkerCopySharedLibs>true</linkerCopySharedLibs>
+          <commandlineTool>g++</commandlineTool>
+          <linkerLibItems>
+            <linkerLibProjectItem>
+              <makeArtifact PL="../../deps/SDL2Wrapper/deps/CUL/CUL/libcul"
+                            CT="2"
+                            CN="Debug"
+                            AC="true"
+                            BL="true"
+                            WD="../../deps/SDL2Wrapper/deps/CUL/CUL/libcul"
+                            BC="${MAKE} -j -f Makefile CONF=Debug"
+                            CC="${MAKE} -j -f Makefile CONF=Debug clean"
+                            OP="../../build/${CND_PLATFORM}-${CND_CONF}/libcul.${CND_DLIB_EXT}">
+              </makeArtifact>
+            </linkerLibProjectItem>
+            <linkerLibProjectItem>
+              <makeArtifact PL="../../deps/SDL2Wrapper/deps/CUL/CUL/libcul"
+                            CT="2"
+                            CN="Release"
+                            AC="false"
+                            BL="true"
+                            WD="../../deps/SDL2Wrapper/deps/CUL/CUL/libcul"
+                            BC="${MAKE} -j -f Makefile CONF=Release"
+                            CC="${MAKE} -j -f Makefile CONF=Release clean"
+                            OP="../../build/${CND_PLATFORM}-${CND_CONF}/libcul.${CND_DLIB_EXT}">
+              </makeArtifact>
+            </linkerLibProjectItem>
+            <linkerLibFileItem>../../deps/SDL2Wrapper/deps/SDL2-2.0.7/Build-Cygwin/libSDL2.dll.a</linkerLibFileItem>
+          </linkerLibItems>
+          <commandLine>-Wl,--out-implib,../../build/${CND_PLATFORM}-${CND_CONF}/libmoge.a</commandLine>
+        </linkerTool>
+      </compileType>
+      <packaging>
+        <packType>Tar</packType>
+        <packFileList>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}lib/libcul.dll"
+                            from="../../build/${CND_PLATFORM}-${CND_CONF}/libcul.dll"
+                            perm="644"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}lib/libcul.dll"
+                            from="../../build/${CND_PLATFORM}-${CND_CONF}/libcul.dll"
+                            perm="644"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}lib/${OUTPUT_BASENAME}"
+                            from="${OUTPUT_PATH}"
+                            perm="644"
+                            owner="root"
+                            group="bin"/>
+        </packFileList>
+      </packaging>
+      <item path="../CppCheckConfig.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../HeaderList.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib.cbp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib.layout" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib.vcxproj" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib.vcxproj.filters" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../MogeLib.vcxproj.user" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../RunCppcheck.sh" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../copyError.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/ConsoleUtilities.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/Engine.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/File.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/IEngine.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/IFPSCounter.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/IKey.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/IKeyboardObservable.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/IKeyboardObserver.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/IMainGameLoop.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/IMogeApp.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/INode.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/INodeCreator.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/INodeFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/IObservable.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/IObservableData.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/IObserver.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/IRenderable.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/IRenderer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/IRenderer2D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/IRenderer3D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/ITexture.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/ITextureFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/ITextureFactory2D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/ITextureFactory3D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/ITime.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/ITimer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/KeyboardData.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/LckPrim.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/Math" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/MogeLib.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/MogeLibMain.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/MyString.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/Node.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/RenderableTypes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/Scale.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/Singleton.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/SupportedRenderersList.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/TextureSDL.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/Visible.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/ConsoleUtilities.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/Engine.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/FPSCounterConcrete.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/FPSCounterConcrete.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/File.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/Frustum.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/IFPSCounter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/IKey.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/IKeyboardData.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/IKeyboardObservable.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/IKeyboardObservableImp.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/IKeyboardObservableImp.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/IKeyboardObserver.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/IMogeApp.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/INode.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/INodeCreator.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/IObservable.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/IObservableData.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/IObservableImpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/IObservableImpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/IPositionFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/IRenderable.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/IRenderer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/ITexture.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/ITime.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/ITimer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/IVector3D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/Iterator.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/KeySDL.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/KeySDL.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/KeyboardData.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/Line.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/ListFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/MogeLibMain.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/MultiPointFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/MyString.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/Node.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/NodeFactory2D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/NodeFactory2D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/NodeFactory3D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/NodeFactory3D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/PositionDouble2D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/PositionDouble3D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/Quaternion.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/Rectangle.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/RenderableSDLTexture.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/RenderableSDLTexture.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/SDL2WrapperAdapter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/SDL2WrapperAdapter.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/SDLRenderer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/SDLRenderer.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/Scale.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/Singleton.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/Size.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/SizeDouble2D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/SizeDouble3D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/TextureSDL.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/TimeConcrete.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/TimeConcrete.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/TimerChrono.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/TimerChrono.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/Vector3DFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/Visible.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
