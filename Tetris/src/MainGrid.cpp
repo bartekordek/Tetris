@@ -20,10 +20,10 @@ namespace Tetris
         this->tF = EngineManager::getEngine()->get2DTextureFactory();
         std::lock_guard<std::mutex> slabLock( currentBrickMutex );
 
-        Path blockImagepath = "..\\..\\Media\\Block.bmp";
+        Path blockImagepath( "..\\..\\Media\\Block.bmp" );
         this->filledSlabTex = tF->createTexture( blockImagepath );
 
-        Path bgBlockImagepath = "..\\..\\Media\\BackGroundBlock.bmp";
+        Path bgBlockImagepath( "..\\..\\Media\\BackGroundBlock.bmp" );
         this->emptySlabTex = tF->createTexture( bgBlockImagepath );
 
         this->funThread = std::thread( &CMainGrid::funLoop, this );

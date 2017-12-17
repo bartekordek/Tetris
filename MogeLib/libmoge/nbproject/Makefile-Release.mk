@@ -106,19 +106,19 @@ LDLIBSOPTIONS=-L../../deps/SDL2Wrapper/deps/CUL/CUL/libcul/../../build/Cygwin-Wi
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ../../build/${CND_PLATFORM}-${CND_CONF}/mogelib.${CND_DLIB_EXT}
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ../../build/${CND_PLATFORM}-${CND_CONF}/libmoge.${CND_DLIB_EXT}
 	${CP} ../../deps/SDL2Wrapper/deps/CUL/CUL/libcul/../../build/Cygwin-Windows-Debug/libcul.dll ../../build/${CND_PLATFORM}-${CND_CONF}
 	${CP} ../../deps/SDL2Wrapper/deps/CUL/CUL/libcul/../../build/Cygwin-Windows-Release/libcul.dll ../../build/${CND_PLATFORM}-${CND_CONF}
 
-../../build/${CND_PLATFORM}-${CND_CONF}/mogelib.${CND_DLIB_EXT}: ../../deps/SDL2Wrapper/deps/CUL/CUL/libcul/../../build/Cygwin-Windows-Debug/libcul.dll
+../../build/${CND_PLATFORM}-${CND_CONF}/libmoge.${CND_DLIB_EXT}: ../../deps/SDL2Wrapper/deps/CUL/CUL/libcul/../../build/Cygwin-Windows-Debug/libcul.dll
 
-../../build/${CND_PLATFORM}-${CND_CONF}/mogelib.${CND_DLIB_EXT}: ../../deps/SDL2Wrapper/deps/CUL/CUL/libcul/../../build/Cygwin-Windows-Release/libcul.dll
+../../build/${CND_PLATFORM}-${CND_CONF}/libmoge.${CND_DLIB_EXT}: ../../deps/SDL2Wrapper/deps/CUL/CUL/libcul/../../build/Cygwin-Windows-Release/libcul.dll
 
-../../build/${CND_PLATFORM}-${CND_CONF}/mogelib.${CND_DLIB_EXT}: ../../deps/SDL2Wrapper/deps/SDL2-2.0.7/Build-Cygwin/libSDL2.dll.a
+../../build/${CND_PLATFORM}-${CND_CONF}/libmoge.${CND_DLIB_EXT}: ../../deps/SDL2Wrapper/deps/SDL2-2.0.7/Build-Cygwin/libSDL2.dll.a
 
-../../build/${CND_PLATFORM}-${CND_CONF}/mogelib.${CND_DLIB_EXT}: ${OBJECTFILES}
+../../build/${CND_PLATFORM}-${CND_CONF}/libmoge.${CND_DLIB_EXT}: ${OBJECTFILES}
 	${MKDIR} -p ../../build/${CND_PLATFORM}-${CND_CONF}
-	g++ -o ../../build/${CND_PLATFORM}-${CND_CONF}/mogelib.${CND_DLIB_EXT} ${OBJECTFILES} ${LDLIBSOPTIONS} -Wl,--out-implib,../../build/${CND_PLATFORM}-${CND_CONF}/libmoge.a -shared
+	g++ -o ../../build/${CND_PLATFORM}-${CND_CONF}/libmoge.${CND_DLIB_EXT} ${OBJECTFILES} ${LDLIBSOPTIONS} -Wl,--out-implib,../../build/${CND_PLATFORM}-${CND_CONF}/libmoge.a -shared
 
 ${OBJECTDIR}/_ext/511e4115/ConsoleUtilities.o: ../src/ConsoleUtilities.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/511e4115
@@ -384,7 +384,7 @@ ${OBJECTDIR}/_ext/511e4115/Visible.o: ../src/Visible.cpp
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
 	${RM} -r ../../build/${CND_PLATFORM}-${CND_CONF}/libcul.dll ../../build/${CND_PLATFORM}-${CND_CONF}/libcul.dll
-	${RM} ../../build/${CND_PLATFORM}-${CND_CONF}/mogelib.${CND_DLIB_EXT}
+	${RM} ../../build/${CND_PLATFORM}-${CND_CONF}/libmoge.${CND_DLIB_EXT}
 
 # Subprojects
 .clean-subprojects:

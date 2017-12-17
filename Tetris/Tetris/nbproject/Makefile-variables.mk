@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=Cygwin-Windows
 CND_ARTIFACT_DIR_Debug=../../build/Cygwin-Windows-Debug
-CND_ARTIFACT_NAME_Debug=mogelib.dll
-CND_ARTIFACT_PATH_Debug=../../build/Cygwin-Windows-Debug/mogelib.dll
+CND_ARTIFACT_NAME_Debug=tetris
+CND_ARTIFACT_PATH_Debug=../../build/Cygwin-Windows-Debug/tetris
 CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin-Windows/package
-CND_PACKAGE_NAME_Debug=libmogelib.dll.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/libmogelib.dll.tar
+CND_PACKAGE_NAME_Debug=tetris.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/tetris.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin-Windows
 CND_ARTIFACT_DIR_Release=../../build/Cygwin-Windows-Release
-CND_ARTIFACT_NAME_Release=mogelib.dll
-CND_ARTIFACT_PATH_Release=../../build/Cygwin-Windows-Release/mogelib.dll
+CND_ARTIFACT_NAME_Release=tetris
+CND_ARTIFACT_PATH_Release=../../build/Cygwin-Windows-Release/tetris
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin-Windows/package
-CND_PACKAGE_NAME_Release=libmogelib.dll.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/libmogelib.dll.tar
+CND_PACKAGE_NAME_Release=tetris.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/tetris.tar
 #
 # include compiler specific variables
 #

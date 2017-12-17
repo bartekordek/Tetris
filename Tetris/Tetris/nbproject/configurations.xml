@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="100">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <itemPath>../inc/Brick.h</itemPath>
+      <itemPath>../inc/BrickFactory.h</itemPath>
+      <itemPath>../inc/Game.h</itemPath>
+      <itemPath>../inc/MainGrid.h</itemPath>
+      <itemPath>../inc/Slab.h</itemPath>
+      <itemPath>../inc/TableCoordinates.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>../src/Brick.cpp</itemPath>
+      <itemPath>../src/BrickFactory.cpp</itemPath>
+      <itemPath>../src/Game.cpp</itemPath>
+      <itemPath>../src/MainGrid.cpp</itemPath>
+      <itemPath>../src/Slab.cpp</itemPath>
+      <itemPath>../src/TableCoordinates.cpp</itemPath>
+      <itemPath>../main.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <standard>11</standard>
+          <incDir>
+            <pElem>../../MogeLib/inc</pElem>
+            <pElem>../../deps/SDL2Wrapper/deps/CUL/CUL</pElem>
+            <pElem>../../deps/SDL2Wrapper/deps/CUL/deps/boost_1_64_0</pElem>
+            <pElem>../inc</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>MogeLib_EXPORT</Elem>
+          </preprocessorList>
+        </ccTool>
+        <linkerTool>
+          <output>../../build/${CND_PLATFORM}-${CND_CONF}/tetris</output>
+          <commandlineTool>g++</commandlineTool>
+          <linkerLibItems>
+            <linkerLibFileItem>../../deps/SDL2Wrapper/deps/CUL/build/Cygwin-Windows-Debug/libcul.a</linkerLibFileItem>
+            <linkerLibFileItem>../../deps/SDL2Wrapper/deps/CUL/build/Cygwin-Windows-Debug/libcul.dll</linkerLibFileItem>
+            <linkerLibFileItem>../../deps/SDL2Wrapper/build/Cygwin-Windows-Debug/libSDL2Wrapper.a</linkerLibFileItem>
+            <linkerLibFileItem>../../deps/SDL2Wrapper/build/Cygwin-Windows-Debug/libSDL2Wrapper.dll</linkerLibFileItem>
+            <linkerLibFileItem>../../build/Cygwin-Windows-Debug/libmoge.a</linkerLibFileItem>
+            <linkerLibFileItem>../../build/Cygwin-Windows-Debug/libmoge.dll</linkerLibFileItem>
+          </linkerLibItems>
+        </linkerTool>
+      </compileType>
+      <item path="../inc/Brick.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/BrickFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/Game.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/MainGrid.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/Slab.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/TableCoordinates.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/Brick.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/BrickFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/Game.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/MainGrid.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/Slab.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/TableCoordinates.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <standard>11</standard>
+          <incDir>
+            <pElem>../../MogeLib/inc</pElem>
+            <pElem>../../deps/SDL2Wrapper/deps/CUL/CUL</pElem>
+            <pElem>../../deps/SDL2Wrapper/deps/CUL/deps/boost_1_64_0</pElem>
+            <pElem>../inc</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>MogeLib_EXPORT</Elem>
+          </preprocessorList>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+        <linkerTool>
+          <output>../../build/${CND_PLATFORM}-${CND_CONF}/tetris</output>
+          <commandlineTool>g++</commandlineTool>
+          <linkerLibItems>
+            <linkerLibFileItem>../../deps/SDL2Wrapper/deps/CUL/build/Cygwin-Windows-Release/libcul.a</linkerLibFileItem>
+            <linkerLibFileItem>../../deps/SDL2Wrapper/deps/CUL/build/Cygwin-Windows-Release/libcul.dll</linkerLibFileItem>
+            <linkerLibFileItem>../../deps/SDL2Wrapper/build/Cygwin-Windows-Release/libSDL2Wrapper.a</linkerLibFileItem>
+            <linkerLibFileItem>../../deps/SDL2Wrapper/build/Cygwin-Windows-Release/libSDL2Wrapper.dll</linkerLibFileItem>
+            <linkerLibFileItem>../../build/Cygwin-Windows-Release/libmoge.a</linkerLibFileItem>
+            <linkerLibFileItem>../../build/Cygwin-Windows-Release/libmoge.dll</linkerLibFileItem>
+          </linkerLibItems>
+        </linkerTool>
+      </compileType>
+      <item path="../inc/Brick.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/BrickFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/Game.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/MainGrid.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/Slab.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../inc/TableCoordinates.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/Brick.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/BrickFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/Game.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/MainGrid.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/Slab.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/TableCoordinates.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
