@@ -19,9 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{AB3E04B6-736C-4791-A253-93F572E0BCD5}</ProjectGuid>
+    <ProjectGuid>{8323F6F2-99CF-4652-8348-3D6C54227046}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Tests</RootNamespace>
+    <RootNamespace>Tetris</RootNamespace>
+    <ProjectName>libmogeTestApp</ProjectName>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -45,7 +46,6 @@
     <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
-    <UseOfMfc>false</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -53,7 +53,6 @@
     <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
-    <UseOfMfc>false</UseOfMfc>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -97,25 +96,33 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;MogeLib_EXPORT;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)inc;$(HOME_GTEST_WINDOWS)\googletest\include;%(AdditionalIncludeDirectories);$(SolutionDir)MogeMath\inc;$(SolutionDir)String\inc\;$(SolutionDir)MogeLib\inc\</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;MogeLib_EXPORT;CULLib_EXPORT;CUL_DYNAMIC;SDL2Wrapper_DYNAMIC;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps\CUL;$(SolutionDir)MogeLib\String\inc\;$(SolutionDir)MogeLib\inc\;$(ProjectDir)inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\gtest\$(Configuration)\;$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\$(Configuration)\;$(SolutionDir)build\$(Platform)_$(Configuration)\;$(BOOST)\stage\lib;$(SolutionDir)MogeLib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>gtest.lib;gtest_main.lib;MogeLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)deps\CUL\build\$(Platform)_$(Configuration);$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration);$(SolutionDir)build\$(Platform)_$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>MogeLib.lib;SDL2WrapperDynamic.lib;CULdynamic.lib</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <EntryPointSymbol>mainCRTStartup </EntryPointSymbol>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
     <PostBuildEvent>
       <Command>
       </Command>
@@ -127,26 +134,34 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;MogeLib_EXPORT;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)inc;$(HOME_GTEST_WINDOWS)\googletest\include;%(AdditionalIncludeDirectories);$(SolutionDir)MogeMath\inc;$(SolutionDir)String\inc\;$(SolutionDir)MogeLib\inc\</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;MogeLib_EXPORT;CULLib_EXPORT;CUL_DYNAMIC;SDL2Wrapper_DYNAMIC;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps\CUL;$(SolutionDir)MogeLib\String\inc\;$(SolutionDir)MogeLib\inc\;$(ProjectDir)inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
       <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\gtest\$(Configuration)\;$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\$(Configuration)\;$(SolutionDir)build\$(Platform)_$(Configuration)\;$(BOOST)\stage\lib;$(SolutionDir)MogeLib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>gtest.lib;gtest_main.lib;MogeLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)deps\CUL\build\$(Platform)_$(Configuration);$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration);$(SolutionDir)build\$(Platform)_$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>MogeLib.lib;SDL2WrapperDynamic.lib;CULdynamic.lib</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <EntryPointSymbol>mainCRTStartup </EntryPointSymbol>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
     <PostBuildEvent>
       <Command>
       </Command>
@@ -163,9 +178,9 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;MogeLib_EXPORT;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)inc;$(HOME_GTEST_WINDOWS)\googletest\include;%(AdditionalIncludeDirectories);$(SolutionDir)MogeMath\inc;$(SolutionDir)String\inc\;$(SolutionDir)MogeLib\inc\</AdditionalIncludeDirectories>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>WIN32;MogeLib_EXPORT;CULLib_EXPORT;CUL_DYNAMIC;SDL2Wrapper_DYNAMIC;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps\CUL;$(SolutionDir)MogeLib\String\inc\;$(SolutionDir)MogeLib\inc\;$(ProjectDir)inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
     </ClCompile>
@@ -174,12 +189,16 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\gtest\$(Configuration)\;$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\$(Configuration)\;$(SolutionDir)build\$(Platform)_$(Configuration)\;$(BOOST)\stage\lib;$(SolutionDir)MogeLib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>gtest.lib;gtest_main.lib;MogeLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>MogeLib.lib;SDL2WrapperDynamic.lib;CULdynamic.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)deps\CUL\build\$(Platform)_$(Configuration);$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration);$(SolutionDir)build\$(Platform)_$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
     <PostBuildEvent>
       <Command>
       </Command>
@@ -193,9 +212,9 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;MogeLib_EXPORT;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)inc;$(HOME_GTEST_WINDOWS)\googletest\include;%(AdditionalIncludeDirectories);$(SolutionDir)MogeMath\inc;$(SolutionDir)String\inc\;$(SolutionDir)MogeLib\inc\</AdditionalIncludeDirectories>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>WIN32;MogeLib_EXPORT;CULLib_EXPORT;CUL_DYNAMIC;SDL2Wrapper_DYNAMIC;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps\CUL;$(SolutionDir)MogeLib\String\inc\;$(SolutionDir)MogeLib\inc\;$(ProjectDir)inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
     </ClCompile>
@@ -204,43 +223,50 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\gtest\$(Configuration)\;$(HOME_GTEST_WINDOWS)\Build-Windows\googlemock\$(Configuration)\;$(SolutionDir)build\$(Platform)_$(Configuration)\;$(BOOST)\stage\lib;$(SolutionDir)MogeLib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>gtest.lib;gtest_main.lib;MogeLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>MogeLib.lib;SDL2WrapperDynamic.lib;CULdynamic.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)deps\CUL\build\$(Platform)_$(Configuration);$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration);$(SolutionDir)build\$(Platform)_$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
     <PostBuildEvent>
       <Command>
       </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="src\EngineTests.cpp" />
-    <ClCompile Include="src\FilesystemTests.cpp" />
-    <ClCompile Include="src\ImageCreatorTests.cpp" />
-    <ClCompile Include="src\ListsTests.cpp" />
-    <ClCompile Include="src\MatrixTests.cpp" />
-    <ClCompile Include="src\MogeGenericTests.cpp" />
-    <ClCompile Include="src\NameTests.cpp" />
-    <ClCompile Include="src\NodeCreatorTests.cpp" />
-    <ClCompile Include="src\NodeTests.cpp" />
-    <ClCompile Include="src\ObjectNodeTests.cpp" />
-    <ClCompile Include="src\TimeTests.cpp" />
+    <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="inc\EngineTests.h" />
-    <ClInclude Include="inc\FilesystemTests.h" />
-    <ClInclude Include="inc\ImageCreatorTests.h" />
-    <ClInclude Include="inc\ListTests.h" />
-    <ClInclude Include="inc\MatrixTests.h" />
-    <ClInclude Include="inc\MogeGenericTests.h" />
-    <ClInclude Include="inc\NameTests.h" />
-    <ClInclude Include="inc\NodeCreatorTests.h" />
-    <ClInclude Include="inc\NodeTests.h" />
-    <ClInclude Include="inc\ObjectNodeTests.h" />
-    <ClInclude Include="inc\TimeTests.h" />
+    <ClInclude Include="..\MogeLib\src\SDL2WrapperAdapter.hpp" />
+    <ClInclude Include="inc\Brick.h" />
+    <ClInclude Include="inc\BrickFactory.h" />
+    <ClInclude Include="inc\Game.h" />
+    <ClInclude Include="inc\MainGrid.h" />
+    <ClInclude Include="inc\Slab.h" />
+    <ClInclude Include="inc\TableCoordinates.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\MogeLib\src\SDL2WrapperAdapter.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\Brick.cpp" />
+    <ClCompile Include="src\BrickFactory.cpp" />
+    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\MainGrid.cpp" />
+    <ClCompile Include="src\Slab.cpp" />
+    <ClCompile Include="src\TableCoordinates.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Debug\SDL.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\pic\BackGroundBlock.bmp" />
+    <Image Include="..\pic\Block.bmp" />
+    <Image Include="..\pic\ButtonQuit.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

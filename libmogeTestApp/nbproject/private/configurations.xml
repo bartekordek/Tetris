@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="100">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="../MogeLib/inc" name="0">
+      <df name="Math">
+        <in>Axis.h</in>
+        <in>Epsilon.h</in>
+        <in>Frustum.h</in>
+        <in>IPosition.h</in>
+        <in>IPositionAdapter.h</in>
+        <in>IPositionFactory.h</in>
+        <in>ISize.h</in>
+        <in>IVector.h</in>
+        <in>IVector3D.h</in>
+        <in>Line.h</in>
+        <in>Math.h</in>
+        <in>Matrix2D.hpp</in>
+        <in>MultiPoint.h</in>
+        <in>MultiPointFactory.h</in>
+        <in>PositionDouble2D.h</in>
+        <in>PositionDouble3D.h</in>
+        <in>Quaternion.h</in>
+        <in>Rectangle.h</in>
+        <in>Segment.h</in>
+        <in>Size.h</in>
+        <in>SizeDouble2D.h</in>
+        <in>SizeDouble3D.h</in>
+        <in>SizeInt2D.h</in>
+        <in>SizeUInt2D.h</in>
+        <in>SquareMatrix2D.hpp</in>
+        <in>Vector3D.h</in>
+        <in>Vector3DFactory.h</in>
+      </df>
+      <in>ConsoleUtilities.h</in>
+      <in>Engine.h</in>
+      <in>File.h</in>
+      <in>IEngine.h</in>
+      <in>IFPSCounter.h</in>
+      <in>IIterator.h</in>
+      <in>IKey.h</in>
+      <in>IKeyFactory.h</in>
+      <in>IKeyboardObservable.h</in>
+      <in>IKeyboardObserver.h</in>
+      <in>IList.h</in>
+      <in>IMainGameLoop.hpp</in>
+      <in>IMogeApp.h</in>
+      <in>INode.h</in>
+      <in>INodeCreator.h</in>
+      <in>INodeFactory.h</in>
+      <in>IObservable.h</in>
+      <in>IObservableData.h</in>
+      <in>IObserver.h</in>
+      <in>IRenderable.h</in>
+      <in>IRenderer.h</in>
+      <in>IRenderer2D.h</in>
+      <in>IRenderer3D.h</in>
+      <in>ITexture.h</in>
+      <in>ITextureFactory.h</in>
+      <in>ITextureFactory2D.h</in>
+      <in>ITextureFactory3D.h</in>
+      <in>ITime.h</in>
+      <in>ITimer.h</in>
+      <in>KeyFactorySDL.h</in>
+      <in>KeyboardData.h</in>
+      <in>KeyboardObservable.h</in>
+      <in>LckPrim.h</in>
+      <in>MTime.h</in>
+      <in>MogeLib.h</in>
+      <in>MogeLibMain.h</in>
+      <in>MyString.h</in>
+      <in>Named.h</in>
+      <in>Node.h</in>
+      <in>ObjectNode.h</in>
+      <in>Path.h</in>
+      <in>RenderableTypes.h</in>
+      <in>SDLRenderer.h</in>
+      <in>Scale.h</in>
+      <in>Singleton.h</in>
+      <in>SupportedRenderersList.h</in>
+      <in>TextureSDL.h</in>
+      <in>Visible.h</in>
+    </df>
+    <df root="." name="1">
+      <df name="inc">
+        <in>Brick.h</in>
+        <in>BrickFactory.h</in>
+        <in>Game.h</in>
+        <in>MainGrid.h</in>
+        <in>Slab.h</in>
+        <in>TableCoordinates.h</in>
+      </df>
+      <df name="Intermediate">
+        <df name="x64_Debug">
+          <df name="Tetris.tlog">
+          </df>
+        </df>
+      </df>
+      <df name="obj">
+        <df name="debug">
+          <df name="src">
+          </df>
+        </df>
+      </df>
+      <df name="src">
+        <in>Brick.cpp</in>
+        <in>BrickFactory.cpp</in>
+        <in>Game.cpp</in>
+        <in>MainGrid.cpp</in>
+        <in>Slab.cpp</in>
+        <in>TableCoordinates.cpp</in>
+      </df>
+      <df name="Tetris">
+        <df name="build">
+          <df name="Debug">
+            <df name="Cygwin-Windows">
+              <df name="_ext">
+                <df name="511e4115">
+                </df>
+                <df name="5c0">
+                </df>
+              </df>
+            </df>
+          </df>
+        </df>
+      </df>
+      <in>main.cpp</in>
+    </df>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="debug" type="0">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <platform>3</platform>
+      </toolsSet>
+      <compile>
+        <compiledirpicklist>
+          <compiledirpicklistitem>.</compiledirpicklistitem>
+          <compiledirpicklistitem>${AUTO_FOLDER}</compiledirpicklistitem>
+        </compiledirpicklist>
+        <compiledir>${AUTO_FOLDER}</compiledir>
+        <compilecommandpicklist>
+          <compilecommandpicklistitem>${MAKE} ${ITEM_NAME}.o</compilecommandpicklistitem>
+          <compilecommandpicklistitem>${AUTO_COMPILE}</compilecommandpicklistitem>
+        </compilecommandpicklist>
+        <compilecommand>${AUTO_COMPILE}</compilecommand>
+      </compile>
+      <dbx_gdbdebugger version="1">
+        <gdb_pathmaps>
+        </gdb_pathmaps>
+        <gdb_interceptlist>
+          <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
+        </gdb_interceptlist>
+        <gdb_options>
+          <DebugOptions>
+          </DebugOptions>
+        </gdb_options>
+        <gdb_buildfirst gdb_buildfirst_overriden="false" gdb_buildfirst_old="false"/>
+      </dbx_gdbdebugger>
+      <nativedebugger version="1">
+        <engine>gdb</engine>
+      </nativedebugger>
+      <runprofile version="9">
+        <runcommandpicklist>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
+        </runcommandpicklist>
+        <runcommand>"${OUTPUT_PATH}"</runcommand>
+        <rundir></rundir>
+        <buildfirst>false</buildfirst>
+        <terminal-type>0</terminal-type>
+        <remove-instrumentation>0</remove-instrumentation>
+        <environment>
+        </environment>
+      </runprofile>
+    </conf>
+    <conf name="release" type="0">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <platform>3</platform>
+      </toolsSet>
+      <compile>
+        <compiledirpicklist>
+          <compiledirpicklistitem>.</compiledirpicklistitem>
+          <compiledirpicklistitem>${AUTO_FOLDER}</compiledirpicklistitem>
+        </compiledirpicklist>
+        <compiledir>${AUTO_FOLDER}</compiledir>
+        <compilecommandpicklist>
+          <compilecommandpicklistitem>${MAKE} ${ITEM_NAME}.o</compilecommandpicklistitem>
+          <compilecommandpicklistitem>${AUTO_COMPILE}</compilecommandpicklistitem>
+        </compilecommandpicklist>
+        <compilecommand>${AUTO_COMPILE}</compilecommand>
+      </compile>
+      <dbx_gdbdebugger version="1">
+        <gdb_pathmaps>
+        </gdb_pathmaps>
+        <gdb_interceptlist>
+          <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
+        </gdb_interceptlist>
+        <gdb_options>
+          <DebugOptions>
+          </DebugOptions>
+        </gdb_options>
+        <gdb_buildfirst gdb_buildfirst_overriden="false" gdb_buildfirst_old="false"/>
+      </dbx_gdbdebugger>
+      <nativedebugger version="1">
+        <engine>gdb</engine>
+      </nativedebugger>
+      <runprofile version="9">
+        <runcommandpicklist>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
+        </runcommandpicklist>
+        <runcommand>"${OUTPUT_PATH}"</runcommand>
+        <rundir></rundir>
+        <buildfirst>false</buildfirst>
+        <terminal-type>0</terminal-type>
+        <remove-instrumentation>0</remove-instrumentation>
+        <environment>
+        </environment>
+      </runprofile>
+    </conf>
+  </confs>
+</configurationDescriptor>
