@@ -448,4 +448,7 @@
     <Text Include="StaticAnalysis.txt" />
     <Text Include="CppCheckConfig.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.git\config" />
+  </ItemGroup>
 </Project>

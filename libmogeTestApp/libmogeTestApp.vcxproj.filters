@@ -39,7 +39,6 @@
     <ClInclude Include="inc\TableCoordinates.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\MogeLib\src\SDL2WrapperAdapter.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -61,7 +60,6 @@
     <ClCompile Include="src\TableCoordinates.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\MogeLib\src\SDL2WrapperAdapter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Debug\SDL.dll">

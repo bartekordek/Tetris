@@ -70,26 +70,26 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)build\$(Platform)_$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)build\intermediate\$(ProjectName)\$(Platform)_$(Configuration)\</IntDir>
+    <OutDir>$(ProjectDir)..\build\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)..\build\intermediate\$(ProjectName)\$(Platform)_$(Configuration)\</IntDir>
     <TargetExt>.dll</TargetExt>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)build\$(Platform)_$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)build\intermediate\$(ProjectName)\$(Platform)_$(Configuration)\</IntDir>
+    <OutDir>$(ProjectDir)..\build\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)..\build\intermediate\$(ProjectName)\$(Platform)_$(Configuration)\</IntDir>
     <TargetExt>.dll</TargetExt>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)build\$(Platform)_$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)build\intermediate\$(ProjectName)\$(Platform)_$(Configuration)\</IntDir>
+    <OutDir>$(ProjectDir)..\build\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)..\build\intermediate\$(ProjectName)\$(Platform)_$(Configuration)\</IntDir>
     <TargetExt>.dll</TargetExt>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)build\$(Platform)_$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)build\intermediate\$(ProjectName)\$(Platform)_$(Configuration)\</IntDir>
+    <OutDir>$(ProjectDir)..\build\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)..\build\intermediate\$(ProjectName)\$(Platform)_$(Configuration)\</IntDir>
     <TargetExt>.dll</TargetExt>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
@@ -361,6 +361,9 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration)\*.dll" 
   <ItemGroup>
     <Text Include="CppCheckConfig.txt" />
     <Text Include="StaticAnalysis.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.git\config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
