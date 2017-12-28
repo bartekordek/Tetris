@@ -1,31 +1,49 @@
 #pragma once
 
-#include "MultiPoint.h"
-#include "ObjectNode.h"
-#include "File.h"
+#include "Singleton.h"
+#include "IKeyboardObservable.h"
+#include "INodeFactory.h"
+#include "IRenderer.h"
+#include "Math/ISize.h"
+#include "IRenderer2D.h"
+#include "IRenderer3D.h"
+#include "ITextureFactory.h"
+#include "IFPSCounter.h"
+
+#include "IMainGameLoop.hpp"
 
 namespace Moge
 {
-    class ScreenNode;
-    class MogeLib_API IEngine
+    class IKeyboardObserver;
+    class IKeyboardData;
+    class IKey;
+    class IKeyFactory;
+    class ITextureFactory3D;
+    class ITimer;
+    class MogeLib_API IEngine: 
+        public IKeyboardObservable
     {
     public:
-        IEngine()
-        {
-        }
+        IEngine( void );
+        virtual ~IEngine();
 
-        virtual ~IEngine()
-        {
-        }
+        virtual void createScreen( Math::ISize<unsigned int>& size, Math::IPosition<int>& position, const std::string& label = "Window label." )const = 0;
+        virtual void startMainLoop() = 0;
+        virtual void stopEventLoop() = 0;
+        virtual ITextureFactory* get2DTextureFactory()const = 0;
+        virtual ITextureFactory* get3DTextureFactory()const = 0;
+        virtual INodeFactory* get2DNodeFactory()const = 0;
+        virtual INodeFactory* get3DNodeFactory()const = 0;
 
-        virtual void addObject( const CUL::FS::Path& filePath, const Math::MultiPoint<int>& position, const MyString& name = MyString( "" ) ) = 0;
-        virtual void addObject( const ObjectNode node, const MyString& name = MyString( "" ) );
-        virtual const std::shared_ptr<ScreenNode> getScreen()const;
-        virtual void CreateScreen( const Math::MultiPoint<unsigned int>& resolution = Math::MultiPoint<unsigned int>( 2 ) ) = 0;
-        virtual void StartMainLoop() = 0;
-        virtual void StopMainLoop() = 0;
+        virtual void registerObserver( IKeyboardObserver* observer ) override = 0;
+        virtual void unregisterObserver( IKeyboardObserver* observer ) override = 0;
+
+        virtual void lockFps( unsigned fpsCount ) = 0;
+        virtual void unlockFps() = 0;
 
     protected:
+
     private:
+
     };
 }

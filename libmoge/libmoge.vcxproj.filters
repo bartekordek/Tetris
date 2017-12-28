@@ -93,13 +93,7 @@
     <ClInclude Include="inc\Math\IVector.h">
       <Filter>Header Files\Math</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Engine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\File.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\IEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\IKey.h">
@@ -288,6 +282,12 @@
     <ClInclude Include="src\SDL2WrapperAdapter.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\EngineConcrete.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\IEngine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ConsoleUtilities.cpp">
@@ -441,6 +441,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\SDL2WrapperAdapter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EngineConcrete.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

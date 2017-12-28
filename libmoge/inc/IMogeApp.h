@@ -2,7 +2,7 @@
 
 #include <thread>
 #include "IKeyboardObserver.h"
-#include "Engine.h"
+#include "IEngine.h"
 
 namespace Moge
 {
@@ -11,7 +11,7 @@ namespace Moge
     public:
         MogeLib_API IMogeApp( void );
         MogeLib_API virtual ~IMogeApp();
-        Engine* getEngine();
+        IEngine* getEngine();
         MogeLib_API void run();
         
     protected:
@@ -21,7 +21,7 @@ namespace Moge
         virtual void frontEndLoop() = 0;
         void stopApp();
 
-        Engine* engine = nullptr;
+        IEngine* engine = nullptr;
         bool runMainLoop = true;
         std::thread frontEndLoopThread;
     };

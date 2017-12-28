@@ -217,9 +217,8 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration)\*.dll" 
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="inc\ConsoleUtilities.h" />
-    <ClInclude Include="inc\Engine.h" />
-    <ClInclude Include="inc\File.h" />
     <ClInclude Include="inc\IEngine.h" />
+    <ClInclude Include="inc\File.h" />
     <ClInclude Include="inc\IFPSCounter.h" />
     <ClInclude Include="inc\IMainGameLoop.hpp" />
     <ClInclude Include="inc\IIterator.h" />
@@ -290,6 +289,7 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration)\*.dll" 
     <ClInclude Include="inc\TextureFactory.h" />
     <ClInclude Include="inc\TextureSDL.h" />
     <ClInclude Include="inc\Visible.h" />
+    <ClInclude Include="src\EngineConcrete.hpp" />
     <ClInclude Include="src\FPSCounterConcrete.h" />
     <ClInclude Include="src\IKeyboardData.h" />
     <ClInclude Include="src\IKeyboardObservableImp.h" />
@@ -308,6 +308,7 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration)\*.dll" 
   <ItemGroup>
     <ClCompile Include="src\ConsoleUtilities.cpp" />
     <ClCompile Include="src\Engine.cpp" />
+    <ClCompile Include="src\EngineConcrete.cpp" />
     <ClCompile Include="src\File.cpp" />
     <ClCompile Include="src\FPSCounterConcrete.cpp" />
     <ClCompile Include="src\Frustum.cpp" />

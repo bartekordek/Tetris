@@ -1,18 +1,18 @@
 #pragma once
 
-#include "Engine.h"
+#include "IEngine.h"
 
 namespace Moge
 {
     class MogeLib_API EngineManager
     {
     public:
-        static Engine* initializeEngine();
-        static Engine* getEngine();
+        static IEngine* initializeEngine();
+        static IEngine* getEngine();
         static void destroyEngine();
     protected:
     private:
-        static Engine* engineInstance;
+        static IEngine* engineInstance;
     };
     
 }

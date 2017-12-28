@@ -17,7 +17,7 @@ namespace Moge
         EngineManager::destroyEngine();
     }
 
-    Engine* IMogeApp::getEngine()
+    IEngine* IMogeApp::getEngine()
     {
         return this->engine;
     }

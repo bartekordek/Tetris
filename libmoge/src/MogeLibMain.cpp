@@ -1,24 +1,24 @@
 #include "MogeLibMain.h"
-#include "Engine.h"
+#include "EngineConcrete.hpp"
 
 namespace Moge
 {
-    Engine* EngineManager::engineInstance = nullptr;
+    IEngine* EngineManager::engineInstance = nullptr;
 
-    Engine* EngineManager::initializeEngine()
+    IEngine* EngineManager::initializeEngine()
     {
-        engineInstance = Engine::instancePtr();
+        engineInstance = new EngineConcrete();
         return engineInstance;
     }
 
-    Engine* EngineManager::getEngine()
+    IEngine* EngineManager::getEngine()
     {
         return engineInstance;
     }
 
     void EngineManager::destroyEngine()
     {
-        Engine::destroy();
+        delete engineInstance;
         engineInstance = nullptr;
     }
 
