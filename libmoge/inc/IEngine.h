@@ -19,7 +19,6 @@ namespace Moge
     class IKey;
     class IKeyFactory;
     class ITextureFactory3D;
-    class ITimer;
     class MogeLib_API IEngine: 
         public IKeyboardObservable
     {

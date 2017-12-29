@@ -8,13 +8,11 @@
 
 #include <iostream>
 #include <memory>
-#include "ITimer.h"
+#include "CUL/ITimer.hpp"
 
 using namespace Moge;
 
-EngineConcrete::EngineConcrete( void ):
-    mainLoopIsRuning( true ),
-    frameSleepTimeMs( 0 )
+EngineConcrete::EngineConcrete( void )
 {
     auto sdlRenderer = new SDLRenderer();
     this->renderer2D.reset( sdlRenderer );
@@ -24,9 +22,8 @@ EngineConcrete::EngineConcrete( void ):
     //this->renderer3D.reset(  ); TODO: Add when OpenGL is ready.
     this->nodeFactory.reset( new NodeFactory2D( sdlRenderer ) );
     this->fpsCounter.reset( FPSCounterFactory::getConcreteFPSCounter() );
-    this->fpsCounter->setAverageFpsSampleMs( infoLoopPrintDelayMs / 2 );
     this->infoLoopThread = std::thread( &EngineConcrete::infoLoop, this );
-    this->timer.reset( TimerFactory::getChronoTimer() );
+    this->timer.reset( CUL::TimerFactory::getChronoTimer() );
 }
 
 EngineConcrete::~EngineConcrete()
@@ -116,20 +113,12 @@ void EngineConcrete::QueueFrame()
 
     if( -1 != this->m_fpsCount )
     {
-        //  std::cout << "Last frame time: " << this->lastFrameTimeMs << "\n";
-        if( this->lastFrameTimeMs > targetFrameTimeMs )
-        {
-            this->frameSleepMs -= 0.1;
-        }
-        else if( this->lastFrameTimeMs < targetFrameTimeMs )
-        {
-            this->frameSleepMs += 0.1;
-        }
-        // std::cout << "SleepTime: " << this->frameSleepMs << "\n";
+        auto uS = static_cast<unsigned>( this->m_frameData.getSleepTimeUs() );
+        this->timer->sleepMicroSeconds( uS );
     }
-    auto uS = static_cast<unsigned>( this->frameSleepMs * 1000 );
-    this->timer->sleepMicroSeconds( uS );
-    this->lastFrameTimeMs = this->timer->getElapsed().getMs();
+   // auto lastFrameTimeUs = this->timer->getElapsed().getUs();
+    //this->m_frameData.setLastFrimeTimeUs( lastFrameTimeUs );
+    this->m_frameData.setLastFpsCount( this->fpsCounter->getCurrentFps() );
 }
 
 void EngineConcrete::infoLoop()

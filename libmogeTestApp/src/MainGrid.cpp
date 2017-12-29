@@ -1,7 +1,7 @@
 #include "Game.h"
 #include "MainGrid.h"
 #include "BrickFactory.h"
-#include "ITimer.h"
+#include "CUL/ITimer.hpp"
 #include "MogeLibMain.h"
 #include "Math/Vector3D.h"
 #include "CUL/Path.hpp"
@@ -15,7 +15,7 @@ namespace Tetris
     CMainGrid::CMainGrid():
         runFunThread( true )
     {
-        this->timer.reset( Moge::TimerFactory::getChronoTimer() );
+        this->timer.reset( CUL::TimerFactory::getChronoTimer() );
 
         this->tF = EngineManager::getEngine()->get2DTextureFactory();
         std::lock_guard<std::mutex> slabLock( currentBrickMutex );

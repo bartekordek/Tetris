@@ -1,11 +1,11 @@
 #include "FPSCounterConcrete.h"
-#include "ITimer.h"
+
 using namespace Moge;
 
 FPSCounterConcrete::FPSCounterConcrete()
 {
     this->samples.set_capacity( this->bufferSize );
-    this->timer.reset( TimerFactory::getChronoTimer() );
+    this->timer.reset( CUL::TimerFactory::getChronoTimer() );
     start();
 }
 
@@ -33,11 +33,6 @@ const double FPSCounterConcrete::getCurrentFps() const
 const double FPSCounterConcrete::getAverageFps() const
 {
     return this->averageFps;
-}
-
-void FPSCounterConcrete::setAverageFpsSampleMs( const unsigned size )
-{
-    this->sampleSize = size;
 }
 
 void FPSCounterConcrete::counterLoop()

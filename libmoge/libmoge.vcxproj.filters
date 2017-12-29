@@ -252,18 +252,6 @@
     <ClInclude Include="inc\Math\Vector3D.h">
       <Filter>Header Files\Math</Filter>
     </ClInclude>
-    <ClInclude Include="inc\ITimer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\ITime.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\TimerChrono.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\TimeConcrete.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\IFPSCounter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -287,6 +275,9 @@
     </ClInclude>
     <ClInclude Include="inc\IEngine.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FramesData.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -419,19 +410,7 @@
     <ClCompile Include="src\Node.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\ITimer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ITime.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\TimerChrono.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\ListFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\TimeConcrete.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\IFPSCounter.cpp">
@@ -444,6 +423,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\EngineConcrete.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FrameData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -12,7 +12,6 @@ namespace Moge
         virtual void increase() = 0;
         virtual const double getCurrentFps()const = 0;
         virtual const double getAverageFps()const = 0;
-        virtual void setAverageFpsSampleMs( const unsigned int sampleSize ) = 0;
     };
 
     class FPSCounterFactory

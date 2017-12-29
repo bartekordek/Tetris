@@ -1,13 +1,16 @@
 #pragma once
 #include "IFPSCounter.h"
+
+#include "CUL/ITimer.hpp"
+
 #include <memory>
 #include <atomic>
 #include <thread>
+
 #include <boost/circular_buffer.hpp>
 
 namespace Moge
 {
-    class ITimer;
     class FPSCounterConcrete: public IFPSCounter
     {
     public:
@@ -18,7 +21,6 @@ namespace Moge
         void increase() override;
         const double getCurrentFps()const override;
         const double getAverageFps()const override;
-        void setAverageFpsSampleMs( const unsigned int sampleSize ) override;
         
     protected:
     private:
@@ -27,7 +29,7 @@ namespace Moge
         unsigned int bufferSize = 4;
 
         std::thread mainThread;
-        std::unique_ptr<ITimer> timer;
+        std::unique_ptr<CUL::ITimer> timer;
         std::atomic<bool> run = { true };
         std::atomic<unsigned> framesCount = { 0 };
         std::atomic<unsigned> lastFrameValue = { 0 };

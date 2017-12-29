@@ -237,8 +237,6 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration)\*.dll" 
     <ClInclude Include="inc\IRenderer3D.h" />
     <ClInclude Include="inc\IteratorListLinked.h" />
     <ClInclude Include="inc\IteratorListVector.h" />
-    <ClInclude Include="inc\ITime.h" />
-    <ClInclude Include="inc\ITimer.h" />
     <ClInclude Include="inc\LckPrim.h" />
     <ClInclude Include="inc\List.h" />
     <ClInclude Include="inc\ITexture.h" />
@@ -291,6 +289,7 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration)\*.dll" 
     <ClInclude Include="inc\Visible.h" />
     <ClInclude Include="src\EngineConcrete.hpp" />
     <ClInclude Include="src\FPSCounterConcrete.h" />
+    <ClInclude Include="src\FramesData.hpp" />
     <ClInclude Include="src\IKeyboardData.h" />
     <ClInclude Include="src\IKeyboardObservableImp.h" />
     <ClInclude Include="src\IObservableImpl.h" />
@@ -302,8 +301,6 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration)\*.dll" 
     <ClInclude Include="src\RenderableSDLTexture.h" />
     <ClInclude Include="src\SDL2WrapperAdapter.hpp" />
     <ClInclude Include="src\SDLRenderer.hpp" />
-    <ClInclude Include="src\TimeConcrete.h" />
-    <ClInclude Include="src\TimerChrono.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ConsoleUtilities.cpp" />
@@ -311,6 +308,7 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration)\*.dll" 
     <ClCompile Include="src\EngineConcrete.cpp" />
     <ClCompile Include="src\File.cpp" />
     <ClCompile Include="src\FPSCounterConcrete.cpp" />
+    <ClCompile Include="src\FrameData.cpp" />
     <ClCompile Include="src\Frustum.cpp" />
     <ClCompile Include="src\IFPSCounter.cpp" />
     <ClCompile Include="src\IKey.cpp" />
@@ -327,8 +325,6 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration)\*.dll" 
     <ClCompile Include="src\IRenderer.cpp" />
     <ClCompile Include="src\Iterator.cpp" />
     <ClCompile Include="src\ITexture.cpp" />
-    <ClCompile Include="src\ITime.cpp" />
-    <ClCompile Include="src\ITimer.cpp" />
     <ClCompile Include="src\IVector3D.cpp" />
     <ClCompile Include="src\KeyboardData.cpp" />
     <ClCompile Include="src\KeySDL.cpp" />
@@ -354,8 +350,6 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration)\*.dll" 
     <ClCompile Include="src\SizeDouble2D.cpp" />
     <ClCompile Include="src\SizeDouble3D.cpp" />
     <ClCompile Include="src\TextureSDL.cpp" />
-    <ClCompile Include="src\TimeConcrete.cpp" />
-    <ClCompile Include="src\TimerChrono.cpp" />
     <ClCompile Include="src\Vector3DFactory.cpp" />
     <ClCompile Include="src\Visible.cpp" />
   </ItemGroup>
