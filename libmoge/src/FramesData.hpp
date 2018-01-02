@@ -24,7 +24,7 @@ namespace Moge
         double m_fpsEpislon = 0.0001;
         
         double m_calculationsTimeMs = 0.0;
-        double m_sleepTimeDeltaUs = 2.0;
+        double m_sleepTimeDeltaUs = 8.0;
         double m_sleepTimeUs = m_frameTimeTargetUs * 0.8;
     };
 }
