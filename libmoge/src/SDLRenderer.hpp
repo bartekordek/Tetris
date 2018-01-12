@@ -5,6 +5,9 @@
 #include "IRenderer2D.h"
 #include "ITextureFactory2D.h"
 #include "LckPrim.h"
+
+#include "SDL2Wrapper/ISDL2Wrapper.hpp"
+
 #include <memory>
 #include <map>
 
@@ -47,6 +50,7 @@ namespace Moge
 
     protected:
     private:
+        SDL2W::ISDL2Wrapper* sdl2Wrapper = nullptr;
         SDL_Surface* CreateSurfaceFromImage( const CUL::FS::Path& imagePath );
         IKey* createKey( const int keySignature, const unsigned char* sdlKey )const;
         const std::shared_ptr<std::map<unsigned int, std::shared_ptr<IKey>>> createKeys()const;

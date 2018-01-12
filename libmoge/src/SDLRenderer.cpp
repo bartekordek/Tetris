@@ -11,8 +11,10 @@
 
 using namespace Moge;
 
-SDLRenderer::SDLRenderer()
+SDLRenderer::SDLRenderer():
+    sdl2Wrapper( SDL2W::getSDL2Wrapper() )
 {
+
     const auto sdlInitSuccess = SDL_Init( SDL_INIT_EVERYTHING );
     BOOST_ASSERT_MSG( 0 == sdlInitSuccess, "Cannot initialize SDL subsystem" );
     this->keys = this->createKeys();
