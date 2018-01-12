@@ -100,7 +100,7 @@
       <SDLCheck>true</SDLCheck>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\CUL\inc;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\deps\boost_1_64_0;$(ProjectDir)..\deps\SDL2Wrapper\deps\SDL2-2.0.7\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\CUL\inc;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\deps\boost_1_64_0;$(ProjectDir)..\deps\SDL2Wrapper\deps\SDL2-2.0.7\include;$(ProjectDir)..\deps\SDL2Wrapper\libsdl2wrapper\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT;CULLib_EXPORT;CUL_DYNAMIC;SDL2Wrapper_DYNAMIC</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
@@ -129,7 +129,7 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration)\*.dll" 
       <SDLCheck>true</SDLCheck>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\CUL\inc;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\deps\boost_1_64_0;$(ProjectDir)..\deps\SDL2Wrapper\deps\SDL2-2.0.7\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\CUL\inc;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\deps\boost_1_64_0;$(ProjectDir)..\deps\SDL2Wrapper\deps\SDL2-2.0.7\include;$(ProjectDir)..\deps\SDL2Wrapper\libsdl2wrapper\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT;CULLib_EXPORT;CUL_DYNAMIC;SDL2Wrapper_DYNAMIC</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
@@ -163,7 +163,7 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration)\*.dll" 
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\CUL\inc;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\deps\boost_1_64_0;$(ProjectDir)..\deps\SDL2Wrapper\deps\SDL2-2.0.7\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\CUL\inc;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\deps\boost_1_64_0;$(ProjectDir)..\deps\SDL2Wrapper\deps\SDL2-2.0.7\include;$(ProjectDir)..\deps\SDL2Wrapper\libsdl2wrapper\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT;CULLib_EXPORT;CUL_DYNAMIC;SDL2Wrapper_DYNAMIC</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
       <TreatWarningAsError>true</TreatWarningAsError>
@@ -193,7 +193,7 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration)\*.dll" 
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\CUL\inc;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\deps\boost_1_64_0;$(ProjectDir)..\deps\SDL2Wrapper\deps\SDL2-2.0.7\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\CUL\inc;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\deps\boost_1_64_0;$(ProjectDir)..\deps\SDL2Wrapper\deps\SDL2-2.0.7\include;$(ProjectDir)..\deps\SDL2Wrapper\libsdl2wrapper\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT;CULLib_EXPORT;CUL_DYNAMIC;SDL2Wrapper_DYNAMIC</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
       <TreatWarningAsError>true</TreatWarningAsError>
