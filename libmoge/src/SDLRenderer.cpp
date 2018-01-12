@@ -105,19 +105,17 @@ void SDLRenderer::render( const ITexture& texture, const Math::IPosition<double>
     std::unique_ptr<SDL_Rect> srcRect;
     SDL_RenderCopy( this->renderer, sdlTexture->get(), srcRect.get(), &renderQuad );
 }
-
+#if _MSC_VER
+__pragma(warning( push )) \
+__pragma(warning( disable:4189 ))
+__pragma(warning( disable:4100 ))
+#endif
 void SDLRenderer::render( const IPrimitive& primitive, const Math::IPosition<double>& position, const Math::Vector3D<double>& targetSize )
 {
-#if _MSC_VER
-    __pragma( warning( push ) ) \
-    __pragma( warning( disable:4189 ) )
-
-    auto dupa1 = &primitive;
-    auto dupa2 = &position;
-    auto dupa3 = &targetSize; 
-    __pragma( warning( pop ) )
-#endif
 }
+#if _MSC_VER
+__pragma(warning( pop ))
+#endif
 
 void SDLRenderer::updateScreen()
 {
