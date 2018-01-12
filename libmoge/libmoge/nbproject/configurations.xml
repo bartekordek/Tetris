@@ -5,7 +5,6 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>../inc/ConsoleUtilities.h</itemPath>
-      <itemPath>../inc/Engine.h</itemPath>
       <itemPath>../inc/File.h</itemPath>
       <itemPath>../inc/IEngine.h</itemPath>
       <itemPath>../inc/IFPSCounter.h</itemPath>
@@ -28,8 +27,6 @@
       <itemPath>../inc/ITextureFactory.h</itemPath>
       <itemPath>../inc/ITextureFactory2D.h</itemPath>
       <itemPath>../inc/ITextureFactory3D.h</itemPath>
-      <itemPath>../inc/ITime.h</itemPath>
-      <itemPath>../inc/ITimer.h</itemPath>
       <itemPath>../inc/KeyboardData.h</itemPath>
       <itemPath>../inc/LckPrim.h</itemPath>
       <itemPath>../inc/Math</itemPath>
@@ -67,9 +64,13 @@
                    projectFiles="true">
       <itemPath>../src/ConsoleUtilities.cpp</itemPath>
       <itemPath>../src/Engine.cpp</itemPath>
+      <itemPath>../src/EngineConcrete.cpp</itemPath>
+      <itemPath>../src/EngineConcrete.hpp</itemPath>
       <itemPath>../src/FPSCounterConcrete.cpp</itemPath>
       <itemPath>../src/FPSCounterConcrete.h</itemPath>
       <itemPath>../src/File.cpp</itemPath>
+      <itemPath>../src/FrameData.cpp</itemPath>
+      <itemPath>../src/FramesData.hpp</itemPath>
       <itemPath>../src/Frustum.cpp</itemPath>
       <itemPath>../src/IFPSCounter.cpp</itemPath>
       <itemPath>../src/IKey.cpp</itemPath>
@@ -89,8 +90,6 @@
       <itemPath>../src/IRenderable.cpp</itemPath>
       <itemPath>../src/IRenderer.cpp</itemPath>
       <itemPath>../src/ITexture.cpp</itemPath>
-      <itemPath>../src/ITime.cpp</itemPath>
-      <itemPath>../src/ITimer.cpp</itemPath>
       <itemPath>../src/IVector3D.cpp</itemPath>
       <itemPath>../src/Iterator.cpp</itemPath>
       <itemPath>../src/KeySDL.cpp</itemPath>
@@ -122,10 +121,6 @@
       <itemPath>../src/SizeDouble2D.cpp</itemPath>
       <itemPath>../src/SizeDouble3D.cpp</itemPath>
       <itemPath>../src/TextureSDL.cpp</itemPath>
-      <itemPath>../src/TimeConcrete.cpp</itemPath>
-      <itemPath>../src/TimeConcrete.h</itemPath>
-      <itemPath>../src/TimerChrono.cpp</itemPath>
-      <itemPath>../src/TimerChrono.h</itemPath>
       <itemPath>../src/Vector3DFactory.cpp</itemPath>
       <itemPath>../src/Visible.cpp</itemPath>
     </logicalFolder>
@@ -142,6 +137,10 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>../inc</Elem>
+    <Elem>../src</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="Debug" type="2">
@@ -155,7 +154,7 @@
           <standard>11</standard>
           <incDir>
             <pElem>../inc</pElem>
-            <pElem>../../deps/SDL2Wrapper/deps/CUL/CUL</pElem>
+            <pElem>../../deps/SDL2Wrapper/deps/CUL/CUL/inc</pElem>
             <pElem>../../deps/SDL2Wrapper/SDL2Wrapper/inc</pElem>
             <pElem>../../deps/SDL2Wrapper/deps/SDL2-2.0.7/include</pElem>
             <pElem>../../deps/SDL2Wrapper/deps/CUL/deps/boost_1_64_0</pElem>
@@ -292,6 +291,24 @@
                             perm="644"
                             owner="root"
                             group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}lib/libcul.dll"
+                            from="../../build/${CND_PLATFORM}-${CND_CONF}/libcul.dll"
+                            perm="644"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}lib/libcul.dll"
+                            from="../../build/${CND_PLATFORM}-${CND_CONF}/libcul.dll"
+                            perm="644"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}lib/${OUTPUT_BASENAME}"
+                            from="${OUTPUT_PATH}"
+                            perm="644"
+                            owner="root"
+                            group="bin"/>
         </packFileList>
       </packaging>
       <item path="../CppCheckConfig.txt" ex="false" tool="3" flavor2="0">
@@ -315,8 +332,6 @@
       <item path="../copyError.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../inc/ConsoleUtilities.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../inc/Engine.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../inc/File.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -362,10 +377,6 @@
       </item>
       <item path="../inc/ITextureFactory3D.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../inc/ITime.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../inc/ITimer.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="../inc/KeyboardData.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../inc/LckPrim.h" ex="false" tool="3" flavor2="0">
@@ -396,11 +407,19 @@
       </item>
       <item path="../src/Engine.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="../src/EngineConcrete.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/EngineConcrete.hpp" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../src/FPSCounterConcrete.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../src/FPSCounterConcrete.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../src/File.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/FrameData.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/FramesData.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../src/Frustum.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -439,10 +458,6 @@
       <item path="../src/IRenderer.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../src/ITexture.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../src/ITime.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../src/ITimer.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../src/IVector3D.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -506,14 +521,6 @@
       </item>
       <item path="../src/TextureSDL.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="../src/TimeConcrete.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../src/TimeConcrete.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../src/TimerChrono.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../src/TimerChrono.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="../src/Vector3DFactory.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../src/Visible.cpp" ex="false" tool="1" flavor2="0">
@@ -534,7 +541,7 @@
           <standard>11</standard>
           <incDir>
             <pElem>../inc</pElem>
-            <pElem>../../deps/SDL2Wrapper/deps/CUL/CUL</pElem>
+            <pElem>../../deps/SDL2Wrapper/deps/CUL/CUL/inc</pElem>
             <pElem>../../deps/SDL2Wrapper/SDL2Wrapper/inc</pElem>
             <pElem>../../deps/SDL2Wrapper/deps/SDL2-2.0.7/include</pElem>
             <pElem>../../deps/SDL2Wrapper/deps/CUL/deps/boost_1_64_0</pElem>
@@ -677,6 +684,24 @@
                             perm="644"
                             owner="root"
                             group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}lib/libcul.dll"
+                            from="../../build/${CND_PLATFORM}-${CND_CONF}/libcul.dll"
+                            perm="644"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}lib/libcul.dll"
+                            from="../../build/${CND_PLATFORM}-${CND_CONF}/libcul.dll"
+                            perm="644"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}lib/${OUTPUT_BASENAME}"
+                            from="${OUTPUT_PATH}"
+                            perm="644"
+                            owner="root"
+                            group="bin"/>
         </packFileList>
       </packaging>
       <item path="../CppCheckConfig.txt" ex="false" tool="3" flavor2="0">
@@ -700,8 +725,6 @@
       <item path="../copyError.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../inc/ConsoleUtilities.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../inc/Engine.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../inc/File.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -747,10 +770,6 @@
       </item>
       <item path="../inc/ITextureFactory3D.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../inc/ITime.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../inc/ITimer.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="../inc/KeyboardData.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../inc/LckPrim.h" ex="false" tool="3" flavor2="0">
@@ -781,11 +800,19 @@
       </item>
       <item path="../src/Engine.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="../src/EngineConcrete.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/EngineConcrete.hpp" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../src/FPSCounterConcrete.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../src/FPSCounterConcrete.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../src/File.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/FrameData.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../src/FramesData.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../src/Frustum.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -824,10 +851,6 @@
       <item path="../src/IRenderer.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../src/ITexture.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../src/ITime.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../src/ITimer.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../src/IVector3D.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -890,14 +913,6 @@
       <item path="../src/SizeDouble3D.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../src/TextureSDL.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../src/TimeConcrete.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../src/TimeConcrete.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../src/TimerChrono.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../src/TimerChrono.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../src/Vector3DFactory.cpp" ex="false" tool="1" flavor2="0">
       </item>
