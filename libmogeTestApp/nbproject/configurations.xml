@@ -71,6 +71,25 @@
       <in>TextureSDL.h</in>
       <in>Visible.h</in>
     </df>
+    <df root="." name="1">
+      <df name="inc">
+        <in>Brick.h</in>
+        <in>BrickFactory.h</in>
+        <in>Game.h</in>
+        <in>MainGrid.h</in>
+        <in>Slab.h</in>
+        <in>TableCoordinates.h</in>
+      </df>
+      <df name="src">
+        <in>Brick.cpp</in>
+        <in>BrickFactory.cpp</in>
+        <in>Game.cpp</in>
+        <in>MainGrid.cpp</in>
+        <in>Slab.cpp</in>
+        <in>TableCoordinates.cpp</in>
+      </df>
+      <in>main.cpp</in>
+    </df>
     <logicalFolder name="MogeLib"
                    displayName="MogeLib"
                    projectFiles="true"
@@ -158,25 +177,6 @@
       <itemPath>../MogeLib/src/Vector3DSimple.h</itemPath>
       <itemPath>../MogeLib/src/Visible.cpp</itemPath>
     </logicalFolder>
-    <df root="." name="1">
-      <df name="inc">
-        <in>Brick.h</in>
-        <in>BrickFactory.h</in>
-        <in>Game.h</in>
-        <in>MainGrid.h</in>
-        <in>Slab.h</in>
-        <in>TableCoordinates.h</in>
-      </df>
-      <df name="src">
-        <in>Brick.cpp</in>
-        <in>BrickFactory.cpp</in>
-        <in>Game.cpp</in>
-        <in>MainGrid.cpp</in>
-        <in>Slab.cpp</in>
-        <in>TableCoordinates.cpp</in>
-      </df>
-      <in>main.cpp</in>
-    </df>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="false"

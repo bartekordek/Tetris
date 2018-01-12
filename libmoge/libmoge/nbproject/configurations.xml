@@ -255,6 +255,24 @@
                             perm="644"
                             owner="root"
                             group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}lib/libcul.dll"
+                            from="../../build/${CND_PLATFORM}-${CND_CONF}/libcul.dll"
+                            perm="644"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}lib/libcul.dll"
+                            from="../../build/${CND_PLATFORM}-${CND_CONF}/libcul.dll"
+                            perm="644"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}lib/${OUTPUT_BASENAME}"
+                            from="${OUTPUT_PATH}"
+                            perm="644"
+                            owner="root"
+                            group="bin"/>
         </packFileList>
       </packaging>
       <item path="../CppCheckConfig.txt" ex="false" tool="3" flavor2="0">
@@ -550,6 +568,24 @@
       <packaging>
         <packType>Tar</packType>
         <packFileList>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}lib/libcul.dll"
+                            from="../../build/${CND_PLATFORM}-${CND_CONF}/libcul.dll"
+                            perm="644"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}lib/libcul.dll"
+                            from="../../build/${CND_PLATFORM}-${CND_CONF}/libcul.dll"
+                            perm="644"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}lib/${OUTPUT_BASENAME}"
+                            from="${OUTPUT_PATH}"
+                            perm="644"
+                            owner="root"
+                            group="bin"/>
           <packFileListElem type="File"
                             to="${PACKAGE_TOP_DIR}lib/libcul.dll"
                             from="../../build/${CND_PLATFORM}-${CND_CONF}/libcul.dll"

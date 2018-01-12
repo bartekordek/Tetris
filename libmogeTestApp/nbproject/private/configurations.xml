@@ -4,7 +4,6 @@
     <df root="../MogeLib/inc" name="0">
       <df name="Math">
         <in>Axis.h</in>
-        <in>Epsilon.h</in>
         <in>Frustum.h</in>
         <in>IPosition.h</in>
         <in>IPositionAdapter.h</in>
@@ -13,7 +12,6 @@
         <in>IVector.h</in>
         <in>IVector3D.h</in>
         <in>Line.h</in>
-        <in>Math.h</in>
         <in>Matrix2D.hpp</in>
         <in>MultiPoint.h</in>
         <in>MultiPointFactory.h</in>
@@ -28,21 +26,18 @@
         <in>SizeInt2D.h</in>
         <in>SizeUInt2D.h</in>
         <in>SquareMatrix2D.hpp</in>
-        <in>Vector3D.h</in>
         <in>Vector3DFactory.h</in>
       </df>
       <in>ConsoleUtilities.h</in>
       <in>Engine.h</in>
       <in>File.h</in>
       <in>IEngine.h</in>
-      <in>IFPSCounter.h</in>
       <in>IIterator.h</in>
       <in>IKey.h</in>
       <in>IKeyFactory.h</in>
       <in>IKeyboardObservable.h</in>
       <in>IKeyboardObserver.h</in>
       <in>IList.h</in>
-      <in>IMainGameLoop.hpp</in>
       <in>IMogeApp.h</in>
       <in>INode.h</in>
       <in>INodeCreator.h</in>
@@ -58,18 +53,14 @@
       <in>ITextureFactory.h</in>
       <in>ITextureFactory2D.h</in>
       <in>ITextureFactory3D.h</in>
-      <in>ITime.h</in>
-      <in>ITimer.h</in>
       <in>KeyFactorySDL.h</in>
       <in>KeyboardData.h</in>
       <in>KeyboardObservable.h</in>
-      <in>LckPrim.h</in>
       <in>MTime.h</in>
       <in>MogeLib.h</in>
       <in>MogeLibMain.h</in>
       <in>MyString.h</in>
       <in>Named.h</in>
-      <in>Node.h</in>
       <in>ObjectNode.h</in>
       <in>Path.h</in>
       <in>RenderableTypes.h</in>
@@ -100,6 +91,8 @@
           <df name="src">
           </df>
         </df>
+      </df>
+      <df name="run">
       </df>
       <df name="src">
         <in>Brick.cpp</in>
