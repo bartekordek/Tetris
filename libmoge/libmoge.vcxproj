@@ -304,7 +304,7 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration)\*.dll" 
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ConsoleUtilities.cpp" />
-    <ClCompile Include="src\Engine.cpp" />
+    <ClCompile Include="src\IEngine.cpp" />
     <ClCompile Include="src\EngineConcrete.cpp" />
     <ClCompile Include="src\File.cpp" />
     <ClCompile Include="src\FPSCounterConcrete.cpp" />
