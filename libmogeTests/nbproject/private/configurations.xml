@@ -4,7 +4,6 @@
     <df root="." name="0">
       <df name="inc">
         <in>EngineTests.h</in>
-        <in>FilesystemTests.h</in>
         <in>ImageCreatorTests.h</in>
         <in>ListTests.h</in>
         <in>MatrixTests.h</in>
@@ -13,12 +12,9 @@
         <in>NodeCreatorTests.h</in>
         <in>NodeTests.h</in>
         <in>ObjectNodeTests.h</in>
+        <in>TimeTests.h</in>
       </df>
       <df name="Intermediate">
-        <df name="Win32_Debug">
-          <df name="Tests.tlog">
-          </df>
-        </df>
         <df name="x64_Debug">
           <df name="Tests.tlog">
           </df>
@@ -45,8 +41,53 @@
         <in>NodeCreatorTests.cpp</in>
         <in>NodeTests.cpp</in>
         <in>ObjectNodeTests.cpp</in>
+        <in>TimeTests.cpp</in>
       </df>
       <in>main.cpp</in>
+    </df>
+    <df root="." name="1">
+      <df name="inc">
+      </df>
+      <df name="Intermediate">
+        <df name="x64_Debug">
+          <df name="Tests.tlog">
+          </df>
+        </df>
+      </df>
+      <df name="obj">
+        <df name="debug">
+          <df name="src">
+          </df>
+        </df>
+        <df name="release">
+          <df name="src">
+          </df>
+        </df>
+      </df>
+      <df name="src">
+      </df>
+    </df>
+    <df root="." name="2">
+      <df name="inc">
+      </df>
+      <df name="Intermediate">
+        <df name="x64_Debug">
+          <df name="Tests.tlog">
+          </df>
+        </df>
+      </df>
+      <df name="obj">
+        <df name="debug">
+          <df name="src">
+          </df>
+        </df>
+        <df name="release">
+          <df name="src">
+          </df>
+        </df>
+      </df>
+      <df name="src">
+      </df>
     </df>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
