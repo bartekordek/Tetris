@@ -27,10 +27,5 @@
 *.user
 *cache
 *~ml
-CMakeFiles/
-MogeLib/libmoge/nbproject/private/private.xml
-MogeLib/nbproject/private/
-Tetris/nbproject/private/
-Tetris/run/*.dll
-Tetris/run/*.exe
 build
+libmoge/libmoge/nbproject/Package-*
