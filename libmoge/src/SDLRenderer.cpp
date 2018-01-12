@@ -26,7 +26,7 @@ SDLRenderer::~SDLRenderer()
         forceDestroy();
     }
 }
-    
+
 void SDLRenderer::createWindow( 
     const Math::IPosition<int>& winPos, 
     const Math::ISize<unsigned int>& winSize, 
