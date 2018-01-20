@@ -27,5 +27,8 @@
 *.user
 *cache
 *~ml
+*/private
 build
+libmoge/libmoge/nbproject/private/
+libmoge/libmoge/nbproject/Makefile-
 libmoge/libmoge/nbproject/Package-*
