@@ -30,7 +30,7 @@ SDLRenderer::~SDLRenderer()
 }
 
 void SDLRenderer::createWindow( 
-    const Math::IPosition<int>& winPos, 
+    const CUL::Math::Vector3Di& winPos, 
     const Math::ISize<unsigned int>& winSize, 
     const std::string& winName )
 {
@@ -96,7 +96,10 @@ void SDLRenderer::render( const IRenderable& renderable )
 
 }
 
-void SDLRenderer::render( const ITexture& texture, const Math::IPosition<double>& position, const Math::Vector3D<double>& targetSize )
+void SDLRenderer::render( 
+    const ITexture& texture, 
+    const CUL::Math::Vector3Dd& position, 
+    const CUL::Math::Vector3Dd& targetSize )
 {
     auto sdlTexture = static_cast<const TextureSDL*>( &texture );
     SDL_Rect renderQuad;
@@ -112,7 +115,10 @@ __pragma(warning( push )) \
 __pragma(warning( disable:4189 ))
 __pragma(warning( disable:4100 ))
 #endif
-void SDLRenderer::render( const IPrimitive& primitive, const Math::IPosition<double>& position, const Math::Vector3D<double>& targetSize )
+void SDLRenderer::render( 
+    const IPrimitive& primitive, 
+    const CUL::Math::Vector3Dd& position, 
+    const CUL::Math::Vector3Dd& targetSize )
 {
 }
 #if _MSC_VER
@@ -154,7 +160,11 @@ SDL_Surface* SDLRenderer::CreateSurfaceFromImage( const CUL::FS::Path& imagePath
     if( ".bmp" == extLower )
     {
         result = SDL_LoadBMP( imagePath.getPath().c_str() );
-        BOOST_ASSERT( result != nullptr  );
+        if( nullptr == result )
+        {
+            auto msg = std::string( "Cannot load image" ) + imagePath.getPath();
+            BOOST_ASSERT_MSG( false, msg.c_str() );
+        }
     }
     return result;
 }

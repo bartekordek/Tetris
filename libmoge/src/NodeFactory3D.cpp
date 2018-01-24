@@ -9,7 +9,6 @@ namespace Moge
     {
     }
 
-    using namespace Math;
     std::shared_ptr<Node> NodeFactory3D::CreateFromImage(
         const CUL::FS::Path& filePath, 
         const CUL::MyString& name )
@@ -22,7 +21,9 @@ namespace Moge
         return result;
     }
 
-    std::shared_ptr<Node> NodeFactory3D::createFromTexture(const std::shared_ptr<ITexture>& texture,  const CUL::MyString& name)
+    std::shared_ptr<Node> NodeFactory3D::createFromTexture( 
+        const std::shared_ptr<ITexture>& texture,
+        const CUL::MyString& name )
     {
         Node* node = new Node();
         node->setName( name );

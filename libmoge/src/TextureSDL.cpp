@@ -36,7 +36,7 @@ namespace Moge
         return this->texturePath.getPath().c_str();
     }
 
-    const Math::Vector3D<double>& TextureSDL::getSize()const
+    const CUL::Math::Vector3Dd& TextureSDL::getSize()const
     {
         return this->size;
     }
@@ -44,7 +44,7 @@ namespace Moge
     __pragma( warning( push ) ) \
     __pragma( warning( disable:4100 ) )
 #endif
-    void TextureSDL::setSize( const Math::Vector3D< double >& inSize )
+    void TextureSDL::setSize( const CUL::Math::Vector3Dd& inSize )
     {
         
     }

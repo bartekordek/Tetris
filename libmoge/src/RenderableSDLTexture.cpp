@@ -1,34 +1,29 @@
 #include "RenderableSDLTexture.h"
-#include "Math/PositionDouble2D.h"
-#include "Math/Vector3D.h"
 
 namespace Moge
 {
     RenderableSDLTexture::RenderableSDLTexture()
     {
-        this->position.reset( new Math::PositionDouble2D() );
-        this->size.reset( new Math::Vector3D<double>() );
-        this->scale.reset( new Math::Vector3D<double>() );
     }
 
-    const Math::IPosition<double>& RenderableSDLTexture::getPosition()const
+    const CUL::Math::Vector3Dd& RenderableSDLTexture::getPosition()const
     {
-        return *this->position.get();
+        return this->position;
     }
 
-    void RenderableSDLTexture::setPosition( const Math::IPosition< double >& pos )
+    void RenderableSDLTexture::setPosition( const CUL::Math::Vector3Dd& pos )
     {
-        *this->position = pos;
+        this->position = pos;
     }
 
-    const Math::Vector3D<double>& RenderableSDLTexture::getSize()const
+    const CUL::Math::Vector3Dd& RenderableSDLTexture::getSize()const
     {
-        return *this->size.get();
+        return this->size;
     }
 
-    const Math::Vector3D< double >& RenderableSDLTexture::getScale() const
+    const CUL::Math::Vector3Dd& RenderableSDLTexture::getScale() const
     {
-        return *this->scale;
+        return this->scale;
     }
 
 #if _MSC_VER
@@ -36,7 +31,7 @@ namespace Moge
     __pragma( warning( disable:4100 ) )
 #endif
 
-    void RenderableSDLTexture::setScale( const Math::Vector3D< double >& newScale )
+    void RenderableSDLTexture::setScale( const CUL::Math::Vector3Dd& newScale )
     {
         //todo
     }

@@ -3,7 +3,7 @@
 #include "BrickFactory.h"
 #include "CUL/ITimer.hpp"
 #include "MogeLibMain.h"
-#include "Math/Vector3D.h"
+#include "CUL/Math/Vector3D.hpp"
 #include "CUL/Path.hpp"
 #include <cmath>
 
@@ -65,7 +65,7 @@ namespace Tetris
             for( auto& slab : slabRow )
             {
                 auto slabNode = EngineManager::getEngine()->get2DNodeFactory()->createFromTexture( this->emptySlabTex );
-                slabNode->setScale( Math::Vector3D<double>( 2.0, 2.0, 0.0 ) );
+                slabNode->setScale( CUL::Math::Vector3Dd( 2.0, 2.0, 0.0 ) );
                 auto& slabSize = slabNode->getAbsSize();
                 slabNode->setX( slab.col() * slabSize.getX() );
                 slabNode->setY( slab.row() * slabSize.getY() );
@@ -83,7 +83,7 @@ namespace Tetris
 
     void CMainGrid::funLoop()
     {
-        auto pos = Math::Vector3D<double>( 400.0, 20.0, 0.0 );
+        CUL::Math::Vector3Dd pos( 400.0, 20.0, 0.0 );
         auto slabNode = EngineManager::getEngine()->get2DNodeFactory()->createFromTexture( 
             this->emptySlabTex );
         slabNode->SetVisible( true );

@@ -27,12 +27,6 @@
     <ClInclude Include="inc\Math\Frustum.h">
       <Filter>Header Files\Math</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Math\IPosition.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Math\IPositionAdapter.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
     <ClInclude Include="inc\Math\ISize.h">
       <Filter>Header Files\Math</Filter>
     </ClInclude>
@@ -63,16 +57,7 @@
     <ClInclude Include="inc\Math\Axis.h">
       <Filter>Header Files\Math</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Math\Vector3DFactory.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
     <ClInclude Include="inc\IVector.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Math\IPositionFactory.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Math\PositionDouble3D.h">
       <Filter>Header Files\Math</Filter>
     </ClInclude>
     <ClInclude Include="inc\Math\SizeDouble3D.h">
@@ -198,9 +183,6 @@
     <ClInclude Include="inc\RenderableTypes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Math\PositionDouble2D.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
     <ClInclude Include="inc\Math\SizeDouble2D.h">
       <Filter>Header Files\Math</Filter>
     </ClInclude>
@@ -249,9 +231,6 @@
     <ClInclude Include="inc\Node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Math\Vector3D.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
     <ClInclude Include="inc\IFPSCounter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -290,9 +269,6 @@
     <ClCompile Include="src\MyString.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Size.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\File.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -326,9 +302,6 @@
     <ClCompile Include="src\IObservableImpl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\IPositionFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\IRenderable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -336,9 +309,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\ITexture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\IVector3D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\KeyboardData.cpp">
@@ -354,9 +324,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\MultiPointFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\PositionDouble3D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Quaternion.cpp">
@@ -377,16 +344,10 @@
     <ClCompile Include="src\SizeDouble3D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Vector3DFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\TextureSDL.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\RenderableSDLTexture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\PositionDouble2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\SizeDouble2D.cpp">

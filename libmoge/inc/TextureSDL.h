@@ -17,12 +17,12 @@ namespace Moge
         void setPath( const CUL::FS::Path& path );
         const char* getPath()const override;
 
-        const Math::Vector3D<double>& getSize()const override;
-        void setSize( const Math::Vector3D<double>& size ) override;
+        const CUL::Math::Vector3Dd& getSize()const override;
+        void setSize( const CUL::Math::Vector3Dd& size ) override;
         
     private:
         SDL_Texture* texture = nullptr;
         CUL::FS::Path texturePath;
-        Math::Vector3D<double> size;
+        CUL::Math::Vector3Dd size;
     };
 }

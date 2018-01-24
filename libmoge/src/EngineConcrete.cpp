@@ -35,7 +35,7 @@ EngineConcrete::~EngineConcrete()
 }
 void EngineConcrete::createScreen(
     Math::ISize<unsigned int>& size,
-    Math::IPosition<int>& position,
+    CUL::Math::Vector3Di& position,
     const std::string& label )const
 {
     this->renderer2D->createWindow( position, size, label );

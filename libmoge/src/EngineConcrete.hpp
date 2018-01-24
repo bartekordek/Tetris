@@ -18,7 +18,7 @@ namespace Moge
         EngineConcrete( void );
         virtual ~EngineConcrete();
 
-        void createScreen( Math::ISize<unsigned int>& size, Math::IPosition<int>& position, const std::string& label = "Window label." )const;
+        void createScreen( Math::ISize<unsigned int>& size, CUL::Math::Vector3Di& position, const std::string& label = "Window label." )const;
         void startMainLoop();
         void stopEventLoop();
         ITextureFactory* get2DTextureFactory()const;

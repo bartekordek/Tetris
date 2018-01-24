@@ -26,7 +26,7 @@ namespace Moge
         IEngine( void );
         virtual ~IEngine();
 
-        virtual void createScreen( Math::ISize<unsigned int>& size, Math::IPosition<int>& position, const std::string& label = "Window label." )const = 0;
+        virtual void createScreen( Math::ISize<unsigned int>& size, CUL::Math::Vector3Di& position, const std::string& label = "Window label." )const = 0;
         virtual void startMainLoop() = 0;
         virtual void stopEventLoop() = 0;
         virtual ITextureFactory* get2DTextureFactory()const = 0;

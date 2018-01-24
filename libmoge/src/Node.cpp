@@ -1,21 +1,18 @@
 #include "Node.h"
-#include "Math/IPositionFactory.h"
 #include "Math/SizeDouble3D.h"
-#include "Math/Vector3DFactory.h"
+
 namespace Moge
 {
     using namespace Math;
-    Node::Node():
-        position(IPositionFactory::createSimplePositionDouble3D() )
+    Node::Node()
     {
     }
 
     Node::Node( const Node& objectNodeContent ):
-        position( IPositionFactory::createSimplePositionDouble3D() ),
+        position( objectNodeContent.position ),
         scale( objectNodeContent.scale ),
         texture( objectNodeContent.texture )
     {
-        this->position->setXyz( *objectNodeContent.position );
         this->absSize = this->scale * this->texture->getSize();
     }
 
@@ -23,9 +20,9 @@ namespace Moge
     {
         if( &right != this )
         {
+            this->position = right.position;
             this->texture = right.texture;
             this->scale = right.scale;
-            this->position->setXyz( *right.position );
             this->absSize = this->scale * this->texture->getSize();
         }
         return *this;
@@ -35,7 +32,7 @@ namespace Moge
     {
         if( this != &right )
         {
-            if( *this->position == *right.position && this->scale == right.scale )
+            if( this->position == right.position && this->scale == right.scale )
             {
                 if( this->texture.get() == right.texture.get() )
                 {
@@ -54,42 +51,42 @@ namespace Moge
     {
     }
 
-    const IPosition< double >& Node::getPosition() const
+    const CUL::Math::Vector3Dd& Node::getPosition() const
     {
-        return *this->position;
+        return this->position;
     }
 
     void Node::setX( const double x )
     {
-        this->position->setX( x );
+        this->position.setX( x );
     }
 
     void Node::setY( const double y )
     {
-        this->position->setY( y );
+        this->position.setY( y );
     }
 
     void Node::setZ( const double z )
     {
-        this->position->setZ( z );
+        this->position.setZ( z );
     }
 
-    const Vector3D< double >& Node::getSize()const
+    const CUL::Math::Vector3Dd& Node::getSize()const
     {
         return this->texture->getSize();
     }
 
-    const Vector3D< double >& Node::getAbsSize() const
+    const CUL::Math::Vector3Dd& Node::getAbsSize() const
     {
         return this->absSize;
     }
 
-    const Vector3D< double >& Node::getScale() const
+    const CUL::Math::Vector3Dd& Node::getScale() const
     {
         return this->scale;
     }
 
-    void Node::setScale( const Vector3D< double >& inputScale )
+    void Node::setScale( const CUL::Math::Vector3Dd& inputScale )
     {
         this->scale = inputScale;
         this->absSize = scale * this->texture->getSize();
@@ -106,9 +103,9 @@ namespace Moge
         return this->texture;
     }
 
-    void Node::setPosition( const IPosition< double >& pos )
+    void Node::setPosition( const CUL::Math::Vector3Dd& pos )
     {
-        *this->position = pos;
+        this->position = pos;
     }
 
     const RenderableType Node::getRenderableType() const

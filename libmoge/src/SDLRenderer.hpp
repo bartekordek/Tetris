@@ -26,7 +26,7 @@ namespace Moge
         SDLRenderer();
         virtual ~SDLRenderer();
         void createWindow( 
-            const Math::IPosition<int>& winPos, 
+            const CUL::Math::Vector3Di& winPos, 
             const Math::ISize<unsigned int>& winSize, 
             const std::string& winName = "Unnamed window." ) override;
         void setBackgroundColor( const ColorE color ) override;
@@ -36,9 +36,9 @@ namespace Moge
         void render( const IRenderable& renderable ) override;
         void render( 
             const ITexture& texture, 
-            const Math::IPosition<double>& position, 
-            const Math::Vector3D<double>& targetSize ) override;
-        void render( const IPrimitive& primitive, const Math::IPosition<double>& position, const Math::Vector3D<double>& targetSize ) override;
+            const CUL::Math::Vector3Dd& position, 
+            const CUL::Math::Vector3Dd& targetSize ) override;
+        void render( const IPrimitive& primitive, const CUL::Math::Vector3Dd& position, const CUL::Math::Vector3Dd& targetSize ) override;
         void updateScreen()override;
         void clear() override;
 

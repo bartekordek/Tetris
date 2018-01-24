@@ -2,7 +2,6 @@
 #include "MogeLib.h"
 #include <cstdint>
 #include "ITexture.h"
-#include "Math/IPosition.h"
 
 namespace Moge
 {
@@ -36,12 +35,12 @@ namespace Moge
         virtual void render( const IRenderable& renderable ) = 0;
         virtual void render(
             const ITexture& texture, 
-            const Math::IPosition<double>& position,
-            const Math::Vector3D<double>& targetSize ) = 0;
+            const CUL::Math::Vector3Dd& position,
+            const CUL::Math::Vector3Dd& targetSize ) = 0;
         virtual void render( 
             const IPrimitive& primitive, 
-            const Math::IPosition<double>& position,
-            const Math::Vector3D<double>& targetSize ) = 0;
+            const CUL::Math::Vector3Dd& position,
+            const CUL::Math::Vector3Dd& targetSize ) = 0;
         virtual void setBackgroundColor( const ColorE color ) = 0;
         virtual void setBackgroundColor( const ColorS& color ) = 0;
         virtual void updateScreen() = 0;

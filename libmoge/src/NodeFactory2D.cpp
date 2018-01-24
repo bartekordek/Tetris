@@ -15,7 +15,6 @@ namespace Moge
         this->nodes.reset();
     }
 
-    using namespace Math;
     std::shared_ptr<Node> NodeFactory2D::CreateFromImage(
         const CUL::FS::Path& filePath, 
         const CUL::MyString& name )

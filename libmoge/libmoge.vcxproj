@@ -250,19 +250,13 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
     <ClInclude Include="inc\Math\Axis.h" />
     <ClInclude Include="inc\Math\Epsilon.h" />
     <ClInclude Include="inc\Math\Frustum.h" />
-    <ClInclude Include="inc\Math\IPosition.h" />
-    <ClInclude Include="inc\Math\IPositionAdapter.h" />
-    <ClInclude Include="inc\Math\IPositionFactory.h" />
     <ClInclude Include="inc\Math\ISize.h" />
     <ClInclude Include="inc\Math\IVector.h" />
-    <ClInclude Include="inc\Math\Vector3D.h" />
     <ClInclude Include="inc\Math\Line.h" />
     <ClInclude Include="inc\Math\Math.h" />
     <ClInclude Include="inc\Math\Matrix2D.hpp" />
     <ClInclude Include="inc\Math\MultiPoint.h" />
     <ClInclude Include="inc\Math\MultiPointFactory.h" />
-    <ClInclude Include="inc\Math\PositionDouble2D.h" />
-    <ClInclude Include="inc\Math\PositionDouble3D.h" />
     <ClInclude Include="inc\Math\Quaternion.h" />
     <ClInclude Include="inc\Math\Rectangle.h" />
     <ClInclude Include="inc\Math\Segment.h" />
@@ -272,7 +266,6 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
     <ClInclude Include="inc\Math\SizeInt2D.h" />
     <ClInclude Include="inc\Math\SizeUInt2D.h" />
     <ClInclude Include="inc\Math\SquareMatrix2D.hpp" />
-    <ClInclude Include="inc\Math\Vector3DFactory.h" />
     <ClInclude Include="inc\IVector.h" />
     <ClInclude Include="inc\MogeLib.h" />
     <ClInclude Include="inc\MogeLibMain.h" />
@@ -320,12 +313,10 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
     <ClCompile Include="src\IObservable.cpp" />
     <ClCompile Include="src\IObservableData.cpp" />
     <ClCompile Include="src\IObservableImpl.cpp" />
-    <ClCompile Include="src\IPositionFactory.cpp" />
     <ClCompile Include="src\IRenderable.cpp" />
     <ClCompile Include="src\IRenderer.cpp" />
     <ClCompile Include="src\Iterator.cpp" />
     <ClCompile Include="src\ITexture.cpp" />
-    <ClCompile Include="src\IVector3D.cpp" />
     <ClCompile Include="src\KeyboardData.cpp" />
     <ClCompile Include="src\KeySDL.cpp" />
     <ClCompile Include="src\Line.cpp" />
@@ -337,8 +328,6 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
     <ClCompile Include="src\NodeFactory2D.cpp" />
     <ClCompile Include="src\NodeFactory3D.cpp" />
     <ClCompile Include="src\Node.cpp" />
-    <ClCompile Include="src\PositionDouble2D.cpp" />
-    <ClCompile Include="src\PositionDouble3D.cpp" />
     <ClCompile Include="src\Quaternion.cpp" />
     <ClCompile Include="src\Rectangle.cpp" />
     <ClCompile Include="src\RenderableSDLTexture.cpp" />
@@ -346,11 +335,9 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
     <ClCompile Include="src\SDL2WrapperAdapter.cpp" />
     <ClCompile Include="src\SDLRenderer.cpp" />
     <ClCompile Include="src\Singleton.cpp" />
-    <ClCompile Include="src\Size.cpp" />
     <ClCompile Include="src\SizeDouble2D.cpp" />
     <ClCompile Include="src\SizeDouble3D.cpp" />
     <ClCompile Include="src\TextureSDL.cpp" />
-    <ClCompile Include="src\Vector3DFactory.cpp" />
     <ClCompile Include="src\Visible.cpp" />
   </ItemGroup>
   <ItemGroup>

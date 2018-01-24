@@ -80,6 +80,18 @@
         <in>Slab.h</in>
         <in>TableCoordinates.h</in>
       </df>
+      <df name="Intermediate">
+        <df name="x64_Debug">
+          <df name="Tetris.tlog">
+          </df>
+        </df>
+      </df>
+      <df name="obj">
+        <df name="debug">
+          <df name="src">
+          </df>
+        </df>
+      </df>
       <df name="run">
       </df>
       <df name="src">
@@ -91,6 +103,18 @@
         <in>TableCoordinates.cpp</in>
       </df>
       <df name="Tetris">
+        <df name="build">
+          <df name="Debug">
+            <df name="Cygwin-Windows">
+              <df name="_ext">
+                <df name="511e4115">
+                </df>
+                <df name="5c0">
+                </df>
+              </df>
+            </df>
+          </df>
+        </df>
       </df>
       <in>main.cpp</in>
     </df>

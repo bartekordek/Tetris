@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Node.h"
-#include "Math/IPositionAdapter.h"
 #include "CUL/IIterator.hpp"
 #include "CUL/Path.hpp"
 
