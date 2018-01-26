@@ -27,19 +27,7 @@
     <ClInclude Include="inc\Math\Frustum.h">
       <Filter>Header Files\Math</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Math\ISize.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
     <ClInclude Include="inc\Math\Line.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Math\Matrix2D.hpp">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Math\MultiPoint.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Math\MultiPointFactory.h">
       <Filter>Header Files\Math</Filter>
     </ClInclude>
     <ClInclude Include="inc\Math\Quaternion.h">
@@ -57,12 +45,6 @@
     <ClInclude Include="inc\Math\Axis.h">
       <Filter>Header Files\Math</Filter>
     </ClInclude>
-    <ClInclude Include="inc\IVector.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Math\SizeDouble3D.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
     <ClInclude Include="inc\ConsoleUtilities.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -71,12 +53,6 @@
     </ClInclude>
     <ClInclude Include="inc\MyString.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Math\Size.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Math\IVector.h">
-      <Filter>Header Files\Math</Filter>
     </ClInclude>
     <ClInclude Include="inc\File.h">
       <Filter>Header Files</Filter>
@@ -171,20 +147,11 @@
     <ClInclude Include="inc\TextureSDL.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Math\SizeInt2D.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Math\SizeUInt2D.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
     <ClInclude Include="src\RenderableSDLTexture.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\RenderableTypes.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Math\SizeDouble2D.h">
-      <Filter>Header Files\Math</Filter>
     </ClInclude>
     <ClInclude Include="src\NodeFactory2D.h">
       <Filter>Source Files</Filter>
@@ -223,9 +190,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\Math\Math.h">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Math\Epsilon.h">
       <Filter>Header Files\Math</Filter>
     </ClInclude>
     <ClInclude Include="inc\Node.h">
@@ -323,9 +287,6 @@
     <ClCompile Include="src\MogeLibMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\MultiPointFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Quaternion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -341,16 +302,10 @@
     <ClCompile Include="src\Singleton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\SizeDouble3D.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\TextureSDL.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\RenderableSDLTexture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SizeDouble2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\NodeFactory2D.cpp">

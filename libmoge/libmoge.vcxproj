@@ -248,25 +248,15 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
     <ClInclude Include="inc\ListLinked.h" />
     <ClInclude Include="inc\ListVector.h" />
     <ClInclude Include="inc\Math\Axis.h" />
-    <ClInclude Include="inc\Math\Epsilon.h" />
     <ClInclude Include="inc\Math\Frustum.h" />
-    <ClInclude Include="inc\Math\ISize.h" />
-    <ClInclude Include="inc\Math\IVector.h" />
     <ClInclude Include="inc\Math\Line.h" />
     <ClInclude Include="inc\Math\Math.h" />
-    <ClInclude Include="inc\Math\Matrix2D.hpp" />
     <ClInclude Include="inc\Math\MultiPoint.h" />
     <ClInclude Include="inc\Math\MultiPointFactory.h" />
     <ClInclude Include="inc\Math\Quaternion.h" />
     <ClInclude Include="inc\Math\Rectangle.h" />
     <ClInclude Include="inc\Math\Segment.h" />
-    <ClInclude Include="inc\Math\Size.h" />
-    <ClInclude Include="inc\Math\SizeDouble2D.h" />
-    <ClInclude Include="inc\Math\SizeDouble3D.h" />
-    <ClInclude Include="inc\Math\SizeInt2D.h" />
-    <ClInclude Include="inc\Math\SizeUInt2D.h" />
     <ClInclude Include="inc\Math\SquareMatrix2D.hpp" />
-    <ClInclude Include="inc\IVector.h" />
     <ClInclude Include="inc\MogeLib.h" />
     <ClInclude Include="inc\MogeLibMain.h" />
     <ClInclude Include="inc\MyString.h" />
@@ -335,8 +325,6 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
     <ClCompile Include="src\SDL2WrapperAdapter.cpp" />
     <ClCompile Include="src\SDLRenderer.cpp" />
     <ClCompile Include="src\Singleton.cpp" />
-    <ClCompile Include="src\SizeDouble2D.cpp" />
-    <ClCompile Include="src\SizeDouble3D.cpp" />
     <ClCompile Include="src\TextureSDL.cpp" />
     <ClCompile Include="src\Visible.cpp" />
   </ItemGroup>
