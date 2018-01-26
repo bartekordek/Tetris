@@ -27,7 +27,7 @@ namespace Moge
         virtual ~SDLRenderer();
         void createWindow( 
             const CUL::Math::Vector3Di& winPos, 
-            const Math::ISize<unsigned int>& winSize, 
+            const CUL::Math::Vector3Du& winSize,
             const std::string& winName = "Unnamed window." ) override;
         void setBackgroundColor( const ColorE color ) override;
         void setBackgroundColor( const ColorS& color ) override;

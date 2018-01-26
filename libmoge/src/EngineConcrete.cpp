@@ -34,7 +34,7 @@ EngineConcrete::~EngineConcrete()
     this->infoLoopThread.join();
 }
 void EngineConcrete::createScreen(
-    Math::ISize<unsigned int>& size,
+    CUL::Math::Vector3Du& size,
     CUL::Math::Vector3Di& position,
     const std::string& label )const
 {

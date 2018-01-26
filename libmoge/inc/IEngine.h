@@ -4,7 +4,7 @@
 #include "IKeyboardObservable.h"
 #include "INodeFactory.h"
 #include "IRenderer.h"
-#include "Math/ISize.h"
+#include "CUL/Math/Vector3D.hpp"
 #include "IRenderer2D.h"
 #include "IRenderer3D.h"
 #include "ITextureFactory.h"
@@ -26,7 +26,10 @@ namespace Moge
         IEngine( void );
         virtual ~IEngine();
 
-        virtual void createScreen( Math::ISize<unsigned int>& size, CUL::Math::Vector3Di& position, const std::string& label = "Window label." )const = 0;
+        virtual void createScreen( 
+            CUL::Math::Vector3Du& size, 
+            CUL::Math::Vector3Di& position, 
+            const std::string& label = "Window label." )const = 0;
         virtual void startMainLoop() = 0;
         virtual void stopEventLoop() = 0;
         virtual ITextureFactory* get2DTextureFactory()const = 0;

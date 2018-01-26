@@ -1,9 +1,8 @@
 #include "Node.h"
-#include "Math/SizeDouble3D.h"
+#include "CUL/Math/Vector3D.hpp"
 
 namespace Moge
 {
-    using namespace Math;
     Node::Node()
     {
     }

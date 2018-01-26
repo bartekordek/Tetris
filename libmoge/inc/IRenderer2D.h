@@ -1,6 +1,6 @@
 #pragma once
 #include "IRenderer.h"
-#include "Math/ISize.h"
+#include "CUL/Math/Vector3D.hpp"
 #include <string>
 namespace Moge
 {
@@ -12,7 +12,7 @@ namespace Moge
         virtual ~IRenderer2D() = default;
         virtual void createWindow( 
             const CUL::Math::Vector3Di& winPos, 
-            const Math::ISize<unsigned int>& winSize, 
+            const CUL::Math::Vector3Du& winSize,
             const std::string& winName = "Unnamed window." ) = 0;
     protected:
     private:

@@ -31,15 +31,15 @@ SDLRenderer::~SDLRenderer()
 
 void SDLRenderer::createWindow( 
     const CUL::Math::Vector3Di& winPos, 
-    const Math::ISize<unsigned int>& winSize, 
+    const CUL::Math::Vector3Du& winSize,
     const std::string& winName )
 {
     this->window = SDL_CreateWindow( 
             winName.c_str(), 
             static_cast<int>( winPos.getX() ), 
             static_cast<int>( winPos.getY() ), 
-            static_cast<int>( winSize.getWidth() ), 
-            static_cast<int>( winSize.getHeight() ), 
+            static_cast<int>( winSize.getX() ),
+            static_cast<int>( winSize.getY() ),
             SDL_WINDOW_SHOWN );
     this->renderer = SDL_CreateRenderer( this->window, -1, SDL_RENDERER_ACCELERATED );
 }
