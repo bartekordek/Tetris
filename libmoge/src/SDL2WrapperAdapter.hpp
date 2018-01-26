@@ -3,7 +3,6 @@
 #include "IKeyboardObservable.h"
 #include "IRenderer2D.h"
 #include "ITextureFactory2D.h"
-#include "LckPrim.h"
 #include <memory>
 #include <map>
 namespace Moge

@@ -1,7 +1,7 @@
 #pragma once
 #include "IEngine.h"
 
-#include "LckPrim.h"
+#include "CUL/LckPrim.hpp"
 #include "FramesData.hpp"
 #include "CUL/ITimer.hpp"
 
@@ -42,7 +42,7 @@ namespace Moge
         std::mutex mListMutex;
         std::thread m_mainLoop;
         std::thread infoLoopThread;
-        LckPrim<bool> mainLoopIsRuning{ true };
+        CUL::LckPrim<bool> mainLoopIsRuning{ true };
 
         std::unique_ptr<INodeFactory> nodeFactory;
 
@@ -54,11 +54,11 @@ namespace Moge
         IKeyboardObservable* m_keyboardObservable;
 
         std::unique_ptr<IFPSCounter> fpsCounter;
-        LckPrim<int> frameSleepTimeMs{ 0 };
-        LckPrim<unsigned> infoLoopPrintDelayMs{ 2000 };
+        CUL::LckPrim<int> frameSleepTimeMs{ 0 };
+        CUL::LckPrim<unsigned> infoLoopPrintDelayMs{ 2000 };
 
-        LckPrim<double> targetFrameTimeMs{ 1000.0 / 60.0 };
-        LckPrim<int> m_fpsCount{ 60 };
+        CUL::LckPrim<double> targetFrameTimeMs{ 1000.0 / 60.0 };
+        CUL::LckPrim<int> m_fpsCount{ 60 };
         std::unique_ptr<CUL::ITimer> timer;
         unsigned lastFrameTimeMs = static_cast<unsigned>( 1000.0 / 60.0 );
         double frameSleepMs = 10;

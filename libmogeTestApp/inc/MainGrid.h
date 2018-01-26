@@ -3,7 +3,7 @@
 #include "ITextureFactory.h"
 #include "Slab.h"
 #include "Brick.h"
-#include "LckPrim.h"
+#include "CUL/LckPrim.hpp"
 #include "CUL/ITimer.hpp"
 #include <vector>
 #include <mutex>
@@ -43,7 +43,7 @@ private:
     void clearSlabs();
     void funLoop();
     std::thread funThread;
-    Moge::LckPrim<bool> runFunThread;
+    CUL::LckPrim<bool> runFunThread;
 
     std::unique_ptr<Brick> activeBrick;
     std::vector<SlabRow> slabsRows;

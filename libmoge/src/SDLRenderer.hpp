@@ -4,7 +4,7 @@
 #include "IKeyboardObservable.h"
 #include "IRenderer2D.h"
 #include "ITextureFactory2D.h"
-#include "LckPrim.h"
+#include "CUL/LckPrim.hpp"
 
 #include "SDL2Wrapper/ISDL2Wrapper.hpp"
 
@@ -59,7 +59,7 @@ namespace Moge
         SDL_Window* window = nullptr;
         bool rendererWasDestroyed = false;
         std::map<char*,std::shared_ptr<ITexture>> textures;
-        LckPrim<bool> eventLoopActive{ true };
+        CUL::LckPrim<bool> eventLoopActive{ true };
         std::shared_ptr<std::map<unsigned int, std::shared_ptr<IKey>>> keys;
     };
 }

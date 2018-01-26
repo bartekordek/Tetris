@@ -259,4 +259,3 @@ IKey* SDLRenderer::createKey( const int keySignature, const unsigned char* sdlKe
     result->setKeyIsDown( ( 0 == sdlKey[ scanCode ] ) ? false : true );
     return result;
 }
-
