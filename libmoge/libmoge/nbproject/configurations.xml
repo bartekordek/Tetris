@@ -135,6 +135,7 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>../../.gitignore</itemPath>
       <itemPath>Makefile</itemPath>
+      <itemPath>../../.git/config</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>

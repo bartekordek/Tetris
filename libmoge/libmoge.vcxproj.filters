@@ -84,9 +84,6 @@
     <ClInclude Include="inc\Named.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Scale.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\Singleton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -143,12 +140,6 @@
     </ClInclude>
     <ClInclude Include="inc\IIterator.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ListVector.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ListLinked.h">
-      <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\IteratorListLinked.h">
       <Filter>Header Files</Filter>
@@ -260,15 +251,6 @@
     <ClCompile Include="src\MogeLibMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Quaternion.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Rectangle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Scale.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\SDLRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -290,13 +272,7 @@
     <ClCompile Include="src\INode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Iterator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Node.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ListFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\IFPSCounter.cpp">
@@ -315,9 +291,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\IEngine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\MultiPointFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
