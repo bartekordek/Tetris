@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Slab.h"
-#include "Math/SquareMatrix2D.hpp"
+#include "CUL/Math/SquareMatrix2D.hpp"
 #include <vector>
 
 namespace Tetris
@@ -28,16 +28,17 @@ namespace Tetris
         Brick( const Brick& brick );
         virtual ~Brick();
         const CoordinatestList getBlockPositions()const;
-        void move( const Moge::Math::Directions direction = Moge::Math::Directions::D );
+        void move( 
+            const CUL::Math::Directions direction = CUL::Math::Directions::D );
         void rotate( const bool clockWise = true );
         const BrickTypes getBlockType()const;
         Brick& operator=( const Brick& right );
 
     protected:
     private:
-        static Moge::Math::SquareMatrix2D<int> slab2Matrix( const std::vector<Slab>& slabs );
+        static CUL::Math::SquareMatrix2Di slab2Matrix( const std::vector<Slab>& slabs );
 
-        Moge::Math::SquareMatrix2D<int> blockMatrix = Moge::Math::SquareMatrix2D<int>( 4 );
+        CUL::Math::SquareMatrix2Di blockMatrix = CUL::Math::SquareMatrix2Di( 4 );
         BrickTypes brickType = BrickTypes::T;
         MatrixPos position;
     };

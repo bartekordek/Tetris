@@ -2,72 +2,85 @@
 #include <memory>
 
 #include "Game.h"
-#include "Math/SizeUInt2D.h"
+#include "CUL/Math/Vector3D.hpp"
 
 #include "MogeLibMain.h"
 
-namespace Tetris
+using EngineManager = Moge::EngineManager;
+using Directions = CUL::Math::Directions;
+using IKey = Moge::IKey;
+
+using namespace Tetris;
+
+CGame::~CGame()
 {
-    CGame::~CGame()
+    this->mainGrid.reset();
+}
+
+void CGame::initialize( const unsigned int rowsCount, const unsigned int columnsCount, const unsigned int winWidth, const unsigned int winHeight )
+{
+    auto winSize = CUL::Math::Vector3Du( winWidth, winHeight, 0 );
+    CUL::Math::Vector3Di winPos( 100, 100, 0 );
+    EngineManager::getEngine()->createScreen( winSize, winPos );
+    mainGrid.reset( new CMainGrid() );
+    EngineManager::getEngine()->registerObserver( this );
+    mainGrid->SetSize( rowsCount, columnsCount );
+    startGame();
+}
+
+void CGame::startGame()const
+{
+    mainGrid->ReLeaseBrick();
+}
+
+void stringToLower( std::string& someString );
+
+void CGame::keyboardEvent( IKey* data )
+{
+    std::string keyName = data->getKeyName();
+    stringToLower( keyName );
+    if( "q" == keyName && data->getKeyIsDown() )
     {
-        this->mainGrid.reset();
+        m_quit = true;
+        return;
     }
 
-    using namespace Moge;
-    using namespace Math;
-    void CGame::initialize( const unsigned int rowsCount, const unsigned int columnsCount, const unsigned int winWidth, const unsigned int winHeight )
+    if( data->getKeyIsDown() )
     {
-        auto winSize = SizeUint2D( winWidth, winHeight );
-        CUL::Math::Vector3Di winPos( 100, 100, 0 );
-        EngineManager::getEngine()->createScreen( winSize, winPos );
-        mainGrid.reset( new CMainGrid() );
-        EngineManager::getEngine()->registerObserver( this );
-        mainGrid->SetSize( rowsCount, columnsCount );
-        startGame();
-    }
+        std::cout << "Key " << data->getKeyName() << " is down." << std::endl;
 
-    void CGame::startGame()const
-    {
-        mainGrid->ReLeaseBrick();
-    }
-
-    void CGame::keyboardEvent( IKey* data )
-    {
-        std::string keyName = data->getKeyName();
-        std::transform( keyName.begin(), keyName.end(), keyName.begin(), ::tolower );
-        if( "q" == keyName && data->getKeyIsDown() )
+        if( "left" == keyName )
         {
-            m_quit = true;
-            return;
+            mainGrid->MoveActualBrick( Directions::L );
         }
-
-        if( data->getKeyIsDown() )
+        else if( "right" == keyName )
         {
-            std::cout << "Key " << data->getKeyName() << " is down." << std::endl;
-
-            if( "left" == keyName )
-            {
-                mainGrid->MoveActualBrick( Math::Directions::L );
-            }
-            else if( "right" == keyName )
-            {
-                mainGrid->MoveActualBrick( Math::Directions::R );
-            }
-            else if( "down" == keyName )
-            {
-                mainGrid->MoveActualBrick( Math::Directions::D );
-            }
-            else if( "space" == keyName )
-            {
-                mainGrid->RotateActualBrick( true );
-            }
+            mainGrid->MoveActualBrick( Directions::R );
+        }
+        else if( "down" == keyName )
+        {
+            mainGrid->MoveActualBrick( Directions::D );
+        }
+        else if( "space" == keyName )
+        {
+            mainGrid->RotateActualBrick( true );
         }
     }
-    void CGame::frontEndLoop()
+}
+
+void stringToLower( std::string& someString )
+{
+    std::transform( 
+        someString.begin(), 
+        someString.end(), 
+        someString.begin(), 
+        ::tolower );
+}
+
+void CGame::frontEndLoop()
+{
+    while( false == m_quit )
     {
-        while( false == m_quit )
-        {
-            mainGrid->updateGrid();
-        }
+        mainGrid->updateGrid();
     }
 }

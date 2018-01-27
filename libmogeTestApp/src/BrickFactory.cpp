@@ -14,9 +14,9 @@ Brick* CBrickFactory::GetRandomBrick()
     return result;
 }
 
-Moge::Math::SquareMatrix2D<int> CBrickFactory::createBrick( const BrickTypes brickType )
+CUL::Math::SquareMatrix2Di CBrickFactory::createBrick( const BrickTypes brickType )
 {
-    Moge::Math::SquareMatrix2D<int> result( 4 );
+    CUL::Math::SquareMatrix2Di result( 4 );
     switch( brickType )
     {
     case BrickTypes::L:

@@ -1,8 +1,7 @@
 #include "Brick.h"
 #include "BrickFactory.h"
 
-using namespace Moge;
-using namespace Math;
+using Directions = CUL::Math::Directions;
 namespace Tetris
 {
     Brick::Brick( const BrickTypes typeofBrick ):
@@ -34,9 +33,9 @@ namespace Tetris
         return *this;
     }
 
-    SquareMatrix2D<int> Brick::slab2Matrix( const std::vector<Slab>& slabs )
+    CUL::Math::SquareMatrix2Di Brick::slab2Matrix( const std::vector<Slab>& slabs )
     {
-        SquareMatrix2D<int> result( 4 );
+        CUL::Math::SquareMatrix2Di result( 4 );
         for( const auto& slab: slabs )
         {
             const unsigned int row = slab.row();
