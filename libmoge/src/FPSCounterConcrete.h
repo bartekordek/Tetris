@@ -7,6 +7,7 @@
 #include <atomic>
 #include <thread>
 
+#define BOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE
 #include <boost/circular_buffer.hpp>
 
 namespace Moge
