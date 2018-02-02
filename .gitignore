@@ -28,6 +28,7 @@
 *cache
 *~ml
 */private
+.vs
 build
 libmoge/libmoge/nbproject/private/
 libmoge/libmoge/nbproject/Makefile-*
