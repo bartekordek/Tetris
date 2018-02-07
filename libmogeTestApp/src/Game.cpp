@@ -21,7 +21,7 @@ void CGame::initialize( const unsigned int rowsCount, const unsigned int columns
 {
     auto winSize = CUL::Math::Vector3Du( winWidth, winHeight, 0 );
     CUL::Math::Vector3Di winPos( 100, 100, 0 );
-    EngineManager::getEngine()->createScreen( winSize, winPos );
+    EngineManager::getEngine()->createWindow( winSize, winPos );
     mainGrid.reset( new CMainGrid() );
     EngineManager::getEngine()->registerObserver( this );
     mainGrid->SetSize( rowsCount, columnsCount );

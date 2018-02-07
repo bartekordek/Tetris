@@ -4,6 +4,7 @@
 #include "CUL/LckPrim.hpp"
 #include "FramesData.hpp"
 #include "CUL/ITimer.hpp"
+#include "SDL2WrapperAdapter.hpp"
 
 #include <map>
 #include <thread>
@@ -18,22 +19,20 @@ namespace Moge
         EngineConcrete( void );
         virtual ~EngineConcrete();
 
-        void createScreen( 
+        IWindow* createWindow(
             CUL::Math::Vector3Du& size,
             CUL::Math::Vector3Di& position,
-            const std::string& label = "Window label." )const;
+            const std::string& label = "Window label." )const override;
         void startMainLoop();
         void stopEventLoop();
-        ITextureFactory* get2DTextureFactory()const;
-        ITextureFactory* get3DTextureFactory()const;
-        INodeFactory* get2DNodeFactory()const;
-        INodeFactory* get3DNodeFactory()const;
 
         void registerObserver( IKeyboardObserver* observer ) override;
         void unregisterObserver( IKeyboardObserver* observer ) override;
 
         void lockFps( unsigned fpsCount );
         void unlockFps();
+
+        const bool isKeyDown( const IKey* key )const override;
     protected:
     private:
         void mainLoop();
@@ -47,12 +46,11 @@ namespace Moge
         std::thread infoLoopThread;
         CUL::LckPrim<bool> mainLoopIsRuning{ true };
 
-        std::unique_ptr<INodeFactory> nodeFactory;
+        SDL2WrapperAdapter* sdlAdapter = nullptr;
 
         std::unique_ptr<IRenderer2D> renderer2D;
         std::unique_ptr<IRenderer3D> renderer3D;
 
-        std::unique_ptr<ITextureFactory3D> textureFactory3D;
         IMainGameLoop* m_mainGameLoop = nullptr;
         IKeyboardObservable* m_keyboardObservable;
 
@@ -66,5 +64,7 @@ namespace Moge
         unsigned lastFrameTimeMs = static_cast<unsigned>( 1000.0 / 60.0 );
         double frameSleepMs = 10;
         FrameData m_frameData;
+        std::map<IWindow*, std::shared_ptr<IWindow>> m_windows;
+        KeyMap m_keys;
     };
 }

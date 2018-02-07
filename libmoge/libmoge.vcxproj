@@ -99,7 +99,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\libcul\inc;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\deps\boost_1_66_0;$(ProjectDir)..\deps\SDL2Wrapper\deps\SDL2-2.0.7\include;$(ProjectDir)..\deps\SDL2Wrapper\libsdl2wrapper\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT;CULLib_EXPORT;CUL_DYNAMIC;SDL2Wrapper_DYNAMIC</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
@@ -110,7 +110,7 @@
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib;libcul.lib;libsdl2wrapper.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\build\$(Platform)_$(Configuration);$(SolutionDir)deps\boost_1_66_0\Build-Windows;$(TargetDir);$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration);$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)</AdditionalLibraryDirectories>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
@@ -128,7 +128,7 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\libcul\inc;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\deps\boost_1_66_0;$(ProjectDir)..\deps\SDL2Wrapper\deps\SDL2-2.0.7\include;$(ProjectDir)..\deps\SDL2Wrapper\libsdl2wrapper\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT;CULLib_EXPORT;CUL_DYNAMIC;SDL2Wrapper_DYNAMIC</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
@@ -140,7 +140,7 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);SDL2.lib;SDL2main.lib;libcul.lib;libsdl2wrapper.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\build\$(Platform)_$(Configuration);$(SolutionDir)deps\boost_1_66_0\Build-Windows;$(TargetDir);$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration);$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)</AdditionalLibraryDirectories>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
@@ -162,7 +162,7 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\libcul\inc;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\deps\boost_1_66_0;$(ProjectDir)..\deps\SDL2Wrapper\deps\SDL2-2.0.7\include;$(ProjectDir)..\deps\SDL2Wrapper\libsdl2wrapper\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT;CULLib_EXPORT;CUL_DYNAMIC;SDL2Wrapper_DYNAMIC</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
@@ -178,6 +178,7 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)deps\CUL\build\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y
@@ -192,7 +193,7 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\libcul\inc;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\deps\boost_1_66_0;$(ProjectDir)..\deps\SDL2Wrapper\deps\SDL2-2.0.7\include;$(ProjectDir)..\deps\SDL2Wrapper\libsdl2wrapper\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MogeLib_EXPORT;CULLib_EXPORT;CUL_DYNAMIC;SDL2Wrapper_DYNAMIC</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
@@ -208,6 +209,7 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)deps\CUL\build\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y
@@ -218,16 +220,13 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
   <ItemGroup>
     <ClInclude Include="inc\ConsoleUtilities.h" />
     <ClInclude Include="inc\IEngine.h" />
-    <ClInclude Include="inc\File.h" />
     <ClInclude Include="inc\IFPSCounter.h" />
+    <ClInclude Include="inc\IKey.hpp" />
     <ClInclude Include="inc\IMainGameLoop.hpp" />
     <ClInclude Include="inc\IIterator.h" />
-    <ClInclude Include="inc\IKey.h" />
     <ClInclude Include="inc\IKeyboardObservable.h" />
     <ClInclude Include="inc\IKeyboardObserver.h" />
     <ClInclude Include="inc\IMogeApp.h" />
-    <ClInclude Include="inc\INodeCreator.h" />
-    <ClInclude Include="inc\INodeFactory.h" />
     <ClInclude Include="inc\IObservable.h" />
     <ClInclude Include="inc\IObservableData.h" />
     <ClInclude Include="inc\IObserver.h" />
@@ -237,46 +236,35 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
     <ClInclude Include="inc\IRenderer3D.h" />
     <ClInclude Include="inc\IteratorListLinked.h" />
     <ClInclude Include="inc\IteratorListVector.h" />
+    <ClInclude Include="inc\IWindow.hpp" />
     <ClInclude Include="inc\LckPrim.h" />
     <ClInclude Include="inc\List.h" />
-    <ClInclude Include="inc\ITexture.h" />
-    <ClInclude Include="inc\ITextureFactory.h" />
-    <ClInclude Include="inc\ITextureFactory2D.h" />
-    <ClInclude Include="inc\ITextureFactory3D.h" />
-    <ClInclude Include="inc\KeyboardData.h" />
     <ClInclude Include="inc\ListFactory.h" />
     <ClInclude Include="inc\ListLinked.h" />
     <ClInclude Include="inc\ListVector.h" />
     <ClInclude Include="inc\MogeLib.h" />
     <ClInclude Include="inc\MogeLibMain.h" />
-    <ClInclude Include="inc\MyString.h" />
     <ClInclude Include="inc\Named.h" />
     <ClInclude Include="inc\INode.h" />
-    <ClInclude Include="inc\Node.h" />
     <ClInclude Include="inc\RenderableTypes.h" />
     <ClInclude Include="inc\Singleton.h" />
     <ClInclude Include="inc\SupportedRenderersList.h" />
-    <ClInclude Include="inc\TextureFactory.h" />
-    <ClInclude Include="inc\TextureSDL.h" />
     <ClInclude Include="inc\Visible.h" />
     <ClInclude Include="src\EngineConcrete.hpp" />
     <ClInclude Include="src\FPSCounterConcrete.h" />
     <ClInclude Include="src\FramesData.hpp" />
-    <ClInclude Include="src\IKeyboardData.h" />
     <ClInclude Include="src\IKeyboardObservableImp.h" />
+    <ClInclude Include="src\IKeyConcrete.hpp" />
     <ClInclude Include="src\IObservableImpl.h" />
-    <ClInclude Include="src\KeySDL.h" />
-    <ClInclude Include="src\NodeFactory2D.h" />
-    <ClInclude Include="src\NodeFactory3D.h" />
-    <ClInclude Include="src\RenderableSDLTexture.h" />
     <ClInclude Include="src\SDL2WrapperAdapter.hpp" />
-    <ClInclude Include="src\SDLRenderer.hpp" />
+    <ClInclude Include="src\SDLTexture.hpp" />
+    <ClInclude Include="src\SDLTextureNode.hpp" />
+    <ClInclude Include="src\SDLWindowAdapter.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ConsoleUtilities.cpp" />
     <ClCompile Include="src\IEngine.cpp" />
     <ClCompile Include="src\EngineConcrete.cpp" />
-    <ClCompile Include="src\File.cpp" />
     <ClCompile Include="src\FPSCounterConcrete.cpp" />
     <ClCompile Include="src\FrameData.cpp" />
     <ClCompile Include="src\IFPSCounter.cpp" />
@@ -284,27 +272,21 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
     <ClCompile Include="src\IKeyboardObservable.cpp" />
     <ClCompile Include="src\IKeyboardObservableImp.cpp" />
     <ClCompile Include="src\IKeyboardObserver.cpp" />
+    <ClCompile Include="src\IKeyConcrete.cpp" />
     <ClCompile Include="src\IMogeApp.cpp" />
-    <ClCompile Include="src\INodeCreator.cpp" />
     <ClCompile Include="src\IObservable.cpp" />
     <ClCompile Include="src\IObservableData.cpp" />
     <ClCompile Include="src\IObservableImpl.cpp" />
     <ClCompile Include="src\IRenderable.cpp" />
     <ClCompile Include="src\IRenderer.cpp" />
-    <ClCompile Include="src\ITexture.cpp" />
-    <ClCompile Include="src\KeyboardData.cpp" />
-    <ClCompile Include="src\KeySDL.cpp" />
+    <ClCompile Include="src\IWindow.cpp" />
     <ClCompile Include="src\MogeLibMain.cpp" />
-    <ClCompile Include="src\MyString.cpp" />
     <ClCompile Include="src\INode.cpp" />
-    <ClCompile Include="src\NodeFactory2D.cpp" />
-    <ClCompile Include="src\NodeFactory3D.cpp" />
-    <ClCompile Include="src\Node.cpp" />
-    <ClCompile Include="src\RenderableSDLTexture.cpp" />
+    <ClCompile Include="src\SDLTexture.cpp" />
+    <ClCompile Include="src\SDLTextureNode.cpp" />
     <ClCompile Include="src\SDL2WrapperAdapter.cpp" />
-    <ClCompile Include="src\SDLRenderer.cpp" />
+    <ClCompile Include="src\SDLWindowAdapter.cpp" />
     <ClCompile Include="src\Singleton.cpp" />
-    <ClCompile Include="src\TextureSDL.cpp" />
     <ClCompile Include="src\Visible.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -312,6 +294,7 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
     <Text Include="StaticAnalysis.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\.gitignore" />
     <None Include="..\.git\config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

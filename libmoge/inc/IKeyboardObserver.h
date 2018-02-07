@@ -1,12 +1,12 @@
 #pragma once 
 
 #include "IObserver.h"
-#include "KeyboardData.h"
-#include "IKey.h"
+#include "IKey.hpp"
 
 namespace Moge
 {
-    class MogeLib_API IKeyboardObserver: public IObserver
+    class MogeLib_API IKeyboardObserver:
+        public IObserver
     {
     public:
         IKeyboardObserver() = default;

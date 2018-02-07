@@ -1,10 +1,10 @@
 #pragma once 
 
-#include "ITextureFactory.h"
 #include "Slab.h"
 #include "Brick.h"
 #include "CUL/LckPrim.hpp"
 #include "CUL/ITimer.hpp"
+#include "INode.h"
 #include <vector>
 #include <mutex>
 #include <memory>
@@ -16,7 +16,7 @@ namespace Tetris
     class CMainGrid
     {
     public:
-        CMainGrid();
+        CMainGrid( Moge::IWindow* window );
         virtual ~CMainGrid();
         void updateGrid();
         void SetSize( 
@@ -54,9 +54,10 @@ namespace Tetris
         Slabs slabsRows;
         std::mutex slabsMutex;
         std::mutex currentBrickMutex;
-        std::shared_ptr<Moge::ITexture> emptySlabTex;
-        std::shared_ptr<Moge::ITexture> filledSlabTex;
-        Moge::ITextureFactory* tF = nullptr;
+        Moge::INode* emptySlabTex;
+        Moge::INode* filledSlabTex;
         std::unique_ptr<CUL::ITimer> timer;
+
+        Moge::IWindow* m_window = nullptr;
     };
 }

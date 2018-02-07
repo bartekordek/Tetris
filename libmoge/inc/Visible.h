@@ -14,6 +14,6 @@ namespace Moge
 
     protected:
     private:
-        bool visible = false;
+        bool visible = true;
     };
 }

@@ -1,7 +1,7 @@
 #pragma once
 
-#include <Node.h>
 #include "TableCoordinates.h"
+#include "INode.h"
 
 namespace Tetris
 {
@@ -18,12 +18,12 @@ public:
     void col( const unsigned int col );
     const bool isEmpty()const;
     void setEmpty( const bool empty );
-    void setNode( const std::shared_ptr<Moge::Node>& node );
-    const std::shared_ptr<Moge::Node>& getNode()const;
+    void setNode( Moge::INode* node );
+    Moge::INode* getNode()const;
 
 private:
     MatrixPos position;
     bool empty = true;
-    std::shared_ptr<Moge::Node> node;
+    Moge::INode* node;
 };
 }

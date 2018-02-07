@@ -13,19 +13,18 @@ using Path = CUL::FS::Path;
 using Directions = CUL::Math::Directions;
 using EngineManager = Moge::EngineManager;
 
-CMainGrid::CMainGrid():
+CMainGrid::CMainGrid( Moge::IWindow* window ):
     runFunThread( true )
 {
     this->timer.reset( CUL::TimerFactory::getChronoTimer() );
 
-    this->tF = EngineManager::getEngine()->get2DTextureFactory();
     std::lock_guard<std::mutex> slabLock( currentBrickMutex );
 
     Path blockImagepath( "..\\Media\\Block.bmp" );
-    this->filledSlabTex = tF->createTexture( blockImagepath );
+    this->filledSlabTex = this->m_window->create( blockImagepath );
 
     Path bgBlockImagepath( "..\\Media\\BackGroundBlock.bmp" );
-    this->emptySlabTex = tF->createTexture( bgBlockImagepath );
+    this->emptySlabTex = this->m_window->create( bgBlockImagepath );
 
     this->funThread = std::thread( &CMainGrid::funLoop, this );
 }

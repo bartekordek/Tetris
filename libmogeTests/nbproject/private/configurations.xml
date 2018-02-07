@@ -14,22 +14,6 @@
         <in>ObjectNodeTests.h</in>
         <in>TimeTests.h</in>
       </df>
-      <df name="Intermediate">
-        <df name="x64_Debug">
-          <df name="Tests.tlog">
-          </df>
-        </df>
-      </df>
-      <df name="obj">
-        <df name="debug">
-          <df name="src">
-          </df>
-        </df>
-        <df name="release">
-          <df name="src">
-          </df>
-        </df>
-      </df>
       <df name="src">
         <in>EngineTests.cpp</in>
         <in>FilesystemTests.cpp</in>
@@ -48,43 +32,11 @@
     <df root="." name="1">
       <df name="inc">
       </df>
-      <df name="Intermediate">
-        <df name="x64_Debug">
-          <df name="Tests.tlog">
-          </df>
-        </df>
-      </df>
-      <df name="obj">
-        <df name="debug">
-          <df name="src">
-          </df>
-        </df>
-        <df name="release">
-          <df name="src">
-          </df>
-        </df>
-      </df>
       <df name="src">
       </df>
     </df>
     <df root="." name="2">
       <df name="inc">
-      </df>
-      <df name="Intermediate">
-        <df name="x64_Debug">
-          <df name="Tests.tlog">
-          </df>
-        </df>
-      </df>
-      <df name="obj">
-        <df name="debug">
-          <df name="src">
-          </df>
-        </df>
-        <df name="release">
-          <df name="src">
-          </df>
-        </df>
       </df>
       <df name="src">
       </df>

@@ -1,5 +1,13 @@
-#include "IKey.h"
+#include "IKey.hpp"
 
-namespace Moge
+using namespace Moge;
+
+IKey::IKey()
 {
+
+}
+
+IKey::~IKey()
+{
+
 }

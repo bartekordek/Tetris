@@ -1,11 +1,11 @@
 #pragma once
 
+#include "IKey.hpp"
 #include <set>
 
 namespace Moge 
 {
     class IKeyboardObserver;
-    class IKey;
     class IKeyboardObservableImp
     {
     public:

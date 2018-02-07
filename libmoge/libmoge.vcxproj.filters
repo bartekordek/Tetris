@@ -27,15 +27,6 @@
     <ClInclude Include="inc\Visible.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\MyString.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\File.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\IKey.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\IKeyboardObservable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -43,12 +34,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\IMogeApp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\INodeCreator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\INodeFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\IObservable.h">
@@ -66,15 +51,6 @@
     <ClInclude Include="inc\IRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\ITexture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\ITextureFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\KeyboardData.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\MogeLib.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -87,19 +63,10 @@
     <ClInclude Include="inc\Singleton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\TextureFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\IKeyboardData.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\IKeyboardObservableImp.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="src\IObservableImpl.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\KeySDL.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\IRenderer2D.h">
@@ -108,29 +75,11 @@
     <ClInclude Include="inc\IRenderer3D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\ITextureFactory2D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\ITextureFactory3D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\SupportedRenderersList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\TextureSDL.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\RenderableSDLTexture.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\RenderableTypes.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\NodeFactory2D.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\NodeFactory3D.h">
-      <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\INode.h">
       <Filter>Header Files</Filter>
@@ -156,9 +105,6 @@
     <ClInclude Include="inc\ListVector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Node.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\IFPSCounter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -168,14 +114,8 @@
     <ClInclude Include="inc\LckPrim.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\SDLRenderer.hpp">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\IMainGameLoop.hpp">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\SDL2WrapperAdapter.hpp">
-      <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="src\EngineConcrete.hpp">
       <Filter>Source Files</Filter>
@@ -186,21 +126,33 @@
     <ClInclude Include="src\FramesData.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\SDL2WrapperAdapter.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\IWindow.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SDLWindowAdapter.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SDLTexture.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SDLTextureNode.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\IKey.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\IKeyConcrete.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ConsoleUtilities.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Visible.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\MyString.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\File.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\IKey.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\IKeyboardObservable.cpp">
@@ -213,9 +165,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\IMogeApp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\INodeCreator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\IObservable.cpp">
@@ -233,49 +182,19 @@
     <ClCompile Include="src\IRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\ITexture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\KeyboardData.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\KeySDL.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\MogeLibMain.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SDLRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Singleton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\TextureSDL.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\RenderableSDLTexture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\NodeFactory2D.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\NodeFactory3D.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\INode.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Node.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\IFPSCounter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\FPSCounterConcrete.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SDL2WrapperAdapter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\EngineConcrete.cpp">
@@ -287,6 +206,27 @@
     <ClCompile Include="src\IEngine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\SDL2WrapperAdapter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\IWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SDLWindowAdapter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SDLTexture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SDLTextureNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\IKeyConcrete.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\IKey.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="StaticAnalysis.txt" />
@@ -294,5 +234,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.git\config" />
+    <None Include="..\.gitignore" />
   </ItemGroup>
 </Project>

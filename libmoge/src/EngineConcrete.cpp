@@ -2,10 +2,7 @@
 
 #include "IEngine.h"
 #include "IKeyboardObserver.h"
-#include "SDLRenderer.hpp"
-#include "NodeFactory2D.h"
-#include "ITextureFactory3D.h"
-
+#include "SDL2Wrapper/ISDL2Wrapper.hpp"
 #include <iostream>
 #include <memory>
 #include "CUL/ITimer.hpp"
@@ -14,13 +11,15 @@ using namespace Moge;
 
 EngineConcrete::EngineConcrete( void )
 {
-    auto sdlRenderer = new SDLRenderer();
-    this->renderer2D.reset( sdlRenderer );
-    this->m_mainGameLoop = static_cast<IMainGameLoop*>( sdlRenderer );
+    this->sdlAdapter = new SDL2WrapperAdapter();
+    this->renderer2D.reset( this->sdlAdapter );
+    this->m_mainGameLoop = static_cast<IMainGameLoop*>( this->sdlAdapter );
 
-    this->m_keyboardObservable = static_cast<IKeyboardObservable*>( sdlRenderer );
+
+    this->m_keyboardObservable = static_cast<IKeyboardObservable*>( this->sdlAdapter );
     //this->renderer3D.reset(  ); TODO: Add when OpenGL is ready.
-    this->nodeFactory.reset( new NodeFactory2D( sdlRenderer ) );
+    //this->nodeFactory.reset( new NodeFactory2D( this->sdlAdapter ) );
+    
     this->fpsCounter.reset( FPSCounterFactory::getConcreteFPSCounter() );
     this->infoLoopThread = std::thread( &EngineConcrete::infoLoop, this );
     this->timer.reset( CUL::TimerFactory::getChronoTimer() );
@@ -29,16 +28,19 @@ EngineConcrete::EngineConcrete( void )
 EngineConcrete::~EngineConcrete()
 {
     std::lock_guard<std::mutex> lck( mListMutex );
-    this->nodeFactory.reset();
     this->renderer2D.reset();
     this->infoLoopThread.join();
 }
-void EngineConcrete::createScreen(
+
+IWindow* EngineConcrete::createWindow(
     CUL::Math::Vector3Du& size,
     CUL::Math::Vector3Di& position,
-    const std::string& label )const
+    const std::string& label)const
 {
-    this->renderer2D->createWindow( position, size, label );
+    return this->renderer2D->createWindow(
+        size,
+        position,
+        label );
 }
 
 void EngineConcrete::startMainLoop()
@@ -54,27 +56,6 @@ void EngineConcrete::stopEventLoop()
     this->m_mainLoop.join();
     std::cout << "Waiting for game loop to stop...\n";
     this->m_mainGameLoop->stopMainLoop();
-}
-
-ITextureFactory* EngineConcrete::get2DTextureFactory() const
-{
-    auto ptr = static_cast<SDLRenderer*>( this->renderer2D.get() );
-    return ptr;
-}
-
-ITextureFactory* EngineConcrete::get3DTextureFactory() const
-{
-    return this->textureFactory3D.get();
-}
-
-INodeFactory* EngineConcrete::get2DNodeFactory() const
-{
-    return this->nodeFactory.get();
-}
-
-INodeFactory* EngineConcrete::get3DNodeFactory() const
-{
-    return nullptr;//TODO
 }
 
 void EngineConcrete::mainLoop()
@@ -95,20 +76,9 @@ void EngineConcrete::renderingLoop2D()
 void EngineConcrete::QueueFrame()
 {
     this->timer->reset();
-    std::lock_guard<std::mutex> renderableObjectLock( this->mRenderableObjectsMutex );
-    auto& nodeIt = this->get2DNodeFactory()->getNodes();
-    if( false == nodeIt.isEmpty() )
-    {
-        while( nodeIt.hasNext() )
-        {
-            auto& node = *nodeIt.next().get();
-            if( node.GetVisible() )
-            {
-                this->renderer2D->render( node );
-            }
-        }
-    }
-    this->renderer2D->updateScreen();
+
+    this->renderer2D->renderAllWindows();
+    
     this->fpsCounter->increase();
 
     if( -1 != this->m_fpsCount )
@@ -151,4 +121,9 @@ void EngineConcrete::lockFps( unsigned fpsCount )
 void EngineConcrete::unlockFps()
 {
     this->m_fpsCount = -1;
+}
+
+const bool EngineConcrete::isKeyDown( const IKey* key )const
+{
+    return this->m_keys.at( key->getKeyName() )->getKeyIsDown();
 }
