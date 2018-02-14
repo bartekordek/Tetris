@@ -1,8 +1,7 @@
 #pragma once
 #include "IWindow.hpp"
-
 #include "SDL2Wrapper/IWindow.hpp"
-#include "CUL/IList.hpp"
+#include <map>
 namespace Moge
 {
     class SDL2WindowAdapter final: public IWindow
@@ -18,7 +17,6 @@ namespace Moge
         void removeNode( const INode* node );
         const bool exist( const INode* node )const override;
         const unsigned int count()const override;
-        const CUL::IIterator<NodePtr>* getNodes()const override;
 
         void setSDLWin( SDL2W::IWindow* win );
 
@@ -28,6 +26,6 @@ namespace Moge
     protected:
     private:
         SDL2W::IWindow* m_sdlWindow = nullptr;
-        std::unique_ptr< CUL::IList<NodePtr>> nodes;
+        std::map<INode*,NodePtr> nodes;
     };
 }

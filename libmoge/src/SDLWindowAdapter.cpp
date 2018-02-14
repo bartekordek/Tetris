@@ -70,12 +70,6 @@ const unsigned int SDL2WindowAdapter::count()const
     return static_cast<unsigned int>( this->nodes->size() );
 }
 
-const CUL::IIterator<NodePtr>* SDL2WindowAdapter::getNodes()const
-{
-    return this->nodes->getRandomIteratorPtr();
-}
-
-
 void SDL2WindowAdapter::setBackgroundColor( const ColorE color )
 {
     this->m_sdlWindow->setBackgroundColor( color );

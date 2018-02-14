@@ -5,7 +5,6 @@
 #include "CUL/Color.hpp"
 #include "INode.h"
 #include "IRenderer.h"
-#include "CUL/IIterator.hpp"
 
 namespace Moge
 {
@@ -27,7 +26,6 @@ namespace Moge
         virtual void removeNode( const INode* node ) = 0;
         virtual const bool exist( const INode* node )const = 0;
         virtual const unsigned int count()const = 0;
-        virtual const CUL::IIterator<NodePtr>* getNodes()const = 0;
 
         virtual void setBackgroundColor( const ColorE color ) = 0;
         virtual void setBackgroundColor( const ColorS& color ) = 0;

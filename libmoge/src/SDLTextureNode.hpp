@@ -40,6 +40,6 @@ namespace Moge
         CUL::Math::Vector3Dd position;
         CUL::Math::Vector3Dd scale{ 1.0, 1.0, 1.0 };
         CUL::Math::Vector3Dd absSize;
-        IObject* texture = nullptr;
+        IObject* m_texture = nullptr;
     };
 }
