@@ -14,7 +14,7 @@ namespace Moge
             const Path& filePath,
             const Vector3Di& position = Vector3Di( 0, 0, 0 ),
             const CUL::MyString& name = CUL::MyString( "" ) ) override;
-        void removeNode( const INode* node );
+        void removeNode( INode* node ) override;
         const bool exist( const INode* node )const override;
         const unsigned int count()const override;
 

@@ -258,7 +258,7 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
     <ClInclude Include="src\IObservableImpl.h" />
     <ClInclude Include="src\SDL2WrapperAdapter.hpp" />
     <ClInclude Include="src\SDLTexture.hpp" />
-    <ClInclude Include="src\SDLTextureNode.hpp" />
+    <ClInclude Include="src\SDLSprite.hpp" />
     <ClInclude Include="src\SDLWindowAdapter.hpp" />
   </ItemGroup>
   <ItemGroup>
@@ -283,7 +283,7 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
     <ClCompile Include="src\MogeLibMain.cpp" />
     <ClCompile Include="src\INode.cpp" />
     <ClCompile Include="src\SDLTexture.cpp" />
-    <ClCompile Include="src\SDLTextureNode.cpp" />
+    <ClCompile Include="src\SDLSprite.cpp" />
     <ClCompile Include="src\SDL2WrapperAdapter.cpp" />
     <ClCompile Include="src\SDLWindowAdapter.cpp" />
     <ClCompile Include="src\Singleton.cpp" />

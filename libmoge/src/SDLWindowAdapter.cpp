@@ -1,10 +1,8 @@
 #include "SDLWindowAdapter.hpp"
-#include "SDLTextureNode.hpp"
-#include "CUL/ListVector.hpp"
+#include "SDLSprite.hpp"
 using namespace Moge;
 
-SDL2WindowAdapter::SDL2WindowAdapter():
-    nodes( new CUL::ListVector<NodePtr>() )
+SDL2WindowAdapter::SDL2WindowAdapter()
 {
 
 }
@@ -29,40 +27,30 @@ INode* SDL2WindowAdapter::create(
     const CUL::MyString& name )
 {
     auto obj = this->m_sdlWindow->createObject( filePath );
-    auto textureNode = new SDLTextureNode();
-    textureNode->setTexture( obj.get() );
+    auto textureNode = new SDLSprite();
+    textureNode->setTexture( obj );
     NodePtr nodePtr( textureNode );
-    this->nodes->pushBack( nodePtr );
+    this->nodes[ textureNode ] = nodePtr;
     return nodePtr.get();
 }
 #if _MSC_VER
 __pragma( warning( pop ) )
 #endif
 
-void SDL2WindowAdapter::removeNode( const INode* node )
+void SDL2WindowAdapter::removeNode( INode* node )
 {
-    auto& it = this->nodes->getRandomIterator();
-    while( it.hasNext() )
-    {
-        if( it.next().get() == node )
-        {
-            nodes->remove( it );
-            break;
-        }
-    }
+    auto it = this->nodes.find( node );
+    this->nodes.erase( it );
 }
 
 const bool SDL2WindowAdapter::exist( const INode* node )const
 {
-    auto& it = this->nodes->getRandomIterator();
-    while( it.hasNext() )
+    auto it = this->nodes.find( const_cast<INode*>( node ) );
+    if ( this->nodes.end() == it )
     {
-        if( it.next().get() == node )
-        {
-            return true;
-        }
+        return false;
     }
-    return false;
+    return true;
 }
 
 const unsigned int SDL2WindowAdapter::count()const

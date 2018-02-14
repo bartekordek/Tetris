@@ -138,13 +138,13 @@
     <ClInclude Include="src\SDLTexture.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\SDLTextureNode.hpp">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\IKey.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\IKeyConcrete.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SDLSprite.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -218,13 +218,13 @@
     <ClCompile Include="src\SDLTexture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\SDLTextureNode.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\IKeyConcrete.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\IKey.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SDLSprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

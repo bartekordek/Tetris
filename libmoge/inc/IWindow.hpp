@@ -23,7 +23,7 @@ namespace Moge
             const Path& filePath,
             const Vector3Di& position = Vector3Di( 0, 0, 0 ),
             const CUL::MyString& name = CUL::MyString( "" ) ) = 0;
-        virtual void removeNode( const INode* node ) = 0;
+        virtual void removeNode( INode* node ) = 0;
         virtual const bool exist( const INode* node )const = 0;
         virtual const unsigned int count()const = 0;
 
