@@ -21,10 +21,10 @@ CMainGrid::CMainGrid( Moge::IWindow* window ):
     std::lock_guard<std::mutex> slabLock( currentBrickMutex );
 
     Path blockImagepath( "..\\Media\\Block.bmp" );
-    this->filledSlabTex = this->m_window->create( blockImagepath );
+    this->filledSlabTex = this->m_window->createNode( blockImagepath );
 
     Path bgBlockImagepath( "..\\Media\\BackGroundBlock.bmp" );
-    this->emptySlabTex = this->m_window->create( bgBlockImagepath );
+    this->emptySlabTex = this->m_window->createNode( bgBlockImagepath );
 
     this->funThread = std::thread( &CMainGrid::funLoop, this );
 }

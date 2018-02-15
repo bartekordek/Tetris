@@ -1,19 +1,24 @@
 #pragma once
-#include "IRenderable.h"
-#include "SDL2Wrapper/IObject.hpp"
+#include "ITexture.hpp"
+#include "SDL2Wrapper/ITexture.hpp"
 namespace Moge
 {
+    using ContainingTexture = SDL2W::ITexture;
     class SDLTexture:
-        public IRenderable
+        public ITexture
     {
     public:
         SDLTexture();
-        SDLTexture( const SDLTexture& orig );
         virtual ~SDLTexture();
 
-        const RenderableType getRenderableType()const override;
-        SDL2W::IObject* m_texture = nullptr;
+        ContainingTexture* getTexture()const;
+        void setTexture( ContainingTexture* texture );
+        const Vector3Du& getSize()const override;
+        const Path& getPath()const override;
+
+    protected:
 
     private:
+        ContainingTexture * m_texture = nullptr;
     };
 }

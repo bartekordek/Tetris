@@ -4,18 +4,30 @@ using namespace Moge;
 
 SDLTexture::SDLTexture()
 {
-}
 
-SDLTexture::SDLTexture( const SDLTexture& orig ):
-    m_texture( orig.m_texture )
-{
 }
 
 SDLTexture::~SDLTexture()
 {
+    this->m_texture = nullptr;
 }
 
-const RenderableType SDLTexture::getRenderableType()const
+ContainingTexture* SDLTexture::getTexture()const
 {
-    return RenderableType::TEXTURED;
+    return this->m_texture;
+}
+
+void SDLTexture::setTexture( ContainingTexture* texture )
+{
+    this->m_texture = texture;
+}
+
+const Vector3Du& SDLTexture::getSize()const
+{
+    return this->m_texture->getSize();
+}
+
+const Path& SDLTexture::getPath()const
+{
+    return this->m_texture->getPath();
 }

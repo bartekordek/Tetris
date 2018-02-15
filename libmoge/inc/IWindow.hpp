@@ -5,12 +5,14 @@
 #include "CUL/Color.hpp"
 #include "INode.h"
 #include "IRenderer.h"
+#include "ITexture.hpp"
 
 namespace Moge
 {
     using ColorS = CUL::ColorS;
     using ColorE = CUL::ColorE;
     using NodePtr = std::shared_ptr<INode>;
+    using TexPtr = std::shared_ptr<ITexture>;
     using Path = CUL::FS::Path;
     using Vector3Di = CUL::Math::Vector3Di;
     class MogeLib_API IWindow
@@ -19,10 +21,17 @@ namespace Moge
         IWindow();
         virtual ~IWindow();
 
-        virtual INode* create(
+        virtual INode* createNode(
             const Path& filePath,
             const Vector3Di& position = Vector3Di( 0, 0, 0 ),
             const CUL::MyString& name = CUL::MyString( "" ) ) = 0;
+
+        virtual INode* createNode(
+            const ITexture* tex,
+            const Vector3Di& position = Vector3Di( 0, 0, 0 ),
+            const CUL::MyString& name = CUL::MyString( "" ) ) = 0;
+        virtual ITexture* createTexture( const Path& path ) = 0;
+
         virtual void removeNode( INode* node ) = 0;
         virtual const bool exist( const INode* node )const = 0;
         virtual const unsigned int count()const = 0;

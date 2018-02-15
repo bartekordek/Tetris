@@ -84,34 +84,10 @@
     <ClInclude Include="inc\INode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\List.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\IIterator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\IteratorListLinked.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\IteratorListVector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\ListFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\ListLinked.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\ListVector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\IFPSCounter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\FPSCounterConcrete.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\LckPrim.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\IMainGameLoop.hpp">
@@ -146,6 +122,9 @@
     </ClInclude>
     <ClInclude Include="src\SDLSprite.hpp">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ITexture.hpp">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -225,6 +204,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\SDLSprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ITexture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

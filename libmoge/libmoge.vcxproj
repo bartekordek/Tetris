@@ -223,7 +223,6 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
     <ClInclude Include="inc\IFPSCounter.h" />
     <ClInclude Include="inc\IKey.hpp" />
     <ClInclude Include="inc\IMainGameLoop.hpp" />
-    <ClInclude Include="inc\IIterator.h" />
     <ClInclude Include="inc\IKeyboardObservable.h" />
     <ClInclude Include="inc\IKeyboardObserver.h" />
     <ClInclude Include="inc\IMogeApp.h" />
@@ -234,14 +233,8 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
     <ClInclude Include="inc\IRenderer.h" />
     <ClInclude Include="inc\IRenderer2D.h" />
     <ClInclude Include="inc\IRenderer3D.h" />
-    <ClInclude Include="inc\IteratorListLinked.h" />
-    <ClInclude Include="inc\IteratorListVector.h" />
+    <ClInclude Include="inc\ITexture.hpp" />
     <ClInclude Include="inc\IWindow.hpp" />
-    <ClInclude Include="inc\LckPrim.h" />
-    <ClInclude Include="inc\List.h" />
-    <ClInclude Include="inc\ListFactory.h" />
-    <ClInclude Include="inc\ListLinked.h" />
-    <ClInclude Include="inc\ListVector.h" />
     <ClInclude Include="inc\MogeLib.h" />
     <ClInclude Include="inc\MogeLibMain.h" />
     <ClInclude Include="inc\Named.h" />
@@ -279,6 +272,7 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
     <ClCompile Include="src\IObservableImpl.cpp" />
     <ClCompile Include="src\IRenderable.cpp" />
     <ClCompile Include="src\IRenderer.cpp" />
+    <ClCompile Include="src\ITexture.cpp" />
     <ClCompile Include="src\IWindow.cpp" />
     <ClCompile Include="src\MogeLibMain.cpp" />
     <ClCompile Include="src\INode.cpp" />

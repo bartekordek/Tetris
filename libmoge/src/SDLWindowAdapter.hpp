@@ -10,10 +10,17 @@ namespace Moge
         SDL2WindowAdapter();
         ~SDL2WindowAdapter();
 
-        INode* create(
+        INode* createNode(
             const Path& filePath,
             const Vector3Di& position = Vector3Di( 0, 0, 0 ),
             const CUL::MyString& name = CUL::MyString( "" ) ) override;
+
+        INode* createNode(
+            const ITexture* tex,
+            const Vector3Di& position = Vector3Di( 0, 0, 0 ),
+            const CUL::MyString& name = CUL::MyString( "" ) ) override;
+        ITexture* createTexture( const Path& path ) override;
+
         void removeNode( INode* node ) override;
         const bool exist( const INode* node )const override;
         const unsigned int count()const override;
@@ -27,5 +34,6 @@ namespace Moge
     private:
         SDL2W::IWindow* m_sdlWindow = nullptr;
         std::map<INode*,NodePtr> nodes;
+        std::map<const char*, TexPtr> m_textures;
     };
 }
