@@ -55,7 +55,7 @@ const bool SDL2WindowAdapter::exist( const INode* node )const
 
 const unsigned int SDL2WindowAdapter::count()const
 {
-    return static_cast<unsigned int>( this->nodes->size() );
+    return static_cast<unsigned int>( this->nodes.size() );
 }
 
 void SDL2WindowAdapter::setBackgroundColor( const ColorE color )

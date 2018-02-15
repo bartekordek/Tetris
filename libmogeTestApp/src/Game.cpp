@@ -12,7 +12,12 @@ using IKey = Moge::IKey;
 
 using namespace Tetris;
 
-CGame::~CGame()
+CGame::CGame( void )
+{
+
+}
+
+CGame::~CGame( void )
 {
     this->mainGrid.reset();
 }
@@ -21,8 +26,8 @@ void CGame::initialize( const unsigned int rowsCount, const unsigned int columns
 {
     auto winSize = CUL::Math::Vector3Du( winWidth, winHeight, 0 );
     CUL::Math::Vector3Di winPos( 100, 100, 0 );
-    EngineManager::getEngine()->createWindow( winSize, winPos );
-    mainGrid.reset( new CMainGrid() );
+    this->m_window = EngineManager::getEngine()->createWindow( winSize, winPos );
+    mainGrid.reset( new CMainGrid( this->m_window ) );
     EngineManager::getEngine()->registerObserver( this );
     mainGrid->SetSize( rowsCount, columnsCount );
     startGame();
