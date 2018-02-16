@@ -27,7 +27,7 @@ namespace Moge
             const CUL::MyString& name = CUL::MyString( "" ) ) = 0;
 
         virtual INode* createNode(
-            const ITexture* tex,
+            ITexture* tex,
             const Vector3Di& position = Vector3Di( 0, 0, 0 ),
             const CUL::MyString& name = CUL::MyString( "" ) ) = 0;
         virtual ITexture* createTexture( const Path& path ) = 0;
