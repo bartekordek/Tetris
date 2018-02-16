@@ -233,6 +233,7 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
     <ClInclude Include="inc\IRenderer.h" />
     <ClInclude Include="inc\IRenderer2D.h" />
     <ClInclude Include="inc\IRenderer3D.h" />
+    <ClInclude Include="inc\ISprite.hpp" />
     <ClInclude Include="inc\ITexture.hpp" />
     <ClInclude Include="inc\IWindow.hpp" />
     <ClInclude Include="inc\MogeLib.h" />
@@ -272,6 +273,7 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
     <ClCompile Include="src\IObservableImpl.cpp" />
     <ClCompile Include="src\IRenderable.cpp" />
     <ClCompile Include="src\IRenderer.cpp" />
+    <ClCompile Include="src\ISprite.cpp" />
     <ClCompile Include="src\ITexture.cpp" />
     <ClCompile Include="src\IWindow.cpp" />
     <ClCompile Include="src\MogeLibMain.cpp" />

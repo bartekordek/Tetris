@@ -9,7 +9,8 @@
             <header-extensions>h,hpp</header-extensions>
             <sourceEncoding>UTF-8</sourceEncoding>
             <make-dep-projects>
-                <make-dep-project>../../deps/SDL2Wrapper/deps/CUL/CUL/libcul</make-dep-project>
+                <make-dep-project>../../deps/SDL2Wrapper/libsdl2wrapper</make-dep-project>
+                <make-dep-project>../../deps/SDL2Wrapper/deps/CUL/libcul/libcul</make-dep-project>
             </make-dep-projects>
             <sourceRootList>
                 <sourceRootElem>../inc</sourceRootElem>
