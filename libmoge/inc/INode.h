@@ -7,7 +7,9 @@
 
 namespace Moge
 {
-    class MogeLib_API INode: public CUL::Name, public Visible
+    class MogeLib_API INode:
+        public CUL::Name,
+        public Visible
     {
     public:
         explicit INode( const CUL::MyString& name = CUL::MyString( "" ) );
@@ -26,7 +28,13 @@ namespace Moge
         virtual void attach( INode* node ); //TODO
 
         virtual IRenderable* getRenderable() = 0;
+
+        const std::string& getName()const;
+        void setName( const std::string& name );
+
     protected:
     private:
+        std::string m_name;
+
     };
 }
