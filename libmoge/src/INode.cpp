@@ -25,3 +25,13 @@ void INode::attach( INode* node )
 #if _MSC_VER
 __pragma( warning( pop ) )
 #endif
+
+const std::string& INode::getName()const
+{
+    return this->m_name;
+}
+
+void INode::setName( const std::string& name )
+{
+    this->m_name = name;
+}
