@@ -2,6 +2,7 @@
 
 #include <memory>
 
+#include "ISprite.hpp"
 #include "SDL2Wrapper/IObject.hpp"
 #include "INode.h"
 #include "Visible.h"
@@ -9,12 +10,12 @@
 namespace Moge
 {
     class MogeLib_API SDLSprite:
-        public INode,
+        public ISprite,
         private IRenderable
     {
     public:
         SDLSprite();
-        SDLSprite( const SDLSprite& objectNodeContent );
+        SDLSprite( const SDLSprite& r );
         virtual ~SDLSprite();
 
         SDLSprite& operator=( const SDLSprite& right );
@@ -30,7 +31,8 @@ namespace Moge
         void setScale( const CUL::Math::Vector3Dd& scale )override;
         void setPosition( const CUL::Math::Vector3Dd& pos ) override;
 
-        void setTexture( const SDL2W::IObject* texture );
+        void setTexture( ITexture* texture ) override;
+        ITexture* getTexture() override;
         IRenderable* getRenderable() override;
         const RenderableType getRenderableType()const override;
 
@@ -39,6 +41,6 @@ namespace Moge
         CUL::Math::Vector3Dd position;
         CUL::Math::Vector3Dd scale{ 1.0, 1.0, 1.0 };
         CUL::Math::Vector3Dd absSize;
-        SDL2W::IObject* m_texture = nullptr;
+        SDL2W::IObject* m_sdlObject = nullptr;
     };
 }

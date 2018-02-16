@@ -1,4 +1,5 @@
 #include "SDLSprite.hpp"
+#include "SDLTexture.hpp"
 #include "CUL/Math/Vector3D.hpp"
 
 using namespace Moge;
@@ -11,9 +12,9 @@ SDLSprite::SDLSprite( const SDLSprite& objectNodeContent ):
     position( objectNodeContent.position ),
     scale( objectNodeContent.scale ),
     absSize( objectNodeContent.absSize ),
-    m_texture( objectNodeContent.m_texture )
+    m_sdlObject( objectNodeContent.m_sdlObject )
 {
-    
+
 }
 
 SDLSprite& SDLSprite::operator=( const SDLSprite& right )
@@ -21,7 +22,7 @@ SDLSprite& SDLSprite::operator=( const SDLSprite& right )
     if( &right != this )
     {
         this->position = right.position;
-        this->m_texture = right.m_texture;
+        this->m_sdlObject = right.m_sdlObject;
         this->scale = right.scale;
         this->absSize = right.absSize;
     }
@@ -34,7 +35,7 @@ const bool SDLSprite::operator==( const SDLSprite& right )const
     {
         if( this->position == right.position && this->scale == right.scale )
         {
-            if( this->m_texture == right.m_texture )
+            if( this->m_sdlObject == right.m_sdlObject )
             {
                 return true;
             }
@@ -73,8 +74,7 @@ void SDLSprite::setZ( const double z )
 
 const CUL::Math::Vector3Dd& SDLSprite::getSize()const
 {
-    auto& size = this->m_texture->getSize();
-    return size;
+    return this->m_sdlObject->getSize();
 }
 
 const CUL::Math::Vector3Dd& SDLSprite::getAbsSize() const
@@ -90,13 +90,18 @@ const CUL::Math::Vector3Dd& SDLSprite::getScale() const
 void SDLSprite::setScale( const CUL::Math::Vector3Dd& inputScale )
 {
     this->scale = inputScale;
-    this->absSize = scale * this->m_texture->getSize();
+    this->absSize = scale * this->m_sdlObject->getSize();
 }
 
-void SDLSprite::setTexture( const SDL2W::IObject* inputTexture )
+ITexture* SDLSprite::getTexture()
 {
-    this->m_texture = const_cast<SDL2W::IObject*>( inputTexture );
-    this->absSize = this->scale * this->m_texture->getSize();
+    return this->m_sdlObject->;
+}
+
+void SDLSprite::setTexture( ITexture* texture )
+{
+    this->m_sdlObject->s
+    this->absSize = this->scale * this->m_sdlObject->getSize();
 }
 
 IRenderable* SDLSprite::getRenderable()
