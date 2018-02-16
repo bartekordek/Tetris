@@ -24,23 +24,29 @@ INode* SDL2WindowAdapter::createNode(
     const CUL::Math::Vector3Di& position,
     const CUL::MyString& name )
 {
-    /*
-    auto obj = this->m_sdlWindow->createObject( filePath );
-    auto textureNode = new SDLSprite();
-    textureNode->setTexture( obj );
-    NodePtr nodePtr( textureNode );
-    this->nodes[ textureNode ] = nodePtr;
-    return nodePtr.get();
-    */
+    auto tex = createTexture( filePath );
+    auto sdlTex = static_cast< SDLTexture* >( tex );
+    return createNode(
+        static_cast< SDLTexture* >( createTexture( filePath ) ),
+        position,
+        name
+    );
 }
 
 INode* SDL2WindowAdapter::createNode(
-    const ITexture* tex,
-    const Vector3Di& position = Vector3Di( 0, 0, 0 ),
-    const CUL::MyString& name = CUL::MyString( "" ) )
+    ITexture* tex,
+    const Vector3Di& position,
+    const CUL::MyString& name )
 {
-    INode* result = nullptr;
-    return result;
+    auto sdlTex = static_cast< SDLTexture* >( tex );
+    auto obj = this->m_sdlWindow->createObject( sdlTex->getTexture() );
+    auto textureNode = new SDLSprite();
+    textureNode->setTexture( sdlTex );
+    textureNode->setPosition( position );
+    textureNode->setName( name );
+    NodePtr nodePtr( textureNode );
+    this->nodes[ textureNode ] = nodePtr;
+    return textureNode;
 }
 
 ITexture* SDL2WindowAdapter::createTexture( const Path& path )
@@ -54,6 +60,7 @@ ITexture* SDL2WindowAdapter::createTexture( const Path& path )
         sdlTexWrap->setTexture( sdlTex );
         TexPtr sdlTexPtr( sdlTexWrap );
         this->m_textures[ path.getPath().c_str() ] = sdlTexPtr;
+        result = sdlTexWrap;
     }
     else
     {

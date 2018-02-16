@@ -16,7 +16,7 @@ namespace Moge
             const CUL::MyString& name = CUL::MyString( "" ) ) override;
 
         INode* createNode(
-            const ITexture* tex,
+            ITexture* tex,
             const Vector3Di& position = Vector3Di( 0, 0, 0 ),
             const CUL::MyString& name = CUL::MyString( "" ) ) override;
         ITexture* createTexture( const Path& path ) override;

@@ -20,11 +20,8 @@ CMainGrid::CMainGrid( Moge::IWindow* window ):
 
     std::lock_guard<std::mutex> slabLock( currentBrickMutex );
 
-    Path blockImagepath( "..\\Media\\Block.bmp" );
-    this->filledSlabTex = this->m_window->createNode( blockImagepath );
-
-    Path bgBlockImagepath( "..\\Media\\BackGroundBlock.bmp" );
-    this->emptySlabTex = this->m_window->createNode( bgBlockImagepath );
+    this->filledSlabTex = this->m_window->createTexture( "..\\Media\\Block.bmp" );
+    this->emptySlabTex = this->m_window->createTexture( "..\\Media\\BackGroundBlock.bmp" );
 
     this->funThread = std::thread( &CMainGrid::funLoop, this );
 }
@@ -65,7 +62,8 @@ void CMainGrid::SetSize( const unsigned int rowsCount, const unsigned int column
     {
         for( auto& slab : slabRow )
         {
-            auto slabNode = EngineManager::getEngine()->get2DNodeFactory()->createFromTexture( this->emptySlabTex );
+            auto slabNode = this->m_window->createNode( this->emptySlabTex );
+           // auto slabNode = EngineManager::getEngine()->get2DNodeFactory()->createFromTexture( this->emptySlabTex );
             slabNode->setScale( CUL::Math::Vector3Dd( 2.0, 2.0, 0.0 ) );
             auto& slabSize = slabNode->getAbsSize();
             slabNode->setX( slab.col() * slabSize.getX() );
@@ -355,7 +353,7 @@ void CMainGrid::MoveAllLinesOneLineDown(
 
 void CMainGrid::SetSlabImagSurface( Slab& slab )
 {
-    auto& slabNode = slab.getNode();
+    auto slabNode = slab.getNode();
     if( slab.isEmpty() )
     {
         slabNode->setTexture( this->emptySlabTex );
