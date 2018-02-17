@@ -22,7 +22,7 @@ void SDLTexture::setTexture( ContainingTexture* texture )
     this->m_texture = texture;
 }
 
-const Vector3Du& SDLTexture::getSize()const
+const Vector3Dd& SDLTexture::getSize()const
 {
     return this->m_texture->getSize();
 }

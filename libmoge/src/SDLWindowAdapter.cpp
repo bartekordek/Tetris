@@ -39,7 +39,7 @@ INode* SDL2WindowAdapter::createNode(
     const CUL::MyString& name )
 {
     auto sdlTex = static_cast< SDLTexture* >( tex );
-    auto obj = this->m_sdlWindow->createObject( sdlTex->getTexture() );
+    auto obj = this->m_sdlWindow->createSprite( sdlTex->getTexture() );
     auto textureNode = new SDLSprite();
     textureNode->setTexture( sdlTex );
     textureNode->setPosition( position );

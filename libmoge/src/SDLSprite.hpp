@@ -3,7 +3,7 @@
 #include <memory>
 
 #include "ISprite.hpp"
-#include "SDL2Wrapper/IObject.hpp"
+#include "SDL2Wrapper/ISprite.hpp"
 #include "INode.h"
 #include "Visible.h"
 
@@ -41,6 +41,7 @@ namespace Moge
         CUL::Math::Vector3Dd position;
         CUL::Math::Vector3Dd scale{ 1.0, 1.0, 1.0 };
         CUL::Math::Vector3Dd absSize;
-        SDL2W::IObject* m_sdlObject = nullptr;
+        SDL2W::ISprite* m_sdlSprite = nullptr;
+        ITexture* m_texture = nullptr;
     };
 }

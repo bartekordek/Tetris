@@ -13,7 +13,7 @@ namespace Moge
 
         ContainingTexture* getTexture()const;
         void setTexture( ContainingTexture* texture );
-        const Vector3Du& getSize()const override;
+        const Vector3Dd& getSize()const override;
         const Path& getPath()const override;
 
     protected:
