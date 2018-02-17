@@ -3,7 +3,7 @@
 #include "CUL/Math/Vector3D.hpp"
 #include "CUL/Path.hpp"
 #include "CUL/Color.hpp"
-#include "INode.h"
+#include "ISprite.hpp"
 #include "IRenderer.h"
 #include "ITexture.hpp"
 
@@ -21,12 +21,12 @@ namespace Moge
         IWindow();
         virtual ~IWindow();
 
-        virtual INode* createNode(
+        virtual ISprite* createNode(
             const Path& filePath,
             const Vector3Di& position = Vector3Di( 0, 0, 0 ),
             const CUL::MyString& name = CUL::MyString( "" ) ) = 0;
 
-        virtual INode* createNode(
+        virtual ISprite* createNode(
             ITexture* tex,
             const Vector3Di& position = Vector3Di( 0, 0, 0 ),
             const CUL::MyString& name = CUL::MyString( "" ) ) = 0;

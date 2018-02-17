@@ -131,9 +131,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\ConsoleUtilities.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Visible.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

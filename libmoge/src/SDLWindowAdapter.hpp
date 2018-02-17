@@ -4,18 +4,19 @@
 #include <map>
 namespace Moge
 {
-    class SDL2WindowAdapter final: public IWindow
+    class SDL2WindowAdapter final:
+        public IWindow
     {
     public:
         SDL2WindowAdapter();
         ~SDL2WindowAdapter();
 
-        INode* createNode(
+        ISprite* createNode(
             const Path& filePath,
             const Vector3Di& position = Vector3Di( 0, 0, 0 ),
             const CUL::MyString& name = CUL::MyString( "" ) ) override;
 
-        INode* createNode(
+        ISprite* createNode(
             ITexture* tex,
             const Vector3Di& position = Vector3Di( 0, 0, 0 ),
             const CUL::MyString& name = CUL::MyString( "" ) ) override;

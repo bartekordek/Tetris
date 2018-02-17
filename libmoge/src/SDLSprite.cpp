@@ -101,7 +101,8 @@ ITexture* SDLSprite::getTexture()
 void SDLSprite::setTexture( ITexture* texture )
 {
     this->m_texture = texture;
-    this->m_sdlSprite->setTexture( this->m_texture );
+    auto sdlTex = static_cast< SDLTexture* >( texture );
+    this->m_sdlSprite->setTexture( sdlTex->getTexture() );
     this->absSize = this->scale * this->m_sdlSprite->getSize();
 }
 

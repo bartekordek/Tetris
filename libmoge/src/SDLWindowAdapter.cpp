@@ -19,13 +19,11 @@ void SDL2WindowAdapter::setSDLWin( SDL2W::IWindow* win )
     this->m_sdlWindow = win;
 }
 
-INode* SDL2WindowAdapter::createNode(
+ISprite* SDL2WindowAdapter::createNode(
     const CUL::FS::Path& filePath,
     const CUL::Math::Vector3Di& position,
     const CUL::MyString& name )
 {
-    auto tex = createTexture( filePath );
-    auto sdlTex = static_cast< SDLTexture* >( tex );
     return createNode(
         static_cast< SDLTexture* >( createTexture( filePath ) ),
         position,
@@ -33,7 +31,7 @@ INode* SDL2WindowAdapter::createNode(
     );
 }
 
-INode* SDL2WindowAdapter::createNode(
+ISprite* SDL2WindowAdapter::createNode(
     ITexture* tex,
     const Vector3Di& position,
     const CUL::MyString& name )
