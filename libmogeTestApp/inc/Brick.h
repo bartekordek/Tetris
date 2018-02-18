@@ -10,6 +10,7 @@ namespace Tetris
     using myBool = unsigned char;
     static const myBool False = 0;
     static const myBool True = 1;
+    using Directions = CUL::Math::Directions;
     enum class BrickTypes: char
     {
         L, 
@@ -28,8 +29,7 @@ namespace Tetris
         Brick( const Brick& brick );
         virtual ~Brick();
         const CoordinatestList getBlockPositions()const;
-        void move( 
-            const CUL::Math::Directions direction = CUL::Math::Directions::D );
+        void move( const Directions direction = Directions::D );
         void rotate( const bool clockWise = true );
         const BrickTypes getBlockType()const;
         Brick& operator=( const Brick& right );
