@@ -11,7 +11,9 @@ namespace Moge
     class SDL2WrapperAdapter final:
         public IRenderer2D,
         public IKeyboardObservable,
-        public IMainGameLoop
+        public IMainGameLoop,
+        public SDL2W::IKeyboardObserver,
+        private SDL2W::IWindowEventObserver
     {
     public:
         SDL2WrapperAdapter();
@@ -32,6 +34,9 @@ namespace Moge
         void renderAllWindows() override;
 
         void populatKeyStates( KeyMap& keys );
+
+        void onKeyBoardEvent( const SDL2W::IKey& key ) override;
+        void onWindowEvent( const WindowEventType e );
 
     protected:
     private:

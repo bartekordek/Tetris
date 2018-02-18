@@ -44,7 +44,9 @@ void SDL2WrapperAdapter::clear()
 
 void SDL2WrapperAdapter::runMainLoop()
 {
-
+    this->m_sdlW->registerKeyboardEventListener( this );
+    this->m_sdlW->registerWindowEventListener( this );
+    this->m_sdlW->runEventLoop();
 }
 
 void SDL2WrapperAdapter::stopMainLoop()
@@ -67,4 +69,14 @@ void SDL2WrapperAdapter::populatKeyStates( KeyMap& keysOut )
         std::shared_ptr<IKey> keyPtr( keyConcrete );
         keysOut[ key.first ] = keyPtr;
     }
+}
+#include <iostream>
+void SDL2WrapperAdapter::onKeyBoardEvent( const SDL2W::IKey& key )
+{
+    std::cout << "KEY IS " << key.getKeyName() << "\n";
+}
+
+void SDL2WrapperAdapter::onWindowEvent( const WindowEventType e )
+{
+    std::cout << "KEY IS " << static_cast<int>( e ) << "\n";
 }
