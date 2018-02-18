@@ -71,7 +71,7 @@ namespace Tetris
     }
 
     Brick::~Brick()
-     {
+    {
     }
 
     void Brick::move( const Directions direction )

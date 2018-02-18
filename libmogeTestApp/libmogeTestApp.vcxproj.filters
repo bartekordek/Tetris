@@ -39,6 +39,12 @@
     <ClInclude Include="inc\TableCoordinates.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\ViewData.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\BasicTypedefs.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -58,6 +64,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\TableCoordinates.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ViewData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

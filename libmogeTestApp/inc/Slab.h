@@ -1,29 +1,35 @@
 #pragma once
 
-#include "TableCoordinates.h"
-#include "INode.h"
+#include "ViewData.hpp"
+#include "ISprite.hpp"
 
 namespace Tetris
 {
-class Slab
-{
-public:
-    Slab( const Slab& slab );
-    Slab( const unsigned int row = 0, const unsigned int col = 0, const bool empty = true );
-    virtual ~Slab();
-    Slab& operator=( const Slab& slab );
-    const unsigned int row()const;
-    const unsigned int col()const;
-    void row( const unsigned int row );
-    void col( const unsigned int col );
-    const bool isEmpty()const;
-    void setEmpty( const bool empty );
-    void setNode( Moge::INode* node );
-    Moge::INode* getNode()const;
+    class Slab
+    {
+    public:
+        Slab( const Slab& slab );
+        Slab( cunt row = 0, cunt col = 0, const bool empty = true );
+        virtual ~Slab();
+        Slab& operator=( const Slab& slab );
+        cunt row()const;
+        cunt col()const;
+        void row( cunt row );
+        void col( cunt col );
+        const bool isEmpty()const;
+        void setEmpty( const bool empty );
+        void setNode( Moge::ISprite* node );
+        Moge::ISprite* getNode()const;
 
-private:
-    MatrixPos position;
-    bool empty = true;
-    Moge::INode* node;
-};
+        void setViewData( ViewData* viewData );
+
+    private:
+        void updateNodePos();
+
+        Vector3dd m_cartPos;
+        Vector3du m_matrixPos;
+        bool empty = true;
+        Moge::ISprite* node;
+        ViewData* m_viewData = nullptr;
+    };
 }

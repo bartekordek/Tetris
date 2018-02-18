@@ -98,6 +98,11 @@ ITexture* SDLSprite::getTexture()
     return this->m_texture;
 }
 
+void SDLSprite::setSprite( SDL2W::ISprite* sprite )
+{
+    this->m_sdlSprite = sprite;
+}
+
 void SDLSprite::setTexture( ITexture* texture )
 {
     this->m_texture = texture;

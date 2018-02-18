@@ -1,10 +1,15 @@
 #pragma once 
 
+#include "ViewData.hpp"
+
 #include "Slab.h"
 #include "Brick.h"
 #include "CUL/LckPrim.hpp"
 #include "CUL/ITimer.hpp"
 #include "INode.h"
+
+#include "IWindow.hpp"
+
 #include <vector>
 #include <mutex>
 #include <memory>
@@ -59,5 +64,6 @@ namespace Tetris
         std::unique_ptr<CUL::ITimer> timer;
 
         Moge::IWindow* m_window = nullptr;
+        ViewData m_viewData;
     };
 }

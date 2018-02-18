@@ -37,14 +37,15 @@ ISprite* SDL2WindowAdapter::createNode(
     const CUL::MyString& name )
 {
     auto sdlTex = static_cast< SDLTexture* >( tex );
+    auto sdlSpriteWrapper = new SDLSprite();
     auto obj = this->m_sdlWindow->createSprite( sdlTex->getTexture() );
-    auto textureNode = new SDLSprite();
-    textureNode->setTexture( sdlTex );
-    textureNode->setPosition( position );
-    textureNode->setName( name );
-    NodePtr nodePtr( textureNode );
-    this->nodes[ textureNode ] = nodePtr;
-    return textureNode;
+    sdlSpriteWrapper->setSprite( obj );
+    sdlSpriteWrapper->setTexture( sdlTex );
+    sdlSpriteWrapper->setPosition( position );
+    sdlSpriteWrapper->setName( name );
+    NodePtr nodePtr( sdlSpriteWrapper );
+    this->nodes[ sdlSpriteWrapper ] = nodePtr;
+    return sdlSpriteWrapper;
 }
 
 ITexture* SDL2WindowAdapter::createTexture( const Path& path )

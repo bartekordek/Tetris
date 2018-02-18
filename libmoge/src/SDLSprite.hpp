@@ -31,6 +31,7 @@ namespace Moge
         void setScale( const CUL::Math::Vector3Dd& scale )override;
         void setPosition( const CUL::Math::Vector3Dd& pos ) override;
 
+        void setSprite( SDL2W::ISprite* sprite );
         void setTexture( ITexture* texture ) override;
         ITexture* getTexture() override;
         IRenderable* getRenderable() override;

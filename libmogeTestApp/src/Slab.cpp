@@ -1,14 +1,14 @@
 #include "Slab.h"
 
 using namespace Tetris;
-Slab::Slab( const unsigned int row, const unsigned int col, const bool empty ):
-    position( MatrixPos( row, col ) ),
+Slab::Slab( 
+    cunt row, cunt col, 
+    const bool empty ):
     empty( empty )
 {
 }
 
 Slab::Slab( const Slab& slab ):
-    position( slab.position ),
     empty( slab.empty )
 {
 }
@@ -21,29 +21,30 @@ Slab& Slab::operator=( const Slab& slab )
 {
     if( this != &slab )
     {
-        this->position = slab.position;
+        this->m_cartPos = slab.m_cartPos;
+        this->m_matrixPos = slab.m_matrixPos;
         this->empty = slab.empty;
         this->node = slab.node;
     }
     return *this;
 }
 
-const unsigned int Slab::row()const
+cunt Slab::row()const
 {
     return position.getRow();
 }
 
-void Slab::row( const unsigned int row )
+void Slab::row( cunt row )
 {
     position.setRow( row );
 }
 
-void Slab::col( const unsigned int col )
+void Slab::col( cunt col )
 {
     position.setCol( col );
 }
 
-const unsigned int Slab::col()const
+cunt Slab::col()const
 {
     return position.getCol();
 }
@@ -58,12 +59,24 @@ void Slab::setEmpty( const bool empty )
     this->empty = empty;
 }
 
-void Slab::setNode( Moge::INode* node )
+void Slab::setNode( Moge::ISprite* node )
 {
     this->node = node;
 }
 
-Moge::INode* Slab::getNode()const
+Moge::ISprite* Slab::getNode()const
 {
     return this->node;
+}
+
+void Slab::setViewData( ViewData* viewData )
+{
+    this->m_viewData = viewData;
+}
+
+void Slab::updateNodePos()
+{
+    this->node->setPosition(
+        this->position.
+    );
 }

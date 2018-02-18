@@ -14,10 +14,6 @@ SDL2WrapperAdapter::~SDL2WrapperAdapter()
     SDL2W::destroySDL2Wrapper();
 }
 
-#if _MSC_VER
-__pragma(warning( push )) \
-__pragma(warning( disable:4100 ))
-#endif
 IWindow* SDL2WrapperAdapter::createWindow(
     Vector3Du& size,
     Vector3Di& position,
@@ -39,17 +35,12 @@ void SDL2WrapperAdapter::forceDestroy()
 
 void SDL2WrapperAdapter::updateScreen()
 {
-
 }
 
 void SDL2WrapperAdapter::clear()
 {
-
+    this->m_sdlW->clearWindows();
 }
-
-#if _MSC_VER
-__pragma( warning( pop ) )
-#endif
 
 void SDL2WrapperAdapter::runMainLoop()
 {

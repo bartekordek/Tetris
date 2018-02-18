@@ -1,10 +1,10 @@
 #include "Game.h"
 
-#include <ConsoleUtilities.h>
+#include "CUL/ConsoleUtilities.hpp"
 
 int main( int argc, char *argv[] )
 {
-    Moge::ConsoleUtilities::PrintInputParameters( argc, argv );
+    CUL::ConsoleUtilities::PrintInputParameters( argc, argv );
     Tetris::CGame game;
     game.initialize( 22, 10 );
     game.run();

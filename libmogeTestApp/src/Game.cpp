@@ -22,10 +22,12 @@ CGame::~CGame( void )
     this->mainGrid.reset();
 }
 
-void CGame::initialize( const unsigned int rowsCount, const unsigned int columnsCount, const unsigned int winWidth, const unsigned int winHeight )
+void CGame::initialize( 
+    cunt rowsCount, cunt columnsCount,
+    cunt winWidth, cunt winHeight )
 {
-    auto winSize = CUL::Math::Vector3Du( winWidth, winHeight, 0 );
-    CUL::Math::Vector3Di winPos( 100, 100, 0 );
+    Vector3Du winSize( winWidth, winHeight, 0 );
+    Vector3Di winPos( 100, 100, 0 );
     this->m_window = EngineManager::getEngine()->createWindow( winSize, winPos );
     mainGrid.reset( new CMainGrid( this->m_window ) );
     EngineManager::getEngine()->registerObserver( this );

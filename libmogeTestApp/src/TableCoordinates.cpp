@@ -1,11 +1,21 @@
 #include "TableCoordinates.h"
 
-MatrixPos::MatrixPos( const MatrixPos& tableCoord ):row( tableCoord.row ), column( tableCoord.column )
+double MatrixPos::s_xOff = 0.0;
+double MatrixPos::s_yOff = 0.0;
+
+MatrixPos::MatrixPos( const MatrixPos& tableCoord ):
+    row( tableCoord.row ),
+    column( tableCoord.column ),
+    m_x( s_xOff ),
+    m_y( s_yOff )
 {
 }
 
-MatrixPos::MatrixPos( const unsigned int row, const unsigned int column ): row( row ), column( column )
+MatrixPos::MatrixPos( cunt  row, cunt  column ):
+    row( row ),
+    column( column )
 {
+
 }
 
 MatrixPos& MatrixPos::operator=( const MatrixPos& coor )
@@ -30,28 +40,43 @@ MatrixPos MatrixPos::operator-( const MatrixPos& right ) const
     return result;
 }
 
-const unsigned int MatrixPos::getCol()const
+cunt MatrixPos::getCol()const
 {
     return this->column;
 }
 
-const unsigned int MatrixPos::getRow()const
+cunt MatrixPos::getRow()const
 {
     return this->row;
 }
 
-void MatrixPos::setRow( const unsigned int row )
+void MatrixPos::setRow( cunt  row )
 {
     this->row = row;
 }
 
-void MatrixPos::setCol( const unsigned int col )
+void MatrixPos::setCol( cunt  col )
 {
     this->column = col;
 }
 
-void MatrixPos::changePosition( const unsigned int row, const unsigned int col )
+void MatrixPos::changePosition( cunt  row, cunt  col )
 {
     this->row = row;
     this->column = col;
+}
+
+void MatrixPos::matrix2Coords()
+{
+    this->m_x = s_xOff + column *
+}
+
+void MatrixPos::setXOffsets( const double xoff )
+{
+    s_xOff = xoff;
+}
+
+void MatrixPos::setYOffsets( const double yoff )
+{
+    s_yOff = yoff;
 }

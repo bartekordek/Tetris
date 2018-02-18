@@ -14,8 +14,12 @@ using Directions = CUL::Math::Directions;
 using EngineManager = Moge::EngineManager;
 
 CMainGrid::CMainGrid( Moge::IWindow* window ):
-    runFunThread( true )
+    runFunThread( true ),
+    m_window( window )
 {
+    m_viewData.setDisplayOffset( Vector3dd( 0, 0 ,0 ) );
+    m_viewData.setTargetSlabSize( Vector3dd( 20, 10, 0 ) );
+
     this->timer.reset( CUL::TimerFactory::getChronoTimer() );
 
     std::lock_guard<std::mutex> slabLock( currentBrickMutex );
@@ -84,8 +88,7 @@ void CMainGrid::funLoop()
 {
     std::cout << "CMainGrid::funLoop()::start\n";
     CUL::Math::Vector3Dd pos( 400.0, 20.0, 0.0 );
-    auto slabNode = EngineManager::getEngine()->get2DNodeFactory()->createFromTexture( 
-        this->emptySlabTex );
+    auto slabNode = this->m_window->createNode( this->emptySlabTex );
     slabNode->SetVisible( true );
     float t = 0.0;
     float x0 = 350;

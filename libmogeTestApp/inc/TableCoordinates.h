@@ -1,5 +1,7 @@
 #pragma once
 
+#include "BasicTypedefs.hpp"
+
 #include <vector>
 
 class MatrixPos
@@ -7,22 +9,36 @@ class MatrixPos
 public:
     MatrixPos() = default;
     MatrixPos( const MatrixPos& tableCoord );
-    MatrixPos( const unsigned int row, const unsigned int column );
+    MatrixPos( cunt row, cunt column );
     virtual ~MatrixPos() = default;
 
     MatrixPos& operator=( const MatrixPos& right );
     MatrixPos operator+( const MatrixPos& right )const;
     MatrixPos operator-( const MatrixPos& right )const;
 
-    const unsigned int getRow()const;
-    const unsigned int getCol()const;
-    void setRow( const unsigned int row );
-    void setCol( const unsigned int col );
-    void changePosition( const unsigned int row, const unsigned int col );
+    cunt getRow()const;
+    cunt getCol()const;
+    const double getX()const;
+    const double getY()const;
+    void setRow( cunt row );
+    void setCol( cunt col );
+    void changePosition( cunt row, cunt col );
+
+    static void setXOffsets( const double xoff );
+    static void setYOffsets( const double yoff );
 
 private:
+    void matrix2Coords();
+
+    static double s_xOff;
+    static double s_yOff;
+    static double s_yOff;
+    static double s_yOff;
+
     unsigned row = 0;
     unsigned column = 0;
+    double m_x = 0.0;
+    double m_y = 0.0;
 };
 
 typedef std::vector<MatrixPos> CoordinatestList;
