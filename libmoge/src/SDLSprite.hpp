@@ -39,10 +39,10 @@ namespace Moge
 
     protected:
     private:
-        CUL::Math::Vector3Dd position;
         CUL::Math::Vector3Dd scale{ 1.0, 1.0, 1.0 };
         CUL::Math::Vector3Dd absSize;
         SDL2W::ISprite* m_sdlSprite = nullptr;
+        CUL::Math::Vector3Dd m_pos;
         ITexture* m_texture = nullptr;
     };
 }

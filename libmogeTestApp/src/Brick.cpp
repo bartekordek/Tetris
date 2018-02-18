@@ -56,9 +56,15 @@ namespace Tetris
     const CoordinatestList Brick::getBlockPositions()const
     {
         CoordinatestList positions;
-        for( unsigned int rowIndex = 0; rowIndex < this->blockMatrix.getYsCount(); ++rowIndex )
+        for( 
+            unsigned int rowIndex = 0;
+            rowIndex < this->blockMatrix.getRowsCount();
+            ++rowIndex )
         {
-            for( unsigned int colIndex = 0; colIndex < this->blockMatrix.getXumnCount(); ++colIndex )
+            for(
+                unsigned int colIndex = 0;
+                colIndex < this->blockMatrix.getColumnCount();
+                ++colIndex )
             {
                 if( True == this->blockMatrix( rowIndex, colIndex ) )
                 {
@@ -94,5 +100,9 @@ namespace Tetris
         }
 
         this->position += offset;
+        for( auto& slab: this->blockMatrix )
+        {
+
+        }
     }
 }

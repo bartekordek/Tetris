@@ -9,7 +9,7 @@ SDLSprite::SDLSprite()
 }
 
 SDLSprite::SDLSprite( const SDLSprite& objectNodeContent ):
-    position( objectNodeContent.position ),
+    m_pos( objectNodeContent.m_pos ),
     scale( objectNodeContent.scale ),
     absSize( objectNodeContent.absSize ),
     m_sdlSprite( objectNodeContent.m_sdlSprite )
@@ -21,7 +21,7 @@ SDLSprite& SDLSprite::operator=( const SDLSprite& right )
 {
     if( &right != this )
     {
-        this->position = right.position;
+        this->m_pos = right.m_pos;
         this->m_sdlSprite = right.m_sdlSprite;
         this->scale = right.scale;
         this->absSize = right.absSize;
@@ -31,17 +31,7 @@ SDLSprite& SDLSprite::operator=( const SDLSprite& right )
 
 const bool SDLSprite::operator==( const SDLSprite& right )const
 {
-    if( this != &right )
-    {
-        if( this->position == right.position && this->scale == right.scale )
-        {
-            if( this->m_sdlSprite == right.m_sdlSprite )
-            {
-                return true;
-            }
-        }
-    }
-    else
+    if( &right == this )
     {
         return true;
     }
@@ -54,22 +44,25 @@ SDLSprite::~SDLSprite()
 
 const CUL::Math::Vector3Dd& SDLSprite::getPosition() const
 {
-    return this->position;
+    return this->m_sdlSprite->getPosition();
 }
 
 void SDLSprite::setX( const double x )
 {
-    this->position.setX( x );
+    this->m_pos.setX( x );
+    this->m_sdlSprite->setPosition( this->m_pos );
 }
 
 void SDLSprite::setY( const double y )
 {
-    this->position.setY( y );
+    this->m_pos.setY( y );
+    this->m_sdlSprite->setPosition( this->m_pos );
 }
 
 void SDLSprite::setZ( const double z )
 {
-    this->position.setZ( z );
+    this->m_pos.setZ( z );
+    this->m_sdlSprite->setPosition( this->m_pos );
 }
 
 const CUL::Math::Vector3Dd& SDLSprite::getSize()const
@@ -118,7 +111,8 @@ IRenderable* SDLSprite::getRenderable()
 
 void SDLSprite::setPosition( const CUL::Math::Vector3Dd& pos )
 {
-    this->position = pos;
+    this->m_pos = pos;
+    this->m_sdlSprite->setPosition( pos );
 }
 
 const RenderableType SDLSprite::getRenderableType()const

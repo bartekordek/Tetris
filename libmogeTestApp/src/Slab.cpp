@@ -76,11 +76,6 @@ void Slab::setViewData( ViewData* viewData )
     this->m_viewData = viewData;
 }
 
-void Slab::updateNodePos()
-{
-    this->node->setPosition( this->m_cartPos );
-}
-
 void Slab::cartesian2Matrix()
 {
 
@@ -95,4 +90,12 @@ void Slab::matrix2Cartesian()
     this->m_cartPos.setY(
         this->m_viewData->getDisplayOffset().getY() +
         this->m_viewData->getTargetSlabSize().getY() * this->m_matrixPos.getY() );
+
+    updateNodePos();
+}
+
+
+void Slab::updateNodePos()
+{
+    this->node->setPosition( this->m_cartPos );
 }
