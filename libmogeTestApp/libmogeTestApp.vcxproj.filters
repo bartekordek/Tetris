@@ -36,9 +36,6 @@
     <ClInclude Include="inc\Slab.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\TableCoordinates.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\ViewData.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -61,9 +58,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Slab.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\TableCoordinates.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\ViewData.cpp">

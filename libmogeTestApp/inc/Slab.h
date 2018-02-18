@@ -24,6 +24,8 @@ namespace Tetris
         void setViewData( ViewData* viewData );
 
     private:
+        void cartesian2Matrix();
+        void matrix2Cartesian();
         void updateNodePos();
 
         Vector3dd m_cartPos;

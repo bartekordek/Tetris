@@ -31,22 +31,24 @@ Slab& Slab::operator=( const Slab& slab )
 
 cunt Slab::row()const
 {
-    return position.getRow();
+    return this->m_matrixPos.getY();
 }
 
 void Slab::row( cunt row )
 {
-    position.setRow( row );
+    this->m_matrixPos.setY( row );
+    matrix2Cartesian();
 }
 
 void Slab::col( cunt col )
 {
-    position.setCol( col );
+    this->m_matrixPos.setX( col );
+    matrix2Cartesian();
 }
 
 cunt Slab::col()const
 {
-    return position.getCol();
+    return this->m_matrixPos.getX();
 }
 
 const bool Slab::isEmpty()const
@@ -76,7 +78,21 @@ void Slab::setViewData( ViewData* viewData )
 
 void Slab::updateNodePos()
 {
-    this->node->setPosition(
-        this->position.
-    );
+    this->node->setPosition( this->m_cartPos );
+}
+
+void Slab::cartesian2Matrix()
+{
+
+}
+
+void Slab::matrix2Cartesian()
+{
+    this->m_cartPos.setX( 
+        this->m_viewData->getDisplayOffset().getX() +
+        this->m_viewData->getTargetSlabSize().getX() * this->m_matrixPos.getX() );
+
+    this->m_cartPos.setY(
+        this->m_viewData->getDisplayOffset().getY() +
+        this->m_viewData->getTargetSlabSize().getY() * this->m_matrixPos.getY() );
 }

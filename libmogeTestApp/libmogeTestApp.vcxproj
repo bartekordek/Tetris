@@ -248,7 +248,6 @@
     <ClInclude Include="inc\Game.h" />
     <ClInclude Include="inc\MainGrid.h" />
     <ClInclude Include="inc\Slab.h" />
-    <ClInclude Include="inc\TableCoordinates.h" />
     <ClInclude Include="inc\ViewData.hpp" />
   </ItemGroup>
   <ItemGroup>
@@ -258,7 +257,6 @@
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\MainGrid.cpp" />
     <ClCompile Include="src\Slab.cpp" />
-    <ClCompile Include="src\TableCoordinates.cpp" />
     <ClCompile Include="src\ViewData.cpp" />
   </ItemGroup>
   <ItemGroup>

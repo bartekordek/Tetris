@@ -56,14 +56,13 @@ namespace Tetris
     const CoordinatestList Brick::getBlockPositions()const
     {
         CoordinatestList positions;
-
-        for( unsigned int rowIndex = 0; rowIndex < this->blockMatrix.getRowsCount(); ++rowIndex )
+        for( unsigned int rowIndex = 0; rowIndex < this->blockMatrix.getYsCount(); ++rowIndex )
         {
-            for( unsigned int colIndex = 0; colIndex < this->blockMatrix.getColumnCount(); ++colIndex )
+            for( unsigned int colIndex = 0; colIndex < this->blockMatrix.getXumnCount(); ++colIndex )
             {
                 if( True == this->blockMatrix( rowIndex, colIndex ) )
                 {
-                    positions.push_back( MatrixPos( rowIndex, colIndex ) + this->position );
+                    positions.push_back( MatrixPos( rowIndex, colIndex, 0 ) + this->position );
                 }
             }
         }
@@ -76,26 +75,24 @@ namespace Tetris
 
     void Brick::move( const Directions direction )
     {
-        int rowDiff = 0;
-        int colDiff = 0;
+        Vector3di offset;
         if( Directions::D == direction )
         {
-            rowDiff = 1;
+            offset.setY( 1 );
         }
         else if( Directions::L == direction )
         {
-            colDiff = -1;
+            offset.setX( -1 );
         }
         else if( Directions::R == direction )
         {
-            colDiff = 1;
+            offset.setX( 1 );
         }
         else if( Directions::U == direction )
         {
-            rowDiff = -1;
+            offset.setY( -1 );
         }
 
-        position.setRow( position.getRow() + rowDiff );
-        position.setCol( position.getCol() + colDiff );
+        this->position += offset;
     }
 }

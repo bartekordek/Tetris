@@ -49,7 +49,7 @@ void CMainGrid::updateGrid()
     MoveActualBrick( Directions::D );
 }
 
-void CMainGrid::SetSize( const unsigned int rowsCount, const unsigned int columnsCount, const unsigned int initialX, const unsigned int initialY )
+void CMainGrid::SetSize( cunt rowsCount, cunt columnsCount, cunt initialX, cunt initialY )
 {
     clearSlabs();
     for( unsigned row = 0; row < rowsCount; ++row )
@@ -86,7 +86,6 @@ void CMainGrid::clearSlabs()
 
 void CMainGrid::funLoop()
 {
-    std::cout << "CMainGrid::funLoop()::start\n";
     CUL::Math::Vector3Dd pos( 400.0, 20.0, 0.0 );
     auto slabNode = this->m_window->createNode( this->emptySlabTex );
     slabNode->SetVisible( true );
@@ -95,15 +94,12 @@ void CMainGrid::funLoop()
     float y0 = 350;
     while( this->runFunThread )
     {
-        std::cout << "CMainGrid::funLoop()iteration::start\n";
         pos.setX( x0 + 100 * cos( t ) );
         pos.setY( y0 + 100 * sin( t ) );
         slabNode->setPosition( pos );
         t += 0.1f;
         this->timer->sleepMiliSeconds( 16 );
-        std::cout << "CMainGrid::funLoop()iteration::stop\n";
     }
-    std::cout << "CMainGrid::funLoop()::stop\n";
 }
 
 void CMainGrid::ReLeaseBrick()
@@ -117,11 +113,11 @@ void CMainGrid::AddBrick( const Brick* brick )
     const CoordinatestList coords = brick->getBlockPositions();
     for( auto it = coords.begin(); it != coords.end(); ++it )
     {
-        MarkSlabAsPartOfMovingBlock( it->getRow(), it->getCol() );
+        MarkSlabAsPartOfMovingBlock( it->getY(), it->getX() );
     }
 }
 
-void CMainGrid::MarkSlabAsPartOfMovingBlock( const unsigned int row, const unsigned int col )
+void CMainGrid::MarkSlabAsPartOfMovingBlock( cunt row, cunt col )
 {
     if( row >= slabsRows.size() || ( slabsRows.size() > 0 && col > slabsRows.at( 0 ).size() ) )
     {
@@ -133,13 +129,13 @@ void CMainGrid::MarkSlabAsPartOfMovingBlock( const unsigned int row, const unsig
 }
 
 const bool CMainGrid::PartOfCurrentBrick( 
-    const unsigned int rowIndex, 
-    const unsigned int colIndex )const
+    cunt rowIndex, 
+    cunt colIndex )const
 {
     CoordinatestList coords = activeBrick->getBlockPositions();
     for( auto it = coords.begin(); it != coords.end(); ++it )
     {
-        if( it->getRow() == rowIndex && it->getCol() == colIndex )
+        if( it->getY() == rowIndex && it->getX() == colIndex )
         {
             return true;
         }
@@ -161,8 +157,8 @@ const bool CMainGrid::checkIfBlockCanBeMoved( const Directions direction )
 {
     for( auto& coord : activeBrick->getBlockPositions() )
     {
-        const unsigned int newRow = coord.getRow() + GetRowOffset( direction );
-        const unsigned int newCol = coord.getCol() + GetColOffset( direction );
+        cunt newRow = coord.getY() + getYOffset( direction );
+        cunt newCol = coord.getX() + getXOffset( direction );
 
         if( newRow >= slabsRows.size() )
         {
@@ -187,7 +183,7 @@ const bool CMainGrid::checkIfBlockCanBeMoved( const Directions direction )
     return true;
 }
 
-const int CMainGrid::GetColOffset( const Directions direction )const
+const int CMainGrid::getXOffset( const Directions direction )const
 {
     if( Directions::U == direction || Directions::D == direction )
     {
@@ -205,7 +201,7 @@ const int CMainGrid::GetColOffset( const Directions direction )const
     return -1;
 }
 
-const int CMainGrid::GetRowOffset( const Directions direction )const
+const int CMainGrid::getYOffset( const Directions direction )const
 {
     if( Directions::U == direction )
     {
@@ -244,7 +240,7 @@ void CMainGrid::addCurrentBrickToGrid()
     {
         for( auto& coord : this->activeBrick->getBlockPositions() )
         {
-            Slab& slab = slabsRows.at( coord.getRow() ).at( coord.getCol() );
+            Slab& slab = slabsRows.at( coord.getY() ).at( coord.getX() );
             slab.setEmpty( false );
             slab.getNode()->setTexture( this->filledSlabTex );
         }
@@ -256,22 +252,22 @@ const bool CMainGrid::m_CheckIfBlockCanBePlaced( const Brick* brick )
     CoordinatestList coords = brick->getBlockPositions();
     for( auto it = coords.begin(); it != coords.end(); ++it )
     {
-        if( it->getRow() >= slabsRows.size() )
+        if( it->getY() >= slabsRows.size() )
         {
             return false;
         }
 
-        if( false == SlabExist( it->getRow(), it->getCol() ) )
+        if( false == SlabExist( it->getY(), it->getX() ) )
         {
             return false;
         }
 
-        if( true == PartOfCurrentBrick( it->getRow(), it->getCol() ) )
+        if( true == PartOfCurrentBrick( it->getY(), it->getX() ) )
         {
             continue;
         }
 
-        if( false == slabsRows.at( it->getRow() ).at( it->getCol() ).isEmpty() )
+        if( false == slabsRows.at( it->getY() ).at( it->getX() ).isEmpty() )
         {
             return false;
         }
@@ -279,7 +275,7 @@ const bool CMainGrid::m_CheckIfBlockCanBePlaced( const Brick* brick )
     return true;
 }
 
-const bool CMainGrid::SlabExist( const unsigned int rowIndex, const unsigned int colIndex )const
+const bool CMainGrid::SlabExist( cunt rowIndex, cunt colIndex )const
 {
     if( colIndex >= slabsRows.at( 0 ).size() || rowIndex >= slabsRows.size() )
     {
@@ -292,7 +288,7 @@ void CMainGrid::m_RemoveActualBlockSlabsFromGrid()
 {
     for( auto& coord : this->activeBrick->getBlockPositions() )
     {
-        auto& slab = slabsRows.at( coord.getRow() ).at( coord.getCol() );
+        auto& slab = slabsRows.at( coord.getY() ).at( coord.getX() );
         slab.setEmpty( true );
         slab.getNode()->setTexture( emptySlabTex );
     }

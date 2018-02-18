@@ -41,8 +41,8 @@ namespace Tetris
         const bool checkIfBlockCanBeMoved( const CUL::Math::Directions direction );
         void addCurrentBrickToGrid();
         void ManageFullLine();
-        const int GetColOffset( const CUL::Math::Directions direction )const;
-        const int GetRowOffset( const CUL::Math::Directions direction )const;
+        const int getXOffset( const CUL::Math::Directions direction )const;
+        const int getYOffset( const CUL::Math::Directions direction )const;
         void moveCurrentBrick( const CUL::Math::Directions direction );
         void m_RemoveActualBlockSlabsFromGrid();
         void MarkSlabAsPartOfMovingBlock( const unsigned int row, const unsigned int col );
