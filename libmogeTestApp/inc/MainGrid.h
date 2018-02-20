@@ -25,10 +25,10 @@ namespace Tetris
         virtual ~CMainGrid();
         void updateGrid();
         void SetSize( 
-            const unsigned int rowsCount, 
-            const unsigned int columnsCount, 
-            const unsigned int initialX = 0, 
-            const unsigned int initialY = 0 );
+            cunt rowsCount, 
+            cunt columnsCount, 
+            cunt initialX = 0, 
+            cunt initialY = 0 );
         
         void ReLeaseBrick();
         void MoveActualBrick( const CUL::Math::Directions direction );
@@ -36,8 +36,8 @@ namespace Tetris
 
     private:
         void AddBrick( const Brick* brick );
-        const bool SlabExist( const unsigned int rowIndex, const unsigned int colIndex )const;
-        const bool PartOfCurrentBrick( const unsigned int rowIndex, const unsigned int colIndex )const;
+        const bool SlabExist( cunt rowIndex, cunt colIndex )const;
+        const bool PartOfCurrentBrick( cunt rowIndex, cunt colIndex )const;
         const bool checkIfBlockCanBeMoved( const CUL::Math::Directions direction );
         void addCurrentBrickToGrid();
         void ManageFullLine();
@@ -45,7 +45,7 @@ namespace Tetris
         const int getYOffset( const CUL::Math::Directions direction )const;
         void moveCurrentBrick( const CUL::Math::Directions direction );
         void m_RemoveActualBlockSlabsFromGrid();
-        void MarkSlabAsPartOfMovingBlock( const unsigned int row, const unsigned int col );
+        void MarkSlabAsPartOfMovingBlock( cunt row, cunt col );
         const bool RowIsConnected( const SlabRow& slabRow )const;
         const bool m_CheckIfBlockCanBePlaced( const Brick* brick );
         void MoveAllLinesOneLineDown( Slabs::iterator rowIterator );

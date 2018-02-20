@@ -1,13 +1,10 @@
 #pragma once
-#include "MogeLib.h"
-#include "IKey.hpp"
+#include "IKeyboardObserver.h"
 #include <map>
 #include <memory>
 
 namespace Moge
 {
-    class IKeyboardObserver;
-    class IKeyboardObservableImp;
     using KeyMap = std::map<std::string, std::shared_ptr<IKey>>;
     class MogeLib_API IKeyboardObservable
     {
@@ -15,13 +12,13 @@ namespace Moge
         IKeyboardObservable();
         IKeyboardObservable( const IKeyboardObservable& r ) = delete;
         virtual ~IKeyboardObservable();
-        virtual void notifyKeyboardObservers( IKey* data = nullptr );
+        virtual void notifyKeyboardObservers( const IKey& data ) = 0;
 
-        virtual void registerObserver( IKeyboardObserver* observer );
-        virtual void unregisterObserver( IKeyboardObserver* observer );
+        virtual void registerKeyboardObserver( IKeyboardObserver* observer ) = 0;
+        virtual void unregisterKeyboardObserver( IKeyboardObserver* observer ) = 0;
 
     protected:
     private:
-        IKeyboardObservableImp* impl = nullptr;
+
     };
 }

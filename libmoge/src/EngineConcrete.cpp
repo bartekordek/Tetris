@@ -46,6 +46,7 @@ IWindow* EngineConcrete::createWindow(
 void EngineConcrete::startMainLoop()
 {
     m_mainLoop = std::thread( &EngineConcrete::renderingLoop2D, this );
+    this->sdlAdapter->runMainLoop();
     mainLoop();
 }
 

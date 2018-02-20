@@ -8,30 +8,26 @@ SDLSprite::SDLSprite()
 {
 }
 
-SDLSprite::SDLSprite( const SDLSprite& objectNodeContent ):
-    m_pos( objectNodeContent.m_pos ),
-    scale( objectNodeContent.scale ),
-    absSize( objectNodeContent.absSize ),
-    m_sdlSprite( objectNodeContent.m_sdlSprite )
+SDLSprite::SDLSprite( const SDLSprite& r ):
+    m_sdlSprite( r.m_sdlSprite ),
+    m_texture( r.m_texture )
 {
 
 }
 
-SDLSprite& SDLSprite::operator=( const SDLSprite& right )
+SDLSprite& SDLSprite::operator=( const SDLSprite& r )
 {
-    if( &right != this )
+    if( &r != this )
     {
-        this->m_pos = right.m_pos;
-        this->m_sdlSprite = right.m_sdlSprite;
-        this->scale = right.scale;
-        this->absSize = right.absSize;
+        m_sdlSprite = r.m_sdlSprite;
+        m_texture = r.m_texture;
     }
     return *this;
 }
 
-const bool SDLSprite::operator==( const SDLSprite& right )const
+const bool SDLSprite::operator==( const SDLSprite& r )const
 {
-    if( &right == this )
+    if( &r == this )
     {
         return true;
     }
@@ -49,41 +45,37 @@ const CUL::Math::Vector3Dd& SDLSprite::getPosition() const
 
 void SDLSprite::setX( const double x )
 {
-    this->m_pos.setX( x );
-    this->m_sdlSprite->setPosition( this->m_pos );
+    this->m_sdlSprite->setX( x );
 }
 
 void SDLSprite::setY( const double y )
 {
-    this->m_pos.setY( y );
-    this->m_sdlSprite->setPosition( this->m_pos );
+    this->m_sdlSprite->setY( y );
 }
 
 void SDLSprite::setZ( const double z )
 {
-    this->m_pos.setZ( z );
-    this->m_sdlSprite->setPosition( this->m_pos );
+    this->m_sdlSprite->setZ( z );
 }
 
-const CUL::Math::Vector3Dd& SDLSprite::getSize()const
+const Vector3Dd& SDLSprite::getSizeReal()const
 {
-    return this->m_sdlSprite->getSize();
+    return this->m_sdlSprite->getSizeReal();
 }
 
-const CUL::Math::Vector3Dd& SDLSprite::getAbsSize() const
+const Vector3Dd& SDLSprite::getSizeAbs() const
 {
-    return this->absSize;
+    return this->m_sdlSprite->getSizeAbs();
 }
 
-const CUL::Math::Vector3Dd& SDLSprite::getScale() const
+const Vector3Dd& SDLSprite::getScale() const
 {
-    return this->scale;
+    return this->m_sdlSprite->getScale();
 }
 
-void SDLSprite::setScale( const CUL::Math::Vector3Dd& inputScale )
+void SDLSprite::setScale( const Vector3Dd& inputScale )
 {
-    this->scale = inputScale;
-    this->absSize = scale * this->m_sdlSprite->getSize();
+    this->m_sdlSprite->setScale( inputScale );
 }
 
 ITexture* SDLSprite::getTexture()
@@ -101,7 +93,6 @@ void SDLSprite::setTexture( ITexture* texture )
     this->m_texture = texture;
     auto sdlTex = static_cast< SDLTexture* >( texture );
     this->m_sdlSprite->setTexture( sdlTex->getTexture() );
-    this->absSize = this->scale * this->m_sdlSprite->getSize();
 }
 
 IRenderable* SDLSprite::getRenderable()
@@ -111,7 +102,6 @@ IRenderable* SDLSprite::getRenderable()
 
 void SDLSprite::setPosition( const CUL::Math::Vector3Dd& pos )
 {
-    this->m_pos = pos;
     this->m_sdlSprite->setPosition( pos );
 }
 

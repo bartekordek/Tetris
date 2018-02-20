@@ -25,8 +25,8 @@ namespace Moge
         void setX( const double x ) override;
         void setY( const double y ) override;
         void setZ( const double z ) override;
-        const CUL::Math::Vector3Dd& getSize()const override;
-        const CUL::Math::Vector3Dd& getAbsSize()const override;
+        const CUL::Math::Vector3Dd& getSizeReal()const override;
+        const CUL::Math::Vector3Dd& getSizeAbs()const override;
         const CUL::Math::Vector3Dd& getScale()const override;
         void setScale( const CUL::Math::Vector3Dd& scale )override;
         void setPosition( const CUL::Math::Vector3Dd& pos ) override;
@@ -39,10 +39,7 @@ namespace Moge
 
     protected:
     private:
-        CUL::Math::Vector3Dd scale{ 1.0, 1.0, 1.0 };
-        CUL::Math::Vector3Dd absSize;
         SDL2W::ISprite* m_sdlSprite = nullptr;
-        CUL::Math::Vector3Dd m_pos;
         ITexture* m_texture = nullptr;
     };
 }

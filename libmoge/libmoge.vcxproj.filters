@@ -36,15 +36,6 @@
     <ClInclude Include="inc\IMogeApp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\IObservable.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\IObservableData.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\IObserver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\IRenderable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -62,12 +53,6 @@
     </ClInclude>
     <ClInclude Include="inc\Singleton.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\IKeyboardObservableImp.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\IObservableImpl.h">
-      <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\IRenderer2D.h">
       <Filter>Header Files</Filter>
@@ -137,22 +122,10 @@
     <ClCompile Include="src\IKeyboardObservable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\IKeyboardObservableImp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\IKeyboardObserver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\IMogeApp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\IObservable.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\IObservableData.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\IObservableImpl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\IRenderable.cpp">

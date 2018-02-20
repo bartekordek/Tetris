@@ -23,7 +23,7 @@ namespace Tetris
             cunt rowsCount = 50, cunt columnsCount = 10,
             cunt winWidth = 800, cunt winHeight = 600 );
         void startGame()const;
-        void keyboardEvent( IKey* data = nullptr ) override;
+        void onKeyboardEvent( const IKey& data ) override;
 
     private:
         void frontEndLoop() override;

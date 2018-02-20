@@ -1,17 +1,15 @@
 #pragma once 
 
-#include "IObserver.h"
 #include "IKey.hpp"
 
 namespace Moge
 {
-    class MogeLib_API IKeyboardObserver:
-        public IObserver
+    class MogeLib_API IKeyboardObserver
     {
     public:
         IKeyboardObserver() = default;
         virtual ~IKeyboardObserver() = default;
-        virtual void keyboardEvent( IKey* data = nullptr ) = 0;
+        virtual void onKeyboardEvent( const IKey& data ) = 0;
     protected:
     private:
     };

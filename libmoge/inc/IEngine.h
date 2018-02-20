@@ -11,10 +11,8 @@
 
 namespace Moge
 {
-    class IKeyboardObserver;
-    class IKeyboardData;
     class MogeLib_API IEngine: 
-        public IKeyboardObservable
+        public Moge::IKeyboardObservable
     {
     public:
         IEngine( void );
@@ -27,8 +25,8 @@ namespace Moge
         virtual void startMainLoop() = 0;
         virtual void stopEventLoop() = 0;
 
-        virtual void registerObserver( IKeyboardObserver* observer ) override = 0;
-        virtual void unregisterObserver( IKeyboardObserver* observer ) override = 0;
+        virtual void registerKeyboardObserver( IKeyboardObserver* observer ) override = 0;
+        virtual void unregisterKeyboardObserver( IKeyboardObserver* observer ) override = 0;
 
         virtual void lockFps( unsigned fpsCount ) = 0;
         virtual void unlockFps() = 0;

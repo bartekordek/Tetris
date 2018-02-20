@@ -6,13 +6,16 @@
 #include "SDL2Wrapper/ISDL2Wrapper.hpp"
 #include "IKey.hpp"
 #include <map>
+#include <set>
 namespace Moge
 {
+    using SDLKeybObs = SDL2W::IKeyboardObserver;
+    using ObserverList = std::set<Moge::IKeyboardObserver*>;
     class SDL2WrapperAdapter final:
         public IRenderer2D,
-        public IKeyboardObservable,
+        public Moge::IKeyboardObservable,
         public IMainGameLoop,
-        public SDL2W::IKeyboardObserver,
+        public SDLKeybObs,
         private SDL2W::IWindowEventObserver
     {
     public:
@@ -38,8 +41,14 @@ namespace Moge
         void onKeyBoardEvent( const SDL2W::IKey& key ) override;
         void onWindowEvent( const WindowEventType e );
 
+        void notifyKeyboardObservers( const IKey& data ) override;
+
+        void registerKeyboardObserver( Moge::IKeyboardObserver* observer ) override;
+        void unregisterKeyboardObserver( Moge::IKeyboardObserver* observer ) override;
+
     protected:
     private:
         SDL2W::ISDL2Wrapper* m_sdlW = nullptr;
+        ObserverList m_observersList;
     };
 }

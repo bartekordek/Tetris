@@ -18,7 +18,7 @@ CMainGrid::CMainGrid( Moge::IWindow* window ):
     m_window( window )
 {
     m_viewData.setDisplayOffset( Vector3dd( 0, 0 ,0 ) );
-    m_viewData.setTargetSlabSize( Vector3dd( 20, 10, 0 ) );
+    m_viewData.setTargetSlabSize( Vector3dd( 20, 20, 0 ) );
 
     this->timer.reset( CUL::TimerFactory::getChronoTimer() );
 
@@ -58,6 +58,7 @@ void CMainGrid::SetSize( cunt rowsCount, cunt columnsCount, cunt initialX, cunt 
         for( unsigned col = 0; col < columnsCount; ++col )
         {
             Slab slab( row + initialY, col + initialX, true );
+            slab.setViewData( &this->m_viewData );
             rows.push_back( slab );
         }
         slabsRows.push_back( rows );
@@ -69,7 +70,7 @@ void CMainGrid::SetSize( cunt rowsCount, cunt columnsCount, cunt initialX, cunt 
             auto slabNode = this->m_window->createNode( this->emptySlabTex );
            // auto slabNode = EngineManager::getEngine()->get2DNodeFactory()->createFromTexture( this->emptySlabTex );
             slabNode->setScale( CUL::Math::Vector3Dd( 2.0, 2.0, 0.0 ) );
-            auto& slabSize = slabNode->getAbsSize();
+            auto& slabSize = slabNode->getSizeAbs();
             slabNode->setX( slab.col() * slabSize.getX() );
             slabNode->setY( slab.row() * slabSize.getY() );
 

@@ -8,8 +8,6 @@
 
 using EngineManager = Moge::EngineManager;
 using Directions = CUL::Math::Directions;
-using IKey = Moge::IKey;
-
 using namespace Tetris;
 
 CGame::CGame( void )
@@ -30,8 +28,8 @@ void CGame::initialize(
     Vector3Di winPos( 100, 100, 0 );
     this->m_window = EngineManager::getEngine()->createWindow( winSize, winPos );
     mainGrid.reset( new CMainGrid( this->m_window ) );
-    EngineManager::getEngine()->registerObserver( this );
-    mainGrid->SetSize( rowsCount, columnsCount );
+    EngineManager::getEngine()->registerKeyboardObserver( this );
+    mainGrid->SetSize( rowsCount, columnsCount, 2, 2 );
     startGame();
 }
 
@@ -42,19 +40,19 @@ void CGame::startGame()const
 
 void stringToLower( std::string& someString );
 
-void CGame::keyboardEvent( IKey* data )
+void CGame::onKeyboardEvent( const IKey& key )
 {
-    std::string keyName = data->getKeyName();
+    std::string keyName = key.getKeyName();
     stringToLower( keyName );
-    if( "q" == keyName && data->getKeyIsDown() )
+    if( "q" == keyName && key.getKeyIsDown() )
     {
         m_quit = true;
         return;
     }
 
-    if( data->getKeyIsDown() )
+    if( key.getKeyIsDown() )
     {
-        std::cout << "Key " << data->getKeyName() << " is down." << std::endl;
+        std::cout << "Key " << key.getKeyName() << " is down." << std::endl;
 
         if( "left" == keyName )
         {

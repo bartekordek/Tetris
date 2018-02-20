@@ -13,7 +13,8 @@
 
 namespace Moge
 {
-    class EngineConcrete final: public IEngine
+    class EngineConcrete final:
+        public IEngine
     {
     public:
         EngineConcrete( void );

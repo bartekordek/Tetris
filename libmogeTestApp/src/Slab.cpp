@@ -4,12 +4,18 @@ using namespace Tetris;
 Slab::Slab( 
     cunt row, cunt col, 
     const bool empty ):
+    m_matrixPos( col, row, 0 ),
     empty( empty )
 {
+    matrix2Cartesian();
 }
 
 Slab::Slab( const Slab& slab ):
-    empty( slab.empty )
+    m_cartPos( slab.m_cartPos ),
+    m_matrixPos( slab.m_matrixPos ),
+    empty( slab.empty ),
+    node( slab.node ),
+    m_viewData( slab.m_viewData )
 {
 }
 
@@ -64,6 +70,8 @@ void Slab::setEmpty( const bool empty )
 void Slab::setNode( Moge::ISprite* node )
 {
     this->node = node;
+    matrix2Cartesian();
+    rescaleSprite();
 }
 
 Moge::ISprite* Slab::getNode()const
@@ -74,28 +82,49 @@ Moge::ISprite* Slab::getNode()const
 void Slab::setViewData( ViewData* viewData )
 {
     this->m_viewData = viewData;
+    matrix2Cartesian();
+    rescaleSprite();
 }
 
 void Slab::cartesian2Matrix()
 {
-
 }
 
 void Slab::matrix2Cartesian()
 {
-    this->m_cartPos.setX( 
-        this->m_viewData->getDisplayOffset().getX() +
-        this->m_viewData->getTargetSlabSize().getX() * this->m_matrixPos.getX() );
+    if( this->m_viewData )
+    {
+        this->m_cartPos.setX(
+            this->m_viewData->getDisplayOffset().getX() +
+            this->m_viewData->getTargetSlabSize().getX() * this->m_matrixPos.getX() );
 
-    this->m_cartPos.setY(
-        this->m_viewData->getDisplayOffset().getY() +
-        this->m_viewData->getTargetSlabSize().getY() * this->m_matrixPos.getY() );
+        this->m_cartPos.setY(
+            this->m_viewData->getDisplayOffset().getY() +
+            this->m_viewData->getTargetSlabSize().getY() * this->m_matrixPos.getY() );
 
-    updateNodePos();
+        updateNodePos();
+    }
 }
-
 
 void Slab::updateNodePos()
 {
-    this->node->setPosition( this->m_cartPos );
+    if( this->node )
+    {
+        this->node->setPosition( this->m_cartPos );
+    }
+}
+
+void Slab::rescaleSprite()
+{
+    if( this->node )
+    {
+        auto actualSize = this->node->getSizeReal();
+        auto targetSize = this->m_viewData->getTargetSlabSize();
+        if( actualSize.getZ() == 0 )
+        {
+            actualSize.setZ( 1.0 );
+        }
+        auto scale = targetSize / actualSize;
+        this->node->setScale( scale );
+    }
 }

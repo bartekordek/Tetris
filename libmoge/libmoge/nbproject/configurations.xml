@@ -100,6 +100,7 @@
             <pElem>../../deps/SDL2Wrapper/libsdl2wrapper/inc</pElem>
             <pElem>../../deps/SDL2Wrapper/deps/CUL/libcul/inc</pElem>
             <pElem>../inc</pElem>
+            <pElem>../../deps/SDL2Wrapper/deps/CUL/deps/boost_1_66_0</pElem>
           </incDir>
           <preprocessorList>
             <Elem>MogeLib_EXPORT</Elem>
@@ -279,6 +280,7 @@
             <pElem>../../deps/SDL2Wrapper/libsdl2wrapper/inc</pElem>
             <pElem>../../deps/SDL2Wrapper/deps/CUL/libcul/inc</pElem>
             <pElem>../inc</pElem>
+            <pElem>../../deps/SDL2Wrapper/deps/CUL/deps/boost_1_66_0</pElem>
           </incDir>
           <preprocessorList>
             <Elem>MogeLib_EXPORT</Elem>

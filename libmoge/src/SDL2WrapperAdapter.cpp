@@ -73,10 +73,33 @@ void SDL2WrapperAdapter::populatKeyStates( KeyMap& keysOut )
 #include <iostream>
 void SDL2WrapperAdapter::onKeyBoardEvent( const SDL2W::IKey& key )
 {
-    std::cout << "KEY IS " << key.getKeyName() << "\n";
+    IKeyConcrete key( key );
+    notifyKeyboardObservers( key );
 }
 
 void SDL2WrapperAdapter::onWindowEvent( const WindowEventType e )
 {
     std::cout << "KEY IS " << static_cast<int>( e ) << "\n";
+}
+
+void SDL2WrapperAdapter::notifyKeyboardObservers( const IKey& key )
+{
+    for( auto& observer: this->m_observersList )
+    {
+        observer->onKeyboardEvent( key );
+    }
+}
+
+void SDL2WrapperAdapter::registerKeyboardObserver( Moge::IKeyboardObserver* observer )
+{
+    this->m_observersList.insert( observer );
+}
+
+void SDL2WrapperAdapter::unregisterKeyboardObserver( Moge::IKeyboardObserver* observer )
+{
+    auto it = this->m_observersList.find( observer );
+    if( it != this->m_observersList.end() )
+    {
+        this->m_observersList.erase( it );
+    }
 }

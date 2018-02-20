@@ -27,11 +27,12 @@ namespace Tetris
         void cartesian2Matrix();
         void matrix2Cartesian();
         void updateNodePos();
+        void rescaleSprite();
 
         Vector3dd m_cartPos;
         Vector3du m_matrixPos;
         bool empty = true;
-        Moge::ISprite* node;
+        Moge::ISprite* node = nullptr;
         ViewData* m_viewData = nullptr;
     };
 }
