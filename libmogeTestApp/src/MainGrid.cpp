@@ -10,7 +10,6 @@
 
 using namespace Tetris;
 using Path = CUL::FS::Path;
-using Directions = CUL::Math::Directions;
 using EngineManager = Moge::EngineManager;
 
 CMainGrid::CMainGrid( Moge::IWindow* window ):
@@ -49,7 +48,9 @@ void CMainGrid::updateGrid()
     MoveActualBrick( Directions::D );
 }
 
-void CMainGrid::SetSize( cunt rowsCount, cunt columnsCount, cunt initialX, cunt initialY )
+void CMainGrid::SetSize( 
+    cunt rowsCount, cunt columnsCount,
+    cunt initialX, cunt initialY )
 {
     clearSlabs();
     for( unsigned row = 0; row < rowsCount; ++row )
@@ -68,7 +69,6 @@ void CMainGrid::SetSize( cunt rowsCount, cunt columnsCount, cunt initialX, cunt 
         for( auto& slab : slabRow )
         {
             auto slabNode = this->m_window->createNode( this->emptySlabTex );
-           // auto slabNode = EngineManager::getEngine()->get2DNodeFactory()->createFromTexture( this->emptySlabTex );
             slabNode->setScale( CUL::Math::Vector3Dd( 2.0, 2.0, 0.0 ) );
             auto& slabSize = slabNode->getSizeAbs();
             slabNode->setX( slab.col() * slabSize.getX() );
@@ -88,16 +88,25 @@ void CMainGrid::clearSlabs()
 void CMainGrid::funLoop()
 {
     CUL::Math::Vector3Dd pos( 400.0, 20.0, 0.0 );
+    CUL::Math::Vector3Dd scale( 1.0, 1.0, 1.0 );
     auto slabNode = this->m_window->createNode( this->emptySlabTex );
     slabNode->SetVisible( true );
     float t = 0.0;
     float x0 = 350;
     float y0 = 350;
+    double maxSize = 8.0;
     while( this->runFunThread )
     {
+        scale.setXYZ
+        (
+            maxSize * (1.0 + sin( t )),
+            maxSize * (1.0 + cos( t )),
+            1.0
+        );
         pos.setX( x0 + 100 * cos( t ) );
         pos.setY( y0 + 100 * sin( t ) );
         slabNode->setPosition( pos );
+        slabNode->setScale( scale );
         t += 0.1f;
         this->timer->sleepMiliSeconds( 16 );
     }
@@ -120,7 +129,9 @@ void CMainGrid::AddBrick( const Brick* brick )
 
 void CMainGrid::MarkSlabAsPartOfMovingBlock( cunt row, cunt col )
 {
-    if( row >= slabsRows.size() || ( slabsRows.size() > 0 && col > slabsRows.at( 0 ).size() ) )
+    if( 
+        row >= slabsRows.size() || 
+        ( slabsRows.size() > 0 && col > slabsRows.at( 0 ).size() ) )
     {
         return;
     }
@@ -195,32 +206,16 @@ const int CMainGrid::getXOffset( const Directions direction )const
     {
         return 1;
     }
-    if( Directions::L == direction )
-    {
-        return  -1;
-    }
     return -1;
 }
 
 const int CMainGrid::getYOffset( const Directions direction )const
 {
-    if( Directions::U == direction )
-    {
-        return  0;
-    }
     if( Directions::D == direction )
     {
         return  1;
     }
-    if( Directions::R == direction )
-    {
-        return  0;
-    }
-    if( Directions::L == direction )
-    {
-        return  0;
-    }
-    return -1;
+    return 0;
 }
 
 void CMainGrid::RotateActualBrick( const bool clockWise )

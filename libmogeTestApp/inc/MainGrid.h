@@ -18,6 +18,7 @@ namespace Tetris
 {
     using SlabRow = std::vector<Slab>;
     using Slabs = std::vector<SlabRow>;
+    using Directions = CUL::Math::Directions;
     class CMainGrid
     {
     public:
@@ -31,19 +32,19 @@ namespace Tetris
             cunt initialY = 0 );
         
         void ReLeaseBrick();
-        void MoveActualBrick( const CUL::Math::Directions direction );
+        void MoveActualBrick( const Directions direction );
         void RotateActualBrick( const bool clockWise = true );
 
     private:
         void AddBrick( const Brick* brick );
         const bool SlabExist( cunt rowIndex, cunt colIndex )const;
         const bool PartOfCurrentBrick( cunt rowIndex, cunt colIndex )const;
-        const bool checkIfBlockCanBeMoved( const CUL::Math::Directions direction );
+        const bool checkIfBlockCanBeMoved( const Directions direction );
         void addCurrentBrickToGrid();
         void ManageFullLine();
-        const int getXOffset( const CUL::Math::Directions direction )const;
-        const int getYOffset( const CUL::Math::Directions direction )const;
-        void moveCurrentBrick( const CUL::Math::Directions direction );
+        const int getXOffset( const Directions direction )const;
+        const int getYOffset( const Directions direction )const;
+        void moveCurrentBrick( const Directions direction );
         void m_RemoveActualBlockSlabsFromGrid();
         void MarkSlabAsPartOfMovingBlock( cunt row, cunt col );
         const bool RowIsConnected( const SlabRow& slabRow )const;

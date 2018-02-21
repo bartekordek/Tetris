@@ -11,7 +11,6 @@ namespace Tetris
 {
     class CMainGrid;
     using IKey = Moge::IKey;
-    using cunt = const unsigned int;
     using Vector3Du = CUL::Math::Vector3Du;
     using Vector3Di = CUL::Math::Vector3Di;
     class Game: public Moge::IMogeApp
