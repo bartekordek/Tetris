@@ -5,7 +5,7 @@
 int main( int argc, char *argv[] )
 {
     CUL::ConsoleUtilities::PrintInputParameters( argc, argv );
-    Tetris::CGame game;
+    Tetris::Game game;
     game.initialize( 22, 10 );
     game.run();
     return 0;

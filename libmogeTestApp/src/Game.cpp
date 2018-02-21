@@ -10,17 +10,17 @@ using EngineManager = Moge::EngineManager;
 using Directions = CUL::Math::Directions;
 using namespace Tetris;
 
-CGame::CGame( void )
+Game::Game( void )
 {
 
 }
 
-CGame::~CGame( void )
+Game::~Game( void )
 {
     this->mainGrid.reset();
 }
 
-void CGame::initialize( 
+void Game::initialize( 
     cunt rowsCount, cunt columnsCount,
     cunt winWidth, cunt winHeight )
 {
@@ -33,14 +33,14 @@ void CGame::initialize(
     startGame();
 }
 
-void CGame::startGame()const
+void Game::startGame()const
 {
     mainGrid->ReLeaseBrick();
 }
 
 void stringToLower( std::string& someString );
 
-void CGame::onKeyboardEvent( const IKey& key )
+void Game::onKeyboardEvent( const IKey& key )
 {
     std::string keyName = key.getKeyName();
     stringToLower( keyName );
@@ -82,7 +82,7 @@ void stringToLower( std::string& someString )
         ::tolower );
 }
 
-void CGame::frontEndLoop()
+void Game::frontEndLoop()
 {
     while( false == m_quit )
     {
