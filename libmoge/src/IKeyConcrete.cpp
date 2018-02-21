@@ -7,14 +7,24 @@ IKeyConcrete::IKeyConcrete()
 
 }
 
+IKeyConcrete::IKeyConcrete( const IKeyConcrete& r ):
+    m_key( r.m_key )
+{
+
+}
+
 IKeyConcrete::~IKeyConcrete()
 {
 
 }
 
-void IKeyConcrete::setKeyName( const std::string& keyName )
+IKeyConcrete& IKeyConcrete::operator=( const IKeyConcrete& r )
 {
-    m_key->setKeyName( keyName );
+    if( &r != this )
+    {
+        this->m_key = r.m_key;
+    }
+    return *this;
 }
 
 const std::string& IKeyConcrete::getKeyName()const
@@ -25,11 +35,6 @@ const std::string& IKeyConcrete::getKeyName()const
 const bool IKeyConcrete::getKeyIsDown()const
 {
     return m_key->getKeyIsDown();
-}
-
-void IKeyConcrete::setKeyIsDown( const bool isDown )
-{
-    m_key->setKeyIsDown( isDown );
 }
 
 void IKeyConcrete::setSDLKey( SDL2W::IKey* key )
