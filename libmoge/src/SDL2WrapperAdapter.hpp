@@ -48,7 +48,10 @@ namespace Moge
 
     protected:
     private:
+        void initializeKeys();
+
         SDL2W::ISDL2Wrapper* m_sdlW = nullptr;
         ObserverList m_observersList;
+        KeyMap m_keyList;
     };
 }

@@ -7,6 +7,18 @@ using namespace Moge;
 SDL2WrapperAdapter::SDL2WrapperAdapter():
     m_sdlW( SDL2W::getSDL2Wrapper() )
 {
+    initializeKeys();
+}
+
+void SDL2WrapperAdapter::initializeKeys()
+{
+    auto& keys = this->m_sdlW->getKeyStates();
+    for( const auto& key: keys )
+    {
+        std::shared_ptr<IKeyConcrete> keyPtr( new IKeyConcrete() );
+        keyPtr->setSDLKey( key.second.get() );
+        this->m_keyList[ keyPtr->getKeyName() ] = keyPtr;
+    }
 }
 
 SDL2WrapperAdapter::~SDL2WrapperAdapter()
@@ -51,7 +63,7 @@ void SDL2WrapperAdapter::runMainLoop()
 
 void SDL2WrapperAdapter::stopMainLoop()
 {
-
+    this->m_sdlW->stopEventLoop();
 }
 
 void SDL2WrapperAdapter::renderAllWindows()
@@ -73,8 +85,7 @@ void SDL2WrapperAdapter::populatKeyStates( KeyMap& keysOut )
 #include <iostream>
 void SDL2WrapperAdapter::onKeyBoardEvent( const SDL2W::IKey& key )
 {
-    IKeyConcrete key( key );
-    notifyKeyboardObservers( key );
+    notifyKeyboardObservers( *this->m_keyList[ key.getKeyName() ].get() );
 }
 
 void SDL2WrapperAdapter::onWindowEvent( const WindowEventType e )
