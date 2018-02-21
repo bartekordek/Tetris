@@ -103,14 +103,14 @@ void EngineConcrete::infoLoop()
     }
 }
 
-void EngineConcrete::registerObserver( IKeyboardObserver* observer )
+void EngineConcrete::registerKeyboardObserver( IKeyboardObserver* observer )
 {
-    this->m_keyboardObservable->registerObserver( observer );
+    this->m_keyboardObservable->registerKeyboardObserver( observer );
 }
 
-void EngineConcrete::unregisterObserver( IKeyboardObserver* observer )
+void EngineConcrete::unregisterKeyboardObserver( IKeyboardObserver* observer )
 {
-    this->m_keyboardObservable->unregisterObserver( observer );
+    this->m_keyboardObservable->unregisterKeyboardObserver( observer );
 }
 
 void EngineConcrete::lockFps( unsigned fpsCount )

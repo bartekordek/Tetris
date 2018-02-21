@@ -27,8 +27,8 @@ namespace Moge
         void startMainLoop();
         void stopEventLoop();
 
-        void registerObserver( IKeyboardObserver* observer ) override;
-        void unregisterObserver( IKeyboardObserver* observer ) override;
+        void registerKeyboardObserver( IKeyboardObserver* observer ) override;
+        void unregisterKeyboardObserver( IKeyboardObserver* observer ) override;
 
         void lockFps( unsigned fpsCount );
         void unlockFps();
