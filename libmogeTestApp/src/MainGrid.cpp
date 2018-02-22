@@ -5,6 +5,7 @@
 #include "MogeLibMain.h"
 #include "CUL/Math/Vector3D.hpp"
 #include "CUL/Path.hpp"
+#include "CUL/SimpleAssert.hpp"
 #include <cmath>
 
 
@@ -17,14 +18,15 @@ CMainGrid::CMainGrid( Moge::IWindow* window ):
     m_window( window )
 {
     m_viewData.setDisplayOffset( Vector3dd( 0, 0 ,0 ) );
-    m_viewData.setTargetSlabSize( Vector3dd( 20, 20, 0 ) );
+    m_viewData.setTargetSlabSize( Vector3dd( 10, 20, 0 ) );
 
     this->timer.reset( CUL::TimerFactory::getChronoTimer() );
 
     std::lock_guard<std::mutex> slabLock( currentBrickMutex );
 
-    this->filledSlabTex = this->m_window->createTexture( "..\\Media\\Block.bmp" );
-    this->emptySlabTex = this->m_window->createTexture( "..\\Media\\BackGroundBlock.bmp" );
+    this->brickSlabTex = this->m_window->createTexture( "..\\Media\\red_block.bmp" );
+    this->emptySlabTex = this->m_window->createTexture( "..\\Media\\white_block.bmp" );
+    CUL::Assert::simple( this->brickSlabTex != this->emptySlabTex );
 
     this->funThread = std::thread( &CMainGrid::funLoop, this );
 }
@@ -137,7 +139,7 @@ void CMainGrid::MarkSlabAsPartOfMovingBlock( cunt row, cunt col )
     }
     Slab& slab = slabsRows.at( row ).at( col );
     slab.setEmpty( false );
-    slab.getNode()->setTexture( this->filledSlabTex );
+    slab.getNode()->setTexture( this->brickSlabTex );
 }
 
 const bool CMainGrid::PartOfCurrentBrick( 
@@ -238,7 +240,7 @@ void CMainGrid::addCurrentBrickToGrid()
         {
             Slab& slab = slabsRows.at( coord.getY() ).at( coord.getX() );
             slab.setEmpty( false );
-            slab.getNode()->setTexture( this->filledSlabTex );
+            slab.getNode()->setTexture( this->brickSlabTex );
         }
     }
 }
@@ -355,6 +357,6 @@ void CMainGrid::SetSlabImagSurface( Slab& slab )
     }
     else
     {
-        slabNode->setTexture( this->filledSlabTex );
+        slabNode->setTexture( this->brickSlabTex );
     }
 }

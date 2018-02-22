@@ -61,7 +61,7 @@ namespace Tetris
         std::mutex slabsMutex;
         std::mutex currentBrickMutex;
         Moge::ITexture* emptySlabTex;
-        Moge::ITexture* filledSlabTex;
+        Moge::ITexture* brickSlabTex;
         std::unique_ptr<CUL::ITimer> timer;
 
         Moge::IWindow* m_window = nullptr;
