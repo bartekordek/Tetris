@@ -35,6 +35,6 @@ namespace Moge
     private:
         SDL2W::IWindow* m_sdlWindow = nullptr;
         std::map<INode*,NodePtr> nodes;
-        std::map<const char*, TexPtr> m_textures;
+        std::map<std::string, TexPtr> m_textures;
     };
 }

@@ -1,6 +1,7 @@
 #include "SDLWindowAdapter.hpp"
 #include "SDLSprite.hpp"
 #include "SDLTexture.hpp"
+#include "CUL/SimpleAssert.hpp"
 
 using namespace Moge;
 
@@ -51,6 +52,7 @@ ISprite* SDL2WindowAdapter::createNode(
 ITexture* SDL2WindowAdapter::createTexture( const Path& path )
 {
     ITexture* result = nullptr;
+    CUL::Assert::simple( path.getPath() != "" );
     auto it = this->m_textures.find( path.getPath().c_str() );
     if( this->m_textures.end() == it )
     {
@@ -58,7 +60,7 @@ ITexture* SDL2WindowAdapter::createTexture( const Path& path )
         auto sdlTexWrap = new SDLTexture();
         sdlTexWrap->setTexture( sdlTex );
         TexPtr sdlTexPtr( sdlTexWrap );
-        this->m_textures[ path.getPath().c_str() ] = sdlTexPtr;
+        this->m_textures[ path.getPath() ] = sdlTexPtr;
         result = sdlTexWrap;
     }
     else
@@ -71,7 +73,10 @@ ITexture* SDL2WindowAdapter::createTexture( const Path& path )
 void SDL2WindowAdapter::removeNode( INode* node )
 {
     auto it = this->nodes.find( node );
-    this->nodes.erase( it );
+    if( it != this->nodes.end() )
+    {
+        this->nodes.erase( it );
+    }
 }
 
 const bool SDL2WindowAdapter::exist( const INode* node )const
