@@ -48,7 +48,7 @@ namespace Tetris
         void m_RemoveActualBlockSlabsFromGrid();
         void MarkSlabAsPartOfMovingBlock( cunt row, cunt col );
         const bool RowIsConnected( const SlabRow& slabRow )const;
-        const bool m_CheckIfBlockCanBePlaced( const Brick* brick );
+        const bool m_CheckIfBlockCanBePlaced( const Brick& brick );
         void MoveAllLinesOneLineDown( Slabs::iterator rowIterator );
         void SetSlabImagSurface( Slab& slab );
         void clearSlabs();

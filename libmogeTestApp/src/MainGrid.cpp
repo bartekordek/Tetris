@@ -18,7 +18,7 @@ CMainGrid::CMainGrid( Moge::IWindow* window ):
     m_window( window )
 {
     m_viewData.setDisplayOffset( Vector3dd( 0, 0 ,0 ) );
-    m_viewData.setTargetSlabSize( Vector3dd( 10, 20, 0 ) );
+    m_viewData.setTargetSlabSize( Vector3dd( 20, 20, 0 ) );
 
     this->timer.reset( CUL::TimerFactory::getChronoTimer() );
 
@@ -222,14 +222,13 @@ const int CMainGrid::getYOffset( const Directions direction )const
 
 void CMainGrid::RotateActualBrick( const bool clockWise )
 {
-    Brick* tempBrick = new Brick( *activeBrick );
-    tempBrick->rotate( clockWise );
+    Brick tempBrick( *activeBrick );
+    tempBrick.rotate( clockWise );
     if( true == m_CheckIfBlockCanBePlaced( tempBrick ) )
     {
         m_RemoveActualBlockSlabsFromGrid();
         activeBrick->rotate( clockWise );
     }
-    delete tempBrick;
 }
 
 void CMainGrid::addCurrentBrickToGrid()
@@ -245,9 +244,9 @@ void CMainGrid::addCurrentBrickToGrid()
     }
 }
 
-const bool CMainGrid::m_CheckIfBlockCanBePlaced( const Brick* brick )
+const bool CMainGrid::m_CheckIfBlockCanBePlaced( const Brick& brick )
 {
-    CoordinatestList coords = brick->getBlockPositions();
+    CoordinatestList coords = brick.getBlockPositions();
     for( auto it = coords.begin(); it != coords.end(); ++it )
     {
         if( it->getY() >= slabsRows.size() )
