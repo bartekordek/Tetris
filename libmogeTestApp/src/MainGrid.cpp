@@ -70,7 +70,7 @@ void CMainGrid::SetSize(
     {
         for( auto& slab : slabRow )
         {
-            auto slabNode = this->m_window->createNode( this->emptySlabTex );
+            auto slabNode = this->m_window->createSprite( this->emptySlabTex );
             slabNode->setScale( CUL::Math::Vector3Dd( 2.0, 2.0, 0.0 ) );
             auto& slabSize = slabNode->getSizeAbs();
             slabNode->setX( slab.col() * slabSize.getX() );
@@ -91,7 +91,7 @@ void CMainGrid::funLoop()
 {
     CUL::Math::Vector3Dd pos( 400.0, 20.0, 0.0 );
     CUL::Math::Vector3Dd scale( 1.0, 1.0, 1.0 );
-    auto slabNode = this->m_window->createNode( this->emptySlabTex );
+    auto slabNode = this->m_window->createSprite( this->emptySlabTex );
     slabNode->SetVisible( true );
     float t = 0.0;
     float x0 = 350;

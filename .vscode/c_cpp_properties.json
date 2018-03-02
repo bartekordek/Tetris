@@ -84,9 +84,7 @@
                 "UNICODE",
                 "_UNICODE",
                 "CUL_EXPORT",
-                "CUL_LINUX",
-                "SDL2Wrapper_DYNAMIC",
-                "SDL2Wrapper_LINUX"
+                "SDL2W_EXPORT"
             ],
             "intelliSenseMode": "msvc-x64",
             "browse": {
