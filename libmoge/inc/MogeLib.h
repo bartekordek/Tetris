@@ -7,10 +7,10 @@
 #endif
 
 #if defined MOGE_EXPORT && defined MOGE_WINDOWS
-#define MogeLib_API
+#define MogeLib_API __declspec(dllexport)
 #define MogeLib_API_TEMPLATE
 #elif MOGE_EXPORT && defined MOGE_LINUX
-#define MogeLib_API __declspec(dllexport)
+#define MogeLib_API
 #define MogeLib_API_TEMPLATE
 #else
 #define MogeLib_API __declspec(dllimport)

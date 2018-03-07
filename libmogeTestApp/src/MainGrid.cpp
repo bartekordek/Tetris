@@ -62,23 +62,14 @@ void CMainGrid::SetSize(
         {
             Slab slab( row + initialY, col + initialX, true );
             slab.setViewData( &this->m_viewData );
+
+            auto slabNode = this->m_window->createSprite( this->emptySlabTex );
+            slabNode->SetVisible();
+            slab.setNode( slabNode );
+
             rows.push_back( slab );
         }
         slabsRows.push_back( rows );
-    }
-    for( auto& slabRow : slabsRows )
-    {
-        for( auto& slab : slabRow )
-        {
-            auto slabNode = this->m_window->createSprite( this->emptySlabTex );
-            slabNode->setScale( CUL::Math::Vector3Dd( 2.0, 2.0, 0.0 ) );
-            auto& slabSize = slabNode->getSizeAbs();
-            slabNode->setX( slab.col() * slabSize.getX() );
-            slabNode->setY( slab.row() * slabSize.getY() );
-
-            slab.setNode( slabNode );
-            slabNode->SetVisible( true );
-        }
     }
 }
 
