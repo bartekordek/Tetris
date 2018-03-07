@@ -11,12 +11,12 @@ namespace Moge
         SDL2WindowAdapter();
         ~SDL2WindowAdapter();
 
-        ISprite* createNode(
+        ISprite* createSprite(
             const Path& filePath,
             const Vector3Di& position = Vector3Di( 0, 0, 0 ),
             const CUL::MyString& name = CUL::MyString( "" ) ) override;
 
-        ISprite* createNode(
+        ISprite* createSprite(
             ITexture* tex,
             const Vector3Di& position = Vector3Di( 0, 0, 0 ),
             const CUL::MyString& name = CUL::MyString( "" ) ) override;
