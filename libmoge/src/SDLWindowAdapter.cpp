@@ -99,7 +99,7 @@ void SDL2WindowAdapter::setBackgroundColor( const ColorE color )
     this->m_sdlWindow->setBackgroundColor( color );
 }
 
-void SDL2WindowAdapter::setBackgroundColor( const ColorSUI& color )
+void SDL2WindowAdapter::setBackgroundColor( const ColorS& color )
 {
     this->m_sdlWindow->setBackgroundColor( color );
 }

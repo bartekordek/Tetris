@@ -9,7 +9,7 @@
 
 namespace Moge
 {
-    using ColorSUI = CUL::ColorSUI;
+    using ColorS = CUL::ColorS;
     using ColorE = CUL::ColorE;
     using NodePtr = std::shared_ptr<INode>;
     using TexPtr = std::shared_ptr<ITexture>;
@@ -37,7 +37,7 @@ namespace Moge
         virtual const unsigned int count()const = 0;
 
         virtual void setBackgroundColor( const ColorE color ) = 0;
-        virtual void setBackgroundColor( const ColorSUI& color ) = 0;
+        virtual void setBackgroundColor( const ColorS& color ) = 0;
 
     protected:
     private:

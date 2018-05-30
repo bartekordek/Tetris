@@ -29,7 +29,7 @@ namespace Moge
         void setSDLWin( SDL2W::IWindow* win );
 
         void setBackgroundColor( const ColorE color ) override;
-        void setBackgroundColor( const ColorSUI& color ) override;
+        void setBackgroundColor( const ColorS& color ) override;
 
     protected:
     private:
