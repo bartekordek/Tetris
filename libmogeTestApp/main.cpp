@@ -4,7 +4,9 @@
 
 int main( int argc, char *argv[] )
 {
-    CUL::ConsoleUtilities::PrintInputParameters( argc, argv );
+    auto& cu = CUL::ConsoleUtilities::getInstance();
+    cu.setArgs( argc, argv );
+    cu.printInputParameters();
     Tetris::Game game;
     game.initialize( 22, 10 );
     game.run();
