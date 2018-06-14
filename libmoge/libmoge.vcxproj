@@ -99,8 +99,8 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <MultiProcessorCompilation>false</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\libcul\inc;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\deps\boost_1_66_0;$(ProjectDir)..\deps\SDL2Wrapper\deps\SDL2-2.0.7\include;$(ProjectDir)..\deps\SDL2Wrapper\libsdl2wrapper\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\libcul\inc;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\deps\boost_1_67_0;$(ProjectDir)..\deps\SDL2Wrapper\deps\SDL2-2.0.7\include;$(ProjectDir)..\deps\SDL2Wrapper\libsdl2wrapper\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MOGE_EXPORT;CUL_EXPORT;SDL2W_EXPORT</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
@@ -109,7 +109,7 @@
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);libcul.lib;libsdl2wrapper.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\build\$(Platform)_$(Configuration);$(SolutionDir)deps\boost_1_66_0\Build-Windows;$(TargetDir);$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration);$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\build\$(Platform)_$(Configuration);$(TargetDir);$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration);$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
@@ -129,7 +129,7 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
       <SDLCheck>true</SDLCheck>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\libcul\inc;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\deps\boost_1_66_0;$(ProjectDir)..\deps\SDL2Wrapper\deps\SDL2-2.0.7\include;$(ProjectDir)..\deps\SDL2Wrapper\libsdl2wrapper\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\libcul\inc;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\deps\boost_1_67_0;$(ProjectDir)..\deps\SDL2Wrapper\deps\SDL2-2.0.7\include;$(ProjectDir)..\deps\SDL2Wrapper\libsdl2wrapper\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MOGE_EXPORT;CUL_EXPORT;SDL2W_EXPORT</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
@@ -139,7 +139,7 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);libcul.lib;libsdl2wrapper.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\build\$(Platform)_$(Configuration);$(SolutionDir)deps\boost_1_66_0\Build-Windows;$(TargetDir);$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration);$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\build\$(Platform)_$(Configuration);$(TargetDir);$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration);$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
@@ -162,8 +162,8 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <MultiProcessorCompilation>false</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\libcul\inc;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\deps\boost_1_66_0;$(ProjectDir)..\deps\SDL2Wrapper\deps\SDL2-2.0.7\include;$(ProjectDir)..\deps\SDL2Wrapper\libsdl2wrapper\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\libcul\inc;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\deps\boost_1_67_0;$(ProjectDir)..\deps\SDL2Wrapper\deps\SDL2-2.0.7\include;$(ProjectDir)..\deps\SDL2Wrapper\libsdl2wrapper\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MOGE_EXPORT;CUL_EXPORT;SDL2W_EXPORT</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
       <TreatWarningAsError>true</TreatWarningAsError>
@@ -173,7 +173,7 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
       <OptimizeReferences>true</OptimizeReferences>
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);libcul.lib;libsdl2wrapper.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\build\$(Platform)_$(Configuration);$(SolutionDir)deps\boost_1_66_0\Build-Windows;$(TargetDir);$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration);$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\build\$(Platform)_$(Configuration);$(TargetDir);$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration);$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
@@ -193,8 +193,8 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <MultiProcessorCompilation>false</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\libcul\inc;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\deps\boost_1_66_0;$(ProjectDir)..\deps\SDL2Wrapper\deps\SDL2-2.0.7\include;$(ProjectDir)..\deps\SDL2Wrapper\libsdl2wrapper\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\libcul\inc;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\deps\boost_1_67_0;$(ProjectDir)..\deps\SDL2Wrapper\deps\SDL2-2.0.7\include;$(ProjectDir)..\deps\SDL2Wrapper\libsdl2wrapper\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MOGE_EXPORT;CUL_EXPORT;SDL2W_EXPORT</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
       <TreatWarningAsError>true</TreatWarningAsError>
@@ -204,7 +204,7 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
       <OptimizeReferences>true</OptimizeReferences>
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);libcul.lib;libsdl2wrapper.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\build\$(Platform)_$(Configuration);$(SolutionDir)deps\boost_1_66_0\Build-Windows;$(TargetDir);$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration);$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\build\$(Platform)_$(Configuration);$(TargetDir);$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration);$(SolutionDir)deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
       <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
