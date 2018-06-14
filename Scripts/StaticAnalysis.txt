@@ -1,40 +1,44 @@
-[../deps/SDL2Wrapper/deps/CUL/deps/boost_1_66_0/boost/spirit/home/support/char_encoding/unicode/create_tables.cpp:68]: (style) Class 'ucd_info' has a constructor with 1 argument that is not explicit.
-[../deps/SDL2Wrapper/deps/CUL/deps/boost_1_66_0/boost/spirit/home/support/char_encoding/unicode/create_tables.cpp:401]: (style) Struct 'block_ptr' has a constructor with 1 argument that is not explicit.
-[../deps/SDL2Wrapper/deps/CUL/libcul/src/FileRegularImpl.hpp:16]: (style) Class 'FileRegularImpl' has a constructor with 1 argument that is not explicit.
-[../deps/SDL2Wrapper/libsdl2wrapper/src/RegularSDL2Window.cpp:126]: (style) Variable 'tex' is assigned a value that is never used.
-[../libmoge/src/NodeFactory2D.cpp:18]: (style) The function 'CreateFromImage' is never used.
-[../libmoge/src/MyString.cpp:58]: (style) The function 'Replace' is never used.
-[../deps/SDL2Wrapper/deps/CUL/tests/ListsTests.cpp:16]: (style) The function 'SetUpTestCase' is never used.
-[../deps/SDL2Wrapper/deps/CUL/tests/ListsTests.cpp:20]: (style) The function 'TearDownTestCase' is never used.
-[../libmoge/src/MyString.cpp:68]: (style) The function 'ToLower' is never used.
-[../libmogeTests/src/MogeGenericTests.cpp:11]: (style) The function 'UpdateImplementation' is never used.
-[../deps/SDL2Wrapper/libsdl2wrapper/src/SDL2WrapperImpl.cpp:144]: (style) The function 'addKeyboardEventCallback' is never used.
-[../libmogeTestApp/src/TableCoordinates.cpp:53]: (style) The function 'changePosition' is never used.
-[../libmoge/src/NodeFactory2D.cpp:59]: (style) The function 'exist' is never used.
-[../libmoge/src/SDL2WrapperAdapter.cpp:79]: (style) The function 'findTexture' is never used.
-[../libmoge/src/EngineConcrete.cpp:75]: (style) The function 'get3DNodeFactory' is never used.
-[../libmoge/src/EngineConcrete.cpp:65]: (style) The function 'get3DTextureFactory' is never used.
-[../Argon/src/libArgon.cpp:72]: (style) The function 'getAxisValue' is never used.
-[../libmogeTestApp/src/Brick.cpp:20]: (style) The function 'getBlockType' is never used.
-[../libmoge/src/File.cpp:39]: (style) The function 'getContents' is never used.
-[../deps/SDL2Wrapper/deps/CUL/libcul/src/TimeConcrete.cpp:38]: (style) The function 'getH' is never used.
-[../deps/SDL2Wrapper/deps/CUL/libcul/src/TimeConcrete.cpp:33]: (style) The function 'getM' is never used.
-[../deps/SDL2Wrapper/deps/CUL/libcul/src/TimeConcrete.cpp:28]: (style) The function 'getS' is never used.
-[../libmoge/src/Node.cpp:83]: (style) The function 'getScale' is never used.
-[../libmoge/src/FrameData.cpp:51]: (style) The function 'getTargetFpsCount' is never used.
-[../deps/SDL2Wrapper/deps/CUL/libcul/src/TimeConcrete.cpp:43]: (style) The function 'getUs' is never used.
-[../libmoge/src/EngineConcrete.cpp:145]: (style) The function 'lockFps' is never used.
-[../deps/SDL2Wrapper/deps/CUL/libcul/src/MyString.cpp:100]: (style) The function 'operator+' is never used.
-[../libmoge/src/SDL2WrapperAdapter.cpp:84]: (style) The function 'removeTexture' is never used.
-[../deps/SDL2Wrapper/libsdl2wrapper/src/RegularSDL2Window.cpp:120]: (style) The function 'renderNext' is never used.
-[../deps/SDL2Wrapper/libsdl2wrapper/src/SDL2WrapperImpl.cpp:190]: (style) The function 'setInputLatency' is never used.
-[../libmoge/src/FrameData.cpp:38]: (style) The function 'setLastFrimeTimeUs' is never used.
-[../deps/SDL2Wrapper/deps/CUL/libcul/src/TimeConcrete.cpp:13]: (style) The function 'setTimeMs' is never used.
-[../libmogeTestApp/src/Brick.cpp:36]: (style) The function 'slab2Matrix' is never used.
-[../deps/SDL2Wrapper/deps/CUL/libcul/src/FileCompileTest.cpp:5]: (style) The function 'someFunction' is never used.
-[../deps/SDL2Wrapper/deps/CUL/libcul/src/TimerChrono.cpp:26]: (style) The function 'stop' is never used.
-[../libmoge/src/IMogeApp.cpp:40]: (style) The function 'stopApp' is never used.
-[../libmoge/src/EngineConcrete.cpp:151]: (style) The function 'unlockFps' is never used.
-[../deps/SDL2Wrapper/libsdl2wrapper/src/SDL2WrapperImpl.cpp:159]: (style) The function 'unregisterKeyboardEventListener' is never used.
-[../deps/SDL2Wrapper/libsdl2wrapper/src/SDL2WrapperImpl.cpp:177]: (style) The function 'unregisterWindowEventListener' is never used.
+[..\deps\SDL2Wrapper\deps\CUL\deps\boost_1_66_0\boost\spirit\home\support\char_encoding\unicode\create_tables.cpp:68]: (style) Class 'ucd_info' has a constructor with 1 argument that is not explicit.
+[..\deps\SDL2Wrapper\deps\CUL\deps\boost_1_66_0\boost\spirit\home\support\char_encoding\unicode\create_tables.cpp:401]: (style) Struct 'block_ptr' has a constructor with 1 argument that is not explicit.
+[..\deps\SDL2Wrapper\deps\CUL\libcul\src\CSVFile.hpp:20]: (style) Class 'CSVFile' has a constructor with 1 argument that is not explicit.
+[..\deps\SDL2Wrapper\deps\CUL\libcul\src\FileRegularImpl.hpp:15]: (style) Class 'FileRegularImpl' has a constructor with 1 argument that is not explicit.
+[..\libmogeTestApp\inc\MainGrid.h:25]: (style) Class 'CMainGrid' has a constructor with 1 argument that is not explicit.
+[..\libmoge\src\Visible.cpp:14]: (style) The function 'GetVisible' is never used.
+[..\deps\SDL2Wrapper\deps\CUL\tests\PivotTests.cpp:14]: (style) The function 'SetUpTestCase' is never used.
+[..\deps\SDL2Wrapper\deps\CUL\tests\PivotTests.cpp:18]: (style) The function 'TearDownTestCase' is never used.
+[..\libmogeTests\src\MogeGenericTests.cpp:11]: (style) The function 'UpdateImplementation' is never used.
+[..\deps\SDL2Wrapper\libsdl2wrapper\src\SDL2WrapperImpl.cpp:143]: (style) The function 'addKeyboardEventCallback' is never used.
+[..\libmoge\src\INode.cpp:21]: (style) The function 'attach' is never used.
+[..\libmogeTestApp\src\Slab.cpp:89]: (style) The function 'cartesian2Matrix' is never used.
+[..\deps\SDL2Wrapper\deps\CUL\libcul\src\ArgumentsPairConcrete.cpp:39]: (style) The function 'createDummyArgs' is never used.
+[..\libmoge\src\SDLWindowAdapter.cpp:82]: (style) The function 'exist' is never used.
+[..\libmoge\src\SDL2WrapperAdapter.cpp:43]: (style) The function 'forceDestroy' is never used.
+[..\libmoge\src\SDLTextureNode.cpp:79]: (style) The function 'getAbsSize' is never used.
+[..\Argon\src\libArgon.cpp:72]: (style) The function 'getAxisValue' is never used.
+[..\libmogeTestApp\src\Brick.cpp:21]: (style) The function 'getBlockType' is never used.
+[..\deps\SDL2Wrapper\deps\CUL\libcul\src\TimeConcrete.cpp:38]: (style) The function 'getH' is never used.
+[..\deps\SDL2Wrapper\deps\CUL\libcul\src\TimeConcrete.cpp:33]: (style) The function 'getM' is never used.
+[..\libmoge\src\SDLSprite.cpp:98]: (style) The function 'getRenderable' is never used.
+[..\libmoge\src\SDLSprite.cpp:108]: (style) The function 'getRenderableType' is never used.
+[..\deps\SDL2Wrapper\deps\CUL\libcul\src\TimeConcrete.cpp:28]: (style) The function 'getS' is never used.
+[..\libmoge\src\FrameData.cpp:51]: (style) The function 'getTargetFpsCount' is never used.
+[..\deps\SDL2Wrapper\deps\CUL\libcul\src\TimeConcrete.cpp:43]: (style) The function 'getUs' is never used.
+[..\libmoge\src\EngineConcrete.cpp:127]: (style) The function 'isKeyDown' is never used.
+[..\libmoge\src\EngineConcrete.cpp:116]: (style) The function 'lockFps' is never used.
+[..\deps\SDL2Wrapper\deps\CUL\libcul\src\MyString.cpp:112]: (style) The function 'operator+' is never used.
+[..\libmoge\src\SDL2WrapperAdapter.cpp:74]: (style) The function 'populatKeyStates' is never used.
+[..\libmoge\src\SDLWindowAdapter.cpp:73]: (style) The function 'removeNode' is never used.
+[..\deps\SDL2Wrapper\libsdl2wrapper\src\RegularSDL2Window.cpp:174]: (style) The function 'renderNext' is never used.
+[..\deps\SDL2Wrapper\libsdl2wrapper\src\SDL2WrapperImpl.cpp:189]: (style) The function 'setInputLatency' is never used.
+[..\libmoge\src\FrameData.cpp:38]: (style) The function 'setLastFrimeTimeUs' is never used.
+[..\deps\SDL2Wrapper\deps\CUL\libcul\src\TimeConcrete.cpp:13]: (style) The function 'setTimeMs' is never used.
+[..\libmogeTestApp\src\Brick.cpp:37]: (style) The function 'slab2Matrix' is never used.
+[..\deps\SDL2Wrapper\deps\CUL\libcul\src\FileCompileTest.cpp:1]: (style) The function 'someFunction' is never used.
+[..\deps\SDL2Wrapper\deps\CUL\libcul\src\TimerChrono.cpp:26]: (style) The function 'stop' is never used.
+[..\libmoge\src\IMogeApp.cpp:40]: (style) The function 'stopApp' is never used.
+[..\libmoge\src\EngineConcrete.cpp:122]: (style) The function 'unlockFps' is never used.
+[..\deps\SDL2Wrapper\libsdl2wrapper\src\SDL2WrapperImpl.cpp:158]: (style) The function 'unregisterKeyboardEventListener' is never used.
+[..\deps\SDL2Wrapper\libsdl2wrapper\src\SDL2WrapperImpl.cpp:176]: (style) The function 'unregisterWindowEventListener' is never used.
+[..\libmoge\src\SDL2WrapperAdapter.cpp:48]: (style) The function 'updateScreen' is never used.
+[..\deps\SDL2Wrapper\deps\CUL\libcul\src\Path.cpp:110]: (style) The function 'ws2s' is never used.
 (information) Cppcheck cannot find all the include files (use --check-config for details)
