@@ -20,7 +20,7 @@ namespace Tetris
         virtual ~Game( void );
         void initialize(
             cunt rowsCount = 50, cunt columnsCount = 10,
-            cunt winWidth = 800, cunt winHeight = 600 );
+            cunt winWidth = 1200, cunt winHeight = 600 );
         void startGame()const;
         void onKeyboardEvent( const IKey& data ) override;
 
