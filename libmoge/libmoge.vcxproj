@@ -121,9 +121,8 @@
       </Command>
     </PostBuildEvent>
     <PreLinkEvent>
-      <Command>xcopy "$(SolutionDir)deps\CUL\build\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y
-xcopy "$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y
-xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
+      <Command>xcopy "$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y
+</Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -158,9 +157,8 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
       <PreserveSbr>true</PreserveSbr>
     </Bscmake>
     <PreLinkEvent>
-      <Command>xcopy "$(SolutionDir)deps\CUL\build\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y
-xcopy "$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y
-xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
+      <Command>xcopy "$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y
+</Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -193,9 +191,8 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
       </Command>
     </PostBuildEvent>
     <PreLinkEvent>
-      <Command>xcopy "$(SolutionDir)deps\CUL\build\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y
-xcopy "$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y
-xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
+      <Command>xcopy "$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y
+</Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -228,9 +225,8 @@ xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_
       </Command>
     </PostBuildEvent>
     <PreLinkEvent>
-      <Command>xcopy "$(SolutionDir)deps\CUL\build\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y
-xcopy "$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y
-xcopy "$(SolutionDir)deps\SDL2Wrapper\deps\SDL2-2.0.7\Build-Windows\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y</Command>
+      <Command>xcopy "$(SolutionDir)deps\SDL2Wrapper\build\$(Platform)_$(Configuration)\*.dll" "$(TargetDir)" /y
+</Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

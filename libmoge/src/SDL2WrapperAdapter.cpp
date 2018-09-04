@@ -5,7 +5,7 @@
 using namespace Moge;
 
 SDL2WrapperAdapter::SDL2WrapperAdapter():
-    m_sdlW( SDL2W::getSDL2Wrapper() )
+    m_sdlW( SDL2W::createSDL2Wrapper() )
 {
     initializeKeys();
 }
@@ -31,7 +31,7 @@ IWindow* SDL2WrapperAdapter::createWindow(
     Vector3Di& position,
     const std::string& winName )
 {
-    auto sdlWin = this->m_sdlW->createWindow(
+    auto sdlWin = this->m_sdlW->getWindowFactory()->createWindow(
         position,
         size,
         winName );

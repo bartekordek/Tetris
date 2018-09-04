@@ -127,6 +127,10 @@
       <Command>
       </Command>
     </PostBuildEvent>
+    <PreLinkEvent>
+      <Command>xcopy "$(ProjectDir)..\build\$(Platform)_$(Configuration)\*.dll" "$(LocalDebuggerWorkingDirectory)" /y
+</Command>
+    </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -169,6 +173,10 @@
     <Bscmake>
       <PreserveSbr>true</PreserveSbr>
     </Bscmake>
+    <PreLinkEvent>
+      <Command>xcopy "$(ProjectDir)..\build\$(Platform)_$(Configuration)\*.dll" "$(LocalDebuggerWorkingDirectory)" /y
+</Command>
+    </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -203,6 +211,10 @@
       <Command>
       </Command>
     </PostBuildEvent>
+    <PreLinkEvent>
+      <Command>xcopy "$(ProjectDir)..\build\$(Platform)_$(Configuration)\*.dll" "$(LocalDebuggerWorkingDirectory)" /y
+</Command>
+    </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -237,6 +249,10 @@
       <Command>
       </Command>
     </PostBuildEvent>
+    <PreLinkEvent>
+      <Command>xcopy "$(ProjectDir)..\build\$(Platform)_$(Configuration)\*.dll" "$(LocalDebuggerWorkingDirectory)" /y
+</Command>
+    </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />

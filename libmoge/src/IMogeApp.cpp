@@ -9,7 +9,7 @@ namespace Moge
     IMogeApp::IMogeApp( void ):
         engine( EngineManager::initializeEngine() )
     {
-
+        this->engine->createWindow( CUL::Math::Vector3Du( 800, 600 ), CUL::Math::Vector3Di( 100, 100 ) );
     }
 
     IMogeApp::~IMogeApp()

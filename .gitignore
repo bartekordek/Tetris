@@ -30,6 +30,7 @@
 */private
 .vs
 build
+runDir
 libmoge/libmoge/nbproject/private/
 libmoge/libmoge/nbproject/Makefile-*
 libmoge/libmoge/nbproject/Package-*
