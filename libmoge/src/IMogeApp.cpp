@@ -9,7 +9,9 @@ namespace Moge
     IMogeApp::IMogeApp( void ):
         engine( EngineManager::initializeEngine() )
     {
-        this->engine->createWindow( CUL::Math::Vector3Du( 800, 600 ), CUL::Math::Vector3Di( 100, 100 ) );
+        const CUL::Math::Vector3Du screenSize( 800, 600, 0 );
+        const CUL::Math::Vector3Di screenPos( 100, 100, 0 );
+        this->engine->createWindow( screenSize, screenPos );
     }
 
     IMogeApp::~IMogeApp()

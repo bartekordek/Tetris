@@ -13,8 +13,8 @@ namespace Moge
         IRenderer2D() = default;
         virtual ~IRenderer2D() = default;
         virtual IWindow* createWindow(
-            Vector3Du& size,
-            Vector3Di& position,
+            const Vector3Du& size,
+            const Vector3Di& position,
             const std::string& winName = "Unnamed window." ) = 0;
         virtual void renderAllWindows() = 0;
     protected:

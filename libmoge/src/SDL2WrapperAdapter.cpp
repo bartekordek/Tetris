@@ -27,8 +27,8 @@ SDL2WrapperAdapter::~SDL2WrapperAdapter()
 }
 
 IWindow* SDL2WrapperAdapter::createWindow(
-    Vector3Du& size,
-    Vector3Di& position,
+    const Vector3Du& size,
+    const Vector3Di& position,
     const std::string& winName )
 {
     auto sdlWin = this->m_sdlW->getWindowFactory()->createWindow(

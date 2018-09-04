@@ -21,8 +21,8 @@ namespace Moge
         virtual ~EngineConcrete();
 
         IWindow* createWindow(
-            CUL::Math::Vector3Du& size,
-            CUL::Math::Vector3Di& position,
+            const CUL::Math::Vector3Du& size,
+            const CUL::Math::Vector3Di& position,
             const std::string& label = "Window label." )const override;
         void startMainLoop();
         void stopEventLoop();

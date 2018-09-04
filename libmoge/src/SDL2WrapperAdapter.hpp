@@ -23,8 +23,8 @@ namespace Moge
 
         ~SDL2WrapperAdapter();
         IWindow* createWindow(
-            Vector3Du& size,
-            Vector3Di& position,
+            const Vector3Du& size,
+            const Vector3Di& position,
             const std::string& winName = "Unnamed window." ) override;
         void forceDestroy() override;
 

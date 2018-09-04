@@ -33,14 +33,15 @@ EngineConcrete::~EngineConcrete()
 }
 
 IWindow* EngineConcrete::createWindow(
-    CUL::Math::Vector3Du& size,
-    CUL::Math::Vector3Di& position,
+    const CUL::Math::Vector3Du& size,
+    const CUL::Math::Vector3Di& position,
     const std::string& label)const
 {
-    return this->renderer2D->createWindow(
+    IWindow* window = this->renderer2D->createWindow(
         size,
         position,
         label );
+    return window;
 }
 
 void EngineConcrete::startMainLoop()
