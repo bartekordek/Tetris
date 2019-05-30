@@ -2,6 +2,7 @@
 
 #if _WIN32
 #define MOGE_WINDOWS
+#define MOGE_EXPORT
 #else
 #define MOGE_LINUX
 #endif

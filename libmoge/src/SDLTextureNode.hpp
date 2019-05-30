@@ -2,13 +2,13 @@
 
 #include <memory>
 
-#include "SDL2Wrapper/IObject.hpp"
+#include "CUL/Graphics/IObject.hpp"
 #include "INode.h"
 #include "Visible.h"
 
 namespace Moge
 {
-    using IObject = SDL2W::IObject;
+    using IObject = CUL::Graphics::IObject;
     class MogeLib_API SDLTextureNode:
         public INode,
         private IRenderable

@@ -1,4 +1,4 @@
-﻿#include "libArgon.hpp"
+#include "libArgon.hpp"
 #include "File.h"
 
 #include <iostream>

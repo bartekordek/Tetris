@@ -27,7 +27,7 @@ IKeyConcrete& IKeyConcrete::operator=( const IKeyConcrete& r )
     return *this;
 }
 
-const std::string& IKeyConcrete::getKeyName()const
+CUL::CnstMyStr& IKeyConcrete::getKeyName()const
 {
     return m_key->getKeyName();
 }

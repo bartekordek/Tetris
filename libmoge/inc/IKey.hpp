@@ -1,7 +1,7 @@
 #pragma once
 
 #include "MogeLib.h"
-#include <string>
+#include "CUL/MyString.hpp"
 
 namespace Moge
 {
@@ -10,7 +10,7 @@ namespace Moge
     public:
         IKey( void );
         virtual ~IKey( void );
-        virtual const std::string& getKeyName()const = 0;
+        virtual CUL::CnstMyStr& getKeyName()const = 0;
         virtual const bool getKeyIsDown()const = 0;
     protected:
     private:

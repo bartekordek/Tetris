@@ -1,7 +1,7 @@
 #pragma once
 
 #include "CUL/Math/Vector3D.hpp"
-#include "CUL/Path.hpp"
+#include "CUL/Filesystem/Path.hpp"
 #include "CUL/Color.hpp"
 #include "ISprite.hpp"
 #include "IRenderer.h"
