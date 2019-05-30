@@ -70,25 +70,25 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(ProjectDir)..\build\$(Platform)_$(Configuration)\</OutDir>
+    <OutDir>$(ProjectDir)..\Build-Windows\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)intermediate\$(Platform)_$(Configuration)\</IntDir>
     <TargetExt>.dll</TargetExt>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(ProjectDir)..\build\$(Platform)_$(Configuration)\</OutDir>
+    <OutDir>$(ProjectDir)..\Build-Windows\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)intermediate\$(Platform)_$(Configuration)\</IntDir>
     <TargetExt>.dll</TargetExt>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(ProjectDir)..\build\$(Platform)_$(Configuration)\</OutDir>
+    <OutDir>$(ProjectDir)..\Build-Windows\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)intermediate\$(Platform)_$(Configuration)\</IntDir>
     <TargetExt>.dll</TargetExt>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(ProjectDir)..\build\$(Platform)_$(Configuration)\</OutDir>
+    <OutDir>$(ProjectDir)..\Build-Windows\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)intermediate\$(Platform)_$(Configuration)\</IntDir>
     <TargetExt>.dll</TargetExt>
     <LinkIncremental>false</LinkIncremental>
@@ -101,7 +101,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\libcul\inc;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\deps\boost_1_67_0;$(ProjectDir)..\deps\SDL2Wrapper\deps\SDL2-2.0.7\include;$(ProjectDir)..\deps\SDL2Wrapper\libsdl2wrapper\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MOGE_EXPORT;CUL_EXPORT;SDL2W_EXPORT</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <TreatWarningAsError>true</TreatWarningAsError>
@@ -133,7 +133,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\libcul\inc;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\deps\boost_1_67_0;$(ProjectDir)..\deps\SDL2Wrapper\deps\SDL2-2.0.7\include;$(ProjectDir)..\deps\SDL2Wrapper\libsdl2wrapper\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MOGE_EXPORT;CUL_EXPORT;SDL2W_EXPORT</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <TreatWarningAsError>true</TreatWarningAsError>
@@ -170,7 +170,7 @@
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\libcul\inc;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\deps\boost_1_67_0;$(ProjectDir)..\deps\SDL2Wrapper\deps\SDL2-2.0.7\include;$(ProjectDir)..\deps\SDL2Wrapper\libsdl2wrapper\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MOGE_EXPORT;CUL_EXPORT;SDL2W_EXPORT</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
       <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
@@ -204,7 +204,7 @@
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>$(ProjectDir)inc\;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\libcul\inc;$(ProjectDir)..\deps\SDL2Wrapper\deps\CUL\deps\boost_1_67_0;$(ProjectDir)..\deps\SDL2Wrapper\deps\SDL2-2.0.7\include;$(ProjectDir)..\deps\SDL2Wrapper\libsdl2wrapper\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);MOGE_EXPORT;CUL_EXPORT;SDL2W_EXPORT</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(OutDir)$(TargetName)_ProgramDatabase.pdb</ProgramDataBaseFileName>
       <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
@@ -230,14 +230,13 @@
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="inc\ConsoleUtilities.h" />
     <ClInclude Include="inc\IEngine.h" />
-    <ClInclude Include="inc\IFPSCounter.h" />
     <ClInclude Include="inc\IKey.hpp" />
-    <ClInclude Include="inc\IMainGameLoop.hpp" />
     <ClInclude Include="inc\IKeyboardObservable.h" />
     <ClInclude Include="inc\IKeyboardObserver.h" />
+    <ClInclude Include="inc\IMainGameLoop.hpp" />
     <ClInclude Include="inc\IMogeApp.h" />
+    <ClInclude Include="inc\INode.h" />
     <ClInclude Include="inc\IRenderable.h" />
     <ClInclude Include="inc\IRenderer.h" />
     <ClInclude Include="inc\IRenderer2D.h" />
@@ -247,45 +246,19 @@
     <ClInclude Include="inc\IWindow.hpp" />
     <ClInclude Include="inc\MogeLib.h" />
     <ClInclude Include="inc\MogeLibMain.h" />
-    <ClInclude Include="inc\Named.h" />
-    <ClInclude Include="inc\INode.h" />
     <ClInclude Include="inc\RenderableTypes.h" />
     <ClInclude Include="inc\Singleton.h" />
     <ClInclude Include="inc\SupportedRenderersList.h" />
     <ClInclude Include="inc\Visible.h" />
     <ClInclude Include="src\EngineConcrete.hpp" />
-    <ClInclude Include="src\FPSCounterConcrete.h" />
     <ClInclude Include="src\FramesData.hpp" />
     <ClInclude Include="src\IKeyConcrete.hpp" />
+    <ClInclude Include="src\OpenGLRenderer.hpp" />
     <ClInclude Include="src\SDL2WrapperAdapter.hpp" />
-    <ClInclude Include="src\SDLTexture.hpp" />
     <ClInclude Include="src\SDLSprite.hpp" />
+    <ClInclude Include="src\SDLTexture.hpp" />
+    <ClInclude Include="src\SDLTextureNode.hpp" />
     <ClInclude Include="src\SDLWindowAdapter.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\IEngine.cpp" />
-    <ClCompile Include="src\EngineConcrete.cpp" />
-    <ClCompile Include="src\FPSCounterConcrete.cpp" />
-    <ClCompile Include="src\FrameData.cpp" />
-    <ClCompile Include="src\IFPSCounter.cpp" />
-    <ClCompile Include="src\IKey.cpp" />
-    <ClCompile Include="src\IKeyboardObservable.cpp" />
-    <ClCompile Include="src\IKeyboardObserver.cpp" />
-    <ClCompile Include="src\IKeyConcrete.cpp" />
-    <ClCompile Include="src\IMogeApp.cpp" />
-    <ClCompile Include="src\IRenderable.cpp" />
-    <ClCompile Include="src\IRenderer.cpp" />
-    <ClCompile Include="src\ISprite.cpp" />
-    <ClCompile Include="src\ITexture.cpp" />
-    <ClCompile Include="src\IWindow.cpp" />
-    <ClCompile Include="src\MogeLibMain.cpp" />
-    <ClCompile Include="src\INode.cpp" />
-    <ClCompile Include="src\SDLTexture.cpp" />
-    <ClCompile Include="src\SDLSprite.cpp" />
-    <ClCompile Include="src\SDL2WrapperAdapter.cpp" />
-    <ClCompile Include="src\SDLWindowAdapter.cpp" />
-    <ClCompile Include="src\Singleton.cpp" />
-    <ClCompile Include="src\Visible.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="CppCheckConfig.txt" />
@@ -294,6 +267,31 @@
   <ItemGroup>
     <None Include="..\.gitignore" />
     <None Include="..\.git\config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\EngineConcrete.cpp" />
+    <ClCompile Include="src\FrameData.cpp" />
+    <ClCompile Include="src\IEngine.cpp" />
+    <ClCompile Include="src\IKey.cpp" />
+    <ClCompile Include="src\IKeyboardObservable.cpp" />
+    <ClCompile Include="src\IKeyboardObserver.cpp" />
+    <ClCompile Include="src\IKeyConcrete.cpp" />
+    <ClCompile Include="src\IMogeApp.cpp" />
+    <ClCompile Include="src\INode.cpp" />
+    <ClCompile Include="src\IRenderable.cpp" />
+    <ClCompile Include="src\IRenderer.cpp" />
+    <ClCompile Include="src\ISprite.cpp" />
+    <ClCompile Include="src\ITexture.cpp" />
+    <ClCompile Include="src\IWindow.cpp" />
+    <ClCompile Include="src\MogeLibMain.cpp" />
+    <ClCompile Include="src\OpenGLRenderer.cpp" />
+    <ClCompile Include="src\SDL2WrapperAdapter.cpp" />
+    <ClCompile Include="src\SDLSprite.cpp" />
+    <ClCompile Include="src\SDLTexture.cpp" />
+    <ClCompile Include="src\SDLTextureNode.cpp" />
+    <ClCompile Include="src\SDLWindowAdapter.cpp" />
+    <ClCompile Include="src\Singleton.cpp" />
+    <ClCompile Include="src\Visible.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

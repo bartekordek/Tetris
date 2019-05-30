@@ -21,10 +21,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="inc\ConsoleUtilities.h">
+    <ClInclude Include="inc\IEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Visible.h">
+    <ClInclude Include="inc\IKey.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\IKeyboardObservable.h">
@@ -33,7 +33,13 @@
     <ClInclude Include="inc\IKeyboardObserver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\IMainGameLoop.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="inc\IMogeApp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\INode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\IRenderable.h">
@@ -42,113 +48,76 @@
     <ClInclude Include="inc\IRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\MogeLib.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\MogeLibMain.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Named.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Singleton.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\IRenderer2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\IRenderer3D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\SupportedRenderersList.h">
+    <ClInclude Include="inc\ISprite.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ITexture.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\IWindow.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\MogeLib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\MogeLibMain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\RenderableTypes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\INode.h">
+    <ClInclude Include="inc\Singleton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\IFPSCounter.h">
+    <ClInclude Include="inc\SupportedRenderersList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\FPSCounterConcrete.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\IMainGameLoop.hpp">
+    <ClInclude Include="inc\Visible.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\EngineConcrete.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\IEngine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\FramesData.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\IKeyConcrete.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\OpenGLRenderer.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="src\SDL2WrapperAdapter.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\IWindow.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\SDLWindowAdapter.hpp">
+    <ClInclude Include="src\SDLSprite.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="src\SDLTexture.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\IKey.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\IKeyConcrete.hpp">
+    <ClInclude Include="src\SDLTextureNode.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\SDLSprite.hpp">
+    <ClInclude Include="src\SDLWindowAdapter.hpp">
       <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\ITexture.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\ISprite.hpp">
-      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Visible.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\IKeyboardObservable.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\IKeyboardObserver.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\IMogeApp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\IRenderable.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\IRenderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\MogeLibMain.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Singleton.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\INode.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\IFPSCounter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\FPSCounterConcrete.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <Text Include="StaticAnalysis.txt" />
+    <Text Include="CppCheckConfig.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.git\config" />
+    <None Include="..\.gitignore" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="src\EngineConcrete.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -158,40 +127,65 @@
     <ClCompile Include="src\IEngine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\SDL2WrapperAdapter.cpp">
+    <ClCompile Include="src\IKey.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\IWindow.cpp">
+    <ClCompile Include="src\IKeyboardObservable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\SDLWindowAdapter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SDLTexture.cpp">
+    <ClCompile Include="src\IKeyboardObserver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\IKeyConcrete.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\IKey.cpp">
+    <ClCompile Include="src\IMogeApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\SDLSprite.cpp">
+    <ClCompile Include="src\INode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\ITexture.cpp">
+    <ClCompile Include="src\IRenderable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\IRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\ISprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="StaticAnalysis.txt" />
-    <Text Include="CppCheckConfig.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\.git\config" />
-    <None Include="..\.gitignore" />
+    <ClCompile Include="src\ITexture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\IWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MogeLibMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\OpenGLRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SDL2WrapperAdapter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SDLSprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SDLTexture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SDLTextureNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SDLWindowAdapter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Singleton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Visible.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
